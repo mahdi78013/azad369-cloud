@@ -866,6 +866,7 @@ def process_receipt_submission(message, uid: int, plan_code: str, file_id: str, 
         "price": info["price"],
         "status": "pending",
         "receipt_type": content_type,
+        "file_id": file_id,
         "created_at": int(time.time()),
         "caption": caption_text
     }
@@ -890,10 +891,23 @@ def process_receipt_submission(message, uid: int, plan_code: str, file_id: str, 
         f"{user_caption_note}"
     )
 
+    # 1. Forward original receipt directly to admin
+    try:
+        if hasattr(message, 'chat') and hasattr(message, 'message_id'):
+            bot.forward_message(ADMIN_ID, message.chat.id, message.message_id)
+    except Exception as ef:
+        print(f"[process_receipt_submission] Forward failed: {ef}")
+
+    # 2. Send structured card with buttons
+    sent = None
     if content_type == "photo":
-        safe_send_photo(ADMIN_ID, file_id, caption=admin_caption, reply_markup=admin_markup)
+        sent = safe_send_photo(ADMIN_ID, file_id, caption=admin_caption, reply_markup=admin_markup)
     else:
-        safe_send_document(ADMIN_ID, file_id, caption=admin_caption, reply_markup=admin_markup)
+        sent = safe_send_document(ADMIN_ID, file_id, caption=admin_caption, reply_markup=admin_markup)
+
+    # 3. Bulletproof fallback: If photo/doc failed, ALWAYS send text notification with action buttons
+    if not sent:
+        safe_send_message(ADMIN_ID, f"🔔 *سفارش جدید (فیش در بالا):*\n\n{admin_caption}", reply_markup=admin_markup)
 
     confirm_text = (
         "✅ *رسید شما با موفقیت دریافت شد!*\n\n"
