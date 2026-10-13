@@ -82,7 +82,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "licenses")
 STATE_FILE = os.path.join(BASE_DIR, "bot_licenses_state.json")
 
-bot = telebot.TeleBot(BOT_TOKEN, parse_mode="Markdown")
+bot = telebot.TeleBot(BOT_TOKEN, parse_mode="Markdown", num_threads=8)
 
 # Global lock for thread-safe database mutations
 DB_LOCK = threading.Lock()
@@ -239,19 +239,43 @@ def load_db() -> dict:
                 print(f"Error loading db: {e}")
         return {"issued": {}, "orders": {}, "users": {}, "user_states": {}, "admin_states": {}, "trial_users": {}}
 
-def git_auto_sync():
-    """Immediately commits and pushes state changes if running inside GitHub Actions."""
-    if os.environ.get("GITHUB_ACTIONS"):
-        try:
-            subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=False)
-            subprocess.run(["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"], check=False)
-            subprocess.run(["git", "add", "bot_licenses_state.json", "hwid_registry.json"], check=False)
-            subprocess.run(["git", "commit", "-m", "Auto-sync bot state [skip ci]"], check=False)
-            subprocess.run(["git", "push", "origin", "main"], check=False)
-        except Exception as e:
-            print(f"Git auto-sync error: {e}")
+_GIT_SYNC_LOCK = threading.Lock()
+_DB_DIRTY = False
 
-def save_db(db: dict):
+def trigger_git_sync(immediate: bool = False):
+    """Triggers git auto-sync in a single background thread with collision prevention."""
+    global _DB_DIRTY
+    _DB_DIRTY = True
+    if immediate and os.environ.get("GITHUB_ACTIONS"):
+        threading.Thread(target=_do_git_sync, daemon=True).start()
+
+def _do_git_sync():
+    global _DB_DIRTY
+    if not os.environ.get("GITHUB_ACTIONS"):
+        return
+    if not _GIT_SYNC_LOCK.acquire(blocking=False):
+        return
+    try:
+        _DB_DIRTY = False
+        subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=False)
+        subprocess.run(["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"], check=False)
+        subprocess.run(["git", "add", "bot_licenses_state.json", "hwid_registry.json"], check=False)
+        subprocess.run(["git", "commit", "-m", "Auto-sync bot state [skip ci]"], check=False)
+        subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=False)
+        subprocess.run(["git", "push", "origin", "main"], check=False)
+    except Exception as e:
+        print(f"Git auto-sync error: {e}")
+    finally:
+        _GIT_SYNC_LOCK.release()
+
+def periodic_sync_worker():
+    """Syncs state to GitHub every 3 minutes if changes occurred."""
+    while True:
+        time.sleep(180)
+        if _DB_DIRTY:
+            _do_git_sync()
+
+def save_db(db: dict, immediate_sync: bool = False):
     with DB_LOCK:
         try:
             with open(STATE_FILE, "w", encoding="utf-8") as f:
@@ -259,7 +283,7 @@ def save_db(db: dict):
         except Exception as e:
             print(f"Error saving db to file: {e}")
             return
-    threading.Thread(target=git_auto_sync, daemon=True).start()
+    trigger_git_sync(immediate=immediate_sync)
 
 def get_keys_from_disk(plan_code: str) -> list:
     info = PLANS_INFO.get(plan_code)
@@ -573,12 +597,14 @@ def handle_callbacks(call):
     data = call.data
     uid = call.from_user.id
 
+    # Fast UI Ack so Telegram never shows a loading spinner
+    try:
+        bot.answer_callback_query(call.id)
+    except Exception:
+        pass
+
     # نمایش منوی پلن‌ها
     if data == "show_plans":
-        try:
-            bot.answer_callback_query(call.id)
-        except Exception:
-            pass
         text = (
             "💎 *پلن‌های اشتراک اینترنت آزاد³⁶⁹*\n\n"
             "لطفاً مدت زمان مورد نظر خود را انتخاب کنید:\n"
@@ -754,7 +780,7 @@ def handle_callbacks(call):
         order["status"] = "approved"
         order["approved_at"] = int(time.time())
         order["key"] = key
-        save_db(db)
+        save_db(db, immediate_sync=True)
 
         buyer_msg = (
             f"🎉 *رسید پرداخت شما تایید شد!*\n\n"
@@ -1241,6 +1267,9 @@ if __name__ == "__main__":
     w_thread = threading.Thread(target=shift_watchdog, daemon=True)
     w_thread.start()
 
+    s_thread = threading.Thread(target=periodic_sync_worker, daemon=True)
+    s_thread.start()
+
     try:
         bot.remove_webhook()
     except Exception:
@@ -1248,7 +1277,7 @@ if __name__ == "__main__":
 
     while True:
         try:
-            bot.infinity_polling(timeout=20, long_polling_timeout=20, skip_pending=False)
+            bot.infinity_polling(timeout=10, long_polling_timeout=5, skip_pending=True)
             break
         except Exception as e:
             print(f"[!] Polling exception: {e}. Retrying in 5 seconds...")
