@@ -331,7 +331,6 @@ def get_inventory_stats() -> dict:
 def welcome_inline_keyboard():
     markup = types.InlineKeyboardMarkup(row_width=1)
     markup.add(
-        types.InlineKeyboardButton("🎁 دریافت اشتراک تست ۲۴ ساعته (رایگان)", callback_data="get_trial"),
         types.InlineKeyboardButton("🛒 خرید اشتراک اختصاصی", callback_data="show_plans"),
         types.InlineKeyboardButton("👤 حساب کاربری من", callback_data="my_account"),
         types.InlineKeyboardButton("📘 آموزش اتصال دستی", callback_data="manual_guide"),
@@ -340,17 +339,15 @@ def welcome_inline_keyboard():
     return markup
 
 def main_menu_keyboard(is_admin: bool = False):
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
-    b_trial = types.KeyboardButton("🎁 دریافت اشتراک تست ۲۴ ساعته (رایگان)")
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
     b_buy = types.KeyboardButton("🛒 خرید اشتراک اختصاصی")
     b_acc = types.KeyboardButton("👤 حساب کاربری من")
     b_manual = types.KeyboardButton("📘 آموزش اتصال دستی")
     b_help = types.KeyboardButton("❓ راهنمای فعال‌سازی")
     b_sup = types.KeyboardButton("💬 پشتیبانی")
-    markup.add(b_trial)
-    markup.row(b_buy, b_acc)
-    markup.row(b_manual, b_help)
-    markup.row(b_sup)
+    markup.add(b_buy, b_acc)
+    markup.add(b_manual, b_help)
+    markup.add(b_sup)
     if is_admin:
         b_adm = types.KeyboardButton("👑 پنل مدیریت ادمین")
         markup.add(b_adm)
@@ -358,7 +355,6 @@ def main_menu_keyboard(is_admin: bool = False):
 
 def plans_keyboard():
     markup = types.InlineKeyboardMarkup(row_width=1)
-    markup.add(types.InlineKeyboardButton("🎁 دریافت اشتراک تست ۲۴ ساعته (رایگان)", callback_data="get_trial"))
     for p_code, p_info in PLANS_INFO.items():
         text = f"{p_info['name']} — {p_info['price']}"
         markup.add(types.InlineKeyboardButton(text, callback_data=f"buy_{p_code}"))
@@ -373,11 +369,9 @@ def admin_dashboard_keyboard():
     b4 = types.InlineKeyboardButton("👑 صدور کد ۱ ساله", callback_data="adm_1Y")
     b_stat = types.InlineKeyboardButton("📊 موجودی لایسنس‌ها", callback_data="adm_stats")
     b_pend = types.InlineKeyboardButton("⏳ سفارشات در انتظار", callback_data="adm_pending")
-    b_trial = types.InlineKeyboardButton("🎁 آمار تست‌های ۲۴ ساعته", callback_data="adm_trials")
     markup.add(b1, b2)
     markup.add(b3, b4)
     markup.add(b_stat, b_pend)
-    markup.add(b_trial)
     return markup
 
 # ---------------------------------------------------------------------------
@@ -401,7 +395,7 @@ def cmd_start(message):
         f"⚡ *سرعت فوق‌العاده بالا و بدون قطعی*\n"
         f"🛡️ *سازگار با نت ملی و اینترنت بین‌الملل*\n"
         f"🔒 *لایسنس اختصاصی تک‌کاربره با تضمین کیفیت*\n\n"
-        f"🎁 جهت دریافت اشتراک تست ۲۴ ساعته یا خرید، از دکمه‌های زیر استفاده فرمایید:"
+        f"جهت خرید اشتراک یا مشاهده لایسنس‌های خود، از منوی زیر استفاده فرمایید:"
     )
     safe_send_message(message.chat.id, welcome_text, reply_markup=welcome_inline_keyboard())
     safe_send_message(message.chat.id, "منوی اصلی کیبورد نیز فعال شد 👇", reply_markup=main_menu_keyboard(is_admin))
@@ -423,31 +417,12 @@ def btn_my_account(message, target_uid=None):
     db = load_db()
     u_data = db["users"].get(str(uid), {})
     purchases = u_data.get("purchases", [])
-    trial_info = db.get("trial_users", {}).get(str(uid))
 
     now = int(time.time())
     lines = [
         f"👤 *حساب کاربری شما*\n",
         f"🆔 شناسه کاربری: `{uid}`"
     ]
-
-    if trial_info:
-        exp = trial_info.get("expires_at", 0)
-        t_key = trial_info.get("key", "")
-        if now < exp:
-            hours_rem = max(1, int((exp - now + 3599) // 3600))
-            lines.append(
-                f"\n🎁 *اشتراک تست ۲۴ ساعته:*\n"
-                f"   🔑 لایسنس: `{t_key}`\n"
-                f"   ⏳ اعتبار باقی‌مانده: حدود *{hours_rem} ساعت*\n"
-                f"   وضعیت: 🟢 فعال"
-            )
-        else:
-            lines.append(
-                f"\n🎁 *اشتراک تست ۲۴ ساعته:*\n"
-                f"   🔑 لایسنس: `{t_key}`\n"
-                f"   وضعیت: 🔴 منقضی شده"
-            )
 
     if purchases:
         lines.append(f"\n📦 تعداد کل خریدهای شما: *{len(purchases)} عدد*\n")
@@ -467,13 +442,11 @@ def btn_my_account(message, target_uid=None):
                 f"   📅 تاریخ خرید: {date_str}\n"
                 f"   وضعیت: {status_badge}\n"
             )
-    elif not trial_info:
-        lines.append("\n📦 وضعیت: *شما هنوز لایسنسی دریافت نکرده‌اید.*")
+    else:
+        lines.append("\n📦 وضعیت: *شما هنوز لایسنسی خریداری نکرده‌اید.*")
 
     lines.append("\n_(جهت کپی روی کد لایسنس خود ضربه بزنید)_")
-    markup = types.InlineKeyboardMarkup(row_width=1)
-    if not trial_info:
-        markup.add(types.InlineKeyboardButton("🎁 دریافت اشتراک تست ۲۴ ساعته (رایگان)", callback_data="get_trial"))
+    markup = types.InlineKeyboardMarkup(row_width=2)
     markup.add(
         types.InlineKeyboardButton("🛒 خرید اشتراک اختصاصی", callback_data="show_plans"),
         types.InlineKeyboardButton("💬 پشتیبانی", callback_data="start_support")
@@ -578,167 +551,6 @@ def btn_support(message, target_uid=None):
     )
     safe_send_message(message.chat.id, text, reply_markup=markup)
 
-def _revoke_key_in_hwid_registry(key: str):
-    """Marks a trial key as EXPIRED_TRIAL in local and cloud hwid_registry.json."""
-    if not key:
-        return
-    # 1. Update local hwid_registry.json if exists
-    local_hwid_candidates = [
-        os.path.join(BASE_DIR, "hwid_registry.json"),
-        os.path.join(os.path.dirname(BASE_DIR), "hwid_registry.json")
-    ]
-    for hp in local_hwid_candidates:
-        if os.path.exists(hp):
-            try:
-                with open(hp, "r", encoding="utf-8") as f:
-                    reg = json.load(f)
-                reg[key] = "EXPIRED_TRIAL_369"
-                with open(hp, "w", encoding="utf-8") as f:
-                    json.dump(reg, f, indent=2, ensure_ascii=False)
-            except Exception as e:
-                print(f"[_revoke_key] Error updating local hwid_registry ({hp}): {e}")
-
-    # 2. Update via GitHub REST API
-    try:
-        import base64
-        import urllib.request
-        token = "".join(["ghp_", "lHe8kGguBe4RfO", "wgisp0HNy4nIOW", "Xx3xGcPs"])
-        headers = {
-            "Authorization": f"Bearer {token}",
-            "Accept": "application/vnd.github.v3+json",
-            "User-Agent": "InternetAzad369-Bot"
-        }
-        url = "https://api.github.com/repos/mahdi78013/azad369-bot/contents/hwid_registry.json"
-        req = urllib.request.Request(url, headers=headers)
-        with urllib.request.urlopen(req, timeout=6) as resp:
-            body = json.loads(resp.read().decode("utf-8"))
-            content = base64.b64decode(body["content"]).decode("utf-8")
-            reg = json.loads(content)
-            sha = body["sha"]
-
-        reg[key] = "EXPIRED_TRIAL_369"
-        new_content = base64.b64encode(json.dumps(reg, indent=2).encode()).decode()
-        payload = json.dumps({
-            "message": f"Expire trial {key[:8]} [skip ci]",
-            "content": new_content,
-            "sha": sha
-        }).encode("utf-8")
-        put_req = urllib.request.Request(url, data=payload, headers=headers, method="PUT")
-        urllib.request.urlopen(put_req, timeout=6)
-        print(f"[_revoke_key] Key {key[:8]} marked as EXPIRED_TRIAL_369 on GitHub.")
-    except Exception as e:
-        print(f"[_revoke_key] GitHub API revocation skipped or failed: {e}")
-
-def issue_trial_for_user(chat_id: int, user_obj):
-    uid = user_obj.id
-    clear_user_state(uid)
-    db = load_db()
-    trial_users = db.setdefault("trial_users", {})
-    u_str = str(uid)
-
-    if u_str in trial_users:
-        t_info = trial_users[u_str]
-        now = int(time.time())
-        if now < t_info.get("expires_at", 0):
-            rem_sec = t_info["expires_at"] - now
-            hours = max(1, int((rem_sec + 3599) // 3600))
-            text_already = (
-                f"ℹ️ *شما در حال حاضر یک لایسنس تست فعال دارید!*\n\n"
-                f"🔑 کد لایسنس شما:\n`{t_info['key']}`\n\n"
-                f"⏳ زمان باقی‌مانده: حدود *{hours} ساعت*\n\n"
-                f"کد بالا را داخل نرم‌افزار ویندوز در بخش «🔑 ثبت لایسنس» وارد فرمایید."
-            )
-            markup = types.InlineKeyboardMarkup(row_width=1)
-            markup.add(
-                types.InlineKeyboardButton("🛒 خرید اشتراک اختصاصی", callback_data="show_plans"),
-                types.InlineKeyboardButton("💬 پشتیبانی", callback_data="start_support")
-            )
-            safe_send_message(chat_id, text_already, reply_markup=markup)
-        else:
-            text_expired = (
-                "⚠️ *کاربر گرامی؛ شما قبلاً یک‌بار اشتراک تست ۲۴ ساعته دریافت کرده‌اید.*\n\n"
-                "هر کاربر تنها امکان یک‌بار دریافت اشتراک تست رایگان را دارد.\n"
-                "جهت استفاده نامحدود، پرسرعت و دائمی، لطفاً از دکمه زیر پلن مورد نظر خود را تهیه فرمایید: 🌸"
-            )
-            markup = types.InlineKeyboardMarkup(row_width=1)
-            markup.add(
-                types.InlineKeyboardButton("🛒 خرید اشتراک اختصاصی", callback_data="show_plans"),
-                types.InlineKeyboardButton("💬 پشتیبانی", callback_data="start_support")
-            )
-            safe_send_message(chat_id, text_expired, reply_markup=markup)
-        return
-
-    # Generate genuine cryptographically signed key on the fly
-    now = int(time.time())
-    serial = int(uid) + (now % 100000)
-    trial_key = license_core.generate_single_key("AZ1M", serial)
-    expires_at = now + 86400  # Exactly 24 hours
-
-    u_name = getattr(user_obj, "username", "") or ""
-    f_name = getattr(user_obj, "first_name", "") or ""
-
-    trial_users[u_str] = {
-        "key": trial_key,
-        "user_id": uid,
-        "username": u_name,
-        "first_name": f_name,
-        "issued_at": now,
-        "expires_at": expires_at,
-        "status": "active"
-    }
-    db["issued"][trial_key] = {
-        "plan": "TRIAL_24H",
-        "user_id": uid,
-        "issued_at": now,
-        "expires_at": expires_at
-    }
-    save_db(db)
-
-    # Notify admin
-    try:
-        safe_send_message(
-            ADMIN_ID,
-            f"🎁 *صدور اشتراک تست ۲۴ ساعته!*\n\n"
-            f"👤 کاربر: {escape_md(f_name or 'کاربر')} (@{escape_md(u_name or 'ندارد')})\n"
-            f"🆔 آیدی: `{uid}`\n"
-            f"🔑 کلید: `{trial_key}`\n"
-            f"⏰ انقضا: ۲۴ ساعت آینده"
-        )
-    except Exception:
-        pass
-
-    msg_text = (
-        "🎁 *اشتراک تست ۲۴ ساعته اینترنت آزاد³⁶⁹ با موفقیت صادر شد!*\n\n"
-        f"🔑 *کد لایسنس اختصاصی شما:*\n"
-        f"`{trial_key}`\n"
-        f"_(برای کپی کردن، روی کد بالا ضربه بزنید)_\n\n"
-        f"⏳ *مدت اعتبار:* ۲۴ ساعت کامل از همین لحظه\n"
-        f"🚀 *سرعت:* حداکثری و بدون محدودیت حجم\n"
-        f"🛡️ *پروتکل:* سازگار با تمام اپراتورها و نت ملی\n\n"
-        f"📖 *نحوه فعال‌سازی در ویندوز:*\n"
-        f"۱. نرم‌افزار *اینترنت آزاد³⁶⁹* را در کامپیوتر اجرا کنید.\n"
-        f"۲. در بالای صفحه روی دکمه **🔑 ثبت لایسنس** کلیک کنید.\n"
-        f"۳. کد بالا را پیست کرده و دکمه **«بررسی و فعال‌سازی»** را بزنید.\n"
-        f"۴. دکمه بزرگ **اتصال** را بزنید و متصل شوید!\n\n"
-        f"⚠️ *توجه:* این اشتراک مخصوص تست کیفیت شماست و دقیقاً ۲۴ ساعت دیگر به پایان می‌رسد."
-    )
-    markup = types.InlineKeyboardMarkup(row_width=1)
-    markup.add(
-        types.InlineKeyboardButton("🛒 خرید اشتراک اختصاصی", callback_data="show_plans"),
-        types.InlineKeyboardButton("💬 پشتیبانی", callback_data="start_support")
-    )
-    safe_send_message(chat_id, msg_text, reply_markup=markup)
-
-@bot.message_handler(func=lambda m: m.text and (
-    any(x in m.text for x in ["دریافت اشتراک تست", "لایسنس تست", "تست ۲۴ ساعته", "تست ۲۴ساعته", "اشتراک تست"]) or
-    m.text.strip().lower() in ("/trial", "/test", "/tst", "test", "trial", "تست")
-))
-def btn_trial_trigger(message):
-    st = get_user_state(message.from_user.id)
-    if st and st.get("state") in ("waiting_support_msg", "awaiting_receipt"):
-        return
-    issue_trial_for_user(message.chat.id, message.from_user)
-
 @bot.message_handler(func=lambda m: m.text == "👑 پنل مدیریت ادمین")
 def btn_admin_panel(message):
     if message.from_user.id != ADMIN_ID:
@@ -761,17 +573,8 @@ def handle_callbacks(call):
     data = call.data
     uid = call.from_user.id
 
-    # دکمه دریافت لایسنس تست ۲۴ ساعته
-    if data == "get_trial":
-        try:
-            bot.answer_callback_query(call.id, "در حال صدور اشتراک تست...")
-        except Exception:
-            pass
-        issue_trial_for_user(call.message.chat.id, call.from_user)
-        return
-
     # نمایش منوی پلن‌ها
-    elif data == "show_plans":
+    if data == "show_plans":
         try:
             bot.answer_callback_query(call.id)
         except Exception:
@@ -1068,22 +871,6 @@ def handle_callbacks(call):
                     types.InlineKeyboardButton("❌ رد", callback_data=f"rej_{o_id}")
                 )
                 safe_send_message(ADMIN_ID, o_msg, reply_markup=markup)
-            bot.answer_callback_query(call.id)
-        elif action == "trials":
-            db = load_db()
-            trials = db.get("trial_users", {})
-            tot = len(trials)
-            now = int(time.time())
-            active = sum(1 for t in trials.values() if t.get("status") == "active" and now < t.get("expires_at", 0))
-            expired = tot - active
-            text = (
-                f"📊 *آمار لایسنس‌های تست ۲۴ ساعته:*\n\n"
-                f"🎁 کل تست‌های صادر شده: *{tot} عدد*\n"
-                f"🟢 تست‌های فعال در حال استفاده: *{active} عدد*\n"
-                f"🔴 تست‌های منقضی شده: *{expired} عدد*\n\n"
-                f"این ویژگی مستقیماً باعث تبدیل کاربران تست‌کننده به خریدار دائمی می‌شود."
-            )
-            safe_send_message(ADMIN_ID, text)
             bot.answer_callback_query(call.id)
         elif action in PLANS_INFO:
             db = load_db()
@@ -1422,49 +1209,6 @@ def handle_general_text(message):
     )
 
 # ---------------------------------------------------------------------------
-# 24-Hour Trial Expiration Watchdog
-# ---------------------------------------------------------------------------
-def trial_expiration_watchdog():
-    """Periodically checks active 24-hour trials and revokes expired keys via cloud HWID registry."""
-    while True:
-        time.sleep(60)
-        try:
-            db = load_db()
-            trial_users = db.get("trial_users", {})
-            now = int(time.time())
-            changed = False
-
-            for u_str, t_info in trial_users.items():
-                if t_info.get("status") == "active" and now >= t_info.get("expires_at", 0):
-                    t_info["status"] = "expired"
-                    changed = True
-                    key = t_info.get("key")
-                    uid = t_info.get("user_id")
-
-                    # Revoke key in hwid_registry.json so the client immediately revokes and disconnects
-                    _revoke_key_in_hwid_registry(key)
-
-                    # Send expiration notification & purchase prompt to user in Telegram
-                    if uid:
-                        try:
-                            markup = types.InlineKeyboardMarkup()
-                            markup.add(types.InlineKeyboardButton("🛒 خرید اشتراک اختصاصی", callback_data="buy_1M"))
-                            safe_send_message(
-                                int(uid),
-                                "⏳ *کاربر گرامی؛ مهلت اشتراک تست ۲۴ ساعته شما به پایان رسید.*\n\n"
-                                "امیدواریم از سرعت و پایداری *اینترنت آزاد³⁶⁹* رضایت کامل داشته باشید. 🌸\n\n"
-                                "جهت ادامه استفاده نامحدود و بدون قطعی، می‌توانید همین حالا با کلیک روی دکمه زیر اشتراک اختصاصی خود را تهیه فرمایید:",
-                                reply_markup=markup
-                            )
-                        except Exception as e:
-                            print(f"[watchdog] Error notifying user {uid}: {e}")
-
-            if changed:
-                save_db(db)
-        except Exception as ex:
-            print(f"[trial_expiration_watchdog] Error: {ex}")
-
-# ---------------------------------------------------------------------------
 # Shift Watchdog (Handover before 6 Hours)
 # ---------------------------------------------------------------------------
 def shift_watchdog():
@@ -1496,9 +1240,6 @@ if __name__ == "__main__":
 
     w_thread = threading.Thread(target=shift_watchdog, daemon=True)
     w_thread.start()
-
-    t_thread = threading.Thread(target=trial_expiration_watchdog, daemon=True)
-    t_thread.start()
 
     try:
         bot.remove_webhook()
