@@ -164,6 +164,11 @@
       "plan": "1M",
       "user_id": 8322468887,
       "issued_at": 1791911611
+    },
+    "AZ1Y-4C62-09F4-6978": {
+      "plan": "1Y",
+      "user_id": 8247516155,
+      "issued_at": 1791918990
     }
   },
   "orders": {
@@ -610,6 +615,21 @@
       "file_id": "AgACAgQAAxkBAAIFj2rOZ8aOdh1_sNeH0GN71sPSz_qEAAJzE2sb5YJxUkNOCZtebqZeAQADAgADeAADPQQ",
       "created_at": 1791911888,
       "caption": ""
+    },
+    "ORD_1791918979_8247516155": {
+      "order_id": "ORD_1791918979_8247516155",
+      "user_id": 8247516155,
+      "username": "Areshayad",
+      "first_name": "آرع شاید",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "approved",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAIGIGrOg4Po6CU5E6IAAeIQSOdls-HYnQAC3A9rG6tXeFIH1gQY4NBQ-AEAAwIAA3kAAz0E",
+      "created_at": 1791918979,
+      "caption": "",
+      "approved_at": 1791918990,
+      "key": "AZ1Y-4C62-09F4-6978"
     }
   },
   "users": {
@@ -939,6 +959,17 @@
           "days": 30
         }
       ]
+    },
+    "8247516155": {
+      "purchases": [
+        {
+          "key": "AZ1Y-4C62-09F4-6978",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1791918990,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
@@ -1045,6 +1076,11 @@
       "state": "awaiting_receipt",
       "plan_code": "1M",
       "time": 1791911274
+    },
+    "8247516155": {
+      "state": "awaiting_receipt",
+      "plan_code": "1Y",
+      "time": 1791918941
     }
   },
   "admin_states": {},
