@@ -380,7 +380,10 @@ def main_menu_keyboard(is_admin: bool = False):
 def plans_keyboard():
     markup = types.InlineKeyboardMarkup(row_width=1)
     for p_code, p_info in PLANS_INFO.items():
-        text = f"{p_info['name']} — {p_info['price']}"
+        if p_code in ("1M", "2M"):
+            text = f"{p_info['name']} — {p_info['price']} (❌ تکمیل ظرفیت)"
+        else:
+            text = f"{p_info['name']} — {p_info['price']} ⚡"
         markup.add(types.InlineKeyboardButton(text, callback_data=f"buy_{p_code}"))
     markup.add(types.InlineKeyboardButton("❌ انصراف و بستن", callback_data="cancel_action"))
     return markup
@@ -647,6 +650,34 @@ def handle_callbacks(call):
             return
         info = PLANS_INFO[plan_code]
 
+        # بررسی موجودی پلن‌های ۱ ماهه و ۲ ماهه
+        if plan_code in ("1M", "2M"):
+            try:
+                bot.answer_callback_query(call.id, "⚠️ موجودی این پلن به اتمام رسیده است!", show_alert=True)
+            except Exception:
+                pass
+
+            sold_out_text = (
+                "⚠️ *موجودی لایسنس این پلن به اتمام رسیده است!*\n\n"
+                f"کاربر گرامی؛ به دلیل استقبال و تقاضای بسیار بالا، موجودی لایسنس‌های پلن *{escape_md(info['name'])}* در حال حاضر **به پایان رسیده است**.\n\n"
+                "🚀 *پلن‌های موجود و فعال در حال حاضر:*\n"
+                "• **💎 پلن ۳ ماهه (۹۰ روزه):** دارای تخفیف ویژه، اولویت ترافیکی بالا و بدون قطعی\n"
+                "• **👑 پلن ۱ ساله (۳۶۵ روزه):** اقتصادی‌ترین پلن با حداکثر سرعت و پایداری تضمینی\n\n"
+                "جهت خرید و اتصال سریع، لطفاً یکی از گزینه‌های زیر را انتخاب فرمایید: 👇"
+            )
+            markup = types.InlineKeyboardMarkup(row_width=1)
+            markup.add(
+                types.InlineKeyboardButton("💎 خرید اشتراک ۳ ماهه (پیشنهادی)", callback_data="buy_3M"),
+                types.InlineKeyboardButton("👑 خرید اشتراک ۱ ساله (به‌صرفه)", callback_data="buy_1Y"),
+                types.InlineKeyboardButton("🔙 بازگشت به لیست پلن‌ها", callback_data="show_plans"),
+                types.InlineKeyboardButton("💬 ارتباط با پشتیبانی", callback_data="ticket_new")
+            )
+            try:
+                bot.edit_message_text(sold_out_text, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
+            except Exception:
+                safe_send_message(call.message.chat.id, sold_out_text, reply_markup=markup)
+            return
+
         set_user_state(uid, {
             "state": "awaiting_receipt",
             "plan_code": plan_code,
@@ -680,6 +711,13 @@ def handle_callbacks(call):
     elif data.startswith("paid_"):
         plan_code = data.replace("paid_", "")
         if plan_code not in PLANS_INFO:
+            return
+        if plan_code in ("1M", "2M"):
+            try:
+                bot.answer_callback_query(call.id, "⚠️ موجودی این پلن تمام شده است!", show_alert=True)
+            except Exception:
+                pass
+            safe_send_message(call.message.chat.id, "⚠️ متأسفانه موجودی این پلن تمام شده است. لطفاً پلن ۳ ماهه یا ۱ ساله را تهیه فرمایید.")
             return
         info = PLANS_INFO[plan_code]
 
@@ -1224,7 +1262,7 @@ def handle_general_text(message):
     # ۵. پیام عادی کاربر که هیچ دستوری نیست
     markup = types.InlineKeyboardMarkup(row_width=2)
     markup.add(
-        types.InlineKeyboardButton("🛒 خرید اشتراک", callback_data="buy_1M"),
+        types.InlineKeyboardButton("🛒 خرید اشتراک", callback_data="show_plans"),
         types.InlineKeyboardButton("💬 پیام به پشتیبانی", callback_data="ticket_new")
     )
     safe_reply_to(
