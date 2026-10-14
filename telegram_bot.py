@@ -41,7 +41,7 @@ from telebot import types
 # ---------------------------------------------------------------------------
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "8890479428:AAF26fUCTleyjuDvyx3BR7mpJ94TcYS3mN8")
 ADMIN_ID = int(os.environ.get("ADMIN_ID", "748538264"))
-CARD_NUMBER = os.environ.get("CARD_NUMBER", "5892101706458979")
+CARD_NUMBER = "5892101706458979"
 
 # Run duration per GitHub Actions session before handing over to the next runner
 MAX_RUN_SECONDS = int(os.environ.get("MAX_RUN_SECONDS", 20400))

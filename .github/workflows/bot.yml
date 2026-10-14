@@ -53,7 +53,7 @@ jobs:
           MAX_RUN_SECONDS: 15600
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           ADMIN_ID: ${{ secrets.ADMIN_ID || '748538264' }}
-          CARD_NUMBER: ${{ secrets.CARD_NUMBER || '5892101706458979' }}
+          CARD_NUMBER: '5892101706458979'
         run: |
           python telegram_bot.py
 
