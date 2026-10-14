@@ -436,10 +436,7 @@ def main_menu_keyboard(is_admin: bool = False):
 def plans_keyboard():
     markup = types.InlineKeyboardMarkup(row_width=1)
     for p_code, p_info in PLANS_INFO.items():
-        if p_code in ("1M", "2M", "3M"):
-            text = f"{p_info['name']} — {p_info['price']} (❌ تکمیل ظرفیت)"
-        else:
-            text = f"{p_info['name']} — {p_info['price']} ⚡ (موجود)"
+        text = f"{p_info['name']} — {p_info['price']} (❌ تکمیل ظرفیت)"
         markup.add(types.InlineKeyboardButton(text, callback_data=f"buy_{p_code}"))
     markup.add(types.InlineKeyboardButton("❌ انصراف و بستن", callback_data="cancel_action"))
     return markup
@@ -706,25 +703,23 @@ def handle_callbacks(call):
             return
         info = PLANS_INFO[plan_code]
 
-        # بررسی موجودی پلن‌های ۱ ماهه، ۲ ماهه و ۳ ماهه
-        if plan_code in ("1M", "2M", "3M"):
+        # بررسی موجودی پلن‌ها (تمامی پلن‌ها تکمیل ظرفیت شده‌اند)
+        if plan_code in ("1M", "2M", "3M", "1Y"):
             try:
                 bot.answer_callback_query(call.id, "⚠️ موجودی این پلن به اتمام رسیده است!", show_alert=True)
             except Exception:
                 pass
 
             sold_out_text = (
-                "⚠️ *موجودی لایسنس این پلن به اتمام رسیده است!*\n\n"
-                f"کاربر گرامی؛ به دلیل استقبال و تقاضای بسیار بالا، موجودی لایسنس‌های پلن *{escape_md(info['name'])}* در حال حاضر **به پایان رسیده است**.\n\n"
-                "🚀 *تنها پلن فوق‌العاده و فعال در حال حاضر:*\n"
-                "• **👑 پلن ۱ ساله (۳۶۵ روزه):** اقتصادی‌ترین و باکیفیت‌ترین پلن با حداکثر سرعت، پایداری ۱۰۰٪ تضمینی، اولویت ترافیکی بالا و بدون قطعی\n\n"
-                "جهت خرید و دریافت آنی لایسنس ۱ ساله، لطفاً روی دکمه زیر کلیک فرمایید: 👇"
+                "⚠️ *تمامی ظرفیت‌ها و موجودی لایسنس‌ها تکمیل شده است!*\n\n"
+                f"کاربر گرامی؛ به دلیل استقبال گسترده و تکمیل ظرفیت زیرساخت سرورها، موجودی لایسنس‌های پلن *{escape_md(info['name'])}* و تمامی پلن‌ها در حال حاضر **به پایان رسیده است**.\n\n"
+                "📢 به محض اضافه شدن سرورهای جدید و شارژ مجدد موجودی لایسنس‌ها، در کانال رسمی اطلاع‌رسانی خواهد شد.\n\n"
+                "جهت رزرو لایسنس یا ثبت پیام در لیست انتظار، می‌توانید با پشتیبانی در ارتباط باشید: 👇"
             )
             markup = types.InlineKeyboardMarkup(row_width=1)
             markup.add(
-                types.InlineKeyboardButton("👑 خرید اشتراک ۱ ساله (به‌صرفه و پرسرعت)", callback_data="buy_1Y"),
-                types.InlineKeyboardButton("🔙 بازگشت به لیست پلن‌ها", callback_data="show_plans"),
-                types.InlineKeyboardButton("💬 ارتباط با پشتیبانی", callback_data="ticket_new")
+                types.InlineKeyboardButton("💬 ثبت پیام در پشتیبانی / رزرو", callback_data="ticket_new"),
+                types.InlineKeyboardButton("🔙 بازگشت به منوی اصلی", callback_data="cancel_action")
             )
             try:
                 bot.edit_message_text(sold_out_text, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
@@ -766,12 +761,12 @@ def handle_callbacks(call):
         plan_code = data.replace("paid_", "")
         if plan_code not in PLANS_INFO:
             return
-        if plan_code in ("1M", "2M", "3M"):
+        if plan_code in ("1M", "2M", "3M", "1Y"):
             try:
-                bot.answer_callback_query(call.id, "⚠️ موجودی این پلن تمام شده است!", show_alert=True)
+                bot.answer_callback_query(call.id, "⚠️ تمامی ظرفیت‌ها تکمیل شده است!", show_alert=True)
             except Exception:
                 pass
-            safe_send_message(call.message.chat.id, "⚠️ متأسفانه موجودی این پلن تمام شده است. لطفاً پلن ۱ ساله را تهیه فرمایید.")
+            safe_send_message(call.message.chat.id, "⚠️ متأسفانه تمامی ظرفیت‌های اشتراک تکمیل شده است و امکان صدور لایسنس جدید وجود ندارد.")
             return
         info = PLANS_INFO[plan_code]
 
