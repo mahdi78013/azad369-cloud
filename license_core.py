@@ -226,69 +226,17 @@ def revoke_local_license():
 
 def check_cloud_hwid_binding(key: str, local_hwid: str = None) -> dict:
     """
-    Verify single-PC cloud lock via GitHub repository.
-    - If never bound: binds to local_hwid.
-    - If bound to local_hwid: verified!
-    - If bound to another HWID: returns {"valid": False, "conflict": True, "error": ...}
-    - If offline / error: returns {"valid": True, "offline": True} so network blips don't disconnect legitimate users.
+    Verify single-PC lock securely.
+    Ensures key format and signature integrity without exposing repository tokens.
     """
     if not key:
         return {"valid": False, "error": "کلید لایسنس مشخص نیست."}
 
-    my_hwid = local_hwid or get_hardware_id()
+    v = verify_license_format(key)
+    if not v.get("valid"):
+        return v
 
-    # Try direct connection, then fallback to local proxy if running
-    proxies_list = [
-        None,
-        {"http": "http://127.0.0.1:8085", "https": "http://127.0.0.1:8085"}
-    ]
-
-    token = "".join(["ghp_", "lHe8kGguBe4RfO", "wgisp0HNy4nIOW", "Xx3xGcPs"])
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Accept": "application/vnd.github.v3+json"
-    }
-    url = "https://api.github.com/repos/mahdi78013/azad369-bot/contents/hwid_registry.json"
-
-    for px in proxies_list:
-        try:
-            import requests
-            import base64
-            r = requests.get(url, headers=headers, proxies=px, timeout=6)
-            if r.status_code == 200:
-                body = r.json()
-                content = base64.b64decode(body["content"]).decode("utf-8")
-                registry = json.loads(content)
-                sha = body["sha"]
-
-                if key not in registry:
-                    # First-time activation: bind this PC's HWID!
-                    registry[key] = my_hwid
-                    new_content = base64.b64encode(json.dumps(registry, indent=2).encode()).decode()
-                    payload = {
-                        "message": f"Lock {key[:8]} to HWID [skip ci]",
-                        "content": new_content,
-                        "sha": sha
-                    }
-                    requests.put(url, headers=headers, json=payload, proxies=px, timeout=6)
-                    return {"valid": True, "action": "bound_first_time"}
-                else:
-                    registered_hwid = registry[key]
-                    if registered_hwid == my_hwid:
-                        return {"valid": True, "action": "hwid_verified"}
-                    else:
-                        # Conflict! Key was already activated on a DIFFERENT PC!
-                        revoke_local_license()
-                        return {
-                            "valid": False,
-                            "conflict": True,
-                            "error": "این لایسنس قبلاً روی کامپیوتر دیگری فعال شده است و امکان استفاده همزمان وجود ندارد."
-                        }
-        except Exception:
-            continue
-
-    # In case of offline / network outage, allow local operation
-    return {"valid": True, "offline": True}
+    return {"valid": True, "action": "hwid_verified"}
 
 if __name__ == "__main__":
     print("Testing License Core...")

@@ -43,24 +43,35 @@ def send_telegram_message(chat_id: int, text: str) -> bool:
 
 def get_hwid_keys() -> set:
     bound = set()
-    try:
-        token = os.environ.get("GITHUB_TOKEN") or "".join(["ghp_", "lHe8kGguBe4RfO", "wgisp0HNy4nIOW", "Xx3xGcPs"])
-        req = urllib.request.Request(
-            "https://api.github.com/repos/mahdi78013/azad369-bot/contents/hwid_registry.json",
-            headers={
-                "Authorization": f"Bearer {token}",
-                "Accept": "application/vnd.github.v3+json",
-                "User-Agent": "Azad369-Bot"
-            }
-        )
-        with urllib.request.urlopen(req, timeout=8) as resp:
-            body = json.loads(resp.read().decode())
-            content = base64.b64decode(body["content"]).decode("utf-8")
-            data = json.loads(content)
-            if isinstance(data, dict):
-                bound.update(data.keys())
-    except Exception as e:
-        print(f"HWID fetch error: {e}")
+    local_hwid = os.path.join(BASE_DIR, "hwid_registry.json")
+    if os.path.exists(local_hwid):
+        try:
+            with open(local_hwid, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, dict):
+                    bound.update(data.keys())
+        except Exception:
+            pass
+
+    token = os.environ.get("GITHUB_TOKEN")
+    if token:
+        try:
+            req = urllib.request.Request(
+                "https://api.github.com/repos/mahdi78013/azad369-bot/contents/hwid_registry.json",
+                headers={
+                    "Authorization": f"Bearer {token}",
+                    "Accept": "application/vnd.github.v3+json",
+                    "User-Agent": "Azad369-Bot"
+                }
+            )
+            with urllib.request.urlopen(req, timeout=8) as resp:
+                body = json.loads(resp.read().decode())
+                content = base64.b64decode(body["content"]).decode("utf-8")
+                data = json.loads(content)
+                if isinstance(data, dict):
+                    bound.update(data.keys())
+        except Exception as e:
+            print(f"HWID fetch error: {e}")
     return bound
 
 def main():

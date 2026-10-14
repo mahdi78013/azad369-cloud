@@ -16,6 +16,8 @@ import os
 import sys
 import json
 import time
+import datetime
+import re
 import threading
 import subprocess
 
@@ -326,26 +328,27 @@ def get_hwid_bound_keys() -> set:
         except Exception:
             pass
 
-    try:
-        import urllib.request
-        import base64
-        token = os.environ.get("GITHUB_TOKEN") or "".join(["ghp_", "lHe8kGguBe4RfO", "wgisp0HNy4nIOW", "Xx3xGcPs"])
-        req = urllib.request.Request(
-            "https://api.github.com/repos/mahdi78013/azad369-bot/contents/hwid_registry.json",
-            headers={
-                "Authorization": f"Bearer {token}",
-                "Accept": "application/vnd.github.v3+json",
-                "User-Agent": "Azad369-Bot"
-            }
-        )
-        with urllib.request.urlopen(req, timeout=5) as resp:
-            body = json.loads(resp.read().decode())
-            content = base64.b64decode(body["content"]).decode("utf-8")
-            data = json.loads(content)
-            if isinstance(data, dict):
-                bound.update(data.keys())
-    except Exception:
-        pass
+    token = os.environ.get("GITHUB_TOKEN")
+    if token:
+        try:
+            import urllib.request
+            import base64
+            req = urllib.request.Request(
+                "https://api.github.com/repos/mahdi78013/azad369-bot/contents/hwid_registry.json",
+                headers={
+                    "Authorization": f"Bearer {token}",
+                    "Accept": "application/vnd.github.v3+json",
+                    "User-Agent": "Azad369-Bot"
+                }
+            )
+            with urllib.request.urlopen(req, timeout=5) as resp:
+                body = json.loads(resp.read().decode())
+                content = base64.b64decode(body["content"]).decode("utf-8")
+                data = json.loads(content)
+                if isinstance(data, dict):
+                    bound.update(data.keys())
+        except Exception:
+            pass
 
     with _HWID_LOCK:
         _HWID_CACHE["keys"] = set(bound)
@@ -353,38 +356,156 @@ def get_hwid_bound_keys() -> set:
 
     return bound
 
+# ---------------------------------------------------------------------------
+# Support Working Hours Configuration (Iran Standard Time UTC+3:30)
+# Working window: 12:00 PM (ظهر) to 22:00 PM (شب). Closed outside this window.
+# ---------------------------------------------------------------------------
+def is_support_working_hours() -> tuple[bool, str]:
+    """
+    Checks if support is currently open based on Tehran time (UTC+3:30).
+    Working hours: 12:00 PM to 22:00 PM (10 PM).
+    Between 22:00 and 12:00 next day, support is CLOSED.
+    """
+    utc_now = datetime.datetime.now(datetime.timezone.utc)
+    tehran_tz = datetime.timezone(datetime.timedelta(hours=3, minutes=30))
+    tehran_now = utc_now.astimezone(tehran_tz)
+    current_hour = tehran_now.hour
+    is_open = (12 <= current_hour < 22)
+    time_str = tehran_now.strftime("%H:%M")
+    return is_open, time_str
+
+SUPPORT_CLOSED_MESSAGE = (
+    "⏰ *ساعت کاری واحد پشتیبانی به پایان رسیده است*\n\n"
+    "کاربر گرامی، ساعات پاسخگویی واحد پشتیبانی همه‌روزه از ساعت *۱۲:۰۰ ظهر الی ۲۲:۰۰ شب* (۱۰ شب) می‌باشد.\n\n"
+    "لطفاً در ساعات کاری مجدداً پیام خود را ارسال فرمایید تا کارشناسان ما پاسخگوی شما باشند. 🌸\n\n"
+    "📢 کانال اطلاع‌رسانی: @muntivpn"
+)
+
+# ---------------------------------------------------------------------------
+# Account & License Inventory Reconciliation
+# ---------------------------------------------------------------------------
+_RESERVED_KEYS = set()
+
+def reconcile_all_user_purchases(db: dict) -> int:
+    """
+    Backfills and synchronizes all past purchases from db['orders'] and db['issued']
+    into db['users'][uid]['purchases'] so every user's 'My Account' displays
+    every single license ever acquired.
+    """
+    reconciled_count = 0
+    db.setdefault("users", {})
+    db.setdefault("issued", {})
+    db.setdefault("orders", {})
+
+    # 1. Reconcile from issued records
+    for key, meta in db["issued"].items():
+        uid_str = str(meta.get("user_id"))
+        if not uid_str or uid_str == "None":
+            continue
+        db["users"].setdefault(uid_str, {"purchases": []})
+        user_keys = {p.get("key") for p in db["users"][uid_str].get("purchases", []) if p.get("key")}
+        if key not in user_keys:
+            plan_code = meta.get("plan", "1M")
+            info = PLANS_INFO.get(plan_code, {"name": plan_code, "days": 30})
+            db["users"][uid_str]["purchases"].append({
+                "key": key,
+                "plan": plan_code,
+                "plan_name": info["name"],
+                "issued_at": meta.get("issued_at", int(time.time())),
+                "days": info["days"]
+            })
+            reconciled_count += 1
+
+    # 2. Reconcile from approved orders
+    for oid, o in db["orders"].items():
+        if o.get("status") == "approved":
+            uid_str = str(o.get("user_id"))
+            if not uid_str or uid_str == "None":
+                continue
+            key = o.get("key") or o.get("license") or o.get("code")
+            if not key:
+                continue
+            db["users"].setdefault(uid_str, {"purchases": []})
+            user_keys = {p.get("key") for p in db["users"][uid_str].get("purchases", []) if p.get("key")}
+            if key not in user_keys:
+                plan_code = o.get("plan_code") or o.get("plan", "1M")
+                info = PLANS_INFO.get(plan_code, {"name": plan_code, "days": 30})
+                db["users"][uid_str]["purchases"].append({
+                    "key": key,
+                    "plan": plan_code,
+                    "plan_name": info["name"],
+                    "issued_at": o.get("approved_at") or o.get("created_at", int(time.time())),
+                    "days": info["days"]
+                })
+                reconciled_count += 1
+
+    return reconciled_count
+
 def issue_key_for_plan_atomic(db: dict, plan_code: str, user_id: int) -> str | None:
-    """Issue a fresh, guaranteed-unique key atomically without collisions."""
+    """
+    Issue a fresh, guaranteed-unique key atomically without collisions.
+    Excludes any key ever issued, bound, in orders, or in user purchases.
+    """
     if plan_code not in PLANS_INFO:
         return None
     info = PLANS_INFO[plan_code]
-    all_keys = get_keys_from_disk(plan_code)
-    issued_keys = set(db["issued"].keys())
-    hwid_keys = get_hwid_bound_keys()
 
+    # Gather ALL existing keys across every record to strictly prevent any duplicate
+    used_keys = set(db.get("issued", {}).keys())
+    for o in db.get("orders", {}).values():
+        k = o.get("key") or o.get("license") or o.get("code")
+        if k:
+            used_keys.add(k)
+    for u in db.get("users", {}).values():
+        for p in u.get("purchases", []):
+            k = p.get("key")
+            if k:
+                used_keys.add(k)
+    used_keys.update(get_hwid_bound_keys())
+    used_keys.update(_RESERVED_KEYS)
+
+    all_keys = get_keys_from_disk(plan_code)
     # Prioritize keys from index 100 onwards (100% clean, never touched in testing/history),
     # then fallback to earlier indices only if index >= 100 is completely exhausted.
     candidates = all_keys[100:] + all_keys[:100]
 
+    chosen_key = None
     for k in candidates:
-        if k not in issued_keys and k not in hwid_keys:
-            now = int(time.time())
-            db["issued"][k] = {
-                "plan": plan_code,
-                "user_id": user_id,
-                "issued_at": now
-            }
-            u_str = str(user_id)
-            db["users"].setdefault(u_str, {"purchases": []})
-            db["users"][u_str]["purchases"].append({
-                "key": k,
-                "plan": plan_code,
-                "plan_name": info["name"],
-                "issued_at": now,
-                "days": info["days"]
-            })
-            return k
-    return None
+        if k not in used_keys:
+            chosen_key = k
+            break
+
+    # Dynamic cryptographic fallback if all disk keys are exhausted
+    if not chosen_key:
+        prefix = info.get("prefix") or f"AZ{plan_code}"
+        for seq in range(1000, 99999):
+            cand = license_core.generate_single_key(prefix, seq)
+            if cand not in used_keys:
+                chosen_key = cand
+                break
+
+    if not chosen_key:
+        return None
+
+    _RESERVED_KEYS.add(chosen_key)
+    now = int(time.time())
+    db.setdefault("issued", {})
+    db["issued"][chosen_key] = {
+        "plan": plan_code,
+        "user_id": user_id,
+        "issued_at": now
+    }
+    u_str = str(user_id)
+    db.setdefault("users", {})
+    db["users"].setdefault(u_str, {"purchases": []})
+    db["users"][u_str]["purchases"].append({
+        "key": chosen_key,
+        "plan": plan_code,
+        "plan_name": info["name"],
+        "issued_at": now,
+        "days": info["days"]
+    })
+    return chosen_key
 
 def get_inventory_stats() -> dict:
     db = load_db()
@@ -495,8 +616,47 @@ def btn_my_account(message, target_uid=None):
     uid = target_uid or message.from_user.id
     clear_user_state(uid)
     db = load_db()
-    u_data = db["users"].get(str(uid), {})
+    u_str = str(uid)
+    db.setdefault("users", {})
+    u_data = db["users"].setdefault(u_str, {"purchases": []})
     purchases = u_data.get("purchases", [])
+
+    # Self-healing reconciliation: ensure any issued key or approved order for this user is recorded
+    existing_keys = {p.get("key") for p in purchases if p.get("key")}
+    updated = False
+    for k, meta in db.get("issued", {}).items():
+        if str(meta.get("user_id")) == u_str and k not in existing_keys:
+            plan_code = meta.get("plan", "1M")
+            info = PLANS_INFO.get(plan_code, {"name": plan_code, "days": 30})
+            purchases.append({
+                "key": k,
+                "plan": plan_code,
+                "plan_name": info["name"],
+                "issued_at": meta.get("issued_at", int(time.time())),
+                "days": info["days"]
+            })
+            existing_keys.add(k)
+            updated = True
+    for o in db.get("orders", {}).values():
+        if str(o.get("user_id")) == u_str and o.get("status") == "approved":
+            k = o.get("key") or o.get("license") or o.get("code")
+            if k and k not in existing_keys:
+                plan_code = o.get("plan_code") or o.get("plan", "1M")
+                info = PLANS_INFO.get(plan_code, {"name": plan_code, "days": 30})
+                purchases.append({
+                    "key": k,
+                    "plan": plan_code,
+                    "plan_name": info["name"],
+                    "issued_at": o.get("approved_at") or o.get("created_at", int(time.time())),
+                    "days": info["days"]
+                })
+                existing_keys.add(k)
+                updated = True
+    if updated:
+        save_db(db)
+
+    # Sort purchases descending by issuance date (newest first)
+    purchases.sort(key=lambda p: p.get("issued_at", 0), reverse=True)
 
     now = int(time.time())
     lines = [
@@ -614,6 +774,13 @@ def send_manual_connection_guide(chat_id: int):
 @bot.message_handler(func=lambda m: m.text == "💬 پشتیبانی")
 def btn_support(message, target_uid=None):
     uid = target_uid or message.from_user.id
+    if uid != ADMIN_ID:
+        is_open, cur_time = is_support_working_hours()
+        if not is_open:
+            clear_user_state(uid)
+            safe_send_message(message.chat.id, SUPPORT_CLOSED_MESSAGE)
+            return
+
     # Automatically put user into ticket mode so they don't have to click an extra inline button
     set_user_state(uid, {"state": "waiting_support_msg", "time": int(time.time())})
 
@@ -622,6 +789,7 @@ def btn_support(message, target_uid=None):
         "✍️ کاربر گرامی، لطفاً سوال، مشکل، یا پیام خود را تایپ و ارسال فرمایید.\n"
         "_(همچنین در صورت نیاز می‌توانید عکس یا فایل اسکرین‌شات ارسال فرمایید)_\n\n"
         "پیام شما مستقیماً برای مدیریت ارسال شده و پاسخ در همین گفتگو برایتان فرستاده خواهد شد.\n\n"
+        "⏰ ساعت کاری پشتیبانی: *۱۲:۰۰ ظهر الی ۲۲:۰۰ شب*\n"
         "📢 کانال اطلاع‌رسانی: @muntivpn"
     )
     markup = types.InlineKeyboardMarkup(row_width=1)
@@ -809,11 +977,22 @@ def handle_callbacks(call):
 
     # تیکت پشتیبانی: شروع پیام به ادمین
     elif data == "ticket_new":
+        if uid != ADMIN_ID:
+            is_open, cur_time = is_support_working_hours()
+            if not is_open:
+                try:
+                    bot.answer_callback_query(call.id, "ساعت کاری پشتیبانی ۱۲:۰۰ ظهر الی ۲۲:۰۰ شب می‌باشد.", show_alert=True)
+                except Exception:
+                    pass
+                safe_send_message(call.message.chat.id, SUPPORT_CLOSED_MESSAGE)
+                return
+
         set_user_state(uid, {"state": "waiting_support_msg", "time": int(time.time())})
         prompt_ticket = (
             "✍️ *پیام به پشتیبانی:*\n\n"
             "لطفاً پیام، سوال یا مشکل خود را به صورت متن یا تصویر همین‌جا ارسال فرمایید.\n"
-            "پیام شما مستقیماً برای مدیریت ارسال شده و پاسخ در همین چت برایتان فرستاده خواهد شد."
+            "پیام شما مستقیماً برای مدیریت ارسال شده و پاسخ در همین چت برایتان فرستاده خواهد شد.\n\n"
+            "⏰ ساعت کاری پشتیبانی: *۱۲:۰۰ ظهر الی ۲۲:۰۰ شب*"
         )
         markup = types.InlineKeyboardMarkup()
         markup.add(types.InlineKeyboardButton("❌ انصراف", callback_data="cancel_action"))
@@ -992,7 +1171,7 @@ def handle_callbacks(call):
                 safe_send_message(ADMIN_ID, "⚠️ موجودی این پلن به اتمام رسیده است!")
                 bot.answer_callback_query(call.id, "موجودی خالی است!")
                 return
-            save_db(db)
+            save_db(db, immediate_sync=True)
             p_name = PLANS_INFO[action]["name"]
             safe_send_message(
                 ADMIN_ID,
@@ -1116,13 +1295,34 @@ def handle_photos_and_docs(message):
     elif state_type == "waiting_support_msg":
         clear_user_state(uid)
 
+        if uid != ADMIN_ID:
+            is_open, _ = is_support_working_hours()
+            if not is_open:
+                safe_send_message(message.chat.id, SUPPORT_CLOSED_MESSAGE)
+                return
+
         f_name = message.from_user.first_name or "کاربر"
         u_name = message.from_user.username or "ندارد"
+
+        # Determine reply context
+        quote_section = ""
+        if message.reply_to_message:
+            rep = message.reply_to_message
+            rep_text = rep.text or rep.caption or "[فایل / تصویر]"
+            quote_section = f"↩️ *در پاسخ به پیام:*\n«_{escape_md(rep_text[:300])}_»\n\n"
+        else:
+            db = load_db()
+            last_reply = db.get("users", {}).get(str(uid), {}).get("last_admin_reply")
+            if last_reply and (time.time() - last_reply.get("time", 0) < 172800):
+                prev_text = last_reply.get("text", "")
+                quote_section = f"💬 *در ادامه پاسخ قبلی پشتیبانی:*\n«_{escape_md(prev_text[:300])}_»\n\n"
+
         admin_caption = (
             f"📩 *پیام پشتیبانی جدید ({message.content_type}):*\n\n"
             f"👤 کاربر: {escape_md(f_name)} (@{escape_md(u_name)})\n"
             f"🆔 آیدی عددی: `{uid}`\n"
-            f"⏰ ساعت: {time.strftime('%H:%M:%S', time.localtime())}\n"
+            f"⏰ ساعت: {time.strftime('%H:%M:%S', time.localtime())}\n\n"
+            f"{quote_section}"
             f"💬 توضیح: {escape_md(caption) if caption else 'بدون متن'}"
         )
         markup = types.InlineKeyboardMarkup()
@@ -1201,12 +1401,20 @@ def handle_general_text(message):
             btn_admin_panel(message)
         return
 
-    # ۱. اگر ادمین در حال پاسخ به تیکت کاربر است
+    # ۱. اگر ادمین در حال پاسخ به تیکت کاربر است (از طریق دکمه یا ریپلای مستقیم در تلگرام)
     adm_state = get_admin_state()
-    if uid == ADMIN_ID and adm_state.get("state") == "replying_to_user":
-        target_uid = int(adm_state["target_uid"])
-        clear_admin_state()
+    target_uid = None
+    if uid == ADMIN_ID:
+        if adm_state.get("state") == "replying_to_user":
+            target_uid = int(adm_state["target_uid"])
+            clear_admin_state()
+        elif message.reply_to_message:
+            rep_text = message.reply_to_message.text or message.reply_to_message.caption or ""
+            match = re.search(r"🆔\s*آیدی عددی:\s*`?(\d+)`?", rep_text)
+            if match:
+                target_uid = int(match.group(1))
 
+    if target_uid:
         reply_to_user_text = (
             f"📩 *پاسخ پشتیبانی اینترنت آزاد³⁶⁹:*\n\n"
             f"{text}\n\n"
@@ -1214,6 +1422,16 @@ def handle_general_text(message):
             f"در صورت نیاز به ارسال پیام مجدد، از دکمه «💬 پشتیبانی» استفاده فرمایید."
         )
         safe_send_message(target_uid, reply_to_user_text)
+
+        # Save last admin reply into DB so subsequent user messages can show context
+        db = load_db()
+        db.setdefault("users", {})
+        db["users"].setdefault(str(target_uid), {})["last_admin_reply"] = {
+            "text": text,
+            "time": int(time.time())
+        }
+        save_db(db)
+
         safe_reply_to(message, f"✅ پاسخ شما با موفقیت برای کاربر `{target_uid}` ارسال شد.")
         return
 
@@ -1272,14 +1490,35 @@ def handle_general_text(message):
     if u_state.get("state") == "waiting_support_msg":
         clear_user_state(uid)
 
+        if uid != ADMIN_ID:
+            is_open, _ = is_support_working_hours()
+            if not is_open:
+                safe_send_message(message.chat.id, SUPPORT_CLOSED_MESSAGE)
+                return
+
         f_name = message.from_user.first_name or "کاربر"
         u_name = message.from_user.username or "ندارد"
+
+        # Determine reply context
+        quote_section = ""
+        if message.reply_to_message:
+            rep = message.reply_to_message
+            rep_text = rep.text or rep.caption or "[فایل / تصویر]"
+            quote_section = f"↩️ *در پاسخ به پیام:*\n«_{escape_md(rep_text[:300])}_»\n\n"
+        else:
+            db = load_db()
+            last_reply = db.get("users", {}).get(str(uid), {}).get("last_admin_reply")
+            if last_reply and (time.time() - last_reply.get("time", 0) < 172800):  # within 48h
+                prev_text = last_reply.get("text", "")
+                quote_section = f"💬 *در ادامه پاسخ قبلی پشتیبانی:*\n«_{escape_md(prev_text[:300])}_»\n\n"
+
         admin_ticket_msg = (
             f"📩 *پیام پشتیبانی جدید!*\n\n"
             f"👤 کاربر: {escape_md(f_name)} (@{escape_md(u_name)})\n"
             f"🆔 آیدی عددی: `{uid}`\n"
             f"⏰ زمان: {time.strftime('%Y/%m/%d %H:%M:%S', time.localtime())}\n\n"
-            f"💬 *متن پیام:*\n{escape_md(text)}"
+            f"{quote_section}"
+            f"💬 *متن پیام کاربر:*\n{escape_md(text)}"
         )
         markup = types.InlineKeyboardMarkup()
         markup.add(types.InlineKeyboardButton("✍️ پاسخ دادن به کاربر", callback_data=f"reply_user_{uid}"))
@@ -1350,6 +1589,16 @@ if __name__ == "__main__":
     print(f" Available Keys: {stats['_total_available']} | Sold: {stats['_total_sold']}")
     print(f" Shift Duration: {MAX_RUN_SECONDS // 60} minutes")
     print("==================================================")
+
+    # Startup reconciliation: backfill all past orders/issued keys into user accounts
+    try:
+        startup_db = load_db()
+        rec_count = reconcile_all_user_purchases(startup_db)
+        if rec_count > 0:
+            print(f"[✓] Reconciled {rec_count} past purchases into user accounts.")
+            save_db(startup_db, immediate_sync=True)
+    except Exception as e:
+        print(f"[!] Startup reconciliation warning: {e}")
 
     w_thread = threading.Thread(target=shift_watchdog, daemon=True)
     w_thread.start()
