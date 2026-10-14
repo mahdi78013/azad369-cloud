@@ -73,7 +73,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git pull origin main --rebase || true
           if [ -f "bot_licenses_state.json" ]; then
-            git add bot_licenses_state.json
+            git add bot_licenses_state.json hwid_registry.json historical_blacklist.json || true
             git commit -m "Auto-save bot database state [skip ci]" || echo "No changes to commit"
             git push origin main || echo "Push skipped or up to date"
           fi

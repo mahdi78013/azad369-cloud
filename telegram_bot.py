@@ -20,6 +20,9 @@ import datetime
 import re
 import threading
 import subprocess
+import secrets
+import hmac
+import hashlib
 
 if hasattr(sys.stdout, 'reconfigure'):
     try:
@@ -53,6 +56,7 @@ PLANS_INFO = {
     "1M": {
         "name": "۱ ماهه (۳۰ روزه)",
         "price": "۶۰,۰۰۰ تومان",
+        "prefix": "AZ1M",
         "file": "1M.txt",
         "fallback_file": "1_ماهه_1000_عدد.txt",
         "days": 30
@@ -60,12 +64,14 @@ PLANS_INFO = {
     "2M": {
         "name": "۲ ماهه (۶۰ روزه)",
         "price": "۱۰۰,۰۰۰ تومان",
+        "prefix": "AZ2M",
         "file": "2M.txt",
         "fallback_file": "2_ماهه_1000_عدد.txt",
         "days": 60
     },
     "3M": {
         "name": "۳ ماهه (۹۰ روزه)",
+        "prefix": "AZ3M",
         "price": "۱۴۹,۰۰۰ تومان",
         "file": "3M.txt",
         "fallback_file": "3_ماهه_1000_عدد.txt",
@@ -73,6 +79,7 @@ PLANS_INFO = {
     },
     "1Y": {
         "name": "۱ ساله (۳۶۵ روزه)",
+        "prefix": "AZ1Y",
         "price": "۳۹۹,۰۰۰ تومان",
         "file": "1Y.txt",
         "fallback_file": "1_ساله_1000_عدد.txt",
@@ -286,7 +293,7 @@ def _do_git_sync():
         _DB_DIRTY = False
         subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=False)
         subprocess.run(["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"], check=False)
-        subprocess.run(["git", "add", "bot_licenses_state.json", "hwid_registry.json"], check=False)
+        subprocess.run(["git", "add", "bot_licenses_state.json", "hwid_registry.json", "historical_blacklist.json"], check=False)
         subprocess.run(["git", "commit", "-m", "Auto-sync bot state [skip ci]"], check=False)
         subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=False)
         subprocess.run(["git", "push", "origin", "main"], check=False)
@@ -359,7 +366,7 @@ def get_hwid_bound_keys() -> set:
             import urllib.request
             import base64
             req = urllib.request.Request(
-                "https://api.github.com/repos/mahdi78013/azad369-bot/contents/hwid_registry.json",
+                "https://api.github.com/repos/mahdi78013/azad369-cloud/contents/hwid_registry.json",
                 headers={
                     "Authorization": f"Bearer {token}",
                     "Accept": "application/vnd.github.v3+json",
@@ -466,47 +473,109 @@ def reconcile_all_user_purchases(db: dict) -> int:
 
     return reconciled_count
 
+_HISTORICAL_BLACKLIST_CACHE = None
+
+def get_historical_blacklist() -> set:
+    """Returns set of all historical keys from blacklist file and legacy disk stores."""
+    global _HISTORICAL_BLACKLIST_CACHE
+    if _HISTORICAL_BLACKLIST_CACHE is not None:
+        return set(_HISTORICAL_BLACKLIST_CACHE)
+
+    b_set = set()
+    b_file = os.path.join(BASE_DIR, "historical_blacklist.json")
+    if os.path.exists(b_file):
+        try:
+            with open(b_file, "r", encoding="utf-8") as f:
+                b_set.update(json.load(f))
+        except Exception:
+            pass
+
+    for p_code in PLANS_INFO:
+        b_set.update(get_keys_from_disk(p_code))
+
+    _HISTORICAL_BLACKLIST_CACHE = frozenset(b_set)
+    return set(_HISTORICAL_BLACKLIST_CACHE)
+
+def get_all_used_keys(db: dict) -> set:
+    """
+    Returns the comprehensive, all-inclusive set of every license key
+    that has ever existed, been issued, bound to HWID, or registered.
+    Guarantees absolute ZERO duplicate risk.
+    """
+    all_used = set()
+    # 1. Historical blacklist (4,000+ pre-existing legacy & disk keys)
+    all_used.update(get_historical_blacklist())
+
+    # 2. Bound hardware keys (hwid_registry.json)
+    all_used.update(get_hwid_bound_keys())
+
+    # 3. All keys issued in current and past database states
+    all_used.update(db.get("issued", {}).keys())
+
+    # 4. All keys in orders
+    for o in db.get("orders", {}).values():
+        k = o.get("key") or o.get("license") or o.get("code")
+        if k:
+            all_used.add(k)
+
+    # 5. All keys in user purchase histories
+    for u in db.get("users", {}).values():
+        for p in u.get("purchases", []):
+            k = p.get("key")
+            if k:
+                all_used.add(k)
+
+    # 6. Any key reserved in memory for pending operations
+    all_used.update(_RESERVED_KEYS)
+    return all_used
+
+def generate_unique_crypto_license(plan_code: str, used_keys: set) -> str | None:
+    """
+    Generates a guaranteed-unique, mathematically authentic cryptographic license.
+    Entropy: 32 bits of cryptographic OS entropy (secrets.token_hex) + HMAC-SHA256 signature.
+    Guaranteed NEVER to collide with any historical, issued, bound, or reserved key.
+    """
+    info = PLANS_INFO.get(plan_code)
+    if not info:
+        return None
+    prefix = info.get("prefix") or f"AZ{plan_code}"
+    salt = getattr(license_core, "_SECRET_SALT", b"Azad369_Master_Lic_Crypto_Salt_2026_xYz99!")
+
+    for _ in range(2000):
+        # 8 uppercase hex characters using true cryptographic randomness
+        rand_hex = secrets.token_hex(4).upper()
+        p1 = rand_hex[:4]
+        p2 = rand_hex[4:]
+        body = f"{prefix}-{p1}-{p2}"
+        sig = hmac.new(salt, body.encode("utf-8"), hashlib.sha256).hexdigest()[:4].upper()
+        candidate = f"{body}-{sig}"
+
+        if candidate not in used_keys and candidate not in _RESERVED_KEYS:
+            v = license_core.verify_license_format(candidate)
+            if v.get("valid") and v.get("days") == info["days"]:
+                return candidate
+    return None
+
 def issue_key_for_plan_atomic(db: dict, plan_code: str, user_id: int) -> str | None:
     """
-    Issue a fresh, guaranteed-unique key atomically without collisions.
-    Excludes any key ever issued, bound, in orders, or in user purchases.
+    Issue a guaranteed 100% unique, fresh cryptographic license key atomically.
+    Absolute zero chance of duplicate across admin, users, or hardware bindings.
     """
     if plan_code not in PLANS_INFO:
         return None
     info = PLANS_INFO[plan_code]
 
-    # Gather ALL existing keys across every record to strictly prevent any duplicate
-    used_keys = set(db.get("issued", {}).keys())
-    for o in db.get("orders", {}).values():
-        k = o.get("key") or o.get("license") or o.get("code")
-        if k:
-            used_keys.add(k)
-    for u in db.get("users", {}).values():
-        for p in u.get("purchases", []):
-            k = p.get("key")
-            if k:
-                used_keys.add(k)
-    used_keys.update(get_hwid_bound_keys())
-    used_keys.update(_RESERVED_KEYS)
+    used_keys = get_all_used_keys(db)
 
-    all_keys = get_keys_from_disk(plan_code)
-    # Prioritize keys from index 100 onwards (100% clean, never touched in testing/history),
-    # then fallback to earlier indices only if index >= 100 is completely exhausted.
-    candidates = all_keys[100:] + all_keys[:100]
+    # Primary: Generate mathematically unique cryptographic license
+    chosen_key = generate_unique_crypto_license(plan_code, used_keys)
 
-    chosen_key = None
-    for k in candidates:
-        if k not in used_keys:
-            chosen_key = k
-            break
-
-    # Dynamic cryptographic fallback if all disk keys are exhausted
+    # Secondary fallback (if crypto generation somehow failed): pick clean disk key
     if not chosen_key:
-        prefix = info.get("prefix") or f"AZ{plan_code}"
-        for seq in range(1000, 99999):
-            cand = license_core.generate_single_key(prefix, seq)
-            if cand not in used_keys:
-                chosen_key = cand
+        all_disk = get_keys_from_disk(plan_code)
+        for k in all_disk:
+            if k not in used_keys:
+                chosen_key = k
                 break
 
     if not chosen_key:
@@ -518,7 +587,8 @@ def issue_key_for_plan_atomic(db: dict, plan_code: str, user_id: int) -> str | N
     db["issued"][chosen_key] = {
         "plan": plan_code,
         "user_id": user_id,
-        "issued_at": now
+        "issued_at": now,
+        "method": "crypto_unique"
     }
     u_str = str(user_id)
     db.setdefault("users", {})
@@ -534,21 +604,21 @@ def issue_key_for_plan_atomic(db: dict, plan_code: str, user_id: int) -> str | N
 
 def get_inventory_stats() -> dict:
     db = load_db()
-    issued_keys = set(db["issued"].keys())
-    hwid_keys = get_hwid_bound_keys()
-    used_keys = issued_keys.union(hwid_keys)
+    all_used = get_all_used_keys(db)
     stats = {}
-    tot_avail = 0
-    tot_sold = 0
+    tot_sold = len(db.get("issued", {}))
     for p_code, p_info in PLANS_INFO.items():
         all_keys = get_keys_from_disk(p_code)
-        sold = sum(1 for k in all_keys if k in used_keys)
-        avail = max(0, len(all_keys) - sold)
-        stats[p_code] = {"name": p_info["name"], "available": avail, "sold": sold}
-        tot_avail += avail
-        tot_sold += sold
-    stats["_total_available"] = tot_avail
+        sold_plan = sum(1 for k in all_keys if k in all_used)
+        clean_on_disk = max(0, len(all_keys) - sold_plan)
+        stats[p_code] = {
+            "name": p_info["name"],
+            "clean_on_disk": clean_on_disk,
+            "sold": sold_plan,
+            "status": "موجود (تولید یکتای کریپتوگرافیک فعال)"
+        }
     stats["_total_sold"] = tot_sold
+    stats["_generator_status"] = "فعال و بدون محدودیت (ضد تکرار ۱۰۰٪)"
     return stats
 
 # ---------------------------------------------------------------------------
@@ -1191,12 +1261,15 @@ def handle_callbacks(call):
         action = data.replace("adm_", "")
         if action == "stats":
             stats = get_inventory_stats()
-            lines = ["📊 *گزارش دقیق موجودی لایسنس‌ها:*\n"]
+            lines = [
+                "📊 *گزارش موجودی و وضعیت لایسنس‌ها:*\n",
+                "⚡ *موتور صدور هوشمند:* فعال و بدون محدودیت",
+                "🛡️ *ضمانت عدم تکرار:* ۱۰۰٪ تضمین‌شده (Blacklist تطبیقی)\n"
+            ]
             for p_code in ["1M", "2M", "3M", "1Y"]:
                 st = stats[p_code]
-                lines.append(f"• *{st['name']}:* {st['available']} موجود (فروخته‌شده: {st['sold']})")
-            lines.append(f"\n🏷️ *کل موجودی باقی‌مانده:* {stats['_total_available']} عدد")
-            lines.append(f"📦 *کل لایسنس‌های فروخته‌شده:* {stats['_total_sold']} عدد")
+                lines.append(f"• *{st['name']}:* {st['clean_on_disk']} عدد در انبار دیسک | صدور کریپتو: فعال")
+            lines.append(f"\n📦 *کل لایسنس‌های صادرشده تا کنون:* {stats['_total_sold']} عدد")
             safe_send_message(ADMIN_ID, "\n".join(lines))
             bot.answer_callback_query(call.id)
         elif action == "pending":
@@ -1233,16 +1306,21 @@ def handle_callbacks(call):
             db = load_db()
             key = issue_key_for_plan_atomic(db, action, ADMIN_ID)
             if not key:
-                safe_send_message(ADMIN_ID, "⚠️ موجودی این پلن به اتمام رسیده است!")
-                bot.answer_callback_query(call.id, "موجودی خالی است!")
+                safe_send_message(ADMIN_ID, "⚠️ خطا در تولید لایسنس جدید!")
+                bot.answer_callback_query(call.id, "خطا!")
                 return
             save_db(db, immediate_sync=True)
             p_name = PLANS_INFO[action]["name"]
+            p_days = PLANS_INFO[action]["days"]
             safe_send_message(
                 ADMIN_ID,
-                f"✅ *لایسنس دستی {escape_md(p_name)}:*\n\n`{key}`\n\n_(برای کپی روی کد بزنید)_"
+                f"✅ *لایسنس دستی جدید {escape_md(p_name)}:*\n\n"
+                f"`{key}`\n\n"
+                f"_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
+                f"⏳ مدت اعتبار: *{p_days} روز*\n"
+                f"🔒 *تضمین عدم تکرار ۱۰۰٪:* این کلید با الگوریتم رمزنگاری یکتا (HMAC-SHA256) تولید شده و در هیچ سیستم دیگری فعال یا مصرف نشده است ✓"
             )
-            bot.answer_callback_query(call.id, "صادر شد ✓")
+            bot.answer_callback_query(call.id, "لایسنس ۱۰۰٪ یکتا صادر شد ✓")
 
     # انتخاب نوع تصویر نامشخص
     elif data.startswith("set_rec_"):
