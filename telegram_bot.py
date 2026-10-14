@@ -617,6 +617,8 @@ def get_inventory_stats() -> dict:
             "sold": sold_plan,
             "status": "موجود (تولید یکتای کریپتوگرافیک فعال)"
         }
+    tot_clean = sum(st["clean_on_disk"] for st in stats.values() if isinstance(st, dict) and "clean_on_disk" in st)
+    stats["_total_available"] = tot_clean
     stats["_total_sold"] = tot_sold
     stats["_generator_status"] = "فعال و بدون محدودیت (ضد تکرار ۱۰۰٪)"
     return stats
@@ -1728,8 +1730,13 @@ if __name__ == "__main__":
     print(f" Bot Username: @muntivpn369bot")
     print(f" Admin ID: {ADMIN_ID}")
     print(f" Card Number: {CARD_NUMBER}")
-    stats = get_inventory_stats()
-    print(f" Available Keys: {stats['_total_available']} | Sold: {stats['_total_sold']}")
+    try:
+        stats = get_inventory_stats()
+        avail_cnt = stats.get("_total_available", 0)
+        sold_cnt = stats.get("_total_sold", 0)
+        print(f" Available Keys: {avail_cnt} | Sold: {sold_cnt}")
+    except Exception as e:
+        print(f" Inventory stats warning: {e}")
     print(f" Shift Duration: {MAX_RUN_SECONDS // 60} minutes")
     print("==================================================")
 

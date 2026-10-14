@@ -79,7 +79,7 @@ jobs:
           fi
 
       - name: Dispatch Next Relay Runner (Zero Downtime)
-        if: always()
+        if: success()
         run: |
           curl -s -X POST \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
