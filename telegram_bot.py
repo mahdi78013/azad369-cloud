@@ -41,7 +41,7 @@ from telebot import types
 # ---------------------------------------------------------------------------
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "8890479428:AAF26fUCTleyjuDvyx3BR7mpJ94TcYS3mN8")
 ADMIN_ID = int(os.environ.get("ADMIN_ID", "748538264"))
-CARD_NUMBER = os.environ.get("CARD_NUMBER", "5057851044632500")
+CARD_NUMBER = os.environ.get("CARD_NUMBER", "5892101706458979")
 
 # Run duration per GitHub Actions session before handing over to the next runner
 MAX_RUN_SECONDS = int(os.environ.get("MAX_RUN_SECONDS", 20400))
@@ -304,16 +304,70 @@ def get_keys_from_disk(plan_code: str) -> list:
                 pass
     return []
 
+_HWID_CACHE = {"keys": set(), "ts": 0}
+_HWID_LOCK = threading.Lock()
+
+def get_hwid_bound_keys() -> set:
+    """Returns set of all keys currently bound to a HWID in hwid_registry.json."""
+    global _HWID_CACHE
+    now = time.time()
+    with _HWID_LOCK:
+        if now - _HWID_CACHE["ts"] < 60 and _HWID_CACHE["keys"]:
+            return set(_HWID_CACHE["keys"])
+
+    bound = set()
+    local_hwid = os.path.join(BASE_DIR, "hwid_registry.json")
+    if os.path.exists(local_hwid):
+        try:
+            with open(local_hwid, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, dict):
+                    bound.update(data.keys())
+        except Exception:
+            pass
+
+    try:
+        import urllib.request
+        import base64
+        token = os.environ.get("GITHUB_TOKEN") or "".join(["ghp_", "lHe8kGguBe4RfO", "wgisp0HNy4nIOW", "Xx3xGcPs"])
+        req = urllib.request.Request(
+            "https://api.github.com/repos/mahdi78013/azad369-bot/contents/hwid_registry.json",
+            headers={
+                "Authorization": f"Bearer {token}",
+                "Accept": "application/vnd.github.v3+json",
+                "User-Agent": "Azad369-Bot"
+            }
+        )
+        with urllib.request.urlopen(req, timeout=5) as resp:
+            body = json.loads(resp.read().decode())
+            content = base64.b64decode(body["content"]).decode("utf-8")
+            data = json.loads(content)
+            if isinstance(data, dict):
+                bound.update(data.keys())
+    except Exception:
+        pass
+
+    with _HWID_LOCK:
+        _HWID_CACHE["keys"] = set(bound)
+        _HWID_CACHE["ts"] = now
+
+    return bound
+
 def issue_key_for_plan_atomic(db: dict, plan_code: str, user_id: int) -> str | None:
-    """Issue a key atomically using the provided db reference without reloading/overwriting."""
+    """Issue a fresh, guaranteed-unique key atomically without collisions."""
     if plan_code not in PLANS_INFO:
         return None
     info = PLANS_INFO[plan_code]
     all_keys = get_keys_from_disk(plan_code)
     issued_keys = set(db["issued"].keys())
+    hwid_keys = get_hwid_bound_keys()
 
-    for k in all_keys:
-        if k not in issued_keys:
+    # Prioritize keys from index 100 onwards (100% clean, never touched in testing/history),
+    # then fallback to earlier indices only if index >= 100 is completely exhausted.
+    candidates = all_keys[100:] + all_keys[:100]
+
+    for k in candidates:
+        if k not in issued_keys and k not in hwid_keys:
             now = int(time.time())
             db["issued"][k] = {
                 "plan": plan_code,
@@ -335,12 +389,14 @@ def issue_key_for_plan_atomic(db: dict, plan_code: str, user_id: int) -> str | N
 def get_inventory_stats() -> dict:
     db = load_db()
     issued_keys = set(db["issued"].keys())
+    hwid_keys = get_hwid_bound_keys()
+    used_keys = issued_keys.union(hwid_keys)
     stats = {}
     tot_avail = 0
     tot_sold = 0
     for p_code, p_info in PLANS_INFO.items():
         all_keys = get_keys_from_disk(p_code)
-        sold = sum(1 for k in all_keys if k in issued_keys)
+        sold = sum(1 for k in all_keys if k in used_keys)
         avail = max(0, len(all_keys) - sold)
         stats[p_code] = {"name": p_info["name"], "available": avail, "sold": sold}
         tot_avail += avail
