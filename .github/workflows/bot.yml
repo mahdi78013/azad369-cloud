@@ -47,6 +47,15 @@ jobs:
         run: |
           python decrypt_vault.py
 
+      - name: Approve Pending Genuine Orders
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          ADMIN_ID: ${{ secrets.ADMIN_ID || '748538264' }}
+        run: |
+          if [ -f "approve_orders.py" ]; then
+            python approve_orders.py || true
+          fi
+
       - name: Run Telegram Bot
         id: bot
         env:
