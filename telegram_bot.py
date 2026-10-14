@@ -110,9 +110,34 @@ def escape_md(text) -> str:
 def safe_send_message(chat_id: int, text: str, reply_markup=None, disable_web_page_preview: bool = True):
     """
     Sends a message trying Markdown formatting first.
+    If message exceeds 3800 characters, automatically chunks it to comply with Telegram limits.
     If Telegram rejects entities (e.g. unescaped symbols), falls back to plain text.
     Guarantees that no message to user or admin is ever lost!
     """
+    if len(text) > 3800:
+        parts = []
+        cur_part = []
+        cur_len = 0
+        for line in text.split("\n"):
+            if cur_len + len(line) + 1 > 3500 and cur_part:
+                parts.append("\n".join(cur_part))
+                cur_part = [line]
+                cur_len = len(line) + 1
+            else:
+                cur_part.append(line)
+                cur_len += len(line) + 1
+        if cur_part:
+            parts.append("\n".join(cur_part))
+
+        res = None
+        for i, part in enumerate(parts):
+            rm = reply_markup if i == len(parts) - 1 else None
+            res = _do_safe_send(chat_id, part, reply_markup=rm, disable_web_page_preview=disable_web_page_preview)
+        return res
+
+    return _do_safe_send(chat_id, text, reply_markup=reply_markup, disable_web_page_preview=disable_web_page_preview)
+
+def _do_safe_send(chat_id: int, text: str, reply_markup=None, disable_web_page_preview: bool = True):
     try:
         return bot.send_message(
             chat_id,
@@ -611,7 +636,8 @@ def btn_buy_plans(message):
     )
     safe_send_message(message.chat.id, text, reply_markup=plans_keyboard())
 
-@bot.message_handler(func=lambda m: m.text == "👤 حساب کاربری من")
+@bot.message_handler(commands=["account", "my_account", "profile"])
+@bot.message_handler(func=lambda m: (m.text or "").strip() in ["👤 حساب کاربری من", "حساب کاربری من", "حساب کاربری", "اکانت من", "پروفایل"])
 def btn_my_account(message, target_uid=None):
     uid = target_uid or message.from_user.id
     clear_user_state(uid)
@@ -622,7 +648,7 @@ def btn_my_account(message, target_uid=None):
     purchases = u_data.get("purchases", [])
 
     # Self-healing reconciliation: ensure any issued key or approved order for this user is recorded
-    existing_keys = {p.get("key") for p in purchases if p.get("key")}
+    existing_keys = {p.get("key") for p in purchases if isinstance(p, dict) and p.get("key")}
     updated = False
     for k, meta in db.get("issued", {}).items():
         if str(meta.get("user_id")) == u_str and k not in existing_keys:
@@ -656,7 +682,7 @@ def btn_my_account(message, target_uid=None):
         save_db(db)
 
     # Sort purchases descending by issuance date (newest first)
-    purchases.sort(key=lambda p: p.get("issued_at", 0), reverse=True)
+    purchases.sort(key=lambda p: p.get("issued_at", 0) if isinstance(p, dict) else 0, reverse=True)
 
     now = int(time.time())
     lines = [
@@ -664,10 +690,18 @@ def btn_my_account(message, target_uid=None):
         f"🆔 شناسه کاربری: `{uid}`"
     ]
 
+    max_display = 8
+    displayed = purchases[:max_display]
+    has_more = len(purchases) > max_display
+
     if purchases:
-        lines.append(f"\n📦 تعداد کل خریدهای شما: *{len(purchases)} عدد*\n")
+        if has_more:
+            lines.append(f"\n📦 تعداد کل خریدهای شما: *{len(purchases)} عدد* _({max_display} خرید اخیر در زیر نمایش داده شده است)_\n")
+        else:
+            lines.append(f"\n📦 تعداد کل خریدهای شما: *{len(purchases)} عدد*\n")
+
         lines.append("📋 *پلن‌ها و لایسنس‌های اختصاصی شما:*")
-        for idx, p in enumerate(purchases, 1):
+        for idx, p in enumerate(displayed, 1):
             issued_at = p.get("issued_at", now)
             total_days = p.get("days", 30)
             elapsed_days = (now - issued_at) // 86400
@@ -676,8 +710,8 @@ def btn_my_account(message, target_uid=None):
             status_badge = "🟢 فعال" if rem_days > 0 else "🔴 منقضی شده"
 
             lines.append(
-                f"{idx}. پلن: *{escape_md(p['plan_name'])}*\n"
-                f"   🔑 لایسنس: `{p['key']}`\n"
+                f"{idx}. پلن: *{escape_md(p.get('plan_name', 'اشتراک اختصاصی'))}*\n"
+                f"   🔑 لایسنس: `{p.get('key', '')}`\n"
                 f"   ⏳ زمان باقی‌مانده: *{rem_days} روز* (از {total_days} روز)\n"
                 f"   📅 تاریخ خرید: {date_str}\n"
                 f"   وضعیت: {status_badge}\n"
@@ -686,7 +720,9 @@ def btn_my_account(message, target_uid=None):
         lines.append("\n📦 وضعیت: *شما هنوز لایسنسی خریداری نکرده‌اید.*")
 
     lines.append("\n_(جهت کپی روی کد لایسنس خود ضربه بزنید)_")
-    markup = types.InlineKeyboardMarkup(row_width=2)
+    markup = types.InlineKeyboardMarkup(row_width=1)
+    if has_more:
+        markup.add(types.InlineKeyboardButton(f"📜 مشاهده تمام {len(purchases)} لایسنس (آرشیو کامل)", callback_data="show_all_purchases"))
     markup.add(
         types.InlineKeyboardButton("🛒 خرید اشتراک اختصاصی", callback_data="show_plans"),
         types.InlineKeyboardButton("💬 پشتیبانی", callback_data="start_support")
@@ -844,6 +880,35 @@ def handle_callbacks(call):
         except Exception:
             pass
         btn_my_account(call.message, target_uid=call.from_user.id)
+        return
+
+    # مشاهده کامل تمام لایسنس‌ها (آرشیو کامل)
+    elif data == "show_all_purchases":
+        try:
+            bot.answer_callback_query(call.id)
+        except Exception:
+            pass
+        db = load_db()
+        purchases = db.get("users", {}).get(str(call.from_user.id), {}).get("purchases", [])
+        purchases.sort(key=lambda p: p.get("issued_at", 0) if isinstance(p, dict) else 0, reverse=True)
+        if not purchases:
+            safe_send_message(call.message.chat.id, "هیچ لایسنسی در حساب شما یافت نشد.")
+            return
+
+        now = int(time.time())
+        lines = [f"📜 *آرشیو کامل تمامی {len(purchases)} لایسنس شما:*\n"]
+        for idx, p in enumerate(purchases, 1):
+            issued_at = p.get("issued_at", now)
+            total_days = p.get("days", 30)
+            elapsed_days = (now - issued_at) // 86400
+            rem_days = max(0, total_days - elapsed_days)
+            date_str = time.strftime("%Y/%m/%d %H:%M", time.localtime(issued_at))
+            status_badge = "🟢" if rem_days > 0 else "🔴"
+            p_name = p.get("plan_name", "اشتراک اختصاصی")
+            k_val = p.get("key", "")
+            lines.append(f"{idx}. {escape_md(p_name)} | {status_badge}\n   🔑 `{k_val}`\n   📅 {date_str} (مانده: {rem_days} روز)")
+
+        safe_send_message(call.message.chat.id, "\n".join(lines))
         return
 
     # راهنمای اتصال دستی
