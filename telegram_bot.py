@@ -41,12 +41,29 @@ import license_core
 import telebot
 from telebot import types
 
-# ---------------------------------------------------------------------------
-# Configuration & Credentials
-# ---------------------------------------------------------------------------
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "8890479428:AAF26fUCTleyjuDvyx3BR7mpJ94TcYS3mN8")
-ADMIN_ID = int(os.environ.get("ADMIN_ID", "748538264"))
-CARD_NUMBER = "5892101706458979"
+def _load_bot_secret(key: str, default: str = "") -> str:
+    """Load secret from environment variable (GitHub Actions / Cloud) or local .bot_secrets.json."""
+    val = os.environ.get(key)
+    if val:
+        return val.strip()
+    sec_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".bot_secrets.json")
+    if os.path.exists(sec_path):
+        try:
+            with open(sec_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if key in data and data[key]:
+                    return str(data[key]).strip()
+        except Exception:
+            pass
+    return default
+
+BOT_TOKEN = _load_bot_secret("BOT_TOKEN")
+ADMIN_ID = int(_load_bot_secret("ADMIN_ID", "748538264"))
+CARD_NUMBER = _load_bot_secret("CARD_NUMBER", "5892101706458979")
+
+if not BOT_TOKEN:
+    print("[ERROR] BOT_TOKEN is not configured! Please set BOT_TOKEN env variable or configure .bot_secrets.json.")
+    sys.exit(1)
 
 # Run duration per GitHub Actions session before handing over to the next runner
 MAX_RUN_SECONDS = int(os.environ.get("MAX_RUN_SECONDS", 20400))
@@ -256,6 +273,109 @@ def clear_admin_state():
 # ---------------------------------------------------------------------------
 # Data Persistence & Instant Git Auto-Sync
 # ---------------------------------------------------------------------------
+def migrate_historical_users(data: dict) -> bool:
+    """Ensures all users from orders, issued, user_states, and trial_users are indexed in data['users']."""
+    changed = False
+    now = int(time.time())
+    users_dict = data.setdefault("users", {})
+
+    # 1. From orders
+    for order in data.get("orders", {}).values():
+        if isinstance(order, dict) and "user_id" in order and order["user_id"]:
+            uid_str = str(order["user_id"])
+            if uid_str not in users_dict:
+                users_dict[uid_str] = {
+                    "user_id": order["user_id"],
+                    "first_name": order.get("first_name", "کاربر"),
+                    "username": order.get("username", ""),
+                    "first_seen": order.get("created_at", now),
+                    "last_seen": order.get("created_at", now),
+                    "purchases": []
+                }
+                changed = True
+
+    # 2. From issued keys
+    for rec in data.get("issued", {}).values():
+        if isinstance(rec, dict) and "user_id" in rec and rec["user_id"]:
+            uid_str = str(rec["user_id"])
+            if uid_str not in users_dict:
+                users_dict[uid_str] = {
+                    "user_id": rec["user_id"],
+                    "first_name": "کاربر",
+                    "username": "",
+                    "first_seen": rec.get("issued_at", now),
+                    "last_seen": rec.get("issued_at", now),
+                    "purchases": []
+                }
+                changed = True
+
+    # 3. From user_states
+    for uid_str in data.get("user_states", {}).keys():
+        if uid_str and uid_str.isdigit() and uid_str not in users_dict:
+            users_dict[uid_str] = {
+                "user_id": int(uid_str),
+                "first_name": "کاربر",
+                "username": "",
+                "first_seen": now,
+                "last_seen": now,
+                "purchases": []
+            }
+            changed = True
+
+    # 4. From trial_users
+    trial_data = data.get("trial_users", {})
+    trial_list = trial_data.keys() if isinstance(trial_data, dict) else trial_data
+    for uid in trial_list:
+        uid_str = str(uid)
+        if uid_str.isdigit() and uid_str not in users_dict:
+            users_dict[uid_str] = {
+                "user_id": int(uid_str),
+                "first_name": "کاربر",
+                "username": "",
+                "first_seen": now,
+                "last_seen": now,
+                "purchases": []
+            }
+            changed = True
+
+    return changed
+
+def track_user(user):
+    """Ensure user is saved/updated in db['users'] so stats are always 100% live and complete."""
+    if not user or getattr(user, "is_bot", False):
+        return
+    uid_str = str(user.id)
+    now = int(time.time())
+    db = load_db()
+    u = db["users"].get(uid_str)
+    if not u:
+        db["users"][uid_str] = {
+            "user_id": user.id,
+            "first_name": user.first_name or "",
+            "last_name": user.last_name or "",
+            "username": user.username or "",
+            "first_seen": now,
+            "last_seen": now,
+            "purchases": []
+        }
+        save_db(db)
+    else:
+        changed = False
+        if not u.get("user_id"):
+            u["user_id"] = user.id
+            changed = True
+        if user.first_name and u.get("first_name") != user.first_name:
+            u["first_name"] = user.first_name
+            changed = True
+        if user.username and u.get("username") != user.username:
+            u["username"] = user.username
+            changed = True
+        if now - u.get("last_seen", 0) > 300:
+            u["last_seen"] = now
+            changed = True
+        if changed:
+            save_db(db)
+
 def load_db() -> dict:
     with DB_LOCK:
         if os.path.exists(STATE_FILE):
@@ -268,10 +388,17 @@ def load_db() -> dict:
                     data.setdefault("user_states", {})
                     data.setdefault("admin_states", {})
                     data.setdefault("trial_users", {})
+                    if migrate_historical_users(data):
+                        try:
+                            with open(STATE_FILE, "w", encoding="utf-8") as fw:
+                                json.dump(data, fw, ensure_ascii=False, indent=2)
+                        except Exception:
+                            pass
                     return data
             except Exception as e:
                 print(f"Error loading db: {e}")
-        return {"issued": {}, "orders": {}, "users": {}, "user_states": {}, "admin_states": {}, "trial_users": {}}
+        d = {"issued": {}, "orders": {}, "users": {}, "user_states": {}, "admin_states": {}, "trial_users": {}}
+        return d
 
 _GIT_SYNC_LOCK = threading.Lock()
 _DB_DIRTY = False
@@ -318,6 +445,172 @@ def save_db(db: dict, immediate_sync: bool = False):
             print(f"Error saving db to file: {e}")
             return
     trigger_git_sync(immediate=immediate_sync)
+
+# ---------------------------------------------------------------------------
+# Live Analytics & Broadcast Core
+# ---------------------------------------------------------------------------
+def get_live_bot_stats() -> str:
+    """Returns a rich, real-time statistics report of users, orders, and bot activity."""
+    db = load_db()
+    users = db.get("users", {})
+    now = int(time.time())
+
+    total_users = len(users)
+    active_24h = sum(1 for u in users.values() if isinstance(u, dict) and now - u.get("last_seen", 0) <= 86400)
+    new_today = sum(1 for u in users.values() if isinstance(u, dict) and now - u.get("first_seen", 0) <= 86400)
+    blocked_count = sum(1 for u in users.values() if isinstance(u, dict) and u.get("blocked", False))
+
+    orders = db.get("orders", {})
+    total_orders = len(orders)
+    approved_orders = sum(1 for o in orders.values() if isinstance(o, dict) and o.get("status") == "approved")
+    pending_orders = sum(1 for o in orders.values() if isinstance(o, dict) and o.get("status") == "pending")
+
+    issued = db.get("issued", {})
+    total_sold = len(issued)
+
+    stats = get_inventory_stats()
+    local_time_str = time.strftime("%Y/%m/%d - %H:%M:%S", time.localtime())
+
+    text = (
+        f"📊 *آمار جامع و آنلاین ربات تلگرام (اینترنت آزاد³⁶⁹)*\n\n"
+        f"👥 *آمار کاربران:*\n"
+        f"• کل کاربران ثبت‌شده تا این لحظه: *{total_users} نفر*\n"
+        f"• کاربران فعال در ۲۴ ساعت گذشته: *{active_24h} نفر*\n"
+        f"• کاربران جدید امروز: *{new_today} نفر*\n"
+        f"• کاربران غیرفعال/بلاک‌کرده: *{blocked_count} نفر*\n"
+        f"• وضعیت سرور ربات: *آنلاین و فعال 🟢*\n\n"
+        f"💰 *آمار فروش و لایسنس:*\n"
+        f"• کل سفارشات ثبت‌شده: *{total_orders} عدد*\n"
+        f"• سفارشات موفق (تاییدشده): *{approved_orders} عدد*\n"
+        f"• سفارشات در انتظار بررسی: *{pending_orders} عدد*\n"
+        f"• مجموع کل لایسنس‌های تحویل‌شده: *{total_sold} عدد*\n\n"
+        f"📦 *موجودی آماده فروش انبار:*\n"
+        f"• پلن ۱ ماهه: *{stats.get('1M', {}).get('clean_on_disk', 0)} عدد*\n"
+        f"• پلن ۲ ماهه: *{stats.get('2M', {}).get('clean_on_disk', 0)} عدد*\n"
+        f"• پلن ۳ ماهه: *{stats.get('3M', {}).get('clean_on_disk', 0)} عدد*\n"
+        f"• پلن ۱ ساله: *{stats.get('1Y', {}).get('clean_on_disk', 0)} عدد*\n"
+        f"• مجموع کل موجودی انبار: *{stats.get('_total_available', 0)} عدد*\n\n"
+        f"🕒 تاریخ و ساعت گزارش: `{local_time_str}`"
+    )
+    return text
+
+def _start_broadcast_prompt(chat_id: int):
+    """Initiates the broadcast workflow prompting the admin for message."""
+    set_admin_state({"state": "waiting_broadcast_msg", "time": int(time.time())})
+    db = load_db()
+    total_users = len(db.get("users", {}))
+    prompt_text = (
+        f"📢 *بخش فوروارد و ارسال همگانی به کاربران*\n\n"
+        f"👥 مخاطبان هدف: *{total_users} کاربر ثبت‌شده*\n\n"
+        f"لطفاً پیامی که می‌خواهید برای همه ارسال شود را بفرستید.\n\n"
+        f"💡 *امکانات:* \n"
+        f"• می‌توانید یک پیام یا پست را از کانال (@muntivpn) فوروارد کنید.\n"
+        f"• یا هر نوع متن، عکس، فیلم، وویس، موزیک یا فایل را مستقیماً ارسال فرمایید.\n"
+        f"• در مرحله بعد نحوه ارسال (فوروارد با نام کانال یا کپی مستقیم) از شما پرسیده می‌شود."
+    )
+    markup = types.InlineKeyboardMarkup()
+    markup.add(types.InlineKeyboardButton("❌ انصراف و بازگشت", callback_data="cancel_broadcast"))
+    safe_send_message(chat_id, prompt_text, reply_markup=markup)
+
+def _run_broadcast_thread(chat_id: int, msg_id: int, is_forward: bool):
+    """Asynchronously broadcasts/forwards message to all users safely with rate limiting."""
+    db = load_db()
+    users_dict = db.get("users", {})
+    all_uids = list(users_dict.keys())
+    total = len(all_uids)
+    if total == 0:
+        safe_send_message(ADMIN_ID, "⚠️ هیچ کاربری برای ارسال پیام در دیتابیس یافت نشد!")
+        return
+
+    action_label = "فوروارد" if is_forward else "ارسال مستقیم"
+    status_msg = safe_send_message(
+        ADMIN_ID,
+        f"🚀 *عملیات {action_label} همگانی آغاز شد...*\n\n"
+        f"👥 کل مخاطبان: {total} نفر\n"
+        f"⏳ لطفاً صبور باشید، گزارش درصد پیشرفت ارسال خواهد شد..."
+    )
+    status_msg_id = status_msg.message_id if status_msg else None
+
+    success_count = 0
+    blocked_count = 0
+    fail_count = 0
+    start_time = time.time()
+    last_update_time = time.time()
+
+    for idx, uid_str in enumerate(all_uids, start=1):
+        try:
+            target_id = int(uid_str)
+            if is_forward:
+                bot.forward_message(chat_id=target_id, from_chat_id=chat_id, message_id=msg_id)
+            else:
+                bot.copy_message(chat_id=target_id, from_chat_id=chat_id, message_id=msg_id)
+            success_count += 1
+        except telebot.apihelper.ApiTelegramException as e:
+            err_msg = str(e).lower()
+            if "blocked by the user" in err_msg or "user is deactivated" in err_msg or "chat not found" in err_msg:
+                blocked_count += 1
+                try:
+                    if uid_str in users_dict:
+                        users_dict[uid_str]["blocked"] = True
+                except Exception:
+                    pass
+            elif "flood" in err_msg or "too many requests" in err_msg:
+                import re
+                m = re.search(r'retry after (\d+)', err_msg)
+                wait_sec = int(m.group(1)) if m else 5
+                time.sleep(wait_sec + 1)
+                try:
+                    if is_forward:
+                        bot.forward_message(chat_id=target_id, from_chat_id=chat_id, message_id=msg_id)
+                    else:
+                        bot.copy_message(chat_id=target_id, from_chat_id=chat_id, message_id=msg_id)
+                    success_count += 1
+                except Exception:
+                    fail_count += 1
+            else:
+                fail_count += 1
+        except Exception:
+            fail_count += 1
+
+        # Telegram limit safety sleep (~25 messages/sec)
+        time.sleep(0.04)
+
+        now = time.time()
+        if (idx % 30 == 0 or idx == total) and status_msg_id and (now - last_update_time >= 4 or idx == total):
+            last_update_time = now
+            percent = int((idx / total) * 100)
+            progress_bar = "█" * (percent // 10) + "░" * (10 - (percent // 10))
+            prog_text = (
+                f"📡 *در حال {action_label} همگانی [{percent}%]*\n\n"
+                f"`{progress_bar}` {percent}%\n"
+                f"📊 پیشرفت: {idx} از {total}\n"
+                f"✅ موفق: {success_count}\n"
+                f"🚫 بلاک/غیرفعال: {blocked_count}\n"
+                f"⚠️ خطا: {fail_count}"
+            )
+            try:
+                bot.edit_message_text(
+                    text=prog_text,
+                    chat_id=ADMIN_ID,
+                    message_id=status_msg_id,
+                    parse_mode="Markdown"
+                )
+            except Exception:
+                pass
+
+    elapsed = round(time.time() - start_time, 1)
+    final_report = (
+        f"🏁 *پایان عملیات {action_label} همگانی*\n\n"
+        f"━━━━━━━━━━━━━━━━━━━\n"
+        f"👥 کل مخاطبان هدف: *{total} نفر*\n"
+        f"✅ ارسال‌های موفق: *{success_count} نفر*\n"
+        f"🚫 بلاک یا غیرفعال: *{blocked_count} نفر*\n"
+        f"⚠️ خطاهای متفرقه: *{fail_count} نفر*\n"
+        f"⏱️ مدت زمان ارسال: *{elapsed} ثانیه*\n"
+        f"━━━━━━━━━━━━━━━━━━━"
+    )
+    safe_send_message(ADMIN_ID, final_report)
+    save_db(db, immediate_sync=True)
 
 def get_keys_from_disk(plan_code: str) -> list:
     info = PLANS_INFO.get(plan_code)
@@ -667,9 +960,12 @@ def admin_dashboard_keyboard():
     b4 = types.InlineKeyboardButton("👑 صدور کد ۱ ساله", callback_data="adm_1Y")
     b_stat = types.InlineKeyboardButton("📊 موجودی لایسنس‌ها", callback_data="adm_stats")
     b_pend = types.InlineKeyboardButton("⏳ سفارشات در انتظار", callback_data="adm_pending")
+    b_live = types.InlineKeyboardButton("📈 آمار آنلاین کاربران", callback_data="adm_live_stats")
+    b_bc = types.InlineKeyboardButton("📢 فوروارد و پیام همگانی", callback_data="adm_broadcast")
     markup.add(b1, b2)
     markup.add(b3, b4)
     markup.add(b_stat, b_pend)
+    markup.add(b_live, b_bc)
     return markup
 
 # ---------------------------------------------------------------------------
@@ -677,6 +973,7 @@ def admin_dashboard_keyboard():
 # ---------------------------------------------------------------------------
 @bot.message_handler(commands=["start", "menu"])
 def cmd_start(message):
+    track_user(message.from_user)
     uid = message.from_user.id
     is_admin = (uid == ADMIN_ID)
     name = message.from_user.first_name or "کاربر گرامی"
@@ -912,20 +1209,41 @@ def btn_admin_panel(message):
     if message.from_user.id != ADMIN_ID:
         return
     clear_admin_state()
+    track_user(message.from_user)
     stats = get_inventory_stats()
+    db = load_db()
+    total_users = len(db.get("users", {}))
     text = (
         f"👑 *پنل مدیریت ادمین*\n\n"
+        f"👥 تعداد کل کاربران ثبت‌شده: *{total_users} نفر*\n"
         f"🏷️ موجودی کل کدهای آماده: *{stats['_total_available']} عدد*\n"
         f"📦 مجموع فروش کل: *{stats['_total_sold']} عدد*\n\n"
-        f"جهت صدور دستی لایسنس، مشاهده سفارشات در انتظار یا موجودی، انتخاب کنید:"
+        f"جهت صدور لایسنس، ارسال پیام همگانی، یا مشاهده آمار آنلاین انتخاب فرمایید:"
     )
     safe_send_message(message.chat.id, text, reply_markup=admin_dashboard_keyboard())
+
+@bot.message_handler(commands=["stats", "users"])
+def cmd_stats(message):
+    if message.from_user.id != ADMIN_ID:
+        return
+    track_user(message.from_user)
+    markup = types.InlineKeyboardMarkup()
+    markup.add(types.InlineKeyboardButton("🔄 بروزرسانی آمار", callback_data="adm_live_stats"))
+    safe_send_message(message.chat.id, get_live_bot_stats(), reply_markup=markup)
+
+@bot.message_handler(commands=["broadcast", "fwd", "sendall"])
+def cmd_broadcast(message):
+    if message.from_user.id != ADMIN_ID:
+        return
+    track_user(message.from_user)
+    _start_broadcast_prompt(message.chat.id)
 
 # ---------------------------------------------------------------------------
 # Callback Queries
 # ---------------------------------------------------------------------------
 @bot.callback_query_handler(func=lambda call: True)
 def handle_callbacks(call):
+    track_user(call.from_user)
     data = call.data
     uid = call.from_user.id
 
@@ -1323,6 +1641,81 @@ def handle_callbacks(call):
                 f"🔒 *تضمین عدم تکرار ۱۰۰٪:* این کلید با الگوریتم رمزنگاری یکتا (HMAC-SHA256) تولید شده و در هیچ سیستم دیگری فعال یا مصرف نشده است ✓"
             )
             bot.answer_callback_query(call.id, "لایسنس ۱۰۰٪ یکتا صادر شد ✓")
+        elif action == "live_stats":
+            markup = types.InlineKeyboardMarkup()
+            markup.add(
+                types.InlineKeyboardButton("🔄 بروزرسانی لحظه‌ای", callback_data="adm_live_stats"),
+                types.InlineKeyboardButton("🔙 بازگشت به پنل", callback_data="adm_back_panel")
+            )
+            try:
+                bot.edit_message_text(
+                    text=get_live_bot_stats(),
+                    chat_id=call.message.chat.id,
+                    message_id=call.message.message_id,
+                    reply_markup=markup,
+                    parse_mode="Markdown"
+                )
+            except Exception:
+                safe_send_message(call.message.chat.id, get_live_bot_stats(), reply_markup=markup)
+            bot.answer_callback_query(call.id, "آمار بروزرسانی شد ✓")
+            return
+        elif action == "broadcast":
+            bot.answer_callback_query(call.id)
+            _start_broadcast_prompt(call.message.chat.id)
+            return
+        elif action == "back_panel":
+            stats = get_inventory_stats()
+            db = load_db()
+            total_users = len(db.get("users", {}))
+            text = (
+                f"👑 *پنل مدیریت ادمین*\n\n"
+                f"👥 تعداد کل کاربران ثبت‌شده: *{total_users} نفر*\n"
+                f"🏷️ موجودی کل کدهای آماده: *{stats['_total_available']} عدد*\n"
+                f"📦 مجموع فروش کل: *{stats['_total_sold']} عدد*\n\n"
+                f"جهت صدور لایسنس، ارسال پیام همگانی، یا مشاهده آمار آنلاین انتخاب فرمایید:"
+            )
+            try:
+                bot.edit_message_text(text, call.message.chat.id, call.message.message_id, reply_markup=admin_dashboard_keyboard(), parse_mode="Markdown")
+            except Exception:
+                safe_send_message(call.message.chat.id, text, reply_markup=admin_dashboard_keyboard())
+            bot.answer_callback_query(call.id)
+            return
+
+    elif data == "cancel_broadcast":
+        clear_admin_state()
+        try:
+            bot.edit_message_text(
+                "❌ عملیات ارسال همگانی لغو شد.",
+                chat_id=call.message.chat.id,
+                message_id=call.message.message_id,
+                reply_markup=None
+            )
+        except Exception:
+            safe_send_message(call.message.chat.id, "❌ عملیات ارسال همگانی لغو شد.")
+        bot.answer_callback_query(call.id, "لغو شد")
+
+    elif data in ("do_fwd_all", "do_copy_all"):
+        if uid != ADMIN_ID:
+            bot.answer_callback_query(call.id, "دسترسی غیرمجاز!")
+            return
+        adm_state = get_admin_state()
+        if adm_state.get("state") != "confirm_broadcast":
+            bot.answer_callback_query(call.id, "پیام برای ارسال یافت نشد یا منقضی شده است.", show_alert=True)
+            return
+        chat_id = adm_state.get("chat_id")
+        msg_id = adm_state.get("msg_id")
+        is_fwd = (data == "do_fwd_all")
+        clear_admin_state()
+        try:
+            bot.delete_message(call.message.chat.id, call.message.message_id)
+        except Exception:
+            pass
+        bot.answer_callback_query(call.id, "ارسال همگانی آغاز شد...")
+        threading.Thread(
+            target=_run_broadcast_thread,
+            args=(chat_id, msg_id, is_fwd),
+            daemon=True
+        ).start()
 
     # انتخاب نوع تصویر نامشخص
     elif data.startswith("set_rec_"):
@@ -1410,9 +1803,37 @@ def process_receipt_submission(message, uid: int, plan_code: str, file_id: str, 
 # ---------------------------------------------------------------------------
 # Photo & Document Handlers (Receipt Submission & Support Attachments)
 # ---------------------------------------------------------------------------
-@bot.message_handler(content_types=["photo", "document", "voice", "audio", "video"])
+@bot.message_handler(content_types=["photo", "document", "voice", "audio", "video", "animation", "sticker", "video_note"])
 def handle_photos_and_docs(message):
+    track_user(message.from_user)
     uid = message.from_user.id
+
+    # بررسی آیا ادمین در حال ارسال رسانه برای پیام همگانی است
+    if uid == ADMIN_ID:
+        adm_state = get_admin_state()
+        if adm_state.get("state") == "waiting_broadcast_msg":
+            set_admin_state({
+                "state": "confirm_broadcast",
+                "chat_id": message.chat.id,
+                "msg_id": message.message_id,
+                "time": int(time.time())
+            })
+            markup = types.InlineKeyboardMarkup(row_width=2)
+            markup.add(
+                types.InlineKeyboardButton("🔄 فوروارد همگانی (Forward)", callback_data="do_fwd_all"),
+                types.InlineKeyboardButton("📋 کپی و ارسال مستقیم (Copy)", callback_data="do_copy_all")
+            )
+            markup.add(types.InlineKeyboardButton("❌ انصراف و لغو", callback_data="cancel_broadcast"))
+            safe_reply_to(
+                message,
+                "📢 *رسانه / پست شما جهت ارسال همگانی دریافت شد.*\n\n"
+                "لطفاً نحوه ارسال به کاربران را انتخاب کنید:\n\n"
+                "• *فوروارد:* پیام با نقل‌قول رسمی (Forward) و نام کانال ارسال می‌شود.\n"
+                "• *کپی مستقیم:* پیام عینا و بدون نقل‌قول برای کاربران ارسال می‌شود.",
+                reply_markup=markup
+            )
+            return
+
     u_state = get_user_state(uid)
     state_type = u_state.get("state")
 
@@ -1427,6 +1848,12 @@ def handle_photos_and_docs(message):
         file_id = message.audio.file_id
     elif message.content_type == "video":
         file_id = message.video.file_id
+    elif message.content_type == "animation":
+        file_id = message.animation.file_id
+    elif message.content_type == "sticker":
+        file_id = message.sticker.file_id
+    elif message.content_type == "video_note":
+        file_id = message.video_note.file_id
 
     caption = message.caption or ""
 
@@ -1518,8 +1945,45 @@ def handle_photos_and_docs(message):
 # ---------------------------------------------------------------------------
 @bot.message_handler(func=lambda m: True)
 def handle_general_text(message):
+    track_user(message.from_user)
     uid = message.from_user.id
     text = (message.text or "").strip()
+
+    # بررسی آیا ادمین در حال ارسال متن یا پست برای پیام همگانی است
+    if uid == ADMIN_ID:
+        adm_state = get_admin_state()
+        if adm_state.get("state") == "waiting_broadcast_msg":
+            menu_buttons_check = [
+                "🛒 خرید اشتراک اختصاصی", "👤 حساب کاربری من", "📘 آموزش اتصال دستی",
+                "❓ راهنمای فعال‌سازی", "💬 پشتیبانی", "👑 پنل مدیریت ادمین"
+            ]
+            if text in menu_buttons_check or text in ["❌ انصراف", "انصراف", "/cancel"]:
+                clear_admin_state()
+                if text not in menu_buttons_check:
+                    safe_reply_to(message, "❌ عملیات ارسال همگانی لغو شد.")
+                    return
+            else:
+                set_admin_state({
+                    "state": "confirm_broadcast",
+                    "chat_id": message.chat.id,
+                    "msg_id": message.message_id,
+                    "time": int(time.time())
+                })
+                markup = types.InlineKeyboardMarkup(row_width=2)
+                markup.add(
+                    types.InlineKeyboardButton("🔄 فوروارد همگانی (Forward)", callback_data="do_fwd_all"),
+                    types.InlineKeyboardButton("📋 کپی و ارسال مستقیم (Copy)", callback_data="do_copy_all")
+                )
+                markup.add(types.InlineKeyboardButton("❌ انصراف و لغو", callback_data="cancel_broadcast"))
+                safe_reply_to(
+                    message,
+                    "📢 *پیام / پست شما جهت ارسال همگانی دریافت شد.*\n\n"
+                    "لطفاً نحوه ارسال به کاربران را انتخاب فرمایید:\n\n"
+                    "• *فوروارد:* پیام با نقل‌قول رسمی (Forward) و نام کانال ارسال می‌شود.\n"
+                    "• *کپی مستقیم:* متن پیام عینا و بدون نقل‌قول برای کاربران ارسال می‌شود.",
+                    reply_markup=markup
+                )
+                return
 
     # اگر کاربر روی یکی از دکمه‌های منوی اصلی زده باشد، هرگونه استیت قبلی ریست شود و دستور اجرا شود
     menu_buttons = [
