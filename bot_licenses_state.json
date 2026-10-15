@@ -536,6 +536,12 @@
       "user_id": 6460074,
       "issued_at": 1792064727,
       "method": "crypto_unique"
+    },
+    "AZ1Y-3DD1-B978-9A2E": {
+      "plan": "1Y",
+      "user_id": 752629766,
+      "issued_at": 1792064772,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -1803,6 +1809,23 @@
       "approved_at": 1792064495,
       "approved_by": 748538264,
       "key": "AZ1Y-BCC9-F67F-D6BC"
+    },
+    "ORD_1792064767_752629766": {
+      "order_id": "ORD_1792064767_752629766",
+      "user_id": 752629766,
+      "username": "kazemi_naser_73",
+      "first_name": "Naser",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "approved",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAIz6WrQvP6WKb9h94QOjbkF9MSucLpnAAJSEGsbWiyBUoWpWBLaf8nVAQADAgADeQADPQQ",
+      "card_number": "5047061670546072",
+      "created_at": 1792064767,
+      "caption": "",
+      "approved_at": 1792064772,
+      "approved_by": 748538264,
+      "key": "AZ1Y-3DD1-B978-9A2E"
     }
   },
   "users": {
@@ -4432,7 +4455,15 @@
       "username": "kazemi_naser_73",
       "first_seen": 1792064621,
       "last_seen": 1792064621,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-3DD1-B978-9A2E",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792064772,
+          "days": 365
+        }
+      ]
     },
     "111157928": {
       "user_id": 111157928,
@@ -5022,11 +5053,11 @@
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 1,
+    "count": 2,
     "threshold": 10,
     "stats": {
       "5892101706458979": 10,
-      "5047061670546072": 1
+      "5047061670546072": 2
     }
   }
 }
