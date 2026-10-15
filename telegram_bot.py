@@ -58,8 +58,48 @@ def _load_bot_secret(key: str, default: str = "") -> str:
     return default
 
 BOT_TOKEN = _load_bot_secret("BOT_TOKEN")
-ADMIN_ID = int(_load_bot_secret("ADMIN_ID", "748538264"))
-CARD_NUMBER = _load_bot_secret("CARD_NUMBER", "5892101706458979")
+
+# Multi-Admin Support
+# Primary: 748538264 (Mahdi)
+# Co-Admin: 6465999269 (Amin @AMIN_4918)
+def _load_admin_ids() -> list:
+    base_admins = {748538264, 6465999269}
+    env_admin = _load_bot_secret("ADMIN_ID", "")
+    if env_admin:
+        for part in env_admin.replace(";", ",").split(","):
+            part = part.strip()
+            if part.isdigit():
+                base_admins.add(int(part))
+    return sorted(list(base_admins))
+
+ADMIN_IDS = _load_admin_ids()
+ADMIN_ID = ADMIN_IDS[0]
+
+def is_admin(user_id: int) -> bool:
+    """Checks whether user_id is in the authorized admin list."""
+    try:
+        return int(user_id) in ADMIN_IDS
+    except (ValueError, TypeError):
+        return False
+
+# Multi-Card Rotation System (Prevents hitting daily bank transfer limits)
+DEFAULT_CARDS = ["5892101706458979", "5047061670546072"]
+CARD_ROTATION_THRESHOLD = 10
+
+def _load_card_numbers() -> list:
+    cards = list(DEFAULT_CARDS)
+    raw_env = _load_bot_secret("CARD_NUMBERS", "")
+    if raw_env:
+        custom_cards = [c.strip() for c in raw_env.replace(";", ",").split(",") if c.strip().isdigit() and len(c.strip()) >= 16]
+        if custom_cards:
+            return custom_cards
+    single = _load_bot_secret("CARD_NUMBER", "")
+    if single and single not in cards and single.isdigit() and len(single) >= 16:
+        cards.append(single)
+    return cards
+
+CARD_NUMBERS = _load_card_numbers()
+CARD_NUMBER = CARD_NUMBERS[0]
 
 if not BOT_TOKEN:
     print("[ERROR] BOT_TOKEN is not configured! Please set BOT_TOKEN env variable or configure .bot_secrets.json.")
@@ -224,6 +264,50 @@ def safe_send_document(chat_id: int, document, caption: str = "", reply_markup=N
             print(f"[safe_send_document] Fatal document send failure to {chat_id}: {e2}")
             return None
 
+def notify_admins_message(text: str, reply_markup=None, disable_web_page_preview: bool = True):
+    """Sends a message to all registered admins."""
+    res = None
+    for aid in ADMIN_IDS:
+        try:
+            r = safe_send_message(aid, text, reply_markup=reply_markup, disable_web_page_preview=disable_web_page_preview)
+            if not res:
+                res = r
+        except Exception as e:
+            print(f"[notify_admins_message] Error sending to admin {aid}: {e}")
+    return res
+
+def notify_admins_photo(photo, caption: str = "", reply_markup=None):
+    """Sends a photo to all registered admins."""
+    res = None
+    for aid in ADMIN_IDS:
+        try:
+            r = safe_send_photo(aid, photo, caption=caption, reply_markup=reply_markup)
+            if not res:
+                res = r
+        except Exception as e:
+            print(f"[notify_admins_photo] Error sending photo to admin {aid}: {e}")
+    return res
+
+def notify_admins_document(document, caption: str = "", reply_markup=None):
+    """Sends a document to all registered admins."""
+    res = None
+    for aid in ADMIN_IDS:
+        try:
+            r = safe_send_document(aid, document, caption=caption, reply_markup=reply_markup)
+            if not res:
+                res = r
+        except Exception as e:
+            print(f"[notify_admins_document] Error sending doc to admin {aid}: {e}")
+    return res
+
+def forward_to_admins(from_chat_id: int, message_id: int):
+    """Forwards a message to all registered admins."""
+    for aid in ADMIN_IDS:
+        try:
+            bot.forward_message(aid, from_chat_id, message_id)
+        except Exception as e:
+            print(f"[forward_to_admins] Error forwarding to admin {aid}: {e}")
+
 # ---------------------------------------------------------------------------
 # State Management Helpers
 # ---------------------------------------------------------------------------
@@ -249,26 +333,90 @@ def clear_user_state(uid: int):
         db["user_states"].pop(str(uid), None)
         save_db(db)
 
-def set_admin_state(state_data: dict):
-    ADMIN_STATES[ADMIN_ID] = state_data
+def set_admin_state(state_data: dict, admin_id: int = None):
+    aid = admin_id or ADMIN_ID
+    ADMIN_STATES[aid] = state_data
     db = load_db()
-    db["admin_states"] = state_data
+    ast = db.setdefault("admin_states", {})
+    if isinstance(ast, dict):
+        ast[str(aid)] = state_data
     save_db(db)
 
-def get_admin_state() -> dict:
-    if ADMIN_ID in ADMIN_STATES:
-        return ADMIN_STATES[ADMIN_ID]
+def get_admin_state(admin_id: int = None) -> dict:
+    aid = admin_id or ADMIN_ID
+    if aid in ADMIN_STATES:
+        return ADMIN_STATES[aid]
     db = load_db()
-    st = db.get("admin_states", {})
-    if st:
-        ADMIN_STATES[ADMIN_ID] = st
-    return st
+    ast = db.get("admin_states", {})
+    if isinstance(ast, dict):
+        if str(aid) in ast and isinstance(ast[str(aid)], dict):
+            ADMIN_STATES[aid] = ast[str(aid)]
+            return ast[str(aid)]
+        if "state" in ast:
+            return ast
+    return {}
 
-def clear_admin_state():
-    ADMIN_STATES.pop(ADMIN_ID, None)
+def clear_admin_state(admin_id: int = None):
     db = load_db()
-    db["admin_states"] = {}
-    save_db(db)
+    if admin_id:
+        ADMIN_STATES.pop(admin_id, None)
+        if isinstance(db.get("admin_states"), dict):
+            db["admin_states"].pop(str(admin_id), None)
+            save_db(db)
+    else:
+        ADMIN_STATES.clear()
+        db["admin_states"] = {}
+        save_db(db)
+
+# ---------------------------------------------------------------------------
+# Multi-Card Rotation System
+# ---------------------------------------------------------------------------
+def get_card_state(db: dict = None) -> dict:
+    """Returns the card rotation state dict from db, initializing defaults if missing."""
+    if db is None:
+        db = load_db()
+    c_state = db.setdefault("card_state", {})
+    c_state.setdefault("current_index", 0)
+    c_state.setdefault("count", 0)
+    c_state.setdefault("threshold", CARD_ROTATION_THRESHOLD)
+    c_state.setdefault("stats", {})
+    for c in CARD_NUMBERS:
+        c_state["stats"].setdefault(c, 0)
+    return c_state
+
+def get_active_card_number() -> str:
+    """Returns the currently active bank card number for user payments."""
+    db = load_db()
+    c_state = get_card_state(db)
+    idx = c_state.get("current_index", 0) % len(CARD_NUMBERS)
+    return CARD_NUMBERS[idx]
+
+def record_card_deposit_and_rotate(db: dict) -> tuple:
+    """
+    Called upon every incoming payment receipt.
+    Increments current card deposit counter.
+    When counter reaches threshold (default 10), rotates to next card.
+    Returns: (active_card, did_rotate, next_card)
+    """
+    c_state = get_card_state(db)
+    idx = c_state.get("current_index", 0) % len(CARD_NUMBERS)
+    active_card = CARD_NUMBERS[idx]
+
+    c_state["count"] = c_state.get("count", 0) + 1
+    c_state["stats"][active_card] = c_state["stats"].get(active_card, 0) + 1
+
+    did_rotate = False
+    next_card = active_card
+    threshold = c_state.get("threshold", CARD_ROTATION_THRESHOLD)
+
+    if c_state["count"] >= threshold:
+        new_idx = (idx + 1) % len(CARD_NUMBERS)
+        c_state["current_index"] = new_idx
+        c_state["count"] = 0
+        next_card = CARD_NUMBERS[new_idx]
+        did_rotate = True
+
+    return (active_card, did_rotate, next_card)
 
 # ---------------------------------------------------------------------------
 # Data Persistence & Instant Git Auto-Sync
@@ -469,6 +617,10 @@ def get_live_bot_stats() -> str:
     total_sold = len(issued)
 
     stats = get_inventory_stats()
+    c_state = get_card_state(db)
+    active_card = get_active_card_number()
+    c_cnt = c_state.get("count", 0)
+    c_threshold = c_state.get("threshold", CARD_ROTATION_THRESHOLD)
     local_time_str = time.strftime("%Y/%m/%d - %H:%M:%S", time.localtime())
 
     text = (
@@ -484,6 +636,10 @@ def get_live_bot_stats() -> str:
         f"• سفارشات موفق (تاییدشده): *{approved_orders} عدد*\n"
         f"• سفارشات در انتظار بررسی: *{pending_orders} عدد*\n"
         f"• مجموع کل لایسنس‌های تحویل‌شده: *{total_sold} عدد*\n\n"
+        f"💳 *وضعیت کارت‌های بانکی واریز:*\n"
+        f"• شماره کارت فعال فعلی: `{active_card}`\n"
+        f"• شمارنده چرخش هوشمند: *{c_cnt} از {c_threshold} واریز*\n"
+        f"• تعداد کارت‌های در نوبت: *{len(CARD_NUMBERS)} عدد*\n\n"
         f"📦 *موجودی آماده فروش انبار:*\n"
         f"• پلن ۱ ماهه: *{stats.get('1M', {}).get('clean_on_disk', 0)} عدد*\n"
         f"• پلن ۲ ماهه: *{stats.get('2M', {}).get('clean_on_disk', 0)} عدد*\n"
@@ -496,7 +652,7 @@ def get_live_bot_stats() -> str:
 
 def _start_broadcast_prompt(chat_id: int):
     """Initiates the broadcast workflow prompting the admin for message."""
-    set_admin_state({"state": "waiting_broadcast_msg", "time": int(time.time())})
+    set_admin_state({"state": "waiting_broadcast_msg", "time": int(time.time())}, admin_id=chat_id)
     db = load_db()
     total_users = len(db.get("users", {}))
     prompt_text = (
@@ -519,12 +675,12 @@ def _run_broadcast_thread(chat_id: int, msg_id: int, is_forward: bool):
     all_uids = list(users_dict.keys())
     total = len(all_uids)
     if total == 0:
-        safe_send_message(ADMIN_ID, "⚠️ هیچ کاربری برای ارسال پیام در دیتابیس یافت نشد!")
+        safe_send_message(chat_id, "⚠️ هیچ کاربری برای ارسال پیام در دیتابیس یافت نشد!")
         return
 
     action_label = "فوروارد" if is_forward else "ارسال مستقیم"
     status_msg = safe_send_message(
-        ADMIN_ID,
+        chat_id,
         f"🚀 *عملیات {action_label} همگانی آغاز شد...*\n\n"
         f"👥 کل مخاطبان: {total} نفر\n"
         f"⏳ لطفاً صبور باشید، گزارش درصد پیشرفت ارسال خواهد شد..."
@@ -591,7 +747,7 @@ def _run_broadcast_thread(chat_id: int, msg_id: int, is_forward: bool):
             try:
                 bot.edit_message_text(
                     text=prog_text,
-                    chat_id=ADMIN_ID,
+                    chat_id=chat_id,
                     message_id=status_msg_id,
                     parse_mode="Markdown"
                 )
@@ -609,7 +765,7 @@ def _run_broadcast_thread(chat_id: int, msg_id: int, is_forward: bool):
         f"⏱️ مدت زمان ارسال: *{elapsed} ثانیه*\n"
         f"━━━━━━━━━━━━━━━━━━━"
     )
-    safe_send_message(ADMIN_ID, final_report)
+    safe_send_message(chat_id, final_report)
     save_db(db, immediate_sync=True)
 
 def get_keys_from_disk(plan_code: str) -> list:
@@ -962,10 +1118,12 @@ def admin_dashboard_keyboard():
     b_pend = types.InlineKeyboardButton("⏳ سفارشات در انتظار", callback_data="adm_pending")
     b_live = types.InlineKeyboardButton("📈 آمار آنلاین کاربران", callback_data="adm_live_stats")
     b_bc = types.InlineKeyboardButton("📢 فوروارد و پیام همگانی", callback_data="adm_broadcast")
+    b_cards = types.InlineKeyboardButton("💳 مدیریت و چرخش کارت‌ها", callback_data="adm_cards")
     markup.add(b1, b2)
     markup.add(b3, b4)
     markup.add(b_stat, b_pend)
     markup.add(b_live, b_bc)
+    markup.add(b_cards)
     return markup
 
 # ---------------------------------------------------------------------------
@@ -975,7 +1133,7 @@ def admin_dashboard_keyboard():
 def cmd_start(message):
     track_user(message.from_user)
     uid = message.from_user.id
-    is_admin = (uid == ADMIN_ID)
+    admin_flag = is_admin(uid)
     name = message.from_user.first_name or "کاربر گرامی"
     clear_user_state(uid)
 
@@ -993,7 +1151,7 @@ def cmd_start(message):
         f"جهت خرید اشتراک یا مشاهده لایسنس‌های خود، از منوی زیر استفاده فرمایید:"
     )
     safe_send_message(message.chat.id, welcome_text, reply_markup=welcome_inline_keyboard())
-    safe_send_message(message.chat.id, "منوی اصلی کیبورد نیز فعال شد 👇", reply_markup=main_menu_keyboard(is_admin))
+    safe_send_message(message.chat.id, "منوی اصلی کیبورد نیز فعال شد 👇", reply_markup=main_menu_keyboard(admin_flag))
 
 @bot.message_handler(func=lambda m: m.text == "🛒 خرید اشتراک اختصاصی")
 def btn_buy_plans(message):
@@ -1206,9 +1364,9 @@ def btn_support(message, target_uid=None):
 
 @bot.message_handler(func=lambda m: m.text == "👑 پنل مدیریت ادمین")
 def btn_admin_panel(message):
-    if message.from_user.id != ADMIN_ID:
+    if not is_admin(message.from_user.id):
         return
-    clear_admin_state()
+    clear_admin_state(message.from_user.id)
     track_user(message.from_user)
     stats = get_inventory_stats()
     db = load_db()
@@ -1218,13 +1376,13 @@ def btn_admin_panel(message):
         f"👥 تعداد کل کاربران ثبت‌شده: *{total_users} نفر*\n"
         f"🏷️ موجودی کل کدهای آماده: *{stats['_total_available']} عدد*\n"
         f"📦 مجموع فروش کل: *{stats['_total_sold']} عدد*\n\n"
-        f"جهت صدور لایسنس، ارسال پیام همگانی، یا مشاهده آمار آنلاین انتخاب فرمایید:"
+        f"جهت صدور لایسنس، ارسال پیام همگانی، مدیریت کارت‌ها یا مشاهده آمار آنلاین انتخاب فرمایید:"
     )
     safe_send_message(message.chat.id, text, reply_markup=admin_dashboard_keyboard())
 
 @bot.message_handler(commands=["stats", "users"])
 def cmd_stats(message):
-    if message.from_user.id != ADMIN_ID:
+    if not is_admin(message.from_user.id):
         return
     track_user(message.from_user)
     markup = types.InlineKeyboardMarkup()
@@ -1233,7 +1391,7 @@ def cmd_stats(message):
 
 @bot.message_handler(commands=["broadcast", "fwd", "sendall"])
 def cmd_broadcast(message):
-    if message.from_user.id != ADMIN_ID:
+    if not is_admin(message.from_user.id):
         return
     track_user(message.from_user)
     _start_broadcast_prompt(message.chat.id)
@@ -1356,12 +1514,13 @@ def handle_callbacks(call):
             "time": int(time.time())
         })
 
+        active_card = get_active_card_number()
         invoice_text = (
             f"📋 *فاکتور سفارش شما:*\n\n"
             f"🔹 پلن انتخابی: *{escape_md(info['name'])}*\n"
             f"💰 مبلغ قابل پرداخت: *{info['price']}*\n\n"
             f"💳 *شماره کارت جهت واریز:*\n"
-            f"`{CARD_NUMBER}`\n"
+            f"`{active_card}`\n"
             f"_(برای کپی شماره کارت روی آن ضربه بزنید)_\n\n"
             f"📌 *دستورالعمل پرداخت:*\n"
             f"۱. مبلغ فوق را به شماره کارت بالا واریز فرمایید.\n"
@@ -1422,17 +1581,17 @@ def handle_callbacks(call):
         bot.answer_callback_query(call.id, "لغو شد")
 
     elif data == "cancel_admin_reply":
-        if uid == ADMIN_ID:
-            clear_admin_state()
+        if is_admin(uid):
+            clear_admin_state(uid)
             try:
                 bot.edit_message_text("❌ ارسال پاسخ به کاربر لغو شد.", call.message.chat.id, call.message.message_id)
             except Exception:
-                safe_send_message(ADMIN_ID, "❌ ارسال پاسخ به کاربر لغو شد.")
+                safe_send_message(call.message.chat.id, "❌ ارسال پاسخ به کاربر لغو شد.")
             bot.answer_callback_query(call.id, "لغو شد")
 
     # تیکت پشتیبانی: شروع پیام به ادمین
     elif data == "ticket_new":
-        if uid != ADMIN_ID:
+        if not is_admin(uid):
             is_open, cur_time = is_support_working_hours()
             if not is_open:
                 try:
@@ -1456,11 +1615,11 @@ def handle_callbacks(call):
 
     # ادمین روی دکمه «پاسخ به کاربر» می‌زند
     elif data.startswith("reply_user_"):
-        if uid != ADMIN_ID:
+        if not is_admin(uid):
             bot.answer_callback_query(call.id, "دسترسی غیرمجاز!", show_alert=True)
             return
         target_uid = data.replace("reply_user_", "")
-        set_admin_state({"state": "replying_to_user", "target_uid": target_uid})
+        set_admin_state({"state": "replying_to_user", "target_uid": target_uid}, admin_id=uid)
 
         prompt_admin = (
             f"✍️ *پاسخ دادن به کاربر `{target_uid}`:*\n\n"
@@ -1469,12 +1628,12 @@ def handle_callbacks(call):
         )
         markup = types.InlineKeyboardMarkup()
         markup.add(types.InlineKeyboardButton("❌ انصراف از پاسخ", callback_data="cancel_admin_reply"))
-        safe_send_message(ADMIN_ID, prompt_admin, reply_markup=markup)
+        safe_send_message(call.message.chat.id, prompt_admin, reply_markup=markup)
         bot.answer_callback_query(call.id, "آماده دریافت پیام شما")
 
     # تایید رسید پرداخت توسط ادمین
     elif data.startswith("appr_"):
-        if uid != ADMIN_ID:
+        if not is_admin(uid):
             bot.answer_callback_query(call.id, "دسترسی غیرمجاز!", show_alert=True)
             return
 
@@ -1494,12 +1653,13 @@ def handle_callbacks(call):
 
         key = issue_key_for_plan_atomic(db, plan_code, buyer_id)
         if not key:
-            safe_send_message(ADMIN_ID, f"⚠️ خطا: انبار کدهای {info['name']} خالی است!")
+            safe_send_message(call.message.chat.id, f"⚠️ خطا: انبار کدهای {info['name']} خالی است!")
             bot.answer_callback_query(call.id, "انبار خالی است!", show_alert=True)
             return
 
         order["status"] = "approved"
         order["approved_at"] = int(time.time())
+        order["approved_by"] = uid
         order["key"] = key
         save_db(db, immediate_sync=True)
 
@@ -1541,7 +1701,7 @@ def handle_callbacks(call):
 
     # رد رسید پرداخت توسط ادمین
     elif data.startswith("rej_"):
-        if uid != ADMIN_ID:
+        if not is_admin(uid):
             bot.answer_callback_query(call.id, "دسترسی غیرمجاز!", show_alert=True)
             return
 
@@ -1555,6 +1715,7 @@ def handle_callbacks(call):
         buyer_id = order["user_id"]
         order["status"] = "rejected"
         order["rejected_at"] = int(time.time())
+        order["rejected_by"] = uid
         save_db(db)
 
         reject_msg = (
@@ -1576,7 +1737,8 @@ def handle_callbacks(call):
 
     # گزینه‌های پنل مدیریت ادمین
     elif data.startswith("adm_"):
-        if uid != ADMIN_ID:
+        if not is_admin(uid):
+            bot.answer_callback_query(call.id, "دسترسی غیرمجاز!", show_alert=True)
             return
         action = data.replace("adm_", "")
         if action == "stats":
@@ -1590,16 +1752,16 @@ def handle_callbacks(call):
                 st = stats[p_code]
                 lines.append(f"• *{st['name']}:* {st['clean_on_disk']} عدد در انبار دیسک | صدور کریپتو: فعال")
             lines.append(f"\n📦 *کل لایسنس‌های صادرشده تا کنون:* {stats['_total_sold']} عدد")
-            safe_send_message(ADMIN_ID, "\n".join(lines))
+            safe_send_message(call.message.chat.id, "\n".join(lines))
             bot.answer_callback_query(call.id)
         elif action == "pending":
             db = load_db()
             pending_orders = [o for o in db.get("orders", {}).values() if o.get("status") == "pending"]
             if not pending_orders:
-                safe_send_message(ADMIN_ID, "✅ هیچ سفارش در انتخابی وجود ندارد.")
+                safe_send_message(call.message.chat.id, "✅ هیچ سفارش در انتخابی وجود ندارد.")
                 bot.answer_callback_query(call.id, "بدون سفارش در انتظار")
                 return
-            safe_send_message(ADMIN_ID, f"⏳ *تعداد سفارشات در انتظار بررسی: {len(pending_orders)} عدد*")
+            safe_send_message(call.message.chat.id, f"⏳ *تعداد سفارشات در انتظار بررسی: {len(pending_orders)} عدد*")
             for o in pending_orders[-5:]:
                 o_id = o.get("order_id")
                 p_code = o.get("plan_code", "1M")
@@ -1607,12 +1769,15 @@ def handle_callbacks(call):
                 p_name = p_info.get("name", p_code)
                 rec_text_str = escape_md(o.get('receipt_text', ''))
                 rec_note = f"متن: {rec_text_str}\n" if rec_text_str else ""
+                card_used = o.get("card_number", "")
+                card_note = f"💳 کارت: `{card_used}`\n" if card_used else ""
                 o_msg = (
                     f"🏷️ سفارش: `{o_id}`\n"
                     f"👤 کاربر: {escape_md(o.get('first_name', ''))} (@{escape_md(o.get('username', 'ندارد'))})\n"
                     f"🆔 آیدی: `{o.get('user_id')}`\n"
                     f"📦 پلن: *{escape_md(p_name)}* | {o.get('price', '')}\n"
                     f"نوع رسید: {o.get('receipt_type', 'نامشخص')}\n"
+                    f"{card_note}"
                     f"{rec_note}"
                 )
                 markup = types.InlineKeyboardMarkup(row_width=2)
@@ -1620,20 +1785,20 @@ def handle_callbacks(call):
                     types.InlineKeyboardButton("✅ تایید", callback_data=f"appr_{o_id}"),
                     types.InlineKeyboardButton("❌ رد", callback_data=f"rej_{o_id}")
                 )
-                safe_send_message(ADMIN_ID, o_msg, reply_markup=markup)
+                safe_send_message(call.message.chat.id, o_msg, reply_markup=markup)
             bot.answer_callback_query(call.id)
         elif action in PLANS_INFO:
             db = load_db()
-            key = issue_key_for_plan_atomic(db, action, ADMIN_ID)
+            key = issue_key_for_plan_atomic(db, action, uid)
             if not key:
-                safe_send_message(ADMIN_ID, "⚠️ خطا در تولید لایسنس جدید!")
+                safe_send_message(call.message.chat.id, "⚠️ خطا در تولید لایسنس جدید!")
                 bot.answer_callback_query(call.id, "خطا!")
                 return
             save_db(db, immediate_sync=True)
             p_name = PLANS_INFO[action]["name"]
             p_days = PLANS_INFO[action]["days"]
             safe_send_message(
-                ADMIN_ID,
+                call.message.chat.id,
                 f"✅ *لایسنس دستی جدید {escape_md(p_name)}:*\n\n"
                 f"`{key}`\n\n"
                 f"_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
@@ -1641,6 +1806,77 @@ def handle_callbacks(call):
                 f"🔒 *تضمین عدم تکرار ۱۰۰٪:* این کلید با الگوریتم رمزنگاری یکتا (HMAC-SHA256) تولید شده و در هیچ سیستم دیگری فعال یا مصرف نشده است ✓"
             )
             bot.answer_callback_query(call.id, "لایسنس ۱۰۰٪ یکتا صادر شد ✓")
+        elif action == "cards":
+            db = load_db()
+            c_state = get_card_state(db)
+            cur_idx = c_state.get("current_index", 0) % len(CARD_NUMBERS)
+            active_card = CARD_NUMBERS[cur_idx]
+            cnt = c_state.get("count", 0)
+            threshold = c_state.get("threshold", CARD_ROTATION_THRESHOLD)
+            stats_dict = c_state.get("stats", {})
+
+            card_lines = []
+            for i, c in enumerate(CARD_NUMBERS, start=1):
+                badge = "🟢 فعال" if (i - 1) == cur_idx else "⏳ در نوبت"
+                c_total = stats_dict.get(c, 0)
+                card_lines.append(f"{i}. `{c}` ({badge})\n   📊 مجموع واریزی‌های ثبت‌شده: *{c_total} عدد*")
+
+            msg_text = (
+                f"💳 *مدیریت و چرخش خودکار شماره کارت‌ها*\n\n"
+                f"🎯 *شماره کارت فعال کنونی:*\n`{active_card}`\n\n"
+                f"🔄 *وضعیت چرخش هوشمند:*\n"
+                f"• تعداد واریزی‌های ثبت‌شده: *{cnt} از {threshold} واریز*\n"
+                f"• هر ۱۰ رسید واریز، ربات خودکار به کارت بعدی تغییر می‌کند.\n\n"
+                f"📋 *فهرست کارت‌های تعریف‌شده در سیستم:*\n\n" + "\n\n".join(card_lines)
+            )
+            markup = types.InlineKeyboardMarkup(row_width=1)
+            markup.add(
+                types.InlineKeyboardButton("🔄 تعویض دستی به کارت بعدی", callback_data="adm_rotate_card"),
+                types.InlineKeyboardButton("🔙 بازگشت به پنل مدیریت", callback_data="adm_back_panel")
+            )
+            try:
+                bot.edit_message_text(msg_text, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
+            except Exception:
+                safe_send_message(call.message.chat.id, msg_text, reply_markup=markup)
+            bot.answer_callback_query(call.id)
+            return
+        elif action == "rotate_card":
+            db = load_db()
+            c_state = get_card_state(db)
+            old_idx = c_state.get("current_index", 0) % len(CARD_NUMBERS)
+            new_idx = (old_idx + 1) % len(CARD_NUMBERS)
+            c_state["current_index"] = new_idx
+            c_state["count"] = 0
+            save_db(db, immediate_sync=True)
+            new_card = CARD_NUMBERS[new_idx]
+            bot.answer_callback_query(call.id, f"کارت فعال به {new_card} تغییر یافت ✓", show_alert=True)
+
+            stats_dict = c_state.get("stats", {})
+            threshold = c_state.get("threshold", CARD_ROTATION_THRESHOLD)
+            card_lines = []
+            for i, c in enumerate(CARD_NUMBERS, start=1):
+                badge = "🟢 فعال" if (i - 1) == new_idx else "⏳ در نوبت"
+                c_total = stats_dict.get(c, 0)
+                card_lines.append(f"{i}. `{c}` ({badge})\n   📊 مجموع واریزی‌های ثبت‌شده: *{c_total} عدد*")
+
+            msg_text = (
+                f"💳 *مدیریت و چرخش خودکار شماره کارت‌ها*\n\n"
+                f"🎯 *شماره کارت فعال کنونی:*\n`{new_card}`\n\n"
+                f"🔄 *وضعیت چرخش هوشمند:*\n"
+                f"• تعداد واریزی‌های ثبت‌شده: *0 از {threshold} واریز*\n"
+                f"• هر ۱۰ رسید واریز، ربات خودکار به کارت بعدی تغییر می‌کند.\n\n"
+                f"📋 *فهرست کارت‌های تعریف‌شده در سیستم:*\n\n" + "\n\n".join(card_lines)
+            )
+            markup = types.InlineKeyboardMarkup(row_width=1)
+            markup.add(
+                types.InlineKeyboardButton("🔄 تعویض دستی به کارت بعدی", callback_data="adm_rotate_card"),
+                types.InlineKeyboardButton("🔙 بازگشت به پنل مدیریت", callback_data="adm_back_panel")
+            )
+            try:
+                bot.edit_message_text(msg_text, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
+            except Exception:
+                safe_send_message(call.message.chat.id, msg_text, reply_markup=markup)
+            return
         elif action == "live_stats":
             markup = types.InlineKeyboardMarkup()
             markup.add(
@@ -1672,7 +1908,7 @@ def handle_callbacks(call):
                 f"👥 تعداد کل کاربران ثبت‌شده: *{total_users} نفر*\n"
                 f"🏷️ موجودی کل کدهای آماده: *{stats['_total_available']} عدد*\n"
                 f"📦 مجموع فروش کل: *{stats['_total_sold']} عدد*\n\n"
-                f"جهت صدور لایسنس، ارسال پیام همگانی، یا مشاهده آمار آنلاین انتخاب فرمایید:"
+                f"جهت صدور لایسنس، ارسال پیام همگانی، مدیریت کارت‌ها یا مشاهده آمار آنلاین انتخاب فرمایید:"
             )
             try:
                 bot.edit_message_text(text, call.message.chat.id, call.message.message_id, reply_markup=admin_dashboard_keyboard(), parse_mode="Markdown")
@@ -1682,7 +1918,7 @@ def handle_callbacks(call):
             return
 
     elif data == "cancel_broadcast":
-        clear_admin_state()
+        clear_admin_state(uid)
         try:
             bot.edit_message_text(
                 "❌ عملیات ارسال همگانی لغو شد.",
@@ -1695,17 +1931,17 @@ def handle_callbacks(call):
         bot.answer_callback_query(call.id, "لغو شد")
 
     elif data in ("do_fwd_all", "do_copy_all"):
-        if uid != ADMIN_ID:
+        if not is_admin(uid):
             bot.answer_callback_query(call.id, "دسترسی غیرمجاز!")
             return
-        adm_state = get_admin_state()
+        adm_state = get_admin_state(uid)
         if adm_state.get("state") != "confirm_broadcast":
             bot.answer_callback_query(call.id, "پیام برای ارسال یافت نشد یا منقضی شده است.", show_alert=True)
             return
         chat_id = adm_state.get("chat_id")
         msg_id = adm_state.get("msg_id")
         is_fwd = (data == "do_fwd_all")
-        clear_admin_state()
+        clear_admin_state(uid)
         try:
             bot.delete_message(call.message.chat.id, call.message.message_id)
         except Exception:
@@ -1736,6 +1972,8 @@ def process_receipt_submission(message, uid: int, plan_code: str, file_id: str, 
     order_id = f"ORD_{int(time.time())}_{uid}"
     db = load_db()
 
+    active_card, did_rotate, next_card = record_card_deposit_and_rotate(db)
+
     user_obj = message.from_user if hasattr(message, 'from_user') and message.from_user else None
     first_name = user_obj.first_name if user_obj else "کاربر"
     username = user_obj.username if user_obj and user_obj.username else "ندارد"
@@ -1750,6 +1988,7 @@ def process_receipt_submission(message, uid: int, plan_code: str, file_id: str, 
         "status": "pending",
         "receipt_type": content_type,
         "file_id": file_id,
+        "card_number": active_card,
         "created_at": int(time.time()),
         "caption": caption_text
     }
@@ -1770,27 +2009,31 @@ def process_receipt_submission(message, uid: int, plan_code: str, file_id: str, 
         f"🆔 آیدی عددی: `{uid}`\n"
         f"📦 پلن انتخابی: *{escape_md(info['name'])}*\n"
         f"💰 مبلغ فاکتور: *{info['price']}*\n"
+        f"💳 شماره کارت مقصد: `{active_card}`\n"
         f"⏰ ساعت: {time.strftime('%H:%M:%S', time.localtime())}"
         f"{user_caption_note}"
     )
 
-    # 1. Forward original receipt directly to admin
+    # 1. Forward original receipt directly to all admins
     try:
         if hasattr(message, 'chat') and hasattr(message, 'message_id'):
-            bot.forward_message(ADMIN_ID, message.chat.id, message.message_id)
+            forward_to_admins(message.chat.id, message.message_id)
     except Exception as ef:
         print(f"[process_receipt_submission] Forward failed: {ef}")
 
-    # 2. Send structured card with buttons
-    sent = None
+    # 2. Send structured card with buttons to all admins
     if content_type == "photo":
-        sent = safe_send_photo(ADMIN_ID, file_id, caption=admin_caption, reply_markup=admin_markup)
+        notify_admins_photo(file_id, caption=admin_caption, reply_markup=admin_markup)
     else:
-        sent = safe_send_document(ADMIN_ID, file_id, caption=admin_caption, reply_markup=admin_markup)
+        notify_admins_document(file_id, caption=admin_caption, reply_markup=admin_markup)
 
-    # 3. Bulletproof fallback: If photo/doc failed, ALWAYS send text notification with action buttons
-    if not sent:
-        safe_send_message(ADMIN_ID, f"🔔 *سفارش جدید (فیش در بالا):*\n\n{admin_caption}", reply_markup=admin_markup)
+    if did_rotate:
+        rotate_msg = (
+            f"🔄 *تغییر خودکار شماره کارت واریز*\n\n"
+            f"شماره کارت قبلی (`{active_card}`) به سقف {CARD_ROTATION_THRESHOLD} واریز رسید.\n"
+            f"💳 شماره کارت فعال جدید برای سفارشات بعدی:\n`{next_card}`"
+        )
+        notify_admins_message(rotate_msg)
 
     confirm_text = (
         "✅ *رسید شما با موفقیت دریافت شد!*\n\n"
@@ -1809,15 +2052,15 @@ def handle_photos_and_docs(message):
     uid = message.from_user.id
 
     # بررسی آیا ادمین در حال ارسال رسانه برای پیام همگانی است
-    if uid == ADMIN_ID:
-        adm_state = get_admin_state()
+    if is_admin(uid):
+        adm_state = get_admin_state(uid)
         if adm_state.get("state") == "waiting_broadcast_msg":
             set_admin_state({
                 "state": "confirm_broadcast",
                 "chat_id": message.chat.id,
                 "msg_id": message.message_id,
                 "time": int(time.time())
-            })
+            }, admin_id=uid)
             markup = types.InlineKeyboardMarkup(row_width=2)
             markup.add(
                 types.InlineKeyboardButton("🔄 فوروارد همگانی (Forward)", callback_data="do_fwd_all"),
@@ -1867,7 +2110,7 @@ def handle_photos_and_docs(message):
     elif state_type == "waiting_support_msg":
         clear_user_state(uid)
 
-        if uid != ADMIN_ID:
+        if not is_admin(uid):
             is_open, _ = is_support_working_hours()
             if not is_open:
                 safe_send_message(message.chat.id, SUPPORT_CLOSED_MESSAGE)
@@ -1901,19 +2144,21 @@ def handle_photos_and_docs(message):
         markup.add(types.InlineKeyboardButton("✍️ پاسخ دادن به کاربر", callback_data=f"reply_user_{uid}"))
 
         if message.content_type == "photo":
-            safe_send_photo(ADMIN_ID, file_id, caption=admin_caption, reply_markup=markup)
+            notify_admins_photo(file_id, caption=admin_caption, reply_markup=markup)
         elif message.content_type == "voice":
-            try:
-                bot.send_voice(ADMIN_ID, file_id, caption=admin_caption, reply_markup=markup, parse_mode="Markdown")
-            except Exception:
-                bot.send_voice(ADMIN_ID, file_id, caption=caption or "ویس پشتیبانی", reply_markup=markup)
+            for aid in ADMIN_IDS:
+                try:
+                    bot.send_voice(aid, file_id, caption=admin_caption, reply_markup=markup, parse_mode="Markdown")
+                except Exception:
+                    bot.send_voice(aid, file_id, caption=caption or "ویس پشتیبانی", reply_markup=markup)
         elif message.content_type == "video":
-            try:
-                bot.send_video(ADMIN_ID, file_id, caption=admin_caption, reply_markup=markup, parse_mode="Markdown")
-            except Exception:
-                bot.send_video(ADMIN_ID, file_id, caption=caption or "ویدیو پشتیبانی", reply_markup=markup)
+            for aid in ADMIN_IDS:
+                try:
+                    bot.send_video(aid, file_id, caption=admin_caption, reply_markup=markup, parse_mode="Markdown")
+                except Exception:
+                    bot.send_video(aid, file_id, caption=caption or "ویدیو پشتیبانی", reply_markup=markup)
         else:
-            safe_send_document(ADMIN_ID, file_id, caption=admin_caption, reply_markup=markup)
+            notify_admins_document(file_id, caption=admin_caption, reply_markup=markup)
 
         safe_reply_to(
             message,
@@ -1950,15 +2195,15 @@ def handle_general_text(message):
     text = (message.text or "").strip()
 
     # بررسی آیا ادمین در حال ارسال متن یا پست برای پیام همگانی است
-    if uid == ADMIN_ID:
-        adm_state = get_admin_state()
+    if is_admin(uid):
+        adm_state = get_admin_state(uid)
         if adm_state.get("state") == "waiting_broadcast_msg":
             menu_buttons_check = [
                 "🛒 خرید اشتراک اختصاصی", "👤 حساب کاربری من", "📘 آموزش اتصال دستی",
                 "❓ راهنمای فعال‌سازی", "💬 پشتیبانی", "👑 پنل مدیریت ادمین"
             ]
             if text in menu_buttons_check or text in ["❌ انصراف", "انصراف", "/cancel"]:
-                clear_admin_state()
+                clear_admin_state(uid)
                 if text not in menu_buttons_check:
                     safe_reply_to(message, "❌ عملیات ارسال همگانی لغو شد.")
                     return
@@ -1968,7 +2213,7 @@ def handle_general_text(message):
                     "chat_id": message.chat.id,
                     "msg_id": message.message_id,
                     "time": int(time.time())
-                })
+                }, admin_id=uid)
                 markup = types.InlineKeyboardMarkup(row_width=2)
                 markup.add(
                     types.InlineKeyboardButton("🔄 فوروارد همگانی (Forward)", callback_data="do_fwd_all"),
@@ -2011,12 +2256,12 @@ def handle_general_text(message):
         return
 
     # ۱. اگر ادمین در حال پاسخ به تیکت کاربر است (از طریق دکمه یا ریپلای مستقیم در تلگرام)
-    adm_state = get_admin_state()
+    adm_state = get_admin_state(uid)
     target_uid = None
-    if uid == ADMIN_ID:
+    if is_admin(uid):
         if adm_state.get("state") == "replying_to_user":
             target_uid = int(adm_state["target_uid"])
-            clear_admin_state()
+            clear_admin_state(uid)
         elif message.reply_to_message:
             rep_text = message.reply_to_message.text or message.reply_to_message.caption or ""
             match = re.search(r"🆔\s*آیدی عددی:\s*`?(\d+)`?", rep_text)
@@ -2052,6 +2297,8 @@ def handle_general_text(message):
         order_id = f"ORD_{int(time.time())}_{uid}"
         db = load_db()
 
+        active_card, did_rotate, next_card = record_card_deposit_and_rotate(db)
+
         f_name = message.from_user.first_name or "کاربر"
         u_name = message.from_user.username or "ندارد"
 
@@ -2065,6 +2312,7 @@ def handle_general_text(message):
             "status": "pending",
             "receipt_type": "text",
             "receipt_text": text,
+            "card_number": active_card,
             "created_at": int(time.time())
         }
         clear_user_state(uid)
@@ -2077,6 +2325,7 @@ def handle_general_text(message):
             f"🆔 آیدی عددی: `{uid}`\n"
             f"📦 پلن انتخابی: *{escape_md(info['name'])}*\n"
             f"💰 مبلغ فاکتور: *{info['price']}*\n"
+            f"💳 شماره کارت مقصد: `{active_card}`\n"
             f"⏰ ساعت: {time.strftime('%H:%M:%S', time.localtime())}\n\n"
             f"📝 *اطلاعات / کد پیگیری واریزی:*\n`{escape_md(text)}`"
         )
@@ -2085,7 +2334,15 @@ def handle_general_text(message):
         b_reject = types.InlineKeyboardButton("❌ رد پرداخت", callback_data=f"rej_{order_id}")
         admin_markup.add(b_approve, b_reject)
 
-        safe_send_message(ADMIN_ID, admin_text, reply_markup=admin_markup)
+        notify_admins_message(admin_text, reply_markup=admin_markup)
+
+        if did_rotate:
+            rotate_msg = (
+                f"🔄 *تغییر خودکار شماره کارت واریز*\n\n"
+                f"شماره کارت قبلی (`{active_card}`) به سقف {CARD_ROTATION_THRESHOLD} واریز رسید.\n"
+                f"💳 شماره کارت فعال جدید برای سفارشات بعدی:\n`{next_card}`"
+            )
+            notify_admins_message(rotate_msg)
 
         safe_reply_to(
             message,
@@ -2099,7 +2356,7 @@ def handle_general_text(message):
     if u_state.get("state") == "waiting_support_msg":
         clear_user_state(uid)
 
-        if uid != ADMIN_ID:
+        if not is_admin(uid):
             is_open, _ = is_support_working_hours()
             if not is_open:
                 safe_send_message(message.chat.id, SUPPORT_CLOSED_MESSAGE)
@@ -2132,7 +2389,7 @@ def handle_general_text(message):
         markup = types.InlineKeyboardMarkup()
         markup.add(types.InlineKeyboardButton("✍️ پاسخ دادن به کاربر", callback_data=f"reply_user_{uid}"))
 
-        safe_send_message(ADMIN_ID, admin_ticket_msg, reply_markup=markup)
+        notify_admins_message(admin_ticket_msg, reply_markup=markup)
 
         safe_reply_to(
             message,
