@@ -506,6 +506,12 @@
       "user_id": 105290345,
       "issued_at": 1792064327,
       "method": "crypto_unique"
+    },
+    "AZ1Y-1CCF-831E-B971": {
+      "plan": "1Y",
+      "user_id": 5462303756,
+      "issued_at": 1792064366,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -1730,6 +1736,23 @@
       "approved_at": 1792064327,
       "approved_by": 748538264,
       "key": "AZ1Y-3CFA-0B5F-F895"
+    },
+    "ORD_1792064356_5462303756": {
+      "order_id": "ORD_1792064356_5462303756",
+      "user_id": 5462303756,
+      "username": "e3n93",
+      "first_name": "Ethan",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "approved",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAIzlmrQu2Nq9ppI2iuRWxUsXziZOWtWAAJaEmsbjUqBUv8juFAW9tBOAQADAgADeQADPQQ",
+      "card_number": "5892101706458979",
+      "created_at": 1792064356,
+      "caption": "بانک ملت - دیما\nکارت به کارت\nاز:\n۶۱۰۴-۳۳-**-۱۷۰۰\nبه نام: احسان شكري\nواریز به: ۵۸۹۲۱۰۱۷۰۶۴۵۸۹۷۹\nبه نام: مهدي خالقي\nمبلغ: ۳,۹۹۰,۰۰۰ ریال\nشرح: خرید لایسنس از اینترنت آزاد\nپیگیری: ۱۸۵۶۲۴۶۷۵۹۲۹\n۱۴۰۵/۰۷/۲۳ - ۱۵:۰۸",
+      "approved_at": 1792064366,
+      "approved_by": 748538264,
+      "key": "AZ1Y-1CCF-831E-B971"
     }
   },
   "users": {
@@ -4086,8 +4109,16 @@
       "last_name": "Shokri",
       "username": "e3n93",
       "first_seen": 1792063902,
-      "last_seen": 1792063902,
-      "purchases": []
+      "last_seen": 1792064342,
+      "purchases": [
+        {
+          "key": "AZ1Y-1CCF-831E-B971",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792064366,
+          "days": 365
+        }
+      ]
     },
     "108507137": {
       "user_id": 108507137,
@@ -4247,6 +4278,24 @@
       "username": "Shinoobi344",
       "first_seen": 1792064321,
       "last_seen": 1792064321,
+      "purchases": []
+    },
+    "1091019146": {
+      "user_id": 1091019146,
+      "first_name": "saboor",
+      "last_name": "",
+      "username": "saboorrjb",
+      "first_seen": 1792064337,
+      "last_seen": 1792064337,
+      "purchases": []
+    },
+    "164533318": {
+      "user_id": 164533318,
+      "first_name": "کافی نت کلاسیک",
+      "last_name": "",
+      "username": "classic_cafinet",
+      "first_seen": 1792064360,
+      "last_seen": 1792064360,
       "purchases": []
     }
   },
@@ -4760,7 +4809,7 @@
     "5462303756": {
       "state": "awaiting_receipt",
       "plan_code": "1Y",
-      "time": 1792064030
+      "time": 1792064342
     },
     "7434993223": {
       "state": "awaiting_receipt",
@@ -4781,16 +4830,26 @@
       "state": "awaiting_receipt",
       "plan_code": "1Y",
       "time": 1792064256
+    },
+    "191338124": {
+      "state": "awaiting_receipt",
+      "plan_code": "1Y",
+      "time": 1792064328
+    },
+    "1091019146": {
+      "state": "awaiting_receipt",
+      "plan_code": "1Y",
+      "time": 1792064353
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
-    "current_index": 0,
-    "count": 9,
+    "current_index": 1,
+    "count": 0,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 9,
+      "5892101706458979": 10,
       "5047061670546072": 0
     }
   }
