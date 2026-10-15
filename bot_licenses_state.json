@@ -488,6 +488,12 @@
       "user_id": 1005919312,
       "issued_at": 1792063278,
       "method": "crypto_unique"
+    },
+    "AZ1Y-832F-440E-1FBE": {
+      "plan": "1Y",
+      "user_id": 473090499,
+      "issued_at": 1792063280,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -1641,12 +1647,15 @@
       "first_name": "Hasan",
       "plan_code": "1Y",
       "price": "۳۹۹,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAIylmrQtyXUXvbgUUtDvBMr22NioJ2MAAIGD2sbB2WAUrywazDsBTIGAQADAgADeQADPQQ",
       "card_number": "5892101706458979",
       "created_at": 1792063269,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1792063280,
+      "approved_by": 748538264,
+      "key": "AZ1Y-832F-440E-1FBE"
     }
   },
   "users": {
@@ -3785,7 +3794,15 @@
       "username": "",
       "first_seen": 1792063225,
       "last_seen": 1792063225,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-832F-440E-1FBE",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792063280,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
