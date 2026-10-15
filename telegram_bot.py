@@ -1175,7 +1175,7 @@ def is_maintenance_mode() -> tuple[bool, str]:
 
     return False, ""
 
-@bot.message_handler(func=lambda m: not is_admin(m.from_user.id) and is_maintenance_mode()[0], content_types=["text", "audio", "document", "photo", "sticker", "video", "video_note", "voice", "location", "contact"])
+@bot.message_handler(func=lambda m: is_maintenance_mode()[0] and not is_admin(m.from_user.id), content_types=["text", "audio", "document", "photo", "sticker", "video", "video_note", "voice", "location", "contact"])
 def handle_maintenance_message(message):
     track_user(message.from_user)
     _, msg = is_maintenance_mode()
@@ -1210,6 +1210,28 @@ def cmd_start(message):
     name = message.from_user.first_name or "کاربر گرامی"
     clear_user_state(uid)
 
+    in_maint, maint_msg = is_maintenance_mode()
+    if in_maint:
+        if not admin_flag:
+            safe_send_message(message.chat.id, maint_msg)
+            return
+        else:
+            admin_maint_text = (
+                "🛠 *ربات هم‌اکنون در حالت تعمیر (خاموش) قرار دارد.*\n\n"
+                "🔒 *وضعیت برای کاربران عادی:* کاملاً مسدود تا ساعت **۲۱:۰۰ (۹ شب)**\n"
+                "تمامی پیام‌ها، دستورات و کلیک‌های کاربران با پاسخ خودکار «در دست تعمیر» مسدود شده است.\n\n"
+                "👑 *شما به عنوان مدیر وارد شده‌اید.*\n"
+                "جهت مدیریت یا تغییر وضعیت از دکمه‌های زیر استفاده کنید:"
+            )
+            admin_markup = types.InlineKeyboardMarkup(row_width=1)
+            admin_markup.add(
+                types.InlineKeyboardButton("👑 ورود به پنل مدیریت ادمین", callback_data="adm_back_panel"),
+                types.InlineKeyboardButton("🟢 لغو حالت تعمیر و بازگشایی ربات", callback_data="adm_toggle_maint")
+            )
+            safe_send_message(message.chat.id, admin_maint_text, reply_markup=admin_markup)
+            safe_send_message(message.chat.id, "منوی مدیریت برای شما فعال است 👇", reply_markup=main_menu_keyboard(admin_flag=True))
+            return
+
     args = message.text.split()
     if len(args) > 1 and args[1].lower() == "manual_guide":
         send_manual_connection_guide(message.chat.id)
@@ -1229,6 +1251,18 @@ def cmd_start(message):
 @bot.message_handler(func=lambda m: m.text == "🛒 خرید اشتراک اختصاصی")
 def btn_buy_plans(message):
     clear_user_state(message.from_user.id)
+    in_maint, maint_msg = is_maintenance_mode()
+    if in_maint:
+        if not is_admin(message.from_user.id):
+            safe_reply_to(message, maint_msg)
+        else:
+            safe_reply_to(
+                message,
+                "🛠 *ربات در حالت تعمیر (خاموش) است.*\n\n"
+                "فروش و ثبت سفارش تا ساعت ۲۱:۰۰ برای همه کاربران غیرفعال است.\n"
+                "جهت صدور لایسنس دستی یا مدیریت از «👑 پنل مدیریت ادمین» استفاده کنید."
+            )
+        return
     text = (
         "💎 *پلن‌های اشتراک اینترنت آزاد³⁶⁹*\n\n"
         "لطفاً مدت زمان مورد نظر خود را انتخاب کنید:\n"
@@ -1484,13 +1518,24 @@ def handle_callbacks(call):
     uid = call.from_user.id
 
     in_maint, maint_msg = is_maintenance_mode()
-    if in_maint and not is_admin(uid):
-        try:
-            bot.answer_callback_query(call.id, "🛠 ربات موقتاً در دست تعمیر است (تا ساعت ۹ شب)", show_alert=True)
-        except Exception:
-            pass
-        safe_send_message(call.message.chat.id, maint_msg)
-        return
+    if in_maint:
+        if is_admin(uid):
+            if data.startswith("adm_") or data in ["admin", "stats", "live_stats", "cancel_broadcast", "do_fwd_all", "do_copy_all"]:
+                pass
+            else:
+                try:
+                    bot.answer_callback_query(call.id, "🛠 ربات تا ساعت ۹ شب در دست تعمیر است (فروش و خدمات مسدود است)", show_alert=True)
+                except Exception:
+                    pass
+                safe_send_message(call.message.chat.id, "🛠 *ربات در حالت تعمیر (خاموش) است (تا ساعت ۲۱:۰۰).*\nکاربران عادی به این دکمه دسترسی ندارند.")
+                return
+        else:
+            try:
+                bot.answer_callback_query(call.id, "🛠 ربات موقتاً در دست تعمیر است (تا ساعت ۹ شب)", show_alert=True)
+            except Exception:
+                pass
+            safe_send_message(call.message.chat.id, maint_msg)
+            return
 
     # Fast UI Ack so Telegram never shows a loading spinner
     try:
@@ -2202,6 +2247,11 @@ def handle_photos_and_docs(message):
     track_user(message.from_user)
     uid = message.from_user.id
 
+    in_maint, maint_msg = is_maintenance_mode()
+    if in_maint and not is_admin(uid):
+        safe_reply_to(message, maint_msg)
+        return
+
     # بررسی آیا ادمین در حال ارسال رسانه برای پیام همگانی است
     if is_admin(uid):
         adm_state = get_admin_state(uid)
@@ -2344,6 +2394,11 @@ def handle_general_text(message):
     track_user(message.from_user)
     uid = message.from_user.id
     text = (message.text or "").strip()
+
+    in_maint, maint_msg = is_maintenance_mode()
+    if in_maint and not is_admin(uid):
+        safe_reply_to(message, maint_msg)
+        return
 
     # بررسی آیا ادمین در حال ارسال متن یا پست برای پیام همگانی است
     if is_admin(uid):
