@@ -482,6 +482,12 @@
       "user_id": 638963124,
       "issued_at": 1792063107,
       "method": "crypto_unique"
+    },
+    "AZ1Y-AC5E-0549-CE61": {
+      "plan": "1Y",
+      "user_id": 1005919312,
+      "issued_at": 1792063278,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -1610,6 +1616,37 @@
       "approved_at": 1792063107,
       "approved_by": 748538264,
       "key": "AZ1Y-413E-81AD-0EAE"
+    },
+    "ORD_1792063262_1005919312": {
+      "order_id": "ORD_1792063262_1005919312",
+      "user_id": 1005919312,
+      "username": "rammstein1358",
+      "first_name": "1",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "approved",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAIykGrQtx1FT0J2gWNgFtGfrtYk91ghAAK8EGsbHeGBUs6zEzCZb3z4AQADAgADeQADPQQ",
+      "card_number": "5892101706458979",
+      "created_at": 1792063262,
+      "caption": "",
+      "approved_at": 1792063278,
+      "approved_by": 748538264,
+      "key": "AZ1Y-AC5E-0549-CE61"
+    },
+    "ORD_1792063269_473090499": {
+      "order_id": "ORD_1792063269_473090499",
+      "user_id": 473090499,
+      "username": "ندارد",
+      "first_name": "Hasan",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAIylmrQtyXUXvbgUUtDvBMr22NioJ2MAAIGD2sbB2WAUrywazDsBTIGAQADAgADeQADPQQ",
+      "card_number": "5892101706458979",
+      "created_at": 1792063269,
+      "caption": ""
     }
   },
   "users": {
@@ -3704,7 +3741,15 @@
       "username": "rammstein1358",
       "first_seen": 1792063114,
       "last_seen": 1792063114,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-AC5E-0549-CE61",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792063278,
+          "days": 365
+        }
+      ]
     },
     "122662376": {
       "user_id": 122662376,
@@ -3713,6 +3758,33 @@
       "username": "sina907",
       "first_seen": 1792063114,
       "last_seen": 1792063114,
+      "purchases": []
+    },
+    "6259502387": {
+      "user_id": 6259502387,
+      "first_name": "M",
+      "last_name": "H",
+      "username": "M518158",
+      "first_seen": 1792063150,
+      "last_seen": 1792063150,
+      "purchases": []
+    },
+    "435196402": {
+      "user_id": 435196402,
+      "first_name": "Babak",
+      "last_name": "",
+      "username": "babaktuta2020",
+      "first_seen": 1792063169,
+      "last_seen": 1792063169,
+      "purchases": []
+    },
+    "473090499": {
+      "user_id": 473090499,
+      "first_name": "Hasan",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1792063225,
+      "last_seen": 1792063225,
       "purchases": []
     }
   },
@@ -4187,25 +4259,25 @@
       "plan_code": "1Y",
       "time": 1792063029
     },
-    "2100407493": {
-      "state": "awaiting_receipt",
-      "plan_code": "1Y",
-      "time": 1792063102
-    },
     "1005919312": {
       "state": "awaiting_receipt",
       "plan_code": "1Y",
       "time": 1792063114
+    },
+    "473090499": {
+      "state": "awaiting_receipt",
+      "plan_code": "1Y",
+      "time": 1792063225
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 3,
+    "count": 5,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 3,
+      "5892101706458979": 5,
       "5047061670546072": 0
     }
   }
