@@ -518,6 +518,12 @@
       "user_id": 105894395,
       "issued_at": 1792064495,
       "method": "crypto_unique"
+    },
+    "AZ1Y-6D13-252C-3328": {
+      "plan": "1Y",
+      "user_id": 5536500126,
+      "issued_at": 1792064703,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -1688,12 +1694,15 @@
       "first_name": "𝕭𝖆𝖈𝖍𝖊 𝕿𝖊𝖍𝖗𝖔𝖔𝖓",
       "plan_code": "1Y",
       "price": "۳۹۹,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAIy42rQuFEyRanRWGIvJtL-N_RXiI8EAALLD2sbntSJUhb5_kVpwySKAQADAgADdwADPQQ",
       "card_number": "5892101706458979",
       "created_at": 1792063569,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1792064703,
+      "approved_by": 748538264,
+      "key": "AZ1Y-6D13-252C-3328"
     },
     "ORD_1792063569_326803980": {
       "order_id": "ORD_1792063569_326803980",
@@ -2037,7 +2046,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "F_l_k_j780",
-      "last_seen": 1792064327
+      "last_seen": 1792064702
     },
     "5176527387": {
       "purchases": [
@@ -3939,8 +3948,16 @@
       "last_name": "",
       "username": "BacheTehroon021",
       "first_seen": 1792063335,
-      "last_seen": 1792063833,
-      "purchases": []
+      "last_seen": 1792064666,
+      "purchases": [
+        {
+          "key": "AZ1Y-6D13-252C-3328",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792064703,
+          "days": 365
+        }
+      ]
     },
     "2137236993": {
       "user_id": 2137236993,
@@ -4354,6 +4371,59 @@
       "username": "Ars8i",
       "first_seen": 1792064510,
       "last_seen": 1792064510,
+      "purchases": []
+    },
+    "1079039503": {
+      "user_id": 1079039503,
+      "first_name": "Mohammad Kazem",
+      "last_name": "Rezaie",
+      "username": "MKREZZAIE",
+      "first_seen": 1792064591,
+      "last_seen": 1792064591,
+      "purchases": []
+    },
+    "49721479": {
+      "user_id": 49721479,
+      "first_name": "M",
+      "last_name": "...",
+      "username": "Ph_TR",
+      "first_seen": 1792064620,
+      "last_seen": 1792064620,
+      "purchases": []
+    },
+    "752629766": {
+      "user_id": 752629766,
+      "first_name": "Naser",
+      "last_name": "Kazemi",
+      "username": "kazemi_naser_73",
+      "first_seen": 1792064621,
+      "last_seen": 1792064621,
+      "purchases": []
+    },
+    "111157928": {
+      "user_id": 111157928,
+      "first_name": "a",
+      "last_name": "Y",
+      "username": "ay_unforgiven",
+      "first_seen": 1792064654,
+      "last_seen": 1792064654,
+      "purchases": []
+    },
+    "8385966592": {
+      "user_id": 8385966592,
+      "first_name": "کاربر",
+      "username": "",
+      "first_seen": 1792064690,
+      "last_seen": 1792064690,
+      "purchases": []
+    },
+    "1744686586": {
+      "user_id": 1744686586,
+      "first_name": "Mostafa",
+      "last_name": "",
+      "username": "mostafaaskariv",
+      "first_seen": 1792064690,
+      "last_seen": 1792064690,
       "purchases": []
     }
   },
@@ -4898,6 +4968,20 @@
       "state": "awaiting_receipt",
       "plan_code": "1Y",
       "time": 1792064353
+    },
+    "1079039503": {
+      "state": "awaiting_receipt",
+      "plan_code": "1Y",
+      "time": 1792064621
+    },
+    "8385966592": {
+      "state": "waiting_support_msg",
+      "time": 1792064672
+    },
+    "752629766": {
+      "state": "awaiting_receipt",
+      "plan_code": "1Y",
+      "time": 1792064697
     }
   },
   "admin_states": {},
