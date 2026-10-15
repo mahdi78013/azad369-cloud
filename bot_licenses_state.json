@@ -524,6 +524,12 @@
       "user_id": 5536500126,
       "issued_at": 1792064703,
       "method": "crypto_unique"
+    },
+    "AZ1Y-AC48-5677-05AF": {
+      "plan": "1Y",
+      "user_id": 326803980,
+      "issued_at": 1792064707,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -1711,12 +1717,15 @@
       "first_name": "Benyamin",
       "plan_code": "1Y",
       "price": "۳۹۹,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAIy5WrQuFEdgO_oYe1ys9XZtnlu4p0kAAIgD2sbaEiJUuWEDgzkMOzgAQADAgADeQADPQQ",
       "card_number": "5892101706458979",
       "created_at": 1792063569,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1792064707,
+      "approved_by": 748538264,
+      "key": "AZ1Y-AC48-5677-05AF"
     },
     "ORD_1792064194_7434993223": {
       "order_id": "ORD_1792064194_7434993223",
@@ -4029,7 +4038,15 @@
       "username": "Benyamin73",
       "first_seen": 1792063449,
       "last_seen": 1792063449,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-AC48-5677-05AF",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792064707,
+          "days": 365
+        }
+      ]
     },
     "6368278178": {
       "user_id": 6368278178,
