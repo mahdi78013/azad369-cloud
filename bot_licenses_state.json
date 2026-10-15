@@ -512,6 +512,12 @@
       "user_id": 5462303756,
       "issued_at": 1792064366,
       "method": "crypto_unique"
+    },
+    "AZ1Y-BCC9-F67F-D6BC": {
+      "plan": "1Y",
+      "user_id": 105894395,
+      "issued_at": 1792064495,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -1753,6 +1759,23 @@
       "approved_at": 1792064366,
       "approved_by": 748538264,
       "key": "AZ1Y-1CCF-831E-B971"
+    },
+    "ORD_1792064412_105894395": {
+      "order_id": "ORD_1792064412_105894395",
+      "user_id": 105894395,
+      "username": "Ashkan9193",
+      "first_name": "Ashkan",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "approved",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAIzqmrQu5turbKCBa-T4uoC5NQaLqAdAAJmEGsbAWSIUm6NoMwGr604AQADAgADeQADPQQ",
+      "card_number": "5047061670546072",
+      "created_at": 1792064412,
+      "caption": "",
+      "approved_at": 1792064495,
+      "approved_by": 748538264,
+      "key": "AZ1Y-BCC9-F67F-D6BC"
     }
   },
   "users": {
@@ -4233,7 +4256,15 @@
       "username": "Ashkan9193",
       "first_seen": 1792064220,
       "last_seen": 1792064220,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-BCC9-F67F-D6BC",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792064495,
+          "days": 365
+        }
+      ]
     },
     "191338124": {
       "user_id": 191338124,
@@ -4305,6 +4336,15 @@
       "username": "danib12345",
       "first_seen": 1792064377,
       "last_seen": 1792064377,
+      "purchases": []
+    },
+    "1307797387": {
+      "user_id": 1307797387,
+      "first_name": "Shayan",
+      "last_name": "",
+      "username": "Sh_kalan",
+      "first_seen": 1792064460,
+      "last_seen": 1792064460,
       "purchases": []
     }
   },
@@ -4855,11 +4895,11 @@
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 0,
+    "count": 1,
     "threshold": 10,
     "stats": {
       "5892101706458979": 10,
-      "5047061670546072": 0
+      "5047061670546072": 1
     }
   }
 }
