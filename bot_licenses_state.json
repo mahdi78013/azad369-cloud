@@ -548,6 +548,12 @@
       "user_id": 565100776,
       "issued_at": 1792065096,
       "method": "crypto_unique"
+    },
+    "AZ1Y-15E1-9F70-4ED9": {
+      "plan": "1Y",
+      "user_id": 5614867249,
+      "issued_at": 1792065200,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -1849,6 +1855,23 @@
       "approved_at": 1792065096,
       "approved_by": 748538264,
       "key": "AZ1Y-3037-1CF4-FA42"
+    },
+    "ORD_1792065189_5614867249": {
+      "order_id": "ORD_1792065189_5614867249",
+      "user_id": 5614867249,
+      "username": "ADS7gamer",
+      "first_name": "ADS7",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "approved",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAI0RWrQvqWRWxIkG7qdvnp3dxjS1EWvAAIOEGsbecmJUnHyxhLtwt_GAQADAgADeQADPQQ",
+      "card_number": "5047061670546072",
+      "created_at": 1792065189,
+      "caption": "",
+      "approved_at": 1792065200,
+      "approved_by": 748538264,
+      "key": "AZ1Y-15E1-9F70-4ED9"
     }
   },
   "users": {
@@ -4620,6 +4643,32 @@
       "first_seen": 1792065094,
       "last_seen": 1792065094,
       "purchases": []
+    },
+    "5614867249": {
+      "user_id": 5614867249,
+      "first_name": "ADS7",
+      "last_name": "",
+      "username": "ADS7gamer",
+      "first_seen": 1792065123,
+      "last_seen": 1792065123,
+      "purchases": [
+        {
+          "key": "AZ1Y-15E1-9F70-4ED9",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792065200,
+          "days": 365
+        }
+      ]
+    },
+    "202623153": {
+      "user_id": 202623153,
+      "first_name": "Saeed",
+      "last_name": "Rohani",
+      "username": "saeedrohanii",
+      "first_seen": 1792065190,
+      "last_seen": 1792065190,
+      "purchases": []
     }
   },
   "user_states": {
@@ -5177,17 +5226,27 @@
       "state": "awaiting_receipt",
       "plan_code": "1Y",
       "time": 1792065067
+    },
+    "5614867249": {
+      "state": "awaiting_receipt",
+      "plan_code": "1Y",
+      "time": 1792065166
+    },
+    "202623153": {
+      "state": "awaiting_receipt",
+      "plan_code": "1Y",
+      "time": 1792065190
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 3,
+    "count": 4,
     "threshold": 10,
     "stats": {
       "5892101706458979": 10,
-      "5047061670546072": 3
+      "5047061670546072": 4
     }
   }
 }
