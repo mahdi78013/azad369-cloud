@@ -470,6 +470,12 @@
       "user_id": 5597859906,
       "issued_at": 1792062560,
       "method": "crypto_unique"
+    },
+    "AZ1Y-B2AC-47C5-107A": {
+      "plan": "1Y",
+      "user_id": 8085682455,
+      "issued_at": 1792062592,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -1564,6 +1570,23 @@
       "approved_at": 1792062560,
       "approved_by": 748538264,
       "key": "AZ1Y-99E7-1F09-1624"
+    },
+    "ORD_1792062585_8085682455": {
+      "order_id": "ORD_1792062585_8085682455",
+      "user_id": 8085682455,
+      "username": "AN9170",
+      "first_name": "A",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "approved",
+      "receipt_type": "photo",
+      "file_id": "AgACAgIAAxkBAAIx9GrQtHnfr9HTd-YlRXqH-WozkOX_AALdHGsbDZKISjtYOIHZTL3qAQADAgADdwADPQQ",
+      "card_number": "5892101706458979",
+      "created_at": 1792062585,
+      "caption": "",
+      "approved_at": 1792062592,
+      "approved_by": 748538264,
+      "key": "AZ1Y-B2AC-47C5-107A"
     }
   },
   "users": {
@@ -2955,7 +2978,15 @@
       "username": "AN9170",
       "first_seen": 1792058000,
       "last_seen": 1792062512,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-B2AC-47C5-107A",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792062592,
+          "days": 365
+        }
+      ]
     },
     "99080520": {
       "user_id": 99080520,
@@ -3912,7 +3943,7 @@
     "8085682455": {
       "state": "awaiting_receipt",
       "plan_code": "1Y",
-      "time": 1792062512
+      "time": 1792062589
     },
     "5628378804": {
       "state": "waiting_support_msg",
@@ -3923,10 +3954,10 @@
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 1,
+    "count": 2,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 1,
+      "5892101706458979": 2,
       "5047061670546072": 0
     }
   }
