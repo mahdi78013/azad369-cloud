@@ -560,6 +560,12 @@
       "user_id": 202623153,
       "issued_at": 1792065304,
       "method": "crypto_unique"
+    },
+    "AZ1Y-7E61-6333-488F": {
+      "plan": "1Y",
+      "user_id": 74793992,
+      "issued_at": 1792065520,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -1903,12 +1909,15 @@
       "first_name": "Rouz.sh",
       "plan_code": "1Y",
       "price": "۳۹۹,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgEAAxkBAAI0gmrQv7s0Usv4-vVDbVeFAAHVhM-NRgACAgtrG1lXgU4PrKSlezTvKQEAAwIAA3cAAz0E",
       "card_number": "5047061670546072",
       "created_at": 1792065467,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1792065520,
+      "approved_by": 748538264,
+      "key": "AZ1Y-7E61-6333-488F"
     }
   },
   "users": {
@@ -4740,7 +4749,15 @@
       "username": "Rouzsh",
       "first_seen": 1792065300,
       "last_seen": 1792065300,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-7E61-6333-488F",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792065520,
+          "days": 365
+        }
+      ]
     },
     "105788250": {
       "user_id": 105788250,
@@ -4776,6 +4793,24 @@
       "username": "Ashk4030",
       "first_seen": 1792065442,
       "last_seen": 1792065442,
+      "purchases": []
+    },
+    "117478967": {
+      "user_id": 117478967,
+      "first_name": "H",
+      "last_name": "",
+      "username": "hamid5253",
+      "first_seen": 1792065501,
+      "last_seen": 1792065501,
+      "purchases": []
+    },
+    "6003558820": {
+      "user_id": 6003558820,
+      "first_name": "KMN",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1792065517,
+      "last_seen": 1792065517,
       "purchases": []
     }
   },
@@ -5196,10 +5231,6 @@
     "291359869": {
       "state": "waiting_support_msg",
       "time": 1792001173
-    },
-    "5881780772": {
-      "state": "waiting_support_msg",
-      "time": 1792006074
     },
     "7791323478": {
       "state": "waiting_support_msg",
