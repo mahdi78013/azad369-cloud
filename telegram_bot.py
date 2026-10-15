@@ -536,6 +536,9 @@ def load_db() -> dict:
                     data.setdefault("user_states", {})
                     data.setdefault("admin_states", {})
                     data.setdefault("trial_users", {})
+                    for u_obj in data["users"].values():
+                        if isinstance(u_obj, dict):
+                            u_obj.setdefault("purchases", [])
                     if migrate_historical_users(data):
                         try:
                             with open(STATE_FILE, "w", encoding="utf-8") as fw:
@@ -1041,7 +1044,11 @@ def issue_key_for_plan_atomic(db: dict, plan_code: str, user_id: int) -> str | N
     }
     u_str = str(user_id)
     db.setdefault("users", {})
-    db["users"].setdefault(u_str, {"purchases": []})
+    if u_str not in db["users"] or not isinstance(db["users"][u_str], dict):
+        db["users"][u_str] = {}
+    db["users"][u_str].setdefault("purchases", [])
+    if not isinstance(db["users"][u_str]["purchases"], list):
+        db["users"][u_str]["purchases"] = []
     db["users"][u_str]["purchases"].append({
         "key": chosen_key,
         "plan": plan_code,
@@ -1174,8 +1181,13 @@ def btn_my_account(message, target_uid=None):
     db = load_db()
     u_str = str(uid)
     db.setdefault("users", {})
-    u_data = db["users"].setdefault(u_str, {"purchases": []})
-    purchases = u_data.get("purchases", [])
+    if u_str not in db["users"] or not isinstance(db["users"][u_str], dict):
+        db["users"][u_str] = {}
+    u_data = db["users"][u_str]
+    u_data.setdefault("purchases", [])
+    if not isinstance(u_data["purchases"], list):
+        u_data["purchases"] = []
+    purchases = u_data["purchases"]
 
     # Self-healing reconciliation: ensure any issued key or approved order for this user is recorded
     existing_keys = {p.get("key") for p in purchases if isinstance(p, dict) and p.get("key")}
@@ -1645,20 +1657,28 @@ def handle_callbacks(call):
         db = load_db()
         order = db["orders"].get(order_id)
         if not order:
+            try:
+                bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
+            except Exception:
+                pass
             bot.answer_callback_query(call.id, "سفارش یافت نشد!", show_alert=True)
             return
         if order.get("status") != "pending":
+            try:
+                bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
+            except Exception:
+                pass
             bot.answer_callback_query(call.id, f"این سفارش قبلاً {order.get('status')} شده است!", show_alert=True)
             return
 
         buyer_id = order["user_id"]
         plan_code = order["plan_code"]
-        info = PLANS_INFO[plan_code]
+        info = PLANS_INFO.get(plan_code, {"name": plan_code, "days": 30})
 
         key = issue_key_for_plan_atomic(db, plan_code, buyer_id)
         if not key:
-            safe_send_message(call.message.chat.id, f"⚠️ خطا: انبار کدهای {info['name']} خالی است!")
-            bot.answer_callback_query(call.id, "انبار خالی است!", show_alert=True)
+            safe_send_message(call.message.chat.id, f"⚠️ خطا در تولید خودکار لایسنس برای {info['name']}!")
+            bot.answer_callback_query(call.id, "خطا در تولید لایسنس!", show_alert=True)
             return
 
         order["status"] = "approved"
@@ -1689,7 +1709,13 @@ def handle_callbacks(call):
                     f"✅ *رسید تایید شد و لایسنس صادر گردید.*\n"
                     f"کد: `{key}`"
                 )
-                bot.edit_message_caption(caption=new_cap, chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None, parse_mode="Markdown")
+                if len(new_cap) > 1024:
+                    new_cap = f"✅ *رسید تایید شد و لایسنس صادر گردید.*\nکد: `{key}`"
+                try:
+                    bot.edit_message_caption(caption=new_cap, chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None, parse_mode="Markdown")
+                except Exception:
+                    clean_cap = new_cap.replace("*", "").replace("`", "")
+                    bot.edit_message_caption(caption=clean_cap, chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None, parse_mode=None)
             elif call.message.text:
                 new_txt = (
                     f"{call.message.text}\n\n"
@@ -1697,9 +1723,19 @@ def handle_callbacks(call):
                     f"✅ *رسید تایید شد و لایسنس صادر گردید.*\n"
                     f"کد: `{key}`"
                 )
-                bot.edit_message_text(text=new_txt, chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None, parse_mode="Markdown")
+                try:
+                    bot.edit_message_text(text=new_txt, chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None, parse_mode="Markdown")
+                except Exception:
+                    clean_txt = new_txt.replace("*", "").replace("`", "")
+                    bot.edit_message_text(text=clean_txt, chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None, parse_mode=None)
+            else:
+                bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
         except Exception as e:
             print(f"Error editing admin approval message: {e}")
+            try:
+                bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
+            except Exception:
+                pass
 
         bot.answer_callback_query(call.id, "پرداخت تایید و لایسنس ارسال شد ✓")
 
@@ -1713,6 +1749,10 @@ def handle_callbacks(call):
         db = load_db()
         order = db["orders"].get(order_id)
         if not order or order.get("status") != "pending":
+            try:
+                bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
+            except Exception:
+                pass
             bot.answer_callback_query(call.id, "سفارش نامعتبر است یا قبلاً بررسی شده!", show_alert=True)
             return
 
@@ -1720,7 +1760,7 @@ def handle_callbacks(call):
         order["status"] = "rejected"
         order["rejected_at"] = int(time.time())
         order["rejected_by"] = uid
-        save_db(db)
+        save_db(db, immediate_sync=True)
 
         reject_msg = (
             "❌ *رسید پرداخت شما تایید نشد!*\n\n"
@@ -1732,11 +1772,29 @@ def handle_callbacks(call):
 
         try:
             if call.message.caption:
-                bot.edit_message_caption(caption=f"{call.message.caption}\n\n━━━━━━━━━━━━━━━━━━━\n❌ *این رسید رد شد.*", chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
+                new_cap = f"{call.message.caption}\n\n━━━━━━━━━━━━━━━━━━━\n❌ *این رسید رد شد.*"
+                if len(new_cap) > 1024:
+                    new_cap = "❌ *این رسید رد شد.*"
+                try:
+                    bot.edit_message_caption(caption=new_cap, chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None, parse_mode="Markdown")
+                except Exception:
+                    clean_cap = new_cap.replace("*", "")
+                    bot.edit_message_caption(caption=clean_cap, chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None, parse_mode=None)
             elif call.message.text:
-                bot.edit_message_text(text=f"{call.message.text}\n\n━━━━━━━━━━━━━━━━━━━\n❌ *این رسید رد شد.*", chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
-        except Exception:
-            pass
+                new_txt = f"{call.message.text}\n\n━━━━━━━━━━━━━━━━━━━\n❌ *این رسید رد شد.*"
+                try:
+                    bot.edit_message_text(text=new_txt, chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None, parse_mode="Markdown")
+                except Exception:
+                    clean_txt = new_txt.replace("*", "")
+                    bot.edit_message_text(text=clean_txt, chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None, parse_mode=None)
+            else:
+                bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
+        except Exception as e:
+            print(f"Error editing admin rejection message: {e}")
+            try:
+                bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
+            except Exception:
+                pass
         bot.answer_callback_query(call.id, "رسید رد شد ❌")
 
     # گزینه‌های پنل مدیریت ادمین
@@ -2284,7 +2342,12 @@ def handle_general_text(message):
         # Save last admin reply into DB so subsequent user messages can show context
         db = load_db()
         db.setdefault("users", {})
-        db["users"].setdefault(str(target_uid), {})["last_admin_reply"] = {
+        t_str = str(target_uid)
+        if t_str not in db["users"] or not isinstance(db["users"][t_str], dict):
+            db["users"][t_str] = {"purchases": []}
+        else:
+            db["users"][t_str].setdefault("purchases", [])
+        db["users"][t_str]["last_admin_reply"] = {
             "text": text,
             "time": int(time.time())
         }
