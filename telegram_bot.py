@@ -1126,12 +1126,78 @@ def admin_dashboard_keyboard():
     b_live = types.InlineKeyboardButton("📈 آمار آنلاین کاربران", callback_data="adm_live_stats")
     b_bc = types.InlineKeyboardButton("📢 فوروارد و پیام همگانی", callback_data="adm_broadcast")
     b_cards = types.InlineKeyboardButton("💳 مدیریت و چرخش کارت‌ها", callback_data="adm_cards")
+
+    in_maint, _ = is_maintenance_mode()
+    maint_label = "🔴 حالت تعمیر: فعال (خاموش تا ۲۱:۰۰)" if in_maint else "🟢 حالت تعمیر: غیرفعال (ربات باز است)"
+    b_maint = types.InlineKeyboardButton(maint_label, callback_data="adm_toggle_maint")
+
     markup.add(b1, b2)
     markup.add(b3, b4)
     markup.add(b_stat, b_pend)
     markup.add(b_live, b_bc)
     markup.add(b_cards)
+    markup.add(b_maint)
     return markup
+
+# ---------------------------------------------------------------------------
+# Maintenance Mode (در دست تعمیر تا ساعت ۹ شب)
+# ---------------------------------------------------------------------------
+MAINTENANCE_UNTIL_TS = 1792085400  # 2026-10-15 21:00:00+03:30 (ساعت ۲۱:۰۰ امشب)
+
+def is_maintenance_mode() -> tuple[bool, str]:
+    """
+    Returns (is_active, maintenance_message).
+    Checks DB and time threshold. If past 21:00 (9 PM), automatically turns back on!
+    """
+    default_msg = (
+        "🛠 *ربات اینترنت آزاد³⁶⁹ موقتاً در دست تعمیر و ارتقا می‌باشد.*\n\n"
+        "کاربر گرامی؛ تیم فنی در حال ارتقا و بهینه‌سازی زیرساخت سرورهاست.\n\n"
+        "⏳ *زمان بازگشایی و فعالیت مجدد:* **امشب ساعت ۲۱:۰۰ (۹ شب)**\n\n"
+        "از شکیبایی، همراهی و اعتماد شما صمیمانه سپاسگزاریم 🌸"
+    )
+    db = load_db()
+    m_info = db.get("maintenance")
+    now = int(time.time())
+
+    if m_info is not None and isinstance(m_info, dict):
+        if not m_info.get("enabled", True):
+            return False, ""
+        until_ts = m_info.get("until_ts", 0)
+        if until_ts > 0 and now >= until_ts:
+            m_info["enabled"] = False
+            save_db(db)
+            return False, ""
+        return True, m_info.get("message") or default_msg
+
+    # Default: active until 9 PM tonight
+    if now < MAINTENANCE_UNTIL_TS:
+        return True, default_msg
+
+    return False, ""
+
+@bot.message_handler(func=lambda m: not is_admin(m.from_user.id) and is_maintenance_mode()[0], content_types=["text", "audio", "document", "photo", "sticker", "video", "video_note", "voice", "location", "contact"])
+def handle_maintenance_message(message):
+    track_user(message.from_user)
+    _, msg = is_maintenance_mode()
+    safe_reply_to(message, msg)
+
+@bot.message_handler(commands=["maint", "maintenance"])
+def cmd_maint(message):
+    uid = message.from_user.id
+    if not is_admin(uid):
+        return
+    db = load_db()
+    in_maint, _ = is_maintenance_mode()
+    new_state = not in_maint
+    db["maintenance"] = {
+        "enabled": new_state,
+        "until_ts": MAINTENANCE_UNTIL_TS if new_state else 0,
+        "updated_by": uid,
+        "updated_at": int(time.time())
+    }
+    save_db(db, immediate_sync=True)
+    status_str = "🔴 فعال شد (ربات برای کاربران در دست تعمیر است تا ساعت ۲۱:۰۰)" if new_state else "🟢 غیرفعال شد (ربات برای کاربران باز شد)"
+    safe_reply_to(message, f"وضعیت حالت تعمیر: {status_str}")
 
 # ---------------------------------------------------------------------------
 # Start & Navigation Handlers
@@ -1416,6 +1482,15 @@ def handle_callbacks(call):
     track_user(call.from_user)
     data = call.data
     uid = call.from_user.id
+
+    in_maint, maint_msg = is_maintenance_mode()
+    if in_maint and not is_admin(uid):
+        try:
+            bot.answer_callback_query(call.id, "🛠 ربات موقتاً در دست تعمیر است (تا ساعت ۹ شب)", show_alert=True)
+        except Exception:
+            pass
+        safe_send_message(call.message.chat.id, maint_msg)
+        return
 
     # Fast UI Ack so Telegram never shows a loading spinner
     try:
@@ -1799,7 +1874,25 @@ def handle_callbacks(call):
             bot.answer_callback_query(call.id, "دسترسی غیرمجاز!", show_alert=True)
             return
         action = data.replace("adm_", "")
-        if action == "stats":
+        if action == "toggle_maint":
+            db = load_db()
+            in_maint, _ = is_maintenance_mode()
+            new_state = not in_maint
+            db["maintenance"] = {
+                "enabled": new_state,
+                "until_ts": MAINTENANCE_UNTIL_TS if new_state else 0,
+                "updated_by": uid,
+                "updated_at": int(time.time())
+            }
+            save_db(db, immediate_sync=True)
+            status_str = "فعال شد (ربات برای کاربران خاموش شد تا ساعت ۹ شب)" if new_state else "غیرفعال شد (ربات برای همه کاربران باز شد)"
+            bot.answer_callback_query(call.id, f"حالت تعمیر {status_str}", show_alert=True)
+            try:
+                bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=admin_dashboard_keyboard())
+            except Exception:
+                pass
+            return
+        elif action == "stats":
             stats = get_inventory_stats()
             lines = [
                 "📊 *گزارش موجودی و وضعیت لایسنس‌ها:*\n",
