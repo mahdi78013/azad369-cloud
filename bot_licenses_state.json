@@ -788,6 +788,12 @@
       "user_id": 425550807,
       "issued_at": 1792158914,
       "method": "crypto_unique"
+    },
+    "AZ3M-D5A8-CDB4-8C21": {
+      "plan": "3M",
+      "user_id": 8232784125,
+      "issued_at": 1792159193,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -3294,9 +3300,18 @@
       "tron_amount": 1.353438,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_be9defe1c47040e6b0b5b0e3cdd94e73",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=be9defe1c47040e6b0b5b0e3cdd94e73",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792158579
+      "created_at": 1792158579,
+      "approved_at": 1792159193,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-D5A8-CDB4-8C21",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2893315",
+        "tron_amount": 1.353438,
+        "user_paid_toman": null,
+        "date": "2026-10-16T13:54:18.7970000"
+      }
     },
     "TRND-3M-7181719956-1792158638-047175": {
       "order_id": "TRND-3M-7181719956-1792158638-047175",
@@ -7600,8 +7615,16 @@
       "last_name": "",
       "username": "emirmti",
       "first_seen": 1792078152,
-      "last_seen": 1792158511,
-      "purchases": []
+      "last_seen": 1792159169,
+      "purchases": [
+        {
+          "key": "AZ3M-D5A8-CDB4-8C21",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792159193,
+          "days": 90
+        }
+      ]
     },
     "5720666996": {
       "user_id": 5720666996,
@@ -10137,6 +10160,24 @@
       "username": "Mohammadrezamee1385",
       "first_seen": 1792159125,
       "last_seen": 1792159125,
+      "purchases": []
+    },
+    "2098033390": {
+      "user_id": 2098033390,
+      "first_name": "Abolfazl",
+      "last_name": "",
+      "username": "Akm7581",
+      "first_seen": 1792159165,
+      "last_seen": 1792159165,
+      "purchases": []
+    },
+    "8498677510": {
+      "user_id": 8498677510,
+      "first_name": "MEHDI",
+      "last_name": "",
+      "username": "MehY65",
+      "first_seen": 1792159183,
+      "last_seen": 1792159183,
       "purchases": []
     }
   },
