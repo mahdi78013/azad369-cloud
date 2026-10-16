@@ -256,6 +256,13 @@ def safe_reply_to(message, text: str, reply_markup=None):
             print(f"[safe_reply_to] Fatal reply failure: {e2}")
             return None
 
+def safe_answer_callback(call_id: str, text: str = None, show_alert: bool = False):
+    """Safely answers a callback query without throwing exceptions if already answered or timed out."""
+    try:
+        return bot.answer_callback_query(call_id, text=text, show_alert=show_alert)
+    except Exception:
+        return None
+
 def safe_send_photo(chat_id: int, photo, caption: str = "", reply_markup=None):
     """Sends a photo with markdown fallback to plain text."""
     try:
@@ -1870,14 +1877,9 @@ def handle_callbacks(call):
             safe_send_message(call.message.chat.id, maint_msg)
             return
 
-    # Fast UI Ack so Telegram never shows a loading spinner
-    try:
-        bot.answer_callback_query(call.id)
-    except Exception:
-        pass
-
     # نمایش منوی پلن‌ها
     if data == "show_plans":
+        safe_answer_callback(call.id)
         text = (
             "💎 *پلن‌های اشتراک اینترنت آزاد³⁶⁹*\n\n"
             "لطفاً مدت زمان مورد نظر خود را انتخاب کنید:\n"
@@ -1888,19 +1890,13 @@ def handle_callbacks(call):
 
     # حساب کاربری
     elif data == "my_account":
-        try:
-            bot.answer_callback_query(call.id)
-        except Exception:
-            pass
+        safe_answer_callback(call.id)
         btn_my_account(call.message, target_uid=call.from_user.id)
         return
 
     # مشاهده کامل تمام لایسنس‌ها (آرشیو کامل)
     elif data == "show_all_purchases":
-        try:
-            bot.answer_callback_query(call.id)
-        except Exception:
-            pass
+        safe_answer_callback(call.id)
         db = load_db()
         purchases = db.get("users", {}).get(str(call.from_user.id), {}).get("purchases", [])
         purchases.sort(key=lambda p: p.get("issued_at", 0) if isinstance(p, dict) else 0, reverse=True)
@@ -1926,19 +1922,13 @@ def handle_callbacks(call):
 
     # راهنمای اتصال دستی
     elif data == "manual_guide":
-        try:
-            bot.answer_callback_query(call.id)
-        except Exception:
-            pass
+        safe_answer_callback(call.id)
         send_manual_connection_guide(call.message.chat.id)
         return
 
     # پیام به پشتیبانی
     elif data == "start_support":
-        try:
-            bot.answer_callback_query(call.id)
-        except Exception:
-            pass
+        safe_answer_callback(call.id)
         btn_support(call.message, target_uid=call.from_user.id)
         return
 
@@ -1946,15 +1936,13 @@ def handle_callbacks(call):
     elif data.startswith("buy_"):
         plan_code = data.replace("buy_", "")
         if plan_code not in PLANS_INFO:
+            safe_answer_callback(call.id)
             return
         info = PLANS_INFO[plan_code]
 
         # بررسی موجودی پلن‌ها (پلن‌های ۱ و ۲ ماهه تکمیل ظرفیت هستند ولی ۳ ماهه و ۱ ساله باز هستند)
         if plan_code in ("1M", "2M"):
-            try:
-                bot.answer_callback_query(call.id, "⚠️ موجودی این پلن به اتمام رسیده است!", show_alert=True)
-            except Exception:
-                pass
+            safe_answer_callback(call.id, "⚠️ موجودی این پلن به اتمام رسیده است!", show_alert=True)
 
             sold_out_text = (
                 "⚠️ *اتمام موجودی و توقف موقت فروش!*\n\n"
@@ -1975,7 +1963,7 @@ def handle_callbacks(call):
 
         if TRONADO_ENABLED:
             if not CARD_TO_CARD_ENABLED:
-                bot.answer_callback_query(call.id, "⚡ در حال ایجاد فاکتور درگاه آنلاین...")
+                safe_answer_callback(call.id, "⚡ در حال ایجاد فاکتور درگاه آنلاین...")
                 order = tronado_create_order(plan_code, uid, call.from_user)
                 if not order:
                     safe_send_message(call.message.chat.id, "⚠️ اتصال به درگاه آنلاین موقتاً با وقفه مواجه شد. لطفاً چند لحظه بعد مجدداً تلاش فرمایید.")
@@ -2074,10 +2062,10 @@ def handle_callbacks(call):
         info = PLANS_INFO[plan_code]
 
         if plan_code in ("1M", "2M"):
-            bot.answer_callback_query(call.id, "⚠️ این پلن تکمیل ظرفیت است!", show_alert=True)
+            safe_answer_callback(call.id, "⚠️ این پلن تکمیل ظرفیت است!", show_alert=True)
             return
 
-        bot.answer_callback_query(call.id, "⚡ در حال ایجاد فاکتور درگاه آنلاین...")
+        safe_answer_callback(call.id, "⚡ در حال ایجاد فاکتور درگاه آنلاین...")
         order = tronado_create_order(plan_code, uid, call.from_user)
         if not order:
             safe_send_message(call.message.chat.id, "⚠️ اتصال به درگاه آنلاین موقتاً با وقفه مواجه شد. لطفاً چند لحظه بعد مجدداً تلاش فرمایید.")
@@ -2115,15 +2103,16 @@ def handle_callbacks(call):
     # انتخاب پرداخت کارت‌به‌کارت
     elif data.startswith("pay_card_"):
         if not CARD_TO_CARD_ENABLED:
-            bot.answer_callback_query(call.id, "⚠️ روش پرداخت کارت‌به‌کارت موقتاً غیرفعال است. لطفاً از درگاه آنلاین استفاده فرمایید.", show_alert=True)
+            safe_answer_callback(call.id, "⚠️ روش پرداخت کارت‌به‌کارت موقتاً غیرفعال است. لطفاً از درگاه آنلاین استفاده فرمایید.", show_alert=True)
             return
 
         plan_code = data.replace("pay_card_", "")
         if plan_code not in PLANS_INFO:
+            safe_answer_callback(call.id)
             return
         info = PLANS_INFO[plan_code]
-        if plan_code in ("1M", "2M", "3M", "1Y"):
-            bot.answer_callback_query(call.id, "⚠️ این پلن تکمیل ظرفیت است!", show_alert=True)
+        if plan_code in ("1M", "2M"):
+            safe_answer_callback(call.id, "⚠️ این پلن تکمیل ظرفیت است!", show_alert=True)
             return
 
         active_card = get_random_card_number()
@@ -2160,15 +2149,15 @@ def handle_callbacks(call):
     # دکمه استعلام و دریافت آنی لایسنس
     elif data.startswith("trnd_chk_"):
         payment_id = data.replace("trnd_chk_", "")
-        bot.answer_callback_query(call.id, "⏳ در حال استعلام وضعیت سفارش از درگاه...")
+        safe_answer_callback(call.id, "⏳ در حال استعلام وضعیت سفارش از درگاه...")
         db = load_db()
         order = db.get("orders", {}).get(payment_id)
         if not order:
-            bot.answer_callback_query(call.id, "سفارش در سیستم یافت نشد!", show_alert=True)
+            safe_answer_callback(call.id, "سفارش در سیستم یافت نشد!", show_alert=True)
             return
 
         if order.get("status") == "approved":
-            bot.answer_callback_query(call.id, "✅ این سفارش قبلاً تایید و لایسنس تحویل شده است!", show_alert=True)
+            safe_answer_callback(call.id, "✅ این سفارش قبلاً تایید و لایسنس تحویل شده است!", show_alert=True)
             return
 
         st = tronado_check_order_status(payment_id)
@@ -2184,19 +2173,19 @@ def handle_callbacks(call):
                     )
                 except Exception:
                     pass
-                bot.answer_callback_query(call.id, "✅ پرداخت شما تایید و لایسنس ارسال شد!", show_alert=True)
+                safe_answer_callback(call.id, "✅ پرداخت شما تایید و لایسنس ارسال شد!", show_alert=True)
             else:
-                bot.answer_callback_query(call.id, f"خطا در صدور لایسنس: {msg}", show_alert=True)
+                safe_answer_callback(call.id, f"خطا در صدور لایسنس: {msg}", show_alert=True)
         elif st and st.get("OrderStatusID") in (20, 25, 27):
-            bot.answer_callback_query(call.id, "⏳ فیش یا تراکنش شما در درگاه ثبت شده و در حال تایید نهایی است. لطفاً ۱ دقیقه دیگر مجدداً دکمه را لمس نمایید.", show_alert=True)
+            safe_answer_callback(call.id, "⏳ فیش یا تراکنش شما در درگاه ثبت شده و در حال تایید نهایی است. لطفاً ۱ دقیقه دیگر مجدداً دکمه را لمس نمایید.", show_alert=True)
         elif st and st.get("OrderStatusID") in (40, 200):
-            bot.answer_callback_query(call.id, "❌ تراکنش در درگاه لغو یا منقضی شده است.", show_alert=True)
+            safe_answer_callback(call.id, "❌ تراکنش در درگاه لغو یا منقضی شده است.", show_alert=True)
         else:
-            bot.answer_callback_query(call.id, "⏳ هنوز تاییدیه‌ای از درگاه دریافت نشده است. چنانچه پرداخت را انجام داده‌اید، لطفاً ۱ الی ۲ دقیقه منتظر بمانید و دوباره دکمه را لمس کنید.", show_alert=True)
+            safe_answer_callback(call.id, "⏳ هنوز تاییدیه‌ای از درگاه دریافت نشده است. چنانچه پرداخت را انجام داده‌اید، لطفاً ۱ الی ۲ دقیقه منتظر بمانید و دوباره دکمه را لمس کنید.", show_alert=True)
 
     elif data.startswith("paid_"):
         if not CARD_TO_CARD_ENABLED:
-            bot.answer_callback_query(call.id, "⚠️ روش پرداخت کارت‌به‌کارت موقتاً غیرفعال است. لطفاً از درگاه آنلاین استفاده فرمایید.", show_alert=True)
+            safe_answer_callback(call.id, "⚠️ روش پرداخت کارت‌به‌کارت موقتاً غیرفعال است. لطفاً از درگاه آنلاین استفاده فرمایید.", show_alert=True)
             return
         plan_code = data.replace("paid_", "")
         if plan_code not in PLANS_INFO:
@@ -2228,7 +2217,7 @@ def handle_callbacks(call):
             bot.edit_message_text(prompt_text, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
         except Exception:
             safe_send_message(call.message.chat.id, prompt_text, reply_markup=markup)
-        bot.answer_callback_query(call.id)
+        safe_answer_callback(call.id)
 
     elif data == "cancel_action":
         clear_user_state(uid)
@@ -2236,7 +2225,7 @@ def handle_callbacks(call):
             bot.edit_message_text("❌ عملیات لغو گردید.", call.message.chat.id, call.message.message_id)
         except Exception:
             safe_send_message(call.message.chat.id, "❌ عملیات لغو گردید.")
-        bot.answer_callback_query(call.id, "لغو شد")
+        safe_answer_callback(call.id, "لغو شد")
 
     elif data == "cancel_admin_reply":
         if is_admin(uid):
@@ -2245,20 +2234,17 @@ def handle_callbacks(call):
                 bot.edit_message_text("❌ ارسال پاسخ به کاربر لغو شد.", call.message.chat.id, call.message.message_id)
             except Exception:
                 safe_send_message(call.message.chat.id, "❌ ارسال پاسخ به کاربر لغو شد.")
-            bot.answer_callback_query(call.id, "لغو شد")
+            safe_answer_callback(call.id, "لغو شد")
 
     # تیکت پشتیبانی: شروع پیام به ادمین
     elif data == "ticket_new":
-        try:
-            bot.answer_callback_query(call.id, "🛠 بخش پشتیبانی در حال به‌روزرسانی است. لطفاً صبور باشید.", show_alert=True)
-        except Exception:
-            pass
+        safe_answer_callback(call.id, "🛠 بخش پشتیبانی در حال به‌روزرسانی است. لطفاً صبور باشید.", show_alert=True)
         btn_support(call.message, target_uid=call.from_user.id)
 
     # ادمین روی دکمه «پاسخ به کاربر» می‌زند
     elif data.startswith("reply_user_"):
         if not is_admin(uid):
-            bot.answer_callback_query(call.id, "دسترسی غیرمجاز!", show_alert=True)
+            safe_answer_callback(call.id, "دسترسی غیرمجاز!", show_alert=True)
             return
         target_uid = data.replace("reply_user_", "")
         set_admin_state({"state": "replying_to_user", "target_uid": target_uid}, admin_id=uid)
