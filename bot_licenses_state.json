@@ -902,6 +902,12 @@
       "user_id": 6142846172,
       "issued_at": 1792168517,
       "method": "crypto_unique"
+    },
+    "AZ3M-57B2-4C95-74A3": {
+      "plan": "3M",
+      "user_id": 111850804,
+      "issued_at": 1792168546,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -4260,9 +4266,18 @@
       "tron_amount": 1.342551,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a0fa350851e84cea9e62a10850c4333d",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a0fa350851e84cea9e62a10850c4333d",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792168407
+      "created_at": 1792168407,
+      "approved_at": 1792168546,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-57B2-4C95-74A3",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2895201",
+        "tron_amount": 1.342551,
+        "user_paid_toman": null,
+        "date": "2026-10-16T16:35:32.3130000"
+      }
     },
     "TRND-3M-69147153-1792168506-97b076": {
       "order_id": "TRND-3M-69147153-1792168506-97b076",
@@ -4295,6 +4310,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792168512
+    },
+    "TRND-3M-5564665041-1792168529-78d721": {
+      "order_id": "TRND-3M-5564665041-1792168529-78d721",
+      "token": "bc54877a2d7840c1b2951951936064c0",
+      "user_id": 5564665041,
+      "first_name": "MoJKAL",
+      "username": "JK_MoJKAL_JK",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.3514,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_bc54877a2d7840c1b2951951936064c0",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=bc54877a2d7840c1b2951951936064c0",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792168529
     }
   },
   "users": {
@@ -11876,7 +11907,15 @@
       "username": "avash1390f",
       "first_seen": 1792168232,
       "last_seen": 1792168232,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-57B2-4C95-74A3",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792168546,
+          "days": 90
+        }
+      ]
     },
     "6142846172": {
       "user_id": 6142846172,
