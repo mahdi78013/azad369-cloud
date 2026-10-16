@@ -22,7 +22,8 @@ PLANS = {
     "AZ1M": (30, "۱ ماهه (۳۰ روزه)"),
     "AZ2M": (60, "۲ ماهه (۶۰ روزه)"),
     "AZ3M": (90, "۳ ماهه (۹۰ روزه)"),
-    "AZ1Y": (365, "۱ ساله (۳۶۵ روزه)")
+    "AZ1Y": (365, "۱ ساله (۳۶۵ روزه)"),
+    "AZLF": (3650, "پلن نامحدود (مادام‌العمر)")
 }
 
 # License file storage path in user APPDATA
@@ -203,8 +204,8 @@ def get_current_license_status() -> dict:
     record["last_seen"] = now
     save_license_record(record)
 
-    seconds_left = expires_at - now
-    days_left = max(1, int(seconds_left / 86400))
+    seconds_left = max(0, expires_at - now)
+    days_left = max(1, int((seconds_left + 86399) // 86400))
 
     return {
         "active": True,

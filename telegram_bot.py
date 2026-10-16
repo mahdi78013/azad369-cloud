@@ -141,6 +141,14 @@ PLANS_INFO = {
         "file": "1Y.txt",
         "fallback_file": "1_ساله_1000_عدد.txt",
         "days": 365
+    },
+    "UNLIM": {
+        "name": "پلن نامحدود (مادام‌العمر)",
+        "price": "۱,۲۰۰,۰۰۰ تومان",
+        "prefix": "AZLF",
+        "file": "UNLIM.txt",
+        "fallback_file": "نامحدود_1000_عدد.txt",
+        "days": 3650
     }
 }
 
@@ -648,6 +656,7 @@ def get_live_bot_stats() -> str:
         f"• پلن ۲ ماهه: *{stats.get('2M', {}).get('clean_on_disk', 0)} عدد*\n"
         f"• پلن ۳ ماهه: *{stats.get('3M', {}).get('clean_on_disk', 0)} عدد*\n"
         f"• پلن ۱ ساله: *{stats.get('1Y', {}).get('clean_on_disk', 0)} عدد*\n"
+        f"• پلن نامحدود: *{stats.get('UNLIM', {}).get('clean_on_disk', 0)} عدد*\n"
         f"• مجموع کل موجودی انبار: *{stats.get('_total_available', 0)} عدد*\n\n"
         f"🕒 تاریخ و ساعت گزارش: `{local_time_str}`"
     )
@@ -1110,7 +1119,10 @@ def main_menu_keyboard(is_admin: bool = False):
 def plans_keyboard():
     markup = types.InlineKeyboardMarkup(row_width=1)
     for p_code, p_info in PLANS_INFO.items():
-        text = f"{p_info['name']} — {p_info['price']} (❌ تکمیل ظرفیت)"
+        if p_code in ("1Y", "UNLIM"):
+            text = f"💎 {p_info['name']} — {p_info['price']} (🟢 موجود)"
+        else:
+            text = f"{p_info['name']} — {p_info['price']} (❌ تکمیل ظرفیت)"
         markup.add(types.InlineKeyboardButton(text, callback_data=f"buy_{p_code}"))
     markup.add(types.InlineKeyboardButton("❌ انصراف و بستن", callback_data="cancel_action"))
     return markup
@@ -1121,6 +1133,7 @@ def admin_dashboard_keyboard():
     b2 = types.InlineKeyboardButton("⚡ صدور کد ۲ ماهه", callback_data="adm_2M")
     b3 = types.InlineKeyboardButton("💎 صدور کد ۳ ماهه", callback_data="adm_3M")
     b4 = types.InlineKeyboardButton("👑 صدور کد ۱ ساله", callback_data="adm_1Y")
+    b5 = types.InlineKeyboardButton("♾️ صدور کد نامحدود", callback_data="adm_UNLIM")
     b_stat = types.InlineKeyboardButton("📊 موجودی لایسنس‌ها", callback_data="adm_stats")
     b_pend = types.InlineKeyboardButton("⏳ سفارشات در انتظار", callback_data="adm_pending")
     b_live = types.InlineKeyboardButton("📈 آمار آنلاین کاربران", callback_data="adm_live_stats")
@@ -1133,9 +1146,9 @@ def admin_dashboard_keyboard():
 
     markup.add(b1, b2)
     markup.add(b3, b4)
-    markup.add(b_stat, b_pend)
-    markup.add(b_live, b_bc)
-    markup.add(b_cards)
+    markup.add(b5, b_stat)
+    markup.add(b_pend, b_live)
+    markup.add(b_bc, b_cards)
     markup.add(b_maint)
     return markup
 
@@ -1616,8 +1629,8 @@ def handle_callbacks(call):
             return
         info = PLANS_INFO[plan_code]
 
-        # بررسی موجودی پلن‌ها (تمامی پلن‌ها تکمیل ظرفیت شده‌اند)
-        if plan_code in ("1M", "2M", "3M", "1Y"):
+        # بررسی موجودی پلن‌ها (پلن‌های ۱، ۲ و ۳ ماهه تکمیل ظرفیت هستند ولی ۱ ساله و نامحدود باز هستند)
+        if plan_code in ("1M", "2M", "3M"):
             try:
                 bot.answer_callback_query(call.id, "⚠️ موجودی این پلن به اتمام رسیده است!", show_alert=True)
             except Exception:
@@ -1625,7 +1638,7 @@ def handle_callbacks(call):
 
             sold_out_text = (
                 "⚠️ *تکمیل ظرفیت و توقف موقت فروش!*\n\n"
-                f"کاربر گرامی؛ در حال حاضر ظرفیت اشتراک *{escape_md(info['name'])}* و تمامی پلن‌ها **تکمیل شده است**.\n\n"
+                f"کاربر گرامی؛ در حال حاضر ظرفیت اشتراک *{escape_md(info['name'])}* **تکمیل شده است**.\n\n"
                 "📢 به محض افزایش پهنای باند سرورها و شارژ مجدد موجودی لایسنس‌ها، در کانال رسمی اطلاع‌رسانی خواهد شد.\n\n"
                 "جهت رزرو لایسنس یا ثبت پیام در لیست انتظار، می‌توانید با پشتیبانی در ارتباط باشید: 👇"
             )
@@ -1675,7 +1688,7 @@ def handle_callbacks(call):
         plan_code = data.replace("paid_", "")
         if plan_code not in PLANS_INFO:
             return
-        if plan_code in ("1M", "2M", "3M", "1Y"):
+        if plan_code in ("1M", "2M", "3M"):
             try:
                 bot.answer_callback_query(call.id, "⚠️ تمامی ظرفیت‌ها تکمیل شده است!", show_alert=True)
             except Exception:
@@ -1944,7 +1957,7 @@ def handle_callbacks(call):
                 "⚡ *موتور صدور هوشمند:* فعال و بدون محدودیت",
                 "🛡️ *ضمانت عدم تکرار:* ۱۰۰٪ تضمین‌شده (Blacklist تطبیقی)\n"
             ]
-            for p_code in ["1M", "2M", "3M", "1Y"]:
+            for p_code in ["1M", "2M", "3M", "1Y", "UNLIM"]:
                 st = stats[p_code]
                 lines.append(f"• *{st['name']}:* {st['clean_on_disk']} عدد در انبار دیسک | صدور کریپتو: فعال")
             lines.append(f"\n📦 *کل لایسنس‌های صادرشده تا کنون:* {stats['_total_sold']} عدد")
