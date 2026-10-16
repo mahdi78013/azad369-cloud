@@ -875,16 +875,9 @@ def get_hwid_bound_keys() -> set:
 def is_support_working_hours() -> tuple[bool, str]:
     """
     Checks if support is currently open based on Tehran time (UTC+3:30).
-    Working hours: 12:00 PM to 22:00 PM (10 PM).
-    Between 22:00 and 12:00 next day, support is CLOSED.
+    Support is 24/7 active and open.
     """
-    utc_now = datetime.datetime.now(datetime.timezone.utc)
-    tehran_tz = datetime.timezone(datetime.timedelta(hours=3, minutes=30))
-    tehran_now = utc_now.astimezone(tehran_tz)
-    current_hour = tehran_now.hour
-    is_open = (12 <= current_hour < 22)
-    time_str = tehran_now.strftime("%H:%M")
-    return is_open, time_str
+    return True, ""
 
 SUPPORT_CLOSED_MESSAGE = (
     "⏰ *ساعت کاری واحد پشتیبانی به پایان رسیده است*\n\n"
@@ -1797,20 +1790,19 @@ def send_manual_connection_guide(chat_id: int):
 @bot.message_handler(func=lambda m: (m.text or "").strip() == "💬 پشتیبانی" or any(k in (m.text or "") for k in ["پشتیبانی", "پشتیبان", "ارتباط با ادمین"]))
 def btn_support(message, target_uid=None):
     uid = target_uid or message.from_user.id
-    clear_user_state(uid)
+    set_user_state(uid, {"state": "waiting_support_msg", "time": int(time.time())})
 
     text = (
-        "🛠 *سامانه پشتیبانی در حال ارتقا و به‌روزرسانی سیستم*\n\n"
-        "کاربر گرامی؛\n"
-        "به منظور بهبود کیفیت خدمات، افزایش پایداری سرورها و ارتقای زیرساخت ارتباطی، بخش پشتیبانی ربات هم‌اکنون در دست **به‌روزرسانی فنی** می‌باشد.\n\n"
-        "⏳ لطفاً صبور باشید؛ تیم پشتیبانی و فنی با تمام توان در حال نهایی‌سازی مراحل ارتقا هستند.\n\n"
-        "📢 **به محض اتمام به‌روزرسانی و بازگشایی مجدد سامانه، اطلاعیه همگانی در کانال رسمی ارسال خواهد شد.**\n\n"
-        "از شکیبایی، صبوری و همراهی همیشگی شما صمیمانه سپاسگزاریم 🌸"
+        "📞 *سامانه پشتیبانی اینترنت آزاد³⁶⁹*\n\n"
+        "✍️ کاربر گرامی، لطفاً سوال، مشکل یا پیام خود را تایپ و ارسال فرمایید.\n"
+        "_(همچنین در صورت نیاز می‌توانید عکس یا فایل اسکرین‌شات ارسال فرمایید)_\n\n"
+        "پیام شما مستقیماً برای مدیریت ارسال شده و پاسخ در همین گفتگو برایتان فرستاده خواهد شد. 🌸\n\n"
+        "📢 کانال اطلاع‌رسانی: @muntivpn"
     )
     markup = types.InlineKeyboardMarkup(row_width=1)
     markup.add(
-        types.InlineKeyboardButton("📢 کانال اطلاع‌رسانی اینترنت آزاد³⁶⁹", url="https://t.me/muntivpn"),
-        types.InlineKeyboardButton("🔙 بازگشت به منوی اصلی", callback_data="cancel_action")
+        types.InlineKeyboardButton("❌ انصراف و بازگشت به منوی اصلی", callback_data="cancel_action"),
+        types.InlineKeyboardButton("📢 کانال اطلاع‌رسانی", url="https://t.me/muntivpn")
     )
     safe_send_message(message.chat.id, text, reply_markup=markup)
 
@@ -2238,8 +2230,16 @@ def handle_callbacks(call):
 
     # تیکت پشتیبانی: شروع پیام به ادمین
     elif data == "ticket_new":
-        safe_answer_callback(call.id, "🛠 بخش پشتیبانی در حال به‌روزرسانی است. لطفاً صبور باشید.", show_alert=True)
-        btn_support(call.message, target_uid=call.from_user.id)
+        set_user_state(uid, {"state": "waiting_support_msg", "time": int(time.time())})
+        prompt_ticket = (
+            "✍️ *پیام به پشتیبانی:*\n\n"
+            "لطفاً پیام، سوال یا مشکل خود را به صورت متن یا تصویر همین‌جا ارسال فرمایید.\n"
+            "پیام شما مستقیماً برای مدیریت ارسال شده و پاسخ در همین چت برایتان فرستاده خواهد شد. 🌸"
+        )
+        markup = types.InlineKeyboardMarkup()
+        markup.add(types.InlineKeyboardButton("❌ انصراف", callback_data="cancel_action"))
+        safe_send_message(call.message.chat.id, prompt_ticket, reply_markup=markup)
+        safe_answer_callback(call.id)
 
     # ادمین روی دکمه «پاسخ به کاربر» می‌زند
     elif data.startswith("reply_user_"):
