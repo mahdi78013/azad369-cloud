@@ -141,14 +141,6 @@ PLANS_INFO = {
         "file": "1Y.txt",
         "fallback_file": "1_ساله_1000_عدد.txt",
         "days": 365
-    },
-    "UNLIM": {
-        "name": "پلن نامحدود (مادام‌العمر)",
-        "price": "۱,۲۰۰,۰۰۰ تومان",
-        "prefix": "AZLF",
-        "file": "UNLIM.txt",
-        "fallback_file": "نامحدود_1000_عدد.txt",
-        "days": 3650
     }
 }
 
@@ -656,7 +648,6 @@ def get_live_bot_stats() -> str:
         f"• پلن ۲ ماهه: *{stats.get('2M', {}).get('clean_on_disk', 0)} عدد*\n"
         f"• پلن ۳ ماهه: *{stats.get('3M', {}).get('clean_on_disk', 0)} عدد*\n"
         f"• پلن ۱ ساله: *{stats.get('1Y', {}).get('clean_on_disk', 0)} عدد*\n"
-        f"• پلن نامحدود: *{stats.get('UNLIM', {}).get('clean_on_disk', 0)} عدد*\n"
         f"• مجموع کل موجودی انبار: *{stats.get('_total_available', 0)} عدد*\n\n"
         f"🕒 تاریخ و ساعت گزارش: `{local_time_str}`"
     )
@@ -1119,7 +1110,7 @@ def main_menu_keyboard(is_admin: bool = False):
 def plans_keyboard():
     markup = types.InlineKeyboardMarkup(row_width=1)
     for p_code, p_info in PLANS_INFO.items():
-        if p_code in ("1Y", "UNLIM"):
+        if p_code == "1Y":
             text = f"💎 {p_info['name']} — {p_info['price']} (🟢 موجود)"
         else:
             text = f"{p_info['name']} — {p_info['price']} (❌ تکمیل ظرفیت)"
@@ -1133,7 +1124,6 @@ def admin_dashboard_keyboard():
     b2 = types.InlineKeyboardButton("⚡ صدور کد ۲ ماهه", callback_data="adm_2M")
     b3 = types.InlineKeyboardButton("💎 صدور کد ۳ ماهه", callback_data="adm_3M")
     b4 = types.InlineKeyboardButton("👑 صدور کد ۱ ساله", callback_data="adm_1Y")
-    b5 = types.InlineKeyboardButton("♾️ صدور کد نامحدود", callback_data="adm_UNLIM")
     b_stat = types.InlineKeyboardButton("📊 موجودی لایسنس‌ها", callback_data="adm_stats")
     b_pend = types.InlineKeyboardButton("⏳ سفارشات در انتظار", callback_data="adm_pending")
     b_live = types.InlineKeyboardButton("📈 آمار آنلاین کاربران", callback_data="adm_live_stats")
@@ -1146,9 +1136,9 @@ def admin_dashboard_keyboard():
 
     markup.add(b1, b2)
     markup.add(b3, b4)
-    markup.add(b5, b_stat)
-    markup.add(b_pend, b_live)
-    markup.add(b_bc, b_cards)
+    markup.add(b_stat, b_pend)
+    markup.add(b_live, b_bc)
+    markup.add(b_cards)
     markup.add(b_maint)
     return markup
 
@@ -1957,7 +1947,7 @@ def handle_callbacks(call):
                 "⚡ *موتور صدور هوشمند:* فعال و بدون محدودیت",
                 "🛡️ *ضمانت عدم تکرار:* ۱۰۰٪ تضمین‌شده (Blacklist تطبیقی)\n"
             ]
-            for p_code in ["1M", "2M", "3M", "1Y", "UNLIM"]:
+            for p_code in ["1M", "2M", "3M", "1Y"]:
                 st = stats[p_code]
                 lines.append(f"• *{st['name']}:* {st['clean_on_disk']} عدد در انبار دیسک | صدور کریپتو: فعال")
             lines.append(f"\n📦 *کل لایسنس‌های صادرشده تا کنون:* {stats['_total_sold']} عدد")
