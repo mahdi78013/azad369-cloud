@@ -1070,6 +1070,12 @@
       "user_id": 5076806240,
       "issued_at": 1792174007,
       "method": "crypto_unique"
+    },
+    "AZ3M-BBD5-917D-9E8C": {
+      "plan": "3M",
+      "user_id": 205858492,
+      "issued_at": 1792177859,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -6286,9 +6292,34 @@
       "tron_amount": 1.348208,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_0768b9b5ea954c5799b19ccd60e50bb0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0768b9b5ea954c5799b19ccd60e50bb0",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1792177675,
+      "approved_at": 1792177859,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-BBD5-917D-9E8C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2897273",
+        "tron_amount": 1.348208,
+        "user_paid_toman": null,
+        "date": "2026-10-16T19:10:51.7570000"
+      }
+    },
+    "TRND-3M-232719826-1792177768-5dafde": {
+      "order_id": "TRND-3M-232719826-1792177768-5dafde",
+      "token": "1df960f072fe4cda86fbeb30f3137212",
+      "user_id": 232719826,
+      "first_name": "Mojtaba",
+      "username": "qasemi_mojtaba",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.35819,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_1df960f072fe4cda86fbeb30f3137212",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1df960f072fe4cda86fbeb30f3137212",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792177675
+      "created_at": 1792177768
     }
   },
   "users": {
@@ -14461,7 +14492,15 @@
       "username": "miti_mirzaei",
       "first_seen": 1792175634,
       "last_seen": 1792177657,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-BBD5-917D-9E8C",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792177859,
+          "days": 90
+        }
+      ]
     },
     "66482174": {
       "user_id": 66482174,
@@ -14532,7 +14571,7 @@
       "last_name": "Qasemi",
       "username": "qasemi_mojtaba",
       "first_seen": 1792177412,
-      "last_seen": 1792177412,
+      "last_seen": 1792177761,
       "purchases": []
     },
     "714783798": {
