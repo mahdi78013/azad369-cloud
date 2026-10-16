@@ -926,6 +926,12 @@
       "user_id": 6819536809,
       "issued_at": 1792169464,
       "method": "crypto_unique"
+    },
+    "AZ3M-9265-0466-2CEF": {
+      "plan": "3M",
+      "user_id": 351836767,
+      "issued_at": 1792169660,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -4496,9 +4502,18 @@
       "tron_amount": 1.340653,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_efa7fd4ea8dc4d0e9b918f6129dcbb4c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=efa7fd4ea8dc4d0e9b918f6129dcbb4c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792169253
+      "created_at": 1792169253,
+      "approved_at": 1792169660,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-9265-0466-2CEF",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2895427",
+        "tron_amount": 1.340653,
+        "user_paid_toman": null,
+        "date": "2026-10-16T16:54:03.5330000"
+      }
     },
     "ORD_1792169269_69147153": {
       "order_id": "ORD_1792169269_69147153",
@@ -4513,6 +4528,36 @@
       "card_number": "5892101706458979",
       "created_at": 1792169269,
       "caption": ""
+    },
+    "ORD_1792169618_6819536809": {
+      "order_id": "ORD_1792169618_6819536809",
+      "user_id": 6819536809,
+      "username": "muntivpn369bot",
+      "first_name": "اینترنت آزاد³⁶⁹ - لایسنس نت ملی",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAJQR2rSVoiHFuLQ42kCnXM3Yj4dEHZmAAJkDmsbZG2YUtqRzROYWtVlAQADAgADeQADPQQ",
+      "card_number": "5892101706458979",
+      "created_at": 1792169618,
+      "caption": ""
+    },
+    "TRND-3M-8663538506-1792169651-8b47fd": {
+      "order_id": "TRND-3M-8663538506-1792169651-8b47fd",
+      "token": "2dd3178a92e44ad880638076f57e9097",
+      "user_id": 8663538506,
+      "first_name": "Mohammad Hossein",
+      "username": "ندارد",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.359495,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_2dd3178a92e44ad880638076f57e9097",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2dd3178a92e44ad880638076f57e9097",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792169651
     }
   },
   "users": {
@@ -9462,7 +9507,7 @@
       "last_name": "Ostadi",
       "username": "",
       "first_seen": 1792101836,
-      "last_seen": 1792161607,
+      "last_seen": 1792169651,
       "purchases": []
     },
     "1206943145": {
@@ -12187,8 +12232,16 @@
       "last_name": "",
       "username": "",
       "first_seen": 1792169075,
-      "last_seen": 1792169075,
-      "purchases": []
+      "last_seen": 1792169659,
+      "purchases": [
+        {
+          "key": "AZ3M-9265-0466-2CEF",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792169660,
+          "days": 90
+        }
+      ]
     }
   },
   "user_states": {
@@ -12742,10 +12795,10 @@
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 3,
+    "count": 4,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 13,
+      "5892101706458979": 14,
       "5047061670546072": 10
     }
   },
