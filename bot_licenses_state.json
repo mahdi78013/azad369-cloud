@@ -650,6 +650,12 @@
       "user_id": 272902849,
       "issued_at": 1792149046,
       "method": "tronado_auto"
+    },
+    "AZ3M-D7CA-7BCB-49B5": {
+      "plan": "3M",
+      "user_id": 698844609,
+      "issued_at": 1792154647,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -2174,9 +2180,18 @@
       "tron_amount": 1.334185,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b2732a03798440518c91b0aee5d12012",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b2732a03798440518c91b0aee5d12012",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792151957
+      "created_at": 1792151957,
+      "approved_at": 1792154647,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-D7CA-7BCB-49B5",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2892325",
+        "tron_amount": 1.334185,
+        "user_paid_toman": null,
+        "date": "2026-10-16T12:01:18.2230000"
+      }
     },
     "TRND-1Y-748538264-1792152001-dee786": {
       "order_id": "TRND-1Y-748538264-1792152001-dee786",
@@ -3213,10 +3228,10 @@
     },
     "8356688021": {
       "user_id": 8356688021,
-      "first_name": "اینترنت آزاد³⁶⁹ - لایسنس نت ملی",
-      "username": "muntivpn369bot",
+      "first_name": "hassan mousvi",
+      "username": "hassanmousvi",
       "first_seen": 1791990606,
-      "last_seen": 1791990606,
+      "last_seen": 1792154622,
       "purchases": []
     },
     "5176724066": {
@@ -6795,7 +6810,15 @@
       "username": "Only7512",
       "first_seen": 1792097682,
       "last_seen": 1792151956,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-D7CA-7BCB-49B5",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792154647,
+          "days": 90
+        }
+      ]
     },
     "776785656": {
       "user_id": 776785656,
