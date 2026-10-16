@@ -3174,6 +3174,15 @@ if __name__ == "__main__":
     s_thread = threading.Thread(target=periodic_sync_worker, daemon=True)
     s_thread.start()
 
+    if TRONADO_ENABLED:
+        try:
+            start_tronado_webhook_server()
+            tp_thread = threading.Thread(target=tronado_poller_worker, daemon=True)
+            tp_thread.start()
+            print("[✓] Tronado background poller started.")
+        except Exception as e:
+            print(f"[!] Tronado poller start warning: {e}")
+
     try:
         bot.remove_webhook()
     except Exception:
@@ -3181,8 +3190,9 @@ if __name__ == "__main__":
 
     while True:
         try:
-            bot.infinity_polling(timeout=10, long_polling_timeout=5, skip_pending=True)
+            bot.infinity_polling(timeout=10, long_polling_timeout=5, skip_pending=False)
             break
         except Exception as e:
             print(f"[!] Polling exception: {e}. Retrying in 5 seconds...")
             time.sleep(5)
+
