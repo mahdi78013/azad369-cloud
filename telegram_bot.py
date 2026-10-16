@@ -1596,7 +1596,7 @@ def cmd_start(message):
     safe_send_message(message.chat.id, welcome_text, reply_markup=welcome_inline_keyboard())
     safe_send_message(message.chat.id, "منوی اصلی کیبورد نیز فعال شد 👇", reply_markup=main_menu_keyboard(admin_flag))
 
-@bot.message_handler(func=lambda m: m.text == "🛒 خرید اشتراک اختصاصی")
+@bot.message_handler(func=lambda m: (m.text or "").strip() == "🛒 خرید اشتراک اختصاصی" or any(k in (m.text or "") for k in ["خرید اشتراک", "خرید", "پلن‌ها", "پلن ها"]))
 def btn_buy_plans(message):
     clear_user_state(message.from_user.id)
     in_maint, maint_msg = is_maintenance_mode()
@@ -1716,7 +1716,7 @@ def btn_my_account(message, target_uid=None):
     )
     safe_send_message(message.chat.id, "\n".join(lines), reply_markup=markup)
 
-@bot.message_handler(func=lambda m: m.text == "❓ راهنمای فعال‌سازی")
+@bot.message_handler(func=lambda m: (m.text or "").strip() == "❓ راهنمای فعال‌سازی" or any(k in (m.text or "") for k in ["راهنما", "فعال‌سازی", "فعالسازی"]))
 def btn_help(message):
     clear_user_state(message.from_user.id)
     text = (
@@ -1729,7 +1729,7 @@ def btn_help(message):
     )
     safe_send_message(message.chat.id, text)
 
-@bot.message_handler(func=lambda m: m.text == "📘 آموزش اتصال دستی")
+@bot.message_handler(func=lambda m: (m.text or "").strip() == "📘 آموزش اتصال دستی" or any(k in (m.text or "") for k in ["آموزش", "اتصال دستی"]))
 def btn_manual_guide(message):
     clear_user_state(message.from_user.id)
     send_manual_connection_guide(message.chat.id)
@@ -1794,7 +1794,7 @@ def send_manual_connection_guide(chat_id: int):
 # ---------------------------------------------------------------------------
 # Support Handler (Instant Ticket Input Mode)
 # ---------------------------------------------------------------------------
-@bot.message_handler(func=lambda m: m.text == "💬 پشتیبانی")
+@bot.message_handler(func=lambda m: (m.text or "").strip() == "💬 پشتیبانی" or any(k in (m.text or "") for k in ["پشتیبانی", "پشتیبان", "ارتباط با ادمین"]))
 def btn_support(message, target_uid=None):
     uid = target_uid or message.from_user.id
     clear_user_state(uid)
@@ -1814,7 +1814,7 @@ def btn_support(message, target_uid=None):
     )
     safe_send_message(message.chat.id, text, reply_markup=markup)
 
-@bot.message_handler(func=lambda m: m.text == "👑 پنل مدیریت ادمین")
+@bot.message_handler(func=lambda m: (m.text or "").strip() == "👑 پنل مدیریت ادمین" or any(k in (m.text or "") for k in ["پنل مدیریت", "مدیریت ادمین", "پنل ادمین"]))
 def btn_admin_panel(message):
     if not is_admin(message.from_user.id):
         return
@@ -2933,29 +2933,31 @@ def handle_general_text(message):
                 return
 
     # اگر کاربر روی یکی از دکمه‌های منوی اصلی زده باشد، هرگونه استیت قبلی ریست شود و دستور اجرا شود
-    menu_buttons = [
-        "🛒 خرید اشتراک اختصاصی",
-        "👤 حساب کاربری من",
-        "📘 آموزش اتصال دستی",
-        "❓ راهنمای فعال‌سازی",
-        "💬 پشتیبانی",
-        "👑 پنل مدیریت ادمین"
-    ]
-    if text in menu_buttons:
-        clear_user_state(uid)
-        if text == "🛒 خرید اشتراک اختصاصی":
+    if text:
+        if any(k in text for k in ["خرید اشتراک", "خرید", "پلن‌ها", "پلن ها"]):
+            clear_user_state(uid)
             btn_buy_plans(message)
-        elif text == "👤 حساب کاربری من":
+            return
+        elif any(k in text for k in ["حساب کاربری", "اکانت", "پروفایل"]):
+            clear_user_state(uid)
             btn_my_account(message)
-        elif text == "📘 آموزش اتصال دستی":
+            return
+        elif any(k in text for k in ["آموزش", "اتصال دستی"]):
+            clear_user_state(uid)
             btn_manual_guide(message)
-        elif text == "❓ راهنمای فعال‌سازی":
+            return
+        elif any(k in text for k in ["راهنما", "فعال‌سازی", "فعالسازی"]):
+            clear_user_state(uid)
             btn_help(message)
-        elif text == "💬 پشتیبانی":
+            return
+        elif any(k in text for k in ["پشتیبانی", "پشتیبان", "ارتباط با ادمین"]):
+            clear_user_state(uid)
             btn_support(message)
-        elif text == "👑 پنل مدیریت ادمین":
+            return
+        elif any(k in text for k in ["پنل مدیریت", "پنل ادمین", "مدیریت ادمین"]) and is_admin(uid):
+            clear_user_state(uid)
             btn_admin_panel(message)
-        return
+            return
 
     # ۱. اگر ادمین در حال پاسخ به تیکت کاربر است (از طریق دکمه یا ریپلای مستقیم در تلگرام)
     adm_state = get_admin_state(uid)
