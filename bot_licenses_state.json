@@ -776,6 +776,18 @@
       "user_id": 7181719956,
       "issued_at": 1792158848,
       "method": "crypto_unique"
+    },
+    "AZ1Y-B74D-C92A-7831": {
+      "plan": "1Y",
+      "user_id": 7492544951,
+      "issued_at": 1792158848,
+      "method": "crypto_unique"
+    },
+    "AZ3M-DCDD-9EFA-F633": {
+      "plan": "3M",
+      "user_id": 425550807,
+      "issued_at": 1792158914,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -2799,9 +2811,18 @@
       "tron_amount": 1.340457,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9ec69c59f1ca424fbabfd39afa30c325",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9ec69c59f1ca424fbabfd39afa30c325",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792157200
+      "created_at": 1792157200,
+      "approved_at": 1792158914,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-DCDD-9EFA-F633",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2893086",
+        "tron_amount": 1.340457,
+        "user_paid_toman": null,
+        "date": "2026-10-16T13:55:07.6570000"
+      }
     },
     "TRND-1Y-72396719-1792157211-bb40ba": {
       "order_id": "TRND-1Y-72396719-1792157211-bb40ba",
@@ -3248,9 +3269,18 @@
       "tron_amount": 3.676714,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e27079e886c8411eadfd18a5513f6885",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e27079e886c8411eadfd18a5513f6885",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792158486
+      "created_at": 1792158486,
+      "approved_at": 1792158848,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-B74D-C92A-7831",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2893286",
+        "tron_amount": 3.676714,
+        "user_paid_toman": null,
+        "date": "2026-10-16T13:53:41.9470000"
+      }
     },
     "TRND-3M-8232784125-1792158579-c56dcb": {
       "order_id": "TRND-3M-8232784125-1792158579-c56dcb",
@@ -7214,8 +7244,16 @@
       "last_name": "",
       "username": "",
       "first_seen": 1792074458,
-      "last_seen": 1792158482,
-      "purchases": []
+      "last_seen": 1792158848,
+      "purchases": [
+        {
+          "key": "AZ1Y-B74D-C92A-7831",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792158848,
+          "days": 365
+        }
+      ]
     },
     "1005859453": {
       "user_id": 1005859453,
@@ -9918,7 +9956,15 @@
       "username": "AmikA121",
       "first_seen": 1792157176,
       "last_seen": 1792158485,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-DCDD-9EFA-F633",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792158914,
+          "days": 90
+        }
+      ]
     },
     "279788251": {
       "user_id": 279788251,
