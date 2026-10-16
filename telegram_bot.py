@@ -168,8 +168,8 @@ STATE_FILE = os.path.join(BASE_DIR, "bot_licenses_state.json")
 
 bot = telebot.TeleBot(BOT_TOKEN, parse_mode="Markdown", num_threads=8)
 
-# Global lock for thread-safe database mutations
-DB_LOCK = threading.Lock()
+# Global lock for thread-safe database mutations (Must be RLock to prevent self-deadlocks on nested calls)
+DB_LOCK = threading.RLock()
 
 # Fast In-Memory State Tracker (Prevents disk I/O race conditions & lost states)
 USER_STATES = {}
