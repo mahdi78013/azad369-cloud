@@ -1784,28 +1784,20 @@ def send_manual_connection_guide(chat_id: int):
 @bot.message_handler(func=lambda m: m.text == "💬 پشتیبانی")
 def btn_support(message, target_uid=None):
     uid = target_uid or message.from_user.id
-    if uid != ADMIN_ID:
-        is_open, cur_time = is_support_working_hours()
-        if not is_open:
-            clear_user_state(uid)
-            safe_send_message(message.chat.id, SUPPORT_CLOSED_MESSAGE)
-            return
-
-    # Automatically put user into ticket mode so they don't have to click an extra inline button
-    set_user_state(uid, {"state": "waiting_support_msg", "time": int(time.time())})
+    clear_user_state(uid)
 
     text = (
-        "📞 *سامانه پشتیبانی اینترنت آزاد³⁶⁹*\n\n"
-        "✍️ کاربر گرامی، لطفاً سوال، مشکل، یا پیام خود را تایپ و ارسال فرمایید.\n"
-        "_(همچنین در صورت نیاز می‌توانید عکس یا فایل اسکرین‌شات ارسال فرمایید)_\n\n"
-        "پیام شما مستقیماً برای مدیریت ارسال شده و پاسخ در همین گفتگو برایتان فرستاده خواهد شد.\n\n"
-        "⏰ ساعت کاری پشتیبانی: *۱۲:۰۰ ظهر الی ۲۲:۰۰ شب*\n"
-        "📢 کانال اطلاع‌رسانی: @muntivpn"
+        "🛠 *سامانه پشتیبانی در حال ارتقا و به‌روزرسانی سیستم*\n\n"
+        "کاربر گرامی؛\n"
+        "به منظور بهبود کیفیت خدمات، افزایش پایداری سرورها و ارتقای زیرساخت ارتباطی، بخش پشتیبانی ربات هم‌اکنون در دست **به‌روزرسانی فنی** می‌باشد.\n\n"
+        "⏳ لطفاً صبور باشید؛ تیم پشتیبانی و فنی با تمام توان در حال نهایی‌سازی مراحل ارتقا هستند.\n\n"
+        "📢 **به محض اتمام به‌روزرسانی و بازگشایی مجدد سامانه، اطلاعیه همگانی در کانال رسمی ارسال خواهد شد.**\n\n"
+        "از شکیبایی، صبوری و همراهی همیشگی شما صمیمانه سپاسگزاریم 🌸"
     )
     markup = types.InlineKeyboardMarkup(row_width=1)
     markup.add(
-        types.InlineKeyboardButton("❌ انصراف و بازگشت به منوی اصلی", callback_data="cancel_action"),
-        types.InlineKeyboardButton("📢 کانال اطلاع‌رسانی", url="https://t.me/muntivpn")
+        types.InlineKeyboardButton("📢 کانال اطلاع‌رسانی اینترنت آزاد³⁶⁹", url="https://t.me/muntivpn"),
+        types.InlineKeyboardButton("🔙 بازگشت به منوی اصلی", callback_data="cancel_action")
     )
     safe_send_message(message.chat.id, text, reply_markup=markup)
 
@@ -2229,27 +2221,11 @@ def handle_callbacks(call):
 
     # تیکت پشتیبانی: شروع پیام به ادمین
     elif data == "ticket_new":
-        if not is_admin(uid):
-            is_open, cur_time = is_support_working_hours()
-            if not is_open:
-                try:
-                    bot.answer_callback_query(call.id, "ساعت کاری پشتیبانی ۱۲:۰۰ ظهر الی ۲۲:۰۰ شب می‌باشد.", show_alert=True)
-                except Exception:
-                    pass
-                safe_send_message(call.message.chat.id, SUPPORT_CLOSED_MESSAGE)
-                return
-
-        set_user_state(uid, {"state": "waiting_support_msg", "time": int(time.time())})
-        prompt_ticket = (
-            "✍️ *پیام به پشتیبانی:*\n\n"
-            "لطفاً پیام، سوال یا مشکل خود را به صورت متن یا تصویر همین‌جا ارسال فرمایید.\n"
-            "پیام شما مستقیماً برای مدیریت ارسال شده و پاسخ در همین چت برایتان فرستاده خواهد شد.\n\n"
-            "⏰ ساعت کاری پشتیبانی: *۱۲:۰۰ ظهر الی ۲۲:۰۰ شب*"
-        )
-        markup = types.InlineKeyboardMarkup()
-        markup.add(types.InlineKeyboardButton("❌ انصراف", callback_data="cancel_action"))
-        safe_send_message(call.message.chat.id, prompt_ticket, reply_markup=markup)
-        bot.answer_callback_query(call.id)
+        try:
+            bot.answer_callback_query(call.id, "🛠 بخش پشتیبانی در حال به‌روزرسانی است. لطفاً صبور باشید.", show_alert=True)
+        except Exception:
+            pass
+        btn_support(call.message, target_uid=call.from_user.id)
 
     # ادمین روی دکمه «پاسخ به کاربر» می‌زند
     elif data.startswith("reply_user_"):
