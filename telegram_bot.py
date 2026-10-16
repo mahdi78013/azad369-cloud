@@ -23,6 +23,9 @@ import subprocess
 import secrets
 import hmac
 import hashlib
+import urllib.request
+import urllib.error
+from http.server import HTTPServer, BaseHTTPRequestHandler
 
 if hasattr(sys.stdout, 'reconfigure'):
     try:
@@ -101,6 +104,16 @@ def _load_card_numbers() -> list:
 CARD_NUMBERS = _load_card_numbers()
 CARD_NUMBER = CARD_NUMBERS[0]
 
+# Tronado Telegram Payment Gateway Integration
+TRONADO_API_KEY = _load_bot_secret("TRONADO_API_KEY", "3fbc62386a2c373f025e299595be4481df481c37b582bb2ed429f2c46e25ce3e")
+TRONADO_IPN_KEY = _load_bot_secret("TRONADO_IPN_KEY", "iQjTd0sa6rtmMOQXdiXWmjBbGfmRXn74M0FGCi81Hcw=")
+TRONADO_USER_TAG = _load_bot_secret("TRONADO_USER_TAG", "MUNTIVPN")
+TRONADO_REQUEST_CODE = _load_bot_secret("TRONADO_REQUEST_CODE", "muntivpn")
+TRONADO_WALLET = _load_bot_secret("TRONADO_WALLET", "TQUaW5e18ER176Zi7datF9ttDBRYWGeiad")
+TRONADO_CALLBACK_URL = _load_bot_secret("TRONADO_CALLBACK_URL", "https://muntivpn.koyeb.app/tronado/callback")
+TRONADO_BASE_URL = "https://bot.tronado.cloud"
+TRONADO_ENABLED = bool(TRONADO_API_KEY and TRONADO_WALLET)
+
 if not BOT_TOKEN:
     print("[ERROR] BOT_TOKEN is not configured! Please set BOT_TOKEN env variable or configure .bot_secrets.json.")
     sys.exit(1)
@@ -113,6 +126,7 @@ PLANS_INFO = {
     "1M": {
         "name": "۱ ماهه (۳۰ روزه)",
         "price": "۶۰,۰۰۰ تومان",
+        "price_toman": 60000,
         "prefix": "AZ1M",
         "file": "1M.txt",
         "fallback_file": "1_ماهه_1000_عدد.txt",
@@ -121,6 +135,7 @@ PLANS_INFO = {
     "2M": {
         "name": "۲ ماهه (۶۰ روزه)",
         "price": "۱۰۰,۰۰۰ تومان",
+        "price_toman": 100000,
         "prefix": "AZ2M",
         "file": "2M.txt",
         "fallback_file": "2_ماهه_1000_عدد.txt",
@@ -384,12 +399,15 @@ def get_card_state(db: dict = None) -> dict:
         c_state["stats"].setdefault(c, 0)
     return c_state
 
+def get_random_card_number() -> str:
+    """Returns a truly random bank card number from available cards for each payment/invoice."""
+    if not CARD_NUMBERS:
+        return "5892101706458979"
+    return secrets.choice(CARD_NUMBERS)
+
 def get_active_card_number() -> str:
-    """Returns the currently active bank card number for user payments."""
-    db = load_db()
-    c_state = get_card_state(db)
-    idx = c_state.get("current_index", 0) % len(CARD_NUMBERS)
-    return CARD_NUMBERS[idx]
+    """Returns a random bank card number for user payment."""
+    return get_random_card_number()
 
 def record_card_deposit_and_rotate(db: dict) -> tuple:
     """
@@ -1080,6 +1098,323 @@ def get_inventory_stats() -> dict:
     return stats
 
 # ---------------------------------------------------------------------------
+# Tronado Telegram Payment Gateway Engine (Triple-Delivery Fail-Safe)
+# ---------------------------------------------------------------------------
+def tronado_convert_toman_to_tron(toman_amount: int) -> float | None:
+    """Queries Tronado API to convert Toman amount to equivalent TRX amount."""
+    try:
+        url = f"{TRONADO_BASE_URL}/Toman/ConvertToTronWageSubtracted"
+        payload = json.dumps({"Toman": int(toman_amount), "Wallet": TRONADO_WALLET}).encode("utf-8")
+        req = urllib.request.Request(
+            url,
+            data=payload,
+            headers={"Content-Type": "application/json", "User-Agent": "InternetAzad369Bot/1.0"}
+        )
+        with urllib.request.urlopen(req, timeout=12) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            tron_amt = data.get("TronAmount")
+            if tron_amt is not None:
+                return float(tron_amt)
+    except Exception as e:
+        print(f"[Tronado] Error converting Toman to Tron: {e}")
+
+    try:
+        url = f"{TRONADO_BASE_URL}/Tron/GetPriceToToman"
+        payload = b"{}"
+        req = urllib.request.Request(
+            url,
+            data=payload,
+            headers={"Content-Type": "application/json", "User-Agent": "InternetAzad369Bot/1.0"}
+        )
+        with urllib.request.urlopen(req, timeout=12) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            price = data.get("TronPriceToman")
+            if price and price > 0:
+                return round(float(toman_amount) / float(price), 6)
+    except Exception as e:
+        print(f"[Tronado] Error getting Tron price: {e}")
+    return None
+
+def tronado_create_order(plan_code: str, user_id: int, user_obj=None) -> dict | None:
+    """
+    Creates a new payment order via Tronado API v5.
+    Returns dict with payment_id, token, full_payment_url, miniapp_url, etc.
+    """
+    info = PLANS_INFO.get(plan_code)
+    if not info:
+        return None
+    price_toman = info.get("price_toman", 399000)
+    tron_amount = tronado_convert_toman_to_tron(price_toman)
+    if not tron_amount:
+        tron_amount = round(price_toman / 95000.0, 4)
+
+    now_ts = int(time.time())
+    rand_token = secrets.token_hex(3)
+    payment_id = f"TRND-{plan_code}-{user_id}-{now_ts}-{rand_token}"
+
+    first_name = user_obj.first_name if user_obj and getattr(user_obj, "first_name", None) else "کاربر"
+    username = user_obj.username if user_obj and getattr(user_obj, "username", None) else "ندارد"
+
+    url = f"{TRONADO_BASE_URL}/api/v5/GetOrderToken"
+    body = {
+        "PaymentID": payment_id,
+        "WalletAddress": TRONADO_WALLET,
+        "TronAmount": float(tron_amount),
+        "CallbackUrl": TRONADO_CALLBACK_URL
+    }
+    payload = json.dumps(body).encode("utf-8")
+    req = urllib.request.Request(
+        url,
+        data=payload,
+        headers={
+            "x-api-key": TRONADO_API_KEY,
+            "Content-Type": "application/json",
+            "User-Agent": "InternetAzad369Bot/1.0"
+        }
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            res = json.loads(resp.read().decode("utf-8"))
+            data = res.get("Data") if isinstance(res.get("Data"), dict) else res
+            token = data.get("Token")
+            if not token:
+                print(f"[Tronado] GetOrderToken failed: {res}")
+                return None
+            full_url = data.get("FullPaymentUrl") or f"https://t.me/tronado_robot/customerpayment?startapp={token}"
+            miniapp_url = f"https://t.me/tronado_robot/customerpayment?startapp={token}"
+
+            order_data = {
+                "order_id": payment_id,
+                "token": token,
+                "user_id": user_id,
+                "first_name": first_name,
+                "username": username,
+                "plan_code": plan_code,
+                "price": info["price"],
+                "price_toman": price_toman,
+                "tron_amount": float(tron_amount),
+                "full_payment_url": full_url,
+                "miniapp_url": miniapp_url,
+                "status": "pending_tronado",
+                "method": "tronado_gateway",
+                "created_at": now_ts
+            }
+            return order_data
+    except Exception as e:
+        print(f"[Tronado] Error creating order via API: {e}")
+        return None
+
+def tronado_check_order_status(payment_id: str) -> dict | None:
+    """
+    Calls POST /Order/GetStatusByPaymentID to query real-time order status from Tronado.
+    """
+    url = f"{TRONADO_BASE_URL}/Order/GetStatusByPaymentID"
+    body = {"Id": payment_id}
+    payload = json.dumps(body).encode("utf-8")
+    req = urllib.request.Request(
+        url,
+        data=payload,
+        headers={
+            "x-api-key": TRONADO_API_KEY,
+            "Content-Type": "application/json",
+            "User-Agent": "InternetAzad369Bot/1.0"
+        }
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=12) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            return data
+    except Exception as e:
+        print(f"[Tronado] Error checking status for {payment_id}: {e}")
+        return None
+
+def fulfill_tronado_order(payment_id: str, ipn_data: dict = None) -> tuple[bool, str]:
+    """
+    Atomically fulfills an order paid through Tronado:
+    - Issues guaranteed-unique crypto license
+    - Sends license and instructions to buyer in Telegram
+    - Alerts admin
+    - Marks order as approved and syncs DB
+    """
+    with DB_LOCK:
+        db = load_db()
+        orders = db.setdefault("orders", {})
+        order = orders.get(payment_id)
+        if not order:
+            for oid, od in orders.items():
+                if oid == payment_id or od.get("token") == payment_id or od.get("order_id") == payment_id:
+                    order = od
+                    payment_id = oid
+                    break
+
+        if not order:
+            return False, "Order not found in database"
+
+        if order.get("status") == "approved":
+            return True, f"Already fulfilled: {order.get('key')}"
+
+        buyer_id = order.get("user_id")
+        plan_code = order.get("plan_code", "1Y")
+        info = PLANS_INFO.get(plan_code, {"name": plan_code, "days": 365})
+
+        key = issue_key_for_plan_atomic(db, plan_code, buyer_id)
+        if not key:
+            return False, "Failed to issue unique license key"
+
+        order["status"] = "approved"
+        order["approved_at"] = int(time.time())
+        order["approved_by"] = "TRONADO_AUTOMATED"
+        order["key"] = key
+        if ipn_data:
+            order["tronado_ipn"] = {
+                "hash": ipn_data.get("Hash"),
+                "tron_amount": ipn_data.get("TronAmount"),
+                "user_paid_toman": ipn_data.get("UserPaidTomanAmount"),
+                "date": ipn_data.get("PaymentDate")
+            }
+        save_db(db, immediate_sync=True)
+
+    # Deliver license to buyer
+    buyer_msg = (
+        "⚡🎉 *پرداخت آنلاین شما با موفقیت تایید شد!*\n\n"
+        f"کد لایسنس اختصاصی شما صادر گردید:\n"
+        f"`{key}`\n\n"
+        "_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
+        f"🔹 پلن خریداری‌شده: *{escape_md(info['name'])}*\n"
+        f"⏳ مدت اعتبار: *{info['days']} روز*\n"
+        "💳 روش پرداخت: *درگاه آنلاین شتابی (ترونادو)*\n\n"
+        "📌 *نحوه فعال‌سازی:*\n"
+        "این کد را داخل نرم‌افزار ویندوز در بخش *«ثبت لایسنس»* وارد کرده و فعال نمایید.\n"
+        "همچنین این لایسنس در بخش *«👤 حساب کاربری من»* ذخیره شد.\n\n"
+        "با تشکر از اعتماد شما به *اینترنت آزاد³⁶⁹* 🌸"
+    )
+    safe_send_message(buyer_id, buyer_msg)
+
+    tx_hash = ipn_data.get("Hash", "—") if ipn_data else "—"
+    admin_alert = (
+        "⚡ *خرید موفق از درگاه آنلاین ترونادو:*\n\n"
+        f"👤 خریدار: `{buyer_id}` (@{escape_md(order.get('username', 'ندارد'))})\n"
+        f"📦 پلن: *{escape_md(info['name'])}*\n"
+        f"🔑 لایسنس صادرشده: `{key}`\n"
+        f"🆔 شناسه سفارش: `{payment_id}`\n"
+        f"🔗 شناسه تراکنش/TXID: `{tx_hash}`\n"
+        "💰 وضعیت: پرداخت قطعی و لایسنس خودکار تحویل شد ✓"
+    )
+    for aid in ADMIN_IDS:
+        safe_send_message(aid, admin_alert)
+
+    return True, f"Fulfilled with license {key}"
+
+def tronado_poller_worker():
+    """
+    Background worker that runs every 25 seconds.
+    Finds all pending Tronado orders (<2 hours old), checks their status via Tronado API,
+    and automatically fulfills and issues licenses upon confirmation.
+    """
+    print("[Tronado Poller] Started background polling worker.")
+    while True:
+        try:
+            time.sleep(25)
+            if not TRONADO_ENABLED:
+                continue
+
+            db = load_db()
+            orders = db.get("orders", {})
+            now_ts = int(time.time())
+            pending_ids = []
+
+            for oid, od in orders.items():
+                if isinstance(od, dict) and od.get("status") == "pending_tronado":
+                    created = od.get("created_at", 0)
+                    if now_ts - created < 7200:
+                        pending_ids.append(oid)
+
+            for pid in pending_ids:
+                try:
+                    st = tronado_check_order_status(pid)
+                    if st and (st.get("IsPaid") is True or st.get("OrderStatusID") == 30):
+                        print(f"[Tronado Poller] Order {pid} confirmed paid! Auto-fulfilling...")
+                        fulfill_tronado_order(pid, st)
+                except Exception as ex:
+                    print(f"[Tronado Poller] Error checking {pid}: {ex}")
+
+        except Exception as e:
+            print(f"[Tronado Poller] Exception in worker loop: {e}")
+            time.sleep(5)
+
+class TronadoWebhookHandler(BaseHTTPRequestHandler):
+    def do_POST(self):
+        clean_path = self.path.split("?")[0]
+        if clean_path not in ("/tronado/callback", "/callback", "/tronado/callback/"):
+            self.send_response(404)
+            self.end_headers()
+            return
+
+        try:
+            length = int(self.headers.get("Content-Length", 0))
+            raw_body = self.rfile.read(length)
+            sig_header = self.headers.get("X-Tronado-Sig", "")
+
+            if TRONADO_IPN_KEY:
+                expected_sig = hmac.new(
+                    TRONADO_IPN_KEY.encode("utf-8"),
+                    raw_body,
+                    hashlib.sha512
+                ).hexdigest().lower()
+                if not hmac.compare_digest(expected_sig, sig_header.strip().lower()):
+                    print(f"[Tronado Webhook] Signature mismatch! Got {sig_header}, Expected {expected_sig}")
+                    self.send_response(401)
+                    self.send_header("Content-Type", "application/json")
+                    self.end_headers()
+                    self.wfile.write(b'{"error": "Invalid signature"}')
+                    return
+
+            payload = json.loads(raw_body.decode("utf-8"))
+            print(f"[Tronado Webhook] Received valid callback: {payload}")
+
+            payment_id = payload.get("PaymentId") or payload.get("PaymentID")
+            is_paid = payload.get("IsPaid") is True or payload.get("OrderStatusID") == 30
+
+            if is_paid and payment_id:
+                fulfill_tronado_order(payment_id, payload)
+
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(b'{"status": "ok"}')
+
+        except Exception as e:
+            print(f"[Tronado Webhook] Error handling POST: {e}")
+            self.send_response(500)
+            self.end_headers()
+
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header("Content-Type", "text/plain; charset=utf-8")
+        self.end_headers()
+        self.wfile.write(b"InternetAzad369 Tronado Gateway Webhook Active\n")
+
+    def log_message(self, format, *args):
+        pass
+
+def start_tronado_webhook_server():
+    """Starts the embedded webhook listener in a background daemon thread."""
+    port_env = os.environ.get("PORT", "8080")
+    try:
+        port = int(port_env)
+    except ValueError:
+        port = 8080
+
+    try:
+        server = HTTPServer(("0.0.0.0", port), TronadoWebhookHandler)
+        print(f"[Tronado Webhook] HTTP Webhook server listening on port {port} (/tronado/callback)")
+        t = threading.Thread(target=server.serve_forever, daemon=True)
+        t.start()
+    except Exception as e:
+        print(f"[Tronado Webhook] Notice: Could not bind HTTP server on port {port} ({e}). Background poller and instant check button will handle all fulfillment.")
+
+
+# ---------------------------------------------------------------------------
 # Keyboards
 # ---------------------------------------------------------------------------
 def welcome_inline_keyboard():
@@ -1619,7 +1954,7 @@ def handle_callbacks(call):
             return
         info = PLANS_INFO[plan_code]
 
-        # بررسی موجودی پلن‌ها (پلن‌های ۱، ۲ و ۳ ماهه تکمیل ظرفیت هستند ولی ۱ ساله و نامحدود باز هستند)
+        # بررسی موجودی پلن‌ها (پلن‌های ۱، ۲ و ۳ ماهه تکمیل ظرفیت هستند ولی ۱ ساله باز است)
         if plan_code in ("1M", "2M", "3M"):
             try:
                 bot.answer_callback_query(call.id, "⚠️ موجودی این پلن به اتمام رسیده است!", show_alert=True)
@@ -1643,13 +1978,37 @@ def handle_callbacks(call):
                 safe_send_message(call.message.chat.id, sold_out_text, reply_markup=markup)
             return
 
+        if TRONADO_ENABLED:
+            select_text = (
+                f"🛒 *انتخاب نحوه پرداخت اشتراک {escape_md(info['name'])}:*\n\n"
+                f"💰 مبلغ قابل پرداخت: *{info['price']}*\n"
+                f"⏳ مدت اعتبار: *{info['days']} روز*\n\n"
+                "لطفاً یکی از روش‌های پرداخت زیر را انتخاب فرمایید:\n\n"
+                "⚡ *۱. پرداخت آنلاین شتابی (پیشنهادی - تحویل خودکار و آنی):*\n"
+                "پرداخت امن با کلیه کارت‌های بانکی عضو شتاب در محیط تلگرام، و **دریافت خودکار و آنی لایسنس** بلافاصله پس از پرداخت بدون معطلی و بدون نیاز به تایید ادمین.\n\n"
+                "💳 *۲. کارت‌به‌کارت سنتی:*\n"
+                "واریز مستقیم به شماره کارت بانکی و ارسال تصویر فیش در ربات (نیازمند بررسی و تایید دستی توسط مدیریت)."
+            )
+            markup = types.InlineKeyboardMarkup(row_width=1)
+            markup.add(
+                types.InlineKeyboardButton("⚡ پرداخت آنلاین شتابی (تحویل خودکار)", callback_data=f"pay_online_{plan_code}"),
+                types.InlineKeyboardButton("💳 کارت‌به‌کارت بانکی (ارسال فیش)", callback_data=f"pay_card_{plan_code}"),
+                types.InlineKeyboardButton("🔙 بازگشت به منوی پلن‌ها", callback_data="show_plans")
+            )
+            try:
+                bot.edit_message_text(select_text, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
+            except Exception:
+                safe_send_message(call.message.chat.id, select_text, reply_markup=markup)
+            bot.answer_callback_query(call.id)
+            return
+
+        active_card = get_random_card_number()
         set_user_state(uid, {
             "state": "awaiting_receipt",
             "plan_code": plan_code,
+            "card_number": active_card,
             "time": int(time.time())
         })
-
-        active_card = get_active_card_number()
         invoice_text = (
             f"📋 *فاکتور سفارش شما:*\n\n"
             f"🔹 پلن انتخابی: *{escape_md(info['name'])}*\n"
@@ -1673,6 +2032,153 @@ def handle_callbacks(call):
         except Exception:
             safe_send_message(call.message.chat.id, invoice_text, reply_markup=markup)
         bot.answer_callback_query(call.id)
+
+    # انتخاب پرداخت آنلاین شتابی (درگاه ترونادو)
+    elif data.startswith("pay_online_"):
+        plan_code = data.replace("pay_online_", "")
+        if plan_code not in PLANS_INFO:
+            return
+        info = PLANS_INFO[plan_code]
+
+        if plan_code in ("1M", "2M", "3M"):
+            bot.answer_callback_query(call.id, "⚠️ این پلن تکمیل ظرفیت است!", show_alert=True)
+            return
+
+        bot.answer_callback_query(call.id, "⚡ در حال ایجاد فاکتور درگاه آنلاین...")
+        order = tronado_create_order(plan_code, uid, call.from_user)
+        if not order:
+            safe_send_message(call.message.chat.id, "⚠️ اتصال به درگاه آنلاین موقتاً با وقفه مواجه شد. لطفاً از گزینه کارت‌به‌کارت استفاده نمایید.")
+            active_card = get_random_card_number()
+            set_user_state(uid, {
+                "state": "awaiting_receipt",
+                "plan_code": plan_code,
+                "card_number": active_card,
+                "time": int(time.time())
+            })
+            invoice_text = (
+                f"📋 *فاکتور پرداخت کارت‌به‌کارت:*\n\n"
+                f"🔹 پلن انتخابی: *{escape_md(info['name'])}*\n"
+                f"💰 مبلغ قابل پرداخت: *{info['price']}*\n\n"
+                f"💳 *شماره کارت جهت واریز:*\n"
+                f"`{active_card}`\n"
+                f"_(برای کپی شماره کارت روی آن ضربه بزنید)_\n\n"
+                f"📌 *دستورالعمل پرداخت:*\n"
+                f"۱. مبلغ فوق را به شماره کارت بالا واریز فرمایید.\n"
+                f"۲. پس از پرداخت، تصویر فیش واریز یا **کد پیگیری تراکنش** را همین‌جا ارسال نمایید."
+            )
+            markup = types.InlineKeyboardMarkup(row_width=1)
+            markup.add(
+                types.InlineKeyboardButton("💳 پرداخت کردم / ارسال فیش", callback_data=f"paid_{plan_code}"),
+                types.InlineKeyboardButton("❌ انصراف از خرید", callback_data="cancel_action")
+            )
+            safe_send_message(call.message.chat.id, invoice_text, reply_markup=markup)
+            return
+
+        db = load_db()
+        db.setdefault("orders", {})
+        db["orders"][order["order_id"]] = order
+        save_db(db)
+
+        pay_text = (
+            f"⚡ *فاکتور پرداخت آنلاین (درگاه امن تلگرامی):*\n\n"
+            f"🔹 اشتراک انتخابی: *{escape_md(info['name'])}*\n"
+            f"💰 مبلغ فاکتور: *{info['price']}*\n"
+            f"🆔 شناسه سفارش: `{order['order_id']}`\n\n"
+            f"📌 *دستورالعمل پرداخت:*\n"
+            f"۱. روی دکمه‌ی *«🚀 ورود به درگاه و پرداخت آنلاین»* زیر کلیک کنید.\n"
+            f"۲. در مینی‌اپ پرداخت ترونادو با هر کارت عضو شتاب پرداخت را انجام دهید.\n"
+            f"۳. به محض تایید پرداخت، لایسنس شما **به‌صورت ۱۰۰٪ خودکار و آنی** در همین صفحه ارسال خواهد شد.\n\n"
+            f"_(همچنین بلافاصله پس از پرداخت می‌توانید روی دکمه «🔄 استعلام و دریافت آنی لایسنس» بزنید)_"
+        )
+        markup = types.InlineKeyboardMarkup(row_width=1)
+        markup.add(
+            types.InlineKeyboardButton("🚀 ورود به درگاه و پرداخت آنلاین (شتاب)", url=order["miniapp_url"]),
+            types.InlineKeyboardButton("🔄 استعلام و دریافت آنی لایسنس", callback_data=f"trnd_chk_{order['order_id']}"),
+            types.InlineKeyboardButton("💳 تغییر روش پرداخت به کارت‌به‌کارت", callback_data=f"pay_card_{plan_code}"),
+            types.InlineKeyboardButton("🔙 بازگشت به لیست پلن‌ها", callback_data="show_plans")
+        )
+        try:
+            bot.edit_message_text(pay_text, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
+        except Exception:
+            safe_send_message(call.message.chat.id, pay_text, reply_markup=markup)
+
+    # انتخاب پرداخت کارت‌به‌کارت
+    elif data.startswith("pay_card_"):
+        plan_code = data.replace("pay_card_", "")
+        if plan_code not in PLANS_INFO:
+            return
+        info = PLANS_INFO[plan_code]
+        if plan_code in ("1M", "2M", "3M"):
+            bot.answer_callback_query(call.id, "⚠️ این پلن تکمیل ظرفیت است!", show_alert=True)
+            return
+
+        active_card = get_random_card_number()
+        set_user_state(uid, {
+            "state": "awaiting_receipt",
+            "plan_code": plan_code,
+            "card_number": active_card,
+            "time": int(time.time())
+        })
+        invoice_text = (
+            f"📋 *فاکتور پرداخت کارت‌به‌کارت:*\n\n"
+            f"🔹 پلن انتخابی: *{escape_md(info['name'])}*\n"
+            f"💰 مبلغ قابل پرداخت: *{info['price']}*\n\n"
+            f"💳 *شماره کارت جهت واریز:*\n"
+            f"`{active_card}`\n"
+            f"_(برای کپی شماره کارت روی آن ضربه بزنید)_\n\n"
+            f"📌 *دستورالعمل پرداخت:*\n"
+            f"۱. مبلغ فوق را به شماره کارت بالا واریز فرمایید.\n"
+            f"۲. پس از پرداخت، تصویر فیش واریز یا **کد پیگیری تراکنش** را همین‌جا ارسال نمایید.\n"
+            f"_(سیستم خودکار پیام شما را برای مدیریت ارسال خواهد کرد)_"
+        )
+        markup = types.InlineKeyboardMarkup(row_width=1)
+        markup.add(
+            types.InlineKeyboardButton("💳 پرداخت کردم / ارسال فیش", callback_data=f"paid_{plan_code}"),
+            types.InlineKeyboardButton("⚡ تغییر به پرداخت آنلاین شتابی", callback_data=f"pay_online_{plan_code}") if TRONADO_ENABLED else types.InlineKeyboardButton("❌ انصراف از خرید", callback_data="cancel_action"),
+            types.InlineKeyboardButton("🔙 بازگشت به لیست پلن‌ها", callback_data="show_plans")
+        )
+        try:
+            bot.edit_message_text(invoice_text, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
+        except Exception:
+            safe_send_message(call.message.chat.id, invoice_text, reply_markup=markup)
+        bot.answer_callback_query(call.id)
+
+    # دکمه استعلام و دریافت آنی لایسنس
+    elif data.startswith("trnd_chk_"):
+        payment_id = data.replace("trnd_chk_", "")
+        bot.answer_callback_query(call.id, "⏳ در حال استعلام وضعیت سفارش از درگاه...")
+        db = load_db()
+        order = db.get("orders", {}).get(payment_id)
+        if not order:
+            bot.answer_callback_query(call.id, "سفارش در سیستم یافت نشد!", show_alert=True)
+            return
+
+        if order.get("status") == "approved":
+            bot.answer_callback_query(call.id, "✅ این سفارش قبلاً تایید و لایسنس تحویل شده است!", show_alert=True)
+            return
+
+        st = tronado_check_order_status(payment_id)
+        if st and (st.get("IsPaid") is True or st.get("OrderStatusID") == 30):
+            ok, msg = fulfill_tronado_order(payment_id, st)
+            if ok:
+                try:
+                    bot.edit_message_text(
+                        "✅ *پرداخت آنلاین شما تایید شد!*\n\nکد لایسنس اختصاصی شما با موفقیت صادر و در پیام زیر ارسال گردید.",
+                        call.message.chat.id,
+                        call.message.message_id,
+                        parse_mode="Markdown"
+                    )
+                except Exception:
+                    pass
+                bot.answer_callback_query(call.id, "✅ پرداخت شما تایید و لایسنس ارسال شد!", show_alert=True)
+            else:
+                bot.answer_callback_query(call.id, f"خطا در صدور لایسنس: {msg}", show_alert=True)
+        elif st and st.get("OrderStatusID") in (20, 25, 27):
+            bot.answer_callback_query(call.id, "⏳ فیش یا تراکنش شما در درگاه ثبت شده و در حال تایید نهایی است. لطفاً ۱ دقیقه دیگر مجدداً دکمه را لمس نمایید.", show_alert=True)
+        elif st and st.get("OrderStatusID") in (40, 200):
+            bot.answer_callback_query(call.id, "❌ تراکنش در درگاه لغو یا منقضی شده است.", show_alert=True)
+        else:
+            bot.answer_callback_query(call.id, "⏳ هنوز تاییدیه‌ای از درگاه دریافت نشده است. چنانچه پرداخت را انجام داده‌اید، لطفاً ۱ الی ۲ دقیقه منتظر بمانید و دوباره دکمه را لمس کنید.", show_alert=True)
 
     elif data.startswith("paid_"):
         plan_code = data.replace("paid_", "")
@@ -2665,6 +3171,10 @@ if __name__ == "__main__":
     print(f" Bot Username: @muntivpn369bot")
     print(f" Admin ID: {ADMIN_ID}")
     print(f" Card Number: {CARD_NUMBER}")
+    print(f" Tronado Gateway: {'ENABLED' if TRONADO_ENABLED else 'DISABLED'}")
+    if TRONADO_ENABLED:
+        print(f" Tronado Wallet: {TRONADO_WALLET}")
+        print(f" Tronado Callback: {TRONADO_CALLBACK_URL}")
     try:
         stats = get_inventory_stats()
         avail_cnt = stats.get("_total_available", 0)
