@@ -632,6 +632,12 @@
       "user_id": 5045180049,
       "issued_at": 1792143654,
       "method": "crypto_unique"
+    },
+    "AZ1Y-3865-5EDC-A158": {
+      "plan": "1Y",
+      "user_id": 104647575,
+      "issued_at": 1792144074,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -2052,6 +2058,23 @@
       "approved_at": 1792143654,
       "approved_by": 748538264,
       "key": "AZ1Y-C924-C65A-A76D"
+    },
+    "ORD_1792144049_104647575": {
+      "order_id": "ORD_1792144049_104647575",
+      "user_id": 104647575,
+      "username": "ندارد",
+      "first_name": "Hamid",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "approved",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAJF6WrR8rEkdxwCmhVTmhwQ4fyczbq3AAJwD2sbWrORUjCn-K0yDzdXAQADAgADeQADPQQ",
+      "card_number": "5892101706458979",
+      "created_at": 1792144049,
+      "caption": "",
+      "approved_at": 1792144074,
+      "approved_by": 748538264,
+      "key": "AZ1Y-3865-5EDC-A158"
     }
   },
   "users": {
@@ -8084,9 +8107,35 @@
       "last_seen": 1792143724,
       "purchases": [],
       "last_admin_reply": {
-        "text": "وقت بخیر ربات در حال اپدیت. هست \nواریز بفرمایید و رسید رو از طریق ارتباط با پشتیبانی ارسال کنید\n5892101706458979\nموجود:\n\n✅یک سال = 399.000 تومان",
-        "time": 1792143836
+        "text": "الان موجود نداریم",
+        "time": 1792143997
       }
+    },
+    "104647575": {
+      "user_id": 104647575,
+      "first_name": "Hamid",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1792143930,
+      "last_seen": 1792143930,
+      "purchases": [
+        {
+          "key": "AZ1Y-3865-5EDC-A158",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792144074,
+          "days": 365
+        }
+      ]
+    },
+    "102604798": {
+      "user_id": 102604798,
+      "first_name": "Mohsen",
+      "last_name": "Mahyar",
+      "username": "Mahyarred61",
+      "first_seen": 1792144023,
+      "last_seen": 1792144023,
+      "purchases": []
     }
   },
   "user_states": {
@@ -8646,16 +8695,21 @@
     "6228236738": {
       "state": "waiting_support_msg",
       "time": 1792143752
+    },
+    "104647575": {
+      "state": "awaiting_receipt",
+      "plan_code": "1Y",
+      "time": 1792144042
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 0,
+    "count": 1,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 10,
+      "5892101706458979": 11,
       "5047061670546072": 10
     }
   },
