@@ -126,8 +126,8 @@ START_TIME = time.time()
 PLANS_INFO = {
     "1M": {
         "name": "۱ ماهه (۳۰ روزه)",
-        "price": "۸۹,۰۰۰ تومان",
-        "price_toman": 89000,
+        "price": "۶۰,۰۰۰ تومان",
+        "price_toman": 60000,
         "prefix": "AZ1M",
         "file": "1M.txt",
         "fallback_file": "1_ماهه_1000_عدد.txt",
@@ -135,8 +135,8 @@ PLANS_INFO = {
     },
     "2M": {
         "name": "۲ ماهه (۶۰ روزه)",
-        "price": "۱۲۹,۰۰۰ تومان",
-        "price_toman": 129000,
+        "price": "۱۰۰,۰۰۰ تومان",
+        "price_toman": 100000,
         "prefix": "AZ2M",
         "file": "2M.txt",
         "fallback_file": "2_ماهه_1000_عدد.txt",
@@ -145,8 +145,8 @@ PLANS_INFO = {
     "3M": {
         "name": "۳ ماهه (۹۰ روزه)",
         "prefix": "AZ3M",
-        "price": "۱۷۹,۰۰۰ تومان",
-        "price_toman": 179000,
+        "price": "۱۴۹,۰۰۰ تومان",
+        "price_toman": 149000,
         "file": "3M.txt",
         "fallback_file": "3_ماهه_1000_عدد.txt",
         "days": 90
@@ -154,8 +154,8 @@ PLANS_INFO = {
     "1Y": {
         "name": "۱ ساله (۳۶۵ روزه)",
         "prefix": "AZ1Y",
-        "price": "۴۷۹,۰۰۰ تومان",
-        "price_toman": 479000,
+        "price": "۳۹۹,۰۰۰ تومان",
+        "price_toman": 399000,
         "file": "1Y.txt",
         "fallback_file": "1_ساله_1000_عدد.txt",
         "days": 365
@@ -1146,12 +1146,10 @@ def tronado_create_order(plan_code: str, user_id: int, user_obj=None) -> dict | 
     info = PLANS_INFO.get(plan_code)
     if not info:
         return None
-    price_toman = info.get("price_toman", 479000)
-    # Adjust for Tronado 20% gateway markup so buyer pays exactly price_toman
-    base_net = price_toman / 1.20
-    tron_amount = tronado_convert_toman_to_tron(base_net)
+    price_toman = info.get("price_toman", 399000)
+    tron_amount = tronado_convert_toman_to_tron(price_toman)
     if not tron_amount:
-        tron_amount = round(base_net / 90000.0, 4)
+        tron_amount = round(price_toman / 90000.0, 4)
 
     now_ts = int(time.time())
     rand_token = secrets.token_hex(3)
