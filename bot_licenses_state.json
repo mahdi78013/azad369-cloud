@@ -836,6 +836,12 @@
       "user_id": 410954634,
       "issued_at": 1792160427,
       "method": "crypto_unique"
+    },
+    "AZ1Y-C877-1CFC-DCE2": {
+      "plan": "1Y",
+      "user_id": 38864986,
+      "issued_at": 1792160533,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -3727,9 +3733,18 @@
       "tron_amount": 3.668694,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_dc679a7b8aef4a54af3d81b8cf1c7a6a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=dc679a7b8aef4a54af3d81b8cf1c7a6a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792160337
+      "created_at": 1792160337,
+      "approved_at": 1792160533,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-C877-1CFC-DCE2",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2893516",
+        "tron_amount": 3.668694,
+        "user_paid_toman": null,
+        "date": "2026-10-16T14:21:03.5500000"
+      }
     },
     "TRND-3M-140668144-1792160365-183b8d": {
       "order_id": "TRND-3M-140668144-1792160365-183b8d",
@@ -3746,6 +3761,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792160365
+    },
+    "TRND-3M-106331548-1792160432-0c7bfa": {
+      "order_id": "TRND-3M-106331548-1792160432-0c7bfa",
+      "token": "c17a23497e3f41039a48ddbc801e9e85",
+      "user_id": 106331548,
+      "first_name": "ℳЄӇƦƊƛƊ",
+      "username": "Mehrdad935",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.334834,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_c17a23497e3f41039a48ddbc801e9e85",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c17a23497e3f41039a48ddbc801e9e85",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792160432
     }
   },
   "users": {
@@ -8429,7 +8460,15 @@
       "username": "Ashkan_Ve",
       "first_seen": 1792098383,
       "last_seen": 1792160337,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-C877-1CFC-DCE2",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792160533,
+          "days": 365
+        }
+      ]
     },
     "2145940498": {
       "user_id": 2145940498,
@@ -10725,6 +10764,15 @@
       "username": "Mehrdad935",
       "first_seen": 1792160409,
       "last_seen": 1792160409,
+      "purchases": []
+    },
+    "160215036": {
+      "user_id": 160215036,
+      "first_name": "مبلمان",
+      "last_name": "آمارد",
+      "username": "amarddeco1",
+      "first_seen": 1792160475,
+      "last_seen": 1792160475,
       "purchases": []
     }
   },
