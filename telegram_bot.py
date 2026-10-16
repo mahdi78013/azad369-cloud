@@ -103,6 +103,7 @@ def _load_card_numbers() -> list:
 
 CARD_NUMBERS = _load_card_numbers()
 CARD_NUMBER = CARD_NUMBERS[0]
+CARD_TO_CARD_ENABLED = False  # موقتاً غیرفعال طبق دستور کاربر (فقط درگاه آنلاین فعال است)
 
 # Tronado Telegram Payment Gateway Integration
 TRONADO_API_KEY = _load_bot_secret("TRONADO_API_KEY", "3fbc62386a2c373f025e299595be4481df481c37b582bb2ed429f2c46e25ce3e")
@@ -1968,6 +1969,40 @@ def handle_callbacks(call):
             return
 
         if TRONADO_ENABLED:
+            if not CARD_TO_CARD_ENABLED:
+                bot.answer_callback_query(call.id, "⚡ در حال ایجاد فاکتور درگاه آنلاین...")
+                order = tronado_create_order(plan_code, uid, call.from_user)
+                if not order:
+                    safe_send_message(call.message.chat.id, "⚠️ اتصال به درگاه آنلاین موقتاً با وقفه مواجه شد. لطفاً چند لحظه بعد مجدداً تلاش فرمایید.")
+                    return
+                db = load_db()
+                db.setdefault("orders", {})
+                db["orders"][order["order_id"]] = order
+                save_db(db)
+
+                pay_text = (
+                    f"⚡ *فاکتور پرداخت آنلاین (درگاه امن تلگرامی):*\n\n"
+                    f"🔹 اشتراک انتخابی: *{escape_md(info['name'])}*\n"
+                    f"💰 مبلغ فاکتور: *{info['price']}*\n"
+                    f"🆔 شناسه سفارش: `{order['order_id']}`\n\n"
+                    f"📌 *دستورالعمل پرداخت:*\n"
+                    f"۱. روی دکمه‌ی *«🚀 ورود به درگاه و پرداخت آنلاین»* زیر کلیک کنید.\n"
+                    f"۲. در مینی‌اپ پرداخت ترونادو با هر کارت عضو شتاب پرداخت را انجام دهید.\n"
+                    f"۳. به محض تایید پرداخت، لایسنس شما **به‌صورت ۱۰۰٪ خودکار و آنی** در همین صفحه ارسال خواهد شد.\n\n"
+                    f"_(همچنین بلافاصله پس از پرداخت می‌توانید روی دکمه «🔄 استعلام و دریافت آنی لایسنس» بزنید)_"
+                )
+                markup = types.InlineKeyboardMarkup(row_width=1)
+                markup.add(
+                    types.InlineKeyboardButton("🚀 ورود به درگاه و پرداخت آنلاین (شتاب)", url=order["miniapp_url"]),
+                    types.InlineKeyboardButton("🔄 استعلام و دریافت آنی لایسنس", callback_data=f"trnd_chk_{order['order_id']}"),
+                    types.InlineKeyboardButton("🔙 بازگشت به لیست پلن‌ها", callback_data="show_plans")
+                )
+                try:
+                    bot.edit_message_text(pay_text, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
+                except Exception:
+                    safe_send_message(call.message.chat.id, pay_text, reply_markup=markup)
+                return
+
             select_text = (
                 f"🛒 *انتخاب نحوه پرداخت اشتراک {escape_md(info['name'])}:*\n\n"
                 f"💰 مبلغ قابل پرداخت: *{info['price']}*\n"
@@ -1989,6 +2024,10 @@ def handle_callbacks(call):
             except Exception:
                 safe_send_message(call.message.chat.id, select_text, reply_markup=markup)
             bot.answer_callback_query(call.id)
+            return
+
+        if not CARD_TO_CARD_ENABLED:
+            bot.answer_callback_query(call.id, "⚠️ روش پرداخت کارت‌به‌کارت موقتاً غیرفعال است.", show_alert=True)
             return
 
         active_card = get_random_card_number()
@@ -2036,31 +2075,7 @@ def handle_callbacks(call):
         bot.answer_callback_query(call.id, "⚡ در حال ایجاد فاکتور درگاه آنلاین...")
         order = tronado_create_order(plan_code, uid, call.from_user)
         if not order:
-            safe_send_message(call.message.chat.id, "⚠️ اتصال به درگاه آنلاین موقتاً با وقفه مواجه شد. لطفاً از گزینه کارت‌به‌کارت استفاده نمایید.")
-            active_card = get_random_card_number()
-            set_user_state(uid, {
-                "state": "awaiting_receipt",
-                "plan_code": plan_code,
-                "card_number": active_card,
-                "time": int(time.time())
-            })
-            invoice_text = (
-                f"📋 *فاکتور پرداخت کارت‌به‌کارت:*\n\n"
-                f"🔹 پلن انتخابی: *{escape_md(info['name'])}*\n"
-                f"💰 مبلغ قابل پرداخت: *{info['price']}*\n\n"
-                f"💳 *شماره کارت جهت واریز:*\n"
-                f"`{active_card}`\n"
-                f"_(برای کپی شماره کارت روی آن ضربه بزنید)_\n\n"
-                f"📌 *دستورالعمل پرداخت:*\n"
-                f"۱. مبلغ فوق را به شماره کارت بالا واریز فرمایید.\n"
-                f"۲. پس از پرداخت، تصویر فیش واریز یا **کد پیگیری تراکنش** را همین‌جا ارسال نمایید."
-            )
-            markup = types.InlineKeyboardMarkup(row_width=1)
-            markup.add(
-                types.InlineKeyboardButton("💳 پرداخت کردم / ارسال فیش", callback_data=f"paid_{plan_code}"),
-                types.InlineKeyboardButton("❌ انصراف از خرید", callback_data="cancel_action")
-            )
-            safe_send_message(call.message.chat.id, invoice_text, reply_markup=markup)
+            safe_send_message(call.message.chat.id, "⚠️ اتصال به درگاه آنلاین موقتاً با وقفه مواجه شد. لطفاً چند لحظه بعد مجدداً تلاش فرمایید.")
             return
 
         db = load_db()
@@ -2083,9 +2098,10 @@ def handle_callbacks(call):
         markup.add(
             types.InlineKeyboardButton("🚀 ورود به درگاه و پرداخت آنلاین (شتاب)", url=order["miniapp_url"]),
             types.InlineKeyboardButton("🔄 استعلام و دریافت آنی لایسنس", callback_data=f"trnd_chk_{order['order_id']}"),
-            types.InlineKeyboardButton("💳 تغییر روش پرداخت به کارت‌به‌کارت", callback_data=f"pay_card_{plan_code}"),
-            types.InlineKeyboardButton("🔙 بازگشت به لیست پلن‌ها", callback_data="show_plans")
         )
+        if CARD_TO_CARD_ENABLED:
+            markup.add(types.InlineKeyboardButton("💳 تغییر روش پرداخت به کارت‌به‌کارت", callback_data=f"pay_card_{plan_code}"))
+        markup.add(types.InlineKeyboardButton("🔙 بازگشت به لیست پلن‌ها", callback_data="show_plans"))
         try:
             bot.edit_message_text(pay_text, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
         except Exception:
@@ -2093,6 +2109,10 @@ def handle_callbacks(call):
 
     # انتخاب پرداخت کارت‌به‌کارت
     elif data.startswith("pay_card_"):
+        if not CARD_TO_CARD_ENABLED:
+            bot.answer_callback_query(call.id, "⚠️ روش پرداخت کارت‌به‌کارت موقتاً غیرفعال است. لطفاً از درگاه آنلاین استفاده فرمایید.", show_alert=True)
+            return
+
         plan_code = data.replace("pay_card_", "")
         if plan_code not in PLANS_INFO:
             return
@@ -2170,6 +2190,9 @@ def handle_callbacks(call):
             bot.answer_callback_query(call.id, "⏳ هنوز تاییدیه‌ای از درگاه دریافت نشده است. چنانچه پرداخت را انجام داده‌اید، لطفاً ۱ الی ۲ دقیقه منتظر بمانید و دوباره دکمه را لمس کنید.", show_alert=True)
 
     elif data.startswith("paid_"):
+        if not CARD_TO_CARD_ENABLED:
+            bot.answer_callback_query(call.id, "⚠️ روش پرداخت کارت‌به‌کارت موقتاً غیرفعال است. لطفاً از درگاه آنلاین استفاده فرمایید.", show_alert=True)
+            return
         plan_code = data.replace("paid_", "")
         if plan_code not in PLANS_INFO:
             return
