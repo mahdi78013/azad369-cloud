@@ -1082,6 +1082,12 @@
       "user_id": 1429225075,
       "issued_at": 1792178368,
       "method": "crypto_unique"
+    },
+    "AZ3M-2BA2-C21C-94DE": {
+      "plan": "3M",
+      "user_id": 232719826,
+      "issued_at": 1792178422,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -6323,9 +6329,18 @@
       "tron_amount": 1.35819,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1df960f072fe4cda86fbeb30f3137212",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1df960f072fe4cda86fbeb30f3137212",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792177768
+      "created_at": 1792177768,
+      "approved_at": 1792178422,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-2BA2-C21C-94DE",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2897293",
+        "tron_amount": 1.35819,
+        "user_paid_toman": null,
+        "date": "2026-10-16T19:19:15.6630000"
+      }
     },
     "TRND-3M-309652574-1792177864-12adca": {
       "order_id": "TRND-3M-309652574-1792177864-12adca",
@@ -11163,7 +11178,7 @@
       "last_name": "",
       "username": "MB198919",
       "first_seen": 1792098404,
-      "last_seen": 1792098404,
+      "last_seen": 1792178394,
       "purchases": []
     },
     "1892797950": {
@@ -14634,8 +14649,16 @@
       "last_name": "Qasemi",
       "username": "qasemi_mojtaba",
       "first_seen": 1792177412,
-      "last_seen": 1792177761,
-      "purchases": []
+      "last_seen": 1792178385,
+      "purchases": [
+        {
+          "key": "AZ3M-2BA2-C21C-94DE",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792178422,
+          "days": 90
+        }
+      ]
     },
     "714783798": {
       "user_id": 714783798,
