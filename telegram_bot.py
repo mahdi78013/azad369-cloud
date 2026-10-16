@@ -1455,10 +1455,7 @@ def main_menu_keyboard(is_admin: bool = False):
 def plans_keyboard():
     markup = types.InlineKeyboardMarkup(row_width=1)
     for p_code, p_info in PLANS_INFO.items():
-        if p_code in ("1M", "2M"):
-            text = f"{p_info['name']} — {p_info['price']} (❌ اتمام موجودی)"
-        else:
-            text = f"{p_info['name']} — {p_info['price']} ⚡"
+        text = f"{p_info['name']} — {p_info['price']} (❌ اتمام موجودی)"
         markup.add(types.InlineKeyboardButton(text, callback_data=f"buy_{p_code}"))
     markup.add(types.InlineKeyboardButton("❌ انصراف و بستن", callback_data="cancel_action"))
     return markup
@@ -1940,8 +1937,8 @@ def handle_callbacks(call):
             return
         info = PLANS_INFO[plan_code]
 
-        # بررسی موجودی پلن‌ها (پلن‌های ۱ و ۲ ماهه تکمیل ظرفیت هستند ولی ۳ ماهه و ۱ ساله باز هستند)
-        if plan_code in ("1M", "2M"):
+        # بررسی موجودی پلن‌ها (تمامی پلن‌ها موقتاً تکمیل ظرفیت هستند)
+        if plan_code in ("1M", "2M", "3M", "1Y"):
             safe_answer_callback(call.id, "⚠️ موجودی این پلن به اتمام رسیده است!", show_alert=True)
 
             sold_out_text = (
@@ -2061,7 +2058,7 @@ def handle_callbacks(call):
             return
         info = PLANS_INFO[plan_code]
 
-        if plan_code in ("1M", "2M"):
+        if plan_code in ("1M", "2M", "3M", "1Y"):
             safe_answer_callback(call.id, "⚠️ این پلن تکمیل ظرفیت است!", show_alert=True)
             return
 
