@@ -638,6 +638,12 @@
       "user_id": 104647575,
       "issued_at": 1792144074,
       "method": "crypto_unique"
+    },
+    "AZ1Y-EA13-93FE-BAAE": {
+      "plan": "1Y",
+      "user_id": 121162639,
+      "issued_at": 1792147454,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -2091,6 +2097,55 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792147216
+    },
+    "TRND-1Y-748538264-1792147377-7aeea5": {
+      "order_id": "TRND-1Y-748538264-1792147377-7aeea5",
+      "token": "1bee4db49e2845a7b61b1f7ceda0c072",
+      "user_id": 748538264,
+      "first_name": "He.i",
+      "username": "F_l_k_j780",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.659971,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_1bee4db49e2845a7b61b1f7ceda0c072",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1bee4db49e2845a7b61b1f7ceda0c072",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792147377
+    },
+    "ORD_1792147392_121162639": {
+      "order_id": "ORD_1792147392_121162639",
+      "user_id": 121162639,
+      "username": "Sajjad_mokhayeri",
+      "first_name": "sajjad",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "approved",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAJIsGrR_8CON81yl22oylFdhqVrLnAoAAIrEGsbikmQUhg33UaoOkNTAQADAgADeQADPQQ",
+      "card_number": "5892101706458979",
+      "created_at": 1792147392,
+      "caption": "",
+      "approved_at": 1792147454,
+      "approved_by": 748538264,
+      "key": "AZ1Y-EA13-93FE-BAAE"
+    },
+    "TRND-1Y-5573501298-1792147444-34d967": {
+      "order_id": "TRND-1Y-5573501298-1792147444-34d967",
+      "token": "7ec8f7660af44cfabefd094d3dedeb69",
+      "user_id": 5573501298,
+      "first_name": "H",
+      "username": "H_CForex",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.676547,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_7ec8f7660af44cfabefd094d3dedeb69",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7ec8f7660af44cfabefd094d3dedeb69",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792147444
     }
   },
   "users": {
@@ -8187,6 +8242,32 @@
       "first_seen": 1792147203,
       "last_seen": 1792147203,
       "purchases": []
+    },
+    "949276492": {
+      "user_id": 949276492,
+      "first_name": "SEPI",
+      "last_name": "SZK",
+      "username": "SZK809",
+      "first_seen": 1792147370,
+      "last_seen": 1792147370,
+      "purchases": []
+    },
+    "121162639": {
+      "user_id": 121162639,
+      "first_name": "sajjad",
+      "last_name": "Mokhayeri",
+      "username": "Sajjad_mokhayeri",
+      "first_seen": 1792147379,
+      "last_seen": 1792147379,
+      "purchases": [
+        {
+          "key": "AZ1Y-EA13-93FE-BAAE",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792147454,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
@@ -8757,16 +8838,20 @@
       "plan_code": "1Y",
       "card_number": "5047061670546072",
       "time": 1792147342
+    },
+    "949276492": {
+      "state": "waiting_support_msg",
+      "time": 1792147423
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 1,
+    "count": 2,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 11,
+      "5892101706458979": 12,
       "5047061670546072": 10
     }
   },
