@@ -692,6 +692,12 @@
       "user_id": 613721151,
       "issued_at": 1792155666,
       "method": "crypto_unique"
+    },
+    "AZ1Y-D711-CA71-DB20": {
+      "plan": "1Y",
+      "user_id": 94698244,
+      "issued_at": 1792155863,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -2551,9 +2557,18 @@
       "tron_amount": 3.662393,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_209b44c88f1b4346b92b6f72e5f7be76",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=209b44c88f1b4346b92b6f72e5f7be76",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792155519
+      "created_at": 1792155519,
+      "approved_at": 1792155863,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-D711-CA71-DB20",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2892868",
+        "tron_amount": 3.662393,
+        "user_paid_toman": null,
+        "date": "2026-10-16T13:04:19.9430000"
+      }
     },
     "TRND-3M-1736876252-1792155695-fc7c95": {
       "order_id": "TRND-3M-1736876252-1792155695-fc7c95",
@@ -8132,7 +8147,15 @@
       "username": "monster_v",
       "first_seen": 1792136304,
       "last_seen": 1792155519,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-D711-CA71-DB20",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792155863,
+          "days": 365
+        }
+      ]
     },
     "102408733": {
       "user_id": 102408733,
@@ -9016,6 +9039,24 @@
       "username": "",
       "first_seen": 1792155679,
       "last_seen": 1792155679,
+      "purchases": []
+    },
+    "572037151": {
+      "user_id": 572037151,
+      "first_name": "Masoud$X",
+      "last_name": "一目均衡表",
+      "username": "l8l8lgg",
+      "first_seen": 1792155720,
+      "last_seen": 1792155720,
+      "purchases": []
+    },
+    "71951585": {
+      "user_id": 71951585,
+      "first_name": "mohammad",
+      "last_name": "",
+      "username": "persianboy1981",
+      "first_seen": 1792155751,
+      "last_seen": 1792155751,
       "purchases": []
     }
   },
