@@ -126,8 +126,8 @@ START_TIME = time.time()
 PLANS_INFO = {
     "1M": {
         "name": "۱ ماهه (۳۰ روزه)",
-        "price": "۶۰,۰۰۰ تومان",
-        "price_toman": 60000,
+        "price": "۸۹,۰۰۰ تومان",
+        "price_toman": 89000,
         "prefix": "AZ1M",
         "file": "1M.txt",
         "fallback_file": "1_ماهه_1000_عدد.txt",
@@ -135,8 +135,8 @@ PLANS_INFO = {
     },
     "2M": {
         "name": "۲ ماهه (۶۰ روزه)",
-        "price": "۱۰۰,۰۰۰ تومان",
-        "price_toman": 100000,
+        "price": "۱۲۹,۰۰۰ تومان",
+        "price_toman": 129000,
         "prefix": "AZ2M",
         "file": "2M.txt",
         "fallback_file": "2_ماهه_1000_عدد.txt",
@@ -145,7 +145,8 @@ PLANS_INFO = {
     "3M": {
         "name": "۳ ماهه (۹۰ روزه)",
         "prefix": "AZ3M",
-        "price": "۱۴۹,۰۰۰ تومان",
+        "price": "۱۷۹,۰۰۰ تومان",
+        "price_toman": 179000,
         "file": "3M.txt",
         "fallback_file": "3_ماهه_1000_عدد.txt",
         "days": 90
@@ -153,7 +154,8 @@ PLANS_INFO = {
     "1Y": {
         "name": "۱ ساله (۳۶۵ روزه)",
         "prefix": "AZ1Y",
-        "price": "۳۹۹,۰۰۰ تومان",
+        "price": "۴۷۹,۰۰۰ تومان",
+        "price_toman": 479000,
         "file": "1Y.txt",
         "fallback_file": "1_ساله_1000_عدد.txt",
         "days": 365
@@ -1144,10 +1146,12 @@ def tronado_create_order(plan_code: str, user_id: int, user_obj=None) -> dict | 
     info = PLANS_INFO.get(plan_code)
     if not info:
         return None
-    price_toman = info.get("price_toman", 399000)
-    tron_amount = tronado_convert_toman_to_tron(price_toman)
+    price_toman = info.get("price_toman", 479000)
+    # Adjust for Tronado 20% gateway markup so buyer pays exactly price_toman
+    base_net = price_toman / 1.20
+    tron_amount = tronado_convert_toman_to_tron(base_net)
     if not tron_amount:
-        tron_amount = round(price_toman / 95000.0, 4)
+        tron_amount = round(base_net / 90000.0, 4)
 
     now_ts = int(time.time())
     rand_token = secrets.token_hex(3)
@@ -1446,7 +1450,10 @@ def main_menu_keyboard(is_admin: bool = False):
 def plans_keyboard():
     markup = types.InlineKeyboardMarkup(row_width=1)
     for p_code, p_info in PLANS_INFO.items():
-        text = f"{p_info['name']} — {p_info['price']} (❌ اتمام موجودی)"
+        if p_code in ("1M", "2M"):
+            text = f"{p_info['name']} — {p_info['price']} (❌ اتمام موجودی)"
+        else:
+            text = f"{p_info['name']} — {p_info['price']} ⚡"
         markup.add(types.InlineKeyboardButton(text, callback_data=f"buy_{p_code}"))
     markup.add(types.InlineKeyboardButton("❌ انصراف و بستن", callback_data="cancel_action"))
     return markup
@@ -1944,8 +1951,8 @@ def handle_callbacks(call):
             return
         info = PLANS_INFO[plan_code]
 
-        # بررسی موجودی پلن‌ها (پلن‌های ۱، ۲ و ۳ ماهه تکمیل ظرفیت هستند ولی ۱ ساله باز است)
-        if plan_code in ("1M", "2M", "3M", "1Y"):
+        # بررسی موجودی پلن‌ها (پلن‌های ۱ و ۲ ماهه تکمیل ظرفیت هستند ولی ۳ ماهه و ۱ ساله باز هستند)
+        if plan_code in ("1M", "2M"):
             try:
                 bot.answer_callback_query(call.id, "⚠️ موجودی این پلن به اتمام رسیده است!", show_alert=True)
             except Exception:
@@ -2068,7 +2075,7 @@ def handle_callbacks(call):
             return
         info = PLANS_INFO[plan_code]
 
-        if plan_code in ("1M", "2M", "3M", "1Y"):
+        if plan_code in ("1M", "2M"):
             bot.answer_callback_query(call.id, "⚠️ این پلن تکمیل ظرفیت است!", show_alert=True)
             return
 
