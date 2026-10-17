@@ -917,14 +917,22 @@ def get_hwid_bound_keys() -> set:
 def is_support_working_hours() -> tuple[bool, str]:
     """
     Checks if support is currently open based on Tehran time (UTC+3:30).
-    Support is 24/7 active and open.
+    Support is locked until 22:00 (10:00 PM) Tehran time.
     """
-    return True, ""
+    try:
+        now_utc = datetime.datetime.now(datetime.timezone.utc)
+        tehran_now = now_utc + datetime.timedelta(hours=3, minutes=30)
+        if tehran_now.hour < 22:
+            return False, "۲۲:۰۰ (۱۰ شب)"
+        return True, ""
+    except Exception as e:
+        print(f"[Support Hours] Error: {e}")
+        return False, "۲۲:۰۰ (۱۰ شب)"
 
 SUPPORT_CLOSED_MESSAGE = (
-    "⏰ *ساعت کاری واحد پشتیبانی به پایان رسیده است*\n\n"
-    "کاربر گرامی، ساعات پاسخگویی واحد پشتیبانی همه‌روزه از ساعت *۱۲:۰۰ ظهر الی ۲۲:۰۰ شب* (۱۰ شب) می‌باشد.\n\n"
-    "لطفاً در ساعات کاری مجدداً پیام خود را ارسال فرمایید تا کارشناسان ما پاسخگوی شما باشند. 🌸\n\n"
+    "⏰ *واحد پشتیبانی تا ساعت ۲۲:۰۰ (۱۰ شب) موقتاً غیرفعال است.*\n\n"
+    "کاربر گرامی، تیم پشتیبانی از ساعت *۲۲:۰۰ شب (۱۰ شب)* مجدداً پاسخگوی پیام‌ها و سوالات شما عزیزان خواهد بود. 🌸\n\n"
+    "▫️ بخش خرید لایسنس و تحویل آنی اشتراک به صورت کاملاً خودکار و ۲۴ ساعته فعال است.\n\n"
     "📢 کانال اطلاع‌رسانی: @muntivpn"
 )
 
@@ -1937,6 +1945,13 @@ def send_manual_connection_guide(chat_id: int):
 @bot.message_handler(func=lambda m: is_menu_button_command(m, ["💬 پشتیبانی", "پشتیبانی", "ارتباط با ادمین"]))
 def btn_support(message, target_uid=None):
     uid = target_uid or message.from_user.id
+    if not is_admin(uid):
+        is_open, _ = is_support_working_hours()
+        if not is_open:
+            clear_user_state(uid)
+            safe_send_message(message.chat.id, SUPPORT_CLOSED_MESSAGE)
+            return
+
     set_user_state(uid, {"state": "waiting_support_msg", "time": int(time.time())})
 
     text = (
