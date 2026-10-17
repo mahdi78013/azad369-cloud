@@ -1268,6 +1268,12 @@
       "user_id": 994161916,
       "issued_at": 1792219303,
       "method": "crypto_unique"
+    },
+    "AZ3M-7D93-52C4-27B1": {
+      "plan": "3M",
+      "user_id": 1351789854,
+      "issued_at": 1792219583,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -7459,9 +7465,34 @@
       "tron_amount": 1.348624,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_41ae33bd478e4742a1b3afd7186f0874",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=41ae33bd478e4742a1b3afd7186f0874",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1792219277,
+      "approved_at": 1792219583,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-7D93-52C4-27B1",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2900997",
+        "tron_amount": 1.348624,
+        "user_paid_toman": null,
+        "date": "2026-10-17T06:45:56.5170000"
+      }
+    },
+    "TRND-3M-5317329379-1792219505-19a915": {
+      "order_id": "TRND-3M-5317329379-1792219505-19a915",
+      "token": "329182de33bd4221960fd1c7328c6edf",
+      "user_id": 5317329379,
+      "first_name": "M-",
+      "username": "em_d_a_s_h",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.337566,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_329182de33bd4221960fd1c7328c6edf",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=329182de33bd4221960fd1c7328c6edf",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792219277
+      "created_at": 1792219505
     }
   },
   "users": {
@@ -7786,7 +7817,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "F_l_k_j780",
-      "last_seen": 1792218808,
+      "last_seen": 1792219558,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -11610,8 +11641,12 @@
       "last_name": "",
       "username": "jjahun",
       "first_seen": 1792075847,
-      "last_seen": 1792218604,
-      "purchases": []
+      "last_seen": 1792219526,
+      "purchases": [],
+      "last_admin_reply": {
+        "text": "وقت بخیر مشکلتون چیه لطفا توضیح تکمیلی بدین",
+        "time": 1792219580
+      }
     },
     "7716183888": {
       "user_id": 7716183888,
@@ -14392,7 +14427,15 @@
       "username": "kiumarss54",
       "first_seen": 1792157225,
       "last_seen": 1792219276,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-7D93-52C4-27B1",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792219583,
+          "days": 90
+        }
+      ]
     },
     "925988042": {
       "user_id": 925988042,
@@ -16071,7 +16114,7 @@
       "last_name": "دکتر علی علیرضائی",
       "username": "alimpt35",
       "first_seen": 1792181004,
-      "last_seen": 1792181004,
+      "last_seen": 1792219514,
       "purchases": []
     },
     "138202351": {
@@ -16971,6 +17014,24 @@
       "first_seen": 1792219401,
       "last_seen": 1792219401,
       "purchases": []
+    },
+    "5317329379": {
+      "user_id": 5317329379,
+      "first_name": "M-",
+      "last_name": "",
+      "username": "em_d_a_s_h",
+      "first_seen": 1792219472,
+      "last_seen": 1792219472,
+      "purchases": []
+    },
+    "102888197": {
+      "user_id": 102888197,
+      "first_name": "Mohammad",
+      "last_name": "Alipour",
+      "username": "Mohammad1362Alipour",
+      "first_seen": 1792219554,
+      "last_seen": 1792219554,
+      "purchases": []
     }
   },
   "user_states": {
@@ -17500,6 +17561,10 @@
     "748538264": {
       "state": "waiting_support_msg",
       "time": 1792216349
+    },
+    "85901667": {
+      "state": "waiting_support_msg",
+      "time": 1792219476
     }
   },
   "admin_states": {},
