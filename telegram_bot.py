@@ -1647,7 +1647,61 @@ def cmd_start(message):
     safe_send_message(message.chat.id, welcome_text, reply_markup=welcome_inline_keyboard())
     safe_send_message(message.chat.id, "منوی اصلی کیبورد نیز فعال شد 👇", reply_markup=main_menu_keyboard(admin_flag))
 
-@bot.message_handler(func=lambda m: (m.text or "").strip() == "🛒 خرید اشتراک اختصاصی" or any(k in (m.text or "") for k in ["خرید اشتراک", "خرید", "پلن‌ها", "پلن ها"]))
+MAIN_MENU_EXACT_BUTTONS = {
+    "🛒 خرید اشتراک اختصاصی",
+    "🛒 خرید اشتراک",
+    "👤 حساب کاربری من",
+    "📘 آموزش اتصال دستی",
+    "❓ راهنمای فعال‌سازی",
+    "💬 پشتیبانی",
+    "👑 پنل مدیریت ادمین",
+    "❌ انصراف",
+    "انصراف",
+    "/cancel",
+    "/start",
+    "/help",
+    "/support",
+    "/plans",
+    "/buy",
+    "/account",
+    "/admin"
+}
+
+def is_menu_button_command(m, exact_commands: list) -> bool:
+    """
+    Checks if a message is an explicit button click or short command for a menu option.
+    Guarantees that:
+    1. Replies (message.reply_to_message) are NEVER hijacked as menu clicks.
+    2. Admin broadcast messages or ticket replies are NEVER hijacked as menu clicks.
+    3. User support tickets or receipt notes are NEVER hijacked as menu clicks.
+    """
+    if not m.text or m.reply_to_message:
+        return False
+
+    clean = m.text.strip()
+    uid = m.from_user.id
+
+    # If sender is admin and has an active conversation state (broadcasting or replying)
+    if is_admin(uid):
+        adm_state = get_admin_state(uid)
+        st = adm_state.get("state")
+        if st in ("waiting_broadcast_msg", "replying_to_user"):
+            # Only exact cancel commands break out of this state via button
+            return clean in ["❌ انصراف", "انصراف", "/cancel"]
+
+    # If sender is a regular user in active support composition or receipt submission
+    u_state = get_user_state(uid)
+    u_st = u_state.get("state")
+    if u_st in ("waiting_support_msg", "awaiting_receipt"):
+        # If user explicitly taps an exact main menu button or cancel, allow navigation
+        if clean in MAIN_MENU_EXACT_BUTTONS:
+            return clean in exact_commands
+        return False
+
+    # In normal idle state, only exact matches trigger menu handlers
+    return clean in exact_commands
+
+@bot.message_handler(func=lambda m: is_menu_button_command(m, ["🛒 خرید اشتراک اختصاصی", "🛒 خرید اشتراک", "خرید اشتراک", "خرید", "پلن‌ها", "پلن ها", "/buy", "/plans"]))
 def btn_buy_plans(message):
     clear_user_state(message.from_user.id)
     in_maint, maint_msg = is_maintenance_mode()
@@ -1670,7 +1724,7 @@ def btn_buy_plans(message):
     safe_send_message(message.chat.id, text, reply_markup=plans_keyboard())
 
 @bot.message_handler(commands=["account", "my_account", "profile"])
-@bot.message_handler(func=lambda m: (m.text or "").strip() in ["👤 حساب کاربری من", "حساب کاربری من", "حساب کاربری", "اکانت من", "پروفایل"])
+@bot.message_handler(func=lambda m: is_menu_button_command(m, ["👤 حساب کاربری من", "حساب کاربری من", "حساب کاربری", "اکانت من", "پروفایل"]))
 def btn_my_account(message, target_uid=None):
     uid = target_uid or message.from_user.id
     clear_user_state(uid)
@@ -1767,7 +1821,8 @@ def btn_my_account(message, target_uid=None):
     )
     safe_send_message(message.chat.id, "\n".join(lines), reply_markup=markup)
 
-@bot.message_handler(func=lambda m: (m.text or "").strip() == "❓ راهنمای فعال‌سازی" or any(k in (m.text or "") for k in ["راهنما", "فعال‌سازی", "فعالسازی"]))
+@bot.message_handler(commands=["help"])
+@bot.message_handler(func=lambda m: is_menu_button_command(m, ["❓ راهنمای فعال‌سازی", "راهنمای فعال‌سازی", "راهنما", "فعال‌سازی", "فعالسازی"]))
 def btn_help(message):
     clear_user_state(message.from_user.id)
     text = (
@@ -1780,7 +1835,8 @@ def btn_help(message):
     )
     safe_send_message(message.chat.id, text)
 
-@bot.message_handler(func=lambda m: (m.text or "").strip() == "📘 آموزش اتصال دستی" or any(k in (m.text or "") for k in ["آموزش", "اتصال دستی"]))
+@bot.message_handler(commands=["guide", "manual"])
+@bot.message_handler(func=lambda m: is_menu_button_command(m, ["📘 آموزش اتصال دستی", "آموزش اتصال دستی", "اتصال دستی"]))
 def btn_manual_guide(message):
     clear_user_state(message.from_user.id)
     send_manual_connection_guide(message.chat.id)
@@ -1845,7 +1901,8 @@ def send_manual_connection_guide(chat_id: int):
 # ---------------------------------------------------------------------------
 # Support Handler (Instant Ticket Input Mode)
 # ---------------------------------------------------------------------------
-@bot.message_handler(func=lambda m: (m.text or "").strip() == "💬 پشتیبانی" or any(k in (m.text or "") for k in ["پشتیبانی", "پشتیبان", "ارتباط با ادمین"]))
+@bot.message_handler(commands=["support"])
+@bot.message_handler(func=lambda m: is_menu_button_command(m, ["💬 پشتیبانی", "پشتیبانی", "ارتباط با ادمین"]))
 def btn_support(message, target_uid=None):
     uid = target_uid or message.from_user.id
     set_user_state(uid, {"state": "waiting_support_msg", "time": int(time.time())})
@@ -1864,7 +1921,8 @@ def btn_support(message, target_uid=None):
     )
     safe_send_message(message.chat.id, text, reply_markup=markup)
 
-@bot.message_handler(func=lambda m: (m.text or "").strip() == "👑 پنل مدیریت ادمین" or any(k in (m.text or "") for k in ["پنل مدیریت", "مدیریت ادمین", "پنل ادمین"]))
+@bot.message_handler(commands=["admin", "panel"])
+@bot.message_handler(func=lambda m: is_menu_button_command(m, ["👑 پنل مدیریت ادمین", "پنل مدیریت ادمین", "پنل مدیریت", "پنل ادمین"]))
 def btn_admin_panel(message):
     if not is_admin(message.from_user.id):
         return
@@ -2871,9 +2929,6 @@ def handle_photos_and_docs(message):
             )
             return
 
-    u_state = get_user_state(uid)
-    state_type = u_state.get("state")
-
     file_id = None
     if message.content_type == "photo":
         file_id = message.photo[-1].file_id
@@ -2893,6 +2948,63 @@ def handle_photos_and_docs(message):
         file_id = message.video_note.file_id
 
     caption = message.caption or ""
+
+    # بررسی آیا ادمین در حال ارسال رسانه برای پاسخ به تیکت کاربر است
+    if is_admin(uid):
+        adm_state = get_admin_state(uid)
+        target_uid = None
+        if adm_state.get("state") == "replying_to_user":
+            target_uid = int(adm_state["target_uid"])
+            clear_admin_state(uid)
+        elif message.reply_to_message:
+            rep_text = message.reply_to_message.text or message.reply_to_message.caption or ""
+            match = re.search(r"(?:🆔\s*آیدی عددی|آیدی عددی|شناسه کاربر|User ID)\s*:\s*`?(\d+)`?", rep_text)
+            if match:
+                target_uid = int(match.group(1))
+
+        if target_uid:
+            reply_cap = (
+                f"📩 *پاسخ پشتیبانی اینترنت آزاد³⁶⁹:*\n\n"
+                f"{caption}\n\n"
+                f"━━━━━━━━━━━━━━━━━━━\n"
+                f"در صورت نیاز به ارسال پیام مجدد، از دکمه «💬 پشتیبانی» استفاده فرمایید."
+            ) if caption else (
+                "📩 *پاسخ پشتیبانی اینترنت آزاد³⁶⁹:*\n\n"
+                "━━━━━━━━━━━━━━━━━━━\n"
+                "در صورت نیاز به ارسال پیام مجدد، از دکمه «💬 پشتیبانی» استفاده فرمایید."
+            )
+
+            send_success = False
+            try:
+                if message.content_type == "photo":
+                    bot.send_photo(target_uid, file_id, caption=reply_cap, parse_mode="Markdown")
+                elif message.content_type == "voice":
+                    bot.send_voice(target_uid, file_id, caption=reply_cap, parse_mode="Markdown")
+                elif message.content_type == "video":
+                    bot.send_video(target_uid, file_id, caption=reply_cap, parse_mode="Markdown")
+                elif message.content_type == "document":
+                    bot.send_document(target_uid, file_id, caption=reply_cap, parse_mode="Markdown")
+                elif message.content_type == "audio":
+                    bot.send_audio(target_uid, file_id, caption=reply_cap, parse_mode="Markdown")
+                elif message.content_type == "sticker":
+                    bot.send_sticker(target_uid, file_id)
+                else:
+                    bot.copy_message(target_uid, message.chat.id, message.message_id)
+                send_success = True
+            except Exception:
+                try:
+                    bot.copy_message(target_uid, message.chat.id, message.message_id)
+                    send_success = True
+                except Exception as ex:
+                    safe_reply_to(message, f"⚠️ خطا در ارسال رسانه به کاربر: {ex}")
+                    return
+
+            if send_success:
+                safe_reply_to(message, f"✅ رسانه / فایل ارسالی شما با موفقیت برای کاربر `{target_uid}` ارسال شد.")
+            return
+
+    u_state = get_user_state(uid)
+    state_type = u_state.get("state")
 
     # الف) ارسال فیش پرداختی در مرحله خرید
     if state_type == "awaiting_receipt":
@@ -3029,181 +3141,203 @@ def handle_general_text(message):
                 )
                 return
 
-    # اگر کاربر روی یکی از دکمه‌های منوی اصلی زده باشد، هرگونه استیت قبلی ریست شود و دستور اجرا شود
-    if text:
-        if any(k in text for k in ["خرید اشتراک", "خرید", "پلن‌ها", "پلن ها"]):
-            clear_user_state(uid)
-            btn_buy_plans(message)
-            return
-        elif any(k in text for k in ["حساب کاربری", "اکانت", "پروفایل"]):
-            clear_user_state(uid)
-            btn_my_account(message)
-            return
-        elif any(k in text for k in ["آموزش", "اتصال دستی"]):
-            clear_user_state(uid)
-            btn_manual_guide(message)
-            return
-        elif any(k in text for k in ["راهنما", "فعال‌سازی", "فعالسازی"]):
-            clear_user_state(uid)
-            btn_help(message)
-            return
-        elif any(k in text for k in ["پشتیبانی", "پشتیبان", "ارتباط با ادمین"]):
-            clear_user_state(uid)
-            btn_support(message)
-            return
-        elif any(k in text for k in ["پنل مدیریت", "پنل ادمین", "مدیریت ادمین"]) and is_admin(uid):
-            clear_user_state(uid)
-            btn_admin_panel(message)
-            return
-
-    # ۱. اگر ادمین در حال پاسخ به تیکت کاربر است (از طریق دکمه یا ریپلای مستقیم در تلگرام)
-    adm_state = get_admin_state(uid)
-    target_uid = None
+    # ۱. اگر ادمین در حال پاسخ به تیکت کاربر است (از طریق دکمه «پاسخ به کاربر» یا ریپلای مستقیم در تلگرام)
     if is_admin(uid):
+        adm_state = get_admin_state(uid)
+        target_uid = None
         if adm_state.get("state") == "replying_to_user":
+            if text in ["❌ انصراف", "انصراف", "/cancel"]:
+                clear_admin_state(uid)
+                safe_reply_to(message, "❌ عملیات پاسخ به کاربر لغو شد.")
+                return
             target_uid = int(adm_state["target_uid"])
             clear_admin_state(uid)
         elif message.reply_to_message:
             rep_text = message.reply_to_message.text or message.reply_to_message.caption or ""
-            match = re.search(r"🆔\s*آیدی عددی:\s*`?(\d+)`?", rep_text)
+            match = re.search(r"(?:🆔\s*آیدی عددی|آیدی عددی|شناسه کاربر|User ID)\s*:\s*`?(\d+)`?", rep_text)
             if match:
                 target_uid = int(match.group(1))
 
-    if target_uid:
-        reply_to_user_text = (
-            f"📩 *پاسخ پشتیبانی اینترنت آزاد³⁶⁹:*\n\n"
-            f"{text}\n\n"
-            f"━━━━━━━━━━━━━━━━━━━\n"
-            f"در صورت نیاز به ارسال پیام مجدد، از دکمه «💬 پشتیبانی» استفاده فرمایید."
-        )
-        safe_send_message(target_uid, reply_to_user_text)
+        if target_uid:
+            reply_to_user_text = (
+                f"📩 *پاسخ پشتیبانی اینترنت آزاد³⁶⁹:*\n\n"
+                f"{text}\n\n"
+                f"━━━━━━━━━━━━━━━━━━━\n"
+                f"در صورت نیاز به ارسال پیام مجدد، از دکمه «💬 پشتیبانی» استفاده فرمایید."
+            )
+            send_ok = safe_send_message(target_uid, reply_to_user_text)
 
-        # Save last admin reply into DB so subsequent user messages can show context
-        db = load_db()
-        db.setdefault("users", {})
-        t_str = str(target_uid)
-        if t_str not in db["users"] or not isinstance(db["users"][t_str], dict):
-            db["users"][t_str] = {"purchases": []}
-        else:
-            db["users"][t_str].setdefault("purchases", [])
-        db["users"][t_str]["last_admin_reply"] = {
-            "text": text,
-            "time": int(time.time())
-        }
-        save_db(db)
+            # ثبت آخرین پاسخ ادمین در دیتابیس برای زمینه گفتگو
+            db = load_db()
+            db.setdefault("users", {})
+            t_str = str(target_uid)
+            if t_str not in db["users"] or not isinstance(db["users"][t_str], dict):
+                db["users"][t_str] = {"purchases": []}
+            else:
+                db["users"][t_str].setdefault("purchases", [])
+            db["users"][t_str]["last_admin_reply"] = {
+                "text": text,
+                "time": int(time.time())
+            }
+            save_db(db)
 
-        safe_reply_to(message, f"✅ پاسخ شما با موفقیت برای کاربر `{target_uid}` ارسال شد.")
-        return
+            if send_ok:
+                safe_reply_to(message, f"✅ پاسخ شما با موفقیت برای کاربر `{target_uid}` ارسال شد.")
+            else:
+                safe_reply_to(message, f"⚠️ پیام در سیستم ثبت شد ولی ارسال مستقیم به کاربر `{target_uid}` با خطا مواجه گردید (ممکن است ربات توسط کاربر متوقف شده باشد).")
+            return
 
     # ۲. اگر کاربر در مرحله ارسال فیش است و کد پیگیری یا متن واریز ارسال کرده
     u_state = get_user_state(uid)
     if u_state.get("state") == "awaiting_receipt":
-        plan_code = u_state.get("plan_code", "1M")
-        info = PLANS_INFO[plan_code]
-        order_id = f"ORD_{int(time.time())}_{uid}"
-        db = load_db()
+        if text in ["❌ انصراف", "انصراف", "/cancel"]:
+            clear_user_state(uid)
+            safe_reply_to(message, "❌ عملیات خرید لغو شد.")
+            return
+        if text in MAIN_MENU_EXACT_BUTTONS:
+            clear_user_state(uid)
+            # اجازه به عبور برای اجرای دکمه منو در بخش پایین
+        else:
+            plan_code = u_state.get("plan_code", "1M")
+            info = PLANS_INFO[plan_code]
+            order_id = f"ORD_{int(time.time())}_{uid}"
+            db = load_db()
 
-        active_card, did_rotate, next_card = record_card_deposit_and_rotate(db)
+            active_card, did_rotate, next_card = record_card_deposit_and_rotate(db)
 
-        f_name = message.from_user.first_name or "کاربر"
-        u_name = message.from_user.username or "ندارد"
+            f_name = message.from_user.first_name or "کاربر"
+            u_name = message.from_user.username or "ندارد"
 
-        db["orders"][order_id] = {
-            "order_id": order_id,
-            "user_id": uid,
-            "username": u_name,
-            "first_name": f_name,
-            "plan_code": plan_code,
-            "price": info["price"],
-            "status": "pending",
-            "receipt_type": "text",
-            "receipt_text": text,
-            "card_number": active_card,
-            "created_at": int(time.time())
-        }
-        clear_user_state(uid)
-        save_db(db)
+            db["orders"][order_id] = {
+                "order_id": order_id,
+                "user_id": uid,
+                "username": u_name,
+                "first_name": f_name,
+                "plan_code": plan_code,
+                "price": info["price"],
+                "status": "pending",
+                "receipt_type": "text",
+                "receipt_text": text,
+                "card_number": active_card,
+                "created_at": int(time.time())
+            }
+            clear_user_state(uid)
+            save_db(db)
 
-        admin_text = (
-            f"🔔 *سفارش جدید — اطلاعات پرداخت متنی!*\n\n"
-            f"🏷️ شماره سفارش: `{order_id}`\n"
-            f"👤 خریدار: {escape_md(f_name)} (@{escape_md(u_name)})\n"
-            f"🆔 آیدی عددی: `{uid}`\n"
-            f"📦 پلن انتخابی: *{escape_md(info['name'])}*\n"
-            f"💰 مبلغ فاکتور: *{info['price']}*\n"
-            f"💳 شماره کارت مقصد: `{active_card}`\n"
-            f"⏰ ساعت: {time.strftime('%H:%M:%S', time.localtime())}\n\n"
-            f"📝 *اطلاعات / کد پیگیری واریزی:*\n`{escape_md(text)}`"
-        )
-        admin_markup = types.InlineKeyboardMarkup(row_width=2)
-        b_approve = types.InlineKeyboardButton("✅ تایید پرداخت و صدور لایسنس", callback_data=f"appr_{order_id}")
-        b_reject = types.InlineKeyboardButton("❌ رد پرداخت", callback_data=f"rej_{order_id}")
-        admin_markup.add(b_approve, b_reject)
-
-        notify_admins_message(admin_text, reply_markup=admin_markup)
-
-        if did_rotate:
-            rotate_msg = (
-                f"🔄 *تغییر خودکار شماره کارت واریز*\n\n"
-                f"شماره کارت قبلی (`{active_card}`) به سقف {CARD_ROTATION_THRESHOLD} واریز رسید.\n"
-                f"💳 شماره کارت فعال جدید برای سفارشات بعدی:\n`{next_card}`"
+            admin_text = (
+                f"🔔 *سفارش جدید — اطلاعات پرداخت متنی!*\n\n"
+                f"🏷️ شماره سفارش: `{order_id}`\n"
+                f"👤 خریدار: {escape_md(f_name)} (@{escape_md(u_name)})\n"
+                f"🆔 آیدی عددی: `{uid}`\n"
+                f"📦 پلن انتخابی: *{escape_md(info['name'])}*\n"
+                f"💰 مبلغ فاکتور: *{info['price']}*\n"
+                f"💳 شماره کارت مقصد: `{active_card}`\n"
+                f"⏰ ساعت: {time.strftime('%H:%M:%S', time.localtime())}\n\n"
+                f"📝 *اطلاعات / کد پیگیری واریزی:*\n`{escape_md(text)}`"
             )
-            notify_admins_message(rotate_msg)
+            admin_markup = types.InlineKeyboardMarkup(row_width=2)
+            b_approve = types.InlineKeyboardButton("✅ تایید پرداخت و صدور لایسنس", callback_data=f"appr_{order_id}")
+            b_reject = types.InlineKeyboardButton("❌ رد پرداخت", callback_data=f"rej_{order_id}")
+            admin_markup.add(b_approve, b_reject)
 
-        safe_reply_to(
-            message,
-            "✅ *اطلاعات پرداخت شما با موفقیت ثبت شد!*\n\n"
-            "کد رهگیری برای مدیریت ارسال گردید و در صف بررسی قرار گرفت.\n"
-            "به محض تایید توسط مدیریت، کد لایسنس اختصاصی شما به صورت خودکار در همین چت ارسال خواهد شد. 🌸"
-        )
-        return
+            notify_admins_message(admin_text, reply_markup=admin_markup)
+
+            if did_rotate:
+                rotate_msg = (
+                    f"🔄 *تغییر خودکار شماره کارت واریز*\n\n"
+                    f"شماره کارت قبلی (`{active_card}`) به سقف {CARD_ROTATION_THRESHOLD} واریز رسید.\n"
+                    f"💳 شماره کارت فعال جدید برای سفارشات بعدی:\n`{next_card}`"
+                )
+                notify_admins_message(rotate_msg)
+
+            safe_reply_to(
+                message,
+                "✅ *اطلاعات پرداخت شما با موفقیت ثبت شد!*\n\n"
+                "کد رهگیری برای مدیریت ارسال گردید و در صف بررسی قرار گرفت.\n"
+                "به محض تایید توسط مدیریت، کد لایسنس اختصاصی شما به صورت خودکار در همین چت ارسال خواهد شد. 🌸"
+            )
+            return
 
     # ۳. اگر کاربر در حال ارسال پیام متنی به پشتیبانی است
     if u_state.get("state") == "waiting_support_msg":
-        clear_user_state(uid)
-
-        if not is_admin(uid):
-            is_open, _ = is_support_working_hours()
-            if not is_open:
-                safe_send_message(message.chat.id, SUPPORT_CLOSED_MESSAGE)
-                return
-
-        f_name = message.from_user.first_name or "کاربر"
-        u_name = message.from_user.username or "ندارد"
-
-        # Determine reply context
-        quote_section = ""
-        if message.reply_to_message:
-            rep = message.reply_to_message
-            rep_text = rep.text or rep.caption or "[فایل / تصویر]"
-            quote_section = f"↩️ *در پاسخ به پیام:*\n«_{escape_md(rep_text[:300])}_»\n\n"
+        if text in ["❌ انصراف", "انصراف", "/cancel"]:
+            clear_user_state(uid)
+            safe_reply_to(message, "❌ ارسال پیام به پشتیبانی لغو شد.")
+            return
+        if text in MAIN_MENU_EXACT_BUTTONS:
+            clear_user_state(uid)
+            # اجازه به عبور برای اجرای دکمه منو در بخش پایین
         else:
-            db = load_db()
-            last_reply = db.get("users", {}).get(str(uid), {}).get("last_admin_reply")
-            if last_reply and (time.time() - last_reply.get("time", 0) < 172800):  # within 48h
-                prev_text = last_reply.get("text", "")
-                quote_section = f"💬 *در ادامه پاسخ قبلی پشتیبانی:*\n«_{escape_md(prev_text[:300])}_»\n\n"
+            clear_user_state(uid)
 
-        admin_ticket_msg = (
-            f"📩 *پیام پشتیبانی جدید!*\n\n"
-            f"👤 کاربر: {escape_md(f_name)} (@{escape_md(u_name)})\n"
-            f"🆔 آیدی عددی: `{uid}`\n"
-            f"⏰ زمان: {time.strftime('%Y/%m/%d %H:%M:%S', time.localtime())}\n\n"
-            f"{quote_section}"
-            f"💬 *متن پیام کاربر:*\n{escape_md(text)}"
-        )
-        markup = types.InlineKeyboardMarkup()
-        markup.add(types.InlineKeyboardButton("✍️ پاسخ دادن به کاربر", callback_data=f"reply_user_{uid}"))
+            if not is_admin(uid):
+                is_open, _ = is_support_working_hours()
+                if not is_open:
+                    safe_send_message(message.chat.id, SUPPORT_CLOSED_MESSAGE)
+                    return
 
-        notify_admins_message(admin_ticket_msg, reply_markup=markup)
+            f_name = message.from_user.first_name or "کاربر"
+            u_name = message.from_user.username or "ندارد"
 
-        safe_reply_to(
-            message,
-            "✅ *پیام شما با موفقیت برای پشتیبانی ارسال گردید.*\nبه زودی پاسخ مدیریت در همین ربات برای شما فرستاده خواهد شد."
-        )
+            # Determine reply context
+            quote_section = ""
+            if message.reply_to_message:
+                rep = message.reply_to_message
+                rep_text = rep.text or rep.caption or "[فایل / تصویر]"
+                quote_section = f"↩️ *در پاسخ به پیام:*\n«_{escape_md(rep_text[:300])}_»\n\n"
+            else:
+                db = load_db()
+                last_reply = db.get("users", {}).get(str(uid), {}).get("last_admin_reply")
+                if last_reply and (time.time() - last_reply.get("time", 0) < 172800):  # within 48h
+                    prev_text = last_reply.get("text", "")
+                    quote_section = f"💬 *در ادامه پاسخ قبلی پشتیبانی:*\n«_{escape_md(prev_text[:300])}_»\n\n"
+
+            admin_ticket_msg = (
+                f"📩 *پیام پشتیبانی جدید!*\n\n"
+                f"👤 کاربر: {escape_md(f_name)} (@{escape_md(u_name)})\n"
+                f"🆔 آیدی عددی: `{uid}`\n"
+                f"⏰ زمان: {time.strftime('%Y/%m/%d %H:%M:%S', time.localtime())}\n\n"
+                f"{quote_section}"
+                f"💬 *متن پیام کاربر:*\n{escape_md(text)}"
+            )
+            markup = types.InlineKeyboardMarkup()
+            markup.add(types.InlineKeyboardButton("✍️ پاسخ دادن به کاربر", callback_data=f"reply_user_{uid}"))
+
+            notify_admins_message(admin_ticket_msg, reply_markup=markup)
+
+            safe_reply_to(
+                message,
+                "✅ *پیام شما با موفقیت برای پشتیبانی ارسال گردید.*\nبه زودی پاسخ مدیریت در همین ربات برای شما فرستاده خواهد شد."
+            )
+            return
+
+    # ۴. دکمه‌ها و دستورات منوی اصلی (فقط در صورتی که کاربر در هیچ استیتی نباشد یا روی دکمه کیبورد زده باشد)
+    if text in ["🛒 خرید اشتراک اختصاصی", "🛒 خرید اشتراک", "خرید اشتراک", "خرید", "پلن‌ها", "پلن ها", "/buy", "/plans"]:
+        clear_user_state(uid)
+        btn_buy_plans(message)
+        return
+    elif text in ["👤 حساب کاربری من", "حساب کاربری من", "حساب کاربری", "اکانت من", "پروفایل", "/account", "/my_account", "/profile"]:
+        clear_user_state(uid)
+        btn_my_account(message)
+        return
+    elif text in ["📘 آموزش اتصال دستی", "آموزش اتصال دستی", "اتصال دستی", "/guide", "/manual"]:
+        clear_user_state(uid)
+        btn_manual_guide(message)
+        return
+    elif text in ["❓ راهنمای فعال‌سازی", "راهنمای فعال‌سازی", "راهنما", "فعال‌سازی", "فعالسازی", "/help"]:
+        clear_user_state(uid)
+        btn_help(message)
+        return
+    elif text in ["💬 پشتیبانی", "پشتیبانی", "ارتباط با ادمین", "/support"]:
+        clear_user_state(uid)
+        btn_support(message)
+        return
+    elif text in ["👑 پنل مدیریت ادمین", "پنل مدیریت ادمین", "پنل مدیریت", "پنل ادمین", "/admin"] and is_admin(uid):
+        clear_user_state(uid)
+        btn_admin_panel(message)
         return
 
-    # ۴. استعلام دستی لایسنس
+    # ۵. استعلام دستی لایسنس
     if text.upper().startswith("AZ"):
         res = license_core.verify_license_format(text.upper())
         if res.get("valid"):
