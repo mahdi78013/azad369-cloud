@@ -1430,6 +1430,12 @@
       "user_id": 76541666,
       "issued_at": 1792221042,
       "method": "crypto_unique"
+    },
+    "AZ3M-5161-46B1-F85A": {
+      "plan": "3M",
+      "user_id": 7332935402,
+      "issued_at": 1792221056,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -8190,9 +8196,18 @@
       "tron_amount": 1.360117,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_045d04d49b054917884d0f6e054d6df5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=045d04d49b054917884d0f6e054d6df5",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792220339
+      "created_at": 1792220339,
+      "approved_at": 1792221056,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-5161-46B1-F85A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2901151",
+        "tron_amount": 1.360117,
+        "user_paid_toman": null,
+        "date": "2026-10-17T07:01:09.3870000"
+      }
     },
     "TRND-1Y-170965764-1792220344-07a95a": {
       "order_id": "TRND-1Y-170965764-1792220344-07a95a",
@@ -16507,7 +16522,7 @@
       "last_name": "Estiry",
       "username": "Amir_Estiry",
       "first_seen": 1792168191,
-      "last_seen": 1792169784,
+      "last_seen": 1792221055,
       "purchases": [],
       "last_admin_reply": {
         "text": "✅ لایسنس دستی جدید ۳ ماهه (۹۰ روزه):\n\nAZ3M-62E7-FA37-E367\n\n(برای کپی روی کد بالا ضربه بزنید)",
@@ -16830,6 +16845,13 @@
           "plan": "3M",
           "plan_name": "۳ ماهه (۹۰ روزه)",
           "issued_at": 1792220803,
+          "days": 90
+        },
+        {
+          "key": "AZ3M-5161-46B1-F85A",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792221056,
           "days": 90
         }
       ]
@@ -18903,10 +18925,6 @@
     "65012743": {
       "state": "waiting_support_msg",
       "time": 1792220806
-    },
-    "100855709": {
-      "state": "waiting_support_msg",
-      "time": 1792221040
     }
   },
   "admin_states": {},
