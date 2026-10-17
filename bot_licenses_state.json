@@ -1724,6 +1724,12 @@
       "user_id": 169219526,
       "issued_at": 1792248677,
       "method": "crypto_unique"
+    },
+    "AZ3M-B877-2992-2D51": {
+      "plan": "3M",
+      "user_id": 542729094,
+      "issued_at": 1792248931,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -9989,9 +9995,18 @@
       "tron_amount": 1.342627,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_aee362017e3040ab8d824159b58ccfac",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=aee362017e3040ab8d824159b58ccfac",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792248510
+      "created_at": 1792248510,
+      "approved_at": 1792248931,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-B877-2992-2D51",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2905248",
+        "tron_amount": 1.342627,
+        "user_paid_toman": null,
+        "date": "2026-10-17T14:53:07.7270000"
+      }
     },
     "TRND-3M-5583573108-1792248515-f1417e": {
       "order_id": "TRND-3M-5583573108-1792248515-f1417e",
@@ -10113,6 +10128,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792248691
+    },
+    "TRND-3M-669890378-1792248861-0bbc78": {
+      "order_id": "TRND-3M-669890378-1792248861-0bbc78",
+      "token": "0fbaec900f6346499359ea997beb9f41",
+      "user_id": 669890378,
+      "first_name": "Bras",
+      "username": "CCNANW",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.343729,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_0fbaec900f6346499359ea997beb9f41",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0fbaec900f6346499359ea997beb9f41",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792248861
+    },
+    "TRND-1Y-49054914-1792248869-3bc49e": {
+      "order_id": "TRND-1Y-49054914-1792248869-3bc49e",
+      "token": "032b02a559554d3090486f0556bde21d",
+      "user_id": 49054914,
+      "first_name": "M3Hrun",
+      "username": "M3Hrun",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.670832,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_032b02a559554d3090486f0556bde21d",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=032b02a559554d3090486f0556bde21d",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792248869
     }
   },
   "users": {
@@ -13199,7 +13246,7 @@
       "last_name": "",
       "username": "M3Hrun",
       "first_seen": 1792065061,
-      "last_seen": 1792065061,
+      "last_seen": 1792248869,
       "purchases": []
     },
     "173598155": {
@@ -15742,7 +15789,7 @@
       "last_name": "",
       "username": "radinanvari",
       "first_seen": 1792128678,
-      "last_seen": 1792247642,
+      "last_seen": 1792248902,
       "purchases": []
     },
     "7993297150": {
@@ -19774,6 +19821,13 @@
           "plan_name": "۳ ماهه (۹۰ روزه)",
           "issued_at": 1792221501,
           "days": 90
+        },
+        {
+          "key": "AZ3M-B877-2992-2D51",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792248931,
+          "days": 90
         }
       ]
     },
@@ -21460,6 +21514,24 @@
       "username": "Dfhjkkgvcc",
       "first_seen": 1792248705,
       "last_seen": 1792248705,
+      "purchases": []
+    },
+    "669890378": {
+      "user_id": 669890378,
+      "first_name": "Bras",
+      "last_name": "sunga",
+      "username": "CCNANW",
+      "first_seen": 1792248860,
+      "last_seen": 1792248860,
+      "purchases": []
+    },
+    "7475932476": {
+      "user_id": 7475932476,
+      "first_name": "Ali",
+      "last_name": "Pourmohammad",
+      "username": "ali_pourmda",
+      "first_seen": 1792248864,
+      "last_seen": 1792248864,
       "purchases": []
     }
   },
