@@ -1232,6 +1232,12 @@
       "user_id": 6305590844,
       "issued_at": 1792217911,
       "method": "crypto_unique"
+    },
+    "AZ3M-3072-E6A2-34F7": {
+      "plan": "3M",
+      "user_id": 50016948,
+      "issued_at": 1792218492,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -7252,6 +7258,55 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792218021
+    },
+    "ORD_1792218465_50016948": {
+      "order_id": "ORD_1792218465_50016948",
+      "user_id": 50016948,
+      "username": "muntivpn369bot",
+      "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "status": "approved",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAJZaGrTFVr86k4Ij3ncVJF_ZrgTwkoRAAIeD2sbAAF2oVIHpKjCrgWDowEAAwIAA3kAAz0E",
+      "card_number": "5892101706458979",
+      "created_at": 1792218465,
+      "caption": "",
+      "approved_at": 1792218492,
+      "approved_by": 748538264,
+      "key": "AZ3M-3072-E6A2-34F7"
+    },
+    "TRND-3M-29218744-1792218467-942fc9": {
+      "order_id": "TRND-3M-29218744-1792218467-942fc9",
+      "token": "9cccddc941864358a3d05f10cde5b326",
+      "user_id": 29218744,
+      "first_name": "Mohammad Reza",
+      "username": "MoRShahab",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.348422,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_9cccddc941864358a3d05f10cde5b326",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9cccddc941864358a3d05f10cde5b326",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792218467
+    },
+    "TRND-3M-5683818378-1792218476-51caca": {
+      "order_id": "TRND-3M-5683818378-1792218476-51caca",
+      "token": "624bf30691af45efa228f37b77996656",
+      "user_id": 5683818378,
+      "first_name": "آریـن",
+      "username": "iar1an",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.352845,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_624bf30691af45efa228f37b77996656",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=624bf30691af45efa228f37b77996656",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792218476
     }
   },
   "users": {
@@ -7576,7 +7631,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "F_l_k_j780",
-      "last_seen": 1792218191,
+      "last_seen": 1792218492,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -10854,7 +10909,7 @@
       "last_name": "Shahab",
       "username": "MoRShahab",
       "first_seen": 1792071030,
-      "last_seen": 1792143150,
+      "last_seen": 1792218453,
       "purchases": []
     },
     "177797305": {
@@ -15788,7 +15843,15 @@
       "username": "S_ali_rouzbeh",
       "first_seen": 1792180171,
       "last_seen": 1792218282,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-3072-E6A2-34F7",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792218492,
+          "days": 90
+        }
+      ]
     },
     "123322121": {
       "user_id": 123322121,
@@ -16406,7 +16469,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1792213368,
-      "last_seen": 1792213368,
+      "last_seen": 1792218399,
       "purchases": []
     },
     "5925972929": {
@@ -16650,6 +16713,15 @@
       "username": "",
       "first_seen": 1792217748,
       "last_seen": 1792217748,
+      "purchases": []
+    },
+    "5683818378": {
+      "user_id": 5683818378,
+      "first_name": "آریـن",
+      "last_name": "",
+      "username": "iar1an",
+      "first_seen": 1792218461,
+      "last_seen": 1792218461,
       "purchases": []
     }
   },
@@ -17188,20 +17260,16 @@
     "94454788": {
       "state": "waiting_support_msg",
       "time": 1792218288
-    },
-    "50016948": {
-      "state": "waiting_support_msg",
-      "time": 1792218263
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 4,
+    "count": 5,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 14,
+      "5892101706458979": 15,
       "5047061670546072": 10
     }
   },
