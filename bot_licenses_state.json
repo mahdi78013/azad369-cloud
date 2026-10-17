@@ -1838,6 +1838,12 @@
       "user_id": 101305421,
       "issued_at": 1792251360,
       "method": "crypto_unique"
+    },
+    "AZ3M-93FB-46B1-FCCC": {
+      "plan": "3M",
+      "user_id": 8658740841,
+      "issued_at": 1792251449,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -11042,9 +11048,18 @@
       "tron_amount": 1.339316,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_198f4bc164b84d3f9ab9d83999f81e6a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=198f4bc164b84d3f9ab9d83999f81e6a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792251354
+      "created_at": 1792251354,
+      "approved_at": 1792251449,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-93FB-46B1-FCCC",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2905737",
+        "tron_amount": 1.339316,
+        "user_paid_toman": null,
+        "date": "2026-10-17T15:37:11.0430000"
+      }
     }
   },
   "users": {
@@ -17789,7 +17804,7 @@
       "last_name": "",
       "username": "Mpower713",
       "first_seen": 1792142955,
-      "last_seen": 1792250911,
+      "last_seen": 1792251399,
       "purchases": [
         {
           "key": "AZ3M-722E-7029-F17B",
@@ -22741,7 +22756,15 @@
       "username": "",
       "first_seen": 1792250909,
       "last_seen": 1792251348,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-93FB-46B1-FCCC",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792251449,
+          "days": 90
+        }
+      ]
     },
     "8919185374": {
       "user_id": 8919185374,
