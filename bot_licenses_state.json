@@ -1874,6 +1874,12 @@
       "user_id": 432881261,
       "issued_at": 1792260237,
       "method": "crypto_unique"
+    },
+    "AZ1Y-1FCE-C9F3-29F6": {
+      "plan": "1Y",
+      "user_id": 327998240,
+      "issued_at": 1792275855,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -11808,9 +11814,10 @@
       "tron_amount": 3.693296,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1130635a686646a38e3280bd5ab0ecb4",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1130635a686646a38e3280bd5ab0ecb4",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792274470
+      "created_at": 1792274470,
+      "cancelled_at": 1792275787
     },
     "ORD_1792274527_5441634408": {
       "order_id": "ORD_1792274527_5441634408",
@@ -11838,9 +11845,18 @@
       "tron_amount": 3.687646,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_560ab43b50124ab7a382ffe9ad1c8c5a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=560ab43b50124ab7a382ffe9ad1c8c5a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792274936
+      "created_at": 1792274936,
+      "approved_at": 1792275855,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-1FCE-C9F3-29F6",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2910873",
+        "tron_amount": 3.687646,
+        "user_paid_toman": null,
+        "date": "2026-10-17T22:11:50.2530000"
+      }
     },
     "TRND-1Y-327998240-1792275215-0381a2": {
       "order_id": "TRND-1Y-327998240-1792275215-0381a2",
@@ -24047,7 +24063,15 @@
       "username": "prodbyRADYN",
       "first_seen": 1792274681,
       "last_seen": 1792275520,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-1FCE-C9F3-29F6",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792275855,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
