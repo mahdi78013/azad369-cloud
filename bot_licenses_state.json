@@ -1310,6 +1310,12 @@
       "user_id": 748538264,
       "issued_at": 1792220260,
       "method": "crypto_unique"
+    },
+    "AZ3M-D7D3-4591-45BB": {
+      "plan": "3M",
+      "user_id": 106870532,
+      "issued_at": 1792220274,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -7706,9 +7712,18 @@
       "tron_amount": 1.349062,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ac44db2a67b4462381350cf2e2b30aa1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ac44db2a67b4462381350cf2e2b30aa1",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792219930
+      "created_at": 1792219930,
+      "approved_at": 1792220274,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-D7D3-4591-45BB",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2901095",
+        "tron_amount": 1.349062,
+        "user_paid_toman": null,
+        "date": "2026-10-17T06:57:52.3030000"
+      }
     },
     "TRND-3M-478883544-1792219963-f26166": {
       "order_id": "TRND-3M-478883544-1792219963-f26166",
@@ -7886,6 +7901,36 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792220204
+    },
+    "TRND-3M-170965764-1792220261-5d6c53": {
+      "order_id": "TRND-3M-170965764-1792220261-5d6c53",
+      "token": "89d710fec89a4a24926627659212ddb0",
+      "user_id": 170965764,
+      "first_name": "Moein",
+      "username": "ندارد",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.35348,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_89d710fec89a4a24926627659212ddb0",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=89d710fec89a4a24926627659212ddb0",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792220261
+    },
+    "ORD_1792220271_5552876439": {
+      "order_id": "ORD_1792220271_5552876439",
+      "user_id": 5552876439,
+      "username": "muntivpn369bot",
+      "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAJePGrTHF9tUQvDtSHyB-TJ7s2lprhfAALHFGsbtnaYUt8SBEaPQEobAQADAgADdwADPQQ",
+      "card_number": "5892101706458979",
+      "created_at": 1792220271,
+      "caption": ""
     }
   },
   "users": {
@@ -10868,7 +10913,7 @@
       "last_name": "",
       "username": "Blueboy1362",
       "first_seen": 1792065259,
-      "last_seen": 1792065259,
+      "last_seen": 1792220272,
       "purchases": []
     },
     "74793992": {
@@ -14438,7 +14483,11 @@
       "username": "Alirezalitrix",
       "first_seen": 1792150382,
       "last_seen": 1792220069,
-      "purchases": []
+      "purchases": [],
+      "last_admin_reply": {
+        "text": "✅ لایسنس دستی جدید ۳ ماهه (۹۰ روزه):\n\nAZ3M-7EEF-093E-3771\n\n(برای کپی روی کد بالا ضربه بزنید)",
+        "time": 1792220272
+      }
     },
     "8655557725": {
       "user_id": 8655557725,
@@ -15252,7 +15301,15 @@
       "username": "hadietemadzade",
       "first_seen": 1792162126,
       "last_seen": 1792219929,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-D7D3-4591-45BB",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792220274,
+          "days": 90
+        }
+      ]
     },
     "107243062": {
       "user_id": 107243062,
@@ -18057,10 +18114,10 @@
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 6,
+    "count": 7,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 16,
+      "5892101706458979": 17,
       "5047061670546072": 10
     }
   },
