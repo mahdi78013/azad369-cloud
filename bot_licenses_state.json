@@ -1448,6 +1448,12 @@
       "user_id": 170965764,
       "issued_at": 1792221301,
       "method": "crypto_unique"
+    },
+    "AZ3M-E326-372E-2098": {
+      "plan": "3M",
+      "user_id": 5627582771,
+      "issued_at": 1792221477,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -8665,9 +8671,18 @@
       "tron_amount": 1.350135,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f3ad764b113f4c94838bddd8d15021d0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f3ad764b113f4c94838bddd8d15021d0",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792221168
+      "created_at": 1792221168,
+      "approved_at": 1792221477,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-E326-372E-2098",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2901264",
+        "tron_amount": 1.350135,
+        "user_paid_toman": null,
+        "date": "2026-10-17T07:17:00.4830000"
+      }
     },
     "TRND-3M-194269800-1792221221-7bdcb1": {
       "order_id": "TRND-3M-194269800-1792221221-7bdcb1",
@@ -8764,6 +8779,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792221370
+    },
+    "TRND-3M-145252186-1792221463-f3b920": {
+      "order_id": "TRND-3M-145252186-1792221463-f3b920",
+      "token": "5aa3c5ac36244cb1b3a6274ca93ea30a",
+      "user_id": 145252186,
+      "first_name": "اندکی صبر فرج نزدیک است",
+      "username": "Yamahdi1361",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.356029,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_5aa3c5ac36244cb1b3a6274ca93ea30a",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5aa3c5ac36244cb1b3a6274ca93ea30a",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792221463
     }
   },
   "users": {
@@ -12249,8 +12280,16 @@
       "last_name": "",
       "username": "Nimap9",
       "first_seen": 1792068899,
-      "last_seen": 1792221137,
-      "purchases": []
+      "last_seen": 1792221476,
+      "purchases": [
+        {
+          "key": "AZ3M-E326-372E-2098",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792221477,
+          "days": 90
+        }
+      ]
     },
     "796335878": {
       "user_id": 796335878,
@@ -13014,8 +13053,8 @@
       "last_seen": 1792221390,
       "purchases": [],
       "last_admin_reply": {
-        "text": "لطفاا لاگ رو ارسال بفرمایید",
-        "time": 1792220170
+        "text": "پایین صفحه کپی لاگ نوشته لطفا بزنیدد روی دکمه و اینجا برای بنده ارسال کنید",
+        "time": 1792221428
       }
     },
     "7716183888": {
@@ -16744,7 +16783,7 @@
       "last_name": "Estiry",
       "username": "Amir_Estiry",
       "first_seen": 1792168191,
-      "last_seen": 1792221055,
+      "last_seen": 1792221415,
       "purchases": [],
       "last_admin_reply": {
         "text": "مشکلتون چیه",
@@ -18644,6 +18683,15 @@
       "username": "hbehnegar",
       "first_seen": 1792221240,
       "last_seen": 1792221240,
+      "purchases": []
+    },
+    "145252186": {
+      "user_id": 145252186,
+      "first_name": "اندکی صبر فرج نزدیک است",
+      "last_name": "",
+      "username": "Yamahdi1361",
+      "first_seen": 1792221462,
+      "last_seen": 1792221462,
       "purchases": []
     }
   },
