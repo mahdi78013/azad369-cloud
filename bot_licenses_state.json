@@ -1778,6 +1778,12 @@
       "user_id": 351324428,
       "issued_at": 1792249931,
       "method": "crypto_unique"
+    },
+    "AZ3M-2700-9E83-67D3": {
+      "plan": "3M",
+      "user_id": 2100407493,
+      "issued_at": 1792250053,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -10193,9 +10199,10 @@
       "tron_amount": 1.347038,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_8173094bbb86478893d99bc71275d8c4",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8173094bbb86478893d99bc71275d8c4",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792248691
+      "created_at": 1792248691,
+      "cancelled_at": 1792250046
     },
     "TRND-3M-669890378-1792248861-0bbc78": {
       "order_id": "TRND-3M-669890378-1792248861-0bbc78",
@@ -10517,9 +10524,18 @@
       "tron_amount": 1.329238,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_42f51ea392234eb9a38e398c827c1ac6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=42f51ea392234eb9a38e398c827c1ac6",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792249688
+      "created_at": 1792249688,
+      "approved_at": 1792250053,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-2700-9E83-67D3",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2905451",
+        "tron_amount": 1.329238,
+        "user_paid_toman": null,
+        "date": "2026-10-17T15:13:18.3170000"
+      }
     },
     "TRND-3M-8718142313-1792249689-701bfc": {
       "order_id": "TRND-3M-8718142313-1792249689-701bfc",
@@ -10658,6 +10674,22 @@
       "approved_at": 1792249931,
       "approved_by": 748538264,
       "key": "AZ3M-4D02-DF23-9DE1"
+    },
+    "TRND-1Y-100321671-1792250007-65fd9f": {
+      "order_id": "TRND-1Y-100321671-1792250007-65fd9f",
+      "token": "6d43c1f357f646feaa5ba1219696ae40",
+      "user_id": 100321671,
+      "first_name": "porushat",
+      "username": "porushat4134",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.659373,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_6d43c1f357f646feaa5ba1219696ae40",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6d43c1f357f646feaa5ba1219696ae40",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792250007
     }
   },
   "users": {
@@ -13025,7 +13057,15 @@
       "username": "hadialvv",
       "first_seen": 1792063077,
       "last_seen": 1792249688,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-2700-9E83-67D3",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792250053,
+          "days": 90
+        }
+      ]
     },
     "565100776": {
       "user_id": 565100776,
@@ -13129,7 +13169,7 @@
       "last_name": "",
       "username": "BacheTehroon021",
       "first_seen": 1792063335,
-      "last_seen": 1792225059,
+      "last_seen": 1792249959,
       "purchases": [
         {
           "key": "AZ1Y-6D13-252C-3328",
@@ -13209,7 +13249,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1792063445,
-      "last_seen": 1792063445,
+      "last_seen": 1792250013,
       "purchases": []
     },
     "326803980": {
@@ -15109,7 +15149,7 @@
       "last_name": "",
       "username": "drmohamadmehdirezaee",
       "first_seen": 1792076040,
-      "last_seen": 1792076040,
+      "last_seen": 1792250021,
       "purchases": []
     },
     "5558721314": {
@@ -22158,6 +22198,24 @@
           "days": 90
         }
       ]
+    },
+    "577227580": {
+      "user_id": 577227580,
+      "first_name": "Rezaghmo",
+      "last_name": "",
+      "username": "Rezaghmo",
+      "first_seen": 1792250001,
+      "last_seen": 1792250001,
+      "purchases": []
+    },
+    "100321671": {
+      "user_id": 100321671,
+      "first_name": "porushat",
+      "last_name": "M.H",
+      "username": "porushat4134",
+      "first_seen": 1792250006,
+      "last_seen": 1792250006,
+      "purchases": []
     }
   },
   "user_states": {
