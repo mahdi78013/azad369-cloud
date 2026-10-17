@@ -1616,6 +1616,12 @@
       "user_id": 6520487088,
       "issued_at": 1792229635,
       "method": "crypto_unique"
+    },
+    "AZ3M-7D2A-163D-CDDC": {
+      "plan": "3M",
+      "user_id": 6027874814,
+      "issued_at": 1792238164,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -7907,9 +7913,18 @@
       "tron_amount": 1.354593,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_692eca945ac94ed1906fffe624497296",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=692eca945ac94ed1906fffe624497296",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792219886
+      "created_at": 1792219886,
+      "approved_at": 1792238164,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-7D2A-163D-CDDC",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2903747",
+        "tron_amount": 1.354593,
+        "user_paid_toman": null,
+        "date": "2026-10-17T11:55:13.3630000"
+      }
     },
     "TRND-3M-788964122-1792219890-ee0ab1": {
       "order_id": "TRND-3M-788964122-1792219890-ee0ab1",
@@ -15348,7 +15363,7 @@
       "last_name": "Tafreshi",
       "username": "Amirr_tafreshi",
       "first_seen": 1792133765,
-      "last_seen": 1792133765,
+      "last_seen": 1792238139,
       "purchases": []
     },
     "5934212363": {
@@ -19122,7 +19137,15 @@
       "username": "teibePUNISHER",
       "first_seen": 1792212730,
       "last_seen": 1792237943,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-7D2A-163D-CDDC",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792238164,
+          "days": 90
+        }
+      ]
     },
     "72221402": {
       "user_id": 72221402,
@@ -20981,6 +21004,10 @@
     "93095790": {
       "state": "waiting_support_msg",
       "time": 1792238084
+    },
+    "6027874814": {
+      "state": "waiting_support_msg",
+      "time": 1792238164
     }
   },
   "admin_states": {},
