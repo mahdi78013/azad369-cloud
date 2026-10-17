@@ -1520,6 +1520,12 @@
       "user_id": 85302069,
       "issued_at": 1792222182,
       "method": "crypto_unique"
+    },
+    "AZ3M-F9A7-33B1-E57E": {
+      "plan": "3M",
+      "user_id": 8291536786,
+      "issued_at": 1792222256,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -9165,9 +9171,18 @@
       "tron_amount": 1.330906,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5052e5efda654d488709b8dc07c4ea4d",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5052e5efda654d488709b8dc07c4ea4d",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792222107
+      "created_at": 1792222107,
+      "approved_at": 1792222256,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-F9A7-33B1-E57E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2901388",
+        "tron_amount": 1.330906,
+        "user_paid_toman": null,
+        "date": "2026-10-17T07:30:41.1630000"
+      }
     },
     "TRND-3M-43060118-1792222161-d55587": {
       "order_id": "TRND-3M-43060118-1792222161-d55587",
@@ -9200,6 +9215,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792222170
+    },
+    "TRND-3M-8111906664-1792222234-d9dda4": {
+      "order_id": "TRND-3M-8111906664-1792222234-d9dda4",
+      "token": "8ed3a6565ca642daac00afc9929af3e5",
+      "user_id": 8111906664,
+      "first_name": "Armin",
+      "username": "ندارد",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.35081,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_8ed3a6565ca642daac00afc9929af3e5",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8ed3a6565ca642daac00afc9929af3e5",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792222234
+    },
+    "TRND-1Y-157302360-1792222244-9bb8f3": {
+      "order_id": "TRND-1Y-157302360-1792222244-9bb8f3",
+      "token": "853c58d22ab54b16b93cbb9ced06efb1",
+      "user_id": 157302360,
+      "first_name": "Ghasem",
+      "username": "Gh_Saadati",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.680007,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_853c58d22ab54b16b93cbb9ced06efb1",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=853c58d22ab54b16b93cbb9ced06efb1",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792222244
     }
   },
   "users": {
@@ -14860,7 +14907,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1792132339,
-      "last_seen": 1792132339,
+      "last_seen": 1792222234,
       "purchases": []
     },
     "788964122": {
@@ -18710,7 +18757,7 @@
       "last_name": "S",
       "username": "Gh_Saadati",
       "first_seen": 1792214636,
-      "last_seen": 1792214636,
+      "last_seen": 1792222244,
       "purchases": []
     },
     "5969249205": {
@@ -19246,7 +19293,7 @@
       "last_name": "",
       "username": "Turngrade",
       "first_seen": 1792221899,
-      "last_seen": 1792221899,
+      "last_seen": 1792222216,
       "purchases": []
     },
     "8291536786": {
@@ -19256,7 +19303,15 @@
       "username": "",
       "first_seen": 1792222086,
       "last_seen": 1792222086,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-F9A7-33B1-E57E",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792222256,
+          "days": 90
+        }
+      ]
     },
     "43060118": {
       "user_id": 43060118,
@@ -19265,6 +19320,15 @@
       "username": "aamoozegar",
       "first_seen": 1792222136,
       "last_seen": 1792222136,
+      "purchases": []
+    },
+    "643304198": {
+      "user_id": 643304198,
+      "first_name": "..",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1792222189,
+      "last_seen": 1792222189,
       "purchases": []
     }
   },
@@ -19798,6 +19862,10 @@
     "687041513": {
       "state": "waiting_support_msg",
       "time": 1792222054
+    },
+    "1785666154": {
+      "state": "waiting_support_msg",
+      "time": 1792222223
     }
   },
   "admin_states": {},
