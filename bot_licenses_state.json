@@ -1238,6 +1238,12 @@
       "user_id": 50016948,
       "issued_at": 1792218492,
       "method": "crypto_unique"
+    },
+    "AZ3M-AE77-2917-0C96": {
+      "plan": "3M",
+      "user_id": 29218744,
+      "issued_at": 1792218711,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -7288,9 +7294,18 @@
       "tron_amount": 1.348422,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9cccddc941864358a3d05f10cde5b326",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9cccddc941864358a3d05f10cde5b326",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792218467
+      "created_at": 1792218467,
+      "approved_at": 1792218711,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-AE77-2917-0C96",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2900906",
+        "tron_amount": 1.348422,
+        "user_paid_toman": null,
+        "date": "2026-10-17T06:31:27.7600000"
+      }
     },
     "TRND-3M-5683818378-1792218476-51caca": {
       "order_id": "TRND-3M-5683818378-1792218476-51caca",
@@ -9117,7 +9132,7 @@
       "last_name": "",
       "username": "Hamidabasifard",
       "first_seen": 1792059107,
-      "last_seen": 1792216962,
+      "last_seen": 1792218700,
       "purchases": [
         {
           "key": "AZ3M-5201-128F-D347",
@@ -10910,7 +10925,15 @@
       "username": "MoRShahab",
       "first_seen": 1792071030,
       "last_seen": 1792218453,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-AE77-2917-0C96",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792218711,
+          "days": 90
+        }
+      ]
     },
     "177797305": {
       "user_id": 177797305,
@@ -16727,6 +16750,15 @@
       "first_seen": 1792218461,
       "last_seen": 1792218461,
       "purchases": []
+    },
+    "52683919": {
+      "user_id": 52683919,
+      "first_name": "𝓡𝓮𝔃𝓪 𝓳𝓪𝓯𝓪𝓻𝓲",
+      "last_name": "",
+      "username": "Reza_jafari56",
+      "first_seen": 1792218688,
+      "last_seen": 1792218688,
+      "purchases": []
     }
   },
   "user_states": {
@@ -17260,6 +17292,10 @@
     "420174216": {
       "state": "waiting_support_msg",
       "time": 1792217105
+    },
+    "87376620": {
+      "state": "waiting_support_msg",
+      "time": 1792218706
     }
   },
   "admin_states": {},
