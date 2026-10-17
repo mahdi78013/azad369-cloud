@@ -1502,6 +1502,12 @@
       "user_id": 99955718,
       "issued_at": 1792221853,
       "method": "crypto_unique"
+    },
+    "AZ3M-7308-21DF-2671": {
+      "plan": "3M",
+      "user_id": 6457554395,
+      "issued_at": 1792222121,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -9024,9 +9030,18 @@
       "tron_amount": 1.360451,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a6b1302c960b42cc9e7d74b7fb4f691a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a6b1302c960b42cc9e7d74b7fb4f691a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792221866
+      "created_at": 1792221866,
+      "approved_at": 1792222121,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-7308-21DF-2671",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2901368",
+        "tron_amount": 1.360451,
+        "user_paid_toman": null,
+        "date": "2026-10-17T07:28:08.4300000"
+      }
     },
     "TRND-3M-666578411-1792221897-a8b5d4": {
       "order_id": "TRND-3M-666578411-1792221897-a8b5d4",
@@ -9075,6 +9090,54 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792221940
+    },
+    "TRND-3M-209901455-1792222002-533ee3": {
+      "order_id": "TRND-3M-209901455-1792222002-533ee3",
+      "token": "6393098cba834d4a8ee5729706b6b0c3",
+      "user_id": 209901455,
+      "first_name": "Mojtaba",
+      "username": "Mojtaba_Laame",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.341964,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_6393098cba834d4a8ee5729706b6b0c3",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6393098cba834d4a8ee5729706b6b0c3",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792222002
+    },
+    "TRND-1Y-170107654-1792222028-f6033b": {
+      "order_id": "TRND-1Y-170107654-1792222028-f6033b",
+      "token": "9beb1563692f403bb997b4f08fa7b0d9",
+      "user_id": 170107654,
+      "first_name": "Moh3n",
+      "username": "MohsenAB66",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.683324,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_9beb1563692f403bb997b4f08fa7b0d9",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9beb1563692f403bb997b4f08fa7b0d9",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792222028
+    },
+    "TRND-3M-8291536786-1792222107-a8fed8": {
+      "order_id": "TRND-3M-8291536786-1792222107-a8fed8",
+      "token": "5052e5efda654d488709b8dc07c4ea4d",
+      "user_id": 8291536786,
+      "first_name": "A.",
+      "username": "ندارد",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.330906,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_5052e5efda654d488709b8dc07c4ea4d",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5052e5efda654d488709b8dc07c4ea4d",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792222107
     }
   },
   "users": {
@@ -12429,7 +12492,7 @@
       "last_name": "مهران",
       "username": "rezamehran",
       "first_seen": 1792067530,
-      "last_seen": 1792141067,
+      "last_seen": 1792221962,
       "purchases": []
     },
     "81726202": {
@@ -13334,7 +13397,7 @@
       "last_name": "",
       "username": "jjahun",
       "first_seen": 1792075847,
-      "last_seen": 1792221692,
+      "last_seen": 1792222040,
       "purchases": [],
       "last_admin_reply": {
         "text": "رندوم هست تست کنید و صبور باشید چند دقیقه بعد از اتصال \nمشکل سیستم شما هست \nولی اپدیت امروز رو نصب کنید بهتر میشه",
@@ -15097,7 +15160,15 @@
       "username": "cnfuse",
       "first_seen": 1792136839,
       "last_seen": 1792221865,
-      "purchases": [],
+      "purchases": [
+        {
+          "key": "AZ3M-7308-21DF-2671",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792222121,
+          "days": 90
+        }
+      ],
       "last_admin_reply": {
         "text": "وقت بخیر ربات در حال اپدیت. هست \nواریز بفرمایید و رسید رو از طریق ارتباط با پشتیبانی ارسال کنید\n5892101706458979\nموجود:\n\n✅یک سال = 399.000 تومان",
         "time": 1792143031
@@ -16574,7 +16645,7 @@
       "last_name": "",
       "username": "Mojtaba_Laame",
       "first_seen": 1792161990,
-      "last_seen": 1792161990,
+      "last_seen": 1792222001,
       "purchases": []
     },
     "7853297905": {
@@ -18915,7 +18986,7 @@
       "last_name": "",
       "username": "Mo_xt",
       "first_seen": 1792220067,
-      "last_seen": 1792220067,
+      "last_seen": 1792222053,
       "purchases": [
         {
           "key": "AZ3M-5A94-08A4-0352",
@@ -19085,7 +19156,11 @@
       "username": "bagheri_1365",
       "first_seen": 1792221818,
       "last_seen": 1792221818,
-      "purchases": []
+      "purchases": [],
+      "last_admin_reply": {
+        "text": "پلن باز هست میتونید خرید ثبت کنید",
+        "time": 1792221955
+      }
     },
     "1785666154": {
       "user_id": 1785666154,
@@ -19094,6 +19169,15 @@
       "username": "Turngrade",
       "first_seen": 1792221899,
       "last_seen": 1792221899,
+      "purchases": []
+    },
+    "8291536786": {
+      "user_id": 8291536786,
+      "first_name": "A.",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1792222086,
+      "last_seen": 1792222086,
       "purchases": []
     }
   },
@@ -19623,14 +19707,13 @@
     "6143176895": {
       "state": "waiting_support_msg",
       "time": 1792221517
+    },
+    "687041513": {
+      "state": "waiting_support_msg",
+      "time": 1792222054
     }
   },
-  "admin_states": {
-    "748538264": {
-      "state": "replying_to_user",
-      "target_uid": "271741189"
-    }
-  },
+  "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 0,
