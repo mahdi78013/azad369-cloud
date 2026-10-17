@@ -1772,6 +1772,12 @@
       "user_id": 8990442612,
       "issued_at": 1792249861,
       "method": "crypto_unique"
+    },
+    "AZ3M-4D02-DF23-9DE1": {
+      "plan": "3M",
+      "user_id": 351324428,
+      "issued_at": 1792249931,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -10113,9 +10119,10 @@
       "tron_amount": 1.354756,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_23dcd800ea3c487fa599cff46a85f6bd",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=23dcd800ea3c487fa599cff46a85f6bd",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792248591
+      "created_at": 1792248591,
+      "cancelled_at": 1792249871
     },
     "TRND-1Y-8439844195-1792248600-e7b955": {
       "order_id": "TRND-1Y-8439844195-1792248600-e7b955",
@@ -10618,6 +10625,39 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792249838
+    },
+    "TRND-3M-2006987331-1792249886-be81ff": {
+      "order_id": "TRND-3M-2006987331-1792249886-be81ff",
+      "token": "237fbc0c4fe04125af170f30392c7476",
+      "user_id": 2006987331,
+      "first_name": "Free X",
+      "username": "freexplayer",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.353494,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_237fbc0c4fe04125af170f30392c7476",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=237fbc0c4fe04125af170f30392c7476",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792249886
+    },
+    "ORD_1792249910_351324428": {
+      "order_id": "ORD_1792249910_351324428",
+      "user_id": 351324428,
+      "username": "muntivpn369bot",
+      "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "status": "approved",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAJww2rTkCzrSL--KBrm21BnGfzuKRirAAI4EWsbErChUqGdv5NPkASCAQADAgADeQADPQQ",
+      "card_number": "5047061670546072",
+      "created_at": 1792249910,
+      "caption": "",
+      "approved_at": 1792249931,
+      "approved_by": 748538264,
+      "key": "AZ3M-4D02-DF23-9DE1"
     }
   },
   "users": {
@@ -11047,7 +11087,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "F_l_k_j780",
-      "last_seen": 1792248093,
+      "last_seen": 1792249931,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -13240,7 +13280,7 @@
       "last_name": "",
       "username": "arian084",
       "first_seen": 1792063626,
-      "last_seen": 1792248741,
+      "last_seen": 1792249863,
       "purchases": []
     },
     "1347934162": {
@@ -14368,8 +14408,16 @@
       "last_name": "",
       "username": "IJB1991",
       "first_seen": 1792070190,
-      "last_seen": 1792249201,
-      "purchases": []
+      "last_seen": 1792249863,
+      "purchases": [
+        {
+          "key": "AZ3M-4D02-DF23-9DE1",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792249931,
+          "days": 90
+        }
+      ]
     },
     "1287092295": {
       "user_id": 1287092295,
@@ -14958,7 +15006,7 @@
       "last_name": "Apache",
       "username": "Alireza_apache",
       "first_seen": 1792075047,
-      "last_seen": 1792249245,
+      "last_seen": 1792249895,
       "purchases": []
     },
     "135016593": {
@@ -16899,7 +16947,7 @@
       "last_name": "Jafari",
       "username": "ErfanJHds",
       "first_seen": 1792136979,
-      "last_seen": 1792249395,
+      "last_seen": 1792249896,
       "purchases": []
     },
     "826805713": {
@@ -22419,10 +22467,6 @@
       "state": "waiting_support_msg",
       "time": 1792009932
     },
-    "99080520": {
-      "state": "waiting_support_msg",
-      "time": 1792054826
-    },
     "140233254": {
       "state": "waiting_support_msg",
       "time": 1792056263
@@ -22675,11 +22719,11 @@
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 5,
+    "count": 6,
     "threshold": 10,
     "stats": {
       "5892101706458979": 20,
-      "5047061670546072": 15
+      "5047061670546072": 16
     }
   },
   "maintenance": {
