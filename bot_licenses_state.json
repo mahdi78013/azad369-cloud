@@ -1736,6 +1736,12 @@
       "user_id": 5583573108,
       "issued_at": 1792248988,
       "method": "crypto_unique"
+    },
+    "AZ3M-231B-15A6-ADB5": {
+      "plan": "3M",
+      "user_id": 8569889819,
+      "issued_at": 1792249014,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -10124,9 +10130,18 @@
       "tron_amount": 1.339319,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ca7d90e9c49b4428b10fe3311838c03c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ca7d90e9c49b4428b10fe3311838c03c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792248653
+      "created_at": 1792248653,
+      "approved_at": 1792249014,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-231B-15A6-ADB5",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2905276",
+        "tron_amount": 1.339319,
+        "user_paid_toman": null,
+        "date": "2026-10-17T14:56:51.8600000"
+      }
     },
     "TRND-3M-6343921358-1792248691-542f82": {
       "order_id": "TRND-3M-6343921358-1792248691-542f82",
@@ -10175,6 +10190,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792248869
+    },
+    "TRND-3M-1112384855-1792249013-a90896": {
+      "order_id": "TRND-3M-1112384855-1792249013-a90896",
+      "token": "af71cc99cf1c413490e9c834718f8141",
+      "user_id": 1112384855,
+      "first_name": "Amir",
+      "username": "AmirIzadi1378",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.338272,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_af71cc99cf1c413490e9c834718f8141",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=af71cc99cf1c413490e9c834718f8141",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792249013
     }
   },
   "users": {
@@ -14060,7 +14091,7 @@
       "last_name": "Izadi",
       "username": "AmirIzadi1378",
       "first_seen": 1792071596,
-      "last_seen": 1792215693,
+      "last_seen": 1792249012,
       "purchases": []
     },
     "106721560": {
@@ -21292,7 +21323,15 @@
       "username": "",
       "first_seen": 1792238304,
       "last_seen": 1792248643,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-231B-15A6-ADB5",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792249014,
+          "days": 90
+        }
+      ]
     },
     "1778686491": {
       "user_id": 1778686491,
@@ -22142,10 +22181,6 @@
     "542729094": {
       "state": "waiting_support_msg",
       "time": 1792248448
-    },
-    "106721560": {
-      "state": "waiting_support_msg",
-      "time": 1792248987
     }
   },
   "admin_states": {},
