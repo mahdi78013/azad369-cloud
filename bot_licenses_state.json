@@ -1856,6 +1856,12 @@
       "user_id": 5231686138,
       "issued_at": 1792259103,
       "method": "crypto_unique"
+    },
+    "AZ1Y-0E26-FF44-41D9": {
+      "plan": "1Y",
+      "user_id": 432881261,
+      "issued_at": 1792259364,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -11658,9 +11664,32 @@
       "tron_amount": 3.683414,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_0450cc02ed8d4f38862c371836a3fb84",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0450cc02ed8d4f38862c371836a3fb84",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792259092
+      "created_at": 1792259092,
+      "approved_at": 1792259364,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-0E26-FF44-41D9",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2907392",
+        "tron_amount": 3.683414,
+        "user_paid_toman": null,
+        "date": "2026-10-17T17:48:15.9570000"
+      }
+    },
+    "ORD_1792259361_432881261": {
+      "order_id": "ORD_1792259361_432881261",
+      "user_id": 432881261,
+      "username": "muntivpn369bot",
+      "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAJ0WmrTtRIkUYmd9O-5oMzkf7eUDHFKAAJHEGsb7MCYUtgpuSJBKdVuAQADAgADeQADPQQ",
+      "card_number": "5047061670546072",
+      "created_at": 1792259361,
+      "caption": ""
     }
   },
   "users": {
@@ -22507,7 +22536,15 @@
       "username": "hosseinmohajer",
       "first_seen": 1792229709,
       "last_seen": 1792259092,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-0E26-FF44-41D9",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792259364,
+          "days": 365
+        }
+      ]
     },
     "1406404390": {
       "user_id": 1406404390,
@@ -24270,12 +24307,12 @@
   "admin_states": {},
   "trial_users": {},
   "card_state": {
-    "current_index": 1,
-    "count": 9,
+    "current_index": 0,
+    "count": 0,
     "threshold": 10,
     "stats": {
       "5892101706458979": 20,
-      "5047061670546072": 19
+      "5047061670546072": 20
     }
   },
   "maintenance": {
