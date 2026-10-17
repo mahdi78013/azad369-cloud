@@ -1340,6 +1340,12 @@
       "user_id": 233046165,
       "issued_at": 1792220380,
       "method": "crypto_unique"
+    },
+    "AZ3M-A628-0929-6B9D": {
+      "plan": "3M",
+      "user_id": 38809119,
+      "issued_at": 1792220402,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -7679,9 +7685,18 @@
       "tron_amount": 1.345744,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_147485fb442349af9f7e894bb3d2d2d4",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=147485fb442349af9f7e894bb3d2d2d4",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792219909
+      "created_at": 1792219909,
+      "approved_at": 1792220402,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-A628-0929-6B9D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2901143",
+        "tron_amount": 1.345744,
+        "user_paid_toman": null,
+        "date": "2026-10-17T06:59:59.7730000"
+      }
     },
     "TRND-3M-6662037809-1792219913-f8baac": {
       "order_id": "TRND-3M-6662037809-1792219913-f8baac",
@@ -8394,7 +8409,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "F_l_k_j780",
-      "last_seen": 1792220082,
+      "last_seen": 1792220385,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -11054,7 +11069,11 @@
       "username": "Blueboy1362",
       "first_seen": 1792065259,
       "last_seen": 1792220272,
-      "purchases": []
+      "purchases": [],
+      "last_admin_reply": {
+        "text": "✅ لایسنس دستی جدید ۳ ماهه (۹۰ روزه):\n\nAZ3M-A89E-9389-99F2\n\n(برای کپی روی کد بالا ضربه بزنید)",
+        "time": 1792220386
+      }
     },
     "74793992": {
       "user_id": 74793992,
@@ -13944,7 +13963,7 @@
       "last_name": "",
       "username": "ShahabHqpnh",
       "first_seen": 1792136494,
-      "last_seen": 1792219980,
+      "last_seen": 1792220396,
       "purchases": [],
       "last_admin_reply": {
         "text": "چند ماه تهیه فرمودید",
@@ -14068,7 +14087,7 @@
       "last_name": "",
       "username": "matinbsh",
       "first_seen": 1792138448,
-      "last_seen": 1792220068,
+      "last_seen": 1792220391,
       "purchases": []
     },
     "90145460": {
@@ -17199,7 +17218,15 @@
       "username": "Adevoted",
       "first_seen": 1792207012,
       "last_seen": 1792219909,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-A628-0929-6B9D",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792220402,
+          "days": 90
+        }
+      ]
     },
     "6350978615": {
       "purchases": [],
@@ -18272,6 +18299,10 @@
     "80194441": {
       "state": "waiting_support_msg",
       "time": 1792220362
+    },
+    "6115402138": {
+      "state": "waiting_support_msg",
+      "time": 1792220402
     }
   },
   "admin_states": {},
