@@ -1628,6 +1628,12 @@
       "user_id": 748538264,
       "issued_at": 1792239143,
       "method": "crypto_unique"
+    },
+    "AZ1Y-4974-65FB-FA10": {
+      "plan": "1Y",
+      "user_id": 314919911,
+      "issued_at": 1792239213,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -9590,6 +9596,23 @@
       "card_number": "5047061670546072",
       "created_at": 1792239118,
       "caption": ""
+    },
+    "ORD_1792239208_314919911": {
+      "order_id": "ORD_1792239208_314919911",
+      "user_id": 314919911,
+      "username": "muntivpn369bot",
+      "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "approved",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAJmsmrTZjPgTCSSrm0gvzzm9kB0VKFcAAKYEWsbnaeZUreIdkjnRW0RAQADAgADeQADPQQ",
+      "card_number": "5047061670546072",
+      "created_at": 1792239208,
+      "caption": "",
+      "approved_at": 1792239213,
+      "approved_by": 748538264,
+      "key": "AZ1Y-4974-65FB-FA10"
     }
   },
   "users": {
@@ -9984,7 +10007,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "F_l_k_j780",
-      "last_seen": 1792238912,
+      "last_seen": 1792239213,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -16410,7 +16433,15 @@
       "username": "Rozha_Jean",
       "first_seen": 1792149670,
       "last_seen": 1792239105,
-      "purchases": [],
+      "purchases": [
+        {
+          "key": "AZ1Y-4974-65FB-FA10",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792239213,
+          "days": 365
+        }
+      ],
       "last_admin_reply": {
         "text": "لطفا رسید خودتون رو ارسال کنید",
         "time": 1792239037
@@ -19412,8 +19443,8 @@
       "last_seen": 1792235877,
       "purchases": [],
       "last_admin_reply": {
-        "text": "وقت بخیر رسید خودتون رو ارسال کنید",
-        "time": 1792238925
+        "text": "✅ لایسنس دستی جدید ۳ ماهه (۹۰ روزه):\n\nAZ3M-17EC-26E4-6C5A\n\n(برای کپی روی کد بالا ضربه بزنید)",
+        "time": 1792239153
       }
     },
     "367275533": {
@@ -21100,15 +21131,20 @@
       "time": 1792238600
     }
   },
-  "admin_states": {},
+  "admin_states": {
+    "748538264": {
+      "state": "replying_to_user",
+      "target_uid": "101348830"
+    }
+  },
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 3,
+    "count": 4,
     "threshold": 10,
     "stats": {
       "5892101706458979": 20,
-      "5047061670546072": 13
+      "5047061670546072": 14
     }
   },
   "maintenance": {
