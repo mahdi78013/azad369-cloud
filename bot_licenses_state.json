@@ -1832,6 +1832,12 @@
       "user_id": 6165097501,
       "issued_at": 1792251274,
       "method": "crypto_unique"
+    },
+    "AZ3M-22E2-7916-D274": {
+      "plan": "3M",
+      "user_id": 101305421,
+      "issued_at": 1792251360,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -10855,9 +10861,18 @@
       "tron_amount": 1.333803,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ef87d75fba75424eb2b874aaa310920f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ef87d75fba75424eb2b874aaa310920f",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792250872
+      "created_at": 1792250872,
+      "approved_at": 1792251360,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-22E2-7916-D274",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2905650",
+        "tron_amount": 1.333803,
+        "user_paid_toman": null,
+        "date": "2026-10-17T15:35:12.5830000"
+      }
     },
     "TRND-1Y-105788250-1792250879-97dfcc": {
       "order_id": "TRND-1Y-105788250-1792250879-97dfcc",
@@ -11014,6 +11029,22 @@
         "user_paid_toman": null,
         "date": "2026-10-17T15:34:20.6700000"
       }
+    },
+    "TRND-3M-8658740841-1792251354-16211d": {
+      "order_id": "TRND-3M-8658740841-1792251354-16211d",
+      "token": "198f4bc164b84d3f9ab9d83999f81e6a",
+      "user_id": 8658740841,
+      "first_name": "Tony",
+      "username": "ندارد",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.339316,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_198f4bc164b84d3f9ab9d83999f81e6a",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=198f4bc164b84d3f9ab9d83999f81e6a",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792251354
     }
   },
   "users": {
@@ -22674,8 +22705,16 @@
       "last_name": "vahdati",
       "username": "ali_vahdati",
       "first_seen": 1792250827,
-      "last_seen": 1792250827,
-      "purchases": []
+      "last_seen": 1792251352,
+      "purchases": [
+        {
+          "key": "AZ3M-22E2-7916-D274",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792251360,
+          "days": 90
+        }
+      ]
     },
     "27761437": {
       "user_id": 27761437,
@@ -22701,7 +22740,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1792250909,
-      "last_seen": 1792250909,
+      "last_seen": 1792251348,
       "purchases": []
     },
     "8919185374": {
