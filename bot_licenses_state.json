@@ -1388,6 +1388,12 @@
       "user_id": 5654789536,
       "issued_at": 1792220668,
       "method": "crypto_unique"
+    },
+    "AZ3M-3746-6B3D-63BD": {
+      "plan": "3M",
+      "user_id": 8085917042,
+      "issued_at": 1792220735,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -8227,9 +8233,18 @@
       "tron_amount": 1.34795,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9ef44eda10ca43bf8dcb3569f403c8b6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9ef44eda10ca43bf8dcb3569f403c8b6",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792220556
+      "created_at": 1792220556,
+      "approved_at": 1792220735,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-3746-6B3D-63BD",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2901180",
+        "tron_amount": 1.34795,
+        "user_paid_toman": null,
+        "date": "2026-10-17T07:04:54.3870000"
+      }
     },
     "TRND-3M-951175146-1792220561-e73005": {
       "order_id": "TRND-3M-951175146-1792220561-e73005",
@@ -8287,6 +8302,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792220625
+    },
+    "TRND-3M-60133769-1792220686-bc4719": {
+      "order_id": "TRND-3M-60133769-1792220686-bc4719",
+      "token": "640edca5270d4b65b593bf9eb840445d",
+      "user_id": 60133769,
+      "first_name": "ardalan",
+      "username": "ardalannikrooo",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.340207,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_640edca5270d4b65b593bf9eb840445d",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=640edca5270d4b65b593bf9eb840445d",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792220686
+    },
+    "TRND-1Y-8100230091-1792220699-01d367": {
+      "order_id": "TRND-1Y-8100230091-1792220699-01d367",
+      "token": "46282b007c9b4fd0814d55189bfbfd5f",
+      "user_id": 8100230091,
+      "first_name": "M.I",
+      "username": "ندارد",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.685679,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_46282b007c9b4fd0814d55189bfbfd5f",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=46282b007c9b4fd0814d55189bfbfd5f",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792220699
     }
   },
   "users": {
@@ -8632,7 +8679,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "F_l_k_j780",
-      "last_seen": 1792220385,
+      "last_seen": 1792220706,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -11785,11 +11832,11 @@
       "last_name": "",
       "username": "Ha3an_hb",
       "first_seen": 1792069177,
-      "last_seen": 1792139238,
+      "last_seen": 1792220691,
       "purchases": [],
       "last_admin_reply": {
-        "text": "برسی میشه و بهتون خبر میدیم لطفا در بخش دایرکت کانال یک پیام بگذارید",
-        "time": 1792147224
+        "text": "مشکلتون چیه دوست عزیز لایسنس حذف نمیشه \nدقیق بفرمایید",
+        "time": 1792220721
       }
     },
     "397868664": {
@@ -13227,7 +13274,7 @@
       "last_name": "nikroo",
       "username": "ardalannikrooo",
       "first_seen": 1792098597,
-      "last_seen": 1792150178,
+      "last_seen": 1792220686,
       "purchases": []
     },
     "5745279485": {
@@ -14254,7 +14301,7 @@
       "last_name": "",
       "username": "POURIA0MO",
       "first_seen": 1792136843,
-      "last_seen": 1792136843,
+      "last_seen": 1792220722,
       "purchases": []
     },
     "1749971908": {
@@ -17595,7 +17642,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1792213152,
-      "last_seen": 1792213152,
+      "last_seen": 1792220698,
       "purchases": []
     },
     "414986715": {
@@ -18050,7 +18097,15 @@
       "username": "shadisanatchap",
       "first_seen": 1792220556,
       "last_seen": 1792220556,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-3746-6B3D-63BD",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792220735,
+          "days": 90
+        }
+      ]
     },
     "321676365": {
       "user_id": 321676365,
@@ -18580,10 +18635,6 @@
     "85901667": {
       "state": "waiting_support_msg",
       "time": 1792219476
-    },
-    "278117993": {
-      "state": "waiting_support_msg",
-      "time": 1792220646
     }
   },
   "admin_states": {},
