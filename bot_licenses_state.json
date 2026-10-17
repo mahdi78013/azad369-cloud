@@ -1550,6 +1550,12 @@
       "user_id": 748538264,
       "issued_at": 1792222503,
       "method": "crypto_unique"
+    },
+    "AZ3M-70BE-2424-6F17": {
+      "plan": "3M",
+      "user_id": 8111906664,
+      "issued_at": 1792222617,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -9279,9 +9285,18 @@
       "tron_amount": 1.35081,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_8ed3a6565ca642daac00afc9929af3e5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8ed3a6565ca642daac00afc9929af3e5",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792222234
+      "created_at": 1792222234,
+      "approved_at": 1792222617,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-70BE-2424-6F17",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2901414",
+        "tron_amount": 1.35081,
+        "user_paid_toman": null,
+        "date": "2026-10-17T07:33:33.7300000"
+      }
     },
     "TRND-1Y-157302360-1792222244-9bb8f3": {
       "order_id": "TRND-1Y-157302360-1792222244-9bb8f3",
@@ -10028,7 +10043,11 @@
           "issued_at": 1791960107,
           "days": 365
         }
-      ]
+      ],
+      "user_id": 7106150323,
+      "first_name": "卂爪丨尺",
+      "username": "Amir_sum",
+      "last_seen": 1792222612
     },
     "788939182": {
       "purchases": [
@@ -12971,7 +12990,7 @@
       "last_name": "",
       "username": "IJB1991",
       "first_seen": 1792070190,
-      "last_seen": 1792220909,
+      "last_seen": 1792222548,
       "purchases": []
     },
     "1287092295": {
@@ -13848,7 +13867,11 @@
           "issued_at": 1792155329,
           "days": 365
         }
-      ]
+      ],
+      "last_admin_reply": {
+        "text": "روی تمام نت ها فعاله دوست عزیز مشکل از سیستمتون هست لطفا سرور رو تغییر بدین در غیر این صورت منتظر اپدیت امروز باشید",
+        "time": 1792222560
+      }
     },
     "8232784125": {
       "user_id": 8232784125,
@@ -15005,8 +15028,16 @@
       "last_name": "",
       "username": "",
       "first_seen": 1792132339,
-      "last_seen": 1792222234,
-      "purchases": []
+      "last_seen": 1792222617,
+      "purchases": [
+        {
+          "key": "AZ3M-70BE-2424-6F17",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792222617,
+          "days": 90
+        }
+      ]
     },
     "788964122": {
       "user_id": 788964122,
@@ -17936,7 +17967,7 @@
       "last_name": "",
       "username": "Javadnarg",
       "first_seen": 1792175953,
-      "last_seen": 1792212427,
+      "last_seen": 1792222597,
       "purchases": [
         {
           "key": "AZ3M-B383-EB75-E305",
@@ -19408,7 +19439,11 @@
           "issued_at": 1792222315,
           "days": 90
         }
-      ]
+      ],
+      "last_admin_reply": {
+        "text": "✅ لایسنس دستی جدید ۳ ماهه (۹۰ روزه):\n\nAZ3M-ED86-6708-2B6E\n\n(برای کپی روی کد بالا ضربه بزنید)",
+        "time": 1792222518
+      }
     },
     "8291536786": {
       "user_id": 8291536786,
@@ -19990,17 +20025,13 @@
       "state": "waiting_support_msg",
       "time": 1792222054
     },
-    "78559835": {
-      "state": "waiting_support_msg",
-      "time": 1792222396
-    },
     "8291536786": {
       "state": "waiting_support_msg",
       "time": 1792222461
     },
-    "1764967744": {
+    "1746522328": {
       "state": "waiting_support_msg",
-      "time": 1792222500
+      "time": 1792222613
     }
   },
   "admin_states": {},
