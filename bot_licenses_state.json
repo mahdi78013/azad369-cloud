@@ -1700,6 +1700,12 @@
       "user_id": 8539435162,
       "issued_at": 1792248378,
       "method": "crypto_unique"
+    },
+    "AZ3M-2DEA-A28C-AC83": {
+      "plan": "3M",
+      "user_id": 1341240515,
+      "issued_at": 1792248437,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -9824,9 +9830,18 @@
       "tron_amount": 1.339762,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_2d8fa554cdab476f8b8b1e282a603b0c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2d8fa554cdab476f8b8b1e282a603b0c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792248146
+      "created_at": 1792248146,
+      "approved_at": 1792248437,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-2DEA-A28C-AC83",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2905193",
+        "tron_amount": 1.339762,
+        "user_paid_toman": null,
+        "date": "2026-10-17T14:46:55.0570000"
+      }
     },
     "TRND-3M-8442879945-1792248188-05b65f": {
       "order_id": "TRND-3M-8442879945-1792248188-05b65f",
@@ -16320,7 +16335,7 @@
       "last_name": "",
       "username": "smhaghamiri",
       "first_seen": 1792139138,
-      "last_seen": 1792247574,
+      "last_seen": 1792248383,
       "purchases": []
     },
     "8525178944": {
@@ -21179,7 +21194,15 @@
       "username": "Seyyed_Arman",
       "first_seen": 1792248104,
       "last_seen": 1792248104,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-2DEA-A28C-AC83",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792248437,
+          "days": 90
+        }
+      ]
     },
     "127261654": {
       "user_id": 127261654,
@@ -21188,6 +21211,15 @@
       "username": "mohsen3460",
       "first_seen": 1792248321,
       "last_seen": 1792248321,
+      "purchases": []
+    },
+    "84903852": {
+      "user_id": 84903852,
+      "first_name": "Hekmat",
+      "last_name": "Bouzarjomehri",
+      "username": "Hekmat_b",
+      "first_seen": 1792248389,
+      "last_seen": 1792248389,
       "purchases": []
     }
   },
