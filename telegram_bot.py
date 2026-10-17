@@ -1400,7 +1400,7 @@ def tronado_poller_worker():
                     status_id = st.get("OrderStatusID")
                     is_paid = (
                         st.get("IsPaid") is True
-                        or status_id in (20, 30)
+                        or status_id == 30
                         or str(st.get("OrderStatusTitle", "")).lower() in ("paymentaccepted", "paid", "completed", "success")
                     )
 
@@ -1456,7 +1456,7 @@ class TronadoWebhookHandler(BaseHTTPRequestHandler):
             status_id = payload.get("OrderStatusID")
             is_paid = (
                 payload.get("IsPaid") is True
-                or status_id in (20, 30)
+                or status_id == 30
                 or str(payload.get("OrderStatusTitle", "")).lower() in ("paymentaccepted", "paid", "completed", "success")
             )
 
@@ -2061,7 +2061,7 @@ def cmd_admin_fulfill(message):
     status_id = st.get("OrderStatusID") if isinstance(st, dict) else None
     is_paid = (
         st.get("IsPaid") is True
-        or status_id in (20, 30)
+        or status_id == 30
         or str(st.get("OrderStatusTitle", "")).lower() in ("paymentaccepted", "paid", "completed", "success")
     ) if isinstance(st, dict) else False
 
@@ -2397,7 +2397,7 @@ def handle_callbacks(call):
         status_id = st.get("OrderStatusID") if isinstance(st, dict) else None
         is_paid = (
             st.get("IsPaid") is True
-            or status_id in (20, 30)
+            or status_id == 30
             or str(st.get("OrderStatusTitle", "")).lower() in ("paymentaccepted", "paid", "completed", "success")
         ) if isinstance(st, dict) else False
 
@@ -2416,8 +2416,8 @@ def handle_callbacks(call):
                 safe_answer_callback(call.id, "✅ پرداخت شما تایید و لایسنس ارسال شد!", show_alert=True)
             else:
                 safe_answer_callback(call.id, f"خطا در صدور لایسنس: {msg}", show_alert=True)
-        elif status_id in (25, 27):
-            safe_answer_callback(call.id, "⏳ تراکنش شما در شبکه ثبت شده و در حال پردازش است. لطفاً ۳۰ ثانیه دیگر مجدداً دکمه را لمس نمایید.", show_alert=True)
+        elif status_id in (20, 25, 27):
+            safe_answer_callback(call.id, "⏳ فاکتور شما در درگاه در انتظار پرداخت است. چنانچه پرداخت را انجام داده‌اید، لطفاً ۳۰ ثانیه دیگر مجدداً دکمه را لمس نمایید.", show_alert=True)
         elif status_id in (40, 200) or (isinstance(st, dict) and str(st.get("OrderStatusTitle", "")).lower() == "cancelled"):
             safe_answer_callback(call.id, "❌ تراکنش در درگاه لغو یا منقضی شده است.", show_alert=True)
         else:
