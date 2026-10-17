@@ -1418,6 +1418,12 @@
       "user_id": 44216845,
       "issued_at": 1792220988,
       "method": "crypto_unique"
+    },
+    "AZ1Y-D8A7-809C-85C2": {
+      "plan": "1Y",
+      "user_id": 314110947,
+      "issued_at": 1792221021,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -7873,9 +7879,18 @@
       "tron_amount": 3.667997,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_20ee6cd870524bf1afe4b50e15700a63",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=20ee6cd870524bf1afe4b50e15700a63",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792220036
+      "created_at": 1792220036,
+      "approved_at": 1792221021,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-D8A7-809C-85C2",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2901119",
+        "tron_amount": 3.667997,
+        "user_paid_toman": null,
+        "date": "2026-10-17T07:09:53.3830000"
+      }
     },
     "TRND-3M-687041513-1792220069-ea355e": {
       "order_id": "TRND-3M-687041513-1792220069-ea355e",
@@ -8833,7 +8848,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "F_l_k_j780",
-      "last_seen": 1792220706,
+      "last_seen": 1792221019,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -10292,7 +10307,15 @@
       "username": "Kingaldi",
       "first_seen": 1792058874,
       "last_seen": 1792220527,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-D8A7-809C-85C2",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792221021,
+          "days": 365
+        }
+      ]
     },
     "6842447723": {
       "user_id": 6842447723,
@@ -11989,8 +12012,8 @@
       "last_seen": 1792220691,
       "purchases": [],
       "last_admin_reply": {
-        "text": "مشکلتون چیه دوست عزیز لایسنس حذف نمیشه \nدقیق بفرمایید",
-        "time": 1792220721
+        "text": "✅ لایسنس دستی جدید ۳ ماهه (۹۰ روزه):\n\nAZ3M-98A0-F740-E43A\n\n(برای کپی روی کد بالا ضربه بزنید)\n\nبابت تاخیر در پاسخگویی صمیمانه پوزش می‌خواهیم\nلطفاً از لایسنسی که براتون ارسال شده استفاده فرمایید در صورت هرگونه مشکل مجدد به پشتیبانی پیام بفرستید",
+        "time": 1792221019
       }
     },
     "397868664": {
@@ -18827,12 +18850,7 @@
       "time": 1792220806
     }
   },
-  "admin_states": {
-    "748538264": {
-      "state": "replying_to_user",
-      "target_uid": "278117993"
-    }
-  },
+  "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 0,
