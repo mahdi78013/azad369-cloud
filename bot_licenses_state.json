@@ -1580,6 +1580,12 @@
       "user_id": 52164148,
       "issued_at": 1792227818,
       "method": "crypto_unique"
+    },
+    "AZ3M-4E46-4388-0FF1": {
+      "plan": "3M",
+      "user_id": 110576185,
+      "issued_at": 1792227846,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -9459,12 +9465,15 @@
       "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
       "plan_code": "3M",
       "price": "۱۴۹,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAJiymrTOTxRUI-Ni1pxfxqHenIY0wFkAAIaEGsboF6ZUqOfH44bEN8CAQADAgADeQADPQQ",
       "card_number": "5892101706458979",
       "created_at": 1792227654,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1792227846,
+      "approved_by": 748538264,
+      "key": "AZ3M-4E46-4388-0FF1"
     },
     "ORD_1792227766_52164148": {
       "order_id": "ORD_1792227766_52164148",
@@ -12661,7 +12670,15 @@
       "username": "Hamedzdk",
       "first_seen": 1792065571,
       "last_seen": 1792227552,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-4E46-4388-0FF1",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792227846,
+          "days": 90
+        }
+      ]
     },
     "7936813062": {
       "user_id": 7936813062,
@@ -16308,7 +16325,7 @@
       "last_name": "Z",
       "username": "Mtele2011",
       "first_seen": 1792151265,
-      "last_seen": 1792227096,
+      "last_seen": 1792227834,
       "purchases": []
     },
     "5979154267": {
@@ -20378,6 +20395,10 @@
     "147396147": {
       "state": "waiting_support_msg",
       "time": 1792225852
+    },
+    "1781942970": {
+      "state": "waiting_support_msg",
+      "time": 1792227845
     }
   },
   "admin_states": {},
