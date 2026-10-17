@@ -1568,6 +1568,12 @@
       "user_id": 748538264,
       "issued_at": 1792222941,
       "method": "crypto_unique"
+    },
+    "AZ3M-40A9-C2B2-31D9": {
+      "plan": "3M",
+      "user_id": 43060118,
+      "issued_at": 1792227639,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -9265,9 +9271,18 @@
       "tron_amount": 1.338647,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_75df84d36d0141b5ad7a2dad5f533356",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=75df84d36d0141b5ad7a2dad5f533356",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792222161
+      "created_at": 1792222161,
+      "approved_at": 1792227639,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-40A9-C2B2-31D9",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2901436",
+        "tron_amount": 1.338647,
+        "user_paid_toman": null,
+        "date": "2026-10-17T07:36:19.9270000"
+      }
     },
     "TRND-3M-1785666154-1792222170-5069e5": {
       "order_id": "TRND-3M-1785666154-1792222170-5069e5",
@@ -19589,7 +19604,15 @@
       "username": "aamoozegar",
       "first_seen": 1792222136,
       "last_seen": 1792226380,
-      "purchases": [],
+      "purchases": [
+        {
+          "key": "AZ3M-40A9-C2B2-31D9",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792227639,
+          "days": 90
+        }
+      ],
       "last_admin_reply": {
         "text": "✅ لایسنس دستی جدید ۳ ماهه (۹۰ روزه):\n\nAZ3M-7100-C51D-0737\n\n(برای کپی روی کد بالا ضربه بزنید)",
         "time": 1792222948
@@ -19786,6 +19809,15 @@
       "username": "moryrafiei",
       "first_seen": 1792227380,
       "last_seen": 1792227380,
+      "purchases": []
+    },
+    "1797406855": {
+      "user_id": 1797406855,
+      "first_name": "Parham",
+      "last_name": "",
+      "username": "Parham_343",
+      "first_seen": 1792227634,
+      "last_seen": 1792227634,
       "purchases": []
     }
   },
@@ -20305,10 +20337,6 @@
     "52164148": {
       "state": "waiting_support_msg",
       "time": 1792227560
-    },
-    "110576185": {
-      "state": "waiting_support_msg",
-      "time": 1792227565
     }
   },
   "admin_states": {},
