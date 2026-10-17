@@ -111,7 +111,7 @@ TRONADO_IPN_KEY = _load_bot_secret("TRONADO_IPN_KEY", "iQjTd0sa6rtmMOQXdiXWmjBbG
 TRONADO_USER_TAG = _load_bot_secret("TRONADO_USER_TAG", "MUNTIVPN")
 TRONADO_REQUEST_CODE = _load_bot_secret("TRONADO_REQUEST_CODE", "muntivpn")
 TRONADO_WALLET = _load_bot_secret("TRONADO_WALLET", "TQUaW5e18ER176Zi7datF9ttDBRYWGeiad")
-TRONADO_CALLBACK_URL = _load_bot_secret("TRONADO_CALLBACK_URL", "https://muntivpn.koyeb.app/tronado/callback")
+TRONADO_CALLBACK_URL = _load_bot_secret("TRONADO_CALLBACK_URL", "https://httpbin.org/status/200")
 TRONADO_BASE_URL = "https://bot.tronado.cloud"
 TRONADO_ENABLED = bool(TRONADO_API_KEY and TRONADO_WALLET)
 
@@ -1353,8 +1353,8 @@ def fulfill_tronado_order(payment_id: str, ipn_data: dict = None) -> tuple[bool,
 def tronado_poller_worker():
     """
     Background worker that runs every 25 seconds.
-    Finds all pending Tronado orders (<2 hours old), checks their status via Tronado API,
-    and automatically fulfills and issues licenses upon confirmation.
+    Finds pending Tronado orders (<24 hours old), checks status via Tronado API,
+    and automatically fulfills and delivers licenses upon confirmation (status 20 or 30).
     """
     print("[Tronado Poller] Started background polling worker.")
     while True:
@@ -1371,15 +1371,43 @@ def tronado_poller_worker():
             for oid, od in orders.items():
                 if isinstance(od, dict) and od.get("status") == "pending_tronado":
                     created = od.get("created_at", 0)
-                    if now_ts - created < 7200:
+                    if now_ts - created < 86400:
                         pending_ids.append(oid)
+                    else:
+                        # Order older than 24 hours without payment: mark cancelled
+                        with DB_LOCK:
+                            db_fresh = load_db()
+                            cur_o = db_fresh.get("orders", {}).get(oid)
+                            if cur_o and cur_o.get("status") == "pending_tronado":
+                                cur_o["status"] = "cancelled_tronado"
+                                cur_o["cancelled_at"] = now_ts
+                                save_db(db_fresh)
 
             for pid in pending_ids:
                 try:
                     st = tronado_check_order_status(pid)
-                    if st and (st.get("IsPaid") is True or st.get("OrderStatusID") == 30):
-                        print(f"[Tronado Poller] Order {pid} confirmed paid! Auto-fulfilling...")
+                    if not st:
+                        continue
+
+                    status_id = st.get("OrderStatusID")
+                    is_paid = (
+                        st.get("IsPaid") is True
+                        or status_id in (20, 30)
+                        or str(st.get("OrderStatusTitle", "")).lower() in ("paymentaccepted", "paid", "completed", "success")
+                    )
+
+                    if is_paid:
+                        print(f"[Tronado Poller] Order {pid} confirmed paid (status={status_id})! Auto-fulfilling...")
                         fulfill_tronado_order(pid, st)
+                    elif status_id in (40, 200) or str(st.get("OrderStatusTitle", "")).lower() == "cancelled":
+                        with DB_LOCK:
+                            db_fresh = load_db()
+                            cur_o = db_fresh.get("orders", {}).get(pid)
+                            if cur_o and cur_o.get("status") == "pending_tronado":
+                                cur_o["status"] = "cancelled_tronado"
+                                cur_o["cancelled_at"] = int(time.time())
+                                save_db(db_fresh)
+                    time.sleep(0.3)
                 except Exception as ex:
                     print(f"[Tronado Poller] Error checking {pid}: {ex}")
 
@@ -1417,8 +1445,12 @@ class TronadoWebhookHandler(BaseHTTPRequestHandler):
             payload = json.loads(raw_body.decode("utf-8"))
             print(f"[Tronado Webhook] Received valid callback: {payload}")
 
-            payment_id = payload.get("PaymentId") or payload.get("PaymentID")
-            is_paid = payload.get("IsPaid") is True or payload.get("OrderStatusID") == 30
+            status_id = payload.get("OrderStatusID")
+            is_paid = (
+                payload.get("IsPaid") is True
+                or status_id in (20, 30)
+                or str(payload.get("OrderStatusTitle", "")).lower() in ("paymentaccepted", "paid", "completed", "success")
+            )
 
             if is_paid and payment_id:
                 fulfill_tronado_order(payment_id, payload)
@@ -1956,6 +1988,84 @@ def cmd_broadcast(message):
     track_user(message.from_user)
     _start_broadcast_prompt(message.chat.id)
 
+@bot.message_handler(commands=["fulfill", "checkorder", "order"])
+def cmd_admin_fulfill(message):
+    if not is_admin(message.from_user.id):
+        return
+    track_user(message.from_user)
+    parts = message.text.strip().split()
+    if len(parts) < 2:
+        safe_send_message(
+            message.chat.id,
+            "📌 *راهنمای استعلام و صدور دستی لایسنس:*\n\n"
+            "`/fulfill <شناسه سفارش یا آیدی کاربر>`\n\n"
+            "مثال‌ها:\n"
+            "`/fulfill 6027874814`\n"
+            "`/fulfill 2903747`\n"
+            "`/fulfill TRND-3M-6027874814-1792219886-aab977`"
+        )
+        return
+
+    query = parts[1].strip()
+    safe_send_message(message.chat.id, f"⏳ در حال جستجو و استعلام سفارش `{query}`...")
+
+    db = load_db()
+    orders = db.get("orders", {})
+    target_oid = None
+    target_order = None
+
+    for oid, od in orders.items():
+        if not isinstance(od, dict):
+            continue
+        if (oid == query or
+            str(od.get("user_id")) == query or
+            od.get("token") == query or
+            query in str(od.get("tronado_ipn", {})) or
+            query in oid):
+            target_oid = oid
+            target_order = od
+            if od.get("status") == "pending_tronado":
+                break
+
+    if not target_order:
+        safe_send_message(message.chat.id, f"❌ سفارشی مرتبط با `{query}` در دیتابیس یافت نشد.")
+        return
+
+    if target_order.get("status") == "approved":
+        safe_send_message(
+            message.chat.id,
+            f"✅ این سفارش قبلاً تایید و لایسنس صادر شده است:\n\n"
+            f"👤 خریدار: `{target_order.get('user_id')}` (@{escape_md(target_order.get('username', 'ندارد'))})\n"
+            f"📦 پلن: *{target_order.get('plan_code')}*\n"
+            f"🔑 لایسنس: `{target_order.get('key')}`\n"
+            f"🆔 شناسه: `{target_oid}`"
+        )
+        return
+
+    st = tronado_check_order_status(target_oid)
+    status_id = st.get("OrderStatusID") if isinstance(st, dict) else None
+    is_paid = (
+        st.get("IsPaid") is True
+        or status_id in (20, 30)
+        or str(st.get("OrderStatusTitle", "")).lower() in ("paymentaccepted", "paid", "completed", "success")
+    ) if isinstance(st, dict) else False
+
+    if is_paid:
+        ok, msg = fulfill_tronado_order(target_oid, st)
+        if ok:
+            safe_send_message(message.chat.id, f"✅ سفارش `{target_oid}` تایید شد و لایسنس به کاربر ارسال گردید!\n\nجزئیات: {msg}")
+        else:
+            safe_send_message(message.chat.id, f"⚠️ تایید سفارش با خطا مواجه شد: {msg}")
+    else:
+        title = st.get("OrderStatusTitle", "نامشخص") if isinstance(st, dict) else "نامشخص"
+        safe_send_message(
+            message.chat.id,
+            f"⚠️ وضعیت درگاه: پرداخت انجام نشده است.\n"
+            f"کد وضعیت ترونادو: `{status_id}` ({title})\n"
+            f"شناسه سفارش: `{target_oid}`"
+        )
+
+
 # ---------------------------------------------------------------------------
 # Callback Queries
 # ---------------------------------------------------------------------------
@@ -2269,7 +2379,14 @@ def handle_callbacks(call):
             return
 
         st = tronado_check_order_status(payment_id)
-        if st and (st.get("IsPaid") is True or st.get("OrderStatusID") == 30):
+        status_id = st.get("OrderStatusID") if isinstance(st, dict) else None
+        is_paid = (
+            st.get("IsPaid") is True
+            or status_id in (20, 30)
+            or str(st.get("OrderStatusTitle", "")).lower() in ("paymentaccepted", "paid", "completed", "success")
+        ) if isinstance(st, dict) else False
+
+        if is_paid:
             ok, msg = fulfill_tronado_order(payment_id, st)
             if ok:
                 try:
@@ -2284,12 +2401,12 @@ def handle_callbacks(call):
                 safe_answer_callback(call.id, "✅ پرداخت شما تایید و لایسنس ارسال شد!", show_alert=True)
             else:
                 safe_answer_callback(call.id, f"خطا در صدور لایسنس: {msg}", show_alert=True)
-        elif st and st.get("OrderStatusID") in (20, 25, 27):
-            safe_answer_callback(call.id, "⏳ فیش یا تراکنش شما در درگاه ثبت شده و در حال تایید نهایی است. لطفاً ۱ دقیقه دیگر مجدداً دکمه را لمس نمایید.", show_alert=True)
-        elif st and st.get("OrderStatusID") in (40, 200):
+        elif status_id in (25, 27):
+            safe_answer_callback(call.id, "⏳ تراکنش شما در شبکه ثبت شده و در حال پردازش است. لطفاً ۳۰ ثانیه دیگر مجدداً دکمه را لمس نمایید.", show_alert=True)
+        elif status_id in (40, 200) or (isinstance(st, dict) and str(st.get("OrderStatusTitle", "")).lower() == "cancelled"):
             safe_answer_callback(call.id, "❌ تراکنش در درگاه لغو یا منقضی شده است.", show_alert=True)
         else:
-            safe_answer_callback(call.id, "⏳ هنوز تاییدیه‌ای از درگاه دریافت نشده است. چنانچه پرداخت را انجام داده‌اید، لطفاً ۱ الی ۲ دقیقه منتظر بمانید و دوباره دکمه را لمس کنید.", show_alert=True)
+            safe_answer_callback(call.id, "⏳ هنوز تاییدیه‌ای از درگاه دریافت نشده است. چنانچه پرداخت را انجام داده‌اید، لطفاً ۳۰ ثانیه دیگر مجدداً دکمه را لمس کنید.", show_alert=True)
 
     elif data.startswith("paid_"):
         if not CARD_TO_CARD_ENABLED:
