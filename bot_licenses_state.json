@@ -1850,6 +1850,12 @@
       "user_id": 127627052,
       "issued_at": 1792256665,
       "method": "crypto_unique"
+    },
+    "AZ1Y-AEB5-B569-EF5A": {
+      "plan": "1Y",
+      "user_id": 5231686138,
+      "issued_at": 1792259103,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -11613,9 +11619,18 @@
       "tron_amount": 3.692285,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e29c23ffbb01425d87c50e2c6891427b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e29c23ffbb01425d87c50e2c6891427b",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792258757
+      "created_at": 1792258757,
+      "approved_at": 1792259103,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-AEB5-B569-EF5A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2907304",
+        "tron_amount": 3.692285,
+        "user_paid_toman": null,
+        "date": "2026-10-17T17:44:29.9200000"
+      }
     },
     "ORD_1792258810_7106150323": {
       "order_id": "ORD_1792258810_7106150323",
@@ -11630,6 +11645,22 @@
       "card_number": "5047061670546072",
       "created_at": 1792258810,
       "caption": "همینجوری درحال اتصال میمونه و وصل نمیشه"
+    },
+    "TRND-1Y-432881261-1792259092-fbfeab": {
+      "order_id": "TRND-1Y-432881261-1792259092-fbfeab",
+      "token": "0450cc02ed8d4f38862c371836a3fb84",
+      "user_id": 432881261,
+      "first_name": "hossein mohajer",
+      "username": "hosseinmohajer",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.683414,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_0450cc02ed8d4f38862c371836a3fb84",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0450cc02ed8d4f38862c371836a3fb84",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792259092
     }
   },
   "users": {
@@ -13155,7 +13186,15 @@
       "username": "Gun0135",
       "first_seen": 1792057555,
       "last_seen": 1792258756,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-AEB5-B569-EF5A",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792259103,
+          "days": 365
+        }
+      ]
     },
     "137079997": {
       "user_id": 137079997,
@@ -14148,7 +14187,7 @@
       "last_name": "Abolghasemi",
       "username": "Eabolghasemi",
       "first_seen": 1792063384,
-      "last_seen": 1792251482,
+      "last_seen": 1792259006,
       "purchases": [
         {
           "key": "AZ3M-B966-E687-B9D7",
@@ -17954,7 +17993,7 @@
       "last_name": "Jafari",
       "username": "ErfanJHds",
       "first_seen": 1792136979,
-      "last_seen": 1792256236,
+      "last_seen": 1792259081,
       "purchases": []
     },
     "826805713": {
@@ -22467,7 +22506,7 @@
       "last_name": "",
       "username": "hosseinmohajer",
       "first_seen": 1792229709,
-      "last_seen": 1792229709,
+      "last_seen": 1792259092,
       "purchases": []
     },
     "1406404390": {
