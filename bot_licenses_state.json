@@ -1292,6 +1292,12 @@
       "user_id": 483968989,
       "issued_at": 1792220096,
       "method": "crypto_unique"
+    },
+    "AZ1Y-EFD8-A053-5DF5": {
+      "plan": "1Y",
+      "user_id": 8107375597,
+      "issued_at": 1792220147,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -7558,9 +7564,18 @@
       "tron_amount": 3.681271,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_bdddc062d16344b0bfd503bbfbe54b68",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=bdddc062d16344b0bfd503bbfbe54b68",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792219883
+      "created_at": 1792219883,
+      "approved_at": 1792220147,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-EFD8-A053-5DF5",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2901085",
+        "tron_amount": 3.681271,
+        "user_paid_toman": null,
+        "date": "2026-10-17T06:55:32.2170000"
+      }
     },
     "TRND-3M-6027874814-1792219886-aab977": {
       "order_id": "TRND-3M-6027874814-1792219886-aab977",
@@ -7810,6 +7825,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792220125
+    },
+    "TRND-3M-687041513-1792220141-038d92": {
+      "order_id": "TRND-3M-687041513-1792220141-038d92",
+      "token": "ee2b633c80534c37ab58bebc39bc100a",
+      "user_id": 687041513,
+      "first_name": "&",
+      "username": "Mo_xt",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.343525,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_ee2b633c80534c37ab58bebc39bc100a",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ee2b633c80534c37ab58bebc39bc100a",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792220141
     }
   },
   "users": {
@@ -14053,7 +14084,7 @@
       "last_name": "",
       "username": "neeMac",
       "first_seen": 1792142614,
-      "last_seen": 1792142614,
+      "last_seen": 1792220144,
       "purchases": []
     },
     "8156943678": {
@@ -16494,7 +16525,15 @@
       "username": "Artina8b",
       "first_seen": 1792181741,
       "last_seen": 1792219883,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-EFD8-A053-5DF5",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792220147,
+          "days": 365
+        }
+      ]
     },
     "143665360": {
       "user_id": 143665360,
