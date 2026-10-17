@@ -1730,6 +1730,12 @@
       "user_id": 542729094,
       "issued_at": 1792248931,
       "method": "crypto_unique"
+    },
+    "AZ3M-85E3-6671-6D70": {
+      "plan": "3M",
+      "user_id": 5583573108,
+      "issued_at": 1792248988,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -10020,9 +10026,18 @@
       "tron_amount": 1.342627,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6743911147814fa1b81cdc434715ab24",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6743911147814fa1b81cdc434715ab24",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792248515
+      "created_at": 1792248515,
+      "approved_at": 1792248988,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-85E3-6671-6D70",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2905246",
+        "tron_amount": 1.342627,
+        "user_paid_toman": null,
+        "date": "2026-10-17T14:56:00.2700000"
+      }
     },
     "TRND-1Y-169219526-1792248527-d39a4d": {
       "order_id": "TRND-1Y-169219526-1792248527-d39a4d",
@@ -14054,7 +14069,7 @@
       "last_name": "Bonyadi",
       "username": "Kamel_Byd",
       "first_seen": 1792071648,
-      "last_seen": 1792238255,
+      "last_seen": 1792248984,
       "purchases": [],
       "last_admin_reply": {
         "text": "وقت بخیر ربات در حال اپدیت. هست \nواریز بفرمایید و رسید رو از طریق ارتباط با پشتیبانی ارسال کنید\n5892101706458979\nموجود:\n✅سه ماه = 145.000 تومان\n✅یک سال = 399.000 تومان",
@@ -18321,7 +18336,15 @@
       "username": "",
       "first_seen": 1792167060,
       "last_seen": 1792248826,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-85E3-6671-6D70",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792248988,
+          "days": 90
+        }
+      ]
     },
     "640141038": {
       "user_id": 640141038,
@@ -21533,6 +21556,24 @@
       "first_seen": 1792248864,
       "last_seen": 1792248864,
       "purchases": []
+    },
+    "695766193": {
+      "user_id": 695766193,
+      "first_name": "Moeini",
+      "last_name": "Sadr",
+      "username": "Moeini_Phoenix",
+      "first_seen": 1792248937,
+      "last_seen": 1792248937,
+      "purchases": []
+    },
+    "386297636": {
+      "user_id": 386297636,
+      "first_name": "Sᴀᴇɪᴅ",
+      "last_name": "",
+      "username": "Akbari_Saeid",
+      "first_seen": 1792248979,
+      "last_seen": 1792248979,
+      "purchases": []
     }
   },
   "user_states": {
@@ -22101,6 +22142,10 @@
     "542729094": {
       "state": "waiting_support_msg",
       "time": 1792248448
+    },
+    "106721560": {
+      "state": "waiting_support_msg",
+      "time": 1792248987
     }
   },
   "admin_states": {},
