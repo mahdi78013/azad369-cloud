@@ -626,6 +626,48 @@ def save_db(db: dict, immediate_sync: bool = False):
     trigger_git_sync(immediate=immediate_sync)
 
 # ---------------------------------------------------------------------------
+# Dynamic Plan Availability Subsystem (موجودی و باز/بستن پلن‌ها توسط ادمین)
+# ---------------------------------------------------------------------------
+def get_plan_availability() -> dict:
+    """
+    Returns a dictionary of plan_code -> bool indicating whether each plan is available.
+    Persisted in bot_licenses_state.json so toggles are 100% persistent across bot restarts.
+    """
+    default_avail = {
+        "1M": False,
+        "2M": False,
+        "3M": False,
+        "1Y": False
+    }
+    try:
+        db = load_db()
+        stored = db.get("plan_availability")
+        if isinstance(stored, dict):
+            default_avail.update(stored)
+    except Exception as e:
+        print(f"[get_plan_availability] Error: {e}")
+    return default_avail
+
+def is_plan_available(plan_code: str) -> bool:
+    """Checks whether a specific plan is currently in-stock and open for purchase."""
+    avail = get_plan_availability()
+    return bool(avail.get(plan_code, False))
+
+def set_plan_availability(plan_code: str, is_available: bool) -> bool:
+    """Toggles a plan's availability, saves to DB, and immediately syncs to Git."""
+    with DB_LOCK:
+        db = load_db()
+        avail = db.setdefault("plan_availability", {
+            "1M": False,
+            "2M": False,
+            "3M": False,
+            "1Y": False
+        })
+        avail[plan_code] = bool(is_available)
+        save_db(db, immediate_sync=True)
+        return avail[plan_code]
+
+# ---------------------------------------------------------------------------
 # Live Analytics & Broadcast Core
 # ---------------------------------------------------------------------------
 def get_live_bot_stats() -> str:
@@ -1447,11 +1489,13 @@ def main_menu_keyboard(is_admin: bool = False):
 
 def plans_keyboard():
     markup = types.InlineKeyboardMarkup(row_width=1)
+    avail = get_plan_availability()
     for p_code, p_info in PLANS_INFO.items():
-        if p_code in ("1M", "2M", "3M"):
-            text = f"{p_info['name']} — {p_info['price']} (❌ اتمام موجودی)"
-        else:
+        is_avail = avail.get(p_code, False)
+        if is_avail:
             text = f"{p_info['name']} — {p_info['price']} ⚡"
+        else:
+            text = f"{p_info['name']} — {p_info['price']} (❌ اتمام موجودی)"
         markup.add(types.InlineKeyboardButton(text, callback_data=f"buy_{p_code}"))
     markup.add(types.InlineKeyboardButton("❌ انصراف و بستن", callback_data="cancel_action"))
     return markup
@@ -1462,6 +1506,7 @@ def admin_dashboard_keyboard():
     b2 = types.InlineKeyboardButton("⚡ صدور کد ۲ ماهه", callback_data="adm_2M")
     b3 = types.InlineKeyboardButton("💎 صدور کد ۳ ماهه", callback_data="adm_3M")
     b4 = types.InlineKeyboardButton("👑 صدور کد ۱ ساله", callback_data="adm_1Y")
+    b_plans = types.InlineKeyboardButton("📦 مدیریت موجودی پلن‌ها", callback_data="adm_plans_mgr")
     b_stat = types.InlineKeyboardButton("📊 موجودی لایسنس‌ها", callback_data="adm_stats")
     b_pend = types.InlineKeyboardButton("⏳ سفارشات در انتظار", callback_data="adm_pending")
     b_live = types.InlineKeyboardButton("📈 آمار آنلاین کاربران", callback_data="adm_live_stats")
@@ -1474,10 +1519,23 @@ def admin_dashboard_keyboard():
 
     markup.add(b1, b2)
     markup.add(b3, b4)
+    markup.add(b_plans)
     markup.add(b_stat, b_pend)
     markup.add(b_live, b_bc)
     markup.add(b_cards)
     markup.add(b_maint)
+    return markup
+
+def admin_plans_management_keyboard():
+    markup = types.InlineKeyboardMarkup(row_width=1)
+    avail = get_plan_availability()
+    for p_code, p_info in PLANS_INFO.items():
+        is_avail = avail.get(p_code, False)
+        status_badge = "🟢 موجود (باز)" if is_avail else "🔴 ناموجود (بسته)"
+        action_text = "❌ تغییر به ناموجود" if is_avail else "✅ تغییر به موجود"
+        btn_text = f"{p_info['name']}: {status_badge}  ⟵  {action_text}"
+        markup.add(types.InlineKeyboardButton(btn_text, callback_data=f"adm_toggle_plan_{p_code}"))
+    markup.add(types.InlineKeyboardButton("🔙 بازگشت به پنل مدیریت", callback_data="adm_back_panel"))
     return markup
 
 # ---------------------------------------------------------------------------
@@ -1932,8 +1990,8 @@ def handle_callbacks(call):
             return
         info = PLANS_INFO[plan_code]
 
-        # بررسی موجودی پلن‌ها (پلن‌های ۱، ۲ و ۳ ماهه تکمیل ظرفیت هستند ولی ۱ ساله باز است)
-        if plan_code in ("1M", "2M", "3M"):
+        # بررسی موجودی پلن‌ها (بر اساس تنظیمات زنده دیتابیس)
+        if not is_plan_available(plan_code):
             safe_answer_callback(call.id, "⚠️ موجودی این پلن به اتمام رسیده است!", show_alert=True)
 
             sold_out_text = (
@@ -2053,7 +2111,7 @@ def handle_callbacks(call):
             return
         info = PLANS_INFO[plan_code]
 
-        if plan_code in ("1M", "2M", "3M"):
+        if not is_plan_available(plan_code):
             safe_answer_callback(call.id, "⚠️ این پلن تکمیل ظرفیت است!", show_alert=True)
             return
 
@@ -2103,7 +2161,7 @@ def handle_callbacks(call):
             safe_answer_callback(call.id)
             return
         info = PLANS_INFO[plan_code]
-        if plan_code in ("1M", "2M"):
+        if not is_plan_available(plan_code):
             safe_answer_callback(call.id, "⚠️ این پلن تکمیل ظرفیت است!", show_alert=True)
             return
 
@@ -2182,7 +2240,7 @@ def handle_callbacks(call):
         plan_code = data.replace("paid_", "")
         if plan_code not in PLANS_INFO:
             return
-        if plan_code in ("1M", "2M", "3M"):
+        if not is_plan_available(plan_code):
             try:
                 bot.answer_callback_query(call.id, "⚠️ ظرفیت این پلن تکمیل شده است!", show_alert=True)
             except Exception:
@@ -2432,6 +2490,45 @@ def handle_callbacks(call):
                 bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=admin_dashboard_keyboard())
             except Exception:
                 pass
+            return
+        elif action == "plans_mgr":
+            text = (
+                "📦 *مدیریت موجودی پلن‌های اشتراک*\n\n"
+                "در این بخش می‌توانید وضعیت موجودی هر یک از پلن‌ها را برای کاربران مشخص نمایید.\n\n"
+                "• با کلیک روی هر دکمه، وضعیت آن پلن بلافاصله بین **موجود 🟢** و **ناموجود 🔴** تغییر می‌کند.\n"
+                "• تغییرات بلافاصله در منوی خرید کاربران اعمال می‌شود."
+            )
+            markup = admin_plans_management_keyboard()
+            try:
+                bot.edit_message_text(text, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
+            except Exception:
+                safe_send_message(call.message.chat.id, text, reply_markup=markup)
+            bot.answer_callback_query(call.id)
+            return
+        elif action.startswith("toggle_plan_"):
+            target_plan = action.replace("toggle_plan_", "")
+            if target_plan in PLANS_INFO:
+                avail = get_plan_availability()
+                cur_state = avail.get(target_plan, False)
+                new_state = not cur_state
+                set_plan_availability(target_plan, new_state)
+                p_name = PLANS_INFO[target_plan]["name"]
+                status_word = "موجود شد ✅ (برای کاربران باز شد)" if new_state else "ناموجود شد ❌ (برای کاربران بسته شد)"
+                bot.answer_callback_query(call.id, f"پلن {p_name}: {status_word}", show_alert=True)
+                
+                text = (
+                    "📦 *مدیریت موجودی پلن‌های اشتراک*\n\n"
+                    "در این بخش می‌توانید وضعیت موجودی هر یک از پلن‌ها را برای کاربران مشخص نمایید.\n\n"
+                    "• با کلیک روی هر دکمه، وضعیت آن پلن بلافاصله بین **موجود 🟢** و **ناموجود 🔴** تغییر می‌کند.\n"
+                    "• تغییرات بلافاصله در منوی خرید کاربران اعمال می‌شود."
+                )
+                markup = admin_plans_management_keyboard()
+                try:
+                    bot.edit_message_text(text, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
+                except Exception:
+                    pass
+            else:
+                bot.answer_callback_query(call.id, "پلن نامعتبر است!")
             return
         elif action == "stats":
             stats = get_inventory_stats()
