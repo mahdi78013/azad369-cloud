@@ -2060,6 +2060,12 @@
       "user_id": 964867504,
       "issued_at": 1792335404,
       "method": "crypto_unique"
+    },
+    "AZ3M-4DBD-105B-1E89": {
+      "plan": "3M",
+      "user_id": 914869941,
+      "issued_at": 1792335656,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -13537,9 +13543,18 @@
       "tron_amount": 1.37219,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_15514c64486340bd9b4f0f114b134df6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=15514c64486340bd9b4f0f114b134df6",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792335452
+      "created_at": 1792335452,
+      "approved_at": 1792335656,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-4DBD-105B-1E89",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2916448",
+        "tron_amount": 1.37219,
+        "user_paid_toman": null,
+        "date": "2026-10-18T15:00:09.5800000"
+      }
     }
   },
   "users": {
@@ -18365,7 +18380,15 @@
       "username": "Amirali_kz8",
       "first_seen": 1792078716,
       "last_seen": 1792335451,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-4DBD-105B-1E89",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792335656,
+          "days": 90
+        }
+      ]
     },
     "103309545": {
       "user_id": 103309545,
