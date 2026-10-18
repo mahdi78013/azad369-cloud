@@ -1904,6 +1904,12 @@
       "user_id": 204636010,
       "issued_at": 1792291360,
       "method": "crypto_unique"
+    },
+    "AZ1Y-DF80-5CE7-D437": {
+      "plan": "1Y",
+      "user_id": 5910746376,
+      "issued_at": 1792295650,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -12090,9 +12096,18 @@
       "tron_amount": 3.697569,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_8479c3c66d1f471ba1d814ad8e2dc713",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8479c3c66d1f471ba1d814ad8e2dc713",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792295454
+      "created_at": 1792295454,
+      "approved_at": 1792295650,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-DF80-5CE7-D437",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2911363",
+        "tron_amount": 3.697569,
+        "user_paid_toman": null,
+        "date": "2026-10-18T03:53:42.2670000"
+      }
     }
   },
   "users": {
@@ -15045,7 +15060,7 @@
       "last_name": "B",
       "username": "danib12345",
       "first_seen": 1792064377,
-      "last_seen": 1792255238,
+      "last_seen": 1792295626,
       "purchases": []
     },
     "1307797387": {
@@ -24329,7 +24344,15 @@
       "username": "AminAsadian1988",
       "first_seen": 1792295380,
       "last_seen": 1792295380,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-DF80-5CE7-D437",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792295650,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
