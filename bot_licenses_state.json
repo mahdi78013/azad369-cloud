@@ -2186,6 +2186,12 @@
       "user_id": 8982370318,
       "issued_at": 1792355739,
       "method": "crypto_unique"
+    },
+    "AZ3M-B3DE-1035-13E0": {
+      "plan": "3M",
+      "user_id": 113229200,
+      "issued_at": 1792356090,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -14640,9 +14646,18 @@
       "tron_amount": 1.368741,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_7c626bc432b84f758898b229893b9bb9",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7c626bc432b84f758898b229893b9bb9",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792355605
+      "created_at": 1792355605,
+      "approved_at": 1792356090,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-B3DE-1035-13E0",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2920870",
+        "tron_amount": 1.368741,
+        "user_paid_toman": null,
+        "date": "2026-10-18T20:41:15.5730000"
+      }
     },
     "TRND-1Y-68195475-1792355659-f2393f": {
       "order_id": "TRND-1Y-68195475-1792355659-f2393f",
@@ -14787,6 +14802,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792356013
+    },
+    "TRND-1Y-5956510263-1792356062-1c338e": {
+      "order_id": "TRND-1Y-5956510263-1792356062-1c338e",
+      "token": "d31596a8bcac405bbe9787cab2e24254",
+      "user_id": 5956510263,
+      "first_name": "richardnwz",
+      "username": "VATPJ83",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.730815,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_d31596a8bcac405bbe9787cab2e24254",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d31596a8bcac405bbe9787cab2e24254",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792356062
     }
   },
   "users": {
@@ -28600,8 +28631,16 @@
       "last_name": "Am",
       "username": "kasra_am77",
       "first_seen": 1792355586,
-      "last_seen": 1792355586,
-      "purchases": []
+      "last_seen": 1792356090,
+      "purchases": [
+        {
+          "key": "AZ3M-B3DE-1035-13E0",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792356090,
+          "days": 90
+        }
+      ]
     },
     "1079361250": {
       "user_id": 1079361250,
