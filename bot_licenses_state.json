@@ -2048,6 +2048,12 @@
       "user_id": 748538264,
       "issued_at": 1792333548,
       "method": "crypto_unique"
+    },
+    "AZ3M-A793-6FBF-84D1": {
+      "plan": "3M",
+      "user_id": 8275345792,
+      "issued_at": 1792334589,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -10253,9 +10259,10 @@
       "tron_amount": 3.661015,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_2677d7f1d7b34b57a0343bd5724e155c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2677d7f1d7b34b57a0343bd5724e155c",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792248105
+      "created_at": 1792248105,
+      "cancelled_at": 1792334551
     },
     "TRND-3M-1341240515-1792248146-82e26d": {
       "order_id": "TRND-3M-1341240515-1792248146-82e26d",
@@ -13438,9 +13445,18 @@
       "tron_amount": 1.35028,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f519245aac0840149058abf22e162a1a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f519245aac0840149058abf22e162a1a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792334314
+      "created_at": 1792334314,
+      "approved_at": 1792334589,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-A793-6FBF-84D1",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2916289",
+        "tron_amount": 1.35028,
+        "user_paid_toman": null,
+        "date": "2026-10-18T14:42:52.1400000"
+      }
     }
   },
   "users": {
@@ -26469,7 +26485,15 @@
       "username": "Alighaaa1373",
       "first_seen": 1792334173,
       "last_seen": 1792334173,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-A793-6FBF-84D1",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792334589,
+          "days": 90
+        }
+      ]
     },
     "600531585": {
       "user_id": 600531585,
@@ -26478,6 +26502,15 @@
       "username": "Keby71",
       "first_seen": 1792334225,
       "last_seen": 1792334225,
+      "purchases": []
+    },
+    "734128353": {
+      "user_id": 734128353,
+      "first_name": "𝓶𝓮𝓱𝖗𝓼𝓱𝓪𝓭",
+      "last_name": "",
+      "username": "mehrshawdd",
+      "first_seen": 1792334530,
+      "last_seen": 1792334530,
       "purchases": []
     }
   },
