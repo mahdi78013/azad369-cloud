@@ -1934,6 +1934,12 @@
       "user_id": 744331827,
       "issued_at": 1792304556,
       "method": "crypto_unique"
+    },
+    "AZ1Y-D04C-186D-8152": {
+      "plan": "1Y",
+      "user_id": 6964559634,
+      "issued_at": 1792305577,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -12397,9 +12403,18 @@
       "tron_amount": 3.687425,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5420dd15a5c74f0f9186fd6a7a1decf7",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5420dd15a5c74f0f9186fd6a7a1decf7",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792305194
+      "created_at": 1792305194,
+      "approved_at": 1792305577,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-D04C-186D-8152",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2912091",
+        "tron_amount": 3.687425,
+        "user_paid_toman": null,
+        "date": "2026-10-18T06:39:33.5200000"
+      }
     },
     "TRND-1Y-170107654-1792305283-cd0a48": {
       "order_id": "TRND-1Y-170107654-1792305283-cd0a48",
@@ -24876,8 +24891,16 @@
       "last_name": "",
       "username": "Weeb_ASCE",
       "first_seen": 1792305179,
-      "last_seen": 1792305179,
-      "purchases": []
+      "last_seen": 1792305577,
+      "purchases": [
+        {
+          "key": "AZ1Y-D04C-186D-8152",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792305577,
+          "days": 365
+        }
+      ]
     },
     "143061858": {
       "user_id": 143061858,
