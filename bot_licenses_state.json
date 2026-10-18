@@ -2096,6 +2096,12 @@
       "user_id": 312383379,
       "issued_at": 1792350588,
       "method": "crypto_unique"
+    },
+    "AZ3M-EBF0-1969-E423": {
+      "plan": "3M",
+      "user_id": 73618398,
+      "issued_at": 1792350864,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -13814,9 +13820,18 @@
       "tron_amount": 1.357631,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f8e1dd67a94e4461b583d8fc8feaa1de",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f8e1dd67a94e4461b583d8fc8feaa1de",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792350231
+      "created_at": 1792350231,
+      "approved_at": 1792350864,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-EBF0-1969-E423",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2919530",
+        "tron_amount": 1.357631,
+        "user_paid_toman": null,
+        "date": "2026-10-18T19:13:51.4030000"
+      }
     },
     "TRND-3M-312383379-1792350408-157edf": {
       "order_id": "TRND-3M-312383379-1792350408-157edf",
@@ -13858,6 +13873,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792350769
+    },
+    "TRND-3M-96394468-1792350840-eaa13a": {
+      "order_id": "TRND-3M-96394468-1792350840-eaa13a",
+      "token": "6bc28a307d7e4b86b8b08bb24c7186f9",
+      "user_id": 96394468,
+      "first_name": "farhad",
+      "username": "farhadghiyasi",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.351053,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_6bc28a307d7e4b86b8b08bb24c7186f9",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6bc28a307d7e4b86b8b08bb24c7186f9",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792350840
     }
   },
   "users": {
@@ -27008,8 +27039,16 @@
       "last_name": "Dadkhah",
       "username": "hamidadkhah",
       "first_seen": 1792348131,
-      "last_seen": 1792350231,
-      "purchases": []
+      "last_seen": 1792350864,
+      "purchases": [
+        {
+          "key": "AZ3M-EBF0-1969-E423",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792350864,
+          "days": 90
+        }
+      ]
     },
     "282437661": {
       "user_id": 282437661,
@@ -27132,6 +27171,15 @@
       "username": "mhal2002",
       "first_seen": 1792350768,
       "last_seen": 1792350768,
+      "purchases": []
+    },
+    "96394468": {
+      "user_id": 96394468,
+      "first_name": "farhad",
+      "last_name": "gh",
+      "username": "farhadghiyasi",
+      "first_seen": 1792350822,
+      "last_seen": 1792350822,
       "purchases": []
     }
   },
