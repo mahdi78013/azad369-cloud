@@ -2108,6 +2108,12 @@
       "user_id": 247010742,
       "issued_at": 1792350922,
       "method": "crypto_unique"
+    },
+    "AZ3M-8786-A3A3-CA21": {
+      "plan": "3M",
+      "user_id": 96394468,
+      "issued_at": 1792350972,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -13901,9 +13907,18 @@
       "tron_amount": 1.351053,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6bc28a307d7e4b86b8b08bb24c7186f9",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6bc28a307d7e4b86b8b08bb24c7186f9",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792350840
+      "created_at": 1792350840,
+      "approved_at": 1792350972,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-8786-A3A3-CA21",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2919691",
+        "tron_amount": 1.351053,
+        "user_paid_toman": null,
+        "date": "2026-10-18T19:15:47.1930000"
+      }
     },
     "TRND-3M-8081411759-1792350887-e1df2f": {
       "order_id": "TRND-3M-8081411759-1792350887-e1df2f",
@@ -27219,7 +27234,15 @@
       "username": "farhadghiyasi",
       "first_seen": 1792350822,
       "last_seen": 1792350822,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-8786-A3A3-CA21",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792350972,
+          "days": 90
+        }
+      ]
     },
     "8081411759": {
       "user_id": 8081411759,
@@ -27228,6 +27251,15 @@
       "username": "vahidiq7",
       "first_seen": 1792350874,
       "last_seen": 1792350874,
+      "purchases": []
+    },
+    "7049274205": {
+      "user_id": 7049274205,
+      "first_name": "Ali Mosharaf",
+      "last_name": "Sultani",
+      "username": "",
+      "first_seen": 1792350932,
+      "last_seen": 1792350932,
       "purchases": []
     }
   },
