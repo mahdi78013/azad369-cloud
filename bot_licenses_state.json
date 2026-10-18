@@ -1976,6 +1976,12 @@
       "user_id": 7993297150,
       "issued_at": 1792308676,
       "method": "crypto_unique"
+    },
+    "AZ1Y-EA5A-ECF8-D23D": {
+      "plan": "1Y",
+      "user_id": 8479287215,
+      "issued_at": 1792309296,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -12865,9 +12871,18 @@
       "tron_amount": 3.694457,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b5117724783540e3af827ec003745a8f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b5117724783540e3af827ec003745a8f",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792309111
+      "created_at": 1792309111,
+      "approved_at": 1792309296,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-EA5A-ECF8-D23D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2912563",
+        "tron_amount": 3.694457,
+        "user_paid_toman": null,
+        "date": "2026-10-18T07:40:55.3000000"
+      }
     },
     "ORD_1792309149_1329566256": {
       "order_id": "ORD_1792309149_1329566256",
@@ -23406,7 +23421,7 @@
       "last_name": "bagheri",
       "username": "bagheri_1365",
       "first_seen": 1792221818,
-      "last_seen": 1792300479,
+      "last_seen": 1792309295,
       "purchases": [],
       "last_admin_reply": {
         "text": "پلن باز هست میتونید خرید ثبت کنید",
@@ -25511,7 +25526,15 @@
       "username": "liRezaKohansal",
       "first_seen": 1792308988,
       "last_seen": 1792308988,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-EA5A-ECF8-D23D",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792309296,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
