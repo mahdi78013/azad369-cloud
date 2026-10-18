@@ -2018,6 +2018,12 @@
       "user_id": 247978556,
       "issued_at": 1792311253,
       "method": "crypto_unique"
+    },
+    "AZ1Y-3FEC-4A38-FAA9": {
+      "plan": "1Y",
+      "user_id": 368512181,
+      "issued_at": 1792311621,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -13040,9 +13046,18 @@
       "tron_amount": 3.69279,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5b84a9982b1f4e1d9b69bc84b8230271",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5b84a9982b1f4e1d9b69bc84b8230271",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792311241
+      "created_at": 1792311241,
+      "approved_at": 1792311621,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-3FEC-4A38-FAA9",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2912877",
+        "tron_amount": 3.69279,
+        "user_paid_toman": null,
+        "date": "2026-10-18T08:20:08.0700000"
+      }
     }
   },
   "users": {
@@ -25807,8 +25822,16 @@
       "last_name": "PZ",
       "username": "Mytelaccountt",
       "first_seen": 1792311200,
-      "last_seen": 1792311200,
-      "purchases": []
+      "last_seen": 1792311619,
+      "purchases": [
+        {
+          "key": "AZ1Y-3FEC-4A38-FAA9",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792311621,
+          "days": 365
+        }
+      ]
     },
     "100744818": {
       "user_id": 100744818,
