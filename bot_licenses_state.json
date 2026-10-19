@@ -2732,6 +2732,12 @@
       "user_id": 343587041,
       "issued_at": 1792445257,
       "method": "crypto_unique"
+    },
+    "AZ3M-6CEE-E758-5901": {
+      "plan": "3M",
+      "user_id": 8919475028,
+      "issued_at": 1792445957,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -19583,9 +19589,18 @@
       "tron_amount": 1.369933,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_cef85a20501a452094dd2e949b42f54b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=cef85a20501a452094dd2e949b42f54b",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792445658
+      "created_at": 1792445658,
+      "approved_at": 1792445957,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-6CEE-E758-5901",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2932248",
+        "tron_amount": 1.369933,
+        "user_paid_toman": null,
+        "date": "2026-10-19T21:39:04.3670000"
+      }
     }
   },
   "users": {
@@ -36765,8 +36780,16 @@
       "last_name": "",
       "username": "mamad_tifal",
       "first_seen": 1792445620,
-      "last_seen": 1792445620,
-      "purchases": []
+      "last_seen": 1792445957,
+      "purchases": [
+        {
+          "key": "AZ3M-6CEE-E758-5901",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792445957,
+          "days": 90
+        }
+      ]
     }
   },
   "user_states": {
