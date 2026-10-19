@@ -2408,6 +2408,12 @@
       "user_id": 1126455712,
       "issued_at": 1792419152,
       "method": "crypto_unique"
+    },
+    "AZ3M-52F0-6F0C-F042": {
+      "plan": "3M",
+      "user_id": 338985450,
+      "issued_at": 1792419341,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -16797,9 +16803,10 @@
       "tron_amount": 1.373161,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d42903b38ef048d985c742c0fb65ad02",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d42903b38ef048d985c742c0fb65ad02",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792419014
+      "created_at": 1792419014,
+      "cancelled_at": 1792419278
     },
     "TRND-3M-1005859453-1792419092-8a43ba": {
       "order_id": "TRND-3M-1005859453-1792419092-8a43ba",
@@ -16829,9 +16836,18 @@
       "tron_amount": 1.365344,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e290362629644448a2af43029c50c571",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e290362629644448a2af43029c50c571",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792419108
+      "created_at": 1792419108,
+      "approved_at": 1792419341,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-52F0-6F0C-F042",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2926750",
+        "tron_amount": 1.365344,
+        "user_paid_toman": null,
+        "date": "2026-10-19T14:14:55.9130000"
+      }
     },
     "TRND-3M-69884493-1792419122-6f1c53": {
       "order_id": "TRND-3M-69884493-1792419122-6f1c53",
@@ -29131,7 +29147,15 @@
       "username": "Salah00100",
       "first_seen": 1792255099,
       "last_seen": 1792419108,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-52F0-6F0C-F042",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792419341,
+          "days": 90
+        }
+      ]
     },
     "48141722": {
       "user_id": 48141722,
@@ -30544,7 +30568,7 @@
       "last_name": "Houbakhsh",
       "username": "rezahoubakhsh",
       "first_seen": 1792355148,
-      "last_seen": 1792418926,
+      "last_seen": 1792419285,
       "purchases": [
         {
           "key": "AZ1Y-A62F-4964-AF08",
@@ -32208,7 +32232,7 @@
       "last_name": "",
       "username": "Amir_nk80",
       "first_seen": 1792381471,
-      "last_seen": 1792400922,
+      "last_seen": 1792419236,
       "purchases": []
     },
     "314339495": {
