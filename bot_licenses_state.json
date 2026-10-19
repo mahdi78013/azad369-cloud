@@ -2540,6 +2540,12 @@
       "user_id": 5699174369,
       "issued_at": 1792423469,
       "method": "crypto_unique"
+    },
+    "AZ3M-114B-F640-52E2": {
+      "plan": "3M",
+      "user_id": 243761,
+      "issued_at": 1792423543,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -17998,9 +18004,18 @@
       "tron_amount": 1.364961,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_fea24ba4e4954e6bab1771cd9f98286c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=fea24ba4e4954e6bab1771cd9f98286c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792423008
+      "created_at": 1792423008,
+      "approved_at": 1792423543,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-114B-F640-52E2",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2927353",
+        "tron_amount": 1.364961,
+        "user_paid_toman": null,
+        "date": "2026-10-19T15:24:45.7570000"
+      }
     },
     "TRND-3M-192454611-1792423055-4a7f49": {
       "order_id": "TRND-3M-192454611-1792423055-4a7f49",
@@ -18058,6 +18073,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792423385
+    },
+    "TRND-1Y-260586442-1792423507-d0c4b1": {
+      "order_id": "TRND-1Y-260586442-1792423507-d0c4b1",
+      "token": "38e7085f4a894a87aeaf01dc2afd7824",
+      "user_id": 260586442,
+      "first_name": "M.Ahmadi",
+      "username": "Meitiama",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.717441,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_38e7085f4a894a87aeaf01dc2afd7824",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=38e7085f4a894a87aeaf01dc2afd7824",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792423507
     }
   },
   "users": {
@@ -29585,7 +29616,7 @@
       "last_name": "",
       "username": "Meitiama",
       "first_seen": 1792236774,
-      "last_seen": 1792236774,
+      "last_seen": 1792423506,
       "purchases": []
     },
     "5627598138": {
@@ -33687,8 +33718,16 @@
       "last_name": "Mosadegh",
       "username": "amirmoss",
       "first_seen": 1792385455,
-      "last_seen": 1792423003,
-      "purchases": []
+      "last_seen": 1792423523,
+      "purchases": [
+        {
+          "key": "AZ3M-114B-F640-52E2",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792423543,
+          "days": 90
+        }
+      ]
     },
     "5934800481": {
       "user_id": 5934800481,
