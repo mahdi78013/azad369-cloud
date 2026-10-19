@@ -2330,6 +2330,12 @@
       "user_id": 6933242916,
       "issued_at": 1792392661,
       "method": "crypto_unique"
+    },
+    "AZ1Y-5146-616D-D220": {
+      "plan": "1Y",
+      "user_id": 979933073,
+      "issued_at": 1792392922,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -16099,9 +16105,18 @@
       "tron_amount": 3.713116,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_06d2146c854e4c2a98e19945ee23a166",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=06d2146c854e4c2a98e19945ee23a166",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792392674
+      "created_at": 1792392674,
+      "approved_at": 1792392922,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-5146-616D-D220",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2922765",
+        "tron_amount": 3.713116,
+        "user_paid_toman": null,
+        "date": "2026-10-19T06:54:19.3670000"
+      }
     }
   },
   "users": {
@@ -31880,7 +31895,15 @@
       "username": "M_kp2007",
       "first_seen": 1792392674,
       "last_seen": 1792392674,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-5146-616D-D220",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792392922,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
