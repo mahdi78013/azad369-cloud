@@ -2720,6 +2720,12 @@
       "user_id": 107749413,
       "issued_at": 1792441985,
       "method": "crypto_unique"
+    },
+    "AZ3M-BFBD-AF65-2A5A": {
+      "plan": "3M",
+      "user_id": 8136177705,
+      "issued_at": 1792444723,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -19504,9 +19510,34 @@
       "tron_amount": 1.382572,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_415d4f682f35450b982f57c70974047e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=415d4f682f35450b982f57c70974047e",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1792444576,
+      "approved_at": 1792444723,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-BFBD-AF65-2A5A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2932122",
+        "tron_amount": 1.382572,
+        "user_paid_toman": null,
+        "date": "2026-10-19T21:18:22.2800000"
+      }
+    },
+    "TRND-1Y-343587041-1792444674-1bed25": {
+      "order_id": "TRND-1Y-343587041-1792444674-1bed25",
+      "token": "fd9094e558d54f7db5b36c3737d9ad0a",
+      "user_id": 343587041,
+      "first_name": "Mohammad Hossein",
+      "username": "mh_dahaghin",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.756534,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_fd9094e558d54f7db5b36c3737d9ad0a",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=fd9094e558d54f7db5b36c3737d9ad0a",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792444576
+      "created_at": 1792444674
     }
   },
   "users": {
@@ -29511,7 +29542,15 @@
       "username": "sajjadian4",
       "first_seen": 1792187347,
       "last_seen": 1792444575,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-BFBD-AF65-2A5A",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792444723,
+          "days": 90
+        }
+      ]
     },
     "479442458": {
       "user_id": 479442458,
@@ -36635,6 +36674,15 @@
       "username": "",
       "first_seen": 1792443534,
       "last_seen": 1792443534,
+      "purchases": []
+    },
+    "343587041": {
+      "user_id": 343587041,
+      "first_name": "Mohammad Hossein",
+      "last_name": "",
+      "username": "mh_dahaghin",
+      "first_seen": 1792444619,
+      "last_seen": 1792444619,
       "purchases": []
     }
   },
