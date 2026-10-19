@@ -2480,6 +2480,12 @@
       "user_id": 1838592098,
       "issued_at": 1792421128,
       "method": "crypto_unique"
+    },
+    "AZ3M-2108-0A8D-5942": {
+      "plan": "3M",
+      "user_id": 6573196143,
+      "issued_at": 1792421328,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -17513,9 +17519,18 @@
       "tron_amount": 1.35184,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5e2837ff09fa40ef9baa5e0559469da4",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5e2837ff09fa40ef9baa5e0559469da4",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792421111
+      "created_at": 1792421111,
+      "approved_at": 1792421328,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-2108-0A8D-5942",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2927061",
+        "tron_amount": 1.35184,
+        "user_paid_toman": null,
+        "date": "2026-10-19T14:48:22.2430000"
+      }
     },
     "TRND-3M-32704855-1792421156-a5011f": {
       "order_id": "TRND-3M-32704855-1792421156-a5011f",
@@ -24311,7 +24326,15 @@
       "username": "Pak00Amozeshi",
       "first_seen": 1792139817,
       "last_seen": 1792421111,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-2108-0A8D-5942",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792421328,
+          "days": 90
+        }
+      ]
     },
     "5265220933": {
       "user_id": 5265220933,
@@ -24433,7 +24456,7 @@
       "last_name": "15",
       "username": "S099615",
       "first_seen": 1792142259,
-      "last_seen": 1792298201,
+      "last_seen": 1792421201,
       "purchases": [
         {
           "key": "AZ1Y-4553-1251-1F9F",
@@ -26028,7 +26051,7 @@
       "last_name": "JanJan",
       "username": "mJANJAN",
       "first_seen": 1792166313,
-      "last_seen": 1792381289,
+      "last_seen": 1792421260,
       "purchases": []
     },
     "103588588": {
@@ -30573,7 +30596,7 @@
       "last_name": "PZ",
       "username": "Mytelaccountt",
       "first_seen": 1792311200,
-      "last_seen": 1792420817,
+      "last_seen": 1792421215,
       "purchases": [
         {
           "key": "AZ1Y-3FEC-4A38-FAA9",
