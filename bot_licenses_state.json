@@ -2606,6 +2606,12 @@
       "user_id": 334466471,
       "issued_at": 1792426326,
       "method": "crypto_unique"
+    },
+    "AZ3M-F924-F07B-370C": {
+      "plan": "3M",
+      "user_id": 8230359450,
+      "issued_at": 1792426972,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -18561,9 +18567,18 @@
       "tron_amount": 1.368726,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d6c35540d9434bf8b5579d31eb6391e6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d6c35540d9434bf8b5579d31eb6391e6",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792426817
+      "created_at": 1792426817,
+      "approved_at": 1792426972,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-F924-F07B-370C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2928005",
+        "tron_amount": 1.368726,
+        "user_paid_toman": null,
+        "date": "2026-10-19T16:22:40.0030000"
+      }
     }
   },
   "users": {
@@ -35241,7 +35256,15 @@
       "username": "",
       "first_seen": 1792426411,
       "last_seen": 1792426817,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-F924-F07B-370C",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792426972,
+          "days": 90
+        }
+      ]
     }
   },
   "user_states": {
