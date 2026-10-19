@@ -2294,6 +2294,12 @@
       "user_id": 90145460,
       "issued_at": 1792383541,
       "method": "crypto_unique"
+    },
+    "AZ1Y-27C1-659C-7CC0": {
+      "plan": "1Y",
+      "user_id": 2052070492,
+      "issued_at": 1792385079,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -15729,9 +15735,18 @@
       "tron_amount": 3.726057,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_107c6da3d89d435a9f04668f08d3d037",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=107c6da3d89d435a9f04668f08d3d037",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792384916
+      "created_at": 1792384916,
+      "approved_at": 1792385079,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-27C1-659C-7CC0",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2922126",
+        "tron_amount": 3.726057,
+        "user_paid_toman": null,
+        "date": "2026-10-19T04:44:25.1870000"
+      }
     },
     "TRND-1Y-41514851-1792384958-ca5497": {
       "order_id": "TRND-1Y-41514851-1792384958-ca5497",
@@ -15748,6 +15763,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792384958
+    },
+    "TRND-1Y-384106252-1792385034-1649a3": {
+      "order_id": "TRND-1Y-384106252-1792385034-1649a3",
+      "token": "0d78efd75a8d4165a85a29f3c7bdf42d",
+      "user_id": 384106252,
+      "first_name": "• 𐎶𐎿𐎫𐎱𐎡 𓄂𓆃",
+      "username": "MstfaGhmri",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.713737,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_0d78efd75a8d4165a85a29f3c7bdf42d",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0d78efd75a8d4165a85a29f3c7bdf42d",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792385034
     }
   },
   "users": {
@@ -31091,6 +31122,23 @@
       "username": "Parsa_machek",
       "first_seen": 1792384916,
       "last_seen": 1792384916,
+      "purchases": [
+        {
+          "key": "AZ1Y-27C1-659C-7CC0",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792385079,
+          "days": 365
+        }
+      ]
+    },
+    "60858579": {
+      "user_id": 60858579,
+      "first_name": "Heidar",
+      "last_name": "Moafi",
+      "username": "DrHeidarMoafi",
+      "first_seen": 1792385040,
+      "last_seen": 1792385040,
       "purchases": []
     }
   },
