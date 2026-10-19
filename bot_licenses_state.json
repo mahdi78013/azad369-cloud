@@ -2582,6 +2582,12 @@
       "user_id": 310814402,
       "issued_at": 1792425019,
       "method": "crypto_unique"
+    },
+    "AZ3M-A13B-CEAC-E67B": {
+      "plan": "3M",
+      "user_id": 140728108,
+      "issued_at": 1792425979,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -18307,9 +18313,10 @@
       "tron_amount": 1.36217,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_43ebfff1fbfe4527816f1443e8923f1c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=43ebfff1fbfe4527816f1443e8923f1c",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792424663
+      "created_at": 1792424663,
+      "cancelled_at": 1792425914
     },
     "TRND-1Y-7087666474-1792425562-e7a6fb": {
       "order_id": "TRND-1Y-7087666474-1792425562-e7a6fb",
@@ -18387,9 +18394,18 @@
       "tron_amount": 1.362996,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6f9d299884e84d1d866bede7f87c682c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6f9d299884e84d1d866bede7f87c682c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792425837
+      "created_at": 1792425837,
+      "approved_at": 1792425979,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-A13B-CEAC-E67B",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2927820",
+        "tron_amount": 1.362996,
+        "user_paid_toman": null,
+        "date": "2026-10-19T16:06:06.9730000"
+      }
     }
   },
   "users": {
@@ -35008,7 +35024,15 @@
       "username": "mehrshadkamran",
       "first_seen": 1792425784,
       "last_seen": 1792425784,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-A13B-CEAC-E67B",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792425979,
+          "days": 90
+        }
+      ]
     },
     "8745807825": {
       "user_id": 8745807825,
