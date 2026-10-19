@@ -2588,6 +2588,12 @@
       "user_id": 140728108,
       "issued_at": 1792425979,
       "method": "crypto_unique"
+    },
+    "AZ3M-550F-E612-B348": {
+      "plan": "3M",
+      "user_id": 566741026,
+      "issued_at": 1792426004,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -18378,9 +18384,18 @@
       "tron_amount": 1.35964,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_2ef0f31f7fe844a48c6cb2e714eadac3",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2ef0f31f7fe844a48c6cb2e714eadac3",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792425787
+      "created_at": 1792425787,
+      "approved_at": 1792426004,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-550F-E612-B348",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2927810",
+        "tron_amount": 1.35964,
+        "user_paid_toman": null,
+        "date": "2026-10-19T16:05:59.5330000"
+      }
     },
     "TRND-3M-140728108-1792425837-4aaab4": {
       "order_id": "TRND-3M-140728108-1792425837-4aaab4",
@@ -18406,6 +18421,22 @@
         "user_paid_toman": null,
         "date": "2026-10-19T16:06:06.9730000"
       }
+    },
+    "TRND-1Y-8745807825-1792425994-4707be": {
+      "order_id": "TRND-1Y-8745807825-1792425994-4707be",
+      "token": "7e9bb7f1aca24568a8eca93691adfc00",
+      "user_id": 8745807825,
+      "first_name": "Amirhosein",
+      "username": "sadeghi_prog",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.732411,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_7e9bb7f1aca24568a8eca93691adfc00",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7e9bb7f1aca24568a8eca93691adfc00",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792425994
     }
   },
   "users": {
@@ -35015,7 +35046,15 @@
       "username": "kamrankordi",
       "first_seen": 1792425749,
       "last_seen": 1792425749,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-550F-E612-B348",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792426004,
+          "days": 90
+        }
+      ]
     },
     "140728108": {
       "user_id": 140728108,
