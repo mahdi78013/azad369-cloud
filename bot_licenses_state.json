@@ -2516,6 +2516,12 @@
       "user_id": 8439525561,
       "issued_at": 1792422367,
       "method": "crypto_unique"
+    },
+    "AZ3M-62FA-EA9F-2439": {
+      "plan": "3M",
+      "user_id": 389841899,
+      "issued_at": 1792422861,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -17864,9 +17870,10 @@
       "tron_amount": 1.365891,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_19349cbe1d2c4eeb887a28dd21928ca5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=19349cbe1d2c4eeb887a28dd21928ca5",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792422627
+      "created_at": 1792422627,
+      "cancelled_at": 1792422860
     },
     "TRND-3M-8862483908-1792422642-2786fc": {
       "order_id": "TRND-3M-8862483908-1792422642-2786fc",
@@ -17896,9 +17903,34 @@
       "tron_amount": 1.364774,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ffaa58a8286940d1bddd0825b741ff39",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ffaa58a8286940d1bddd0825b741ff39",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1792422694,
+      "approved_at": 1792422861,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-62FA-EA9F-2439",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2927314",
+        "tron_amount": 1.364774,
+        "user_paid_toman": null,
+        "date": "2026-10-19T15:13:41.4630000"
+      }
+    },
+    "TRND-3M-106123271-1792422847-e2db14": {
+      "order_id": "TRND-3M-106123271-1792422847-e2db14",
+      "token": "b01989a0a6724fe19a64deada580c91b",
+      "user_id": 106123271,
+      "first_name": "─═╬ɱσɧąɱɱąđ ЯЭஜஇ╬═─",
+      "username": "Mohamadreza02122",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.371477,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_b01989a0a6724fe19a64deada580c91b",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b01989a0a6724fe19a64deada580c91b",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792422694
+      "created_at": 1792422847
     }
   },
   "users": {
@@ -20124,7 +20156,15 @@
       "username": "Notrika_MTN",
       "first_seen": 1792062428,
       "last_seen": 1792422693,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-62FA-EA9F-2439",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792422861,
+          "days": 90
+        }
+      ]
     },
     "106096119": {
       "user_id": 106096119,
