@@ -2318,6 +2318,12 @@
       "user_id": 384106252,
       "issued_at": 1792390096,
       "method": "crypto_unique"
+    },
+    "AZ1Y-8B18-1F50-AE34": {
+      "plan": "1Y",
+      "user_id": 622739561,
+      "issued_at": 1792390887,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -16017,9 +16023,18 @@
       "tron_amount": 3.732706,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_13a6cf8aa6104681be2aea57626d152c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=13a6cf8aa6104681be2aea57626d152c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792390651
+      "created_at": 1792390651,
+      "approved_at": 1792390887,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-8B18-1F50-AE34",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2922559",
+        "tron_amount": 3.732706,
+        "user_paid_toman": null,
+        "date": "2026-10-19T06:21:10.5930000"
+      }
     }
   },
   "users": {
@@ -29255,7 +29270,15 @@
       "username": "",
       "first_seen": 1792336696,
       "last_seen": 1792390645,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-8B18-1F50-AE34",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792390887,
+          "days": 365
+        }
+      ]
     },
     "73618398": {
       "user_id": 73618398,
@@ -31665,6 +31688,24 @@
       "username": "DeltaMarktir_admin",
       "first_seen": 1792390673,
       "last_seen": 1792390673,
+      "purchases": []
+    },
+    "1379195110": {
+      "user_id": 1379195110,
+      "first_name": "Hadi",
+      "last_name": "Pourakbar",
+      "username": "Hadi_Pourakbar4",
+      "first_seen": 1792390802,
+      "last_seen": 1792390802,
+      "purchases": []
+    },
+    "5678085569": {
+      "user_id": 5678085569,
+      "first_name": "Ena",
+      "last_name": "",
+      "username": "Squadron_11",
+      "first_seen": 1792390869,
+      "last_seen": 1792390869,
       "purchases": []
     }
   },
