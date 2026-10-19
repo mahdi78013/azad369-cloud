@@ -2288,6 +2288,12 @@
       "user_id": 2103562144,
       "issued_at": 1792383160,
       "method": "crypto_unique"
+    },
+    "AZ1Y-B41A-9E4B-7378": {
+      "plan": "1Y",
+      "user_id": 90145460,
+      "issued_at": 1792383541,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -15681,9 +15687,18 @@
       "tron_amount": 3.707569,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c7612518793c45dda4307cd325795711",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c7612518793c45dda4307cd325795711",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792383247
+      "created_at": 1792383247,
+      "approved_at": 1792383541,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-B41A-9E4B-7378",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2922031",
+        "tron_amount": 3.707569,
+        "user_paid_toman": null,
+        "date": "2026-10-19T04:18:11.0470000"
+      }
     }
   },
   "users": {
@@ -22248,7 +22263,15 @@
       "username": "alitempo",
       "first_seen": 1792138491,
       "last_seen": 1792383246,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-B41A-9E4B-7378",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792383541,
+          "days": 365
+        }
+      ]
     },
     "7084213937": {
       "user_id": 7084213937,
