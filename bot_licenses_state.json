@@ -2750,6 +2750,12 @@
       "user_id": 55546069,
       "issued_at": 1792451502,
       "method": "crypto_unique"
+    },
+    "AZ3M-DC37-4B61-FC55": {
+      "plan": "3M",
+      "user_id": 5232491990,
+      "issued_at": 1792466508,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -19755,6 +19761,47 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792466287
+    },
+    "TRND-3M-5232491990-1792466374-2d8462": {
+      "order_id": "TRND-3M-5232491990-1792466374-2d8462",
+      "token": "1fd3d4b0e7174d93a6f4d1d055fcc7de",
+      "user_id": 5232491990,
+      "first_name": "eman",
+      "username": "Eman_KapaK",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.368331,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_1fd3d4b0e7174d93a6f4d1d055fcc7de",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1fd3d4b0e7174d93a6f4d1d055fcc7de",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792466374
+    },
+    "TRND-3M-5232491990-1792466414-709787": {
+      "order_id": "TRND-3M-5232491990-1792466414-709787",
+      "token": "377a8730a7af44e6b78c384bcef37690",
+      "user_id": 5232491990,
+      "first_name": "eman",
+      "username": "Eman_KapaK",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.385298,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_377a8730a7af44e6b78c384bcef37690",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=377a8730a7af44e6b78c384bcef37690",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1792466414,
+      "approved_at": 1792466508,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-DC37-4B61-FC55",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2933805",
+        "tron_amount": 1.385298,
+        "user_paid_toman": null,
+        "date": "2026-10-20T03:21:31.9270000"
+      }
     }
   },
   "users": {
@@ -37014,6 +37061,23 @@
       "first_seen": 1792466274,
       "last_seen": 1792466274,
       "purchases": []
+    },
+    "5232491990": {
+      "user_id": 5232491990,
+      "first_name": "eman",
+      "last_name": "",
+      "username": "Eman_KapaK",
+      "first_seen": 1792466365,
+      "last_seen": 1792466365,
+      "purchases": [
+        {
+          "key": "AZ3M-DC37-4B61-FC55",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792466508,
+          "days": 90
+        }
+      ]
     }
   },
   "user_states": {
