@@ -2756,6 +2756,12 @@
       "user_id": 5232491990,
       "issued_at": 1792466508,
       "method": "crypto_unique"
+    },
+    "AZ3M-4EEA-BDB3-8071": {
+      "plan": "3M",
+      "user_id": 1123557159,
+      "issued_at": 1792466565,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -19758,9 +19764,18 @@
       "tron_amount": 1.368331,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_8b36078582cf46f7a29fdca540ec4c35",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8b36078582cf46f7a29fdca540ec4c35",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792466287
+      "created_at": 1792466287,
+      "approved_at": 1792466565,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-4EEA-BDB3-8071",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2933801",
+        "tron_amount": 1.368331,
+        "user_paid_toman": null,
+        "date": "2026-10-20T03:22:29.3030000"
+      }
     },
     "TRND-3M-5232491990-1792466374-2d8462": {
       "order_id": "TRND-3M-5232491990-1792466374-2d8462",
@@ -37060,7 +37075,15 @@
       "username": "Rezaxjj",
       "first_seen": 1792466274,
       "last_seen": 1792466274,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-4EEA-BDB3-8071",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792466565,
+          "days": 90
+        }
+      ]
     },
     "5232491990": {
       "user_id": 5232491990,
