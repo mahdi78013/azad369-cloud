@@ -2768,6 +2768,12 @@
       "user_id": 416737387,
       "issued_at": 1792468773,
       "method": "crypto_unique"
+    },
+    "AZ3M-C50B-CBBD-39B6": {
+      "plan": "3M",
+      "user_id": 8226323770,
+      "issued_at": 1792472059,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -19880,9 +19886,34 @@
       "tron_amount": 1.37701,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_95de0d165c28400489a1c6447a3231bc",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=95de0d165c28400489a1c6447a3231bc",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1792471773,
+      "approved_at": 1792472059,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-C50B-CBBD-39B6",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2934005",
+        "tron_amount": 1.37701,
+        "user_paid_toman": null,
+        "date": "2026-10-20T04:54:15.2800000"
+      }
+    },
+    "TRND-3M-6823597222-1792471990-e40a2f": {
+      "order_id": "TRND-3M-6823597222-1792471990-e40a2f",
+      "token": "709efacee019450ab098351684416dc6",
+      "user_id": 6823597222,
+      "first_name": "Amir",
+      "username": "ندارد",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.391723,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_709efacee019450ab098351684416dc6",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=709efacee019450ab098351684416dc6",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792471773
+      "created_at": 1792471990
     }
   },
   "users": {
@@ -37201,6 +37232,23 @@
       "username": "Morsross",
       "first_seen": 1792471753,
       "last_seen": 1792471753,
+      "purchases": [
+        {
+          "key": "AZ3M-C50B-CBBD-39B6",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792472059,
+          "days": 90
+        }
+      ]
+    },
+    "6823597222": {
+      "user_id": 6823597222,
+      "first_name": "Amir",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1792471957,
+      "last_seen": 1792471957,
       "purchases": []
     }
   },
