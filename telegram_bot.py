@@ -599,6 +599,7 @@ def _do_git_sync():
         _DB_DIRTY = False
         subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=False)
         subprocess.run(["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"], check=False)
+        subprocess.run(["git", "rebase", "--abort"], check=False)
         subprocess.run(["git", "add", "bot_licenses_state.json", "hwid_registry.json", "historical_blacklist.json"], check=False)
         subprocess.run(["git", "commit", "-m", "Auto-sync bot state [skip ci]"], check=False)
         subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=False)
@@ -723,14 +724,70 @@ def get_live_bot_stats() -> str:
     )
     return text
 
+def get_all_broadcast_targets(db: dict = None) -> list[int]:
+    """
+    Returns a comprehensive, deduplicated list of ALL telegram user IDs
+    who have ever started, ordered, or interacted with the bot.
+    Collects from: users, orders, issued, user_states, and trial_users.
+    """
+    if db is None:
+        db = load_db()
+    else:
+        migrate_historical_users(db)
+
+    uids_set = set()
+
+    # 1. db['users']
+    for uid_k in db.get("users", {}).keys():
+        s = str(uid_k).strip()
+        if s.isdigit() and int(s) > 0:
+            uids_set.add(int(s))
+
+    # 2. db['orders']
+    for order in db.get("orders", {}).values():
+        if isinstance(order, dict) and order.get("user_id"):
+            try:
+                val = int(order["user_id"])
+                if val > 0:
+                    uids_set.add(val)
+            except Exception:
+                pass
+
+    # 3. db['issued']
+    for iss in db.get("issued", {}).values():
+        if isinstance(iss, dict) and iss.get("user_id"):
+            try:
+                val = int(iss["user_id"])
+                if val > 0:
+                    uids_set.add(val)
+            except Exception:
+                pass
+
+    # 4. db['user_states']
+    for uid_k in db.get("user_states", {}).keys():
+        s = str(uid_k).strip()
+        if s.isdigit() and int(s) > 0:
+            uids_set.add(int(s))
+
+    # 5. db['trial_users']
+    tu = db.get("trial_users", {})
+    t_items = tu.keys() if isinstance(tu, dict) else tu
+    for uid_k in t_items:
+        s = str(uid_k).strip()
+        if s.isdigit() and int(s) > 0:
+            uids_set.add(int(s))
+
+    return sorted(list(uids_set))
+
 def _start_broadcast_prompt(chat_id: int):
     """Initiates the broadcast workflow prompting the admin for message."""
     set_admin_state({"state": "waiting_broadcast_msg", "time": int(time.time())}, admin_id=chat_id)
     db = load_db()
-    total_users = len(db.get("users", {}))
+    target_uids = get_all_broadcast_targets(db)
+    total_users = len(target_uids)
     prompt_text = (
         f"📢 *بخش فوروارد و ارسال همگانی به کاربران*\n\n"
-        f"👥 مخاطبان هدف: *{total_users} کاربر ثبت‌شده*\n\n"
+        f"👥 مخاطبان هدف: *{total_users} کاربر ثبت‌شده (۱۰۰٪ اعضایی که تا به حال استارت زده‌اند)*\n\n"
         f"لطفاً پیامی که می‌خواهید برای همه ارسال شود را بفرستید.\n\n"
         f"💡 *امکانات:* \n"
         f"• می‌توانید یک پیام یا پست را از کانال (@muntivpn) فوروارد کنید.\n"
@@ -744,8 +801,7 @@ def _start_broadcast_prompt(chat_id: int):
 def _run_broadcast_thread(chat_id: int, msg_id: int, is_forward: bool):
     """Asynchronously broadcasts/forwards message to all users safely with rate limiting."""
     db = load_db()
-    users_dict = db.get("users", {})
-    all_uids = list(users_dict.keys())
+    all_uids = get_all_broadcast_targets(db)
     total = len(all_uids)
     if total == 0:
         safe_send_message(chat_id, "⚠️ هیچ کاربری برای ارسال پیام در دیتابیس یافت نشد!")
@@ -755,8 +811,8 @@ def _run_broadcast_thread(chat_id: int, msg_id: int, is_forward: bool):
     status_msg = safe_send_message(
         chat_id,
         f"🚀 *عملیات {action_label} همگانی آغاز شد...*\n\n"
-        f"👥 کل مخاطبان: {total} نفر\n"
-        f"⏳ لطفاً صبور باشید، گزارش درصد پیشرفت ارسال خواهد شد..."
+        f"👥 کل مخاطبان: {total} نفر (تمام کاربران استارت‌زده)\n"
+        f"⏳ لطفاً صبور باشید، گزارش درصد پیشرفت به صورت زنده نمایش داده می‌شود..."
     )
     status_msg_id = status_msg.message_id if status_msg else None
 
@@ -765,10 +821,11 @@ def _run_broadcast_thread(chat_id: int, msg_id: int, is_forward: bool):
     fail_count = 0
     start_time = time.time()
     last_update_time = time.time()
+    users_dict = db.get("users", {})
 
-    for idx, uid_str in enumerate(all_uids, start=1):
+    for idx, target_id in enumerate(all_uids, start=1):
+        uid_str = str(target_id)
         try:
-            target_id = int(uid_str)
             if is_forward:
                 bot.forward_message(chat_id=target_id, from_chat_id=chat_id, message_id=msg_id)
             else:
@@ -801,11 +858,11 @@ def _run_broadcast_thread(chat_id: int, msg_id: int, is_forward: bool):
         except Exception:
             fail_count += 1
 
-        # Telegram limit safety sleep (~25 messages/sec)
-        time.sleep(0.04)
+        # Smooth pacing (~20 messages/sec) prevents Telegram flood throttles
+        time.sleep(0.05)
 
         now = time.time()
-        if (idx % 30 == 0 or idx == total) and status_msg_id and (now - last_update_time >= 4 or idx == total):
+        if (idx % 25 == 0 or idx == total) and status_msg_id and (now - last_update_time >= 3 or idx == total):
             last_update_time = now
             percent = int((idx / total) * 100)
             progress_bar = "█" * (percent // 10) + "░" * (10 - (percent // 10))
@@ -3051,12 +3108,15 @@ def handle_photos_and_docs(message):
                 types.InlineKeyboardButton("📋 کپی و ارسال مستقیم (Copy)", callback_data="do_copy_all")
             )
             markup.add(types.InlineKeyboardButton("❌ انصراف و لغو", callback_data="cancel_broadcast"))
+            db_now = load_db()
+            tot_targets = len(get_all_broadcast_targets(db_now))
             safe_reply_to(
                 message,
-                "📢 *رسانه / پست شما جهت ارسال همگانی دریافت شد.*\n\n"
-                "لطفاً نحوه ارسال به کاربران را انتخاب کنید:\n\n"
-                "• *فوروارد:* پیام با نقل‌قول رسمی (Forward) و نام کانال ارسال می‌شود.\n"
-                "• *کپی مستقیم:* پیام عینا و بدون نقل‌قول برای کاربران ارسال می‌شود.",
+                f"📢 *رسانه / پست شما جهت ارسال همگانی دریافت شد.*\n\n"
+                f"👥 تعداد کل مخاطبان هدف: *{tot_targets} نفر (۱۰۰٪ کل اعضا)*\n\n"
+                f"لطفاً نحوه ارسال به کاربران را انتخاب کنید:\n\n"
+                f"• *فوروارد:* پیام با نقل‌قول رسمی (Forward) و نام کانال ارسال می‌شود.\n"
+                f"• *کپی مستقیم:* پیام عینا و بدون نقل‌قول برای کاربران ارسال می‌شود.",
                 reply_markup=markup
             )
             return
@@ -3263,12 +3323,15 @@ def handle_general_text(message):
                     types.InlineKeyboardButton("📋 کپی و ارسال مستقیم (Copy)", callback_data="do_copy_all")
                 )
                 markup.add(types.InlineKeyboardButton("❌ انصراف و لغو", callback_data="cancel_broadcast"))
+                db_now = load_db()
+                tot_targets = len(get_all_broadcast_targets(db_now))
                 safe_reply_to(
                     message,
-                    "📢 *پیام / پست شما جهت ارسال همگانی دریافت شد.*\n\n"
-                    "لطفاً نحوه ارسال به کاربران را انتخاب فرمایید:\n\n"
-                    "• *فوروارد:* پیام با نقل‌قول رسمی (Forward) و نام کانال ارسال می‌شود.\n"
-                    "• *کپی مستقیم:* متن پیام عینا و بدون نقل‌قول برای کاربران ارسال می‌شود.",
+                    f"📢 *پیام / پست شما جهت ارسال همگانی دریافت شد.*\n\n"
+                    f"👥 تعداد کل مخاطبان هدف: *{tot_targets} نفر (۱۰۰٪ کل اعضا)*\n\n"
+                    f"لطفاً نحوه ارسال به کاربران را انتخاب فرمایید:\n\n"
+                    f"• *فوروارد:* پیام با نقل‌قول رسمی (Forward) و نام کانال ارسال می‌شود.\n"
+                    f"• *کپی مستقیم:* متن پیام عینا و بدون نقل‌قول برای کاربران ارسال می‌شود.",
                     reply_markup=markup
                 )
                 return
