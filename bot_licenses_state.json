@@ -3152,6 +3152,12 @@
       "user_id": 7008648713,
       "issued_at": 1792610518,
       "method": "crypto_unique"
+    },
+    "AZ3M-848B-0248-5C32": {
+      "plan": "3M",
+      "user_id": 5814958930,
+      "issued_at": 1792611246,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -23351,9 +23357,18 @@
       "tron_amount": 1.330139,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_0c5652c968524050b90b965a71deeeda",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0c5652c968524050b90b965a71deeeda",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792611104
+      "created_at": 1792611104,
+      "approved_at": 1792611246,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-848B-0248-5C32",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2952458",
+        "tron_amount": 1.330139,
+        "user_paid_toman": null,
+        "date": "2026-10-21T19:34:03.9800000"
+      }
     }
   },
   "users": {
@@ -42559,7 +42574,15 @@
       "username": "arman_fery",
       "first_seen": 1792611084,
       "last_seen": 1792611084,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-848B-0248-5C32",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792611246,
+          "days": 90
+        }
+      ]
     }
   },
   "user_states": {
