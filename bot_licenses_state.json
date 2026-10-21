@@ -3164,6 +3164,12 @@
       "user_id": 6950885186,
       "issued_at": 1792612767,
       "method": "crypto_unique"
+    },
+    "AZ3M-7709-11D3-A8F4": {
+      "plan": "3M",
+      "user_id": 8031012812,
+      "issued_at": 1792615258,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -23560,9 +23566,18 @@
       "tron_amount": 1.343474,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_09b642ce70154ede971932764d003564",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=09b642ce70154ede971932764d003564",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792615143
+      "created_at": 1792615143,
+      "approved_at": 1792615258,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-7709-11D3-A8F4",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2953461",
+        "tron_amount": 1.343474,
+        "user_paid_toman": null,
+        "date": "2026-10-21T20:40:47.4770000"
+      }
     }
   },
   "users": {
@@ -26514,7 +26529,15 @@
       "username": "amirabbasdaneshmand",
       "first_seen": 1792064109,
       "last_seen": 1792615143,
-      "purchases": [],
+      "purchases": [
+        {
+          "key": "AZ3M-7709-11D3-A8F4",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792615258,
+          "days": 90
+        }
+      ],
       "last_admin_reply": {
         "text": "دوست عزیز شماره کارت درخصوص v2ray منظورتونه؟",
         "time": 1792614461
@@ -42827,6 +42850,15 @@
       "username": "",
       "first_seen": 1792614333,
       "last_seen": 1792614333,
+      "purchases": []
+    },
+    "7795371150": {
+      "user_id": 7795371150,
+      "first_name": "Kaveh",
+      "last_name": "",
+      "username": "kavehFBI",
+      "first_seen": 1792615198,
+      "last_seen": 1792615198,
       "purchases": []
     }
   },
