@@ -3260,6 +3260,12 @@
       "user_id": 130193444,
       "issued_at": 1792622715,
       "method": "crypto_unique"
+    },
+    "AZ3M-B862-B132-F803": {
+      "plan": "3M",
+      "user_id": 7921791238,
+      "issued_at": 1792625886,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -24550,9 +24556,10 @@
       "tron_amount": 3.67845,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_8fda4beeb7f64b45b612e60e5e0d88c7",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8fda4beeb7f64b45b612e60e5e0d88c7",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792625579
+      "created_at": 1792625579,
+      "cancelled_at": 1792625824
     },
     "TRND-3M-7921791238-1792625642-ac1b7e": {
       "order_id": "TRND-3M-7921791238-1792625642-ac1b7e",
@@ -24566,9 +24573,18 @@
       "tron_amount": 1.355096,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_27dcb7d4a7b54dbfbeec3b9803726c3c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=27dcb7d4a7b54dbfbeec3b9803726c3c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792625642
+      "created_at": 1792625642,
+      "approved_at": 1792625886,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-B862-B132-F803",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2954501",
+        "tron_amount": 1.355096,
+        "user_paid_toman": null,
+        "date": "2026-10-21T23:37:45.3830000"
+      }
     },
     "TRND-3M-59628862-1792625691-8d5a88": {
       "order_id": "TRND-3M-59628862-1792625691-8d5a88",
@@ -44139,7 +44155,15 @@
       "username": "igilia00",
       "first_seen": 1792625558,
       "last_seen": 1792625558,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-B862-B132-F803",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792625886,
+          "days": 90
+        }
+      ]
     },
     "59628862": {
       "user_id": 59628862,
