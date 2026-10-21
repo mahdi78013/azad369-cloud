@@ -3170,6 +3170,12 @@
       "user_id": 8031012812,
       "issued_at": 1792615258,
       "method": "crypto_unique"
+    },
+    "AZ3M-7514-124B-790B": {
+      "plan": "3M",
+      "user_id": 1202015241,
+      "issued_at": 1792615588,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -23550,9 +23556,18 @@
       "tron_amount": 1.345691,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_29527d97878249f7807f2700185e2645",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=29527d97878249f7807f2700185e2645",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792614989
+      "created_at": 1792614989,
+      "approved_at": 1792615588,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-7514-124B-790B",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2953432",
+        "tron_amount": 1.345691,
+        "user_paid_toman": null,
+        "date": "2026-10-21T20:45:45.0570000"
+      }
     },
     "TRND-3M-8031012812-1792615143-13f3c6": {
       "order_id": "TRND-3M-8031012812-1792615143-13f3c6",
@@ -38483,8 +38498,16 @@
       "last_name": "Mitötön",
       "username": "Cs_arco",
       "first_seen": 1792359216,
-      "last_seen": 1792614941,
-      "purchases": []
+      "last_seen": 1792615588,
+      "purchases": [
+        {
+          "key": "AZ3M-7514-124B-790B",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792615588,
+          "days": 90
+        }
+      ]
     },
     "531357012": {
       "user_id": 531357012,
