@@ -3104,6 +3104,12 @@
       "user_id": 112706892,
       "issued_at": 1792601986,
       "method": "crypto_unique"
+    },
+    "AZ3M-40A0-97EF-7AAB": {
+      "plan": "3M",
+      "user_id": 1685323184,
+      "issued_at": 1792603177,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -22991,9 +22997,34 @@
       "tron_amount": 1.345739,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c478bcc956e3413cabb5469ea38c70bf",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c478bcc956e3413cabb5469ea38c70bf",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1792602835,
+      "approved_at": 1792603177,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-40A0-97EF-7AAB",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2950608",
+        "tron_amount": 1.345739,
+        "user_paid_toman": null,
+        "date": "2026-10-21T17:19:15.1430000"
+      }
+    },
+    "TRND-3M-42598036-1792603126-e7319c": {
+      "order_id": "TRND-3M-42598036-1792603126-e7319c",
+      "token": "fcfc1572671a4078a6a78e22e6f61617",
+      "user_id": 42598036,
+      "first_name": "\"REZ\"",
+      "username": "reza_eskandari",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.336718,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_fcfc1572671a4078a6a78e22e6f61617",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=fcfc1572671a4078a6a78e22e6f61617",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792602835
+      "created_at": 1792603126
     }
   },
   "users": {
@@ -42019,6 +42050,23 @@
       "username": "",
       "first_seen": 1792602813,
       "last_seen": 1792602813,
+      "purchases": [
+        {
+          "key": "AZ3M-40A0-97EF-7AAB",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792603177,
+          "days": 90
+        }
+      ]
+    },
+    "42598036": {
+      "user_id": 42598036,
+      "first_name": "\"REZ\"",
+      "last_name": "",
+      "username": "reza_eskandari",
+      "first_seen": 1792603112,
+      "last_seen": 1792603112,
       "purchases": []
     }
   },
