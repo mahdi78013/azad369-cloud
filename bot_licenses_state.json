@@ -3014,6 +3014,12 @@
       "user_id": 84903852,
       "issued_at": 1792591580,
       "method": "crypto_unique"
+    },
+    "AZ3M-0F85-EB32-EF5C": {
+      "plan": "3M",
+      "user_id": 750402471,
+      "issued_at": 1792592166,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -22281,9 +22287,18 @@
       "tron_amount": 1.360909,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b9d3abac1a184bf492fec3331af58044",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b9d3abac1a184bf492fec3331af58044",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792592008
+      "created_at": 1792592008,
+      "approved_at": 1792592166,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-0F85-EB32-EF5C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2948560",
+        "tron_amount": 1.360909,
+        "user_paid_toman": null,
+        "date": "2026-10-21T14:15:38.4070000"
+      }
     },
     "TRND-3M-93337916-1792592059-376ea4": {
       "order_id": "TRND-3M-93337916-1792592059-376ea4",
@@ -41025,7 +41040,15 @@
       "username": "AyoubGanji",
       "first_seen": 1792591672,
       "last_seen": 1792592007,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-0F85-EB32-EF5C",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792592166,
+          "days": 90
+        }
+      ]
     }
   },
   "user_states": {
