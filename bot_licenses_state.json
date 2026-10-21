@@ -3146,6 +3146,12 @@
       "user_id": 5408871077,
       "issued_at": 1792609956,
       "method": "crypto_unique"
+    },
+    "AZ3M-BF9D-9D21-F901": {
+      "plan": "3M",
+      "user_id": 7008648713,
+      "issued_at": 1792610518,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -23320,9 +23326,18 @@
       "tron_amount": 1.340097,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1de9c1d171e243c6b3b78451320999b4",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1de9c1d171e243c6b3b78451320999b4",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792610234
+      "created_at": 1792610234,
+      "approved_at": 1792610518,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-BF9D-9D21-F901",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2952285",
+        "tron_amount": 1.340097,
+        "user_paid_toman": null,
+        "date": "2026-10-21T19:21:56.0430000"
+      }
     }
   },
   "users": {
@@ -36978,7 +36993,15 @@
       "username": "erfanhaghani",
       "first_seen": 1792336243,
       "last_seen": 1792610233,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-BF9D-9D21-F901",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792610518,
+          "days": 90
+        }
+      ]
     },
     "279212678": {
       "user_id": 279212678,
