@@ -2888,6 +2888,12 @@
       "user_id": 1398987412,
       "issued_at": 1792571159,
       "method": "crypto_unique"
+    },
+    "AZ3M-822A-1C28-663A": {
+      "plan": "3M",
+      "user_id": 53824959,
+      "issued_at": 1792571261,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -21142,9 +21148,34 @@
       "tron_amount": 1.364648,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_37da660a8f234b069069c32f9ba4e77e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=37da660a8f234b069069c32f9ba4e77e",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1792571118,
+      "approved_at": 1792571261,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-822A-1C28-663A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2945559",
+        "tron_amount": 1.364648,
+        "user_paid_toman": null,
+        "date": "2026-10-21T08:27:21.2430000"
+      }
+    },
+    "TRND-3M-63898975-1792571256-902ec1": {
+      "order_id": "TRND-3M-63898975-1792571256-902ec1",
+      "token": "ab58a6b1765941ecad024ec85e32a686",
+      "user_id": 63898975,
+      "first_name": "Milad",
+      "username": "MiladWhiteOWL",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.359492,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_ab58a6b1765941ecad024ec85e32a686",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ab58a6b1765941ecad024ec85e32a686",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792571118
+      "created_at": 1792571256
     }
   },
   "users": {
@@ -34209,7 +34240,15 @@
       "username": "fshokam",
       "first_seen": 1792306168,
       "last_seen": 1792571118,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-822A-1C28-663A",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792571261,
+          "days": 90
+        }
+      ]
     },
     "6978549415": {
       "user_id": 6978549415,
@@ -39280,7 +39319,7 @@
       "last_name": "WhiteOWL",
       "username": "MiladWhiteOWL",
       "first_seen": 1792561438,
-      "last_seen": 1792561438,
+      "last_seen": 1792571256,
       "purchases": []
     },
     "95053191": {
