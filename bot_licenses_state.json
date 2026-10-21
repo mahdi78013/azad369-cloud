@@ -2804,6 +2804,18 @@
       "user_id": 79269346,
       "issued_at": 1792566043,
       "method": "crypto_unique"
+    },
+    "AZ1Y-4AFE-E72C-A57D": {
+      "plan": "1Y",
+      "user_id": 433509036,
+      "issued_at": 1792566044,
+      "method": "crypto_unique"
+    },
+    "AZ1Y-0928-64BB-7523": {
+      "plan": "1Y",
+      "user_id": 179532523,
+      "issued_at": 1792566047,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -20336,9 +20348,18 @@
       "tron_amount": 3.724654,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4a52691509ae4634953b8fd3f4a61c30",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4a52691509ae4634953b8fd3f4a61c30",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792565773
+      "created_at": 1792565773,
+      "approved_at": 1792566044,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-4AFE-E72C-A57D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2944930",
+        "tron_amount": 3.724654,
+        "user_paid_toman": null,
+        "date": "2026-10-21T07:00:21.4430000"
+      }
     },
     "TRND-3M-673479086-1792565780-eef84b": {
       "order_id": "TRND-3M-673479086-1792565780-eef84b",
@@ -20400,9 +20421,18 @@
       "tron_amount": 3.744903,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_0e536b04619e42ec974cb37c01d0f075",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0e536b04619e42ec974cb37c01d0f075",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792565935
+      "created_at": 1792565935,
+      "approved_at": 1792566047,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-0928-64BB-7523",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2944952",
+        "tron_amount": 3.744903,
+        "user_paid_toman": null,
+        "date": "2026-10-21T07:00:31.0100000"
+      }
     },
     "TRND-1Y-683934411-1792565967-12b815": {
       "order_id": "TRND-1Y-683934411-1792565967-12b815",
@@ -26366,7 +26396,15 @@
       "username": "sadeghtavakoli",
       "first_seen": 1792127414,
       "last_seen": 1792565773,
-      "purchases": [],
+      "purchases": [
+        {
+          "key": "AZ1Y-4AFE-E72C-A57D",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792566044,
+          "days": 365
+        }
+      ],
       "last_admin_reply": {
         "text": "وقت بخیر ربات در حال اپدیت. هست \nواریز بفرمایید و رسید رو از طریق ارتباط با پشتیبانی ارسال کنید\n5892101706458979\nموجود:\n✅سه ماه = 145.000 تومان\n✅یک سال = 399.000 تومان",
         "time": 1792143001
@@ -38090,7 +38128,15 @@
       "username": "HoomanHGH66",
       "first_seen": 1792503411,
       "last_seen": 1792565934,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-0928-64BB-7523",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792566047,
+          "days": 365
+        }
+      ]
     },
     "108139938": {
       "user_id": 108139938,
