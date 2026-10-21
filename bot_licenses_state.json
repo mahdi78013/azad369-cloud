@@ -3212,6 +3212,12 @@
       "user_id": 1429364959,
       "issued_at": 1792618555,
       "method": "crypto_unique"
+    },
+    "AZ3M-80F1-0F12-346B": {
+      "plan": "3M",
+      "user_id": 288208876,
+      "issued_at": 1792620755,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -23999,12 +24005,15 @@
       "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
       "plan_code": "3M",
       "price": "۱۴۹,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAK2kmrZN5ZwM_LBibSZO9xWvEFl9ZU6AAIYEmsbFpbJUk9_ctdrdr08AQADAgADeQADPQQ",
       "card_number": "5047061670546072",
       "created_at": 1792620443,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1792620755,
+      "approved_by": 748538264,
+      "key": "AZ3M-80F1-0F12-346B"
     },
     "TRND-3M-1693956008-1792620506-608bb6": {
       "order_id": "TRND-3M-1693956008-1792620506-608bb6",
@@ -24053,6 +24062,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792620564
+    },
+    "TRND-3M-1693956008-1792620653-8afd0a": {
+      "order_id": "TRND-3M-1693956008-1792620653-8afd0a",
+      "token": "3cd2b9854fe24137a09ff0edc3f0d126",
+      "user_id": 1693956008,
+      "first_name": "𝗔𝗠𝗜𝗥",
+      "username": "amirupsset",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.355448,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_3cd2b9854fe24137a09ff0edc3f0d126",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3cd2b9854fe24137a09ff0edc3f0d126",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792620653
     }
   },
   "users": {
@@ -24524,7 +24549,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "F_l_k_j780",
-      "last_seen": 1792614416,
+      "last_seen": 1792620755,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -41941,7 +41966,15 @@
       "username": "AliAsoode",
       "first_seen": 1792502828,
       "last_seen": 1792620404,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-80F1-0F12-346B",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792620755,
+          "days": 90
+        }
+      ]
     },
     "179532523": {
       "user_id": 179532523,
@@ -43461,7 +43494,7 @@
       "last_name": "",
       "username": "amirupsset",
       "first_seen": 1792619964,
-      "last_seen": 1792620274,
+      "last_seen": 1792620652,
       "purchases": []
     },
     "293992606": {
