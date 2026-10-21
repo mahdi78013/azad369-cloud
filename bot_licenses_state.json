@@ -2960,6 +2960,12 @@
       "user_id": 67882302,
       "issued_at": 1792580700,
       "method": "crypto_unique"
+    },
+    "AZ1Y-099C-1E14-753E": {
+      "plan": "1Y",
+      "user_id": 110176734,
+      "issued_at": 1792582406,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -21812,9 +21818,18 @@
       "tron_amount": 3.722291,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d278a50a8aac4eafa473d104dc9e091e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d278a50a8aac4eafa473d104dc9e091e",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792581856
+      "created_at": 1792581856,
+      "approved_at": 1792582406,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-099C-1E14-753E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2947179",
+        "tron_amount": 3.722291,
+        "user_paid_toman": null,
+        "date": "2026-10-21T11:33:07.2870000"
+      }
     },
     "TRND-3M-342052874-1792582196-21c0ec": {
       "order_id": "TRND-3M-342052874-1792582196-21c0ec",
@@ -21831,6 +21846,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792582196
+    },
+    "TRND-3M-7276470060-1792582296-97a965": {
+      "order_id": "TRND-3M-7276470060-1792582296-97a965",
+      "token": "da4fe682dc7544439543840498f62c59",
+      "user_id": 7276470060,
+      "first_name": "Mm",
+      "username": "Iceman1365",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.36448,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_da4fe682dc7544439543840498f62c59",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=da4fe682dc7544439543840498f62c59",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792582296
     }
   },
   "users": {
@@ -39881,7 +39912,15 @@
       "username": "foad_93",
       "first_seen": 1792537586,
       "last_seen": 1792581848,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-099C-1E14-753E",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792582406,
+          "days": 365
+        }
+      ]
     },
     "583719562": {
       "user_id": 583719562,
@@ -40367,6 +40406,15 @@
       "username": "Not3YedAbolfazl",
       "first_seen": 1792581623,
       "last_seen": 1792581623,
+      "purchases": []
+    },
+    "5039369656": {
+      "user_id": 5039369656,
+      "first_name": "D A N I A L . M",
+      "last_name": "",
+      "username": "dni_mh",
+      "first_seen": 1792582329,
+      "last_seen": 1792582329,
       "purchases": []
     }
   },
