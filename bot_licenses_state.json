@@ -3032,6 +3032,12 @@
       "user_id": 7356734915,
       "issued_at": 1792595653,
       "method": "crypto_unique"
+    },
+    "AZ1Y-5437-6FB6-7AF2": {
+      "plan": "1Y",
+      "user_id": 1676963322,
+      "issued_at": 1792595950,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -22489,9 +22495,18 @@
       "tron_amount": 3.701219,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b10be59b205849cc81c825fd133221df",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b10be59b205849cc81c825fd133221df",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792595698
+      "created_at": 1792595698,
+      "approved_at": 1792595950,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-5437-6FB6-7AF2",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2949223",
+        "tron_amount": 3.701219,
+        "user_paid_toman": null,
+        "date": "2026-10-21T15:19:09.9270000"
+      }
     },
     "TRND-3M-7356734915-1792595762-9070e4": {
       "order_id": "TRND-3M-7356734915-1792595762-9070e4",
@@ -41359,7 +41374,15 @@
       "username": "mhzbab",
       "first_seen": 1792595684,
       "last_seen": 1792595684,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-5437-6FB6-7AF2",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792595950,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
