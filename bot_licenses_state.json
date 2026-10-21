@@ -3194,6 +3194,12 @@
       "user_id": 796335878,
       "issued_at": 1792617040,
       "method": "crypto_unique"
+    },
+    "AZ3M-CA71-AC71-EC05": {
+      "plan": "3M",
+      "user_id": 1244682287,
+      "issued_at": 1792617067,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -23738,9 +23744,18 @@
       "tron_amount": 1.360087,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_36ae3dab1b834fd38f88d84990aaa051",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=36ae3dab1b834fd38f88d84990aaa051",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792616864
+      "created_at": 1792616864,
+      "approved_at": 1792617067,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-CA71-AC71-EC05",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2953782",
+        "tron_amount": 1.360087,
+        "user_paid_toman": null,
+        "date": "2026-10-21T21:10:45.9470000"
+      }
     },
     "TRND-3M-796335878-1792616932-689242": {
       "order_id": "TRND-3M-796335878-1792616932-689242",
@@ -23766,6 +23781,22 @@
         "user_paid_toman": null,
         "date": "2026-10-21T21:10:21.6870000"
       }
+    },
+    "TRND-3M-6126804357-1792617054-89c503": {
+      "order_id": "TRND-3M-6126804357-1792617054-89c503",
+      "token": "15e35c75edc8494685147aff93b5afd2",
+      "user_id": 6126804357,
+      "first_name": "Amirali",
+      "username": "amirali_shaye",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.353431,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_15e35c75edc8494685147aff93b5afd2",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=15e35c75edc8494685147aff93b5afd2",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792617054
     }
   },
   "users": {
@@ -37435,7 +37466,7 @@
       "last_name": "",
       "username": "amirali_shaye",
       "first_seen": 1792334869,
-      "last_seen": 1792334869,
+      "last_seen": 1792617043,
       "purchases": []
     },
     "7008648713": {
@@ -42093,7 +42124,15 @@
       "username": "Mahdii_valizade",
       "first_seen": 1792561093,
       "last_seen": 1792616864,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-CA71-AC71-EC05",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792617067,
+          "days": 90
+        }
+      ]
     },
     "63898975": {
       "user_id": 63898975,
