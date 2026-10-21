@@ -2906,6 +2906,12 @@
       "user_id": 6643883124,
       "issued_at": 1792571502,
       "method": "crypto_unique"
+    },
+    "AZ3M-9C92-6363-D90C": {
+      "plan": "3M",
+      "user_id": 293199432,
+      "issued_at": 1792572290,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -21252,9 +21258,34 @@
       "tron_amount": 1.378572,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a6b39a7843e24963a09abde6ff7f4323",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a6b39a7843e24963a09abde6ff7f4323",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1792572106,
+      "approved_at": 1792572290,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-9C92-6363-D90C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2945661",
+        "tron_amount": 1.378572,
+        "user_paid_toman": null,
+        "date": "2026-10-21T08:44:46.3730000"
+      }
+    },
+    "TRND-3M-460046037-1792572269-46cec1": {
+      "order_id": "TRND-3M-460046037-1792572269-46cec1",
+      "token": "8936f5ab291d4b9085f65c0b54e31834",
+      "user_id": 460046037,
+      "first_name": "HaMeD",
+      "username": "Wolfric0",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.363998,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_8936f5ab291d4b9085f65c0b54e31834",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8936f5ab291d4b9085f65c0b54e31834",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792572106
+      "created_at": 1792572269
     }
   },
   "users": {
@@ -39575,7 +39606,15 @@
       "username": "m_ali_gholamalian",
       "first_seen": 1792572072,
       "last_seen": 1792572072,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-9C92-6363-D90C",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792572290,
+          "days": 90
+        }
+      ]
     },
     "8098120003": {
       "user_id": 8098120003,
@@ -40090,10 +40129,6 @@
     "5444789546": {
       "state": "waiting_support_msg",
       "time": 1792569006
-    },
-    "8098120003": {
-      "state": "waiting_support_msg",
-      "time": 1792572142
     }
   },
   "admin_states": {},
