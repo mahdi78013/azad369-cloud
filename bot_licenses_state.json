@@ -3434,6 +3434,12 @@
       "user_id": 276481280,
       "issued_at": 1792686466,
       "method": "crypto_unique"
+    },
+    "AZ3M-F0E2-9157-4F2A": {
+      "plan": "3M",
+      "user_id": 1223490799,
+      "issued_at": 1792686822,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -26126,9 +26132,18 @@
       "tron_amount": 1.346263,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a20c312f2c37441195f2240232bbd36e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a20c312f2c37441195f2240232bbd36e",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792686241
+      "created_at": 1792686241,
+      "approved_at": 1792686822,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-F0E2-9157-4F2A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2960671",
+        "tron_amount": 1.346263,
+        "user_paid_toman": null,
+        "date": "2026-10-22T16:33:19.9970000"
+      }
     },
     "TRND-3M-7964502030-1792686247-e4fc5e": {
       "order_id": "TRND-3M-7964502030-1792686247-e4fc5e",
@@ -37442,7 +37457,15 @@
       "username": "Darker_Jook",
       "first_seen": 1792225345,
       "last_seen": 1792686232,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-F0E2-9157-4F2A",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792686822,
+          "days": 90
+        }
+      ]
     },
     "7081034383": {
       "user_id": 7081034383,
