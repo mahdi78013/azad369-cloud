@@ -3428,6 +3428,12 @@
       "user_id": 1151488435,
       "issued_at": 1792686372,
       "method": "crypto_unique"
+    },
+    "AZ3M-DF9D-7AFC-69F9": {
+      "plan": "3M",
+      "user_id": 276481280,
+      "issued_at": 1792686466,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -26177,9 +26183,18 @@
       "tron_amount": 1.335258,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_405d83c837b04c9fa90bed887db13475",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=405d83c837b04c9fa90bed887db13475",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792686272
+      "created_at": 1792686272,
+      "approved_at": 1792686466,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-DF9D-7AFC-69F9",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2960680",
+        "tron_amount": 1.335258,
+        "user_paid_toman": null,
+        "date": "2026-10-22T16:27:39.0130000"
+      }
     }
   },
   "users": {
@@ -27310,7 +27325,15 @@
         "text": "وقت بخیر ربات در حال اپدیت. هست \nواریز بفرمایید و رسید رو از طریق ارتباط با پشتیبانی ارسال کنید \n\n5892101706458979\n\nسه ماه = 149.000 تومان\nیک سال = 399.000 تومان",
         "time": 1792054879
       },
-      "purchases": [],
+      "purchases": [
+        {
+          "key": "AZ3M-DF9D-7AFC-69F9",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792686466,
+          "days": 90
+        }
+      ],
       "user_id": 276481280,
       "first_name": "Saber Mohammadi",
       "username": "Saberkhan70",
