@@ -3488,6 +3488,12 @@
       "user_id": 364768360,
       "issued_at": 1792690825,
       "method": "crypto_unique"
+    },
+    "AZ3M-80DD-2CA7-D767": {
+      "plan": "3M",
+      "user_id": 7603840823,
+      "issued_at": 1792690984,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -26621,9 +26627,34 @@
       "tron_amount": 1.361423,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b6c0a3d23b8c4a6084ef678bb2406c4a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b6c0a3d23b8c4a6084ef678bb2406c4a",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1792690831,
+      "approved_at": 1792690984,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-80DD-2CA7-D767",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2961532",
+        "tron_amount": 1.361423,
+        "user_paid_toman": null,
+        "date": "2026-10-22T17:42:48.0600000"
+      }
+    },
+    "TRND-1Y-96212424-1792690957-935f3b": {
+      "order_id": "TRND-1Y-96212424-1792690957-935f3b",
+      "token": "96276d4134df41569df4d79a7c1d627f",
+      "user_id": 96212424,
+      "first_name": "Amir Hossain",
+      "username": "amir_hossain_rabiei",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.663195,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_96276d4134df41569df4d79a7c1d627f",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=96276d4134df41569df4d79a7c1d627f",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792690831
+      "created_at": 1792690957
     }
   },
   "users": {
@@ -38466,7 +38497,15 @@
       "username": "Alimolai21",
       "first_seen": 1792237733,
       "last_seen": 1792690831,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-80DD-2CA7-D767",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792690984,
+          "days": 90
+        }
+      ]
     },
     "133317937": {
       "user_id": 133317937,
@@ -46638,7 +46677,7 @@
       "last_name": "Rabiei",
       "username": "amir_hossain_rabiei",
       "first_seen": 1792656610,
-      "last_seen": 1792656610,
+      "last_seen": 1792690957,
       "purchases": []
     },
     "920622813": {
