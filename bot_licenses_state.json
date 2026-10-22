@@ -3416,6 +3416,12 @@
       "user_id": 440534465,
       "issued_at": 1792685720,
       "method": "crypto_unique"
+    },
+    "AZ3M-DAA4-9218-469E": {
+      "plan": "3M",
+      "user_id": 6782365309,
+      "issued_at": 1792686084,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -25853,9 +25859,10 @@
       "tron_amount": 1.337651,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5b26be1fe22a40119174c5ae9e45c413",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5b26be1fe22a40119174c5ae9e45c413",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792684659
+      "created_at": 1792684659,
+      "cancelled_at": 1792685908
     },
     "TRND-3M-61630588-1792684969-968cf0": {
       "order_id": "TRND-3M-61630588-1792684969-968cf0",
@@ -26000,9 +26007,10 @@
       "tron_amount": 3.668025,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_7005b156527c495b97cd8151a1b83319",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7005b156527c495b97cd8151a1b83319",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792685849
+      "created_at": 1792685849,
+      "cancelled_at": 1792685968
     },
     "TRND-3M-211864338-1792685887-0eb79d": {
       "order_id": "TRND-3M-211864338-1792685887-0eb79d",
@@ -26035,6 +26043,31 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792685904
+    },
+    "TRND-3M-6782365309-1792685942-6e1c37": {
+      "order_id": "TRND-3M-6782365309-1792685942-6e1c37",
+      "token": "2272bca85dc243619341878178290333",
+      "user_id": 6782365309,
+      "first_name": "Sky Ghost",
+      "username": "Skyghost7424",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.323152,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_2272bca85dc243619341878178290333",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2272bca85dc243619341878178290333",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1792685942,
+      "approved_at": 1792686084,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-DAA4-9218-469E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2960618",
+        "tron_amount": 1.323152,
+        "user_paid_toman": null,
+        "date": "2026-10-22T16:20:37.0200000"
+      }
     }
   },
   "users": {
@@ -46259,8 +46292,16 @@
       "last_name": "",
       "username": "Skyghost7424",
       "first_seen": 1792685717,
-      "last_seen": 1792685717,
-      "purchases": []
+      "last_seen": 1792686032,
+      "purchases": [
+        {
+          "key": "AZ3M-DAA4-9218-469E",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792686084,
+          "days": 90
+        }
+      ]
     },
     "707418316": {
       "user_id": 707418316,
