@@ -3524,6 +3524,12 @@
       "user_id": 7195984007,
       "issued_at": 1792695166,
       "method": "crypto_unique"
+    },
+    "AZ3M-AFC8-801F-13FC": {
+      "plan": "3M",
+      "user_id": 8034781803,
+      "issued_at": 1792695354,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -26909,9 +26915,18 @@
       "tron_amount": 1.351396,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_31b5ada24b3e4603aa71c91fa70317cc",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=31b5ada24b3e4603aa71c91fa70317cc",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792694820
+      "created_at": 1792694820,
+      "approved_at": 1792695354,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-AFC8-801F-13FC",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2962586",
+        "tron_amount": 1.351396,
+        "user_paid_toman": null,
+        "date": "2026-10-22T18:55:24.6100000"
+      }
     },
     "TRND-3M-6466917280-1792694978-890999": {
       "order_id": "TRND-3M-6466917280-1792694978-890999",
@@ -26928,6 +26943,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792694978
+    },
+    "TRND-3M-8034781803-1792695257-17b1d6": {
+      "order_id": "TRND-3M-8034781803-1792695257-17b1d6",
+      "token": "26531863a3f9459aa1936e355ed53650",
+      "user_id": 8034781803,
+      "first_name": "Shervin",
+      "username": "Shervin199473",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.334784,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_26531863a3f9459aa1936e355ed53650",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=26531863a3f9459aa1936e355ed53650",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792695257
     }
   },
   "users": {
@@ -47487,8 +47518,16 @@
       "last_name": "",
       "username": "Shervin199473",
       "first_seen": 1792694798,
-      "last_seen": 1792694798,
-      "purchases": []
+      "last_seen": 1792695256,
+      "purchases": [
+        {
+          "key": "AZ3M-AFC8-801F-13FC",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792695354,
+          "days": 90
+        }
+      ]
     },
     "2090817202": {
       "user_id": 2090817202,
