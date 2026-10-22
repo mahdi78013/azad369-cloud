@@ -3350,6 +3350,12 @@
       "user_id": 1045267849,
       "issued_at": 1792675817,
       "method": "crypto_unique"
+    },
+    "AZ3M-4C52-3B9F-006D": {
+      "plan": "3M",
+      "user_id": 1324397787,
+      "issued_at": 1792675818,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -25292,9 +25298,18 @@
       "tron_amount": 1.33748,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c530dc0fadbc4cd597feb97bf01eb46b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c530dc0fadbc4cd597feb97bf01eb46b",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792660084
+      "created_at": 1792660084,
+      "approved_at": 1792675818,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-4C52-3B9F-006D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2956682",
+        "tron_amount": 1.33748,
+        "user_paid_toman": null,
+        "date": "2026-10-22T09:12:56.5270000"
+      }
     }
   },
   "users": {
@@ -27131,7 +27146,15 @@
       "username": "shantiyaRP",
       "first_seen": 1792058275,
       "last_seen": 1792660083,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-4C52-3B9F-006D",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792675818,
+          "days": 90
+        }
+      ]
     },
     "885112385": {
       "user_id": 885112385,
@@ -28930,7 +28953,7 @@
       "last_name": "صادقی برزانی",
       "username": "pooriayj",
       "first_seen": 1792067006,
-      "last_seen": 1792419954,
+      "last_seen": 1792675919,
       "purchases": [],
       "last_admin_reply": {
         "text": "AZ3M-2037-AE28-3116",
@@ -45258,6 +45281,15 @@
           "days": 90
         }
       ]
+    },
+    "5765571737": {
+      "user_id": 5765571737,
+      "first_name": "?",
+      "last_name": "",
+      "username": "MRT3TG",
+      "first_seen": 1792675817,
+      "last_seen": 1792675817,
+      "purchases": []
     }
   },
   "user_states": {
