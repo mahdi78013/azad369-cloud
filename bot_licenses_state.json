@@ -3392,6 +3392,12 @@
       "user_id": 8090155640,
       "issued_at": 1792682601,
       "method": "crypto_unique"
+    },
+    "AZ3M-318A-E8C4-DE91": {
+      "plan": "3M",
+      "user_id": 316997433,
+      "issued_at": 1792683567,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -25649,9 +25655,18 @@
       "tron_amount": 1.32687,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ae04bf9866ff4e9db04069273584ee69",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ae04bf9866ff4e9db04069273584ee69",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792683411
+      "created_at": 1792683411,
+      "approved_at": 1792683567,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-318A-E8C4-DE91",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2960200",
+        "tron_amount": 1.32687,
+        "user_paid_toman": null,
+        "date": "2026-10-22T15:38:57.9230000"
+      }
     }
   },
   "users": {
@@ -45805,7 +45820,15 @@
       "username": "itproman",
       "first_seen": 1792683371,
       "last_seen": 1792683371,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-318A-E8C4-DE91",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792683567,
+          "days": 90
+        }
+      ]
     }
   },
   "user_states": {
