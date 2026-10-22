@@ -3380,6 +3380,12 @@
       "user_id": 82092713,
       "issued_at": 1792681776,
       "method": "crypto_unique"
+    },
+    "AZ3M-70CD-AAF7-686E": {
+      "plan": "3M",
+      "user_id": 73957859,
+      "issued_at": 1792681829,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -22829,9 +22835,10 @@
       "tron_amount": 1.36034,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_dabd1d991be4460b8bf2a8b4ae1fae24",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=dabd1d991be4460b8bf2a8b4ae1fae24",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792595356
+      "created_at": 1792595356,
+      "cancelled_at": 1792681803
     },
     "TRND-3M-7356734915-1792595486-34c80a": {
       "order_id": "TRND-3M-7356734915-1792595486-34c80a",
@@ -25509,9 +25516,18 @@
       "tron_amount": 1.319657,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d5043937cab046109217a0ec3d476b7d",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d5043937cab046109217a0ec3d476b7d",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792681332
+      "created_at": 1792681332,
+      "approved_at": 1792681829,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-70CD-AAF7-686E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2959848",
+        "tron_amount": 1.319657,
+        "user_paid_toman": null,
+        "date": "2026-10-22T15:10:13.9630000"
+      }
     },
     "TRND-3M-82092713-1792681418-f77b57": {
       "order_id": "TRND-3M-82092713-1792681418-f77b57",
@@ -45654,7 +45670,15 @@
       "username": "masoudlashkari1369",
       "first_seen": 1792681293,
       "last_seen": 1792681293,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-70CD-AAF7-686E",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792681829,
+          "days": 90
+        }
+      ]
     }
   },
   "user_states": {
