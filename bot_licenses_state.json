@@ -3332,6 +3332,12 @@
       "user_id": 195187101,
       "issued_at": 1792657758,
       "method": "crypto_unique"
+    },
+    "AZ1Y-132F-076D-7250": {
+      "plan": "1Y",
+      "user_id": 1364943244,
+      "issued_at": 1792659147,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -25184,9 +25190,18 @@
       "tron_amount": 3.662596,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_adddd70f3a0c49a78ee22564ede8db57",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=adddd70f3a0c49a78ee22564ede8db57",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792659027
+      "created_at": 1792659027,
+      "approved_at": 1792659147,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-132F-076D-7250",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2956534",
+        "tron_amount": 3.662596,
+        "user_paid_toman": null,
+        "date": "2026-10-22T08:52:06.6270000"
+      }
     }
   },
   "users": {
@@ -36497,8 +36512,16 @@
       "last_name": "",
       "username": "aramisnet1",
       "first_seen": 1792228396,
-      "last_seen": 1792658748,
-      "purchases": []
+      "last_seen": 1792659146,
+      "purchases": [
+        {
+          "key": "AZ1Y-132F-076D-7250",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792659147,
+          "days": 365
+        }
+      ]
     },
     "96850608": {
       "user_id": 96850608,
