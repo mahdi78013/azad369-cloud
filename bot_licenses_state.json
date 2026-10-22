@@ -3602,6 +3602,12 @@
       "user_id": 598349157,
       "issued_at": 1792701725,
       "method": "crypto_unique"
+    },
+    "AZ3M-75AD-D609-9FE3": {
+      "plan": "3M",
+      "user_id": 5405560144,
+      "issued_at": 1792702580,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -27450,9 +27456,18 @@
       "tron_amount": 1.341303,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3b436f3376d34d50b49e9b41b4a07b3f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3b436f3376d34d50b49e9b41b4a07b3f",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792701854
+      "created_at": 1792701854,
+      "approved_at": 1792702580,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-75AD-D609-9FE3",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2963971",
+        "tron_amount": 1.341303,
+        "user_paid_toman": null,
+        "date": "2026-10-22T20:55:39.4470000"
+      }
     },
     "TRND-3M-112767640-1792702398-d25d5f": {
       "order_id": "TRND-3M-112767640-1792702398-d25d5f",
@@ -27469,6 +27484,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792702398
+    },
+    "TRND-3M-139567149-1792702540-d54079": {
+      "order_id": "TRND-3M-139567149-1792702540-d54079",
+      "token": "5f81eabee4e748879b2952288c32fb6a",
+      "user_id": 139567149,
+      "first_name": "Mil",
+      "username": "Inspiron1520",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.333398,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_5f81eabee4e748879b2952288c32fb6a",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5f81eabee4e748879b2952288c32fb6a",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792702540
     }
   },
   "users": {
@@ -31289,7 +31320,7 @@
       "last_name": "Sab",
       "username": "Inspiron1520",
       "first_seen": 1792068298,
-      "last_seen": 1792175590,
+      "last_seen": 1792702539,
       "purchases": []
     },
     "86927881": {
@@ -48258,7 +48289,7 @@
       "last_name": "",
       "username": "persian_gate",
       "first_seen": 1792701454,
-      "last_seen": 1792701454,
+      "last_seen": 1792702515,
       "purchases": [
         {
           "key": "AZ1Y-6EB5-36F8-DED2",
@@ -48276,7 +48307,15 @@
       "username": "tekiro_muchu",
       "first_seen": 1792701829,
       "last_seen": 1792702331,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-75AD-D609-9FE3",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792702580,
+          "days": 90
+        }
+      ]
     }
   },
   "user_states": {
