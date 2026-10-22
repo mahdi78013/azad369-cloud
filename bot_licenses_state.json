@@ -3596,6 +3596,12 @@
       "user_id": 1684375048,
       "issued_at": 1792701476,
       "method": "crypto_unique"
+    },
+    "AZ1Y-6EB5-36F8-DED2": {
+      "plan": "1Y",
+      "user_id": 598349157,
+      "issued_at": 1792701725,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -27419,9 +27425,18 @@
       "tron_amount": 3.683791,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_50625c3c64924a33b0050416fb258f16",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=50625c3c64924a33b0050416fb258f16",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792701476
+      "created_at": 1792701476,
+      "approved_at": 1792701725,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-6EB5-36F8-DED2",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2963920",
+        "tron_amount": 3.683791,
+        "user_paid_toman": null,
+        "date": "2026-10-22T20:41:20.8170000"
+      }
     }
   },
   "users": {
@@ -48212,7 +48227,15 @@
       "username": "persian_gate",
       "first_seen": 1792701454,
       "last_seen": 1792701454,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-6EB5-36F8-DED2",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792701725,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
