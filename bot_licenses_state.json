@@ -3494,6 +3494,12 @@
       "user_id": 7603840823,
       "issued_at": 1792690984,
       "method": "crypto_unique"
+    },
+    "AZ1Y-E554-5BF5-95DB": {
+      "plan": "1Y",
+      "user_id": 96212424,
+      "issued_at": 1792692069,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -26687,9 +26693,18 @@
       "tron_amount": 3.684255,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b7ce1eb451bb4ed0b149a1f7a8bcf7de",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b7ce1eb451bb4ed0b149a1f7a8bcf7de",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792691171
+      "created_at": 1792691171,
+      "approved_at": 1792692069,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-E554-5BF5-95DB",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2961618",
+        "tron_amount": 3.684255,
+        "user_paid_toman": null,
+        "date": "2026-10-22T18:00:29.7870000"
+      }
     }
   },
   "users": {
@@ -46713,7 +46728,15 @@
       "username": "amir_hossain_rabiei",
       "first_seen": 1792656610,
       "last_seen": 1792690957,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-E554-5BF5-95DB",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792692069,
+          "days": 365
+        }
+      ]
     },
     "920622813": {
       "user_id": 920622813,
