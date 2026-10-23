@@ -3830,6 +3830,12 @@
       "user_id": 6312020373,
       "issued_at": 1792768152,
       "method": "crypto_unique"
+    },
+    "AZ3M-C54C-17CF-05DF": {
+      "plan": "3M",
+      "user_id": 74803138,
+      "issued_at": 1792770960,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -29478,9 +29484,18 @@
       "tron_amount": 1.347899,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_02cb9dbbb8f44934bfc14b9624cad8ce",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=02cb9dbbb8f44934bfc14b9624cad8ce",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792770683
+      "created_at": 1792770683,
+      "approved_at": 1792770960,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-C54C-17CF-05DF",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2970468",
+        "tron_amount": 1.347899,
+        "user_paid_toman": null,
+        "date": "2026-10-23T15:55:42.3930000"
+      }
     },
     "TRND-3M-135651735-1792770699-1e4ac8": {
       "order_id": "TRND-3M-135651735-1792770699-1e4ac8",
@@ -29497,6 +29512,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792770699
+    },
+    "TRND-3M-5107194719-1792771089-a6e7ee": {
+      "order_id": "TRND-3M-5107194719-1792771089-a6e7ee",
+      "token": "8fe5c0a3dfb645baa991f02ed30451e9",
+      "user_id": 5107194719,
+      "first_name": "هماهنگی تبلیغات برنده چهار صبح",
+      "username": "fouramwinner_ad",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.331935,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_8fe5c0a3dfb645baa991f02ed30451e9",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8fe5c0a3dfb645baa991f02ed30451e9",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792771089
     }
   },
   "users": {
@@ -29968,7 +29999,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "F_l_k_j780",
-      "last_seen": 1792703232,
+      "last_seen": 1792770973,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -40749,7 +40780,7 @@
       "last_name": "",
       "username": "fouramwinner_ad",
       "first_seen": 1792222682,
-      "last_seen": 1792222682,
+      "last_seen": 1792771075,
       "purchases": []
     },
     "127656942": {
@@ -51120,7 +51151,7 @@
       "last_name": ":|",
       "username": "Raminowskiy",
       "first_seen": 1792758932,
-      "last_seen": 1792758932,
+      "last_seen": 1792771121,
       "purchases": [
         {
           "key": "AZ3M-8D52-ABA4-E6FA",
@@ -51376,7 +51407,15 @@
       "username": "MeliPhoenix",
       "first_seen": 1792770676,
       "last_seen": 1792770676,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-C54C-17CF-05DF",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792770960,
+          "days": 90
+        }
+      ]
     },
     "7743312612": {
       "user_id": 7743312612,
