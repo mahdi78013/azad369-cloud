@@ -3680,6 +3680,12 @@
       "user_id": 1933378252,
       "issued_at": 1792738021,
       "method": "crypto_unique"
+    },
+    "AZ1Y-42CB-E459-E8F7": {
+      "plan": "1Y",
+      "user_id": 25039484,
+      "issued_at": 1792739181,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -28112,9 +28118,18 @@
       "tron_amount": 3.674892,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9cc61a3ecac4469dbd486463717969f6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9cc61a3ecac4469dbd486463717969f6",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792738986
+      "created_at": 1792738986,
+      "approved_at": 1792739181,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-42CB-E459-E8F7",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2965915",
+        "tron_amount": 3.674892,
+        "user_paid_toman": null,
+        "date": "2026-10-23T07:06:19.0470000"
+      }
     }
   },
   "users": {
@@ -49264,7 +49279,15 @@
       "username": "Hadi_KordMoghaddam",
       "first_seen": 1792738906,
       "last_seen": 1792738906,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-42CB-E459-E8F7",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792739181,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
