@@ -3686,6 +3686,12 @@
       "user_id": 25039484,
       "issued_at": 1792739181,
       "method": "crypto_unique"
+    },
+    "AZ3M-8957-96BE-AD4B": {
+      "plan": "3M",
+      "user_id": 8652203574,
+      "issued_at": 1792739623,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -28143,9 +28149,34 @@
       "tron_amount": 1.35469,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e3e3beb892614e5ea7d97bffeebae83f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e3e3beb892614e5ea7d97bffeebae83f",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1792739386,
+      "approved_at": 1792739623,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-8957-96BE-AD4B",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2965965",
+        "tron_amount": 1.35469,
+        "user_paid_toman": null,
+        "date": "2026-10-23T07:13:11.7770000"
+      }
+    },
+    "TRND-3M-5887266399-1792739534-5e5efc": {
+      "order_id": "TRND-3M-5887266399-1792739534-5e5efc",
+      "token": "a1ec9f99b3b5453d9739a5ea7be046dd",
+      "user_id": 5887266399,
+      "first_name": "Ali",
+      "username": "Ali_kz82",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.341455,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_a1ec9f99b3b5453d9739a5ea7be046dd",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a1ec9f99b3b5453d9739a5ea7be046dd",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792739386
+      "created_at": 1792739534
     }
   },
   "users": {
@@ -49312,6 +49343,23 @@
       "username": "",
       "first_seen": 1792739368,
       "last_seen": 1792739368,
+      "purchases": [
+        {
+          "key": "AZ3M-8957-96BE-AD4B",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792739623,
+          "days": 90
+        }
+      ]
+    },
+    "5887266399": {
+      "user_id": 5887266399,
+      "first_name": "Ali",
+      "last_name": "Kz",
+      "username": "Ali_kz82",
+      "first_seen": 1792739493,
+      "last_seen": 1792739493,
       "purchases": []
     }
   },
