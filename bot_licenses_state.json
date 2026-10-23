@@ -3716,6 +3716,12 @@
       "user_id": 7874829011,
       "issued_at": 1792744239,
       "method": "crypto_unique"
+    },
+    "AZ1Y-DB32-7C42-4F48": {
+      "plan": "1Y",
+      "user_id": 63898975,
+      "issued_at": 1792746982,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -28483,9 +28489,18 @@
       "tron_amount": 3.660084,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_48b35b1b01a1405b8690ee7f2d23a734",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=48b35b1b01a1405b8690ee7f2d23a734",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792746771
+      "created_at": 1792746771,
+      "approved_at": 1792746982,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-DB32-7C42-4F48",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2966976",
+        "tron_amount": 3.660084,
+        "user_paid_toman": null,
+        "date": "2026-10-23T09:16:04.7870000"
+      }
     }
   },
   "users": {
@@ -47146,6 +47161,13 @@
           "plan_name": "۳ ماهه (۹۰ روزه)",
           "issued_at": 1792571425,
           "days": 90
+        },
+        {
+          "key": "AZ1Y-DB32-7C42-4F48",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792746982,
+          "days": 365
         }
       ]
     },
