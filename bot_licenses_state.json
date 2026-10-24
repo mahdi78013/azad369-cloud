@@ -3962,6 +3962,12 @@
       "user_id": 34144047,
       "issued_at": 1792821373,
       "method": "crypto_unique"
+    },
+    "AZ1Y-8DF0-45B9-730C": {
+      "plan": "1Y",
+      "user_id": 477738618,
+      "issued_at": 1792821928,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -30615,9 +30621,18 @@
       "tron_amount": 3.643094,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_fc3cb7903d1a44c79878f250288ecbac",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=fc3cb7903d1a44c79878f250288ecbac",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792821637
+      "created_at": 1792821637,
+      "approved_at": 1792821928,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-8DF0-45B9-730C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2975292",
+        "tron_amount": 3.643094,
+        "user_paid_toman": null,
+        "date": "2026-10-24T06:05:25.7770000"
+      }
     }
   },
   "users": {
@@ -47498,7 +47513,15 @@
       "username": "reza50k",
       "first_seen": 1792394966,
       "last_seen": 1792821636,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-8DF0-45B9-730C",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792821928,
+          "days": 365
+        }
+      ]
     },
     "479450296": {
       "user_id": 479450296,
