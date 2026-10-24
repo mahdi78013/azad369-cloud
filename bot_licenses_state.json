@@ -3902,6 +3902,12 @@
       "user_id": 595524447,
       "issued_at": 1792801623,
       "method": "crypto_unique"
+    },
+    "AZ3M-8C20-27AB-E404": {
+      "plan": "3M",
+      "user_id": 946764714,
+      "issued_at": 1792803438,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -30196,9 +30202,18 @@
       "tron_amount": 1.33641,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_70663c77839846a3b054a217a7233386",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=70663c77839846a3b054a217a7233386",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792803264
+      "created_at": 1792803264,
+      "approved_at": 1792803438,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-8C20-27AB-E404",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2974614",
+        "tron_amount": 1.33641,
+        "user_paid_toman": null,
+        "date": "2026-10-24T00:56:36.0970000"
+      }
     }
   },
   "users": {
@@ -48558,7 +48573,15 @@
       "username": "seyyedpv",
       "first_seen": 1792507714,
       "last_seen": 1792803238,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-8C20-27AB-E404",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792803438,
+          "days": 90
+        }
+      ]
     },
     "830644757": {
       "user_id": 830644757,
