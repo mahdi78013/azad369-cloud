@@ -4166,6 +4166,12 @@
       "user_id": 72579686,
       "issued_at": 1792844653,
       "method": "crypto_unique"
+    },
+    "AZ3M-0128-AC1C-6000": {
+      "plan": "3M",
+      "user_id": 8837398119,
+      "issued_at": 1792844949,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -32152,9 +32158,10 @@
       "tron_amount": 1.340863,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ecad47d77ebf4752aca69d0f7e5a7153",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ecad47d77ebf4752aca69d0f7e5a7153",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792843617
+      "created_at": 1792843617,
+      "cancelled_at": 1792844948
     },
     "TRND-1Y-100321671-1792843930-079f08": {
       "order_id": "TRND-1Y-100321671-1792843930-079f08",
@@ -32250,9 +32257,18 @@
       "tron_amount": 1.349746,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f1121e21fac7493b8241253ae638b366",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f1121e21fac7493b8241253ae638b366",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792844291
+      "created_at": 1792844291,
+      "approved_at": 1792844949,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-0128-AC1C-6000",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2978310",
+        "tron_amount": 1.349746,
+        "user_paid_toman": null,
+        "date": "2026-10-24T12:28:41.3400000"
+      }
     }
   },
   "users": {
@@ -55307,7 +55323,15 @@
       "username": "",
       "first_seen": 1792841527,
       "last_seen": 1792844281,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-0128-AC1C-6000",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792844949,
+          "days": 90
+        }
+      ]
     },
     "5938460024": {
       "user_id": 5938460024,
