@@ -4256,6 +4256,12 @@
       "user_id": 1098739252,
       "issued_at": 1792870891,
       "method": "crypto_unique"
+    },
+    "AZ3M-3B18-1BE6-EAD6": {
+      "plan": "3M",
+      "user_id": 705882381,
+      "issued_at": 1792872237,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -32956,9 +32962,18 @@
       "tron_amount": 1.3485,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_85bdc2dc520143b3a3b5023d2372e45d",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=85bdc2dc520143b3a3b5023d2372e45d",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792872014
+      "created_at": 1792872014,
+      "approved_at": 1792872237,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-3B18-1BE6-EAD6",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2982850",
+        "tron_amount": 1.3485,
+        "user_paid_toman": null,
+        "date": "2026-10-24T20:03:37.5900000"
+      }
     }
   },
   "users": {
@@ -33430,7 +33445,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "F_l_k_j780",
-      "last_seen": 1792828247,
+      "last_seen": 1792872166,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -38703,7 +38718,11 @@
       "first_seen": 1792099523,
       "last_seen": 1792872117,
       "purchases": [],
-      "blocked": true
+      "blocked": true,
+      "last_admin_reply": {
+        "text": "👑 پنل مدیریت ادمین",
+        "time": 1792872173
+      }
     },
     "8335683600": {
       "user_id": 8335683600,
@@ -56385,7 +56404,11 @@
       "username": "Mr_Amirhossein1999",
       "first_seen": 1792869490,
       "last_seen": 1792870346,
-      "purchases": []
+      "purchases": [],
+      "last_admin_reply": {
+        "text": "از داخل ربات دکمه خرید اشتراک اختصاصی",
+        "time": 1792872224
+      }
     },
     "50310664": {
       "user_id": 50310664,
@@ -56437,7 +56460,15 @@
       "username": "siavash_kf",
       "first_seen": 1792871974,
       "last_seen": 1792871974,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-3B18-1BE6-EAD6",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792872237,
+          "days": 90
+        }
+      ]
     }
   },
   "user_states": {
@@ -56940,7 +56971,12 @@
       "time": 1792849140
     }
   },
-  "admin_states": {},
+  "admin_states": {
+    "748538264": {
+      "state": "replying_to_user",
+      "target_uid": "1033736122"
+    }
+  },
   "trial_users": {},
   "card_state": {
     "current_index": 1,
