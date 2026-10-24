@@ -4028,6 +4028,12 @@
       "user_id": 69612139,
       "issued_at": 1792827106,
       "method": "crypto_unique"
+    },
+    "AZ1Y-1421-893C-BC19": {
+      "plan": "1Y",
+      "user_id": 525052756,
+      "issued_at": 1792828153,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -31033,9 +31039,10 @@
       "tron_amount": 1.335873,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c56128e3848a4192b376b53e219a65dd",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c56128e3848a4192b376b53e219a65dd",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792826761
+      "created_at": 1792826761,
+      "cancelled_at": 1792828050
     },
     "TRND-1Y-69612139-1792826839-3724ee": {
       "order_id": "TRND-1Y-69612139-1792826839-3724ee",
@@ -31090,9 +31097,18 @@
       "tron_amount": 3.660692,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_16efb57600d0417d895f2578084d17a0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=16efb57600d0417d895f2578084d17a0",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792827737
+      "created_at": 1792827737,
+      "approved_at": 1792828153,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-1421-893C-BC19",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2975992",
+        "tron_amount": 3.660692,
+        "user_paid_toman": null,
+        "date": "2026-10-24T07:49:03.3930000"
+      }
     }
   },
   "users": {
@@ -53700,7 +53716,24 @@
       "last_name": "Print",
       "username": "AtlasPrintTBZ",
       "first_seen": 1792827713,
-      "last_seen": 1792827713,
+      "last_seen": 1792828067,
+      "purchases": [
+        {
+          "key": "AZ1Y-1421-893C-BC19",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792828153,
+          "days": 365
+        }
+      ]
+    },
+    "6567724949": {
+      "user_id": 6567724949,
+      "first_name": "Hossein 65",
+      "last_name": "",
+      "username": "Hossein70000y",
+      "first_seen": 1792828032,
+      "last_seen": 1792828032,
       "purchases": []
     }
   },
