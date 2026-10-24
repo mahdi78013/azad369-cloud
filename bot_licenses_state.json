@@ -4232,6 +4232,12 @@
       "user_id": 8637236051,
       "issued_at": 1792867539,
       "method": "crypto_unique"
+    },
+    "AZ3M-2267-BB52-999E": {
+      "plan": "3M",
+      "user_id": 6605741335,
+      "issued_at": 1792869118,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -32785,9 +32791,18 @@
       "tron_amount": 1.336885,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_bfc5c5d622344e9d9cb2768151ed6d5e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=bfc5c5d622344e9d9cb2768151ed6d5e",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792868884
+      "created_at": 1792868884,
+      "approved_at": 1792869118,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-2267-BB52-999E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2982200",
+        "tron_amount": 1.336885,
+        "user_paid_toman": null,
+        "date": "2026-10-24T19:11:45.4900000"
+      }
     },
     "TRND-1Y-252318134-1792868931-b8d371": {
       "order_id": "TRND-1Y-252318134-1792868931-b8d371",
@@ -32821,6 +32836,20 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792869007
+    },
+    "ORD_1792869113_252318134": {
+      "order_id": "ORD_1792869113_252318134",
+      "user_id": 252318134,
+      "username": "muntivpn369bot",
+      "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAALj2WrdAvA_c9JmlYqXNvORVESQqgPLAALsEWsbCp3oUlXUqa-Td-fkAQADAgADeQADPQQ",
+      "card_number": "5047061670546072",
+      "created_at": 1792869114,
+      "caption": ""
     }
   },
   "users": {
@@ -56213,7 +56242,15 @@
       "username": "Someordinarydev1997",
       "first_seen": 1792868883,
       "last_seen": 1792868883,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-2267-BB52-999E",
+          "plan": "3M",
+          "plan_name": "۳ ماهه (۹۰ روزه)",
+          "issued_at": 1792869118,
+          "days": 90
+        }
+      ]
     },
     "8529150916": {
       "user_id": 8529150916,
@@ -56723,21 +56760,17 @@
     "99748328": {
       "state": "waiting_support_msg",
       "time": 1792849140
-    },
-    "252318134": {
-      "state": "waiting_support_msg",
-      "time": 1792869010
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 6,
+    "count": 7,
     "threshold": 10,
     "stats": {
       "5892101706458979": 30,
-      "5047061670546072": 26
+      "5047061670546072": 27
     }
   },
   "maintenance": {
