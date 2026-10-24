@@ -4262,6 +4262,12 @@
       "user_id": 705882381,
       "issued_at": 1792872237,
       "method": "crypto_unique"
+    },
+    "AZ1Y-05F7-7086-3B2F": {
+      "plan": "1Y",
+      "user_id": 6972541648,
+      "issued_at": 1792873055,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -32987,9 +32993,18 @@
       "tron_amount": 3.67285,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_bd0f1aec5e6146ea9def660defb4a1ba",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=bd0f1aec5e6146ea9def660defb4a1ba",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792872775
+      "created_at": 1792872775,
+      "approved_at": 1792873055,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-05F7-7086-3B2F",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2982992",
+        "tron_amount": 3.67285,
+        "user_paid_toman": null,
+        "date": "2026-10-24T20:16:57.2900000"
+      }
     }
   },
   "users": {
@@ -56424,7 +56439,15 @@
       "username": "Mr_Amirhossein1999",
       "first_seen": 1792869490,
       "last_seen": 1792872759,
-      "purchases": [],
+      "purchases": [
+        {
+          "key": "AZ1Y-05F7-7086-3B2F",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792873055,
+          "days": 365
+        }
+      ],
       "last_admin_reply": {
         "text": "از داخل ربات دکمه خرید اشتراک اختصاصی",
         "time": 1792872224
