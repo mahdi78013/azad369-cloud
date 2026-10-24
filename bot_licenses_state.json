@@ -4022,6 +4022,12 @@
       "user_id": 103808948,
       "issued_at": 1792826843,
       "method": "crypto_unique"
+    },
+    "AZ1Y-0369-F8E4-E583": {
+      "plan": "1Y",
+      "user_id": 69612139,
+      "issued_at": 1792827106,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -31058,9 +31064,18 @@
       "tron_amount": 3.657398,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_013fc9b4e783457eba081423565b6b61",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=013fc9b4e783457eba081423565b6b61",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792826938
+      "created_at": 1792826938,
+      "approved_at": 1792827106,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-0369-F8E4-E583",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2975878",
+        "tron_amount": 3.657398,
+        "user_paid_toman": null,
+        "date": "2026-10-24T07:31:23.9000000"
+      }
     }
   },
   "users": {
@@ -53643,7 +53658,15 @@
       "username": "mohamad_tj",
       "first_seen": 1792826810,
       "last_seen": 1792826810,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-0369-F8E4-E583",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792827106,
+          "days": 365
+        }
+      ]
     },
     "1443015917": {
       "user_id": 1443015917,
