@@ -3992,6 +3992,12 @@
       "user_id": 5687742136,
       "issued_at": 1792823937,
       "method": "crypto_unique"
+    },
+    "AZ1Y-F687-02A8-CDDA": {
+      "plan": "1Y",
+      "user_id": 6690836965,
+      "issued_at": 1792824417,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -30785,9 +30791,18 @@
       "tron_amount": 3.655073,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4da778a4b8bf4e5a9323eea45847ecea",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4da778a4b8bf4e5a9323eea45847ecea",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792823132
+      "created_at": 1792823132,
+      "approved_at": 1792824417,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-F687-02A8-CDDA",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2975441",
+        "tron_amount": 3.655073,
+        "user_paid_toman": null,
+        "date": "2026-10-24T06:46:45.5730000"
+      }
     },
     "TRND-1Y-5969249205-1792823193-8aaedb": {
       "order_id": "TRND-1Y-5969249205-1792823193-8aaedb",
@@ -50697,8 +50712,16 @@
       "last_name": "Jafari",
       "username": "Jafari_1376",
       "first_seen": 1792617739,
-      "last_seen": 1792823812,
-      "purchases": []
+      "last_seen": 1792824381,
+      "purchases": [
+        {
+          "key": "AZ1Y-F687-02A8-CDDA",
+          "plan": "1Y",
+          "plan_name": "۱ ساله (۳۶۵ روزه)",
+          "issued_at": 1792824417,
+          "days": 365
+        }
+      ]
     },
     "118895304": {
       "user_id": 118895304,
