@@ -4316,6 +4316,12 @@
       "user_id": 5880180551,
       "issued_at": 1792911846,
       "method": "crypto_unique"
+    },
+    "AZ1Y-BFF1-B9D3-B154": {
+      "plan": "1Y",
+      "user_id": 949115151,
+      "issued_at": 1792912204,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -33435,9 +33441,18 @@
       "tron_amount": 3.65727,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b1e2fdbdfa4d4b9688249c764c80c2f1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b1e2fdbdfa4d4b9688249c764c80c2f1",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792912053
+      "created_at": 1792912053,
+      "approved_at": 1792912204,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-BFF1-B9D3-B154",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2985258",
+        "tron_amount": 3.65727,
+        "user_paid_toman": null,
+        "date": "2026-10-25T07:09:45.2670000"
+      }
     }
   },
   "users": {
@@ -35333,7 +35348,7 @@
       "last_name": "",
       "username": "habib_esmayli",
       "first_seen": 1792058146,
-      "last_seen": 1792911825,
+      "last_seen": 1792912200,
       "purchases": []
     },
     "43850757": {
@@ -56695,8 +56710,16 @@
       "last_name": "Shafi Khodaei",
       "username": "AliShafikhodaei",
       "first_seen": 1792847602,
-      "last_seen": 1792911896,
-      "purchases": []
+      "last_seen": 1792912203,
+      "purchases": [
+        {
+          "key": "AZ1Y-BFF1-B9D3-B154",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1792912204,
+          "days": 365
+        }
+      ]
     },
     "6872872342": {
       "user_id": 6872872342,
