@@ -2810,6 +2810,12 @@
       "user_id": 123061350,
       "issued_at": 1792929520,
       "method": "crypto_unique"
+    },
+    "AZ3M-196E-386A-195F": {
+      "plan": "3M",
+      "user_id": 1674999336,
+      "issued_at": 1792930626,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -20329,9 +20335,34 @@
       "tron_amount": 1.323522,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_90a554df8b024b3780842d48203aaffd",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=90a554df8b024b3780842d48203aaffd",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1792930428,
+      "approved_at": 1792930626,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-196E-386A-195F",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2988008",
+        "tron_amount": 1.323522,
+        "user_paid_toman": null,
+        "date": "2026-10-25T12:16:58.6430000"
+      }
+    },
+    "TRND-1Y-173878493-1792930616-205dea": {
+      "order_id": "TRND-1Y-173878493-1792930616-205dea",
+      "token": "8a91b3a9e85544cca544caa0d7fdc15a",
+      "user_id": 173878493,
+      "first_name": "Esmaeil",
+      "username": "AlphaFreedom",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.658264,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_8a91b3a9e85544cca544caa0d7fdc15a",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8a91b3a9e85544cca544caa0d7fdc15a",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792930428
+      "created_at": 1792930616
     }
   },
   "users": {
@@ -38394,6 +38425,23 @@
       "username": "amiram83e",
       "first_seen": 1792930396,
       "last_seen": 1792930396,
+      "purchases": [
+        {
+          "key": "AZ3M-196E-386A-195F",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1792930626,
+          "days": 90
+        }
+      ]
+    },
+    "173878493": {
+      "user_id": 173878493,
+      "first_name": "Esmaeil",
+      "last_name": "Husseini",
+      "username": "AlphaFreedom",
+      "first_seen": 1792930571,
+      "last_seen": 1792930571,
       "purchases": []
     }
   },
