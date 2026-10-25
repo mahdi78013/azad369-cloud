@@ -2290,33 +2290,14 @@ def send_manual_connection_guide(chat_id: int):
 # ---------------------------------------------------------------------------
 @bot.message_handler(commands=["support"])
 @bot.message_handler(func=lambda m: is_menu_button_command(m, ["💬 پشتیبانی", "پشتیبانی", "ارتباط با ادمین"]))
-def btn_support(message, target_uid=None):
-    uid = target_uid or message.from_user.id
-    if not is_admin(uid):
-        is_open, _ = is_support_working_hours()
-        if not is_open:
-            clear_user_state(uid)
-            safe_send_message(message.chat.id, SUPPORT_CLOSED_MESSAGE)
-            return
+def btn_support(message):
+    safe_send_message(message.chat.id, """💤 *کاربر گرامی، پشتیبانی در حال حاضر در دسترس نیست.*
 
-    set_user_state(uid, {"state": "waiting_support_msg", "time": int(time.time())})
+همکاران ما در بخش پشتیبانی در حال استراحت شبانه هستند.
+لطفاً پیام، سوال یا مشکل خود را فردا صبح ارسال فرمایید تا در اسرع وقت پاسخگوی شما باشیم. 🌸""")
+    return
 
-    text = (
-        "📞 *سامانه پشتیبانی اینترنت آزاد³⁶⁹*\n\n"
-        "✍️ کاربر گرامی، لطفاً سوال، مشکل یا پیام خود را تایپ و ارسال فرمایید.\n"
-        "_(همچنین در صورت نیاز می‌توانید عکس یا فایل اسکرین‌شات ارسال فرمایید)_\n\n"
-        "پیام شما مستقیماً برای مدیریت ارسال شده و پاسخ در همین گفتگو برایتان فرستاده خواهد شد. 🌸\n\n"
-        "📢 کانال اطلاع‌رسانی: @muntivpn"
-    )
-    markup = types.InlineKeyboardMarkup(row_width=1)
-    markup.add(
-        types.InlineKeyboardButton("❌ انصراف و بازگشت به منوی اصلی", callback_data="cancel_action"),
-        types.InlineKeyboardButton("📢 کانال اطلاع‌رسانی", url="https://t.me/muntivpn")
-    )
-    safe_send_message(message.chat.id, text, reply_markup=markup)
 
-@bot.message_handler(commands=["admin", "panel"])
-@bot.message_handler(func=lambda m: is_menu_button_command(m, ["👑 پنل مدیریت ادمین", "پنل مدیریت ادمین", "پنل مدیریت", "پنل ادمین"]))
 def btn_admin_panel(message):
     if not is_admin(message.from_user.id):
         return
