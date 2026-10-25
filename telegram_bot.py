@@ -616,7 +616,7 @@ def load_db() -> dict:
                     data.setdefault("trial_users", {})
                     pa = data.setdefault("plan_availability", {})
                     for p in ("1M", "2M", "3M", "1Y", "AN1M", "AN2M", "AN3M", "AN1Y"):
-                        pa.setdefault(p, True)
+                        pa.setdefault(p, False)
                     for u_obj in data["users"].values():
                         if isinstance(u_obj, dict):
                             u_obj.setdefault("purchases", [])
@@ -645,7 +645,7 @@ def load_db() -> dict:
             "user_states": {},
             "admin_states": {},
             "trial_users": {},
-            "plan_availability": {"1M": True, "2M": True, "3M": True, "1Y": True, "AN1M": True, "AN2M": True, "AN3M": True, "AN1Y": True}
+            "plan_availability": {"1M": False, "2M": False, "3M": False, "1Y": False, "AN1M": False, "AN2M": False, "AN3M": False, "AN1Y": False}
         }
         _LAST_VALID_DB = copy.deepcopy(d)
         return d
@@ -710,14 +710,14 @@ def get_plan_availability() -> dict:
     Persisted in bot_licenses_state.json so toggles are 100% persistent across bot restarts.
     """
     default_avail = {
-        "1M": True,
-        "2M": True,
-        "3M": True,
-        "1Y": True,
-        "AN1M": True,
-        "AN2M": True,
-        "AN3M": True,
-        "AN1Y": True
+        "1M": False,
+        "2M": False,
+        "3M": False,
+        "1Y": False,
+        "AN1M": False,
+        "AN2M": False,
+        "AN3M": False,
+        "AN1Y": False
     }
     try:
         db = load_db()
