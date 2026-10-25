@@ -2834,6 +2834,12 @@
       "user_id": 1882281491,
       "issued_at": 1792933799,
       "method": "crypto_unique"
+    },
+    "AZ3M-46C0-AF4C-EF35": {
+      "plan": "3M",
+      "user_id": 88342940,
+      "issued_at": 1792934387,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -20460,9 +20466,18 @@
       "tron_amount": 1.343526,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_26c16d3332a34cccb43748848831f04e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=26c16d3332a34cccb43748848831f04e",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792933971
+      "created_at": 1792933971,
+      "approved_at": 1792934387,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-46C0-AF4C-EF35",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2988436",
+        "tron_amount": 1.343526,
+        "user_paid_toman": null,
+        "date": "2026-10-25T13:19:35.7300000"
+      }
     },
     "TRND-3M-443301102-1792934210-172d7f": {
       "order_id": "TRND-3M-443301102-1792934210-172d7f",
@@ -38644,7 +38659,15 @@
       "username": "AudioMan",
       "first_seen": 1792933882,
       "last_seen": 1792933882,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-46C0-AF4C-EF35",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1792934387,
+          "days": 90
+        }
+      ]
     },
     "90119527": {
       "user_id": 90119527,
