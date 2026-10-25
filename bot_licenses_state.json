@@ -3800,6 +3800,12 @@
       "user_id": 6221063531,
       "issued_at": 1792962770,
       "method": "crypto_unique"
+    },
+    "AN2M-16E6-CA05-FBA5": {
+      "plan": "AN2M",
+      "user_id": 5904363463,
+      "issued_at": 1792962776,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -29566,12 +29572,15 @@
       "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
       "plan_code": "AN2M",
       "price": "۱۰۰,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAEBIJtq3nAXnc5mnBBZxaCjd3WNLhxngwACJhFrG7Z_8VLAVKhHc8v4GQEAAwIAA3kAAz0E",
       "card_number": "5047061670546072",
       "created_at": 1792962602,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1792962776,
+      "approved_by": 748538264,
+      "key": "AN2M-16E6-CA05-FBA5"
     },
     "TRND-AN2M-1272980298-1792962607-b5fd1f": {
       "order_id": "TRND-AN2M-1272980298-1792962607-b5fd1f",
@@ -29714,6 +29723,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792962715
+    },
+    "TRND-AN1M-5851484560-1792962773-30ba89": {
+      "order_id": "TRND-AN1M-5851484560-1792962773-30ba89",
+      "token": "159869efef8c4f78a6e3fd128b8c173e",
+      "user_id": 5851484560,
+      "first_name": "Ali",
+      "username": "Ali_elc_1388",
+      "plan_code": "AN1M",
+      "price": "۶۰,۰۰۰ تومان",
+      "price_toman": 60000,
+      "tron_amount": 0.34204,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_159869efef8c4f78a6e3fd128b8c173e",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=159869efef8c4f78a6e3fd128b8c173e",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792962773
     }
   },
   "users": {
@@ -33845,6 +33870,13 @@
           "plan_name": "۳ ماهه (۹۰ روزه)",
           "issued_at": 1792352210,
           "days": 90
+        },
+        {
+          "key": "AN2M-16E6-CA05-FBA5",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1792962776,
+          "days": 60
         }
       ]
     },
