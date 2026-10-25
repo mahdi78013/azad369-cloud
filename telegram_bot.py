@@ -15,6 +15,7 @@ Features:
 import os
 import sys
 import json
+import copy
 import time
 import datetime
 import re
@@ -111,7 +112,7 @@ TRONADO_IPN_KEY = _load_bot_secret("TRONADO_IPN_KEY", "iQjTd0sa6rtmMOQXdiXWmjBbG
 TRONADO_USER_TAG = _load_bot_secret("TRONADO_USER_TAG", "MUNTIVPN")
 TRONADO_REQUEST_CODE = _load_bot_secret("TRONADO_REQUEST_CODE", "muntivpn")
 TRONADO_WALLET = _load_bot_secret("TRONADO_WALLET", "TQUaW5e18ER176Zi7datF9ttDBRYWGeiad")
-TRONADO_CALLBACK_URL = _load_bot_secret("TRONADO_CALLBACK_URL", "https://httpbin.org/status/200")
+TRONADO_CALLBACK_URL = _load_bot_secret("TRONADO_CALLBACK_URL", "https://muntivpn.koyeb.app/tronado/callback")
 TRONADO_BASE_URL = "https://bot.tronado.cloud"
 TRONADO_ENABLED = bool(TRONADO_API_KEY and TRONADO_WALLET)
 
@@ -598,7 +599,10 @@ def track_user(user):
         if changed:
             save_db(db)
 
+_LAST_VALID_DB = None
+
 def load_db() -> dict:
+    global _LAST_VALID_DB
     with DB_LOCK:
         if os.path.exists(STATE_FILE):
             try:
@@ -610,19 +614,40 @@ def load_db() -> dict:
                     data.setdefault("user_states", {})
                     data.setdefault("admin_states", {})
                     data.setdefault("trial_users", {})
+                    pa = data.setdefault("plan_availability", {})
+                    for p in ("1M", "2M", "3M", "1Y", "AN1M", "AN2M", "AN3M", "AN1Y"):
+                        pa.setdefault(p, True)
                     for u_obj in data["users"].values():
                         if isinstance(u_obj, dict):
                             u_obj.setdefault("purchases", [])
                     if migrate_historical_users(data):
                         try:
-                            with open(STATE_FILE, "w", encoding="utf-8") as fw:
+                            tmp_f = f"{STATE_FILE}.tmp.{os.getpid()}.{secrets.token_hex(4)}"
+                            with open(tmp_f, "w", encoding="utf-8") as fw:
                                 json.dump(data, fw, ensure_ascii=False, indent=2)
+                            os.replace(tmp_f, STATE_FILE)
                         except Exception:
                             pass
+                    _LAST_VALID_DB = copy.deepcopy(data)
                     return data
             except Exception as e:
                 print(f"Error loading db: {e}")
-        d = {"issued": {}, "orders": {}, "users": {}, "user_states": {}, "admin_states": {}, "trial_users": {}}
+                if _LAST_VALID_DB:
+                    return copy.deepcopy(_LAST_VALID_DB)
+
+        if _LAST_VALID_DB:
+            return copy.deepcopy(_LAST_VALID_DB)
+
+        d = {
+            "issued": {},
+            "orders": {},
+            "users": {},
+            "user_states": {},
+            "admin_states": {},
+            "trial_users": {},
+            "plan_availability": {"1M": True, "2M": True, "3M": True, "1Y": True, "AN1M": True, "AN2M": True, "AN3M": True, "AN1Y": True}
+        }
+        _LAST_VALID_DB = copy.deepcopy(d)
         return d
 
 _GIT_SYNC_LOCK = threading.Lock()
@@ -648,7 +673,7 @@ def _do_git_sync():
         subprocess.run(["git", "rebase", "--abort"], check=False)
         subprocess.run(["git", "add", "bot_licenses_state.json", "hwid_registry.json", "historical_blacklist.json"], check=False)
         subprocess.run(["git", "commit", "-m", "Auto-sync bot state [skip ci]"], check=False)
-        subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=False)
+        subprocess.run(["git", "pull", "--rebase", "--autostash", "origin", "main"], check=False)
         subprocess.run(["git", "push", "origin", "main"], check=False)
     except Exception as e:
         print(f"Git auto-sync error: {e}")
@@ -663,10 +688,14 @@ def periodic_sync_worker():
             _do_git_sync()
 
 def save_db(db: dict, immediate_sync: bool = False):
+    global _LAST_VALID_DB
     with DB_LOCK:
         try:
-            with open(STATE_FILE, "w", encoding="utf-8") as f:
+            _LAST_VALID_DB = copy.deepcopy(db)
+            tmp_file = f"{STATE_FILE}.tmp.{os.getpid()}.{secrets.token_hex(4)}"
+            with open(tmp_file, "w", encoding="utf-8") as f:
                 json.dump(db, f, ensure_ascii=False, indent=2)
+            os.replace(tmp_file, STATE_FILE)
         except Exception as e:
             print(f"Error saving db to file: {e}")
             return
@@ -681,14 +710,14 @@ def get_plan_availability() -> dict:
     Persisted in bot_licenses_state.json so toggles are 100% persistent across bot restarts.
     """
     default_avail = {
-        "1M": False,
-        "2M": False,
-        "3M": False,
-        "1Y": False,
-        "AN1M": False,
-        "AN2M": False,
-        "AN3M": False,
-        "AN1Y": False
+        "1M": True,
+        "2M": True,
+        "3M": True,
+        "1Y": True,
+        "AN1M": True,
+        "AN2M": True,
+        "AN3M": True,
+        "AN1Y": True
     }
     try:
         db = load_db()
@@ -1417,6 +1446,24 @@ def fulfill_tronado_order(payment_id: str, ipn_data: dict = None) -> tuple[bool,
                     payment_id = oid
                     break
 
+        if not order and isinstance(ipn_data, dict):
+            for k in ("PaymentID", "PaymentId", "payment_id", "Token", "token", "FactorNumber", "Id", "id", "OrderId", "order_id"):
+                val = str(ipn_data.get(k, "")).strip()
+                if not val:
+                    continue
+                for oid, od in orders.items():
+                    if (
+                        oid == val
+                        or str(od.get("token", "")).strip() == val
+                        or str(od.get("payment_id", "")).strip() == val
+                        or str(od.get("order_id", "")).strip() == val
+                    ):
+                        order = od
+                        payment_id = oid
+                        break
+                if order:
+                    break
+
         if not order:
             return False, "Order not found in database"
 
@@ -1463,31 +1510,34 @@ def fulfill_tronado_order(payment_id: str, ipn_data: dict = None) -> tuple[bool,
             "با تشکر از اعتماد شما به *اینترنت آزاد³⁶⁹* 🌸"
         )
 
-    buyer_msg = (
-        "⚡🎉 *پرداخت آنلاین شما با موفقیت تایید شد!*\n\n"
-        f"کد لایسنس اختصاصی شما صادر گردید:\n"
-        f"`{key}`\n\n"
-        "_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
-        f"🔹 پلن خریداری‌شده: *{escape_md(info['name'])}*\n"
-        f"⏳ مدت اعتبار: *{info['days']} روز*\n"
-        "💳 روش پرداخت: *درگاه آنلاین شتابی (ترونادو)*\n\n"
-        f"{activation_guide}"
-    )
-    safe_send_message(buyer_id, buyer_msg)
+    # Deliver license to buyer & alert admins in background thread to prevent gateway timeout
+    def _deliver_notifications():
+        buyer_msg = (
+            "⚡🎉 *پرداخت آنلاین شما با موفقیت تایید شد!*\n\n"
+            f"کد لایسنس اختصاصی شما صادر گردید:\n"
+            f"`{key}`\n\n"
+            "_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
+            f"🔹 پلن خریداری‌شده: *{escape_md(info['name'])}*\n"
+            f"⏳ مدت اعتبار: *{info['days']} روز*\n"
+            "💳 روش پرداخت: *درگاه آنلاین شتابی (ترونادو)*\n\n"
+            f"{activation_guide}"
+        )
+        safe_send_message(buyer_id, buyer_msg)
 
-    tx_hash = ipn_data.get("Hash", "—") if ipn_data else "—"
-    admin_alert = (
-        "⚡ *خرید موفق از درگاه آنلاین ترونادو:*\n\n"
-        f"👤 خریدار: `{buyer_id}` (@{escape_md(order.get('username', 'ندارد'))})\n"
-        f"📦 پلن: *{escape_md(info['name'])}*\n"
-        f"🔑 لایسنس صادرشده: `{key}`\n"
-        f"🆔 شناسه سفارش: `{payment_id}`\n"
-        f"🔗 شناسه تراکنش/TXID: `{tx_hash}`\n"
-        "💰 وضعیت: پرداخت قطعی و لایسنس خودکار تحویل شد ✓"
-    )
-    for aid in ADMIN_IDS:
-        safe_send_message(aid, admin_alert)
+        tx_hash = ipn_data.get("Hash", "—") if ipn_data else "—"
+        admin_alert = (
+            "⚡ *خرید موفق از درگاه آنلاین ترونادو:*\n\n"
+            f"👤 خریدار: `{buyer_id}` (@{escape_md(order.get('username', 'ندارد'))})\n"
+            f"📦 پلن: *{escape_md(info['name'])}*\n"
+            f"🔑 لایسنس صادرشده: `{key}`\n"
+            f"🆔 شناسه سفارش: `{payment_id}`\n"
+            f"🔗 شناسه تراکنش/TXID: `{tx_hash}`\n"
+            "💰 وضعیت: پرداخت قطعی و لایسنس خودکار تحویل شد ✓"
+        )
+        for aid in ADMIN_IDS:
+            safe_send_message(aid, admin_alert)
 
+    threading.Thread(target=_deliver_notifications, daemon=True, name=f"FulfillNotify-{payment_id}").start()
     return True, f"Fulfilled with license {key}"
 
 def tronado_poller_worker():
@@ -1582,18 +1632,62 @@ class TronadoWebhookHandler(BaseHTTPRequestHandler):
                     self.wfile.write(b'{"error": "Invalid signature"}')
                     return
 
-            payload = json.loads(raw_body.decode("utf-8"))
-            print(f"[Tronado Webhook] Received valid callback: {payload}")
+            payload = {}
+            if raw_body:
+                try:
+                    payload = json.loads(raw_body.decode("utf-8"))
+                except Exception:
+                    try:
+                        import urllib.parse
+                        p_form = urllib.parse.parse_qs(raw_body.decode("utf-8", errors="ignore"))
+                        payload = {k: v[0] if len(v) == 1 else v for k, v in p_form.items()}
+                    except Exception:
+                        pass
+            print(f"[Tronado Webhook] Received valid callback payload: {payload}")
+
+            # Safe extraction of payment_id / order identifier from all possible fields
+            payment_id = (
+                payload.get("PaymentID")
+                or payload.get("PaymentId")
+                or payload.get("payment_id")
+                or payload.get("OrderId")
+                or payload.get("order_id")
+                or payload.get("Id")
+                or payload.get("id")
+                or payload.get("Token")
+                or payload.get("token")
+                or payload.get("FactorNumber")
+            )
+
+            if not payment_id and "?" in self.path:
+                try:
+                    import urllib.parse
+                    qs = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+                    payment_id = (
+                        qs.get("PaymentID", [None])[0]
+                        or qs.get("payment_id", [None])[0]
+                        or qs.get("OrderId", [None])[0]
+                        or qs.get("id", [None])[0]
+                        or qs.get("Token", [None])[0]
+                        or qs.get("token", [None])[0]
+                    )
+                except Exception:
+                    pass
 
             status_id = payload.get("OrderStatusID")
             is_paid = (
                 payload.get("IsPaid") is True
-                or status_id == 30
+                or status_id in (20, 30)
                 or str(payload.get("OrderStatusTitle", "")).lower() in ("paymentaccepted", "paid", "completed", "success")
             )
 
             if is_paid and payment_id:
-                fulfill_tronado_order(payment_id, payload)
+                payment_id = str(payment_id).strip()
+                print(f"[Tronado Webhook] Fulfilling confirmed order: {payment_id}")
+                ok, msg = fulfill_tronado_order(payment_id, payload)
+                print(f"[Tronado Webhook] Fulfill result: ok={ok}, msg={msg}")
+            elif not is_paid:
+                print(f"[Tronado Webhook] Order {payment_id} not marked as paid (status={status_id})")
 
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
@@ -1606,6 +1700,29 @@ class TronadoWebhookHandler(BaseHTTPRequestHandler):
             self.end_headers()
 
     def do_GET(self):
+        clean_path = self.path.split("?")[0]
+        if clean_path in ("/tronado/callback", "/callback", "/tronado/callback/"):
+            if "?" in self.path:
+                try:
+                    import urllib.parse
+                    qs = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+                    p_id = (
+                        qs.get("PaymentID", [None])[0]
+                        or qs.get("payment_id", [None])[0]
+                        or qs.get("OrderId", [None])[0]
+                        or qs.get("id", [None])[0]
+                        or qs.get("Token", [None])[0]
+                    )
+                    if p_id:
+                        p_id = str(p_id).strip()
+                        st = tronado_check_order_status(p_id)
+                        if st:
+                            s_id = st.get("OrderStatusID")
+                            if st.get("IsPaid") is True or s_id in (20, 30):
+                                fulfill_tronado_order(p_id, st)
+                except Exception as e:
+                    print(f"[Tronado Webhook GET] Error checking query param order: {e}")
+
         self.send_response(200)
         self.send_header("Content-Type", "text/plain; charset=utf-8")
         self.end_headers()
