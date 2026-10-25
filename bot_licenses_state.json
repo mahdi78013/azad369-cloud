@@ -2798,6 +2798,12 @@
       "user_id": 748538264,
       "issued_at": 1792923278,
       "method": "crypto_unique"
+    },
+    "AZ3M-F88F-67BE-91C2": {
+      "plan": "3M",
+      "user_id": 1150163331,
+      "issued_at": 1792927763,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -20267,9 +20273,18 @@
       "tron_amount": 1.337314,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ec622bc968fa482b8ef348943d450f82",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ec622bc968fa482b8ef348943d450f82",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792927409
+      "created_at": 1792927409,
+      "approved_at": 1792927763,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-F88F-67BE-91C2",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2987589",
+        "tron_amount": 1.337314,
+        "user_paid_toman": null,
+        "date": "2026-10-25T11:29:12.8370000"
+      }
     }
   },
   "users": {
@@ -34130,7 +34145,15 @@
       "username": "bargh526",
       "first_seen": 1792355135,
       "last_seen": 1792927401,
-      "purchases": [],
+      "purchases": [
+        {
+          "key": "AZ3M-F88F-67BE-91C2",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1792927763,
+          "days": 90
+        }
+      ],
       "last_admin_reply": {
         "text": "کانال تلگرام\n@muntivpn",
         "time": 1792439272
