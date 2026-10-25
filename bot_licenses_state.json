@@ -3848,6 +3848,12 @@
       "user_id": 7377843099,
       "issued_at": 1792963067,
       "method": "crypto_unique"
+    },
+    "AN1M-405B-E253-D5C4": {
+      "plan": "AN1M",
+      "user_id": 7585642298,
+      "issued_at": 1792963099,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -29892,9 +29898,18 @@
       "tron_amount": 0.358537,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4ceed13434c644979e8cc073049df4a2",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4ceed13434c644979e8cc073049df4a2",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792962896
+      "created_at": 1792962896,
+      "approved_at": 1792963099,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1M-405B-E253-D5C4",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2993657",
+        "tron_amount": 0.358537,
+        "user_paid_toman": null,
+        "date": "2026-10-25T21:17:39.3330000"
+      }
     },
     "TRND-AN1M-5805501353-1792963029-37ac23": {
       "order_id": "TRND-AN1M-5805501353-1792963029-37ac23",
@@ -29911,6 +29926,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792963029
+    },
+    "TRND-AN2M-560093977-1792963094-968005": {
+      "order_id": "TRND-AN2M-560093977-1792963094-968005",
+      "token": "fc881f721a5d49619eb4637830bc245c",
+      "user_id": 560093977,
+      "first_name": "gucci",
+      "username": "love_star_ONE",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.795283,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_fc881f721a5d49619eb4637830bc245c",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=fc881f721a5d49619eb4637830bc245c",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792963094
     }
   },
   "users": {
@@ -43772,7 +43803,7 @@
       "last_name": "",
       "username": "love_star_ONE",
       "first_seen": 1792330242,
-      "last_seen": 1792424267,
+      "last_seen": 1792963085,
       "purchases": []
     },
     "5748113333": {
@@ -52391,7 +52422,15 @@
       "username": "Sansseezz",
       "first_seen": 1792949490,
       "last_seen": 1792962896,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN1M-405B-E253-D5C4",
+          "plan": "AN1M",
+          "plan_name": "۱ ماهه اندروید (۳۰ روزه)",
+          "issued_at": 1792963099,
+          "days": 30
+        }
+      ]
     },
     "788230232": {
       "user_id": 788230232,
