@@ -3866,6 +3866,12 @@
       "user_id": 144926040,
       "issued_at": 1792963199,
       "method": "crypto_unique"
+    },
+    "AN2M-98EF-6153-FD02": {
+      "plan": "AN2M",
+      "user_id": 411594274,
+      "issued_at": 1792963312,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -30049,9 +30055,18 @@
       "tron_amount": 0.802983,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1718313c82d24e7c83a3f649671486d1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1718313c82d24e7c83a3f649671486d1",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792963176
+      "created_at": 1792963176,
+      "approved_at": 1792963312,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-98EF-6153-FD02",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2993694",
+        "tron_amount": 0.802983,
+        "user_paid_toman": null,
+        "date": "2026-10-25T21:21:16.9030000"
+      }
     },
     "TRND-AN1M-5408577021-1792963203-8a5dbc": {
       "order_id": "TRND-AN1M-5408577021-1792963203-8a5dbc",
@@ -33715,7 +33730,7 @@
       "last_name": "",
       "username": "Rouzsh",
       "first_seen": 1792065300,
-      "last_seen": 1792065300,
+      "last_seen": 1792963307,
       "purchases": [
         {
           "key": "AZ1Y-7E61-6333-488F",
@@ -45541,7 +45556,15 @@
       "username": "thesarhad",
       "first_seen": 1792359677,
       "last_seen": 1792963158,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-98EF-6153-FD02",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1792963312,
+          "days": 60
+        }
+      ]
     },
     "8994298730": {
       "user_id": 8994298730,
@@ -52859,7 +52882,7 @@
       "last_name": "",
       "username": "hadi2450",
       "first_seen": 1792950028,
-      "last_seen": 1792962370,
+      "last_seen": 1792963310,
       "purchases": []
     },
     "911154896": {
