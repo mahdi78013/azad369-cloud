@@ -3416,6 +3416,12 @@
       "user_id": 1521716834,
       "issued_at": 1792947463,
       "method": "crypto_unique"
+    },
+    "AN1Y-DEF7-3C7C-D933": {
+      "plan": "AN1Y",
+      "user_id": 6819536809,
+      "issued_at": 1792947476,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -24465,9 +24471,18 @@
       "tron_amount": 3.669306,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_739a258f541f4c3b9a781c006070c26a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=739a258f541f4c3b9a781c006070c26a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792946942
+      "created_at": 1792946942,
+      "approved_at": 1792947476,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-DEF7-3C7C-D933",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2990500",
+        "tron_amount": 3.669306,
+        "user_paid_toman": null,
+        "date": "2026-10-25T16:56:36.9430000"
+      }
     },
     "TRND-AN3M-69320050-1792946941-a4a1a5": {
       "order_id": "TRND-AN3M-69320050-1792946941-a4a1a5",
@@ -25585,6 +25600,22 @@
       "card_number": "5047061670546072",
       "created_at": 1792947403,
       "caption": ""
+    },
+    "TRND-AN3M-7397773777-1792947472-da3b0f": {
+      "order_id": "TRND-AN3M-7397773777-1792947472-da3b0f",
+      "token": "8c53be16d64d4c8db62e89418b6b7237",
+      "user_id": 7397773777,
+      "first_name": "83429",
+      "username": "ندارد",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.330353,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_8c53be16d64d4c8db62e89418b6b7237",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8c53be16d64d4c8db62e89418b6b7237",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792947472
     }
   },
   "users": {
@@ -31649,7 +31680,7 @@
       "last_name": "Tavakoli",
       "username": "sadeghtavakoli",
       "first_seen": 1792127414,
-      "last_seen": 1792947169,
+      "last_seen": 1792947472,
       "purchases": [],
       "last_admin_reply": {
         "text": "وقت بخیر ربات در حال اپدیت. هست \nواریز بفرمایید و رسید رو از طریق ارتباط با پشتیبانی ارسال کنید\n5892101706458979\nموجود:\n✅سه ماه = 145.000 تومان\n✅یک سال = 399.000 تومان",
@@ -34646,6 +34677,13 @@
           "plan_name": "۳ ماهه (۹۰ روزه)",
           "issued_at": 1792170252,
           "days": 90
+        },
+        {
+          "key": "AN1Y-DEF7-3C7C-D933",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1792947476,
+          "days": 365
         }
       ]
     },
