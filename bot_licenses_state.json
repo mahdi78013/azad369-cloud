@@ -4016,6 +4016,12 @@
       "user_id": 103241112,
       "issued_at": 1792966548,
       "method": "crypto_unique"
+    },
+    "AN3M-82FA343D-11AB-FC0D2E": {
+      "plan": "AN3M",
+      "user_id": 8227743505,
+      "issued_at": 1792966562,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -31418,9 +31424,18 @@
       "tron_amount": 1.343144,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_08d2de5829684cc7b4b04a9f83d958e5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=08d2de5829684cc7b4b04a9f83d958e5",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792966234
+      "created_at": 1792966234,
+      "approved_at": 1792966562,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-82FA343D-11AB-FC0D2E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2993947",
+        "tron_amount": 1.343144,
+        "user_paid_toman": null,
+        "date": "2026-10-25T22:13:21.3970000"
+      }
     },
     "TRND-AN3M-8745807825-1792966269-b55223": {
       "order_id": "TRND-AN3M-8745807825-1792966269-b55223",
@@ -55672,7 +55687,15 @@
       "username": "Mjabbari",
       "first_seen": 1792966208,
       "last_seen": 1792966533,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-82FA343D-11AB-FC0D2E",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1792966562,
+          "days": 90
+        }
+      ]
     },
     "6802423557": {
       "user_id": 6802423557,
