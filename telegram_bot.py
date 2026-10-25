@@ -3886,8 +3886,24 @@ def handle_general_text(message):
                 f"✓ *استعلام لایسنس:*\n\n"
                 f"کد: `{res['key']}`\n"
                 f"پلن: *{escape_md(res['plan_name'])}*\n"
+                f"سیستم‌عامل: *ویندوز (کامپیوتر)* 💻\n"
                 f"وضعیت: *معتبر و دارای امضای دیجیتالی رسمی* 🔐\n\n"
                 f"این کد را داخل نرم‌افزار ویندوز وارد نمایید تا فعال شود."
+            )
+        else:
+            safe_reply_to(message, f"❌ {res.get('error', 'کد لایسنس نامعتبر است.')}")
+        return
+    elif text.upper().startswith("AN"):
+        res = license_core.verify_license_format(text.upper())
+        if res.get("valid"):
+            safe_reply_to(
+                message,
+                f"✓ *استعلام لایسنس:*\n\n"
+                f"کد: `{res['key']}`\n"
+                f"پلن: *{escape_md(res['plan_name'])}*\n"
+                f"سیستم‌عامل: *اندروید (موبایل)* 📱\n"
+                f"وضعیت: *معتبر و دارای امضای دیجیتالی رسمی* 🔐\n\n"
+                f"این کد را داخل اپلیکیشن اندروید وارد نمایید تا فعال شود."
             )
         else:
             safe_reply_to(message, f"❌ {res.get('error', 'کد لایسنس نامعتبر است.')}")

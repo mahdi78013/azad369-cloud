@@ -124,6 +124,9 @@ def activate_license_on_pc(key: str) -> dict:
     if not v["valid"]:
         return v
 
+    if v.get("plan_prefix", "").startswith("AN"):
+        return {"valid": False, "error": "این کد لایسنس مختص اپلیکیشن اندروید (موبایل) است و در نسخه ویندوز فعال نمی‌شود."}
+
     hwid = get_hardware_id()
     now = int(time.time())
     expires_at = now + (v["days"] * 86400)
@@ -242,6 +245,9 @@ def check_cloud_hwid_binding(key: str, local_hwid: str = None) -> dict:
     v = verify_license_format(key)
     if not v.get("valid"):
         return v
+
+    if v.get("plan_prefix", "").startswith("AN"):
+        return {"valid": False, "error": "این کد لایسنس مختص اپلیکیشن اندروید (موبایل) است و در نسخه ویندوز فعال نمی‌شود."}
 
     return {"valid": True, "action": "hwid_verified"}
 
