@@ -172,6 +172,8 @@ PLANS_INFO = {
         "price_toman": 60000,
         "prefix": "AN1M",
         "platform": "android",
+        "file": "",
+        "fallback_file": "",
         "days": 30
     },
     "AN2M": {
@@ -180,6 +182,8 @@ PLANS_INFO = {
         "price_toman": 100000,
         "prefix": "AN2M",
         "platform": "android",
+        "file": "",
+        "fallback_file": "",
         "days": 60
     },
     "AN3M": {
@@ -188,6 +192,8 @@ PLANS_INFO = {
         "price_toman": 149000,
         "prefix": "AN3M",
         "platform": "android",
+        "file": "",
+        "fallback_file": "",
         "days": 90
     },
     "AN1Y": {
@@ -196,6 +202,8 @@ PLANS_INFO = {
         "price_toman": 399000,
         "prefix": "AN1Y",
         "platform": "android",
+        "file": "",
+        "fallback_file": "",
         "days": 365
     }
 }
@@ -677,10 +685,10 @@ def get_plan_availability() -> dict:
         "2M": False,
         "3M": False,
         "1Y": False,
-        "AN1M": True,
-        "AN2M": True,
-        "AN3M": True,
-        "AN1Y": True
+        "AN1M": False,
+        "AN2M": False,
+        "AN3M": False,
+        "AN1Y": False
     }
     try:
         db = load_db()
@@ -945,10 +953,11 @@ def get_keys_from_disk(plan_code: str) -> list:
     if not info:
         return []
 
-    paths_to_check = [
-        os.path.join(DATA_DIR, info["file"]),
-        os.path.join(DATA_DIR, info["fallback_file"])
-    ]
+    paths_to_check = []
+    if "file" in info and info["file"]:
+        paths_to_check.append(os.path.join(DATA_DIR, info["file"]))
+    if "fallback_file" in info and info["fallback_file"]:
+        paths_to_check.append(os.path.join(DATA_DIR, info["fallback_file"]))
 
     for p in paths_to_check:
         if os.path.exists(p):
@@ -2078,12 +2087,21 @@ def btn_my_account(message, target_uid=None):
 def btn_help(message):
     clear_user_state(message.from_user.id)
     text = (
-        "📖 *راهنمای فعال‌سازی در برنامه ویندوز:*\n\n"
-        "۱. ابتدا نرم‌افزار *اینترنت آزاد³⁶⁹* را در کامپیوتر خود اجرا کنید.\n"
-        "۲. در بالای صفحه روی دکمه *🔑 ثبت لایسنس* کلیک کنید.\n"
-        "۳. کد لایسنسی که از این ربات دریافت کرده‌اید را کپی کرده و در کادر قرار دهید.\n"
-        "۴. دکمه *«بررسی و فعال‌سازی»* را بزنید.\n\n"
-        "✓ بلافاصله لایسنس روی سیستم شما فعال شده و دکمه اتصال سبز می‌شود."
+        "📖 *راهنمای جامع فعال‌سازی اینترنت آزاد³⁶⁹*\n\n"
+        "━━━━━━━━━━━━━━━━━━━\n"
+        "📱 *راهنمای فعال‌سازی در تلفن همراه (اندروید):*\n"
+        "۱. ابتدا اپلیکیشن **اینترنت آزاد³⁶⁹** را در گوشی خود باز کنید.\n"
+        "۲. روی کلید **اتصال** (یا آیکون کلید بالای صفحه) ضربه بزنید.\n"
+        "۳. کد لایسنس دریافتی (با پیشوند `AN`) را در کادر وارد نموده و گزینه **«بررسی و فعال‌سازی»** را بزنید.\n"
+        "✓ اشتراک شما بلافاصله فعال شده و برنامه متصل خواهد شد.\n\n"
+        "━━━━━━━━━━━━━━━━━━━\n"
+        "💻 *راهنمای فعال‌سازی در کامپیوتر (ویندوز):*\n"
+        "۱. ابتدا نرم‌افزار **اینترنت آزاد³⁶⁹** را در کامپیوتر اجرا کنید.\n"
+        "۲. در بالای صفحه روی دکمه **🔑 ثبت لایسنس** کلیک فرمایید.\n"
+        "۳. کد لایسنسی که از ربات دریافت کرده‌اید (با پیشوند `AZ`) را در کادر قرار دهید.\n"
+        "۴. دکمه **«بررسی و فعال‌سازی»** را بزنید.\n"
+        "✓ لایسنس شما تایید شده و دکمه اتصال سبز می‌شود.\n\n"
+        "💬 در صورت نیاز به راهنمایی بیشتر، از دکمه «💬 پشتیبانی» استفاده فرمایید."
     )
     safe_send_message(message.chat.id, text)
 
@@ -3026,27 +3044,32 @@ def handle_callbacks(call):
                 safe_send_message(call.message.chat.id, o_msg, reply_markup=markup)
             bot.answer_callback_query(call.id)
         elif action in PLANS_INFO:
-            db = load_db()
-            key = issue_key_for_plan_atomic(db, action, uid)
-            if not key:
-                safe_send_message(call.message.chat.id, "⚠️ خطا در تولید لایسنس جدید!")
-                bot.answer_callback_query(call.id, "خطا!")
-                return
-            save_db(db, immediate_sync=True)
-            p_name = PLANS_INFO[action]["name"]
-            p_days = PLANS_INFO[action]["days"]
-            is_and = PLANS_INFO[action].get("platform") == "android" or action.startswith("AN")
-            plat_badge = "📱 *سیستم‌عامل:* اندروید (موبایل)" if is_and else "💻 *سیستم‌عامل:* ویندوز (کامپیوتر)"
-            safe_send_message(
-                call.message.chat.id,
-                f"✅ *لایسنس دستی جدید {escape_md(p_name)} (رایگان ادمین):*\n\n"
-                f"`{key}`\n\n"
-                f"_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
-                f"{plat_badge}\n"
-                f"⏳ مدت اعتبار: *{p_days} روز*\n"
-                f"🔒 *تضمین عدم تکرار ۱۰۰٪:* این کلید با الگوریتم رمزنگاری یکتا (HMAC-SHA256) تولید شده و در هیچ سیستم دیگری فعال یا مصرف نشده است ✓"
-            )
-            bot.answer_callback_query(call.id, "لایسنس ۱۰۰٪ یکتا صادر شد ✓")
+            try:
+                bot.answer_callback_query(call.id, "در حال صدور لایسنس یکتا...")
+            except Exception:
+                pass
+            try:
+                db = load_db()
+                key = issue_key_for_plan_atomic(db, action, uid)
+                if not key:
+                    safe_send_message(call.message.chat.id, "⚠️ خطا در تولید لایسنس جدید!")
+                    return
+                save_db(db, immediate_sync=True)
+                p_name = PLANS_INFO[action]["name"]
+                p_days = PLANS_INFO[action]["days"]
+                is_and = PLANS_INFO[action].get("platform") == "android" or action.startswith("AN")
+                plat_badge = "📱 *سیستم‌عامل:* اندروید (موبایل)" if is_and else "💻 *سیستم‌عامل:* ویندوز (کامپیوتر)"
+                safe_send_message(
+                    call.message.chat.id,
+                    f"✅ *لایسنس دستی جدید {escape_md(p_name)} (رایگان ادمین):*\n\n"
+                    f"`{key}`\n\n"
+                    f"_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
+                    f"{plat_badge}\n"
+                    f"⏳ مدت اعتبار: *{p_days} روز*\n"
+                    f"🔒 *تضمین عدم تکرار ۱۰۰٪:* این کلید با الگوریتم رمزنگاری یکتا (HMAC-SHA256) تولید شده و در هیچ سیستم دیگری فعال یا مصرف نشده است ✓"
+                )
+            except Exception as e:
+                safe_send_message(call.message.chat.id, f"⚠️ خطا در فرایند صدور: {e}")
         elif action == "cards":
             db = load_db()
             c_state = get_card_state(db)
