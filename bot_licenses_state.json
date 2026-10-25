@@ -4310,6 +4310,12 @@
       "user_id": 793565931,
       "issued_at": 1792902915,
       "method": "crypto_unique"
+    },
+    "AZ3M-38BC-15F4-C2FC": {
+      "plan": "3M",
+      "user_id": 5880180551,
+      "issued_at": 1792911846,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -33339,9 +33345,18 @@
       "tron_amount": 1.324933,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4a1a2a79c1a54666ab2a169efdc71d3b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4a1a2a79c1a54666ab2a169efdc71d3b",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792911307
+      "created_at": 1792911307,
+      "approved_at": 1792911846,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-38BC-15F4-C2FC",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2985189",
+        "tron_amount": 1.324933,
+        "user_paid_toman": null,
+        "date": "2026-10-25T06:58:10.7300000"
+      }
     }
   },
   "users": {
@@ -35237,7 +35252,7 @@
       "last_name": "",
       "username": "habib_esmayli",
       "first_seen": 1792058146,
-      "last_seen": 1792058146,
+      "last_seen": 1792911825,
       "purchases": []
     },
     "43850757": {
@@ -35698,7 +35713,7 @@
       "last_name": "Masiha",
       "username": "mhmmadmasiha",
       "first_seen": 1792062417,
-      "last_seen": 1792741207,
+      "last_seen": 1792911813,
       "purchases": []
     },
     "206744781": {
@@ -39108,7 +39123,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1792099523,
-      "last_seen": 1792873107,
+      "last_seen": 1792911809,
       "purchases": [],
       "blocked": true,
       "last_admin_reply": {
@@ -55464,7 +55479,7 @@
       "last_name": "Abace",
       "username": "babakabace1",
       "first_seen": 1792770173,
-      "last_seen": 1792909799,
+      "last_seen": 1792911841,
       "purchases": []
     },
     "74803138": {
@@ -57185,7 +57200,15 @@
       "username": "hpe_smc",
       "first_seen": 1792907280,
       "last_seen": 1792911306,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-38BC-15F4-C2FC",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1792911846,
+          "days": 90
+        }
+      ]
     },
     "164267318": {
       "user_id": 164267318,
@@ -57726,10 +57749,6 @@
     "246051829": {
       "state": "waiting_support_msg",
       "time": 1792873310
-    },
-    "135651735": {
-      "state": "waiting_support_msg",
-      "time": 1792909828
     },
     "748538264": {
       "state": "waiting_support_msg",
