@@ -4010,6 +4010,12 @@
       "user_id": 8229763652,
       "issued_at": 1792966311,
       "method": "crypto_unique"
+    },
+    "AN2M-EB99-06CE-8BE4": {
+      "plan": "AN2M",
+      "user_id": 103241112,
+      "issued_at": 1792966548,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -30726,9 +30732,18 @@
       "tron_amount": 0.789643,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b3abfba00016432985186b095fe625f1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b3abfba00016432985186b095fe625f1",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792964122
+      "created_at": 1792964122,
+      "approved_at": 1792966548,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-EB99-06CE-8BE4",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2993918",
+        "tron_amount": 0.789643,
+        "user_paid_toman": null,
+        "date": "2026-10-25T22:15:22.7130000"
+      }
     },
     "TRND-AN2M-8085682455-1792964128-083e02": {
       "order_id": "TRND-AN2M-8085682455-1792964128-083e02",
@@ -31422,6 +31437,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792966269
+    },
+    "TRND-AN3M-8227743505-1792966484-664960": {
+      "order_id": "TRND-AN3M-8227743505-1792966484-664960",
+      "token": "fb586b7a2ee849319bee8ea48055a90a",
+      "user_id": 8227743505,
+      "first_name": "سرباز رهبر",
+      "username": "Mjabbari",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.335444,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_fb586b7a2ee849319bee8ea48055a90a",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=fb586b7a2ee849319bee8ea48055a90a",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792966484
     }
   },
   "users": {
@@ -55404,7 +55435,15 @@
       "username": "vahidganjkhanloo",
       "first_seen": 1792963526,
       "last_seen": 1792963860,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-EB99-06CE-8BE4",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1792966548,
+          "days": 60
+        }
+      ]
     },
     "83721534": {
       "user_id": 83721534,
@@ -55632,7 +55671,7 @@
       "last_name": "",
       "username": "Mjabbari",
       "first_seen": 1792966208,
-      "last_seen": 1792966208,
+      "last_seen": 1792966533,
       "purchases": []
     },
     "6802423557": {
