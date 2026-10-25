@@ -124,40 +124,78 @@ MAX_RUN_SECONDS = int(os.environ.get("MAX_RUN_SECONDS", 20400))
 START_TIME = time.time()
 
 PLANS_INFO = {
+    # پلن‌های نرم‌افزار ویندوز (کامپیوتر)
     "1M": {
-        "name": "۱ ماهه (۳۰ روزه)",
+        "name": "۱ ماهه ویندوز (۳۰ روزه)",
         "price": "۶۰,۰۰۰ تومان",
         "price_toman": 60000,
         "prefix": "AZ1M",
+        "platform": "windows",
         "file": "1M.txt",
         "fallback_file": "1_ماهه_1000_عدد.txt",
         "days": 30
     },
     "2M": {
-        "name": "۲ ماهه (۶۰ روزه)",
+        "name": "۲ ماهه ویندوز (۶۰ روزه)",
         "price": "۱۰۰,۰۰۰ تومان",
         "price_toman": 100000,
         "prefix": "AZ2M",
+        "platform": "windows",
         "file": "2M.txt",
         "fallback_file": "2_ماهه_1000_عدد.txt",
         "days": 60
     },
     "3M": {
-        "name": "۳ ماهه (۹۰ روزه)",
-        "prefix": "AZ3M",
+        "name": "۳ ماهه ویندوز (۹۰ روزه)",
         "price": "۱۴۹,۰۰۰ تومان",
         "price_toman": 149000,
+        "prefix": "AZ3M",
+        "platform": "windows",
         "file": "3M.txt",
         "fallback_file": "3_ماهه_1000_عدد.txt",
         "days": 90
     },
     "1Y": {
-        "name": "۱ ساله (۳۶۵ روزه)",
-        "prefix": "AZ1Y",
+        "name": "۱ ساله ویندوز (۳۶۵ روزه)",
         "price": "۳۹۹,۰۰۰ تومان",
         "price_toman": 399000,
+        "prefix": "AZ1Y",
+        "platform": "windows",
         "file": "1Y.txt",
         "fallback_file": "1_ساله_1000_عدد.txt",
+        "days": 365
+    },
+    # پلن‌های اختصاصی اپلیکیشن اندروید (موبایل)
+    "AN1M": {
+        "name": "۱ ماهه اندروید (۳۰ روزه)",
+        "price": "۶۰,۰۰۰ تومان",
+        "price_toman": 60000,
+        "prefix": "AN1M",
+        "platform": "android",
+        "days": 30
+    },
+    "AN2M": {
+        "name": "۲ ماهه اندروید (۶۰ روزه)",
+        "price": "۱۰۰,۰۰۰ تومان",
+        "price_toman": 100000,
+        "prefix": "AN2M",
+        "platform": "android",
+        "days": 60
+    },
+    "AN3M": {
+        "name": "۳ ماهه اندروید (۹۰ روزه)",
+        "price": "۱۴۹,۰۰۰ تومان",
+        "price_toman": 149000,
+        "prefix": "AN3M",
+        "platform": "android",
+        "days": 90
+    },
+    "AN1Y": {
+        "name": "۱ ساله اندروید (۳۶۵ روزه)",
+        "price": "۳۹۹,۰۰۰ تومان",
+        "price_toman": 399000,
+        "prefix": "AN1Y",
+        "platform": "android",
         "days": 365
     }
 }
@@ -638,7 +676,11 @@ def get_plan_availability() -> dict:
         "1M": False,
         "2M": False,
         "3M": False,
-        "1Y": False
+        "1Y": False,
+        "AN1M": True,
+        "AN2M": True,
+        "AN3M": True,
+        "AN1Y": True
     }
     try:
         db = load_db()
@@ -1109,11 +1151,12 @@ def get_all_used_keys(db: dict) -> set:
     all_used.update(_RESERVED_KEYS)
     return all_used
 
-def generate_unique_crypto_license(plan_code: str, used_keys: set) -> str | None:
+def generate_unique_crypto_license(plan_code: str, used_keys: set, hwid: str = None) -> str | None:
     """
     Generates a guaranteed-unique, mathematically authentic cryptographic license.
     Entropy: 32 bits of cryptographic OS entropy (secrets.token_hex) + HMAC-SHA256 signature.
     Guaranteed NEVER to collide with any historical, issued, bound, or reserved key.
+    If hwid is provided (8 hex chars), locks license directly to hardware.
     """
     info = PLANS_INFO.get(plan_code)
     if not info:
@@ -1122,13 +1165,19 @@ def generate_unique_crypto_license(plan_code: str, used_keys: set) -> str | None
     salt = getattr(license_core, "_SECRET_SALT", b"Azad369_Master_Lic_Crypto_Salt_2026_xYz99!")
 
     for _ in range(2000):
-        # 8 uppercase hex characters using true cryptographic randomness
-        rand_hex = secrets.token_hex(4).upper()
-        p1 = rand_hex[:4]
-        p2 = rand_hex[4:]
-        body = f"{prefix}-{p1}-{p2}"
-        sig = hmac.new(salt, body.encode("utf-8"), hashlib.sha256).hexdigest()[:4].upper()
-        candidate = f"{body}-{sig}"
+        if hwid and len(hwid.strip()) == 8:
+            p1 = hwid.strip().upper()
+            serial = secrets.token_hex(2).upper()
+            body = f"{prefix}-{p1}-{serial}"
+            sig = hmac.new(salt, body.encode("utf-8"), hashlib.sha256).hexdigest()[:6].upper()
+            candidate = f"{body}-{sig}"
+        else:
+            rand_hex = secrets.token_hex(4).upper()
+            p1 = rand_hex[:4]
+            p2 = rand_hex[4:]
+            body = f"{prefix}-{p1}-{p2}"
+            sig = hmac.new(salt, body.encode("utf-8"), hashlib.sha256).hexdigest()[:4].upper()
+            candidate = f"{body}-{sig}"
 
         if candidate not in used_keys and candidate not in _RESERVED_KEYS:
             v = license_core.verify_license_format(candidate)
@@ -1148,7 +1197,9 @@ def issue_key_for_plan_atomic(db: dict, plan_code: str, user_id: int) -> str | N
     used_keys = get_all_used_keys(db)
 
     # Primary: Generate mathematically unique cryptographic license
-    chosen_key = generate_unique_crypto_license(plan_code, used_keys)
+    u_state = USER_STATES.get(user_id, {}) if isinstance(USER_STATES, dict) else {}
+    hwid = u_state.get("hwid")
+    chosen_key = generate_unique_crypto_license(plan_code, used_keys, hwid=hwid)
 
     # Secondary fallback (if crypto generation somehow failed): pick clean disk key
     if not chosen_key:
@@ -1385,6 +1436,24 @@ def fulfill_tronado_order(payment_id: str, ipn_data: dict = None) -> tuple[bool,
         save_db(db, immediate_sync=True)
 
     # Deliver license to buyer
+    is_android = info.get("platform") == "android" or str(plan_code).startswith("AN")
+    if is_android:
+        activation_guide = (
+            "📌 *نحوه فعال‌سازی در گوشی (اندروید):*\n"
+            "۱. اپلیکیشن اندروید را باز کنید.\n"
+            "۲. روی کلید *«اتصال»* یا نشان لایسنس بالای صفحه بزنید.\n"
+            "۳. کد بالا را در کادر Paste کرده و *فعال‌سازی* را لمس کنید.\n\n"
+            "همچنین این لایسنس در بخش *«👤 حساب کاربری من»* ذخیره شد.\n\n"
+            "با تشکر از اعتماد شما به *اینترنت آزاد³⁶⁹* 🌸"
+        )
+    else:
+        activation_guide = (
+            "📌 *نحوه فعال‌سازی در ویندوز:*\n"
+            "این کد را داخل نرم‌افزار ویندوز در بخش *«ثبت لایسنس»* وارد کرده و فعال نمایید.\n"
+            "همچنین این لایسنس در بخش *«👤 حساب کاربری من»* ذخیره شد.\n\n"
+            "با تشکر از اعتماد شما به *اینترنت آزاد³⁶⁹* 🌸"
+        )
+
     buyer_msg = (
         "⚡🎉 *پرداخت آنلاین شما با موفقیت تایید شد!*\n\n"
         f"کد لایسنس اختصاصی شما صادر گردید:\n"
@@ -1393,10 +1462,7 @@ def fulfill_tronado_order(payment_id: str, ipn_data: dict = None) -> tuple[bool,
         f"🔹 پلن خریداری‌شده: *{escape_md(info['name'])}*\n"
         f"⏳ مدت اعتبار: *{info['days']} روز*\n"
         "💳 روش پرداخت: *درگاه آنلاین شتابی (ترونادو)*\n\n"
-        "📌 *نحوه فعال‌سازی:*\n"
-        "این کد را داخل نرم‌افزار ویندوز در بخش *«ثبت لایسنس»* وارد کرده و فعال نمایید.\n"
-        "همچنین این لایسنس در بخش *«👤 حساب کاربری من»* ذخیره شد.\n\n"
-        "با تشکر از اعتماد شما به *اینترنت آزاد³⁶⁹* 🌸"
+        f"{activation_guide}"
     )
     safe_send_message(buyer_id, buyer_msg)
 
@@ -1562,47 +1628,86 @@ def start_tronado_webhook_server():
 def welcome_inline_keyboard():
     markup = types.InlineKeyboardMarkup(row_width=1)
     markup.add(
-        types.InlineKeyboardButton("🛒 خرید اشتراک اختصاصی", callback_data="show_plans"),
+        types.InlineKeyboardButton("📱 خرید اشتراک اندروید (موبایل)", callback_data="show_plans_android"),
+        types.InlineKeyboardButton("💻 خرید اشتراک ویندوز (کامپیوتر)", callback_data="show_plans_windows"),
         types.InlineKeyboardButton("👤 حساب کاربری من", callback_data="my_account"),
         types.InlineKeyboardButton("📘 آموزش اتصال دستی", callback_data="manual_guide"),
         types.InlineKeyboardButton("💬 پشتیبانی", callback_data="start_support")
     )
     return markup
 
-def main_menu_keyboard(is_admin: bool = False):
+def main_menu_keyboard(admin_flag: bool = False):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
-    b_buy = types.KeyboardButton("🛒 خرید اشتراک اختصاصی")
+    b_and = types.KeyboardButton("📱 خرید اشتراک اندروید")
+    b_win = types.KeyboardButton("💻 خرید اشتراک ویندوز")
     b_acc = types.KeyboardButton("👤 حساب کاربری من")
     b_manual = types.KeyboardButton("📘 آموزش اتصال دستی")
     b_help = types.KeyboardButton("❓ راهنمای فعال‌سازی")
     b_sup = types.KeyboardButton("💬 پشتیبانی")
-    markup.add(b_buy, b_acc)
-    markup.add(b_manual, b_help)
-    markup.add(b_sup)
-    if is_admin:
+    markup.add(b_and, b_win)
+    markup.add(b_acc, b_manual)
+    markup.add(b_help, b_sup)
+    if admin_flag:
         b_adm = types.KeyboardButton("👑 پنل مدیریت ادمین")
         markup.add(b_adm)
     return markup
 
-def plans_keyboard():
+def platform_selection_keyboard():
+    markup = types.InlineKeyboardMarkup(row_width=1)
+    markup.add(
+        types.InlineKeyboardButton("📱 اپلیکیشن اندروید (موبایل)", callback_data="show_plans_android"),
+        types.InlineKeyboardButton("💻 نرم‌افزار ویندوز (کامپیوتر)", callback_data="show_plans_windows"),
+        types.InlineKeyboardButton("❌ انصراف و بستن", callback_data="cancel_action")
+    )
+    return markup
+
+def plans_keyboard_android():
     markup = types.InlineKeyboardMarkup(row_width=1)
     avail = get_plan_availability()
-    for p_code, p_info in PLANS_INFO.items():
-        is_avail = avail.get(p_code, False)
-        if is_avail:
-            text = f"{p_info['name']} — {p_info['price']} ⚡"
-        else:
-            text = f"{p_info['name']} — {p_info['price']} (❌ اتمام موجودی)"
+    for p_code in ["AN1M", "AN2M", "AN3M", "AN1Y"]:
+        if p_code not in PLANS_INFO:
+            continue
+        p_info = PLANS_INFO[p_code]
+        is_avail = avail.get(p_code, True)
+        status_suffix = "⚡" if is_avail else "(❌ اتمام موجودی)"
+        text = f"{p_info['name']} — {p_info['price']} {status_suffix}"
         markup.add(types.InlineKeyboardButton(text, callback_data=f"buy_{p_code}"))
-    markup.add(types.InlineKeyboardButton("❌ انصراف و بستن", callback_data="cancel_action"))
+    markup.add(types.InlineKeyboardButton("🔙 بازگشت به انتخاب سیستم‌عامل", callback_data="show_plans"))
     return markup
+
+def plans_keyboard_windows():
+    markup = types.InlineKeyboardMarkup(row_width=1)
+    avail = get_plan_availability()
+    for p_code in ["1M", "2M", "3M", "1Y"]:
+        if p_code not in PLANS_INFO:
+            continue
+        p_info = PLANS_INFO[p_code]
+        is_avail = avail.get(p_code, True)
+        status_suffix = "⚡" if is_avail else "(❌ اتمام موجودی)"
+        text = f"{p_info['name']} — {p_info['price']} {status_suffix}"
+        markup.add(types.InlineKeyboardButton(text, callback_data=f"buy_{p_code}"))
+    markup.add(types.InlineKeyboardButton("🔙 بازگشت به انتخاب سیستم‌عامل", callback_data="show_plans"))
+    return markup
+
+def plans_keyboard():
+    return platform_selection_keyboard()
 
 def admin_dashboard_keyboard():
     markup = types.InlineKeyboardMarkup(row_width=2)
-    b1 = types.InlineKeyboardButton("⭐ صدور کد ۱ ماهه", callback_data="adm_1M")
-    b2 = types.InlineKeyboardButton("⚡ صدور کد ۲ ماهه", callback_data="adm_2M")
-    b3 = types.InlineKeyboardButton("💎 صدور کد ۳ ماهه", callback_data="adm_3M")
-    b4 = types.InlineKeyboardButton("👑 صدور کد ۱ ساله", callback_data="adm_1Y")
+    # بخش ویندوز
+    b_win_hdr = types.InlineKeyboardButton("💻 ── صدور لایسنس ویندوز (رایگان) ── 💻", callback_data="adm_noop")
+    b_w1 = types.InlineKeyboardButton("⭐ ویندوز ۱ ماهه", callback_data="adm_1M")
+    b_w2 = types.InlineKeyboardButton("⚡ ویندوز ۲ ماهه", callback_data="adm_2M")
+    b_w3 = types.InlineKeyboardButton("💎 ویندوز ۳ ماهه", callback_data="adm_3M")
+    b_w4 = types.InlineKeyboardButton("👑 ویندوز ۱ ساله", callback_data="adm_1Y")
+
+    # بخش اندروید
+    b_and_hdr = types.InlineKeyboardButton("📱 ── صدور لایسنس اندروید (رایگان) ── 📱", callback_data="adm_noop")
+    b_a1 = types.InlineKeyboardButton("⭐ اندروید ۱ ماهه", callback_data="adm_AN1M")
+    b_a2 = types.InlineKeyboardButton("⚡ اندروید ۲ ماهه", callback_data="adm_AN2M")
+    b_a3 = types.InlineKeyboardButton("💎 اندروید ۳ ماهه", callback_data="adm_AN3M")
+    b_a4 = types.InlineKeyboardButton("👑 اندروید ۱ ساله", callback_data="adm_AN1Y")
+
     b_plans = types.InlineKeyboardButton("📦 مدیریت موجودی پلن‌ها", callback_data="adm_plans_mgr")
     b_stat = types.InlineKeyboardButton("📊 موجودی لایسنس‌ها", callback_data="adm_stats")
     b_pend = types.InlineKeyboardButton("⏳ سفارشات در انتظار", callback_data="adm_pending")
@@ -1614,8 +1719,12 @@ def admin_dashboard_keyboard():
     maint_label = "🔴 حالت تعمیر: فعال (خاموش تا ۲۱:۰۰)" if in_maint else "🟢 حالت تعمیر: غیرفعال (ربات باز است)"
     b_maint = types.InlineKeyboardButton(maint_label, callback_data="adm_toggle_maint")
 
-    markup.add(b1, b2)
-    markup.add(b3, b4)
+    markup.add(b_win_hdr)
+    markup.add(b_w1, b_w2)
+    markup.add(b_w3, b_w4)
+    markup.add(b_and_hdr)
+    markup.add(b_a1, b_a2)
+    markup.add(b_a3, b_a4)
     markup.add(b_plans)
     markup.add(b_stat, b_pend)
     markup.add(b_live, b_bc)
@@ -1729,9 +1838,24 @@ def cmd_start(message):
             return
 
     args = message.text.split()
-    if len(args) > 1 and args[1].lower() == "manual_guide":
-        send_manual_connection_guide(message.chat.id)
-        return
+    if len(args) > 1:
+        param = args[1].strip()
+        if param.lower() == "manual_guide":
+            send_manual_connection_guide(message.chat.id)
+            return
+        elif param.lower().startswith("dev_"):
+            hwid = param[4:].upper()
+            u_state = USER_STATES.setdefault(uid, {})
+            u_state["hwid"] = hwid
+            dev_welcome = (
+                f"سلام *{escape_md(name)}* عزیز! 📱\n\n"
+                f"شناسه سخت‌افزاری گوشی شما شناسایی شد: `{hwid}`\n\n"
+                f"جهت فعال‌سازی اپلیکیشن روی این تلفن همراه، یکی از پلن‌های اشتراک زیر را انتخاب فرمایید:\n"
+                f"_(پرداخت آنلاین از طریق درگاه امن ترونادو انجام و لایسنس آنی صادر می‌شود)_"
+            )
+            safe_send_message(message.chat.id, dev_welcome, reply_markup=plans_keyboard_android())
+            safe_send_message(message.chat.id, "منوی اصلی کیبورد نیز فعال شد 👇", reply_markup=main_menu_keyboard(admin_flag))
+            return
 
     welcome_text = (
         f"سلام *{escape_md(name)}* عزیز! 🌸\n\n"
@@ -1747,6 +1871,10 @@ def cmd_start(message):
 MAIN_MENU_EXACT_BUTTONS = {
     "🛒 خرید اشتراک اختصاصی",
     "🛒 خرید اشتراک",
+    "📱 خرید اشتراک اندروید",
+    "💻 خرید اشتراک ویندوز",
+    "خرید اشتراک اندروید",
+    "خرید اشتراک ویندوز",
     "👤 حساب کاربری من",
     "📘 آموزش اتصال دستی",
     "❓ راهنمای فعال‌سازی",
@@ -1798,6 +1926,34 @@ def is_menu_button_command(m, exact_commands: list) -> bool:
     # In normal idle state, only exact matches trigger menu handlers
     return clean in exact_commands
 
+@bot.message_handler(func=lambda m: is_menu_button_command(m, ["📱 خرید اشتراک اندروید", "خرید اشتراک اندروید", "اشتراک اندروید", "/android"]))
+def btn_buy_android(message):
+    clear_user_state(message.from_user.id)
+    in_maint, maint_msg = is_maintenance_mode()
+    if in_maint and not is_admin(message.from_user.id):
+        safe_reply_to(message, maint_msg)
+        return
+    text = (
+        "📱 *پلن‌های اشتراک اپلیکیشن اندروید اینترنت آزاد³⁶⁹*\n\n"
+        "لطفاً مدت زمان مورد نظر خود را انتخاب کنید:\n"
+        "_(این لایسنس مخصوص اپلیکیشن اندروید است و روی تلفن همراه فعال می‌شود)_"
+    )
+    safe_send_message(message.chat.id, text, reply_markup=plans_keyboard_android())
+
+@bot.message_handler(func=lambda m: is_menu_button_command(m, ["💻 خرید اشتراک ویندوز", "خرید اشتراک ویندوز", "اشتراک ویندوز", "/windows"]))
+def btn_buy_windows(message):
+    clear_user_state(message.from_user.id)
+    in_maint, maint_msg = is_maintenance_mode()
+    if in_maint and not is_admin(message.from_user.id):
+        safe_reply_to(message, maint_msg)
+        return
+    text = (
+        "💻 *پلن‌های اشتراک نرم‌افزار ویندوز اینترنت آزاد³⁶⁹*\n\n"
+        "لطفاً مدت زمان مورد نظر خود را انتخاب کنید:\n"
+        "_(این لایسنس مخصوص نرم‌افزار ویندوز است و روی کامپیوتر یا لپ‌تاپ فعال می‌شود)_"
+    )
+    safe_send_message(message.chat.id, text, reply_markup=plans_keyboard_windows())
+
 @bot.message_handler(func=lambda m: is_menu_button_command(m, ["🛒 خرید اشتراک اختصاصی", "🛒 خرید اشتراک", "خرید اشتراک", "خرید", "پلن‌ها", "پلن ها", "/buy", "/plans"]))
 def btn_buy_plans(message):
     clear_user_state(message.from_user.id)
@@ -1814,11 +1970,10 @@ def btn_buy_plans(message):
             )
         return
     text = (
-        "💎 *پلن‌های اشتراک اینترنت آزاد³⁶⁹*\n\n"
-        "لطفاً مدت زمان مورد نظر خود را انتخاب کنید:\n"
-        "_(تمامی پلن‌ها دارای ترافیک نامحدود و حداکثر سرعت می‌باشند)_"
+        "💎 *لطفاً سیستم‌عامل مورد نظر خود را جهت خرید اشتراک انتخاب فرمایید:*\n\n"
+        "_(لایسنس صادرشده دقیقاً مختص همان سیستم‌عامل فعال خواهد شد)_"
     )
-    safe_send_message(message.chat.id, text, reply_markup=plans_keyboard())
+    safe_send_message(message.chat.id, text, reply_markup=platform_selection_keyboard())
 
 @bot.message_handler(commands=["account", "my_account", "profile"])
 @bot.message_handler(func=lambda m: is_menu_button_command(m, ["👤 حساب کاربری من", "حساب کاربری من", "حساب کاربری", "اکانت من", "پروفایل"]))
@@ -2167,15 +2322,47 @@ def handle_callbacks(call):
             safe_send_message(call.message.chat.id, maint_msg)
             return
 
-    # نمایش منوی پلن‌ها
+    # انتخاب سیستم‌عامل و پلن‌ها
     if data == "show_plans":
         safe_answer_callback(call.id)
         text = (
-            "💎 *پلن‌های اشتراک اینترنت آزاد³⁶⁹*\n\n"
-            "لطفاً مدت زمان مورد نظر خود را انتخاب کنید:\n"
-            "_(تمامی پلن‌ها دارای ترافیک نامحدود و حداکثر سرعت می‌باشند)_"
+            "💎 *لطفاً سیستم‌عامل مورد نظر خود را جهت خرید اشتراک انتخاب فرمایید:*\n\n"
+            "_(لایسنس صادرشده دقیقاً مختص همان سیستم‌عامل فعال خواهد شد)_"
         )
-        safe_send_message(call.message.chat.id, text, reply_markup=plans_keyboard())
+        try:
+            bot.edit_message_text(text, call.message.chat.id, call.message.message_id, reply_markup=platform_selection_keyboard(), parse_mode="Markdown")
+        except Exception:
+            safe_send_message(call.message.chat.id, text, reply_markup=platform_selection_keyboard())
+        return
+
+    elif data == "show_plans_android":
+        safe_answer_callback(call.id)
+        text = (
+            "📱 *پلن‌های اشتراک اپلیکیشن اندروید اینترنت آزاد³⁶⁹*\n\n"
+            "لطفاً مدت زمان مورد نظر خود را انتخاب کنید:\n"
+            "_(این لایسنس مخصوص اپلیکیشن اندروید است و روی تلفن همراه فعال می‌شود)_"
+        )
+        try:
+            bot.edit_message_text(text, call.message.chat.id, call.message.message_id, reply_markup=plans_keyboard_android(), parse_mode="Markdown")
+        except Exception:
+            safe_send_message(call.message.chat.id, text, reply_markup=plans_keyboard_android())
+        return
+
+    elif data == "show_plans_windows":
+        safe_answer_callback(call.id)
+        text = (
+            "💻 *پلن‌های اشتراک نرم‌افزار ویندوز اینترنت آزاد³⁶⁹*\n\n"
+            "لطفاً مدت زمان مورد نظر خود را انتخاب کنید:\n"
+            "_(این لایسنس مخصوص نرم‌افزار ویندوز است و روی کامپیوتر یا لپ‌تاپ فعال می‌شود)_"
+        )
+        try:
+            bot.edit_message_text(text, call.message.chat.id, call.message.message_id, reply_markup=plans_keyboard_windows(), parse_mode="Markdown")
+        except Exception:
+            safe_send_message(call.message.chat.id, text, reply_markup=plans_keyboard_windows())
+        return
+
+    elif data == "adm_noop":
+        safe_answer_callback(call.id)
         return
 
     # حساب کاربری
@@ -2604,6 +2791,24 @@ def handle_callbacks(call):
         order["key"] = key
         save_db(db, immediate_sync=True)
 
+        is_android = info.get("platform") == "android" or str(plan_code).startswith("AN")
+        if is_android:
+            activation_guide = (
+                "📌 *نحوه فعال‌سازی در گوشی (اندروید):*\n"
+                "۱. اپلیکیشن اندروید را باز کنید.\n"
+                "۲. روی کلید *«اتصال»* یا نشان لایسنس بالای صفحه بزنید.\n"
+                "۳. کد بالا را در کادر Paste کرده و *فعال‌سازی* را لمس کنید.\n\n"
+                "همچنین این لایسنس در بخش *«👤 حساب کاربری من»* ذخیره شد.\n\n"
+                "با تشکر از اعتماد شما به *اینترنت آزاد³⁶⁹* 🌸"
+            )
+        else:
+            activation_guide = (
+                "📌 *نحوه فعال‌سازی در ویندوز:*\n"
+                "این کد را داخل نرم‌افزار ویندوز در بخش *«ثبت لایسنس»* وارد کرده و فعال نمایید.\n"
+                "همچنین این لایسنس در بخش *«👤 حساب کاربری من»* ذخیره شد.\n\n"
+                "با تشکر از اعتماد شما به *اینترنت آزاد³⁶⁹* 🌸"
+            )
+
         buyer_msg = (
             f"🎉 *رسید پرداخت شما تایید شد!*\n\n"
             f"کد لایسنس اختصاصی شما:\n"
@@ -2611,10 +2816,7 @@ def handle_callbacks(call):
             f"_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
             f"🔹 پلن خریداری‌شده: *{escape_md(info['name'])}*\n"
             f"⏳ مدت اعتبار: *{info['days']} روز*\n\n"
-            f"📌 *نحوه فعال‌سازی:*\n"
-            f"این کد را داخل نرم‌افزار ویندوز در بخش *«ثبت لایسنس»* وارد کرده و فعال نمایید.\n"
-            f"همچنین این لایسنس در بخش *«👤 حساب کاربری من»* ذخیره شد.\n\n"
-            f"با تشکر از اعتماد شما به *اینترنت آزاد³⁶⁹* 🌸"
+            f"{activation_guide}"
         )
         safe_send_message(buyer_id, buyer_msg)
 
@@ -2833,11 +3035,14 @@ def handle_callbacks(call):
             save_db(db, immediate_sync=True)
             p_name = PLANS_INFO[action]["name"]
             p_days = PLANS_INFO[action]["days"]
+            is_and = PLANS_INFO[action].get("platform") == "android" or action.startswith("AN")
+            plat_badge = "📱 *سیستم‌عامل:* اندروید (موبایل)" if is_and else "💻 *سیستم‌عامل:* ویندوز (کامپیوتر)"
             safe_send_message(
                 call.message.chat.id,
-                f"✅ *لایسنس دستی جدید {escape_md(p_name)}:*\n\n"
+                f"✅ *لایسنس دستی جدید {escape_md(p_name)} (رایگان ادمین):*\n\n"
                 f"`{key}`\n\n"
                 f"_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
+                f"{plat_badge}\n"
                 f"⏳ مدت اعتبار: *{p_days} روز*\n"
                 f"🔒 *تضمین عدم تکرار ۱۰۰٪:* این کلید با الگوریتم رمزنگاری یکتا (HMAC-SHA256) تولید شده و در هیچ سیستم دیگری فعال یا مصرف نشده است ✓"
             )

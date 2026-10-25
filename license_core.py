@@ -19,10 +19,17 @@ _SECRET_SALT = b"Azad369_Master_Lic_Crypto_Salt_2026_xYz99!"
 
 # Supported Plans mapping (Prefix -> (Days, Plan Name))
 PLANS = {
-    "AZ1M": (30, "۱ ماهه (۳۰ روزه)"),
-    "AZ2M": (60, "۲ ماهه (۶۰ روزه)"),
-    "AZ3M": (90, "۳ ماهه (۹۰ روزه)"),
-    "AZ1Y": (365, "۱ ساله (۳۶۵ روزه)")
+    # Windows Plans
+    "AZ1M": (30, "ویندوز ۱ ماهه (۳۰ روزه)"),
+    "AZ2M": (60, "ویندوز ۲ ماهه (۶۰ روزه)"),
+    "AZ3M": (90, "ویندوز ۳ ماهه (۹۰ روزه)"),
+    "AZ1Y": (365, "ویندوز ۱ ساله (۳۶۵ روزه)"),
+    # Android Plans
+    "AN1M": (30, "اندروید ۱ ماهه (۳۰ روزه)"),
+    "AN2M": (60, "اندروید ۲ ماهه (۶۰ روزه)"),
+    "AN3M": (90, "اندروید ۳ ماهه (۹۰ روزه)"),
+    "AN6M": (180, "اندروید ۶ ماهه (۱۸۰ روزه)"),
+    "AN1Y": (365, "اندروید ۱ ساله (۳۶۵ روزه)")
 }
 
 # License file storage path in user APPDATA
@@ -94,7 +101,7 @@ def verify_license_format(key: str) -> dict:
         return {"valid": False, "error": "پیشوند نوع لایسنس نامعتبر است."}
 
     body = f"{prefix}-{p1}-{p2}"
-    expected_sig = hmac.new(_SECRET_SALT, body.encode("utf-8"), hashlib.sha256).hexdigest()[:4].upper()
+    expected_sig = hmac.new(_SECRET_SALT, body.encode("utf-8"), hashlib.sha256).hexdigest()[:len(sig)].upper()
 
     if sig != expected_sig:
         return {"valid": False, "error": "امضای امنیتی لایسنس اشتباه است (کد جعلی یا اشتباه تایپ شده)."}
