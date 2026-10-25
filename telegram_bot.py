@@ -1052,26 +1052,17 @@ def get_hwid_bound_keys() -> set:
 # Working window: 12:00 PM (ظهر) to 22:00 PM (شب). Closed outside this window.
 # ---------------------------------------------------------------------------
 def is_support_working_hours() -> tuple[bool, str]:
-    """
-    Checks if support is currently open based on Tehran time (UTC+3:30).
-    Support is locked until 22:00 (10:00 PM) Tehran time.
-    """
-    try:
-        now_utc = datetime.datetime.now(datetime.timezone.utc)
-        tehran_now = now_utc + datetime.timedelta(hours=3, minutes=30)
-        if tehran_now.hour < 22:
-            return False, "۲۲:۰۰ (۱۰ شب)"
-        return True, ""
-    except Exception as e:
-        print(f"[Support Hours] Error: {e}")
-        return False, "۲۲:۰۰ (۱۰ شب)"
+    """Support is currently offline (sleep mode)."""
+    return False, "استراحت شبانه"
 
-SUPPORT_CLOSED_MESSAGE = (
-    "⏰ *واحد پشتیبانی تا ساعت ۲۲:۰۰ (۱۰ شب) موقتاً غیرفعال است.*\n\n"
-    "کاربر گرامی، تیم پشتیبانی از ساعت *۲۲:۰۰ شب (۱۰ شب)* مجدداً پاسخگوی پیام‌ها و سوالات شما عزیزان خواهد بود. 🌸\n\n"
-    "▫️ بخش خرید لایسنس و تحویل آنی اشتراک به صورت کاملاً خودکار و ۲۴ ساعته فعال است.\n\n"
-    "📢 کانال اطلاع‌رسانی: @muntivpn"
-)
+SUPPORT_CLOSED_MESSAGE = """💤 *کاربر گرامی، پشتیبانی در حال حاضر در دسترس نیست.*
+
+همکاران ما در بخش پشتیبانی در حال حاضر در دسترس نیستند (ساعات استراحت شبانه).
+لطفاً پیام، سوال یا مشکل خود را فردا صبح ارسال فرمایید تا در اسرع وقت پاسخگوی شما باشیم. 🌸
+
+▫️ بخش خرید لایسنس و تحویل آنی اشتراک به صورت کاملاً خودکار و ۲۴ ساعته فعال است.
+
+📢 کانال اطلاع‌رسانی: @muntivpn"""
 
 # ---------------------------------------------------------------------------
 # Account & License Inventory Reconciliation
@@ -2290,11 +2281,8 @@ def send_manual_connection_guide(chat_id: int):
 # ---------------------------------------------------------------------------
 @bot.message_handler(commands=["support"])
 @bot.message_handler(func=lambda m: is_menu_button_command(m, ["💬 پشتیبانی", "پشتیبانی", "ارتباط با ادمین"]))
-def btn_support(message):
-    safe_send_message(message.chat.id, """💤 *کاربر گرامی، پشتیبانی در حال حاضر در دسترس نیست.*
-
-همکاران ما در بخش پشتیبانی در حال استراحت شبانه هستند.
-لطفاً پیام، سوال یا مشکل خود را فردا صبح ارسال فرمایید تا در اسرع وقت پاسخگوی شما باشیم. 🌸""")
+def btn_support(message, target_uid=None, *args, **kwargs):
+    safe_send_message(message.chat.id, SUPPORT_CLOSED_MESSAGE)
     return
 
 
@@ -2838,16 +2826,9 @@ def handle_callbacks(call):
 
     # تیکت پشتیبانی: شروع پیام به ادمین
     elif data == "ticket_new":
-        set_user_state(uid, {"state": "waiting_support_msg", "time": int(time.time())})
-        prompt_ticket = (
-            "✍️ *پیام به پشتیبانی:*\n\n"
-            "لطفاً پیام، سوال یا مشکل خود را به صورت متن یا تصویر همین‌جا ارسال فرمایید.\n"
-            "پیام شما مستقیماً برای مدیریت ارسال شده و پاسخ در همین چت برایتان فرستاده خواهد شد. 🌸"
-        )
-        markup = types.InlineKeyboardMarkup()
-        markup.add(types.InlineKeyboardButton("❌ انصراف", callback_data="cancel_action"))
-        safe_send_message(call.message.chat.id, prompt_ticket, reply_markup=markup)
         safe_answer_callback(call.id)
+        safe_send_message(call.message.chat.id, SUPPORT_CLOSED_MESSAGE)
+        return
 
     # ادمین روی دکمه «پاسخ به کاربر» می‌زند
     elif data.startswith("reply_user_"):
