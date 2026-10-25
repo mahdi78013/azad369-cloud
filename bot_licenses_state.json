@@ -3764,6 +3764,12 @@
       "user_id": 135007934,
       "issued_at": 1792962074,
       "method": "crypto_unique"
+    },
+    "AN1M-BFB0-B7AB-25A9": {
+      "plan": "AN1M",
+      "user_id": 114176980,
+      "issued_at": 1792962080,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -29094,9 +29100,18 @@
       "tron_amount": 0.37024,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_7d819cb9762b48e6a3919dad20c255f0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7d819cb9762b48e6a3919dad20c255f0",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792961869
+      "created_at": 1792961869,
+      "approved_at": 1792962080,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1M-BFB0-B7AB-25A9",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2993462",
+        "tron_amount": 0.37024,
+        "user_paid_toman": null,
+        "date": "2026-10-25T21:00:10.4100000"
+      }
     },
     "TRND-AN1M-2103562144-1792961870-a57098": {
       "order_id": "TRND-AN1M-2103562144-1792961870-a57098",
@@ -29369,6 +29384,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792962069
+    },
+    "TRND-3M-1028236078-1792962078-bc8cfd": {
+      "order_id": "TRND-3M-1028236078-1792962078-bc8cfd",
+      "token": "97a7896e26f0476bbd5e0c5a9cdd13b8",
+      "user_id": 1028236078,
+      "first_name": "Ab . Ghasem_nezhad",
+      "username": "Abolfazl0063",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.343612,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_97a7896e26f0476bbd5e0c5a9cdd13b8",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=97a7896e26f0476bbd5e0c5a9cdd13b8",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792962078
     }
   },
   "users": {
@@ -35418,6 +35449,13 @@
           "plan_name": "۳ ماهه (۹۰ روزه)",
           "issued_at": 1792155246,
           "days": 90
+        },
+        {
+          "key": "AN1M-BFB0-B7AB-25A9",
+          "plan": "AN1M",
+          "plan_name": "۱ ماهه اندروید (۳۰ روزه)",
+          "issued_at": 1792962080,
+          "days": 30
         }
       ]
     },
