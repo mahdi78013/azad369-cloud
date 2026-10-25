@@ -2972,6 +2972,12 @@
       "user_id": 169229982,
       "issued_at": 1792945422,
       "method": "crypto_unique"
+    },
+    "AN2M-D66A4491-2AB1-63119C": {
+      "plan": "AN2M",
+      "user_id": 42598036,
+      "issued_at": 1792945433,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -21507,9 +21513,10 @@
       "tron_amount": 0.799906,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_68ff07a19e9042c2b4e64d98d3c5ea2d",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=68ff07a19e9042c2b4e64d98d3c5ea2d",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792945270
+      "created_at": 1792945270,
+      "cancelled_at": 1792945429
     },
     "TRND-AN1Y-1009333228-1792945270-0aa0cb": {
       "order_id": "TRND-AN1Y-1009333228-1792945270-0aa0cb",
@@ -21637,9 +21644,18 @@
       "tron_amount": 0.793286,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_202d36bff9ca4394abbe8ff967a820ef",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=202d36bff9ca4394abbe8ff967a820ef",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792945304
+      "created_at": 1792945304,
+      "approved_at": 1792945433,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-D66A4491-2AB1-63119C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2990114",
+        "tron_amount": 0.793286,
+        "user_paid_toman": null,
+        "date": "2026-10-25T16:23:11.4000000"
+      }
     },
     "TRND-AN2M-8843776544-1792945306-11468f": {
       "order_id": "TRND-AN2M-8843776544-1792945306-11468f",
@@ -40815,7 +40831,15 @@
       "username": "reza_eskandari",
       "first_seen": 1792945236,
       "last_seen": 1792945236,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-D66A4491-2AB1-63119C",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1792945433,
+          "days": 60
+        }
+      ]
     },
     "1749786538": {
       "user_id": 1749786538,
@@ -41129,6 +41153,15 @@
       "username": "aka_the_koorosh",
       "first_seen": 1792945421,
       "last_seen": 1792945421,
+      "purchases": []
+    },
+    "5609188959": {
+      "user_id": 5609188959,
+      "first_name": "Sharpstreams",
+      "last_name": "",
+      "username": "Sharpstreams",
+      "first_seen": 1792945428,
+      "last_seen": 1792945428,
       "purchases": []
     }
   },
