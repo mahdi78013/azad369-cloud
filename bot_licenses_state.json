@@ -3440,6 +3440,12 @@
       "user_id": 124707303,
       "issued_at": 1792947487,
       "method": "crypto_unique"
+    },
+    "AN1Y-12AAC1AE-8EF1-7DD426": {
+      "plan": "AN1Y",
+      "user_id": 314919911,
+      "issued_at": 1792947495,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -25377,9 +25383,18 @@
       "tron_amount": 3.667099,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_7afb6f796b414efe82ff10e3ea63e7ba",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7afb6f796b414efe82ff10e3ea63e7ba",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792947305
+      "created_at": 1792947305,
+      "approved_at": 1792947495,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-12AAC1AE-8EF1-7DD426",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2990586",
+        "tron_amount": 3.667099,
+        "user_paid_toman": null,
+        "date": "2026-10-25T16:57:22.9600000"
+      }
     },
     "TRND-AN3M-1984420957-1792947312-efc165": {
       "order_id": "TRND-AN3M-1984420957-1792947312-efc165",
@@ -25661,6 +25676,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792947472
+    },
+    "TRND-AN3M-6627915081-1792947491-73ad05": {
+      "order_id": "TRND-AN3M-6627915081-1792947491-73ad05",
+      "token": "c996465dd0c94c84b2d61f2e663a2702",
+      "user_id": 6627915081,
+      "first_name": "F",
+      "username": "farshad_8557",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.338075,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_c996465dd0c94c84b2d61f2e663a2702",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c996465dd0c94c84b2d61f2e663a2702",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792947491
     }
   },
   "users": {
@@ -27667,7 +27698,7 @@
       "last_name": "Daemi",
       "username": "iamirdaemi",
       "first_seen": 1792917582,
-      "last_seen": 1792947127,
+      "last_seen": 1792947490,
       "purchases": [],
       "last_admin_reply": {
         "text": "سلام نخیر فقط تک ویندوز",
@@ -33185,6 +33216,13 @@
           "plan": "1Y",
           "plan_name": "۱ ساله (۳۶۵ روزه)",
           "issued_at": 1792239213,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-12AAC1AE-8EF1-7DD426",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1792947495,
           "days": 365
         }
       ],
