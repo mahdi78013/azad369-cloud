@@ -3980,6 +3980,12 @@
       "user_id": 7984085950,
       "issued_at": 1792965284,
       "method": "crypto_unique"
+    },
+    "AN3M-9F10-3E22-8599": {
+      "plan": "AN3M",
+      "user_id": 202369241,
+      "issued_at": 1792965315,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -31087,9 +31093,18 @@
       "tron_amount": 1.342319,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_94752f078c4744e3b6b644ff0be6e692",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=94752f078c4744e3b6b644ff0be6e692",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792964991
+      "created_at": 1792964991,
+      "approved_at": 1792965315,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-9F10-3E22-8599",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2993866",
+        "tron_amount": 1.342319,
+        "user_paid_toman": null,
+        "date": "2026-10-25T21:53:29.6230000"
+      }
     },
     "TRND-3M-61095879-1792965027-c6dce8": {
       "order_id": "TRND-3M-61095879-1792965027-c6dce8",
@@ -37212,7 +37227,7 @@
       "last_name": "",
       "username": "AAneo13",
       "first_seen": 1792913399,
-      "last_seen": 1792953400,
+      "last_seen": 1792965310,
       "purchases": []
     },
     "654331497": {
@@ -38133,7 +38148,15 @@
       "username": "Mjt_2024",
       "first_seen": 1792137221,
       "last_seen": 1792964991,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-9F10-3E22-8599",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1792965315,
+          "days": 90
+        }
+      ]
     },
     "1361801788": {
       "user_id": 1361801788,
@@ -39975,7 +39998,7 @@
       "last_name": "",
       "username": "srrsoog",
       "first_seen": 1792164276,
-      "last_seen": 1792177891,
+      "last_seen": 1792965286,
       "purchases": [
         {
           "key": "AZ3M-1E23-0D0E-2169",
