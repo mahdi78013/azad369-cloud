@@ -3764,6 +3764,12 @@
       "user_id": 7863638328,
       "issued_at": 1792962412,
       "method": "crypto_unique"
+    },
+    "AN3M-9C61-AE54-E336": {
+      "plan": "AN3M",
+      "user_id": 5232491990,
+      "issued_at": 1792962419,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -29207,9 +29213,18 @@
       "tron_amount": 1.324936,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e986d233f9b54bd8aa443d71808cc888",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e986d233f9b54bd8aa443d71808cc888",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792962299
+      "created_at": 1792962299,
+      "approved_at": 1792962419,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-9C61-AE54-E336",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2993553",
+        "tron_amount": 1.324936,
+        "user_paid_toman": null,
+        "date": "2026-10-25T21:06:33.7470000"
+      }
     },
     "TRND-AN1M-5493840569-1792962316-5f6da4": {
       "order_id": "TRND-AN1M-5493840569-1792962316-5f6da4",
@@ -29354,6 +29369,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792962404
+    },
+    "TRND-AN3M-113302223-1792962412-4fbcf7": {
+      "order_id": "TRND-AN3M-113302223-1792962412-4fbcf7",
+      "token": "f9bc22f8bd1045c2ae457557d9ac707c",
+      "user_id": 113302223,
+      "first_name": "Masoud",
+      "username": "Masoud772",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.323046,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_f9bc22f8bd1045c2ae457557d9ac707c",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f9bc22f8bd1045c2ae457557d9ac707c",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792962412
     }
   },
   "users": {
@@ -47241,6 +47272,13 @@
           "plan": "3M",
           "plan_name": "۳ ماهه (۹۰ روزه)",
           "issued_at": 1792466508,
+          "days": 90
+        },
+        {
+          "key": "AN3M-9C61-AE54-E336",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1792962419,
           "days": 90
         }
       ]
