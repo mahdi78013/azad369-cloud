@@ -712,10 +712,10 @@ def get_plan_availability() -> dict:
     default_avail = {
         "1M": False,
         "2M": False,
-        "3M": False,
-        "1Y": False,
-        "AN1M": False,
-        "AN2M": False,
+        "3M": True,
+        "1Y": True,
+        "AN1M": True,
+        "AN2M": True,
         "AN3M": False,
         "AN1Y": False
     }
@@ -3070,9 +3070,12 @@ def handle_callbacks(call):
                 )
                 markup = admin_plans_management_keyboard()
                 try:
-                    bot.edit_message_text(text, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
+                    bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=markup)
                 except Exception:
-                    pass
+                    try:
+                        bot.edit_message_text(text, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
+                    except Exception:
+                        pass
             else:
                 bot.answer_callback_query(call.id, "پلن نامعتبر است!")
             return
