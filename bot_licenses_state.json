@@ -4310,6 +4310,12 @@
       "user_id": 793565931,
       "issued_at": 1792902915,
       "method": "crypto_unique"
+    },
+    "AZ3M-F3CB-ECCE-D217": {
+      "plan": "3M",
+      "user_id": 5880180551,
+      "issued_at": 1792911493,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -33339,9 +33345,18 @@
       "tron_amount": 1.324933,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4a1a2a79c1a54666ab2a169efdc71d3b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4a1a2a79c1a54666ab2a169efdc71d3b",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792911307
+      "created_at": 1792911307,
+      "approved_at": 1792911493,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-F3CB-ECCE-D217",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2985189",
+        "tron_amount": 1.324933,
+        "user_paid_toman": null,
+        "date": "2026-10-25T06:58:10.7300000"
+      }
     }
   },
   "users": {
@@ -57163,7 +57178,15 @@
       "username": "hpe_smc",
       "first_seen": 1792907280,
       "last_seen": 1792911306,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-F3CB-ECCE-D217",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1792911493,
+          "days": 90
+        }
+      ]
     },
     "164267318": {
       "user_id": 164267318,
