@@ -3770,6 +3770,12 @@
       "user_id": 5232491990,
       "issued_at": 1792962419,
       "method": "crypto_unique"
+    },
+    "AN1Y-9E99-4CC6-D4B7": {
+      "plan": "AN1Y",
+      "user_id": 539694926,
+      "issued_at": 1792962553,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -28601,9 +28607,18 @@
       "tron_amount": 3.665886,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d25eb62063d94512838ea7952c4b70c5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d25eb62063d94512838ea7952c4b70c5",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792950053
+      "created_at": 1792950053,
+      "approved_at": 1792962553,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-9E99-4CC6-D4B7",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2993555",
+        "tron_amount": 3.665886,
+        "user_paid_toman": null,
+        "date": "2026-10-25T21:08:36.6030000"
+      }
     },
     "TRND-AN3M-1887358039-1792950090-42ba98": {
       "order_id": "TRND-AN3M-1887358039-1792950090-42ba98",
@@ -29401,6 +29416,50 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792962425
+    },
+    "TRND-AN3M-641701115-1792962467-06814e": {
+      "order_id": "TRND-AN3M-641701115-1792962467-06814e",
+      "token": "833ac5b0be0742abb84c1ca7602b4a47",
+      "user_id": 641701115,
+      "first_name": "Bardia",
+      "username": "hovyiat2",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.332944,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_833ac5b0be0742abb84c1ca7602b4a47",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=833ac5b0be0742abb84c1ca7602b4a47",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792962467
+    },
+    "ORD_1792962499_113302223": {
+      "order_id": "ORD_1792962499_113302223",
+      "user_id": 113302223,
+      "username": "muntivpn369bot",
+      "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAEBIGpq3m-y-WFCa-VQkmaPwn47vTbnfgACPhFrG34U8FJVO15tba02DwEAAwIAA3kAAz0E",
+      "card_number": "5047061670546072",
+      "created_at": 1792962499,
+      "caption": ""
+    },
+    "ORD_1792962525_6221063531": {
+      "order_id": "ORD_1792962525_6221063531",
+      "user_id": 6221063531,
+      "username": "muntivpn369bot",
+      "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAEBIHdq3m_M9DWE8NVr0yCdxMsojV7KZQACOw9rG5F7-FJyQJ_bEHKMJQEAAwIAA3kAAz0E",
+      "card_number": "5047061670546072",
+      "created_at": 1792962525,
+      "caption": ""
     }
   },
   "users": {
@@ -48142,7 +48201,7 @@
       "last_name": "",
       "username": "hovyiat2",
       "first_seen": 1792931895,
-      "last_seen": 1792931895,
+      "last_seen": 1792962467,
       "purchases": []
     },
     "1882281491": {
@@ -49823,7 +49882,7 @@
       "last_name": "",
       "username": "amirreza_vh",
       "first_seen": 1792945919,
-      "last_seen": 1792945919,
+      "last_seen": 1792962474,
       "purchases": []
     },
     "5184151801": {
@@ -50672,7 +50731,7 @@
       "last_name": "⁪⁬⁮⁪⁬⁮⁮⁮⁮⁪⁬⁮⁮⁮⁪⁬⁮⁮⁮⁮⁪⁬⁮⁮⁮⁮",
       "username": "",
       "first_seen": 1792947216,
-      "last_seen": 1792947525,
+      "last_seen": 1792962463,
       "purchases": [
         {
           "key": "AN3M-2D05-E22B-C6DF",
@@ -52020,8 +52079,16 @@
       "last_name": "Roshanaei",
       "username": "Yaser256274",
       "first_seen": 1792950014,
-      "last_seen": 1792950014,
-      "purchases": []
+      "last_seen": 1792962487,
+      "purchases": [
+        {
+          "key": "AN1Y-9E99-4CC6-D4B7",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1792962553,
+          "days": 365
+        }
+      ]
     },
     "6370268365": {
       "user_id": 6370268365,
@@ -52992,6 +53059,24 @@
       "first_seen": 1792962277,
       "last_seen": 1792962277,
       "purchases": []
+    },
+    "397071644": {
+      "user_id": 397071644,
+      "first_name": "Hamireza",
+      "last_name": "A.b",
+      "username": "Ps6shops",
+      "first_seen": 1792962531,
+      "last_seen": 1792962531,
+      "purchases": []
+    },
+    "5653631478": {
+      "user_id": 5653631478,
+      "first_name": "♥️赛义德💞",
+      "last_name": "",
+      "username": "saeid_askari80",
+      "first_seen": 1792962541,
+      "last_seen": 1792962541,
+      "purchases": []
     }
   },
   "user_states": {
@@ -53433,11 +53518,11 @@
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 3,
+    "count": 5,
     "threshold": 10,
     "stats": {
       "5892101706458979": 30,
-      "5047061670546072": 23
+      "5047061670546072": 25
     }
   },
   "maintenance": {
