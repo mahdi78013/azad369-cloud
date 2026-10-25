@@ -4334,6 +4334,12 @@
       "user_id": 135651735,
       "issued_at": 1792912299,
       "method": "crypto_unique"
+    },
+    "AZ3M-5E04-DC80-971A": {
+      "plan": "3M",
+      "user_id": 182409244,
+      "issued_at": 1792912301,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -33413,9 +33419,18 @@
       "tron_amount": 1.329594,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ad343ed9009b49899a9f1c6029b2d856",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ad343ed9009b49899a9f1c6029b2d856",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792911875
+      "created_at": 1792911875,
+      "approved_at": 1792912301,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-5E04-DC80-971A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2985239",
+        "tron_amount": 1.329594,
+        "user_paid_toman": null,
+        "date": "2026-10-25T07:11:37.7800000"
+      }
     },
     "TRND-3M-949115151-1792911904-45e692": {
       "order_id": "TRND-3M-949115151-1792911904-45e692",
@@ -33483,6 +33498,22 @@
         "user_paid_toman": null,
         "date": "2026-10-25T07:09:45.2670000"
       }
+    },
+    "TRND-3M-5450477392-1792912304-b4e730": {
+      "order_id": "TRND-3M-5450477392-1792912304-b4e730",
+      "token": "0a73a9f9ee434eaab25e00d2cca0b576",
+      "user_id": 5450477392,
+      "first_name": "Vshop",
+      "username": "Vshop6",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.341081,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_0a73a9f9ee434eaab25e00d2cca0b576",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0a73a9f9ee434eaab25e00d2cca0b576",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792912304
     }
   },
   "users": {
@@ -35379,7 +35410,15 @@
       "username": "habib_esmayli",
       "first_seen": 1792058146,
       "last_seen": 1792912200,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-5E04-DC80-971A",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1792912301,
+          "days": 90
+        }
+      ]
     },
     "43850757": {
       "user_id": 43850757,
@@ -57376,7 +57415,7 @@
       "last_name": "",
       "username": "netonline20Admin",
       "first_seen": 1792910549,
-      "last_seen": 1792910549,
+      "last_seen": 1792912317,
       "purchases": []
     },
     "80247693": {
