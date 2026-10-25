@@ -3404,6 +3404,12 @@
       "user_id": 7453660667,
       "issued_at": 1792947400,
       "method": "crypto_unique"
+    },
+    "AN3M-6929-C3CC-E94C": {
+      "plan": "AN3M",
+      "user_id": 463409502,
+      "issued_at": 1792947403,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -25346,9 +25352,18 @@
       "tron_amount": 1.333799,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4695c4d2b4fe4535a171ca572df6230a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4695c4d2b4fe4535a171ca572df6230a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792947321
+      "created_at": 1792947321,
+      "approved_at": 1792947403,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-6929-C3CC-E94C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2990588",
+        "tron_amount": 1.333799,
+        "user_paid_toman": null,
+        "date": "2026-10-25T16:56:21.2870000"
+      }
     },
     "TRND-AN3M-71996332-1792947336-c15866": {
       "order_id": "TRND-AN3M-71996332-1792947336-c15866",
@@ -25541,6 +25556,20 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792947397
+    },
+    "ORD_1792947403_393869782": {
+      "order_id": "ORD_1792947403_393869782",
+      "user_id": 393869782,
+      "username": "muntivpn369bot",
+      "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAEBB2tq3jS_3TrJcJP4fLSAjVMTSgowFAAC7hJrG1HJ8VJmrTdPPdxbPwEAAwIAA3kAAz0E",
+      "card_number": "5047061670546072",
+      "created_at": 1792947403,
+      "caption": ""
     }
   },
   "users": {
@@ -29270,7 +29299,15 @@
       "username": "Frank_sharifii",
       "first_seen": 1792066936,
       "last_seen": 1792947316,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-6929-C3CC-E94C",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1792947403,
+          "days": 90
+        }
+      ]
     },
     "1846670997": {
       "user_id": 1846670997,
@@ -46595,6 +46632,15 @@
       "first_seen": 1792947381,
       "last_seen": 1792947381,
       "purchases": []
+    },
+    "6627915081": {
+      "user_id": 6627915081,
+      "first_name": "F",
+      "last_name": "",
+      "username": "farshad_8557",
+      "first_seen": 1792947403,
+      "last_seen": 1792947403,
+      "purchases": []
     }
   },
   "user_states": {
@@ -47070,11 +47116,11 @@
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 0,
+    "count": 1,
     "threshold": 10,
     "stats": {
       "5892101706458979": 30,
-      "5047061670546072": 20
+      "5047061670546072": 21
     }
   },
   "maintenance": {
