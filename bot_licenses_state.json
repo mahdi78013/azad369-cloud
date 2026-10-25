@@ -3902,6 +3902,12 @@
       "user_id": 5408577021,
       "issued_at": 1792963772,
       "method": "crypto_unique"
+    },
+    "AN3M-2B5A-8F48-566A": {
+      "plan": "AN3M",
+      "user_id": 1925439552,
+      "issued_at": 1792963825,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -30303,9 +30309,18 @@
       "tron_amount": 1.341966,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f3252551bbf54455a0e04cf400f115ef",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f3252551bbf54455a0e04cf400f115ef",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792963391
+      "created_at": 1792963391,
+      "approved_at": 1792963825,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-2B5A-8F48-566A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2993722",
+        "tron_amount": 1.341966,
+        "user_paid_toman": null,
+        "date": "2026-10-25T21:28:41.4270000"
+      }
     },
     "TRND-AN2M-5493840569-1792963438-09894a": {
       "order_id": "TRND-AN2M-5493840569-1792963438-09894a",
@@ -50895,7 +50910,7 @@
       "last_name": "Ms",
       "username": "",
       "first_seen": 1792945889,
-      "last_seen": 1792945889,
+      "last_seen": 1792963789,
       "purchases": [
         {
           "key": "AN1Y-885C725D-BB8A-F8D4AB",
@@ -53844,8 +53859,16 @@
       "last_name": "J",
       "username": "mahdijamalpour1370",
       "first_seen": 1792953468,
-      "last_seen": 1792963377,
-      "purchases": []
+      "last_seen": 1792963825,
+      "purchases": [
+        {
+          "key": "AN3M-2B5A-8F48-566A",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1792963825,
+          "days": 90
+        }
+      ]
     },
     "85006113": {
       "user_id": 85006113,
@@ -54739,10 +54762,6 @@
     "6049349286": {
       "state": "waiting_support_msg",
       "time": 1792953620
-    },
-    "6631384044": {
-      "state": "waiting_support_msg",
-      "time": 1792953712
     },
     "76339685": {
       "state": "waiting_support_msg",
