@@ -3482,6 +3482,12 @@
       "user_id": 333336281,
       "issued_at": 1792947666,
       "method": "crypto_unique"
+    },
+    "AN3M-D634E9ED-BBC2-0C2CA5": {
+      "plan": "AN3M",
+      "user_id": 426639692,
+      "issued_at": 1792947689,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -25626,9 +25632,18 @@
       "tron_amount": 1.344694,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_631e03c7cadf45ae8a5df4d90cdf1e20",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=631e03c7cadf45ae8a5df4d90cdf1e20",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792947371
+      "created_at": 1792947371,
+      "approved_at": 1792947689,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-D634E9ED-BBC2-0C2CA5",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2990607",
+        "tron_amount": 1.344694,
+        "user_paid_toman": null,
+        "date": "2026-10-25T17:00:28.2100000"
+      }
     },
     "TRND-AN3M-5456257677-1792947373-725ab1": {
       "order_id": "TRND-AN3M-5456257677-1792947373-725ab1",
@@ -47117,7 +47132,15 @@
       "username": "asemane_kaghazi",
       "first_seen": 1792947358,
       "last_seen": 1792947358,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-D634E9ED-BBC2-0C2CA5",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1792947689,
+          "days": 90
+        }
+      ]
     },
     "7397773777": {
       "user_id": 7397773777,
