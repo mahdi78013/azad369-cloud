@@ -4454,6 +4454,12 @@
       "user_id": 5629519,
       "issued_at": 1793030519,
       "method": "crypto_unique"
+    },
+    "AZ3M-5200-8F33-C3D1": {
+      "plan": "3M",
+      "user_id": 103463031,
+      "issued_at": 1793031729,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -22807,9 +22813,10 @@
       "tron_amount": 1.321771,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b086b1309e554e06abe78301d0352c68",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b086b1309e554e06abe78301d0352c68",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1792945119
+      "created_at": 1792945119,
+      "cancelled_at": 1793031591
     },
     "TRND-AN1Y-169229982-1792945131-985026": {
       "order_id": "TRND-AN1Y-169229982-1792945131-985026",
@@ -34901,9 +34908,18 @@
       "tron_amount": 1.328783,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3b078ef5f24c4a8cad161f46f0c0d4cd",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3b078ef5f24c4a8cad161f46f0c0d4cd",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793030889
+      "created_at": 1793030889,
+      "approved_at": 1793031729,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-5200-8F33-C3D1",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2999425",
+        "tron_amount": 1.328783,
+        "user_paid_toman": null,
+        "date": "2026-10-26T16:20:20.4700000"
+      }
     },
     "TRND-3M-8637236051-1793030903-6b7af4": {
       "order_id": "TRND-3M-8637236051-1793030903-6b7af4",
@@ -41185,8 +41201,16 @@
       "last_name": "",
       "username": "Kasramhn",
       "first_seen": 1792125389,
-      "last_seen": 1793030838,
-      "purchases": []
+      "last_seen": 1793031728,
+      "purchases": [
+        {
+          "key": "AZ3M-5200-8F33-C3D1",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793031729,
+          "days": 90
+        }
+      ]
     },
     "1224004692": {
       "user_id": 1224004692,
@@ -57708,7 +57732,7 @@
       "last_name": "",
       "username": "PvAmriel",
       "first_seen": 1792949338,
-      "last_seen": 1793029966,
+      "last_seen": 1793031615,
       "purchases": []
     },
     "524597852": {
