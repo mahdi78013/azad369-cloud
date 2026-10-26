@@ -4694,6 +4694,12 @@
       "user_id": 109068915,
       "issued_at": 1793042271,
       "method": "crypto_unique"
+    },
+    "AN2M-A02CB7AA-EA0F-BDDDA4": {
+      "plan": "AN2M",
+      "user_id": 69210940,
+      "issued_at": 1793042534,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -37235,9 +37241,34 @@
       "tron_amount": 0.800749,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_2355ef9573264f25bd7bd5499f28b04a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2355ef9573264f25bd7bd5499f28b04a",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793042276,
+      "approved_at": 1793042534,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-A02CB7AA-EA0F-BDDDA4",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3001537",
+        "tron_amount": 0.800749,
+        "user_paid_toman": null,
+        "date": "2026-10-26T19:21:40.1600000"
+      }
+    },
+    "TRND-1Y-1979197240-1793042497-54ab78": {
+      "order_id": "TRND-1Y-1979197240-1793042497-54ab78",
+      "token": "5a1ae185f38844169d9dc24008ed9665",
+      "user_id": 1979197240,
+      "first_name": "Esaanasli",
+      "username": "esaaninjas",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.658331,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_5a1ae185f38844169d9dc24008ed9665",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5a1ae185f38844169d9dc24008ed9665",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793042276
+      "created_at": 1793042497
     }
   },
   "users": {
@@ -64111,8 +64142,16 @@
       "last_name": "",
       "username": "sadafnoorii",
       "first_seen": 1793042166,
-      "last_seen": 1793042166,
-      "purchases": []
+      "last_seen": 1793042534,
+      "purchases": [
+        {
+          "key": "AN2M-A02CB7AA-EA0F-BDDDA4",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793042534,
+          "days": 60
+        }
+      ]
     }
   },
   "user_states": {
