@@ -645,7 +645,7 @@ def load_db() -> dict:
             "user_states": {},
             "admin_states": {},
             "trial_users": {},
-            "plan_availability": {"1M": False, "2M": False, "3M": False, "1Y": False, "AN1M": False, "AN2M": False, "AN3M": False, "AN1Y": False}
+            "plan_availability": {"1M": False, "2M": False, "3M": False, "1Y": False, "AN1M": False, "AN2M": False, "AN3M": False, "AN1Y": True}
         }
         _LAST_VALID_DB = copy.deepcopy(d)
         return d
@@ -717,7 +717,7 @@ def get_plan_availability() -> dict:
         "AN1M": True,
         "AN2M": True,
         "AN3M": False,
-        "AN1Y": False
+        "AN1Y": True
     }
     try:
         db = load_db()
