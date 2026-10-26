@@ -4952,6 +4952,12 @@
       "user_id": 480139786,
       "issued_at": 1793058274,
       "method": "crypto_unique"
+    },
+    "AN2M-9C97FE65-13B1-93080F": {
+      "plan": "AN2M",
+      "user_id": 6215996213,
+      "issued_at": 1793058861,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -39539,9 +39545,18 @@
       "tron_amount": 0.808597,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_37b4d02992df40bfa4cb73d5d10d0747",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=37b4d02992df40bfa4cb73d5d10d0747",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793057913
+      "created_at": 1793057913,
+      "approved_at": 1793058861,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-9C97FE65-13B1-93080F",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3003198",
+        "tron_amount": 0.808597,
+        "user_paid_toman": null,
+        "date": "2026-10-26T23:53:06.0370000"
+      }
     },
     "TRND-AN1Y-480139786-1793058127-9def65": {
       "order_id": "TRND-AN1Y-480139786-1793058127-9def65",
@@ -39629,6 +39644,20 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793058682
+    },
+    "ORD_1793058847_7151048913": {
+      "order_id": "ORD_1793058847_7151048913",
+      "user_id": 7151048913,
+      "username": "muntivpn369bot",
+      "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAEBSJlq3-X7R5L1J0zxou7uh0KzAAG6bMYAAnoPaxu15QFTSVrAt3NLOgkBAAMCAAN5AAM9BA",
+      "card_number": "5892101706458979",
+      "created_at": 1793058848,
+      "caption": ""
     }
   },
   "users": {
@@ -67216,7 +67245,7 @@
       "last_name": "Ghanbari",
       "username": "Iran66Reza",
       "first_seen": 1793052020,
-      "last_seen": 1793058299,
+      "last_seen": 1793058841,
       "purchases": []
     },
     "172554781": {
@@ -67420,7 +67449,15 @@
       "username": "anis10243",
       "first_seen": 1793056312,
       "last_seen": 1793057884,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-9C97FE65-13B1-93080F",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793058861,
+          "days": 60
+        }
+      ]
     },
     "7964481782": {
       "user_id": 7964481782,
@@ -67535,6 +67572,15 @@
       "username": "",
       "first_seen": 1793058631,
       "last_seen": 1793058631,
+      "purchases": []
+    },
+    "1257498032": {
+      "user_id": 1257498032,
+      "first_name": "Iman",
+      "last_name": "",
+      "username": "Imannovin",
+      "first_seen": 1793058726,
+      "last_seen": 1793058726,
       "purchases": []
     }
   },
@@ -67924,10 +67970,10 @@
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 6,
+    "count": 7,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 36,
+      "5892101706458979": 37,
       "5047061670546072": 30
     }
   },
