@@ -4706,6 +4706,12 @@
       "user_id": 1174895888,
       "issued_at": 1793042880,
       "method": "crypto_unique"
+    },
+    "AZ3M-F991-4107-4414": {
+      "plan": "3M",
+      "user_id": 1979197240,
+      "issued_at": 1793043075,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -37395,9 +37401,18 @@
       "tron_amount": 1.341923,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d7a32ee349ab4ebaaf5d5e070ab809f3",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d7a32ee349ab4ebaaf5d5e070ab809f3",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793042810
+      "created_at": 1793042810,
+      "approved_at": 1793043075,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-F991-4107-4414",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3001641",
+        "tron_amount": 1.341923,
+        "user_paid_toman": null,
+        "date": "2026-10-26T19:30:09.0970000"
+      }
     },
     "TRND-AN2M-6713981563-1793042894-984d60": {
       "order_id": "TRND-AN2M-6713981563-1793042894-984d60",
@@ -37414,6 +37429,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793042894
+    },
+    "TRND-AN2M-8939509057-1793043016-10ce06": {
+      "order_id": "TRND-AN2M-8939509057-1793043016-10ce06",
+      "token": "79e22984d1e846d2872da9ebbd2e91bc",
+      "user_id": 8939509057,
+      "first_name": "#Abol",
+      "username": "Covid19Xa",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.805157,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_79e22984d1e846d2872da9ebbd2e91bc",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=79e22984d1e846d2872da9ebbd2e91bc",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793043016
     }
   },
   "users": {
@@ -63350,7 +63381,7 @@
       "last_name": "",
       "username": "Covid19Xa",
       "first_seen": 1793029072,
-      "last_seen": 1793029072,
+      "last_seen": 1793043016,
       "purchases": []
     },
     "292824819": {
@@ -64173,7 +64204,15 @@
       "username": "esaaninjas",
       "first_seen": 1793041430,
       "last_seen": 1793042801,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-F991-4107-4414",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793043075,
+          "days": 90
+        }
+      ]
     },
     "1174895888": {
       "user_id": 1174895888,
@@ -64339,7 +64378,7 @@
       "last_name": "Sh",
       "username": "",
       "first_seen": 1793042698,
-      "last_seen": 1793042698,
+      "last_seen": 1793043018,
       "purchases": []
     },
     "6713981563": {
