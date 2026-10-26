@@ -4904,6 +4904,12 @@
       "user_id": 349384917,
       "issued_at": 1793056656,
       "method": "crypto_unique"
+    },
+    "AN2M-72FB-434F-5BCF": {
+      "plan": "AN2M",
+      "user_id": 7407549756,
+      "issued_at": 1793056759,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -39234,9 +39240,34 @@
       "tron_amount": 0.799484,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6247e8c828a049c3b46874e95c55c9e7",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6247e8c828a049c3b46874e95c55c9e7",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793056562,
+      "approved_at": 1793056759,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-72FB-434F-5BCF",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3003153",
+        "tron_amount": 0.799484,
+        "user_paid_toman": null,
+        "date": "2026-10-26T23:18:27.2230000"
+      }
+    },
+    "TRND-AN2M-1421005-1793056696-142d69": {
+      "order_id": "TRND-AN2M-1421005-1793056696-142d69",
+      "token": "ec91bd2e50ad422b96eaeb58371817bb",
+      "user_id": 1421005,
+      "first_name": "Amir Hosein",
+      "username": "Amirhosseinhm",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.803895,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_ec91bd2e50ad422b96eaeb58371817bb",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ec91bd2e50ad422b96eaeb58371817bb",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793056562
+      "created_at": 1793056696
     }
   },
   "users": {
@@ -40640,7 +40671,15 @@
       "username": "Arashshokouhi",
       "first_seen": 1792057555,
       "last_seen": 1793056561,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-72FB-434F-5BCF",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793056759,
+          "days": 60
+        }
+      ]
     },
     "8970346400": {
       "user_id": 8970346400,
@@ -66870,7 +66909,7 @@
       "last_name": "Rafiei",
       "username": "",
       "first_seen": 1793054084,
-      "last_seen": 1793054084,
+      "last_seen": 1793056670,
       "purchases": [
         {
           "key": "AN1M-1BF8735A-F57D-98D494",
