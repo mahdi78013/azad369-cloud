@@ -4304,6 +4304,12 @@
       "user_id": 285191950,
       "issued_at": 1793007450,
       "method": "crypto_unique"
+    },
+    "AN2M-02E6-9203-CA02": {
+      "plan": "AN2M",
+      "user_id": 225182141,
+      "issued_at": 1793023426,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -33300,9 +33306,10 @@
       "tron_amount": 1.330206,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3c0e5dc483ff40819ccd57c3c9a8133f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3c0e5dc483ff40819ccd57c3c9a8133f",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793006399
+      "created_at": 1793006399,
+      "cancelled_at": 1793023425
     },
     "TRND-AN2M-7078318549-1793006657-a05317": {
       "order_id": "TRND-AN2M-7078318549-1793006657-a05317",
@@ -33366,9 +33373,18 @@
       "tron_amount": 0.79551,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_efa3b4036ed0476080f66660e9b0dcd2",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=efa3b4036ed0476080f66660e9b0dcd2",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793007041
+      "created_at": 1793007041,
+      "approved_at": 1793023426,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-02E6-9203-CA02",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2996452",
+        "tron_amount": 0.79551,
+        "user_paid_toman": null,
+        "date": "2026-10-26T09:50:07.6900000"
+      }
     },
     "TRND-AN3M-205041363-1793007042-a80152": {
       "order_id": "TRND-AN3M-205041363-1793007042-a80152",
@@ -58884,7 +58900,15 @@
       "username": "",
       "first_seen": 1793007030,
       "last_seen": 1793007030,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-02E6-9203-CA02",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793023426,
+          "days": 60
+        }
+      ]
     },
     "211686023": {
       "user_id": 211686023,
