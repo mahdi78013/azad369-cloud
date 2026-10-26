@@ -4028,6 +4028,12 @@
       "user_id": 524597852,
       "issued_at": 1792982343,
       "method": "crypto_unique"
+    },
+    "AN3M-A4D6-79B5-8341": {
+      "plan": "AN3M",
+      "user_id": 472036144,
+      "issued_at": 1792982384,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -30005,9 +30011,18 @@
       "tron_amount": 1.316447,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_dcfe50316a6641fb865dfb9725360380",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=dcfe50316a6641fb865dfb9725360380",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792962715
+      "created_at": 1792962715,
+      "approved_at": 1792982384,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-A4D6-79B5-8341",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2993627",
+        "tron_amount": 1.316447,
+        "user_paid_toman": null,
+        "date": "2026-10-25T23:59:07.6230000"
+      }
     },
     "TRND-AN1M-5851484560-1792962773-30ba89": {
       "order_id": "TRND-AN1M-5851484560-1792962773-30ba89",
@@ -43831,7 +43846,15 @@
       "username": "Ahmadi6194",
       "first_seen": 1792240653,
       "last_seen": 1792964017,
-      "purchases": [],
+      "purchases": [
+        {
+          "key": "AN3M-A4D6-79B5-8341",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1792982384,
+          "days": 90
+        }
+      ],
       "last_admin_reply": {
         "text": "وقت بخیر ربات در حال اپدیت. هست \nواریز بفرمایید و رسید رو از طریق ارتباط با پشتیبانی ارسال کنید\n5892101706458979\nموجود:\n✅سه ماه = 145.000 تومان\n✅یک سال = 399.000 تومان",
         "time": 1792240693
