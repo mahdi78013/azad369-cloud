@@ -4256,6 +4256,12 @@
       "user_id": 6486951361,
       "issued_at": 1793005894,
       "method": "crypto_unique"
+    },
+    "AZ3M-272E-C523-9364": {
+      "plan": "3M",
+      "user_id": 519548600,
+      "issued_at": 1793005985,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -32883,9 +32889,18 @@
       "tron_amount": 1.33788,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ffec9d3ac7134d9b87ea4ab8038a2c2e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ffec9d3ac7134d9b87ea4ab8038a2c2e",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793004710
+      "created_at": 1793004710,
+      "approved_at": 1793005985,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-272E-C523-9364",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2996067",
+        "tron_amount": 1.33788,
+        "user_paid_toman": null,
+        "date": "2026-10-26T09:12:47.7900000"
+      }
     },
     "TRND-AN3M-6890418228-1793004752-92e41e": {
       "order_id": "TRND-AN3M-6890418228-1793004752-92e41e",
@@ -33115,6 +33130,38 @@
         "user_paid_toman": null,
         "date": "2026-10-26T09:10:38.9830000"
       }
+    },
+    "TRND-AN3M-96987072-1793005928-11b759": {
+      "order_id": "TRND-AN3M-96987072-1793005928-11b759",
+      "token": "13e5851dc54d4e788b3768f0bc25f07e",
+      "user_id": 96987072,
+      "first_name": "قاسم اسکندری",
+      "username": "GASEM5456",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.338005,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_13e5851dc54d4e788b3768f0bc25f07e",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=13e5851dc54d4e788b3768f0bc25f07e",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793005928
+    },
+    "TRND-AN2M-96987072-1793005983-ac78fe": {
+      "order_id": "TRND-AN2M-96987072-1793005983-ac78fe",
+      "token": "91921b6893634f0f83b04a8fbbae0ad1",
+      "user_id": 96987072,
+      "first_name": "قاسم اسکندری",
+      "username": "GASEM5456",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.803246,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_91921b6893634f0f83b04a8fbbae0ad1",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=91921b6893634f0f83b04a8fbbae0ad1",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793005983
     }
   },
   "users": {
@@ -33938,7 +33985,7 @@
       "last_name": "",
       "username": "GASEM5456",
       "first_seen": 1792918903,
-      "last_seen": 1793005476
+      "last_seen": 1793005927
     },
     "754960638": {
       "purchases": [
@@ -44771,7 +44818,7 @@
       "last_name": "farahmand nezhad",
       "username": "mojtabafarahmandnezhaad",
       "first_seen": 1792225829,
-      "last_seen": 1792306050,
+      "last_seen": 1793005925,
       "purchases": [
         {
           "key": "AZ1Y-B864-4741-182F",
@@ -57628,7 +57675,7 @@
       "last_name": "",
       "username": "rezaebadi1",
       "first_seen": 1792999674,
-      "last_seen": 1793002939,
+      "last_seen": 1793005934,
       "purchases": []
     },
     "5929900767": {
@@ -58099,7 +58146,15 @@
       "username": "Ametic_trading",
       "first_seen": 1793004632,
       "last_seen": 1793004632,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-272E-C523-9364",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793005985,
+          "days": 90
+        }
+      ]
     },
     "6890418228": {
       "user_id": 6890418228,
