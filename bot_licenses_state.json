@@ -4916,6 +4916,12 @@
       "user_id": 1421005,
       "issued_at": 1793056898,
       "method": "crypto_unique"
+    },
+    "AN3M-B168-6D6C-BDE1": {
+      "plan": "AN3M",
+      "user_id": 276481280,
+      "issued_at": 1793057000,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -39312,9 +39318,18 @@
       "tron_amount": 1.337614,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_30d4f8c9d90149c18f7e4e2a21698b76",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=30d4f8c9d90149c18f7e4e2a21698b76",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793056907
+      "created_at": 1793056907,
+      "approved_at": 1793057000,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-B168-6D6C-BDE1",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3003165",
+        "tron_amount": 1.337614,
+        "user_paid_toman": null,
+        "date": "2026-10-26T23:23:03.0070000"
+      }
     },
     "TRND-AN1M-949276492-1793056909-1bd1f5": {
       "order_id": "TRND-AN1M-949276492-1793056909-1bd1f5",
@@ -40662,7 +40677,15 @@
         "text": "وقت بخیر ربات در حال اپدیت. هست \nواریز بفرمایید و رسید رو از طریق ارتباط با پشتیبانی ارسال کنید \n\n5892101706458979\n\nسه ماه = 149.000 تومان\nیک سال = 399.000 تومان",
         "time": 1792054879
       },
-      "purchases": [],
+      "purchases": [
+        {
+          "key": "AN3M-B168-6D6C-BDE1",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793057000,
+          "days": 90
+        }
+      ],
       "user_id": 276481280,
       "first_name": "Saber Mohammadi",
       "username": "Saberkhan70",
