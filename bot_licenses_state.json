@@ -4958,6 +4958,12 @@
       "user_id": 6215996213,
       "issued_at": 1793058861,
       "method": "crypto_unique"
+    },
+    "AZ2M-285F-A5BA-0432": {
+      "plan": "2M",
+      "user_id": 36883093,
+      "issued_at": 1793059086,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -39641,9 +39647,18 @@
       "tron_amount": 0.813002,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3ada5efda31743e0baa035534768c13e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3ada5efda31743e0baa035534768c13e",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793058682
+      "created_at": 1793058682,
+      "approved_at": 1793059086,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-285F-A5BA-0432",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3003212",
+        "tron_amount": 0.813002,
+        "user_paid_toman": null,
+        "date": "2026-10-26T23:57:33.3200000"
+      }
     },
     "ORD_1793058847_7151048913": {
       "order_id": "ORD_1793058847_7151048913",
@@ -39674,6 +39689,20 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793058902
+    },
+    "ORD_1793059025_5872199600": {
+      "order_id": "ORD_1793059025_5872199600",
+      "user_id": 5872199600,
+      "username": "muntivpn369bot",
+      "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
+      "plan_code": "1M",
+      "price": "۶۰,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "sticker",
+      "file_id": "CAACAgQAAxkBAAEBSNlq3-jHwKWdFpUoFLHeLjU6g36w3QACwgADN4GrGa6okHy0doc5PQQ",
+      "card_number": "5892101706458979",
+      "created_at": 1793059025,
+      "caption": ""
     }
   },
   "users": {
@@ -41179,7 +41208,7 @@
       "first_name": "Yousefi",
       "username": "alireza137112",
       "first_seen": 1792057555,
-      "last_seen": 1793057680,
+      "last_seen": 1793058913,
       "purchases": [
         {
           "key": "AN1Y-24A4-4E6B-50F6",
@@ -53949,11 +53978,11 @@
     },
     "6319916380": {
       "user_id": 6319916380,
-      "first_name": "@karttal",
+      "first_name": "MEOWS👁",
       "last_name": "👁",
       "username": "karttall1",
       "first_seen": 1792332595,
-      "last_seen": 1792332595,
+      "last_seen": 1793058927,
       "purchases": []
     },
     "134941917": {
@@ -67464,7 +67493,7 @@
       "last_name": "",
       "username": "anis10243",
       "first_seen": 1793056312,
-      "last_seen": 1793057884,
+      "last_seen": 1793058965,
       "purchases": [
         {
           "key": "AN2M-9C97FE65-13B1-93080F",
@@ -67588,7 +67617,15 @@
       "username": "",
       "first_seen": 1793058631,
       "last_seen": 1793058631,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-285F-A5BA-0432",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793059086,
+          "days": 60
+        }
+      ]
     },
     "1257498032": {
       "user_id": 1257498032,
@@ -67597,6 +67634,15 @@
       "username": "Imannovin",
       "first_seen": 1793058726,
       "last_seen": 1793058726,
+      "purchases": []
+    },
+    "5872199600": {
+      "user_id": 5872199600,
+      "first_name": "masoud1373",
+      "last_name": "",
+      "username": "masoud1373d",
+      "first_seen": 1793059015,
+      "last_seen": 1793059015,
       "purchases": []
     }
   },
@@ -67986,10 +68032,10 @@
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 7,
+    "count": 8,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 37,
+      "5892101706458979": 38,
       "5047061670546072": 30
     }
   },
