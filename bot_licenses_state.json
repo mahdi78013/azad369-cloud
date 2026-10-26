@@ -4748,6 +4748,12 @@
       "user_id": 109913269,
       "issued_at": 1793044516,
       "method": "crypto_unique"
+    },
+    "AN3M-5C50-E2DE-643A": {
+      "plan": "AN3M",
+      "user_id": 520846555,
+      "issued_at": 1793045202,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -37775,9 +37781,18 @@
       "tron_amount": 1.332318,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6819813561674c14961166f402fe6957",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6819813561674c14961166f402fe6957",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793044836
+      "created_at": 1793044836,
+      "approved_at": 1793045202,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-5C50-E2DE-643A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3002056",
+        "tron_amount": 1.332318,
+        "user_paid_toman": null,
+        "date": "2026-10-26T20:05:26.3370000"
+      }
     }
   },
   "users": {
@@ -63805,7 +63820,15 @@
       "username": "Esim007",
       "first_seen": 1793030146,
       "last_seen": 1793044744,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-5C50-E2DE-643A",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793045202,
+          "days": 90
+        }
+      ]
     },
     "5629519": {
       "user_id": 5629519,
