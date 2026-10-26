@@ -4664,6 +4664,12 @@
       "user_id": 333143860,
       "issued_at": 1793040823,
       "method": "crypto_unique"
+    },
+    "AN2M-8C44-0866-370B": {
+      "plan": "AN2M",
+      "user_id": 7273704958,
+      "issued_at": 1793040824,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -36893,9 +36899,18 @@
       "tron_amount": 0.794738,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ec4feb458dc24db89bc18eae29b8ae78",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ec4feb458dc24db89bc18eae29b8ae78",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793040376
+      "created_at": 1793040376,
+      "approved_at": 1793040824,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-8C44-0866-370B",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3001155",
+        "tron_amount": 0.794738,
+        "user_paid_toman": null,
+        "date": "2026-10-26T18:53:35.4600000"
+      }
     },
     "TRND-AN3M-275353309-1793040409-fa3db9": {
       "order_id": "TRND-AN3M-275353309-1793040409-fa3db9",
@@ -36937,6 +36952,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793040626
+    },
+    "TRND-AN2M-35118946-1793040930-a9a880": {
+      "order_id": "TRND-AN2M-35118946-1793040930-a9a880",
+      "token": "9d3d438e5d624bf6b64b64fc9e2217f3",
+      "user_id": 35118946,
+      "first_name": "Morteza",
+      "username": "MORTEZA40",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.779475,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_9d3d438e5d624bf6b64b64fc9e2217f3",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9d3d438e5d624bf6b64b64fc9e2217f3",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793040930
     }
   },
   "users": {
@@ -59859,7 +59890,7 @@
       "last_name": "Moradi",
       "username": "MORTEZA40",
       "first_seen": 1792949521,
-      "last_seen": 1792949521,
+      "last_seen": 1793040924,
       "purchases": []
     },
     "913863115": {
@@ -63426,7 +63457,7 @@
       "last_name": "Maxi",
       "username": "Virutral",
       "first_seen": 1793036649,
-      "last_seen": 1793040137,
+      "last_seen": 1793040848,
       "purchases": [
         {
           "key": "AN2M-EC46-F1DB-8E5A",
@@ -63601,7 +63632,15 @@
       "username": "Namekarbaree",
       "first_seen": 1793040329,
       "last_seen": 1793040329,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-8C44-0866-370B",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793040824,
+          "days": 60
+        }
+      ]
     },
     "275353309": {
       "user_id": 275353309,
