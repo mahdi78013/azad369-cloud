@@ -4898,6 +4898,12 @@
       "user_id": 8097978623,
       "issued_at": 1793056310,
       "method": "crypto_unique"
+    },
+    "AN1M-DEEB-F45F-4F5B": {
+      "plan": "AN1M",
+      "user_id": 349384917,
+      "issued_at": 1793056656,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -39203,9 +39209,18 @@
       "tron_amount": 0.359502,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4ae1e4be5c25486eab41366208129913",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4ae1e4be5c25486eab41366208129913",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793056464
+      "created_at": 1793056464,
+      "approved_at": 1793056656,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1M-DEEB-F45F-4F5B",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3003149",
+        "tron_amount": 0.359502,
+        "user_paid_toman": null,
+        "date": "2026-10-26T23:16:56.0000000"
+      }
     },
     "TRND-AN2M-7407549756-1793056562-362694": {
       "order_id": "TRND-AN2M-7407549756-1793056562-362694",
@@ -62029,7 +62044,15 @@
       "username": "",
       "first_seen": 1792949067,
       "last_seen": 1793056457,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN1M-DEEB-F45F-4F5B",
+          "plan": "AN1M",
+          "plan_name": "۱ ماهه اندروید (۳۰ روزه)",
+          "issued_at": 1793056656,
+          "days": 30
+        }
+      ]
     },
     "190579006": {
       "user_id": 190579006,
