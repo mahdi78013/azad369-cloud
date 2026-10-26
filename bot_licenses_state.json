@@ -4118,6 +4118,12 @@
       "user_id": 56013373,
       "issued_at": 1793000841,
       "method": "crypto_unique"
+    },
+    "AN3M-0840-E3E1-AC8F": {
+      "plan": "AN3M",
+      "user_id": 6370268365,
+      "issued_at": 1793000876,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -29810,9 +29816,18 @@
       "tron_amount": 1.335143,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ceb81bc041b14a078360c774add08f4a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ceb81bc041b14a078360c774add08f4a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792962404
+      "created_at": 1792962404,
+      "approved_at": 1793000876,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-0840-E3E1-AC8F",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2993575",
+        "tron_amount": 1.335143,
+        "user_paid_toman": null,
+        "date": "2026-10-26T07:45:56.5800000"
+      }
     },
     "TRND-AN3M-113302223-1792962412-4fbcf7": {
       "order_id": "TRND-AN3M-113302223-1792962412-4fbcf7",
@@ -54964,7 +54979,15 @@
       "username": "hadi2450",
       "first_seen": 1792950028,
       "last_seen": 1792963310,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-0840-E3E1-AC8F",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793000876,
+          "days": 90
+        }
+      ]
     },
     "911154896": {
       "user_id": 911154896,
@@ -56621,6 +56644,24 @@
       "username": "jason2028",
       "first_seen": 1793000834,
       "last_seen": 1793000834,
+      "purchases": []
+    },
+    "6532965836": {
+      "user_id": 6532965836,
+      "first_name": "$AMIR€",
+      "last_name": "",
+      "username": "Amir_Ronaldo_fet",
+      "first_seen": 1793000849,
+      "last_seen": 1793000849,
+      "purchases": []
+    },
+    "69973903": {
+      "user_id": 69973903,
+      "first_name": "Amrollah",
+      "last_name": "",
+      "username": "Tag480",
+      "first_seen": 1793000866,
+      "last_seen": 1793000866,
       "purchases": []
     }
   },
