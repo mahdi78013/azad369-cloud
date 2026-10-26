@@ -4466,6 +4466,12 @@
       "user_id": 126316394,
       "issued_at": 1793032191,
       "method": "crypto_unique"
+    },
+    "AZ3M-F1B1-86CB-B520": {
+      "plan": "3M",
+      "user_id": 424055985,
+      "issued_at": 1793032352,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -35070,9 +35076,18 @@
       "tron_amount": 1.325055,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_7b4983efc8694837b55ed79ce4d6c732",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7b4983efc8694837b55ed79ce4d6c732",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793031991
+      "created_at": 1793031991,
+      "approved_at": 1793032352,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-F1B1-86CB-B520",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2999582",
+        "tron_amount": 1.325055,
+        "user_paid_toman": null,
+        "date": "2026-10-26T16:30:31.8530000"
+      }
     },
     "TRND-AN3M-126316394-1793032038-b1e88d": {
       "order_id": "TRND-AN3M-126316394-1793032038-b1e88d",
@@ -61138,8 +61153,16 @@
       "last_name": "",
       "username": "Bitabaghkar",
       "first_seen": 1793031971,
-      "last_seen": 1793031971,
-      "purchases": []
+      "last_seen": 1793032351,
+      "purchases": [
+        {
+          "key": "AZ3M-F1B1-86CB-B520",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793032352,
+          "days": 90
+        }
+      ]
     },
     "6229766288": {
       "user_id": 6229766288,
