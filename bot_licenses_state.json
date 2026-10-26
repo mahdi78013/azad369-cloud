@@ -4886,6 +4886,12 @@
       "user_id": 457810790,
       "issued_at": 1793056193,
       "method": "crypto_unique"
+    },
+    "AZ1M-E40A-FE70-E0C5": {
+      "plan": "1M",
+      "user_id": 1980616326,
+      "issued_at": 1793056280,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -39092,9 +39098,18 @@
       "tron_amount": 0.351783,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d4d23b8ed16e47a29609c5c0f2630ad5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d4d23b8ed16e47a29609c5c0f2630ad5",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793056119
+      "created_at": 1793056119,
+      "approved_at": 1793056280,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1M-E40A-FE70-E0C5",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3003137",
+        "tron_amount": 0.351783,
+        "user_paid_toman": null,
+        "date": "2026-10-26T23:10:33.2500000"
+      }
     },
     "TRND-AN1Y-8097978623-1793056185-46862c": {
       "order_id": "TRND-AN1Y-8097978623-1793056185-46862c",
@@ -39127,6 +39142,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793056233
+    },
+    "TRND-AN1M-377230026-1793056275-917da5": {
+      "order_id": "TRND-AN1M-377230026-1793056275-917da5",
+      "token": "1d415efe93574193802caf402a195972",
+      "user_id": 377230026,
+      "first_name": "Hamidreza",
+      "username": "Hamidrezabogheiri",
+      "plan_code": "AN1M",
+      "price": "۶۰,۰۰۰ تومان",
+      "price_toman": 60000,
+      "tron_amount": 0.367222,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_1d415efe93574193802caf402a195972",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1d415efe93574193802caf402a195972",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793056275
     }
   },
   "users": {
@@ -65456,7 +65487,15 @@
       "username": "kiamehrem",
       "first_seen": 1793032719,
       "last_seen": 1793056119,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1M-E40A-FE70-E0C5",
+          "plan": "1M",
+          "plan_name": "۱ ماهه ویندوز (۳۰ روزه)",
+          "issued_at": 1793056280,
+          "days": 30
+        }
+      ]
     },
     "8128438911": {
       "user_id": 8128438911,
