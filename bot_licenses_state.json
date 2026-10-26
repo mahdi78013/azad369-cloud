@@ -4064,6 +4064,12 @@
       "user_id": 454254189,
       "issued_at": 1792983620,
       "method": "crypto_unique"
+    },
+    "AN2M-295C-5CF5-F0A3": {
+      "plan": "AN2M",
+      "user_id": 505939787,
+      "issued_at": 1792999429,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -23225,9 +23231,18 @@
       "tron_amount": 0.792183,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_12db4093f9ec4d30b3dce864d51253fa",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=12db4093f9ec4d30b3dce864d51253fa",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1792945471
+      "created_at": 1792945471,
+      "approved_at": 1792999429,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-295C-5CF5-F0A3",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_2994880",
+        "tron_amount": 0.792183,
+        "user_paid_toman": null,
+        "date": "2026-10-26T05:47:22.1900000"
+      }
     },
     "TRND-AN2M-5037493338-1792945482-b02b6e": {
       "order_id": "TRND-AN2M-5037493338-1792945482-b02b6e",
@@ -31639,6 +31654,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1792983692
+    },
+    "TRND-AN2M-104156725-1792999415-69332b": {
+      "order_id": "TRND-AN2M-104156725-1792999415-69332b",
+      "token": "dc05106b6d094d139d9517f5ee86b6c3",
+      "user_id": 104156725,
+      "first_name": "Moh$en",
+      "username": "TorMani",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.786852,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_dc05106b6d094d139d9517f5ee86b6c3",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=dc05106b6d094d139d9517f5ee86b6c3",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1792999415
     }
   },
   "users": {
@@ -32194,7 +32225,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "F_l_k_j78011",
-      "last_seen": 1792963293,
+      "last_seen": 1792999405,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -34340,7 +34371,7 @@
       "first_name": "h",
       "username": "birin_tak",
       "first_seen": 1792063029,
-      "last_seen": 1792949939,
+      "last_seen": 1792999418,
       "purchases": []
     },
     "8616522976": {
@@ -43881,7 +43912,7 @@
       "last_name": "",
       "username": "Thesepehryadegari",
       "first_seen": 1792238256,
-      "last_seen": 1792238256,
+      "last_seen": 1792999403,
       "purchases": []
     },
     "8569889819": {
@@ -51528,7 +51559,15 @@
       "username": "Soroosh_r19",
       "first_seen": 1792945406,
       "last_seen": 1792945406,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-295C-5CF5-F0A3",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1792999429,
+          "days": 60
+        }
+      ]
     },
     "260855053": {
       "user_id": 260855053,
@@ -54863,7 +54902,7 @@
       "last_name": "",
       "username": "TorMani",
       "first_seen": 1792951704,
-      "last_seen": 1792983692,
+      "last_seen": 1792999407,
       "purchases": []
     },
     "5447498528": {
@@ -55034,7 +55073,7 @@
       "last_name": "",
       "username": "Shamsaddini7",
       "first_seen": 1792952814,
-      "last_seen": 1792952814,
+      "last_seen": 1792999404,
       "purchases": []
     },
     "7227957907": {
@@ -55968,6 +56007,33 @@
       "first_seen": 1792983338,
       "last_seen": 1792983338,
       "purchases": []
+    },
+    "5058949687": {
+      "user_id": 5058949687,
+      "first_name": "A",
+      "last_name": "Khodaparast",
+      "username": "Alize71",
+      "first_seen": 1792999378,
+      "last_seen": 1792999378,
+      "purchases": []
+    },
+    "6772464302": {
+      "user_id": 6772464302,
+      "first_name": "Erffan",
+      "last_name": "",
+      "username": "Shabaniiy",
+      "first_seen": 1792999378,
+      "last_seen": 1792999378,
+      "purchases": []
+    },
+    "89810901": {
+      "user_id": 89810901,
+      "first_name": "سعید",
+      "last_name": "",
+      "username": "Saeed_teh_1360",
+      "first_seen": 1792999426,
+      "last_seen": 1792999426,
+      "purchases": []
     }
   },
   "user_states": {
@@ -56328,10 +56394,6 @@
     "821881547": {
       "state": "waiting_support_msg",
       "time": 1792237651
-    },
-    "102983549": {
-      "state": "waiting_support_msg",
-      "time": 1792238274
     },
     "86927881": {
       "state": "waiting_support_msg",
