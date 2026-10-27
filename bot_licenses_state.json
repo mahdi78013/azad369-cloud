@@ -5186,6 +5186,12 @@
       "user_id": 7363112559,
       "issued_at": 1793114791,
       "method": "crypto_unique"
+    },
+    "AZ1M-F151-6663-2713": {
+      "plan": "1M",
+      "user_id": 292824819,
+      "issued_at": 1793114870,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -41975,9 +41981,18 @@
       "tron_amount": 0.36016,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_614646357da44df8ab0be69ed261078a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=614646357da44df8ab0be69ed261078a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793114723
+      "created_at": 1793114723,
+      "approved_at": 1793114870,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1M-F151-6663-2713",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3008197",
+        "tron_amount": 0.36016,
+        "user_paid_toman": null,
+        "date": "2026-10-27T15:27:03.4270000"
+      }
     }
   },
   "users": {
@@ -68255,7 +68270,15 @@
       "username": "limakq",
       "first_seen": 1793029150,
       "last_seen": 1793114720,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1M-F151-6663-2713",
+          "plan": "1M",
+          "plan_name": "۱ ماهه ویندوز (۳۰ روزه)",
+          "issued_at": 1793114870,
+          "days": 30
+        }
+      ]
     },
     "122670639": {
       "user_id": 122670639,
