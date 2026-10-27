@@ -5174,6 +5174,12 @@
       "user_id": 99418963,
       "issued_at": 1793114403,
       "method": "crypto_unique"
+    },
+    "AN1M-40FA5919-DD0F-FFE4CF": {
+      "plan": "AN1M",
+      "user_id": 364688099,
+      "issued_at": 1793114627,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -41901,9 +41907,18 @@
       "tron_amount": 0.350186,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f0b833509e8a4d10afc2c1b20fbe1487",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f0b833509e8a4d10afc2c1b20fbe1487",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793114279
+      "created_at": 1793114279,
+      "approved_at": 1793114627,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1M-40FA5919-DD0F-FFE4CF",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3008135",
+        "tron_amount": 0.350186,
+        "user_paid_toman": null,
+        "date": "2026-10-27T15:22:44.8400000"
+      }
     },
     "TRND-AN1M-212541675-1793114535-a3c506": {
       "order_id": "TRND-AN1M-212541675-1793114535-a3c506",
@@ -70651,8 +70666,16 @@
       "last_name": "Farhadi",
       "username": "imiladfarhadi",
       "first_seen": 1793114186,
-      "last_seen": 1793114186,
-      "purchases": []
+      "last_seen": 1793114625,
+      "purchases": [
+        {
+          "key": "AN1M-40FA5919-DD0F-FFE4CF",
+          "plan": "AN1M",
+          "plan_name": "۱ ماهه اندروید (۳۰ روزه)",
+          "issued_at": 1793114627,
+          "days": 30
+        }
+      ]
     },
     "212541675": {
       "user_id": 212541675,
@@ -70670,6 +70693,15 @@
       "username": "Nanovpns",
       "first_seen": 1793114519,
       "last_seen": 1793114519,
+      "purchases": []
+    },
+    "107492143": {
+      "user_id": 107492143,
+      "first_name": "Aram",
+      "last_name": "Shoghi",
+      "username": "Aramshoghi",
+      "first_seen": 1793114619,
+      "last_seen": 1793114619,
       "purchases": []
     }
   },
