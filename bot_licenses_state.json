@@ -5210,6 +5210,12 @@
       "user_id": 8602043637,
       "issued_at": 1793117010,
       "method": "crypto_unique"
+    },
+    "AN2M-4A12-D22C-8323": {
+      "plan": "AN2M",
+      "user_id": 1048703325,
+      "issued_at": 1793117011,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -35878,9 +35884,10 @@
       "tron_amount": 1.329855,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_045b3cf79f0a4c71b26a6041497e95b3",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=045b3cf79f0a4c71b26a6041497e95b3",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793030618
+      "created_at": 1793030618,
+      "cancelled_at": 1793117037
     },
     "TRND-1Y-8637236051-1793030645-d79829": {
       "order_id": "TRND-1Y-8637236051-1793030645-d79829",
@@ -42219,9 +42226,18 @@
       "tron_amount": 0.798546,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_503bc0fdeffe4ab6b41d921b594e6166",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=503bc0fdeffe4ab6b41d921b594e6166",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793116778
+      "created_at": 1793116778,
+      "approved_at": 1793117011,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-4A12-D22C-8323",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3008473",
+        "tron_amount": 0.798546,
+        "user_paid_toman": null,
+        "date": "2026-10-27T16:02:09.6170000"
+      }
     }
   },
   "users": {
@@ -71092,6 +71108,41 @@
       "username": "abolfazl17460",
       "first_seen": 1793116725,
       "last_seen": 1793116725,
+      "purchases": [
+        {
+          "key": "AN2M-4A12-D22C-8323",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793117011,
+          "days": 60
+        }
+      ]
+    },
+    "285557156": {
+      "user_id": 285557156,
+      "first_name": "Boz",
+      "last_name": "Ghoord🥇",
+      "username": "Torkoglaanam",
+      "first_seen": 1793117105,
+      "last_seen": 1793117105,
+      "purchases": []
+    },
+    "101281458": {
+      "user_id": 101281458,
+      "first_name": "Ali",
+      "last_name": "Vahid",
+      "username": "AliVh75",
+      "first_seen": 1793117142,
+      "last_seen": 1793117142,
+      "purchases": []
+    },
+    "1666207960": {
+      "user_id": 1666207960,
+      "first_name": "B",
+      "last_name": "R",
+      "username": "",
+      "first_seen": 1793117143,
+      "last_seen": 1793117143,
       "purchases": []
     }
   },
