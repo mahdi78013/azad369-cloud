@@ -4976,6 +4976,12 @@
       "user_id": 542729094,
       "issued_at": 1793063997,
       "method": "crypto_unique"
+    },
+    "AN1Y-02FC-521D-8BFA": {
+      "plan": "AN1Y",
+      "user_id": 542729094,
+      "issued_at": 1793064579,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -39973,9 +39979,18 @@
       "tron_amount": 3.680815,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_cfb72e0073e24d44825c6b9c72833cdc",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=cfb72e0073e24d44825c6b9c72833cdc",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793064105
+      "created_at": 1793064105,
+      "approved_at": 1793064579,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-02FC-521D-8BFA",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3003291",
+        "tron_amount": 3.680815,
+        "user_paid_toman": null,
+        "date": "2026-10-27T01:27:51.1870000"
+      }
     }
   },
   "users": {
@@ -50897,6 +50912,13 @@
           "plan": "AN1Y",
           "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
           "issued_at": 1793063997,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-02FC-521D-8BFA",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793064579,
           "days": 365
         }
       ]
