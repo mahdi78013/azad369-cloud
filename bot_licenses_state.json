@@ -5216,6 +5216,12 @@
       "user_id": 1048703325,
       "issued_at": 1793117011,
       "method": "crypto_unique"
+    },
+    "AN2M-31E5-B5CD-0728": {
+      "plan": "AN2M",
+      "user_id": 50016948,
+      "issued_at": 1793118662,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -36154,9 +36160,10 @@
       "tron_amount": 1.330548,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a99365163dfd442ea325a5594758bfae",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a99365163dfd442ea325a5594758bfae",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793032223
+      "created_at": 1793032223,
+      "cancelled_at": 1793118649
     },
     "TRND-AN2M-5849285715-1793032434-95173f": {
       "order_id": "TRND-AN2M-5849285715-1793032434-95173f",
@@ -42304,12 +42311,15 @@
       "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
       "plan_code": "AN2M",
       "price": "۱۰۰,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAEBVttq4NARUbhmrvANHMb6tQnLsZuFfwACag5rG_JyAVOqbsHXTHmQxwEAAwIAA3kAAz0E",
       "card_number": "5047061670546072",
       "created_at": 1793118237,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1793118662,
+      "approved_by": 748538264,
+      "key": "AN2M-31E5-B5CD-0728"
     },
     "TRND-AN2M-50016948-1793118282-a59bfa": {
       "order_id": "TRND-AN2M-50016948-1793118282-a59bfa",
@@ -42374,6 +42384,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793118611
+    },
+    "TRND-AN3M-274126885-1793118646-443de5": {
+      "order_id": "TRND-AN3M-274126885-1793118646-443de5",
+      "token": "fad4fbc66e3b42079fb710eedb5444d5",
+      "user_id": 274126885,
+      "first_name": "Dr.Lecter",
+      "username": "SUN_BOOY",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.351927,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_fad4fbc66e3b42079fb710eedb5444d5",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=fad4fbc66e3b42079fb710eedb5444d5",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793118646
     }
   },
   "users": {
@@ -42978,7 +43004,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "Mahdi780111",
-      "last_seen": 1793118123,
+      "last_seen": 1793118662,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -52684,6 +52710,13 @@
           "plan_name": "۳ ماهه (۹۰ روزه)",
           "issued_at": 1792218492,
           "days": 90
+        },
+        {
+          "key": "AN2M-31E5-B5CD-0728",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793118662,
+          "days": 60
         }
       ]
     },
@@ -52861,7 +52894,7 @@
       "last_name": "",
       "username": "SUN_BOOY",
       "first_seen": 1792183075,
-      "last_seen": 1793056107,
+      "last_seen": 1793118634,
       "purchases": []
     },
     "8907370596": {
@@ -71342,6 +71375,15 @@
       "username": "",
       "first_seen": 1793118521,
       "last_seen": 1793118521,
+      "purchases": []
+    },
+    "8096848381": {
+      "user_id": 8096848381,
+      "first_name": "Cafenet Ehsan",
+      "last_name": "",
+      "username": "Cafeynet",
+      "first_seen": 1793118660,
+      "last_seen": 1793118660,
       "purchases": []
     }
   },
