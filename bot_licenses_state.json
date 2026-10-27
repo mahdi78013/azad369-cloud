@@ -5000,6 +5000,12 @@
       "user_id": 321676365,
       "issued_at": 1793069971,
       "method": "crypto_unique"
+    },
+    "AN1M-8C2C-82B6-0120": {
+      "plan": "AN1M",
+      "user_id": 5728235670,
+      "issued_at": 1793070209,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -40178,9 +40184,34 @@
       "tron_amount": 0.348575,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4cc98b07e61244b3a700a4cf07a4fcc2",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4cc98b07e61244b3a700a4cf07a4fcc2",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793070074,
+      "approved_at": 1793070209,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1M-8C2C-82B6-0120",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3003360",
+        "tron_amount": 0.348575,
+        "user_paid_toman": null,
+        "date": "2026-10-27T03:03:00.1730000"
+      }
+    },
+    "TRND-AN1M-266430480-1793070198-1cd4ac": {
+      "order_id": "TRND-AN1M-266430480-1793070198-1cd4ac",
+      "token": "d893056a9d93438b83c3dd391e17f196",
+      "user_id": 266430480,
+      "first_name": "arash",
+      "username": "Arashf75",
+      "plan_code": "AN1M",
+      "price": "۶۰,۰۰۰ تومان",
+      "price_toman": 60000,
+      "tron_amount": 0.358503,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_d893056a9d93438b83c3dd391e17f196",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d893056a9d93438b83c3dd391e17f196",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793070074
+      "created_at": 1793070198
     }
   },
   "users": {
@@ -68275,7 +68306,15 @@
       "username": "reyhane_h170",
       "first_seen": 1793070053,
       "last_seen": 1793070053,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN1M-8C2C-82B6-0120",
+          "plan": "AN1M",
+          "plan_name": "۱ ماهه اندروید (۳۰ روزه)",
+          "issued_at": 1793070209,
+          "days": 30
+        }
+      ]
     }
   },
   "user_states": {
