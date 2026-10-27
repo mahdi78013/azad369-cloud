@@ -5006,6 +5006,12 @@
       "user_id": 5728235670,
       "issued_at": 1793070209,
       "method": "crypto_unique"
+    },
+    "AZ1M-E14D-427E-2C49": {
+      "plan": "1M",
+      "user_id": 105788250,
+      "issued_at": 1793071479,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -40241,9 +40247,18 @@
       "tron_amount": 0.356499,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_db0a572d7d854e49a67943ee6230a075",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=db0a572d7d854e49a67943ee6230a075",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793071192
+      "created_at": 1793071192,
+      "approved_at": 1793071479,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1M-E14D-427E-2C49",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3003395",
+        "tron_amount": 0.356499,
+        "user_paid_toman": null,
+        "date": "2026-10-27T03:23:39.4830000"
+      }
     },
     "TRND-AN1M-90883495-1793071312-d08942": {
       "order_id": "TRND-AN1M-90883495-1793071312-d08942",
@@ -43980,8 +43995,16 @@
       "last_name": "",
       "username": "Puma60",
       "first_seen": 1792065335,
-      "last_seen": 1793071174,
-      "purchases": []
+      "last_seen": 1793071478,
+      "purchases": [
+        {
+          "key": "AZ1M-E14D-427E-2C49",
+          "plan": "1M",
+          "plan_name": "۱ ماهه ویندوز (۳۰ روزه)",
+          "issued_at": 1793071479,
+          "days": 30
+        }
+      ]
     },
     "112022600": {
       "user_id": 112022600,
