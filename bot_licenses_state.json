@@ -5180,6 +5180,12 @@
       "user_id": 364688099,
       "issued_at": 1793114627,
       "method": "crypto_unique"
+    },
+    "AZ1Y-79AE-B59A-16A3": {
+      "plan": "1Y",
+      "user_id": 7363112559,
+      "issued_at": 1793114791,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -35343,9 +35349,10 @@
       "tron_amount": 0.791018,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b31c315746d94cb081394abd3e101238",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b31c315746d94cb081394abd3e101238",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793028190
+      "created_at": 1793028190,
+      "cancelled_at": 1793114685
     },
     "TRND-AN2M-5474559225-1793028194-2e4ed8": {
       "order_id": "TRND-AN2M-5474559225-1793028194-2e4ed8",
@@ -35359,9 +35366,10 @@
       "tron_amount": 0.796512,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_2bb2c4ffcba14c52bd96ad2f3be049c3",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2bb2c4ffcba14c52bd96ad2f3be049c3",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793028194
+      "created_at": 1793028194,
+      "cancelled_at": 1793114685
     },
     "TRND-AN2M-5474559225-1793028201-f57f05": {
       "order_id": "TRND-AN2M-5474559225-1793028201-f57f05",
@@ -41710,12 +41718,15 @@
       "first_name": "اینترنت آزاد³⁶⁹ - تهیه لایسنس",
       "plan_code": "1Y",
       "price": "۳۹۹,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAEBUMFq4HZcMVXVGed7F3TWg_Q05ZsvrwAC3w5rG6b0CFMxOBG3V7zliwEAAwIAA3kAAz0E",
       "card_number": "5047061670546072",
       "created_at": 1793112535,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1793114791,
+      "approved_by": 748538264,
+      "key": "AZ1Y-79AE-B59A-16A3"
     },
     "TRND-AN1M-170514373-1793112624-87c40f": {
       "order_id": "TRND-AN1M-170514373-1793112624-87c40f",
@@ -41951,6 +41962,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793114542
+    },
+    "TRND-1M-292824819-1793114723-45075a": {
+      "order_id": "TRND-1M-292824819-1793114723-45075a",
+      "token": "614646357da44df8ab0be69ed261078a",
+      "user_id": 292824819,
+      "first_name": "limak",
+      "username": "limakq",
+      "plan_code": "1M",
+      "price": "۶۰,۰۰۰ تومان",
+      "price_toman": 60000,
+      "tron_amount": 0.36016,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_614646357da44df8ab0be69ed261078a",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=614646357da44df8ab0be69ed261078a",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793114723
     }
   },
   "users": {
@@ -42555,7 +42582,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "Mahdi780111",
-      "last_seen": 1793110592,
+      "last_seen": 1793114791,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -66966,6 +66993,13 @@
           "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
           "issued_at": 1793109460,
           "days": 60
+        },
+        {
+          "key": "AZ1Y-79AE-B59A-16A3",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793114791,
+          "days": 365
         }
       ]
     },
@@ -68220,7 +68254,7 @@
       "last_name": "",
       "username": "limakq",
       "first_seen": 1793029150,
-      "last_seen": 1793029150,
+      "last_seen": 1793114720,
       "purchases": []
     },
     "122670639": {
@@ -70702,6 +70736,15 @@
       "username": "Aramshoghi",
       "first_seen": 1793114619,
       "last_seen": 1793114619,
+      "purchases": []
+    },
+    "91864794": {
+      "user_id": 91864794,
+      "first_name": "جواد",
+      "last_name": "خدائي",
+      "username": "javadkhodaee1277",
+      "first_seen": 1793114750,
+      "last_seen": 1793114750,
       "purchases": []
     }
   },
