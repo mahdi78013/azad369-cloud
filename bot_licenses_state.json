@@ -5288,6 +5288,12 @@
       "user_id": 7353866601,
       "issued_at": 1793140205,
       "method": "crypto_unique"
+    },
+    "AZ3M-AC41-26EB-702D": {
+      "plan": "3M",
+      "user_id": 804116166,
+      "issued_at": 1793141033,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -43256,9 +43262,18 @@
       "tron_amount": 1.320066,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_988bc967d31740b88befbad5aac32069",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=988bc967d31740b88befbad5aac32069",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793140511
+      "created_at": 1793140511,
+      "approved_at": 1793141033,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-AC41-26EB-702D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3012087",
+        "tron_amount": 1.320066,
+        "user_paid_toman": null,
+        "date": "2026-10-27T22:43:00.2930000"
+      }
     },
     "TRND-AN2M-266430480-1793140966-afd117": {
       "order_id": "TRND-AN2M-266430480-1793140966-afd117",
@@ -43275,6 +43290,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793140966
+    },
+    "TRND-AN2M-266430480-1793141029-a55e6e": {
+      "order_id": "TRND-AN2M-266430480-1793141029-a55e6e",
+      "token": "3921670afb9a41c890d2e73773699dd6",
+      "user_id": 266430480,
+      "first_name": "arash",
+      "username": "Arashf75",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.776004,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_3921670afb9a41c890d2e73773699dd6",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3921670afb9a41c890d2e73773699dd6",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793141029
     }
   },
   "users": {
@@ -72666,7 +72697,15 @@
       "username": "M_a19911111",
       "first_seen": 1793140470,
       "last_seen": 1793140470,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-AC41-26EB-702D",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793141033,
+          "days": 90
+        }
+      ]
     },
     "34011837": {
       "user_id": 34011837,
