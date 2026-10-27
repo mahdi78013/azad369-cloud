@@ -5258,6 +5258,12 @@
       "user_id": 102090971,
       "issued_at": 1793121099,
       "method": "crypto_unique"
+    },
+    "AN2M-E312-9C49-D112": {
+      "plan": "AN2M",
+      "user_id": 7183090200,
+      "issued_at": 1793138527,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -42998,9 +43004,10 @@
       "tron_amount": 0.793637,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4bb6544607a24f04bcfe53ba60dd715c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4bb6544607a24f04bcfe53ba60dd715c",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793138224
+      "created_at": 1793138224,
+      "cancelled_at": 1793138526
     },
     "TRND-AN2M-7183090200-1793138364-eec545": {
       "order_id": "TRND-AN2M-7183090200-1793138364-eec545",
@@ -43014,9 +43021,18 @@
       "tron_amount": 0.807888,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b6f2677bbb9a43259ee030666e63ca77",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b6f2677bbb9a43259ee030666e63ca77",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793138364
+      "created_at": 1793138364,
+      "approved_at": 1793138527,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-E312-9C49-D112",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3011969",
+        "tron_amount": 0.807888,
+        "user_paid_toman": null,
+        "date": "2026-10-27T22:01:53.0800000"
+      }
     }
   },
   "users": {
@@ -59186,7 +59202,7 @@
       "last_name": "Mohammad",
       "username": "amirmd7693",
       "first_seen": 1792364286,
-      "last_seen": 1792364286,
+      "last_seen": 1793138506,
       "purchases": []
     },
     "532420188": {
@@ -72252,7 +72268,15 @@
       "username": "",
       "first_seen": 1793138357,
       "last_seen": 1793138357,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-E312-9C49-D112",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793138527,
+          "days": 60
+        }
+      ]
     },
     "313617227": {
       "user_id": 313617227,
