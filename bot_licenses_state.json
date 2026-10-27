@@ -5264,6 +5264,12 @@
       "user_id": 7183090200,
       "issued_at": 1793138527,
       "method": "crypto_unique"
+    },
+    "AN2M-AE587896-1B82-67C99C": {
+      "plan": "AN2M",
+      "user_id": 1036938264,
+      "issued_at": 1793138861,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -42956,9 +42962,18 @@
       "tron_amount": 0.805876,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e34564f61517456fa5b5cef71526ee8c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e34564f61517456fa5b5cef71526ee8c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793138046
+      "created_at": 1793138046,
+      "approved_at": 1793138861,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-AE587896-1B82-67C99C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3011956",
+        "tron_amount": 0.805876,
+        "user_paid_toman": null,
+        "date": "2026-10-27T22:06:56.3500000"
+      }
     },
     "TRND-AN2M-100076320-1793138201-921c46": {
       "order_id": "TRND-AN2M-100076320-1793138201-921c46",
@@ -43050,6 +43065,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793138691
+    },
+    "TRND-2M-8331913962-1793138851-f8c84f": {
+      "order_id": "TRND-2M-8331913962-1793138851-f8c84f",
+      "token": "8f10578973bc4a2dbbe988f8090e91e2",
+      "user_id": 8331913962,
+      "first_name": ".",
+      "username": "Parstellmobile_me",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.779438,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_8f10578973bc4a2dbbe988f8090e91e2",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8f10578973bc4a2dbbe988f8090e91e2",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793138851
     }
   },
   "users": {
@@ -72267,7 +72298,15 @@
       "username": "Alireza_samarghandi",
       "first_seen": 1793138028,
       "last_seen": 1793138656,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-AE587896-1B82-67C99C",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793138861,
+          "days": 60
+        }
+      ]
     },
     "8331913962": {
       "user_id": 8331913962,
@@ -72275,7 +72314,7 @@
       "last_name": ".",
       "username": "Parstellmobile_me",
       "first_seen": 1793138201,
-      "last_seen": 1793138201,
+      "last_seen": 1793138850,
       "purchases": []
     },
     "7183090200": {
