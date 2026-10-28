@@ -5798,6 +5798,12 @@
       "user_id": 5073129434,
       "issued_at": 1793194066,
       "method": "crypto_unique"
+    },
+    "AZ3M-7B7F-B586-2808": {
+      "plan": "3M",
+      "user_id": 86510031,
+      "issued_at": 1793194192,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -47598,9 +47604,18 @@
       "tron_amount": 1.321666,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5107dde1d12d478aac73268318578313",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5107dde1d12d478aac73268318578313",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793193633
+      "created_at": 1793193633,
+      "approved_at": 1793194192,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-7B7F-B586-2808",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3016363",
+        "tron_amount": 1.321666,
+        "user_paid_toman": null,
+        "date": "2026-10-28T13:29:40.9430000"
+      }
     },
     "TRND-AN1Y-5073129434-1793193747-26fa44": {
       "order_id": "TRND-AN1Y-5073129434-1793193747-26fa44",
@@ -47642,6 +47657,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793193802
+    },
+    "TRND-AN3M-95485684-1793194191-c5982d": {
+      "order_id": "TRND-AN3M-95485684-1793194191-c5982d",
+      "token": "8a84055bfe3d46a8bcfb3307ef66684e",
+      "user_id": 95485684,
+      "first_name": "Michael",
+      "username": "Nirvana625",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.327129,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_8a84055bfe3d46a8bcfb3307ef66684e",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8a84055bfe3d46a8bcfb3307ef66684e",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793194191
     }
   },
   "users": {
@@ -77616,7 +77647,7 @@
       "last_name": "Mehrafza",
       "username": "Nirvana625",
       "first_seen": 1793178937,
-      "last_seen": 1793178937,
+      "last_seen": 1793194164,
       "purchases": []
     },
     "5018950073": {
@@ -79744,7 +79775,24 @@
       "last_name": "Sohrabi",
       "username": "Ma_Sohrabi",
       "first_seen": 1793193578,
-      "last_seen": 1793193578,
+      "last_seen": 1793194192,
+      "purchases": [
+        {
+          "key": "AZ3M-7B7F-B586-2808",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793194192,
+          "days": 90
+        }
+      ]
+    },
+    "749184222": {
+      "user_id": 749184222,
+      "first_name": "KASRA",
+      "last_name": "MAX",
+      "username": "KASRA_MAX1",
+      "first_seen": 1793194098,
+      "last_seen": 1793194098,
       "purchases": []
     }
   },
