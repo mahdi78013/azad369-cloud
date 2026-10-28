@@ -6284,6 +6284,12 @@
       "user_id": 7669496726,
       "issued_at": 1793216264,
       "method": "crypto_unique"
+    },
+    "AN1Y-31B5-D6BD-2BFC": {
+      "plan": "AN1Y",
+      "user_id": 8002015693,
+      "issued_at": 1793216482,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -51425,9 +51431,10 @@
       "tron_amount": 3.66424,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_08d3454aaa4045a4b471b23de31f38cd",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=08d3454aaa4045a4b471b23de31f38cd",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793215123
+      "created_at": 1793215123,
+      "cancelled_at": 1793216384
     },
     "TRND-AN3M-1797406855-1793215344-125072": {
       "order_id": "TRND-AN3M-1797406855-1793215344-125072",
@@ -51664,6 +51671,63 @@
       "card_number": "5892101706458979",
       "created_at": 1793216363,
       "caption": ""
+    },
+    "TRND-AN1Y-8002015693-1793216391-a40790": {
+      "order_id": "TRND-AN1Y-8002015693-1793216391-a40790",
+      "token": "6add433692e745618f03aed641aeecd6",
+      "user_id": 8002015693,
+      "first_name": "BestFun",
+      "username": "best1fun1",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.656159,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_6add433692e745618f03aed641aeecd6",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6add433692e745618f03aed641aeecd6",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793216391,
+      "approved_at": 1793216482,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-31B5-D6BD-2BFC",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3019972",
+        "tron_amount": 3.656159,
+        "user_paid_toman": null,
+        "date": "2026-10-28T19:41:12.6970000"
+      }
+    },
+    "TRND-2M-498028226-1793216423-57ca57": {
+      "order_id": "TRND-2M-498028226-1793216423-57ca57",
+      "token": "8611e389673f41e5a4beb2c11605d7ba",
+      "user_id": 498028226,
+      "first_name": "MOTAMEDI",
+      "username": "ندارد",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.799269,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_8611e389673f41e5a4beb2c11605d7ba",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8611e389673f41e5a4beb2c11605d7ba",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793216423
+    },
+    "TRND-2M-498028226-1793216451-bfbc6a": {
+      "order_id": "TRND-2M-498028226-1793216451-bfbc6a",
+      "token": "f7087d20a5404a5ba7f8ce1a38fb1f62",
+      "user_id": 498028226,
+      "first_name": "MOTAMEDI",
+      "username": "ندارد",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.805874,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_f7087d20a5404a5ba7f8ce1a38fb1f62",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f7087d20a5404a5ba7f8ce1a38fb1f62",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793216451
     }
   },
   "users": {
@@ -62286,7 +62350,7 @@
       "last_name": "",
       "username": "amirpxl3",
       "first_seen": 1792183789,
-      "last_seen": 1792505709,
+      "last_seen": 1793216455,
       "purchases": []
     },
     "1258656198": {
@@ -75199,7 +75263,7 @@
       "last_name": "",
       "username": "best1fun1",
       "first_seen": 1792949829,
-      "last_seen": 1793033596,
+      "last_seen": 1793216390,
       "purchases": [
         {
           "key": "AN3M-14C7-8B67-A879",
@@ -75213,6 +75277,13 @@
           "plan": "1Y",
           "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
           "issued_at": 1793033597,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-31B5-D6BD-2BFC",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793216482,
           "days": 365
         }
       ]
@@ -86010,6 +86081,24 @@
       "username": "Bordbar2015",
       "first_seen": 1793216356,
       "last_seen": 1793216356,
+      "purchases": []
+    },
+    "946796145": {
+      "user_id": 946796145,
+      "first_name": "HADI",
+      "last_name": "",
+      "username": "NONSTOPHADI",
+      "first_seen": 1793216412,
+      "last_seen": 1793216412,
+      "purchases": []
+    },
+    "498028226": {
+      "user_id": 498028226,
+      "first_name": "MOTAMEDI",
+      "last_name": "KORESH",
+      "username": "",
+      "first_seen": 1793216422,
+      "last_seen": 1793216422,
       "purchases": []
     }
   },
