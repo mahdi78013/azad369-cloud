@@ -5888,6 +5888,12 @@
       "user_id": 6003520950,
       "issued_at": 1793197704,
       "method": "crypto_unique"
+    },
+    "AN2M-A8D5-8A42-B8B2": {
+      "plan": "AN2M",
+      "user_id": 772371397,
+      "issued_at": 1793197901,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -48328,9 +48334,18 @@
       "tron_amount": 0.79141,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a5d520588c6444d984db68353bae661a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a5d520588c6444d984db68353bae661a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793197675
+      "created_at": 1793197675,
+      "approved_at": 1793197901,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-A8D5-8A42-B8B2",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3016801",
+        "tron_amount": 0.79141,
+        "user_paid_toman": null,
+        "date": "2026-10-28T14:31:01.5100000"
+      }
     }
   },
   "users": {
@@ -74646,7 +74661,15 @@
       "username": "ALIire6",
       "first_seen": 1793027116,
       "last_seen": 1793197648,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-A8D5-8A42-B8B2",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793197901,
+          "days": 60
+        }
+      ]
     },
     "6011043683": {
       "user_id": 6011043683,
@@ -80785,6 +80808,24 @@
       "username": "Roham_rn",
       "first_seen": 1793197621,
       "last_seen": 1793197621,
+      "purchases": []
+    },
+    "101963692": {
+      "user_id": 101963692,
+      "first_name": "وحید",
+      "last_name": "احمدی",
+      "username": "Vahid_a1",
+      "first_seen": 1793197878,
+      "last_seen": 1793197878,
+      "purchases": []
+    },
+    "116076553": {
+      "user_id": 116076553,
+      "first_name": "N.SH",
+      "last_name": "",
+      "username": "Sharifinaser63",
+      "first_seen": 1793197890,
+      "last_seen": 1793197890,
       "purchases": []
     }
   },
