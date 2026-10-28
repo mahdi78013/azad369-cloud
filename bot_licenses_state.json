@@ -5462,6 +5462,12 @@
       "user_id": 654768426,
       "issued_at": 1793182994,
       "method": "crypto_unique"
+    },
+    "AZ2M-94EA-6F79-49EC": {
+      "plan": "2M",
+      "user_id": 364342707,
+      "issued_at": 1793183010,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -44600,9 +44606,18 @@
       "tron_amount": 0.80041,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_acc7f22ac7934d72b498a1fadaad7a23",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=acc7f22ac7934d72b498a1fadaad7a23",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793182414
+      "created_at": 1793182414,
+      "approved_at": 1793183010,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-94EA-6F79-49EC",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3014875",
+        "tron_amount": 0.80041,
+        "user_paid_toman": null,
+        "date": "2026-10-28T10:23:10.4070000"
+      }
     },
     "TRND-AN2M-44356672-1793182517-69bae1": {
       "order_id": "TRND-AN2M-44356672-1793182517-69bae1",
@@ -44798,6 +44813,22 @@
       "approved_at": 1793182994,
       "approved_by": 748538264,
       "key": "AN2M-94E6-1DA9-5F10"
+    },
+    "TRND-2M-8979038059-1793183006-897631": {
+      "order_id": "TRND-2M-8979038059-1793183006-897631",
+      "token": "28505386b65642fbb3e4375025834fef",
+      "user_id": 8979038059,
+      "first_name": "Mr.",
+      "username": "AqayeRez",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.793876,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_28505386b65642fbb3e4375025834fef",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=28505386b65642fbb3e4375025834fef",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793183006
     }
   },
   "users": {
@@ -75238,7 +75269,15 @@
       "username": "Arman4070",
       "first_seen": 1793182397,
       "last_seen": 1793182903,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-94EA-6F79-49EC",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793183010,
+          "days": 60
+        }
+      ]
     },
     "5717866912": {
       "user_id": 5717866912,
@@ -75346,6 +75385,15 @@
           "days": 60
         }
       ]
+    },
+    "7742511680": {
+      "user_id": 7742511680,
+      "first_name": "Kevin",
+      "last_name": "",
+      "username": "Kevinpry",
+      "first_seen": 1793183006,
+      "last_seen": 1793183006,
+      "purchases": []
     }
   },
   "user_states": {
