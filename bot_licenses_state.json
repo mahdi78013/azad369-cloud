@@ -6140,6 +6140,12 @@
       "user_id": 475981549,
       "issued_at": 1793209321,
       "method": "crypto_unique"
+    },
+    "AZ3M-2AEF-B149-66C5": {
+      "plan": "3M",
+      "user_id": 389638193,
+      "issued_at": 1793209387,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -50274,9 +50280,18 @@
       "tron_amount": 1.33548,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d9f21ac2e65e4a38a5cfb4eb6cc909a7",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d9f21ac2e65e4a38a5cfb4eb6cc909a7",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793209207
+      "created_at": 1793209207,
+      "approved_at": 1793209387,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-2AEF-B149-66C5",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3018610",
+        "tron_amount": 1.33548,
+        "user_paid_toman": null,
+        "date": "2026-10-28T17:42:52.1370000"
+      }
     },
     "TRND-AN2M-5316138829-1793209323-b021a9": {
       "order_id": "TRND-AN2M-5316138829-1793209323-b021a9",
@@ -81179,7 +81194,7 @@
       "last_name": "",
       "username": "M_Blackwolf",
       "first_seen": 1793182873,
-      "last_seen": 1793208970,
+      "last_seen": 1793209386,
       "purchases": [
         {
           "key": "AN2M-6D39-901A-048C",
@@ -81187,6 +81202,13 @@
           "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
           "issued_at": 1793208971,
           "days": 60
+        },
+        {
+          "key": "AZ3M-2AEF-B149-66C5",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793209387,
+          "days": 90
         }
       ]
     },
