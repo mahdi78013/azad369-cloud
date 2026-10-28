@@ -5840,6 +5840,12 @@
       "user_id": 368512181,
       "issued_at": 1793195338,
       "method": "crypto_unique"
+    },
+    "AN1Y-D5FF-F0EB-A0B2": {
+      "plan": "AN1Y",
+      "user_id": 173878493,
+      "issued_at": 1793195507,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -47889,9 +47895,18 @@
       "tron_amount": 3.647052,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c89bcca8096d4e9988c7e1de90e4d0e6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c89bcca8096d4e9988c7e1de90e4d0e6",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793194879
+      "created_at": 1793194879,
+      "approved_at": 1793195507,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-D5FF-F0EB-A0B2",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3016470",
+        "tron_amount": 3.647052,
+        "user_paid_toman": null,
+        "date": "2026-10-28T13:51:20.6000000"
+      }
     },
     "TRND-AN2M-1604653866-1793195044-378f1b": {
       "order_id": "TRND-AN2M-1604653866-1793195044-378f1b",
@@ -67343,7 +67358,15 @@
       "username": "AlphaFreedom",
       "first_seen": 1792930571,
       "last_seen": 1793194854,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN1Y-D5FF-F0EB-A0B2",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793195507,
+          "days": 365
+        }
+      ]
     },
     "52155887": {
       "user_id": 52155887,
@@ -79625,7 +79648,7 @@
       "last_name": "",
       "username": "HHHD6565",
       "first_seen": 1793189365,
-      "last_seen": 1793190041,
+      "last_seen": 1793195497,
       "purchases": []
     },
     "117395526": {
@@ -80185,7 +80208,7 @@
       "last_name": "mohamadzade",
       "username": "Mz_76t",
       "first_seen": 1793194502,
-      "last_seen": 1793194502,
+      "last_seen": 1793195477,
       "purchases": []
     },
     "6173197779": {
@@ -80266,6 +80289,15 @@
       "username": "ali_amiyan1996",
       "first_seen": 1793195315,
       "last_seen": 1793195315,
+      "purchases": []
+    },
+    "144666768": {
+      "user_id": 144666768,
+      "first_name": "MoHaMMaD",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793195483,
+      "last_seen": 1793195483,
       "purchases": []
     }
   },
