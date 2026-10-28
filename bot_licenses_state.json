@@ -5678,6 +5678,12 @@
       "user_id": 161957867,
       "issued_at": 1793188400,
       "method": "crypto_unique"
+    },
+    "AN2M-814E323E-6035-E7491E": {
+      "plan": "AN2M",
+      "user_id": 8871698137,
+      "issued_at": 1793188555,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -46267,9 +46273,10 @@
       "tron_amount": 3.642899,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_26708a42f6034bec96b948ae75551cc6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=26708a42f6034bec96b948ae75551cc6",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793187175
+      "created_at": 1793187175,
+      "cancelled_at": 1793188551
     },
     "ORD_1793187231_456899323": {
       "order_id": "ORD_1793187231_456899323",
@@ -46564,9 +46571,18 @@
       "tron_amount": 0.796658,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_84a48659e48846d68d4a532b11a87cee",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=84a48659e48846d68d4a532b11a87cee",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793188240
+      "created_at": 1793188240,
+      "approved_at": 1793188555,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-814E323E-6035-E7491E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3015697",
+        "tron_amount": 0.796658,
+        "user_paid_toman": null,
+        "date": "2026-10-28T11:54:17.5230000"
+      }
     },
     "TRND-AN2M-5816780639-1793188301-196dd5": {
       "order_id": "TRND-AN2M-5816780639-1793188301-196dd5",
@@ -75150,7 +75166,7 @@
       "last_name": "mp",
       "username": "soroushmp",
       "first_seen": 1793089712,
-      "last_seen": 1793089712,
+      "last_seen": 1793188544,
       "purchases": []
     },
     "465220309": {
@@ -78095,7 +78111,15 @@
       "username": "pt6366",
       "first_seen": 1793188165,
       "last_seen": 1793188165,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-814E323E-6035-E7491E",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793188555,
+          "days": 60
+        }
+      ]
     },
     "286779950": {
       "user_id": 286779950,
