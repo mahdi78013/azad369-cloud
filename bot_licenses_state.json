@@ -5546,6 +5546,12 @@
       "user_id": 693568731,
       "issued_at": 1793184897,
       "method": "crypto_unique"
+    },
+    "AN2M-5C79-9644-57F6": {
+      "plan": "AN2M",
+      "user_id": 101476394,
+      "issued_at": 1793185384,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -45593,6 +45599,47 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793185240
+    },
+    "TRND-AN2M-101476394-1793185246-1e77da": {
+      "order_id": "TRND-AN2M-101476394-1793185246-1e77da",
+      "token": "5ec9b88f96af4355819fb94ddca60989",
+      "user_id": 101476394,
+      "first_name": "amir hosein",
+      "username": "amirhosein_6102",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.78981,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_5ec9b88f96af4355819fb94ddca60989",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5ec9b88f96af4355819fb94ddca60989",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793185246,
+      "approved_at": 1793185384,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-5C79-9644-57F6",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3015286",
+        "tron_amount": 0.78981,
+        "user_paid_toman": null,
+        "date": "2026-10-28T11:02:21.2070000"
+      }
+    },
+    "TRND-AN2M-96123167-1793185377-4c9054": {
+      "order_id": "TRND-AN2M-96123167-1793185377-4c9054",
+      "token": "a7ceedcc556b4c9ea8cd2467a290d47b",
+      "user_id": 96123167,
+      "first_name": "Mohammad",
+      "username": "ندارد",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.777777,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_a7ceedcc556b4c9ea8cd2467a290d47b",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a7ceedcc556b4c9ea8cd2467a290d47b",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793185377
     }
   },
   "users": {
@@ -66820,7 +66867,7 @@
       "last_name": "",
       "username": "Mohamad_mahdi86",
       "first_seen": 1792945985,
-      "last_seen": 1793121638,
+      "last_seen": 1793185296,
       "purchases": []
     },
     "5539256634": {
@@ -70106,7 +70153,15 @@
       "username": "amirhosein_6102",
       "first_seen": 1792961557,
       "last_seen": 1793185226,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-5C79-9644-57F6",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793185384,
+          "days": 60
+        }
+      ]
     },
     "8833885715": {
       "user_id": 8833885715,
@@ -76530,6 +76585,42 @@
       "first_seen": 1793185146,
       "last_seen": 1793185146,
       "purchases": []
+    },
+    "103588313": {
+      "user_id": 103588313,
+      "first_name": "MAK",
+      "last_name": "",
+      "username": "Mehran_MAK",
+      "first_seen": 1793185275,
+      "last_seen": 1793185275,
+      "purchases": []
+    },
+    "7785484229": {
+      "user_id": 7785484229,
+      "first_name": "Madar",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793185298,
+      "last_seen": 1793185298,
+      "purchases": []
+    },
+    "161957867": {
+      "user_id": 161957867,
+      "first_name": "ۘۘسـ ۘۘیـ ۘۘد ۘۘبـ ۘۘهـ ۘۘر ۘۘوۘۘز",
+      "last_name": "هَِاَِدَِیَِ زَِاَِدَِهَِ",
+      "username": "khan007khan",
+      "first_seen": 1793185323,
+      "last_seen": 1793185323,
+      "purchases": []
+    },
+    "96123167": {
+      "user_id": 96123167,
+      "first_name": "Mohammad",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793185350,
+      "last_seen": 1793185350,
+      "purchases": []
     }
   },
   "user_states": {
@@ -76918,6 +77009,11 @@
       "state": "awaiting_receipt",
       "plan_code": "2M",
       "time": 1793185173
+    },
+    "6019428482": {
+      "state": "awaiting_receipt",
+      "plan_code": "1Y",
+      "time": 1793185369
     }
   },
   "admin_states": {},
