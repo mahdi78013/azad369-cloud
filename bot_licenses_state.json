@@ -6176,6 +6176,12 @@
       "user_id": 5790980171,
       "issued_at": 1793210410,
       "method": "crypto_unique"
+    },
+    "AN2M-6E95-58C5-327C": {
+      "plan": "AN2M",
+      "user_id": 96095841,
+      "issued_at": 1793210945,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -50599,9 +50605,10 @@
       "tron_amount": 0.789526,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f4f15b6d84624c6ea461bdd82546e582",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f4f15b6d84624c6ea461bdd82546e582",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793210637
+      "created_at": 1793210637,
+      "cancelled_at": 1793210944
     },
     "TRND-AN2M-96095841-1793210805-926db2": {
       "order_id": "TRND-AN2M-96095841-1793210805-926db2",
@@ -50615,9 +50622,34 @@
       "tron_amount": 0.793863,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_eb03397e18c04ef6be6c0f2039356840",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=eb03397e18c04ef6be6c0f2039356840",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793210805,
+      "approved_at": 1793210945,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-6E95-58C5-327C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3018935",
+        "tron_amount": 0.793863,
+        "user_paid_toman": null,
+        "date": "2026-10-28T18:08:39.4600000"
+      }
+    },
+    "TRND-AN1Y-1099349575-1793210864-b752bf": {
+      "order_id": "TRND-AN1Y-1099349575-1793210864-b752bf",
+      "token": "45487726abc345abbf7b3db56db53a03",
+      "user_id": 1099349575,
+      "first_name": "Telga",
+      "username": "Telgasun",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.659918,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_45487726abc345abbf7b3db56db53a03",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=45487726abc345abbf7b3db56db53a03",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793210805
+      "created_at": 1793210864
     }
   },
   "users": {
@@ -84355,6 +84387,41 @@
       "username": "",
       "first_seen": 1793210781,
       "last_seen": 1793210781,
+      "purchases": [
+        {
+          "key": "AN2M-6E95-58C5-327C",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793210945,
+          "days": 60
+        }
+      ]
+    },
+    "1099349575": {
+      "user_id": 1099349575,
+      "first_name": "Telga",
+      "last_name": "",
+      "username": "Telgasun",
+      "first_seen": 1793210844,
+      "last_seen": 1793210844,
+      "purchases": []
+    },
+    "5922013839": {
+      "user_id": 5922013839,
+      "first_name": "pourya",
+      "last_name": "",
+      "username": "Pouryaalmasii",
+      "first_seen": 1793210897,
+      "last_seen": 1793210897,
+      "purchases": []
+    },
+    "1174518056": {
+      "user_id": 1174518056,
+      "first_name": "Sirjan Modem",
+      "last_name": "www.sirjanmodem.ir",
+      "username": "m09137134433",
+      "first_seen": 1793210904,
+      "last_seen": 1793210904,
       "purchases": []
     }
   },
