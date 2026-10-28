@@ -5936,6 +5936,12 @@
       "user_id": 96689256,
       "issued_at": 1793199833,
       "method": "crypto_unique"
+    },
+    "AZ3M-2E87-EB64-C60D": {
+      "plan": "3M",
+      "user_id": 5872831331,
+      "issued_at": 1793200160,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -48588,9 +48594,18 @@
       "tron_amount": 1.319987,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_47dda4fe896445a8969ddd607fd94092",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=47dda4fe896445a8969ddd607fd94092",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793199142
+      "created_at": 1793199142,
+      "approved_at": 1793200160,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-2E87-EB64-C60D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3016987",
+        "tron_amount": 1.319987,
+        "user_paid_toman": null,
+        "date": "2026-10-28T15:07:08.6000000"
+      }
     },
     "ORD_1793199169_713838028": {
       "order_id": "ORD_1793199169_713838028",
@@ -60058,7 +60073,7 @@
       "last_name": "",
       "username": "Sahand_Rahim_Arbabi",
       "first_seen": 1792216850,
-      "last_seen": 1793121099,
+      "last_seen": 1793200159,
       "purchases": [],
       "last_admin_reply": {
         "text": "✅ لایسنس دستی جدید ۳ ماهه (۹۰ روزه):\n\nAZ3M-17EC-26E4-6C5A\n\n(برای کپی روی کد بالا ضربه بزنید)",
@@ -81325,7 +81340,15 @@
       "username": "KOMOJE_A_H_Z",
       "first_seen": 1793199100,
       "last_seen": 1793199608,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-2E87-EB64-C60D",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793200160,
+          "days": 90
+        }
+      ]
     },
     "1951776848": {
       "user_id": 1951776848,
@@ -81370,6 +81393,15 @@
       "username": "VindictiveLeopard",
       "first_seen": 1793200053,
       "last_seen": 1793200053,
+      "purchases": []
+    },
+    "7235507508": {
+      "user_id": 7235507508,
+      "first_name": "ل",
+      "last_name": "م",
+      "username": "Rohalla13680314",
+      "first_seen": 1793200151,
+      "last_seen": 1793200151,
       "purchases": []
     }
   },
