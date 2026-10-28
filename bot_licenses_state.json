@@ -5624,6 +5624,12 @@
       "user_id": 109063666,
       "issued_at": 1793186652,
       "method": "crypto_unique"
+    },
+    "AN3M-370A-A0A7-8A31": {
+      "plan": "AN3M",
+      "user_id": 5628378804,
+      "issued_at": 1793186849,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -46248,9 +46254,18 @@
       "tron_amount": 1.329924,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9b838da27b79468f8d1d8efb0dc219cf",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9b838da27b79468f8d1d8efb0dc219cf",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793186617
+      "created_at": 1793186617,
+      "approved_at": 1793186849,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-370A-A0A7-8A31",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3015450",
+        "tron_amount": 1.329924,
+        "user_paid_toman": null,
+        "date": "2026-10-28T11:26:51.0830000"
+      }
     },
     "TRND-AN2M-109063666-1793186617-ac96ac": {
       "order_id": "TRND-AN2M-109063666-1793186617-ac96ac",
@@ -46299,6 +46314,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793186683
+    },
+    "TRND-AN2M-6342353240-1793186715-4036dc": {
+      "order_id": "TRND-AN2M-6342353240-1793186715-4036dc",
+      "token": "d190293a2fa343b199c1121ff3eb9754",
+      "user_id": 6342353240,
+      "first_name": "Mehdi",
+      "username": "Mehdisrg",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.803861,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_d190293a2fa343b199c1121ff3eb9754",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d190293a2fa343b199c1121ff3eb9754",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793186715
+    },
+    "TRND-AN2M-291855215-1793186731-96d589": {
+      "order_id": "TRND-AN2M-291855215-1793186731-96d589",
+      "token": "c286a4094d7f416197d9fa7f5b6abc73",
+      "user_id": 291855215,
+      "first_name": "R.AZADI",
+      "username": "safennsound",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.777612,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_c286a4094d7f416197d9fa7f5b6abc73",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c286a4094d7f416197d9fa7f5b6abc73",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793186731
     }
   },
   "users": {
@@ -48904,7 +48951,15 @@
       "username": "fallahmohammadzadeh",
       "first_seen": 1792062521,
       "last_seen": 1793186594,
-      "purchases": [],
+      "purchases": [
+        {
+          "key": "AN3M-370A-A0A7-8A31",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793186849,
+          "days": 90
+        }
+      ],
       "last_admin_reply": {
         "text": "سلام بله. با بخش نت ملی میتونید",
         "time": 1792062727
@@ -62227,7 +62282,7 @@
       "last_name": "",
       "username": "V_H87",
       "first_seen": 1792360270,
-      "last_seen": 1793088809,
+      "last_seen": 1793186719,
       "purchases": []
     },
     "1411417405": {
@@ -77205,7 +77260,7 @@
       "last_name": "",
       "username": "Yazdana_Admin",
       "first_seen": 1793184673,
-      "last_seen": 1793184673,
+      "last_seen": 1793186783,
       "purchases": []
     },
     "215110679": {
@@ -77575,6 +77630,15 @@
       "username": "safennsound",
       "first_seen": 1793186671,
       "last_seen": 1793186671,
+      "purchases": []
+    },
+    "158906102": {
+      "user_id": 158906102,
+      "first_name": "#parsa#",
+      "last_name": "",
+      "username": "parsa555",
+      "first_seen": 1793186758,
+      "last_seen": 1793186758,
       "purchases": []
     }
   },
