@@ -5474,6 +5474,12 @@
       "user_id": 8979038059,
       "issued_at": 1793183123,
       "method": "crypto_unique"
+    },
+    "AN2M-4A7C-9939-7B7C": {
+      "plan": "AN2M",
+      "user_id": 965145884,
+      "issued_at": 1793183165,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -44710,9 +44716,18 @@
       "tron_amount": 0.785116,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_60c855c3ad8e44e6a5b3e23e91180139",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=60c855c3ad8e44e6a5b3e23e91180139",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793182708
+      "created_at": 1793182708,
+      "approved_at": 1793183165,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-4A7C-9939-7B7C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3014916",
+        "tron_amount": 0.785116,
+        "user_paid_toman": null,
+        "date": "2026-10-28T10:26:04.0030000"
+      }
     },
     "TRND-AN2M-673479086-1793182711-bfd85f": {
       "order_id": "TRND-AN2M-673479086-1793182711-bfd85f",
@@ -44844,6 +44859,22 @@
         "user_paid_toman": null,
         "date": "2026-10-28T10:25:07.9970000"
       }
+    },
+    "TRND-AN2M-286826532-1793183153-f31fb7": {
+      "order_id": "TRND-AN2M-286826532-1793183153-f31fb7",
+      "token": "03540895044e464caf851e8d74ae4482",
+      "user_id": 286826532,
+      "first_name": "Moradi",
+      "username": "Moradi935",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.796066,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_03540895044e464caf851e8d74ae4482",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=03540895044e464caf851e8d74ae4482",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793183153
     }
   },
   "users": {
@@ -74881,6 +74912,13 @@
           "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
           "issued_at": 1793181800,
           "days": 90
+        },
+        {
+          "key": "AN2M-4A7C-9939-7B7C",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793183165,
+          "days": 60
         }
       ]
     },
