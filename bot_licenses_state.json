@@ -5606,6 +5606,12 @@
       "user_id": 75954300,
       "issued_at": 1793186432,
       "method": "crypto_unique"
+    },
+    "AZ2M-C7F9-8EE4-B174": {
+      "plan": "2M",
+      "user_id": 771325360,
+      "issued_at": 1793186451,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -45461,9 +45467,18 @@
       "tron_amount": 0.777771,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3b503922451f40a99e5164f2003d50de",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3b503922451f40a99e5164f2003d50de",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793184834
+      "created_at": 1793184834,
+      "approved_at": 1793186451,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-C7F9-8EE4-B174",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3015221",
+        "tron_amount": 0.789695,
+        "user_paid_toman": null,
+        "date": "2026-10-28T11:20:00.6930000"
+      }
     },
     "TRND-AN2M-5915284754-1793184841-184a1b": {
       "order_id": "TRND-AN2M-5915284754-1793184841-184a1b",
@@ -77045,6 +77060,13 @@
           "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
           "issued_at": 1793185723,
           "days": 60
+        },
+        {
+          "key": "AZ2M-C7F9-8EE4-B174",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793186451,
+          "days": 60
         }
       ]
     },
@@ -77258,7 +77280,7 @@
       "last_name": "",
       "username": "mrshojai",
       "first_seen": 1793185841,
-      "last_seen": 1793185841,
+      "last_seen": 1793186437,
       "purchases": [
         {
           "key": "AN2M-EEC6-150A-BD5D",
@@ -77338,6 +77360,15 @@
       "username": "Unipcs7",
       "first_seen": 1793186426,
       "last_seen": 1793186426,
+      "purchases": []
+    },
+    "971800726": {
+      "user_id": 971800726,
+      "first_name": "Crow",
+      "last_name": "",
+      "username": "Shinseki_yuri",
+      "first_seen": 1793186432,
+      "last_seen": 1793186432,
       "purchases": []
     }
   },
@@ -77731,10 +77762,11 @@
   },
   "admin_states": {
     "748538264": {
-      "state": "select_broadcast_button",
+      "state": "confirm_broadcast_final",
       "chat_id": 748538264,
       "msg_id": 94250,
-      "time": 1793186419
+      "time": 1793186419,
+      "button_choice": "plans"
     }
   },
   "trial_users": {},
