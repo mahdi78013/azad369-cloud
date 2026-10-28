@@ -5978,6 +5978,12 @@
       "user_id": 90084363,
       "issued_at": 1793201763,
       "method": "crypto_unique"
+    },
+    "AZ1Y-0735-0A72-B829": {
+      "plan": "1Y",
+      "user_id": 43241921,
+      "issued_at": 1793202035,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -49026,12 +49032,15 @@
       "first_name": "Abouzar",
       "plan_code": "1Y",
       "price": "۳۹۹,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAEBf5hq4hbYrCgDTh4ifZ8wmVi6sC-N_wAC4Q9rG6FN8VLtmBh84V0J9wEAAwIAA3kAAz0E",
       "card_number": "5892101706458979",
       "created_at": 1793201916,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1793202035,
+      "approved_by": 748538264,
+      "key": "AZ1Y-0735-0A72-B829"
     },
     "ORD_1793201970_43241921": {
       "order_id": "ORD_1793201970_43241921",
@@ -49045,6 +49054,38 @@
       "receipt_text": "من از یه باد دیگه که گفته بودی خرید کردم اما جوابی نداد من فقط پرداخت کردم",
       "card_number": "5892101706458979",
       "created_at": 1793201970
+    },
+    "TRND-AN2M-753854415-1793201975-4f3db3": {
+      "order_id": "TRND-AN2M-753854415-1793201975-4f3db3",
+      "token": "252d16628b3c40e89cba21e225896f6e",
+      "user_id": 753854415,
+      "first_name": "S",
+      "username": "sjdght",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.792848,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_252d16628b3c40e89cba21e225896f6e",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=252d16628b3c40e89cba21e225896f6e",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793201975
+    },
+    "TRND-AN2M-6864740771-1793201998-a60f18": {
+      "order_id": "TRND-AN2M-6864740771-1793201998-a60f18",
+      "token": "3b6dd57a611244eca0a22ea40f8177a8",
+      "user_id": 6864740771,
+      "first_name": "ali",
+      "username": "ندارد",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.793944,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_3b6dd57a611244eca0a22ea40f8177a8",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3b6dd57a611244eca0a22ea40f8177a8",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793201998
     }
   },
   "users": {
@@ -49670,7 +49711,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "Mahdi780111",
-      "last_seen": 1793199211,
+      "last_seen": 1793202035,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -73040,7 +73081,7 @@
       "last_name": "sadeghi",
       "username": "",
       "first_seen": 1792951694,
-      "last_seen": 1792951694,
+      "last_seen": 1793201997,
       "purchases": []
     },
     "104156725": {
@@ -81886,7 +81927,15 @@
       "username": "Abouzar_shamsaee",
       "first_seen": 1793201799,
       "last_seen": 1793201799,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-0735-0A72-B829",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793202035,
+          "days": 365
+        }
+      ]
     },
     "8870891095": {
       "user_id": 8870891095,
