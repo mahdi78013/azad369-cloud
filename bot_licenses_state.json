@@ -6314,6 +6314,12 @@
       "user_id": 7669496726,
       "issued_at": 1793217372,
       "method": "crypto_unique"
+    },
+    "AN2M-F138-1E6D-AD5F": {
+      "plan": "AN2M",
+      "user_id": 625774478,
+      "issued_at": 1793217407,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -51841,9 +51847,10 @@
       "tron_amount": 0.806561,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d0b5e9b8c55c417f8099b914acf6748f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d0b5e9b8c55c417f8099b914acf6748f",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793217123
+      "created_at": 1793217123,
+      "cancelled_at": 1793217407
     },
     "TRND-AN2M-625774478-1793217180-16262c": {
       "order_id": "TRND-AN2M-625774478-1793217180-16262c",
@@ -51857,9 +51864,18 @@
       "tron_amount": 0.793338,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_95b3ce319c114a17a681190ea30fb2e4",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=95b3ce319c114a17a681190ea30fb2e4",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793217180
+      "created_at": 1793217180,
+      "approved_at": 1793217407,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-F138-1E6D-AD5F",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3020098",
+        "tron_amount": 0.793338,
+        "user_paid_toman": null,
+        "date": "2026-10-28T19:55:29.2700000"
+      }
     },
     "TRND-AN2M-509048908-1793217238-4bc962": {
       "order_id": "TRND-AN2M-509048908-1793217238-4bc962",
@@ -51933,6 +51949,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793217370
+    },
+    "TRND-AN2M-628854551-1793217397-e1942b": {
+      "order_id": "TRND-AN2M-628854551-1793217397-e1942b",
+      "token": "b9ef558919264a739317e7d62c4d710a",
+      "user_id": 628854551,
+      "first_name": "Reza",
+      "username": "RMHM1245",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.7946,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_b9ef558919264a739317e7d62c4d710a",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b9ef558919264a739317e7d62c4d710a",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793217397
     }
   },
   "users": {
@@ -69782,6 +69814,13 @@
           "plan_name": "۳ ماهه (۹۰ روزه)",
           "issued_at": 1792420097,
           "days": 90
+        },
+        {
+          "key": "AN2M-F138-1E6D-AD5F",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793217407,
+          "days": 60
         }
       ]
     },
