@@ -5900,6 +5900,12 @@
       "user_id": 560093977,
       "issued_at": 1793198065,
       "method": "crypto_unique"
+    },
+    "AN1Y-FC86-9026-E540": {
+      "plan": "AN1Y",
+      "user_id": 730169673,
+      "issued_at": 1793198319,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -48389,9 +48395,18 @@
       "tron_amount": 3.645084,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_98f56b54b3554f85b19f7878ed6dff26",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=98f56b54b3554f85b19f7878ed6dff26",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793198216
+      "created_at": 1793198216,
+      "approved_at": 1793198319,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-FC86-9026-E540",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3016863",
+        "tron_amount": 3.645084,
+        "user_paid_toman": null,
+        "date": "2026-10-28T14:38:25.3270000"
+      }
     }
   },
   "users": {
@@ -68331,6 +68346,13 @@
           "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
           "issued_at": 1793029103,
           "days": 90
+        },
+        {
+          "key": "AN1Y-FC86-9026-E540",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793198319,
+          "days": 365
         }
       ]
     },
