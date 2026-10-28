@@ -6356,6 +6356,12 @@
       "user_id": 92496862,
       "issued_at": 1793218291,
       "method": "crypto_unique"
+    },
+    "AN2M-6D21-747E-A7B5": {
+      "plan": "AN2M",
+      "user_id": 619290677,
+      "issued_at": 1793218747,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -52139,9 +52145,18 @@
       "tron_amount": 0.804468,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6f1a99b9a4d74aa2a0a3ab2a04298560",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6f1a99b9a4d74aa2a0a3ab2a04298560",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793218293
+      "created_at": 1793218293,
+      "approved_at": 1793218747,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-6D21-747E-A7B5",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3020351",
+        "tron_amount": 0.804468,
+        "user_paid_toman": null,
+        "date": "2026-10-28T20:18:49.4700000"
+      }
     },
     "ORD_1793218616_1329566256": {
       "order_id": "ORD_1793218616_1329566256",
@@ -52172,6 +52187,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793218688
+    },
+    "TRND-1Y-274789432-1793218703-57b2cf": {
+      "order_id": "TRND-1Y-274789432-1793218703-57b2cf",
+      "token": "0f43621627e84cecab628a1f95bfbfb5",
+      "user_id": 274789432,
+      "first_name": "cloner01010167",
+      "username": "cloner01010167",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.659178,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_0f43621627e84cecab628a1f95bfbfb5",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0f43621627e84cecab628a1f95bfbfb5",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793218703
     }
   },
   "users": {
@@ -86393,7 +86424,7 @@
       "last_name": "",
       "username": "cloner01010167",
       "first_seen": 1793214689,
-      "last_seen": 1793218335,
+      "last_seen": 1793218702,
       "purchases": []
     },
     "457199509": {
@@ -86798,8 +86829,16 @@
       "last_name": "Knight",
       "username": "yasharlar",
       "first_seen": 1793218240,
-      "last_seen": 1793218240,
-      "purchases": []
+      "last_seen": 1793218746,
+      "purchases": [
+        {
+          "key": "AN2M-6D21-747E-A7B5",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793218747,
+          "days": 60
+        }
+      ]
     },
     "468351406": {
       "user_id": 468351406,
