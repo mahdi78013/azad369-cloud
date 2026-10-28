@@ -5948,6 +5948,12 @@
       "user_id": 589939139,
       "issued_at": 1793200647,
       "method": "crypto_unique"
+    },
+    "AZ1Y-BF6B-DE26-98E3": {
+      "plan": "1Y",
+      "user_id": 143804435,
+      "issued_at": 1793200692,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -48749,9 +48755,10 @@
       "tron_amount": 0.79803,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_fa20088213cf43eeb01730a43b82f239",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=fa20088213cf43eeb01730a43b82f239",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793199827
+      "created_at": 1793199827,
+      "cancelled_at": 1793200691
     },
     "TRND-1Y-143804435-1793200202-32f688": {
       "order_id": "TRND-1Y-143804435-1793200202-32f688",
@@ -48765,9 +48772,18 @@
       "tron_amount": 3.643916,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_315b968aedba45eca497f8c7697d0fe1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=315b968aedba45eca497f8c7697d0fe1",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793200202
+      "created_at": 1793200202,
+      "approved_at": 1793200692,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-BF6B-DE26-98E3",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3017118",
+        "tron_amount": 3.643916,
+        "user_paid_toman": null,
+        "date": "2026-10-28T15:17:23.1730000"
+      }
     },
     "TRND-AN2M-589939139-1793200293-c6e34d": {
       "order_id": "TRND-AN2M-589939139-1793200293-c6e34d",
@@ -81524,7 +81540,15 @@
       "username": "mobileziyai",
       "first_seen": 1793200182,
       "last_seen": 1793200182,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-BF6B-DE26-98E3",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793200692,
+          "days": 365
+        }
+      ]
     },
     "7143784156": {
       "user_id": 7143784156,
