@@ -6008,6 +6008,12 @@
       "user_id": 8664385799,
       "issued_at": 1793202275,
       "method": "crypto_unique"
+    },
+    "AN2M-410B-75DD-ADAA": {
+      "plan": "AN2M",
+      "user_id": 6864740771,
+      "issued_at": 1793202442,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -49129,9 +49135,18 @@
       "tron_amount": 0.793944,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3b6dd57a611244eca0a22ea40f8177a8",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3b6dd57a611244eca0a22ea40f8177a8",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793201998
+      "created_at": 1793201998,
+      "approved_at": 1793202442,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-410B-75DD-ADAA",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3017440",
+        "tron_amount": 0.793944,
+        "user_paid_toman": null,
+        "date": "2026-10-28T15:44:53.5930000"
+      }
     },
     "TRND-AN1Y-8664385799-1793202193-d4734a": {
       "order_id": "TRND-AN1Y-8664385799-1793202193-d4734a",
@@ -73152,8 +73167,16 @@
       "last_name": "sadeghi",
       "username": "",
       "first_seen": 1792951694,
-      "last_seen": 1793201997,
-      "purchases": []
+      "last_seen": 1793202441,
+      "purchases": [
+        {
+          "key": "AN2M-410B-75DD-ADAA",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793202442,
+          "days": 60
+        }
+      ]
     },
     "104156725": {
       "user_id": 104156725,
@@ -82056,6 +82079,24 @@
           "days": 60
         }
       ]
+    },
+    "5869863361": {
+      "user_id": 5869863361,
+      "first_name": "Sepiedeh",
+      "last_name": "Ghane",
+      "username": "",
+      "first_seen": 1793202290,
+      "last_seen": 1793202290,
+      "purchases": []
+    },
+    "149967631": {
+      "user_id": 149967631,
+      "first_name": "m.Jalilvand",
+      "last_name": "",
+      "username": "jalilvandmohsen",
+      "first_seen": 1793202426,
+      "last_seen": 1793202426,
+      "purchases": []
     }
   },
   "user_states": {
