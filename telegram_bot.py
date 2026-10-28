@@ -1747,10 +1747,33 @@ def welcome_inline_keyboard():
     markup.add(
         types.InlineKeyboardButton("📱 خرید اشتراک اندروید (موبایل)", callback_data="show_plans_android"),
         types.InlineKeyboardButton("💻 خرید اشتراک ویندوز (کامپیوتر)", callback_data="show_plans_windows"),
+        types.InlineKeyboardButton("🧾 ارسال رسید پرداخت", callback_data="submit_receipt"),
         types.InlineKeyboardButton("👤 حساب کاربری من", callback_data="my_account"),
         types.InlineKeyboardButton("📘 آموزش اتصال دستی", callback_data="manual_guide"),
         types.InlineKeyboardButton("💬 پشتیبانی", callback_data="start_support")
     )
+    return markup
+
+def receipt_plan_selection_keyboard():
+    """Inline keyboard for selecting the purchased plan before submitting a receipt."""
+    markup = types.InlineKeyboardMarkup(row_width=2)
+    markup.add(
+        types.InlineKeyboardButton("👑 ۱ ساله اندروید (۳۶۵ روزه)", callback_data="rec_plan_AN1Y"),
+        types.InlineKeyboardButton("👑 ۱ ساله ویندوز (۳۶۵ روزه)", callback_data="rec_plan_1Y")
+    )
+    markup.add(
+        types.InlineKeyboardButton("💎 ۳ ماهه اندروید (۹۰ روزه)", callback_data="rec_plan_AN3M"),
+        types.InlineKeyboardButton("💎 ۳ ماهه ویندوز (۹۰ روزه)", callback_data="rec_plan_3M")
+    )
+    markup.add(
+        types.InlineKeyboardButton("⚡ ۲ ماهه اندروید (۶۰ روزه)", callback_data="rec_plan_AN2M"),
+        types.InlineKeyboardButton("⚡ ۲ ماهه ویندوز (۶۰ روزه)", callback_data="rec_plan_2M")
+    )
+    markup.add(
+        types.InlineKeyboardButton("⭐ ۱ ماهه اندروید (۳۰ روزه)", callback_data="rec_plan_AN1M"),
+        types.InlineKeyboardButton("⭐ ۱ ماهه ویندوز (۳۰ روزه)", callback_data="rec_plan_1M")
+    )
+    markup.add(types.InlineKeyboardButton("❌ انصراف و بازگشت", callback_data="cancel_action"))
     return markup
 
 def main_menu_keyboard(admin_flag: bool = False):
@@ -1758,12 +1781,14 @@ def main_menu_keyboard(admin_flag: bool = False):
     b_and = types.KeyboardButton("📱 خرید اشتراک اندروید")
     b_win = types.KeyboardButton("💻 خرید اشتراک ویندوز")
     b_acc = types.KeyboardButton("👤 حساب کاربری من")
+    b_receipt = types.KeyboardButton("🧾 ارسال رسید پرداخت")
     b_manual = types.KeyboardButton("📘 آموزش اتصال دستی")
     b_help = types.KeyboardButton("❓ راهنمای فعال‌سازی")
     b_sup = types.KeyboardButton("💬 پشتیبانی")
     markup.add(b_and, b_win)
-    markup.add(b_acc, b_manual)
-    markup.add(b_help, b_sup)
+    markup.add(b_acc, b_receipt)
+    markup.add(b_manual, b_help)
+    markup.add(b_sup)
     if admin_flag:
         b_adm = types.KeyboardButton("👑 پنل مدیریت ادمین")
         markup.add(b_adm)
@@ -1992,6 +2017,13 @@ MAIN_MENU_EXACT_BUTTONS = {
     "💻 خرید اشتراک ویندوز",
     "خرید اشتراک اندروید",
     "خرید اشتراک ویندوز",
+    "🧾 ارسال رسید پرداخت",
+    "ارسال رسید پرداخت",
+    "ارسال رسید",
+    "ثبت رسید",
+    "رسید",
+    "/receipt",
+    "/send_receipt",
     "👤 حساب کاربری من",
     "📘 آموزش اتصال دستی",
     "❓ راهنمای فعال‌سازی",
@@ -2189,6 +2221,26 @@ def btn_my_account(message, target_uid=None):
         types.InlineKeyboardButton("💬 پشتیبانی", callback_data="start_support")
     )
     safe_send_message(message.chat.id, "\n".join(lines), reply_markup=markup)
+
+@bot.message_handler(commands=["receipt", "send_receipt"])
+@bot.message_handler(func=lambda m: is_menu_button_command(m, [
+    "🧾 ارسال رسید پرداخت",
+    "ارسال رسید پرداخت",
+    "ارسال رسید",
+    "ثبت رسید",
+    "رسید",
+    "/receipt",
+    "/send_receipt"
+]))
+def btn_send_receipt(message):
+    clear_user_state(message.from_user.id)
+    text = (
+        "🧾 *ثبت و ارسال رسید پرداخت*\n\n"
+        "کاربر گرامی؛ چنانچه هزینه اشتراک را پرداخت نموده‌اید (کارت‌به‌کارت یا درگاه) ولی لایسنس خود را دریافت نکرده‌اید، "
+        "لطفاً ابتدا **پلن خریداری‌شده‌ی خود** را از گزینه‌های زیر انتخاب فرمایید:\n\n"
+        "👇 _روی پلن مربوطه کلیک کنید:_"
+    )
+    safe_send_message(message.chat.id, text, reply_markup=receipt_plan_selection_keyboard())
 
 @bot.message_handler(commands=["help"])
 @bot.message_handler(func=lambda m: is_menu_button_command(m, ["❓ راهنمای فعال‌سازی", "راهنمای فعال‌سازی", "راهنما", "فعال‌سازی", "فعالسازی"]))
@@ -2807,6 +2859,55 @@ def handle_callbacks(call):
             safe_send_message(call.message.chat.id, prompt_text, reply_markup=markup)
         safe_answer_callback(call.id)
 
+    elif data == "submit_receipt":
+        clear_user_state(uid)
+        receipt_intro = (
+            "🧾 *ثبت و ارسال رسید پرداخت*\n\n"
+            "کاربر گرامی؛ چنانچه هزینه اشتراک را پرداخت نموده‌اید (کارت‌به‌کارت یا درگاه) ولی لایسنس خود را دریافت نکرده‌اید، "
+            "لطفاً ابتدا **پلن خریداری‌شده‌ی خود** را از گزینه‌های زیر انتخاب فرمایید:\n\n"
+            "👇 _روی پلن مربوطه کلیک کنید:_"
+        )
+        try:
+            bot.edit_message_text(receipt_intro, call.message.chat.id, call.message.message_id, reply_markup=receipt_plan_selection_keyboard(), parse_mode="Markdown")
+        except Exception:
+            safe_send_message(call.message.chat.id, receipt_intro, reply_markup=receipt_plan_selection_keyboard())
+        safe_answer_callback(call.id)
+
+    elif data.startswith("rec_plan_"):
+        plan_code = data.replace("rec_plan_", "")
+        if plan_code not in PLANS_INFO:
+            safe_answer_callback(call.id, "پلن نامعتبر است!", show_alert=True)
+            return
+        info = PLANS_INFO[plan_code]
+
+        set_user_state(uid, {
+            "state": "awaiting_receipt",
+            "plan_code": plan_code,
+            "time": int(time.time())
+        })
+
+        prompt_text = (
+            f"📸 *ارسال مدارک پرداخت برای پلن {escape_md(info['name'])}:*\n\n"
+            f"💰 مبلغ پلن: *{info['price']}*\n"
+            f"⏳ مدت اعتبار: *{info['days']} روز*\n\n"
+            f"لطفاً هم‌اکنون یکی از موارد زیر را در پاسخ ارسال فرمایید:\n"
+            f"۱. **تصویر فیش واریزی / اسکرین‌شات رسید**\n"
+            f"۲. فایل سند یا PDF رسید پرداخت\n"
+            f"۳. یا **کد پیگیری تراکنش / شماره ارجاع بانکی** (به صورت پیام متنی)\n\n"
+            f"⚡ رسید شما مستقیماً برای مدیریت ارسال خواهد شد و پس از بررسی و تایید، کد لایسنس اختصاصی به صورت آنی در همین چت برای شما ارسال می‌شود."
+        )
+        markup = types.InlineKeyboardMarkup(row_width=1)
+        markup.add(
+            types.InlineKeyboardButton("🔙 تغییر پلن انتخابی", callback_data="submit_receipt"),
+            types.InlineKeyboardButton("❌ انصراف از ثبت رسید", callback_data="cancel_action")
+        )
+
+        try:
+            bot.edit_message_text(prompt_text, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
+        except Exception:
+            safe_send_message(call.message.chat.id, prompt_text, reply_markup=markup)
+        safe_answer_callback(call.id)
+
     elif data == "cancel_action":
         clear_user_state(uid)
         try:
@@ -3368,10 +3469,15 @@ def process_receipt_submission(message, uid: int, plan_code: str, file_id: str, 
         print(f"[process_receipt_submission] Forward failed: {ef}")
 
     # 2. Send structured card with buttons to all admins
+    sent_card = None
     if content_type == "photo":
-        notify_admins_photo(file_id, caption=admin_caption, reply_markup=admin_markup)
+        sent_card = notify_admins_photo(file_id, caption=admin_caption, reply_markup=admin_markup)
     else:
-        notify_admins_document(file_id, caption=admin_caption, reply_markup=admin_markup)
+        sent_card = notify_admins_document(file_id, caption=admin_caption, reply_markup=admin_markup)
+
+    # Fallback to text message with buttons if photo/doc card failed
+    if not sent_card:
+        notify_admins_message(admin_caption, reply_markup=admin_markup)
 
     if did_rotate:
         rotate_msg = (
@@ -3820,6 +3926,10 @@ def handle_general_text(message):
     if text in ["🛒 خرید اشتراک اختصاصی", "🛒 خرید اشتراک", "خرید اشتراک", "خرید", "پلن‌ها", "پلن ها", "/buy", "/plans"]:
         clear_user_state(uid)
         btn_buy_plans(message)
+        return
+    elif text in ["🧾 ارسال رسید پرداخت", "ارسال رسید پرداخت", "ارسال رسید", "ثبت رسید", "رسید", "/receipt", "/send_receipt"]:
+        clear_user_state(uid)
+        btn_send_receipt(message)
         return
     elif text in ["👤 حساب کاربری من", "حساب کاربری من", "حساب کاربری", "اکانت من", "پروفایل", "/account", "/my_account", "/profile"]:
         clear_user_state(uid)
