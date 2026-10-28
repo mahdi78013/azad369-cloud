@@ -3105,20 +3105,70 @@ def handle_callbacks(call):
 
         order_id = data.replace("appr_", "")
         db = load_db()
+        db.setdefault("orders", {})
         order = db["orders"].get(order_id)
         if not order:
-            try:
-                bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
-            except Exception:
-                pass
-            bot.answer_callback_query(call.id, "سفارش یافت نشد!", show_alert=True)
-            return
+            # Self-healing: Reconstruct order metadata directly from the approval message card
+            msg_txt = (call.message.caption or call.message.text or "")
+            parts = order_id.split("_")
+            parsed_uid = int(parts[2]) if len(parts) >= 3 and parts[2].isdigit() else None
+            if not parsed_uid:
+                m_uid = re.search(r"(?:🆔\s*آیدی عددی|آیدی عددی|شناسه)\s*:\s*`?(\d+)`?", msg_txt)
+                if m_uid:
+                    parsed_uid = int(m_uid.group(1))
+
+            parsed_plan = None
+            for p_code, p_info in PLANS_INFO.items():
+                if p_info["name"] in msg_txt or f": {p_code}" in msg_txt:
+                    parsed_plan = p_code
+                    break
+            if not parsed_plan:
+                if "اندروید" in msg_txt:
+                    if "۱ ساله" in msg_txt or "1 ساله" in msg_txt or "۳۶۵" in msg_txt:
+                        parsed_plan = "AN1Y"
+                    elif "۳ ماهه" in msg_txt or "3 ماهه" in msg_txt:
+                        parsed_plan = "AN3M"
+                    elif "۲ ماهه" in msg_txt or "2 ماهه" in msg_txt:
+                        parsed_plan = "AN2M"
+                    elif "۱ ماهه" in msg_txt or "1 ماهه" in msg_txt:
+                        parsed_plan = "AN1M"
+                elif "ویندوز" in msg_txt:
+                    if "۱ ساله" in msg_txt or "1 ساله" in msg_txt or "۳۶۵" in msg_txt:
+                        parsed_plan = "1Y"
+                    elif "۳ ماهه" in msg_txt or "3 ماهه" in msg_txt:
+                        parsed_plan = "3M"
+                    elif "۲ ماهه" in msg_txt or "2 ماهه" in msg_txt:
+                        parsed_plan = "2M"
+                    elif "۱ ماهه" in msg_txt or "1 ماهه" in msg_txt:
+                        parsed_plan = "1M"
+
+            if parsed_uid and parsed_plan:
+                order = {
+                    "order_id": order_id,
+                    "user_id": parsed_uid,
+                    "plan_code": parsed_plan,
+                    "status": "pending",
+                    "price": PLANS_INFO.get(parsed_plan, {}).get("price", "—"),
+                    "created_at": int(parts[1]) if len(parts) >= 2 and parts[1].isdigit() else int(time.time()),
+                    "reconstructed": True
+                }
+                db["orders"][order_id] = order
+            else:
+                try:
+                    bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
+                except Exception:
+                    pass
+                bot.answer_callback_query(call.id, "سفارش نامعتبر است یا مشخصات قابل بازیابی نیست!", show_alert=True)
+                return
+
         if order.get("status") != "pending":
+            existing_key = order.get("key", "")
             try:
                 bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
             except Exception:
                 pass
-            bot.answer_callback_query(call.id, f"این سفارش قبلاً {order.get('status')} شده است!", show_alert=True)
+            msg = f"این سفارش قبلاً تایید شده و لایسنس ارسال گردیده است.\nکد: {existing_key}" if existing_key else f"این سفارش قبلاً {order.get('status')} شده است!"
+            bot.answer_callback_query(call.id, msg, show_alert=True)
             return
 
         buyer_id = order["user_id"]
@@ -3212,7 +3262,26 @@ def handle_callbacks(call):
 
         order_id = data.replace("rej_", "")
         db = load_db()
+        db.setdefault("orders", {})
         order = db["orders"].get(order_id)
+        if not order:
+            parts = order_id.split("_")
+            parsed_uid = int(parts[2]) if len(parts) >= 3 and parts[2].isdigit() else None
+            if not parsed_uid:
+                msg_txt = (call.message.caption or call.message.text or "")
+                m_uid = re.search(r"(?:🆔\s*آیدی عددی|آیدی عددی|شناسه)\s*:\s*`?(\d+)`?", msg_txt)
+                if m_uid:
+                    parsed_uid = int(m_uid.group(1))
+            if parsed_uid:
+                order = {
+                    "order_id": order_id,
+                    "user_id": parsed_uid,
+                    "status": "pending",
+                    "created_at": int(time.time()),
+                    "reconstructed": True
+                }
+                db["orders"][order_id] = order
+
         if not order or order.get("status") != "pending":
             try:
                 bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
@@ -3703,7 +3772,7 @@ def process_receipt_submission(message, uid: int, plan_code: str, file_id: str, 
         "caption": caption_text
     }
     clear_user_state(uid)
-    save_db(db)
+    save_db(db, immediate_sync=True)
 
     admin_markup = types.InlineKeyboardMarkup(row_width=2)
     b_approve = types.InlineKeyboardButton("✅ تایید پرداخت و صدور لایسنس", callback_data=f"appr_{order_id}")
@@ -3937,23 +4006,19 @@ def handle_photos_and_docs(message):
         )
         return
 
-    # ج) اگر کاربر تصویری فرستاده ولی در هیچ مرحله‌ای نبوده (مثلاً مستقیماً فیش فرستاده)
+    # ج) اگر کاربر تصویری فرستاده ولی در هیچ مرحله‌ای نبوده (تصویر مستقیم فرستاده)
     else:
-        PENDING_UPLOADS[uid] = {
-            "file_id": file_id,
-            "content_type": message.content_type,
-            "caption": caption,
-            "time": time.time()
-        }
         text_prompt = (
-            "📸 *تصویر شما دریافت شد!*\n\n"
-            "لطفاً مشخص فرمایید این تصویر مربوط به کدام مورد است:"
+            "📸 *تصویر / فایل ارسالی شما دریافت شد.*\n\n"
+            "کاربر گرامی؛ جهت ثبت رسمی فیش واریز و صدور خودکار لایسنس، لطفاً از طریق دکمه‌ی زیر اقدام فرمایید "
+            "تا ابتدا پلن خریداری‌شده را مشخص کنید و سپس رسید شما مستقیماً برای مدیریت ارسال گردد:"
         )
         markup = types.InlineKeyboardMarkup(row_width=1)
-        for p_code, p_info in PLANS_INFO.items():
-            markup.add(types.InlineKeyboardButton(f"💳 فیش پرداخت پلن {p_info['name']}", callback_data=f"set_rec_{p_code}"))
-        markup.add(types.InlineKeyboardButton("💬 تصویر مربوط به تیکت پشتیبانی", callback_data="ticket_new"))
-        markup.add(types.InlineKeyboardButton("❌ انصراف", callback_data="cancel_action"))
+        markup.add(
+            types.InlineKeyboardButton("🧾 ارسال رسید پرداخت", callback_data="submit_receipt"),
+            types.InlineKeyboardButton("💬 ارتباط با پشتیبانی", callback_data="ticket_new"),
+            types.InlineKeyboardButton("❌ بستن", callback_data="cancel_action")
+        )
         safe_reply_to(message, text_prompt, reply_markup=markup)
 
 # ---------------------------------------------------------------------------
@@ -4084,7 +4149,7 @@ def handle_general_text(message):
                 "created_at": int(time.time())
             }
             clear_user_state(uid)
-            save_db(db)
+            save_db(db, immediate_sync=True)
 
             admin_text = (
                 f"🔔 *سفارش جدید — اطلاعات پرداخت متنی!*\n\n"
