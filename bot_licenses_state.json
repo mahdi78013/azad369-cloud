@@ -6452,6 +6452,12 @@
       "user_id": 7050023601,
       "issued_at": 1793224840,
       "method": "crypto_unique"
+    },
+    "AZ3M-FA80-7BF8-C5CB": {
+      "plan": "3M",
+      "user_id": 80886140,
+      "issued_at": 1793225172,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -52983,9 +52989,34 @@
       "tron_amount": 1.343723,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3b8ec57f3bc44a64974558130e5b68d2",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3b8ec57f3bc44a64974558130e5b68d2",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793224559,
+      "approved_at": 1793225172,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-FA80-7BF8-C5CB",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3021106",
+        "tron_amount": 1.343723,
+        "user_paid_toman": null,
+        "date": "2026-10-28T22:05:23.2870000"
+      }
+    },
+    "TRND-AN2M-69654829-1793225106-b57af1": {
+      "order_id": "TRND-AN2M-69654829-1793225106-b57af1",
+      "token": "8328a669f1d045dcaee94f39f7a77fbd",
+      "user_id": 69654829,
+      "first_name": "Alireza",
+      "username": "alichelo",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.797397,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_8328a669f1d045dcaee94f39f7a77fbd",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8328a669f1d045dcaee94f39f7a77fbd",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793224559
+      "created_at": 1793225106
     }
   },
   "users": {
@@ -88178,8 +88209,16 @@
       "last_name": "Shahani",
       "username": "sajjad_70",
       "first_seen": 1793224539,
-      "last_seen": 1793224539,
-      "purchases": []
+      "last_seen": 1793225171,
+      "purchases": [
+        {
+          "key": "AZ3M-FA80-7BF8-C5CB",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793225172,
+          "days": 90
+        }
+      ]
     },
     "106226842": {
       "user_id": 106226842,
@@ -88206,6 +88245,15 @@
       "username": "alichelo",
       "first_seen": 1793225069,
       "last_seen": 1793225069,
+      "purchases": []
+    },
+    "5416953827": {
+      "user_id": 5416953827,
+      "first_name": "Mohamad",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793225156,
+      "last_seen": 1793225156,
       "purchases": []
     }
   },
