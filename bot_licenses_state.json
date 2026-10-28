@@ -6092,6 +6092,12 @@
       "user_id": 6163936046,
       "issued_at": 1793207045,
       "method": "crypto_unique"
+    },
+    "AN3M-76C7D916-B02C-D42E84": {
+      "plan": "AN3M",
+      "user_id": 5558721314,
+      "issued_at": 1793207602,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -49686,9 +49692,10 @@
       "tron_amount": 1.336663,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_071df2e0b8064908ab52a0a844f4a7e2",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=071df2e0b8064908ab52a0a844f4a7e2",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793205953
+      "created_at": 1793205953,
+      "cancelled_at": 1793207598
     },
     "TRND-AN2M-88599432-1793206121-c7c54b": {
       "order_id": "TRND-AN2M-88599432-1793206121-c7c54b",
@@ -49883,9 +49890,18 @@
       "tron_amount": 1.333956,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_27b8bb1d7ecc40c1835d2c3f2d1f5656",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=27b8bb1d7ecc40c1835d2c3f2d1f5656",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793207288
+      "created_at": 1793207288,
+      "approved_at": 1793207602,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-76C7D916-B02C-D42E84",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3018251",
+        "tron_amount": 1.333956,
+        "user_paid_toman": null,
+        "date": "2026-10-28T17:12:08.6500000"
+      }
     },
     "TRND-AN2M-7072111229-1793207295-583902": {
       "order_id": "TRND-AN2M-7072111229-1793207295-583902",
@@ -55095,7 +55111,15 @@
       "username": "Alighava83",
       "first_seen": 1792076163,
       "last_seen": 1793207029,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-76C7D916-B02C-D42E84",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793207602,
+          "days": 90
+        }
+      ]
     },
     "7480924069": {
       "user_id": 7480924069,
