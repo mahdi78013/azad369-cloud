@@ -5768,6 +5768,12 @@
       "user_id": 735020105,
       "issued_at": 1793192639,
       "method": "crypto_unique"
+    },
+    "AN2M-15CC-D389-CC44": {
+      "plan": "AN2M",
+      "user_id": 72562443,
+      "issued_at": 1793192793,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -47387,9 +47393,18 @@
       "tron_amount": 0.798847,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_44f62d1f014645478b4c6f89687ddef6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=44f62d1f014645478b4c6f89687ddef6",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793192460
+      "created_at": 1793192460,
+      "approved_at": 1793192793,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-15CC-D389-CC44",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3016218",
+        "tron_amount": 0.798847,
+        "user_paid_toman": null,
+        "date": "2026-10-28T13:06:31.2200000"
+      }
     },
     "TRND-AN3M-117411380-1793192471-87aa1c": {
       "order_id": "TRND-AN3M-117411380-1793192471-87aa1c",
@@ -47422,6 +47437,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793192504
+    },
+    "TRND-AN1Y-92048995-1793192652-2e4bd6": {
+      "order_id": "TRND-AN1Y-92048995-1793192652-2e4bd6",
+      "token": "98c3efcac89d44eaa75a4208b156312f",
+      "user_id": 92048995,
+      "first_name": "Amin Reza",
+      "username": "Aminrezam",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.641385,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_98c3efcac89d44eaa75a4208b156312f",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=98c3efcac89d44eaa75a4208b156312f",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793192652
     }
   },
   "users": {
@@ -79385,7 +79416,24 @@
       "last_name": "Darvishi",
       "username": "mostafa6435",
       "first_seen": 1793192426,
-      "last_seen": 1793192426,
+      "last_seen": 1793192792,
+      "purchases": [
+        {
+          "key": "AN2M-15CC-D389-CC44",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793192793,
+          "days": 60
+        }
+      ]
+    },
+    "436092851": {
+      "user_id": 436092851,
+      "first_name": "Alireza",
+      "last_name": "",
+      "username": "alirezza91",
+      "first_seen": 1793192760,
+      "last_seen": 1793192760,
       "purchases": []
     }
   },
