@@ -6032,6 +6032,12 @@
       "user_id": 7341350811,
       "issued_at": 1793203813,
       "method": "crypto_unique"
+    },
+    "AZ2M-8FD4-54F0-9CDD": {
+      "plan": "2M",
+      "user_id": 5259187601,
+      "issued_at": 1793204600,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -49378,9 +49384,18 @@
       "tron_amount": 0.805452,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_dd181e0f6b0f442fb7202416540f0ab5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=dd181e0f6b0f442fb7202416540f0ab5",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793203974
+      "created_at": 1793203974,
+      "approved_at": 1793204600,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-8FD4-54F0-9CDD",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3017760",
+        "tron_amount": 0.805452,
+        "user_paid_toman": null,
+        "date": "2026-10-28T16:21:54.7970000"
+      }
     },
     "TRND-AN1Y-8652444139-1793204058-937769": {
       "order_id": "TRND-AN1Y-8652444139-1793204058-937769",
@@ -49397,6 +49412,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793204058
+    },
+    "TRND-1Y-5018950073-1793204545-dd52c3": {
+      "order_id": "TRND-1Y-5018950073-1793204545-dd52c3",
+      "token": "ed53ebc44e0a4b4c8da9ddab5b1e723f",
+      "user_id": 5018950073,
+      "first_name": "⁪⁬⁮⁪⁬⁮⁮⁪⁪⁬⁮⁮",
+      "username": "TheZana",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.659844,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_ed53ebc44e0a4b4c8da9ddab5b1e723f",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ed53ebc44e0a4b4c8da9ddab5b1e723f",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793204545
     }
   },
   "users": {
@@ -79320,7 +79351,15 @@
       "username": "H_hhhh_h_h",
       "first_seen": 1793175012,
       "last_seen": 1793203964,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-8FD4-54F0-9CDD",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793204600,
+          "days": 60
+        }
+      ]
     },
     "767397271": {
       "user_id": 767397271,
@@ -79503,7 +79542,7 @@
       "last_name": "𝙕𝘼𝘼𝙉𝘼",
       "username": "TheZana",
       "first_seen": 1793178983,
-      "last_seen": 1793178983,
+      "last_seen": 1793204544,
       "purchases": []
     },
     "8097568066": {
@@ -82507,6 +82546,15 @@
       "username": "Glmzhdhs",
       "first_seen": 1793204451,
       "last_seen": 1793204451,
+      "purchases": []
+    },
+    "712766904": {
+      "user_id": 712766904,
+      "first_name": "Amir",
+      "last_name": "",
+      "username": "Amiiirfar",
+      "first_seen": 1793204496,
+      "last_seen": 1793204496,
       "purchases": []
     }
   },
