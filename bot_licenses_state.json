@@ -5600,6 +5600,12 @@
       "user_id": 517109130,
       "issued_at": 1793186418,
       "method": "crypto_unique"
+    },
+    "AZ2M-317E-F4B9-B916": {
+      "plan": "2M",
+      "user_id": 75954300,
+      "issued_at": 1793186432,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -45927,9 +45933,18 @@
       "tron_amount": 0.783015,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1178cc18156e4360850f83978147f8ab",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1178cc18156e4360850f83978147f8ab",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793185909
+      "created_at": 1793185909,
+      "approved_at": 1793186432,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-317E-F4B9-B916",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3015390",
+        "tron_amount": 0.783015,
+        "user_paid_toman": null,
+        "date": "2026-10-28T11:20:07.2130000"
+      }
     },
     "TRND-AN2M-123305225-1793185947-b5daec": {
       "order_id": "TRND-AN2M-123305225-1793185947-b5daec",
@@ -77269,8 +77284,16 @@
       "last_name": "",
       "username": "HSS132",
       "first_seen": 1793185876,
-      "last_seen": 1793185876,
-      "purchases": []
+      "last_seen": 1793186431,
+      "purchases": [
+        {
+          "key": "AZ2M-317E-F4B9-B916",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793186432,
+          "days": 60
+        }
+      ]
     },
     "109063666": {
       "user_id": 109063666,
@@ -77306,6 +77329,15 @@
       "username": "TrapMehrad",
       "first_seen": 1793186276,
       "last_seen": 1793186276,
+      "purchases": []
+    },
+    "348003256": {
+      "user_id": 348003256,
+      "first_name": "...",
+      "last_name": "",
+      "username": "Unipcs7",
+      "first_seen": 1793186426,
+      "last_seen": 1793186426,
       "purchases": []
     }
   },
@@ -77699,8 +77731,10 @@
   },
   "admin_states": {
     "748538264": {
-      "state": "waiting_broadcast_msg",
-      "time": 1793186411
+      "state": "select_broadcast_button",
+      "chat_id": 748538264,
+      "msg_id": 94250,
+      "time": 1793186419
     }
   },
   "trial_users": {},
