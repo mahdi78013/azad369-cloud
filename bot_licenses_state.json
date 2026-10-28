@@ -6464,6 +6464,12 @@
       "user_id": 200009329,
       "issued_at": 1793226033,
       "method": "crypto_unique"
+    },
+    "AZ2M-9CC4-4604-5D3D": {
+      "plan": "2M",
+      "user_id": 5962927093,
+      "issued_at": 1793226208,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -44514,9 +44520,10 @@
       "tron_amount": 0.782746,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b3e83c8beaea4b0b8768625ec826c165",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b3e83c8beaea4b0b8768625ec826c165",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793139661
+      "created_at": 1793139661,
+      "cancelled_at": 1793226186
     },
     "TRND-3M-804116166-1793140511-5fff49": {
       "order_id": "TRND-3M-804116166-1793140511-5fff49",
@@ -53097,9 +53104,18 @@
       "tron_amount": 0.792828,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3d4b57c5281a4405984e1ecb770eebff",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3d4b57c5281a4405984e1ecb770eebff",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793226034
+      "created_at": 1793226034,
+      "approved_at": 1793226208,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-9CC4-4604-5D3D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3021198",
+        "tron_amount": 0.792828,
+        "user_paid_toman": null,
+        "date": "2026-10-28T22:23:10.0100000"
+      }
     }
   },
   "users": {
@@ -88390,6 +88406,23 @@
       "username": "sadegh_arbzdh",
       "first_seen": 1793226011,
       "last_seen": 1793226011,
+      "purchases": [
+        {
+          "key": "AZ2M-9CC4-4604-5D3D",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793226208,
+          "days": 60
+        }
+      ]
+    },
+    "5775779670": {
+      "user_id": 5775779670,
+      "first_name": "Admin | آرتمیس",
+      "last_name": "",
+      "username": "seacommander",
+      "first_seen": 1793226185,
+      "last_seen": 1793226185,
       "purchases": []
     }
   },
