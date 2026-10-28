@@ -5582,6 +5582,12 @@
       "user_id": 5838235244,
       "issued_at": 1793186176,
       "method": "crypto_unique"
+    },
+    "AN2M-F589-F338-6DD5": {
+      "plan": "AN2M",
+      "user_id": 156294124,
+      "issued_at": 1793186262,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -45502,9 +45508,10 @@
       "tron_amount": 0.784334,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_70a9c8299d524b1d9296a55a52558d59",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=70a9c8299d524b1d9296a55a52558d59",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793184907
+      "created_at": 1793184907,
+      "cancelled_at": 1793186259
     },
     "TRND-AN1Y-264933697-1793185156-a6a68f": {
       "order_id": "TRND-AN1Y-264933697-1793185156-a6a68f",
@@ -45981,9 +45988,18 @@
       "tron_amount": 0.802699,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_910f729e469a42a79747ce9302f50908",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=910f729e469a42a79747ce9302f50908",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793186032
+      "created_at": 1793186032,
+      "approved_at": 1793186262,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-F589-F338-6DD5",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3015371",
+        "tron_amount": 0.802699,
+        "user_paid_toman": null,
+        "date": "2026-10-28T11:16:28.5530000"
+      }
     },
     "TRND-AN2M-109063666-1793186119-cb20e7": {
       "order_id": "TRND-AN2M-109063666-1793186119-cb20e7",
@@ -46016,6 +46032,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793186127
+    },
+    "TRND-2M-517109130-1793186242-240121": {
+      "order_id": "TRND-2M-517109130-1793186242-240121",
+      "token": "2d22c5caa23240dbb19d9e6f68d5a96f",
+      "user_id": 517109130,
+      "first_name": "Masoud Onsori",
+      "username": "MasOnsori",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.792924,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_2d22c5caa23240dbb19d9e6f68d5a96f",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2d22c5caa23240dbb19d9e6f68d5a96f",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793186242
     }
   },
   "users": {
@@ -46634,7 +46666,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "Mahdi780111",
-      "last_seen": 1793185723,
+      "last_seen": 1793186179,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -75783,7 +75815,7 @@
       "last_name": "",
       "username": "MasOnsori",
       "first_seen": 1793176076,
-      "last_seen": 1793185645,
+      "last_seen": 1793186241,
       "purchases": [
         {
           "key": "AN2M-43E7-E8A5-D778",
@@ -77055,7 +77087,15 @@
       "username": "AmirHossein9055",
       "first_seen": 1793185518,
       "last_seen": 1793186031,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-F589-F338-6DD5",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793186262,
+          "days": 60
+        }
+      ]
     },
     "576933270": {
       "user_id": 576933270,
@@ -77171,6 +77211,15 @@
       "username": "minemoun",
       "first_seen": 1793186054,
       "last_seen": 1793186054,
+      "purchases": []
+    },
+    "104895794": {
+      "user_id": 104895794,
+      "first_name": "‌ ‌‌‌‌‌‌‌‌‌‌‌ ‌‌ ‌‌‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌‌MJTABA",
+      "last_name": "",
+      "username": "MjtabaQ",
+      "first_seen": 1793186200,
+      "last_seen": 1793186200,
       "purchases": []
     }
   },
@@ -77562,7 +77611,12 @@
       "time": 1793185173
     }
   },
-  "admin_states": {},
+  "admin_states": {
+    "748538264": {
+      "state": "waiting_broadcast_msg",
+      "time": 1793186191
+    }
+  },
   "trial_users": {},
   "card_state": {
     "current_index": 1,
