@@ -6392,6 +6392,12 @@
       "user_id": 103157843,
       "issued_at": 1793221834,
       "method": "crypto_unique"
+    },
+    "AZ2M-A1C6-210B-2ABD": {
+      "plan": "2M",
+      "user_id": 212283379,
+      "issued_at": 1793222002,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -52630,9 +52636,10 @@
       "tron_amount": 0.800426,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9e9f1aeabbdd463a86452b37d1c59c0f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9e9f1aeabbdd463a86452b37d1c59c0f",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793221772
+      "created_at": 1793221772,
+      "cancelled_at": 1793222000
     },
     "TRND-AN2M-929305262-1793221798-436881": {
       "order_id": "TRND-AN2M-929305262-1793221798-436881",
@@ -52662,9 +52669,18 @@
       "tron_amount": 0.793811,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d761e2052e924c5ab26e6dcd5f34ede1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d761e2052e924c5ab26e6dcd5f34ede1",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793221829
+      "created_at": 1793221829,
+      "approved_at": 1793222002,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-A1C6-210B-2ABD",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3020864",
+        "tron_amount": 0.793811,
+        "user_paid_toman": null,
+        "date": "2026-10-28T21:13:13.8870000"
+      }
     }
   },
   "users": {
@@ -85694,7 +85710,15 @@
       "username": "IranConsult_ir",
       "first_seen": 1793201503,
       "last_seen": 1793221618,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-A1C6-210B-2ABD",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793222002,
+          "days": 60
+        }
+      ]
     },
     "861679806": {
       "user_id": 861679806,
