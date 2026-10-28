@@ -5618,6 +5618,12 @@
       "user_id": 7818146436,
       "issued_at": 1793186460,
       "method": "crypto_unique"
+    },
+    "AZ2M-53B0-8225-9CCB": {
+      "plan": "2M",
+      "user_id": 462509406,
+      "issued_at": 1793187239,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -45424,9 +45430,18 @@
       "tron_amount": 0.786522,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e4123f18ca5941d28b1f999eb4689fa9",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e4123f18ca5941d28b1f999eb4689fa9",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793184684
+      "created_at": 1793184684,
+      "approved_at": 1793187239,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-53B0-8225-9CCB",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3015440",
+        "tron_amount": 0.786522,
+        "user_paid_toman": null,
+        "date": "2026-10-28T11:31:32.8030000"
+      }
     },
     "TRND-AN2M-6019428482-1793184727-1dd61a": {
       "order_id": "TRND-AN2M-6019428482-1793184727-1dd61a",
@@ -46172,6 +46187,35 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793186461
+    },
+    "TRND-1Y-86045703-1793187175-69ba5a": {
+      "order_id": "TRND-1Y-86045703-1793187175-69ba5a",
+      "token": "26708a42f6034bec96b948ae75551cc6",
+      "user_id": 86045703,
+      "first_name": "Mamareza",
+      "username": "Mamareza_sgh",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.642899,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_26708a42f6034bec96b948ae75551cc6",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=26708a42f6034bec96b948ae75551cc6",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793187175
+    },
+    "ORD_1793187231_456899323": {
+      "order_id": "ORD_1793187231_456899323",
+      "user_id": 456899323,
+      "username": "Amirrezaheydarii",
+      "first_name": "Amirreza",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "text",
+      "receipt_text": "3015436",
+      "card_number": "5047061670546072",
+      "created_at": 1793187231
     }
   },
   "users": {
@@ -47401,7 +47445,11 @@
           "issued_at": 1791968627,
           "days": 90
         }
-      ]
+      ],
+      "user_id": 456899323,
+      "first_name": "Amirreza",
+      "username": "Amirrezaheydarii",
+      "last_seen": 1793187213
     },
     "77304819": {
       "purchases": [
@@ -65373,7 +65421,7 @@
       "last_name": "",
       "username": "Mamareza_sgh",
       "first_seen": 1792922517,
-      "last_seen": 1792962211,
+      "last_seen": 1793187174,
       "purchases": []
     },
     "449388848": {
@@ -77088,8 +77136,16 @@
       "last_name": "",
       "username": "Yazdana_Admin",
       "first_seen": 1793184673,
-      "last_seen": 1793184673,
-      "purchases": []
+      "last_seen": 1793187202,
+      "purchases": [
+        {
+          "key": "AZ2M-53B0-8225-9CCB",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793187239,
+          "days": 60
+        }
+      ]
     },
     "215110679": {
       "user_id": 215110679,
@@ -77425,6 +77481,15 @@
       "first_seen": 1793186432,
       "last_seen": 1793186432,
       "purchases": []
+    },
+    "8277025653": {
+      "user_id": 8277025653,
+      "first_name": "Mani",
+      "last_name": "",
+      "username": "Mani_mohp",
+      "first_seen": 1793187211,
+      "last_seen": 1793187211,
+      "purchases": []
     }
   },
   "user_states": {
@@ -77542,11 +77607,6 @@
       "state": "awaiting_receipt",
       "plan_code": "1M",
       "time": 1791967661
-    },
-    "456899323": {
-      "state": "awaiting_receipt",
-      "plan_code": "3M",
-      "time": 1791968591
     },
     "6265706402": {
       "state": "awaiting_receipt",
@@ -77813,17 +77873,22 @@
       "state": "awaiting_receipt",
       "plan_code": "2M",
       "time": 1793185173
+    },
+    "456899323": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN3M",
+      "time": 1793187213
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 7,
+    "count": 8,
     "threshold": 10,
     "stats": {
       "5892101706458979": 40,
-      "5047061670546072": 37
+      "5047061670546072": 38
     }
   },
   "maintenance": {
