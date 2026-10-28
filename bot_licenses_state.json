@@ -5972,6 +5972,12 @@
       "user_id": 5171158397,
       "issued_at": 1793201063,
       "method": "crypto_unique"
+    },
+    "AZ2M-CC3D-3D00-F3FD": {
+      "plan": "2M",
+      "user_id": 90084363,
+      "issued_at": 1793201763,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -48853,9 +48859,10 @@
       "tron_amount": 0.794538,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b422c0b90b7848f08d0b82145ba31106",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b422c0b90b7848f08d0b82145ba31106",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793200465
+      "created_at": 1793200465,
+      "cancelled_at": 1793201760
     },
     "TRND-AN2M-5878173833-1793200585-5fdac7": {
       "order_id": "TRND-AN2M-5878173833-1793200585-5fdac7",
@@ -48951,9 +48958,18 @@
       "tron_amount": 0.786852,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_8be80b798a7e4bd2916658406a7ba605",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8be80b798a7e4bd2916658406a7ba605",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793201195
+      "created_at": 1793201195,
+      "approved_at": 1793201763,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-CC3D-3D00-F3FD",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3017355",
+        "tron_amount": 0.786852,
+        "user_paid_toman": null,
+        "date": "2026-10-28T15:35:40.4230000"
+      }
     },
     "TRND-AN1Y-133745907-1793201520-02bb5b": {
       "order_id": "TRND-AN1Y-133745907-1793201520-02bb5b",
@@ -81790,7 +81806,15 @@
       "username": "Fara_Dina",
       "first_seen": 1793201169,
       "last_seen": 1793201169,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-CC3D-3D00-F3FD",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793201763,
+          "days": 60
+        }
+      ]
     },
     "133745907": {
       "user_id": 133745907,
