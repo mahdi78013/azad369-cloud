@@ -858,6 +858,9 @@ def get_all_broadcast_targets(db: dict = None) -> list[int]:
 
     return sorted(list(uids_set))
 
+BROADCAST_ACTIVE = False
+BROADCAST_CANCELLED = False
+
 def _start_broadcast_prompt(chat_id: int):
     """Initiates the broadcast workflow prompting the admin for message."""
     set_admin_state({"state": "waiting_broadcast_msg", "time": int(time.time())}, admin_id=chat_id)
@@ -879,6 +882,17 @@ def _start_broadcast_prompt(chat_id: int):
 
 def _run_broadcast_thread(chat_id: int, msg_id: int, is_forward: bool):
     """Asynchronously broadcasts/forwards message to all users safely with rate limiting."""
+    global BROADCAST_ACTIVE, BROADCAST_CANCELLED
+    BROADCAST_ACTIVE = True
+    BROADCAST_CANCELLED = False
+
+    try:
+        _do_run_broadcast(chat_id, msg_id, is_forward)
+    finally:
+        BROADCAST_ACTIVE = False
+
+def _do_run_broadcast(chat_id: int, msg_id: int, is_forward: bool):
+    global BROADCAST_CANCELLED
     db = load_db()
     all_uids = get_all_broadcast_targets(db)
     total = len(all_uids)
@@ -887,11 +901,15 @@ def _run_broadcast_thread(chat_id: int, msg_id: int, is_forward: bool):
         return
 
     action_label = "فوروارد" if is_forward else "ارسال مستقیم"
+    stop_markup = types.InlineKeyboardMarkup()
+    stop_markup.add(types.InlineKeyboardButton("🛑 لغو و توقف ارسال", callback_data="abort_active_broadcast"))
+
     status_msg = safe_send_message(
         chat_id,
         f"🚀 *عملیات {action_label} همگانی آغاز شد...*\n\n"
         f"👥 کل مخاطبان: {total} نفر (تمام کاربران استارت‌زده)\n"
-        f"⏳ لطفاً صبور باشید، گزارش درصد پیشرفت به صورت زنده نمایش داده می‌شود..."
+        f"⏳ لطفاً صبور باشید، گزارش درصد پیشرفت به صورت زنده نمایش داده می‌شود...",
+        reply_markup=stop_markup
     )
     status_msg_id = status_msg.message_id if status_msg else None
 
@@ -903,6 +921,8 @@ def _run_broadcast_thread(chat_id: int, msg_id: int, is_forward: bool):
     users_dict = db.get("users", {})
 
     for idx, target_id in enumerate(all_uids, start=1):
+        if BROADCAST_CANCELLED:
+            break
         uid_str = str(target_id)
         try:
             if is_forward:
@@ -958,12 +978,29 @@ def _run_broadcast_thread(chat_id: int, msg_id: int, is_forward: bool):
                     text=prog_text,
                     chat_id=chat_id,
                     message_id=status_msg_id,
+                    reply_markup=stop_markup,
                     parse_mode="Markdown"
                 )
             except Exception:
                 pass
 
     elapsed = round(time.time() - start_time, 1)
+    if BROADCAST_CANCELLED:
+        abort_report = (
+            f"🛑 *عملیات {action_label} همگانی توسط ادمین متوقف شد*\n\n"
+            f"━━━━━━━━━━━━━━━━━━━\n"
+            f"👥 کل مخاطبان: *{total} نفر*\n"
+            f"📊 پیشرفت تا لحظه توقف: *{idx} از {total}*\n"
+            f"✅ موفق: *{success_count} نفر*\n"
+            f"🚫 بلاک/غیرفعال: *{blocked_count} نفر*\n"
+            f"⚠️ خطا: *{fail_count} نفر*\n"
+            f"⏱️ زمان سپری‌شده: *{elapsed} ثانیه*\n"
+            f"━━━━━━━━━━━━━━━━━━━"
+        )
+        safe_send_message(chat_id, abort_report)
+        save_db(db, immediate_sync=True)
+        return
+
     final_report = (
         f"🏁 *پایان عملیات {action_label} همگانی*\n\n"
         f"━━━━━━━━━━━━━━━━━━━\n"
@@ -2364,6 +2401,17 @@ def cmd_stats(message):
     markup.add(types.InlineKeyboardButton("🔄 بروزرسانی آمار", callback_data="adm_live_stats"))
     safe_send_message(message.chat.id, get_live_bot_stats(), reply_markup=markup)
 
+@bot.message_handler(commands=["stop_broadcast", "cancel_broadcast", "abort_broadcast"])
+def cmd_stop_broadcast(message):
+    if not is_admin(message.from_user.id):
+        return
+    global BROADCAST_CANCELLED
+    if not BROADCAST_ACTIVE:
+        safe_reply_to(message, "ℹ️ در حال حاضر هیچ عملیات پیام یا فوروارد همگانی در حال اجرا نیست.")
+        return
+    BROADCAST_CANCELLED = True
+    safe_reply_to(message, "🛑 دستور توقف فوروارد/ارسال همگانی با موفقیت صادر شد.")
+
 @bot.message_handler(commands=["broadcast", "fwd", "sendall"])
 def cmd_broadcast(message):
     if not is_admin(message.from_user.id):
@@ -3363,6 +3411,15 @@ def handle_callbacks(call):
                 safe_send_message(call.message.chat.id, text, reply_markup=admin_dashboard_keyboard())
             bot.answer_callback_query(call.id)
             return
+
+    elif data == "abort_active_broadcast":
+        if not is_admin(uid):
+            bot.answer_callback_query(call.id, "دسترسی غیرمجاز!", show_alert=True)
+            return
+        global BROADCAST_CANCELLED
+        BROADCAST_CANCELLED = True
+        bot.answer_callback_query(call.id, "🛑 در حال لغو و توقف ارسال...", show_alert=True)
+        return
 
     elif data == "cancel_broadcast":
         clear_admin_state(uid)
