@@ -5702,6 +5702,12 @@
       "user_id": 226201572,
       "issued_at": 1793189741,
       "method": "crypto_unique"
+    },
+    "AN2M-C76637BC-70A6-EAD515": {
+      "plan": "AN2M",
+      "user_id": 116370638,
+      "issued_at": 1793190204,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -46897,9 +46903,34 @@
       "tron_amount": 0.782566,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_cf69ac3c3d63449fad5fe4339698a558",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=cf69ac3c3d63449fad5fe4339698a558",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793190004,
+      "approved_at": 1793190204,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-C76637BC-70A6-EAD515",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3015918",
+        "tron_amount": 0.782566,
+        "user_paid_toman": null,
+        "date": "2026-10-28T12:22:59.0570000"
+      }
+    },
+    "TRND-3M-5471486897-1793190172-e92d89": {
+      "order_id": "TRND-3M-5471486897-1793190172-e92d89",
+      "token": "464f4d315bb64a5e8d049650b30ea7cd",
+      "user_id": 5471486897,
+      "first_name": "علی",
+      "username": "Pixusdt",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.323249,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_464f4d315bb64a5e8d049650b30ea7cd",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=464f4d315bb64a5e8d049650b30ea7cd",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793190004
+      "created_at": 1793190172
     }
   },
   "users": {
@@ -53010,7 +53041,7 @@
       "last_name": "آقا",
       "username": "Pixusdt",
       "first_seen": 1792100263,
-      "last_seen": 1792100263,
+      "last_seen": 1793190133,
       "purchases": []
     },
     "596540913": {
@@ -78560,7 +78591,15 @@
       "username": "Medive",
       "first_seen": 1793189986,
       "last_seen": 1793189986,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-C76637BC-70A6-EAD515",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793190204,
+          "days": 60
+        }
+      ]
     }
   },
   "user_states": {
