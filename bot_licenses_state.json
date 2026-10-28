@@ -6224,6 +6224,12 @@
       "user_id": 103241112,
       "issued_at": 1793213519,
       "method": "crypto_unique"
+    },
+    "AN2M-DAB0-9BD3-EE55": {
+      "plan": "AN2M",
+      "user_id": 250148784,
+      "issued_at": 1793214271,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -51032,9 +51038,18 @@
       "tron_amount": 0.788638,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b12aea2ac10a4ec38bf12fab55b36cf1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b12aea2ac10a4ec38bf12fab55b36cf1",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793213803
+      "created_at": 1793213803,
+      "approved_at": 1793214271,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-DAB0-9BD3-EE55",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3019556",
+        "tron_amount": 0.788638,
+        "user_paid_toman": null,
+        "date": "2026-10-28T19:03:42.9230000"
+      }
     },
     "TRND-AN2M-7093686141-1793213855-7550e9": {
       "order_id": "TRND-AN2M-7093686141-1793213855-7550e9",
@@ -58892,7 +58907,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1792143435,
-      "last_seen": 1793213783,
+      "last_seen": 1793214269,
       "purchases": [
         {
           "key": "AZ3M-DE4B-EE0C-F008",
@@ -58907,6 +58922,13 @@
           "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
           "issued_at": 1793038506,
           "days": 90
+        },
+        {
+          "key": "AN2M-DAB0-9BD3-EE55",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793214271,
+          "days": 60
         }
       ]
     },
@@ -70277,7 +70299,7 @@
       "last_name": "Rabiei",
       "username": "amir_hossain_rabiei",
       "first_seen": 1792916463,
-      "last_seen": 1792947888,
+      "last_seen": 1793214241,
       "purchases": []
     },
     "111580485": {
@@ -85160,6 +85182,15 @@
       "username": "hosein2169",
       "first_seen": 1793214071,
       "last_seen": 1793214071,
+      "purchases": []
+    },
+    "1036849621": {
+      "user_id": 1036849621,
+      "first_name": "REZA",
+      "last_name": ".",
+      "username": "Ghamsari2",
+      "first_seen": 1793214186,
+      "last_seen": 1793214186,
       "purchases": []
     }
   },
