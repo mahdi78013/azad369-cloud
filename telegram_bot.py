@@ -645,7 +645,7 @@ def load_db() -> dict:
             "user_states": {},
             "admin_states": {},
             "trial_users": {},
-            "plan_availability": {"1M": False, "2M": False, "3M": False, "1Y": False, "AN1M": False, "AN2M": False, "AN3M": False, "AN1Y": True}
+            "plan_availability": {"1M": False, "2M": False, "3M": False, "1Y": True, "AN1M": False, "AN2M": False, "AN3M": False, "AN1Y": True}
         }
         _LAST_VALID_DB = copy.deepcopy(d)
         return d
@@ -673,7 +673,7 @@ def _do_git_sync():
         subprocess.run(["git", "rebase", "--abort"], check=False)
         subprocess.run(["git", "add", "bot_licenses_state.json", "hwid_registry.json", "historical_blacklist.json"], check=False)
         subprocess.run(["git", "commit", "-m", "Auto-sync bot state [skip ci]"], check=False)
-        subprocess.run(["git", "pull", "--rebase", "--autostash", "origin", "main"], check=False)
+        subprocess.run(["git", "pull", "--rebase", "-Xours", "--autostash", "origin", "main"], check=False)
         subprocess.run(["git", "push", "origin", "main"], check=False)
     except Exception as e:
         print(f"Git auto-sync error: {e}")
@@ -712,10 +712,10 @@ def get_plan_availability() -> dict:
     default_avail = {
         "1M": False,
         "2M": False,
-        "3M": True,
+        "3M": False,
         "1Y": True,
-        "AN1M": True,
-        "AN2M": True,
+        "AN1M": False,
+        "AN2M": False,
         "AN3M": False,
         "AN1Y": True
     }
@@ -1785,7 +1785,7 @@ def plans_keyboard_android():
         if p_code not in PLANS_INFO:
             continue
         p_info = PLANS_INFO[p_code]
-        is_avail = avail.get(p_code, True)
+        is_avail = avail.get(p_code, False)
         status_suffix = "⚡" if is_avail else "(❌ اتمام موجودی)"
         text = f"{p_info['name']} — {p_info['price']} {status_suffix}"
         markup.add(types.InlineKeyboardButton(text, callback_data=f"buy_{p_code}"))
@@ -1799,7 +1799,7 @@ def plans_keyboard_windows():
         if p_code not in PLANS_INFO:
             continue
         p_info = PLANS_INFO[p_code]
-        is_avail = avail.get(p_code, True)
+        is_avail = avail.get(p_code, False)
         status_suffix = "⚡" if is_avail else "(❌ اتمام موجودی)"
         text = f"{p_info['name']} — {p_info['price']} {status_suffix}"
         markup.add(types.InlineKeyboardButton(text, callback_data=f"buy_{p_code}"))
