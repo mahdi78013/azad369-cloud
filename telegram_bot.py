@@ -1668,6 +1668,172 @@ def fulfill_tronado_order(payment_id: str, ipn_data: dict = None) -> tuple[bool,
     threading.Thread(target=_deliver_notifications, daemon=True, name=f"FulfillNotify-{payment_id}").start()
     return True, f"Fulfilled with license {key}"
 
+
+def check_user_tronado_authenticity(uid: int, plan_code: str = None, caption_text: str = "") -> dict:
+    """
+    Checks database orders and Tronado API real-time to determine if the user
+    actually completed a purchase on Tronado gateway or if this receipt is fake/unpaid.
+    """
+    try:
+        db = load_db()
+        orders = db.get("orders", {})
+
+        # 1. Search for Tronado orders matching this uid or referenced in caption
+        matching_orders = []
+        cap_tokens = []
+        if caption_text:
+            cap_tokens = re.findall(r"(?:TRND-[A-Za-z0-9\-]+|\b\d{5,10}\b)", str(caption_text))
+
+        for oid, od in orders.items():
+            if not isinstance(od, dict):
+                continue
+            is_match = False
+            # Match by user id
+            if od.get("user_id") == uid:
+                is_match = True
+            # Match by token / order id in caption
+            for ct in cap_tokens:
+                if (
+                    oid == ct
+                    or str(od.get("token", "")).strip() == ct
+                    or str(od.get("payment_id", "")).strip() == ct
+                    or ct in str(od.get("tronado_ipn", {}))
+                ):
+                    is_match = True
+                    break
+
+            if is_match and (
+                "tronado" in str(od.get("method", ""))
+                or "TRND" in str(oid)
+                or od.get("status") in ("pending_tronado", "cancelled_tronado", "approved", "fulfilled")
+            ):
+                matching_orders.append((oid, od))
+
+        # Sort matching orders by created_at descending (most recent first)
+        matching_orders.sort(key=lambda x: x[1].get("created_at", 0), reverse=True)
+
+        if not matching_orders:
+            return {
+                "has_tronado": False,
+                "is_fake": None,
+                "summary": (
+                    "━━━━━━━━━━━━━━━━━━━\n"
+                    "🛡️ *استعلام اصالت درگاه تورنادو:*\n"
+                    "ℹ️ *هیچ فاکتور خریدی در درگاه تورنادو برای این کاربر ثبت نشده است.*\n"
+                    "💳 اگر رسید کارت‌به‌کارت بانکی است، تصویر فیش را دستی بررسی فرمایید.\n"
+                    "⚠️ اگر ادعای پرداخت ارزی/درگاهی دارد، **رسید ۱۰۰٪ فیک است**."
+                )
+            }
+
+        target_oid, target_od = matching_orders[0]
+        payment_id = target_od.get("payment_id") or target_oid
+
+        # If already fulfilled in our system
+        if target_od.get("status") == "approved" and target_od.get("key"):
+            return {
+                "has_tronado": True,
+                "is_fake": False,
+                "summary": (
+                    "━━━━━━━━━━━━━━━━━━━\n"
+                    "🛡️ *استعلام اصالت درگاه تورنادو:*\n"
+                    "✅ *این سفارش قبلاً در سیستم تایید و لایسنس صادر شده است!*\n"
+                    f"🔹 لایسنس: `{target_od.get('key')}`\n"
+                    f"🔹 شماره سفارش: `{target_oid}`"
+                )
+            }
+
+        # Query live Tronado API
+        api_data = tronado_check_order_status(payment_id)
+        if not api_data or not isinstance(api_data, dict):
+            loc_status = target_od.get("status", "نامشخص")
+            return {
+                "has_tronado": True,
+                "is_fake": None,
+                "summary": (
+                    "━━━━━━━━━━━━━━━━━━━\n"
+                    "🛡️ *استعلام اصالت درگاه تورنادو:*\n"
+                    f"🔸 سابقه سفارش در سیستم یافت شد (`{target_oid}` - وضعیت: {loc_status})\n"
+                    "⚠️ استعلام آنلاین از API درگاه با خطا مواجه شد. لطفاً دستی بررسی فرمایید."
+                )
+            }
+
+        if api_data.get("Error"):
+            return {
+                "has_tronado": True,
+                "is_fake": True,
+                "summary": (
+                    "━━━━━━━━━━━━━━━━━━━\n"
+                    "🛡️ *استعلام اصالت درگاه تورنادو:*\n"
+                    "⚠️ **رسید نامعتبر یا یافت‌نشده در تورنادو!**\n"
+                    f"🔸 شناسه سفارش: `{payment_id}`\n"
+                    f"🔸 پاسخ سرور تورنادو: `{api_data.get('Error')}`"
+                )
+            }
+
+        is_paid = bool(api_data.get("IsPaid"))
+        status_id = api_data.get("OrderStatusID")
+        status_title = str(api_data.get("OrderStatusTitle") or "نامشخص")
+        actual_tron = api_data.get("ActualTronAmount") or api_data.get("TronAmount") or "—"
+        pay_date = api_data.get("PaymentDate") or "—"
+        ref_hash = api_data.get("Hash") or target_oid
+
+        # Case A: Successful payment
+        if is_paid or status_id in (30, "30") or status_title.lower() in ("paymentaccepted", "paid", "completed"):
+            return {
+                "has_tronado": True,
+                "is_fake": False,
+                "is_paid": True,
+                "summary": (
+                    "━━━━━━━━━━━━━━━━━━━\n"
+                    "🛡️ *استعلام اصالت درگاه تورنادو:*\n"
+                    "✅ **خرید واقعی تایید شد (تراکنش در تورنادو پرداخت شده است)**\n"
+                    f"🔹 شناسه تراکنش تورنادو: `{ref_hash}`\n"
+                    f"🔹 وضعیت درگاه: *پرداخت موفق ({status_title})*\n"
+                    f"🔹 مبلغ پرداختی: *{actual_tron} ترون*\n"
+                    f"🔹 تاریخ پرداخت: *{pay_date}*\n"
+                    "💡 _این سفارش در درگاه پرداخت شده و معتبر است (کال‌بک نرسیده بود)._"
+                )
+            }
+
+        # Case B: Cancelled or Unpaid (Fake)
+        elif status_id in (200, "200") or status_title.lower() in ("cancelled", "canceled", "failed"):
+            return {
+                "has_tronado": True,
+                "is_fake": True,
+                "is_paid": False,
+                "summary": (
+                    "━━━━━━━━━━━━━━━━━━━\n"
+                    "🛡️ *استعلام اصالت درگاه تورنادو:*\n"
+                    "⚠️ **هشدار فیک بودن: پرداخت در درگاه تورنادو لغو شده است!**\n"
+                    f"🔸 شماره فاکتور: `{ref_hash}`\n"
+                    f"🔸 وضعیت درگاه: *{status_title} (کد {status_id})*\n"
+                    "🔸 آیا واریز شده؟: ❌ **خیر (IsPaid: False)**\n"
+                    "⛔ _کاربر در تورنادو فاکتور باز کرده ولی وجهی واریز نکرده و سفارش لغو شده است._"
+                )
+            }
+        else:
+            return {
+                "has_tronado": True,
+                "is_fake": True,
+                "is_paid": False,
+                "summary": (
+                    "━━━━━━━━━━━━━━━━━━━\n"
+                    "🛡️ *استعلام اصالت درگاه تورنادو:*\n"
+                    f"⚠️ **سفارش در انتظار و پرداخت‌نشده ({status_title} - کد {status_id})**\n"
+                    f"🔸 شماره پیگیری: `{ref_hash}`\n"
+                    "🔸 وضعیت پرداخت: ❌ **پرداخت نشده**\n"
+                    "⛔ _تراکنش هنوز تایید نشده یا وجهی واریز نگردیده است._"
+                )
+            }
+
+    except Exception as e:
+        print(f"[check_user_tronado_authenticity] Error: {e}")
+        return {
+            "has_tronado": False,
+            "is_fake": None,
+            "summary": "━━━━━━━━━━━━━━━━━━━\n🛡️ *بررسی اصالت تورنادو:* خطا در استعلام خودکار."
+        }
+
 def tronado_poller_worker():
     """
     Background worker that runs every 25 seconds.
@@ -1992,6 +2158,7 @@ def admin_dashboard_keyboard():
     b_pend = types.InlineKeyboardButton("⏳ سفارشات در انتظار", callback_data="adm_pending")
     b_live = types.InlineKeyboardButton("📈 آمار آنلاین کاربران", callback_data="adm_live_stats")
     b_bc = types.InlineKeyboardButton("📢 فوروارد و پیام همگانی", callback_data="adm_broadcast")
+    b_direct_msg = types.InlineKeyboardButton("✉️ ارسال مستقیم پیام به کاربر", callback_data="adm_send_direct_msg")
     b_cards = types.InlineKeyboardButton("💳 مدیریت و چرخش کارت‌ها", callback_data="adm_cards")
 
     in_maint, _ = is_maintenance_mode()
@@ -2007,6 +2174,7 @@ def admin_dashboard_keyboard():
     markup.add(b_plans)
     markup.add(b_stat, b_pend)
     markup.add(b_live, b_bc)
+    markup.add(b_direct_msg)
     markup.add(b_cards)
     markup.add(b_maint)
     return markup
@@ -2518,6 +2686,155 @@ def cmd_broadcast(message):
         return
     track_user(message.from_user)
     _start_broadcast_prompt(message.chat.id)
+
+
+def resolve_user_id(target_raw: str, db: dict = None) -> int | None:
+    """
+    Resolves a numeric user ID from either a direct numeric string,
+    or a username (e.g. '@khan007khan' or 'khan007khan').
+    """
+    if not target_raw:
+        return None
+    raw = str(target_raw).strip()
+    if raw.isdigit():
+        return int(raw)
+
+    clean_name = raw.lstrip("@").lower().strip()
+    if not clean_name:
+        return None
+
+    if db is None:
+        db = load_db()
+
+    # Search in users
+    for uid_str, u_obj in db.get("users", {}).items():
+        if isinstance(u_obj, dict):
+            un = str(u_obj.get("username", "")).lstrip("@").lower().strip()
+            if un == clean_name and uid_str.isdigit():
+                return int(uid_str)
+
+    # Search in orders
+    for o_obj in db.get("orders", {}).values():
+        if isinstance(o_obj, dict):
+            un = str(o_obj.get("username", "")).lstrip("@").lower().strip()
+            uid = o_obj.get("user_id")
+            if un == clean_name and uid:
+                try:
+                    return int(uid)
+                except Exception:
+                    pass
+    return None
+
+def deliver_admin_message_to_user(admin_id: int, target_uid: int, text_or_msg, orig_msg=None) -> bool:
+    """
+    Delivers an official admin message to a user (text or media).
+    Records the interaction in user history and notifies admin of the result.
+    """
+    db = load_db()
+    users = db.get("users", {})
+    u_obj = users.get(str(target_uid), {})
+    f_name = u_obj.get("first_name", "کاربر")
+
+    header = "📩 *پیام مدیریت و پشتیبانی اینترنت آزاد³⁶⁹:*\n\n"
+    footer = "\n\n━━━━━━━━━━━━━━━━━━━\nدر صورت نیاز به ارسال پاسخ، از دکمه «💬 پشتیبانی» استفاده فرمایید."
+
+    send_success = False
+    delivered_text = ""
+    try:
+        if isinstance(text_or_msg, str):
+            delivered_text = text_or_msg
+            full_text = f"{header}{text_or_msg}{footer}"
+            send_success = safe_send_message(target_uid, full_text)
+        elif hasattr(text_or_msg, "content_type"):
+            m = text_or_msg
+            cap = m.caption or ""
+            delivered_text = cap or f"[{m.content_type}]"
+            full_cap = f"{header}{cap}{footer}" if cap else f"{header}{footer}"
+            if m.content_type == "photo":
+                bot.send_photo(target_uid, m.photo[-1].file_id, caption=full_cap, parse_mode="Markdown")
+            elif m.content_type == "document":
+                bot.send_document(target_uid, m.document.file_id, caption=full_cap, parse_mode="Markdown")
+            elif m.content_type == "voice":
+                bot.send_voice(target_uid, m.voice.file_id, caption=full_cap, parse_mode="Markdown")
+            elif m.content_type == "video":
+                bot.send_video(target_uid, m.video.file_id, caption=full_cap, parse_mode="Markdown")
+            else:
+                bot.copy_message(target_uid, m.chat.id, m.message_id)
+            send_success = True
+    except Exception as ex:
+        print(f"[deliver_admin_message_to_user] Error: {ex}")
+        send_success = False
+
+    # Record in db
+    if send_success:
+        t_str = str(target_uid)
+        db.setdefault("users", {})
+        if t_str not in db["users"] or not isinstance(db["users"][t_str], dict):
+            db["users"][t_str] = {"purchases": []}
+        db["users"][t_str]["last_admin_reply"] = {
+            "text": delivered_text,
+            "time": int(time.time()),
+            "by_admin": admin_id
+        }
+        save_db(db)
+        if orig_msg:
+            safe_reply_to(orig_msg, f"✅ پیام شما با موفقیت برای کاربر *{escape_md(f_name)}* (`{target_uid}`) ارسال گردید.")
+    else:
+        if orig_msg:
+            safe_reply_to(orig_msg, f"⚠️ ارسال پیام به کاربر `{target_uid}` ناموفق بود (ممکن است ربات توسط کاربر متوقف یا بلاک شده باشد).")
+
+    return send_success
+
+@bot.message_handler(commands=["send", "msg", "pm", "message", "reply"])
+def cmd_admin_direct_message(message):
+    uid = message.from_user.id
+    if not is_admin(uid):
+        return
+    track_user(message.from_user)
+
+    parts = message.text.strip().split(maxsplit=2)
+    # /send -> prompt for target
+    if len(parts) == 1:
+        set_admin_state({"state": "waiting_target_user_for_msg"}, admin_id=uid)
+        markup = types.InlineKeyboardMarkup()
+        markup.add(types.InlineKeyboardButton("❌ انصراف", callback_data="cancel_admin_reply"))
+        safe_reply_to(
+            message,
+            "✉️ *ارسال مستقیم پیام به کاربر*\n\n"
+            "لطفاً **آیدی عددی** یا **یوزرنیم کاربر** را ارسال فرمایید:\n"
+            "(مثال: `161957867` یا `@khan007khan`)\n\n"
+            "یا می‌توانید دستور را مستقیم ارسال کنید:\n"
+            "`/send 161957867 متن پیام شما`",
+            reply_markup=markup
+        )
+        return
+
+    target_raw = parts[1].strip()
+    target_uid = resolve_user_id(target_raw)
+    if not target_uid:
+        safe_reply_to(message, f"❌ کاربر با مشخصه `{target_raw}` در سیستم یافت نشد. لطفاً آیدی عددی کاربر را مستقیماً وارد فرمایید.")
+        return
+
+    if len(parts) >= 3:
+        msg_body = parts[2].strip()
+        deliver_admin_message_to_user(uid, target_uid, msg_body, message)
+    else:
+        set_admin_state({"state": "replying_to_user", "target_uid": target_uid}, admin_id=uid)
+        db_cur = load_db()
+        u_info = db_cur.get("users", {}).get(str(target_uid), {})
+        f_n = u_info.get("first_name", "کاربر")
+        u_n = u_info.get("username", "ندارد")
+        markup = types.InlineKeyboardMarkup()
+        markup.add(types.InlineKeyboardButton("❌ انصراف", callback_data="cancel_admin_reply"))
+        safe_reply_to(
+            message,
+            f"👤 *کاربر انتخاب‌شده:*\n"
+            f"• نام: *{escape_md(f_n)}*\n"
+            f"• یوزرنیم: @{escape_md(u_n)}\n"
+            f"• آیدی عددی: `{target_uid}`\n\n"
+            f"✍️ لطفاً هم‌اکنون پیام، تصویر یا فایل مورد نظر خود را ارسال فرمایید تا بلافاصله به کاربر تحویل داده شود:",
+            reply_markup=markup
+        )
 
 @bot.message_handler(commands=["fulfill", "checkorder", "order"])
 def cmd_admin_fulfill(message):
@@ -3035,14 +3352,12 @@ def handle_callbacks(call):
         })
 
         prompt_text = (
-            f"📸 *ارسال مدارک پرداخت برای پلن {escape_md(info['name'])}:*\n\n"
+            f"📸 *ارسال تصویر رسید پرداخت برای پلن {escape_md(info['name'])}:*\n\n"
             f"💰 مبلغ پلن: *{info['price']}*\n"
             f"⏳ مدت اعتبار: *{info['days']} روز*\n\n"
-            f"لطفاً هم‌اکنون یکی از موارد زیر را در پاسخ ارسال فرمایید:\n"
-            f"۱. **تصویر فیش واریزی / اسکرین‌شات رسید**\n"
-            f"۲. فایل سند یا PDF رسید پرداخت\n"
-            f"۳. یا **کد پیگیری تراکنش / شماره ارجاع بانکی** (به صورت پیام متنی)\n\n"
-            f"⚡ رسید شما مستقیماً برای مدیریت ارسال خواهد شد و پس از بررسی و تایید، کد لایسنس اختصاصی به صورت آنی در همین چت برای شما ارسال می‌شود."
+            f"لطفاً هم‌اکنون **تصویر (عکس) فیش واریزی یا اسکرین‌شات رسید پرداخت** خود را ارسال فرمایید 📸\n\n"
+            f"⚠️ *نکته مهم:* ارسال رسید به صورت متن مجاز نمی‌باشد و حتماً باید تصویر یا اسکرین‌شات فیش را ارسال نمایید.\n\n"
+            f"⚡ رسید شما مستقیماً برای مدیریت ارسال خواهد شد و پس از بررسی اصالت، کد لایسنس اختصاصی به صورت آنی ارسال می‌شود."
         )
         markup = types.InlineKeyboardMarkup(row_width=1)
         markup.add(
@@ -3079,7 +3394,25 @@ def handle_callbacks(call):
         safe_send_message(call.message.chat.id, SUPPORT_CLOSED_MESSAGE)
         return
 
-    # ادمین روی دکمه «پاسخ به کاربر» می‌زند
+    elif data == "adm_send_direct_msg":
+        if not is_admin(uid):
+            safe_answer_callback(call.id, "دسترسی غیرمجاز!", show_alert=True)
+            return
+        set_admin_state({"state": "waiting_target_user_for_msg"}, admin_id=uid)
+        markup = types.InlineKeyboardMarkup()
+        markup.add(types.InlineKeyboardButton("❌ انصراف", callback_data="cancel_admin_reply"))
+        safe_send_message(
+            call.message.chat.id,
+            "✉️ *ارسال مستقیم پیام به کاربر*\n\n"
+            "لطفاً **آیدی عددی** یا **یوزرنیم کاربر** را ارسال فرمایید:\n"
+            "(مثال: `161957867` یا `@khan007khan`)\n\n"
+            "یا می‌توانید دستور را مستقیم ارسال کنید:\n"
+            "`/send 161957867 متن پیام شما`",
+            reply_markup=markup
+        )
+        safe_answer_callback(call.id, "آماده دریافت آیدی")
+
+    # ادمین روی دکمه «پاسخ به کاربر» یا «ارسال پیام به کاربر» می‌زند
     elif data.startswith("reply_user_"):
         if not is_admin(uid):
             safe_answer_callback(call.id, "دسترسی غیرمجاز!", show_alert=True)
@@ -3087,9 +3420,14 @@ def handle_callbacks(call):
         target_uid = data.replace("reply_user_", "")
         set_admin_state({"state": "replying_to_user", "target_uid": target_uid}, admin_id=uid)
 
+        db_cur = load_db()
+        u_info = db_cur.get("users", {}).get(str(target_uid), {})
+        f_n = u_info.get("first_name", "کاربر")
+        u_n = u_info.get("username", "ندارد")
+
         prompt_admin = (
-            f"✍️ *پاسخ دادن به کاربر `{target_uid}`:*\n\n"
-            f"لطفاً پیام پاسخ خود را تایپ و ارسال نمایید.\n"
+            f"✍️ *ارسال پیام به کاربر {escape_md(f_n)} (@{escape_md(u_n)}) — `{target_uid}`:*\n\n"
+            f"لطفاً پیام، تصویر یا فایل پاسخ خود را تایپ و ارسال نمایید.\n"
             f"این پیام مستقیماً در ربات برای کاربر فرستاده خواهد شد."
         )
         markup = types.InlineKeyboardMarkup()
@@ -3774,10 +4112,15 @@ def process_receipt_submission(message, uid: int, plan_code: str, file_id: str, 
     clear_user_state(uid)
     save_db(db, immediate_sync=True)
 
+    tronado_auth = check_user_tronado_authenticity(uid, plan_code, caption_text)
+    tronado_note = f"\n\n{tronado_auth['summary']}" if tronado_auth.get("summary") else ""
+
     admin_markup = types.InlineKeyboardMarkup(row_width=2)
     b_approve = types.InlineKeyboardButton("✅ تایید پرداخت و صدور لایسنس", callback_data=f"appr_{order_id}")
     b_reject = types.InlineKeyboardButton("❌ رد پرداخت", callback_data=f"rej_{order_id}")
+    b_msg = types.InlineKeyboardButton("✉️ ارسال پیام به کاربر", callback_data=f"reply_user_{uid}")
     admin_markup.add(b_approve, b_reject)
+    admin_markup.add(b_msg)
 
     user_caption_note = f"\n💬 متن همراه فیش: {escape_md(caption_text)}" if caption_text else ""
 
@@ -3791,6 +4134,7 @@ def process_receipt_submission(message, uid: int, plan_code: str, file_id: str, 
         f"💳 شماره کارت مقصد: `{active_card}`\n"
         f"⏰ ساعت: {time.strftime('%H:%M:%S', time.localtime())}"
         f"{user_caption_note}"
+        f"{tronado_note}"
     )
 
     # 1. Forward original receipt directly to all admins
@@ -3897,44 +4241,7 @@ def handle_photos_and_docs(message):
                 target_uid = int(match.group(1))
 
         if target_uid:
-            reply_cap = (
-                f"📩 *پاسخ پشتیبانی اینترنت آزاد³⁶⁹:*\n\n"
-                f"{caption}\n\n"
-                f"━━━━━━━━━━━━━━━━━━━\n"
-                f"در صورت نیاز به ارسال پیام مجدد، از دکمه «💬 پشتیبانی» استفاده فرمایید."
-            ) if caption else (
-                "📩 *پاسخ پشتیبانی اینترنت آزاد³⁶⁹:*\n\n"
-                "━━━━━━━━━━━━━━━━━━━\n"
-                "در صورت نیاز به ارسال پیام مجدد، از دکمه «💬 پشتیبانی» استفاده فرمایید."
-            )
-
-            send_success = False
-            try:
-                if message.content_type == "photo":
-                    bot.send_photo(target_uid, file_id, caption=reply_cap, parse_mode="Markdown")
-                elif message.content_type == "voice":
-                    bot.send_voice(target_uid, file_id, caption=reply_cap, parse_mode="Markdown")
-                elif message.content_type == "video":
-                    bot.send_video(target_uid, file_id, caption=reply_cap, parse_mode="Markdown")
-                elif message.content_type == "document":
-                    bot.send_document(target_uid, file_id, caption=reply_cap, parse_mode="Markdown")
-                elif message.content_type == "audio":
-                    bot.send_audio(target_uid, file_id, caption=reply_cap, parse_mode="Markdown")
-                elif message.content_type == "sticker":
-                    bot.send_sticker(target_uid, file_id)
-                else:
-                    bot.copy_message(target_uid, message.chat.id, message.message_id)
-                send_success = True
-            except Exception:
-                try:
-                    bot.copy_message(target_uid, message.chat.id, message.message_id)
-                    send_success = True
-                except Exception as ex:
-                    safe_reply_to(message, f"⚠️ خطا در ارسال رسانه به کاربر: {ex}")
-                    return
-
-            if send_success:
-                safe_reply_to(message, f"✅ رسانه / فایل ارسالی شما با موفقیت برای کاربر `{target_uid}` ارسال شد.")
+            deliver_admin_message_to_user(uid, target_uid, message, message)
             return
 
     u_state = get_user_state(uid)
@@ -4068,120 +4375,80 @@ def handle_general_text(message):
                 )
                 return
 
-    # ۱. اگر ادمین در حال پاسخ به تیکت کاربر است (از طریق دکمه «پاسخ به کاربر» یا ریپلای مستقیم در تلگرام)
+    # ۱. اگر ادمین در حال پاسخ به کاربر یا ارسال پیام مستقیم است
     if is_admin(uid):
         adm_state = get_admin_state(uid)
+        if adm_state.get("state") == "waiting_target_user_for_msg":
+            if text in ["❌ انصراف", "انصراف", "/cancel"]:
+                clear_admin_state(uid)
+                safe_reply_to(message, "❌ عملیات ارسال پیام لغو شد.")
+                return
+            target_uid = resolve_user_id(text)
+            if not target_uid:
+                safe_reply_to(message, f"❌ کاربر با مشخصات `{text}` در سیستم یافت نشد.\nلطفاً آیدی عددی را ارسال کنید یا مجدداً بررسی فرمایید:")
+                return
+            set_admin_state({"state": "replying_to_user", "target_uid": target_uid}, admin_id=uid)
+            db_cur = load_db()
+            u_info = db_cur.get("users", {}).get(str(target_uid), {})
+            f_n = u_info.get("first_name", "کاربر")
+            u_n = u_info.get("username", "ندارد")
+            markup = types.InlineKeyboardMarkup()
+            markup.add(types.InlineKeyboardButton("❌ انصراف", callback_data="cancel_admin_reply"))
+            safe_reply_to(
+                message,
+                f"👤 *کاربر انتخاب‌شده:*\n"
+                f"• نام: *{escape_md(f_n)}*\n"
+                f"• یوزرنیم: @{escape_md(u_n)}\n"
+                f"• آیدی عددی: `{target_uid}`\n\n"
+                f"✍️ لطفاً هم‌اکنون پیام، تصویر یا فایل مورد نظر خود را ارسال فرمایید تا بلافاصله به کاربر تحویل داده شود:",
+                reply_markup=markup
+            )
+            return
+
         target_uid = None
         if adm_state.get("state") == "replying_to_user":
             if text in ["❌ انصراف", "انصراف", "/cancel"]:
                 clear_admin_state(uid)
-                safe_reply_to(message, "❌ عملیات پاسخ به کاربر لغو شد.")
+                safe_reply_to(message, "❌ عملیات ارسال پیام به کاربر لغو شد.")
                 return
             target_uid = int(adm_state["target_uid"])
             clear_admin_state(uid)
+            deliver_admin_message_to_user(uid, target_uid, text, message)
+            return
         elif message.reply_to_message:
             rep_text = message.reply_to_message.text or message.reply_to_message.caption or ""
             match = re.search(r"(?:🆔\s*آیدی عددی|آیدی عددی|شناسه کاربر|User ID)\s*:\s*`?(\d+)`?", rep_text)
             if match:
                 target_uid = int(match.group(1))
+                deliver_admin_message_to_user(uid, target_uid, text, message)
+                return
 
-        if target_uid:
-            reply_to_user_text = (
-                f"📩 *پاسخ پشتیبانی اینترنت آزاد³⁶⁹:*\n\n"
-                f"{text}\n\n"
-                f"━━━━━━━━━━━━━━━━━━━\n"
-                f"در صورت نیاز به ارسال پیام مجدد، از دکمه «💬 پشتیبانی» استفاده فرمایید."
-            )
-            send_ok = safe_send_message(target_uid, reply_to_user_text)
-
-            # ثبت آخرین پاسخ ادمین در دیتابیس برای زمینه گفتگو
-            db = load_db()
-            db.setdefault("users", {})
-            t_str = str(target_uid)
-            if t_str not in db["users"] or not isinstance(db["users"][t_str], dict):
-                db["users"][t_str] = {"purchases": []}
-            else:
-                db["users"][t_str].setdefault("purchases", [])
-            db["users"][t_str]["last_admin_reply"] = {
-                "text": text,
-                "time": int(time.time())
-            }
-            save_db(db)
-
-            if send_ok:
-                safe_reply_to(message, f"✅ پاسخ شما با موفقیت برای کاربر `{target_uid}` ارسال شد.")
-            else:
-                safe_reply_to(message, f"⚠️ پیام در سیستم ثبت شد ولی ارسال مستقیم به کاربر `{target_uid}` با خطا مواجه گردید (ممکن است ربات توسط کاربر متوقف شده باشد).")
-            return
-
-    # ۲. اگر کاربر در مرحله ارسال فیش است و کد پیگیری یا متن واریز ارسال کرده
+    # ۲. اگر کاربر در مرحله ارسال فیش است (فقط عکس و رسید مجاز است، متن رد می‌شود)
     u_state = get_user_state(uid)
     if u_state.get("state") == "awaiting_receipt":
         if text in ["❌ انصراف", "انصراف", "/cancel"]:
             clear_user_state(uid)
-            safe_reply_to(message, "❌ عملیات خرید لغو شد.")
+            safe_reply_to(message, "❌ عملیات ثبت رسید لغو شد.")
             return
         if text in MAIN_MENU_EXACT_BUTTONS:
             clear_user_state(uid)
             # اجازه به عبور برای اجرای دکمه منو در بخش پایین
         else:
             plan_code = u_state.get("plan_code", "1M")
-            info = PLANS_INFO[plan_code]
-            order_id = f"ORD_{int(time.time())}_{uid}"
-            db = load_db()
-
-            active_card, did_rotate, next_card = record_card_deposit_and_rotate(db)
-
-            f_name = message.from_user.first_name or "کاربر"
-            u_name = message.from_user.username or "ندارد"
-
-            db["orders"][order_id] = {
-                "order_id": order_id,
-                "user_id": uid,
-                "username": u_name,
-                "first_name": f_name,
-                "plan_code": plan_code,
-                "price": info["price"],
-                "status": "pending",
-                "receipt_type": "text",
-                "receipt_text": text,
-                "card_number": active_card,
-                "created_at": int(time.time())
-            }
-            clear_user_state(uid)
-            save_db(db, immediate_sync=True)
-
-            admin_text = (
-                f"🔔 *سفارش جدید — اطلاعات پرداخت متنی!*\n\n"
-                f"🏷️ شماره سفارش: `{order_id}`\n"
-                f"👤 خریدار: {escape_md(f_name)} (@{escape_md(u_name)})\n"
-                f"🆔 آیدی عددی: `{uid}`\n"
-                f"📦 پلن انتخابی: *{escape_md(info['name'])}*\n"
-                f"💰 مبلغ فاکتور: *{info['price']}*\n"
-                f"💳 شماره کارت مقصد: `{active_card}`\n"
-                f"⏰ ساعت: {time.strftime('%H:%M:%S', time.localtime())}\n\n"
-                f"📝 *اطلاعات / کد پیگیری واریزی:*\n`{escape_md(text)}`"
+            info = PLANS_INFO.get(plan_code, {})
+            p_name = info.get("name", "انتخاب‌شده")
+            markup = types.InlineKeyboardMarkup(row_width=1)
+            markup.add(
+                types.InlineKeyboardButton("🔙 تغییر پلن انتخابی", callback_data="submit_receipt"),
+                types.InlineKeyboardButton("❌ انصراف از ثبت رسید", callback_data="cancel_action")
             )
-            admin_markup = types.InlineKeyboardMarkup(row_width=2)
-            b_approve = types.InlineKeyboardButton("✅ تایید پرداخت و صدور لایسنس", callback_data=f"appr_{order_id}")
-            b_reject = types.InlineKeyboardButton("❌ رد پرداخت", callback_data=f"rej_{order_id}")
-            admin_markup.add(b_approve, b_reject)
-
-            notify_admins_message(admin_text, reply_markup=admin_markup)
-
-            if did_rotate:
-                rotate_msg = (
-                    f"🔄 *تغییر خودکار شماره کارت واریز*\n\n"
-                    f"شماره کارت قبلی (`{active_card}`) به سقف {CARD_ROTATION_THRESHOLD} واریز رسید.\n"
-                    f"💳 شماره کارت فعال جدید برای سفارشات بعدی:\n`{next_card}`"
-                )
-                notify_admins_message(rotate_msg)
-
             safe_reply_to(
                 message,
-                "✅ *اطلاعات پرداخت شما با موفقیت ثبت شد!*\n\n"
-                "کد رهگیری برای مدیریت ارسال گردید و در صف بررسی قرار گرفت.\n"
-                "به محض تایید توسط مدیریت، کد لایسنس اختصاصی شما به صورت خودکار در همین چت ارسال خواهد شد. 🌸"
+                f"⚠️ *ارسال رسید به صورت متنی مجاز نمی‌باشد!*\n\n"
+                f"📦 پلن انتخابی شما: *{escape_md(p_name)}*\n\n"
+                f"📸 لطفاً **تنها تصویر (عکس) فیش واریزی یا اسکرین‌شات رسید پرداخت** خود را ارسال فرمایید تا جهت بررسی و صدور لایسنس برای مدیریت ارسال گردد.\n\n"
+                f"👇 در صورت تمایل می‌توانید پلن را تغییر دهید یا انصراف دهید:",
+                reply_markup=markup
             )
             return
 
