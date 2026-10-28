@@ -5372,6 +5372,12 @@
       "user_id": 45782647,
       "issued_at": 1793181993,
       "method": "crypto_unique"
+    },
+    "AN2M-CD9E8157-F141-92D70F": {
+      "plan": "AN2M",
+      "user_id": 1871977043,
+      "issued_at": 1793182024,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -44135,9 +44141,18 @@
       "tron_amount": 0.786465,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5112b2763f604eca8e76437756b5d7fe",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5112b2763f604eca8e76437756b5d7fe",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793181780
+      "created_at": 1793181780,
+      "approved_at": 1793182024,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-CD9E8157-F141-92D70F",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3014779",
+        "tron_amount": 0.786465,
+        "user_paid_toman": null,
+        "date": "2026-10-28T10:06:14.0900000"
+      }
     },
     "TRND-AN2M-6163936046-1793181823-e4c714": {
       "order_id": "TRND-AN2M-6163936046-1793181823-e4c714",
@@ -74354,7 +74369,15 @@
       "username": "Astro_gyotish",
       "first_seen": 1793181758,
       "last_seen": 1793181758,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-CD9E8157-F141-92D70F",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793182024,
+          "days": 60
+        }
+      ]
     },
     "5259874178": {
       "user_id": 5259874178,
