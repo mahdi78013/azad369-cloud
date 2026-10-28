@@ -861,6 +861,102 @@ def get_all_broadcast_targets(db: dict = None) -> list[int]:
 BROADCAST_ACTIVE = False
 BROADCAST_CANCELLED = False
 
+def get_broadcast_reply_markup(button_type: str):
+    """Returns (InlineKeyboardMarkup, title) for the chosen broadcast button type."""
+    if not button_type or button_type == "none":
+        return None, "بدون دکمه شیشه‌ای"
+
+    markup = types.InlineKeyboardMarkup()
+    if button_type == "plans":
+        markup.add(types.InlineKeyboardButton("🛒 خرید اشتراک اختصاصی", callback_data="show_plans"))
+        return markup, "🛒 خرید اشتراک اختصاصی"
+
+    elif button_type == "android":
+        markup.add(types.InlineKeyboardButton("📱 خرید اشتراک اندروید (موبایل)", callback_data="show_plans_android"))
+        return markup, "📱 خرید اشتراک اندروید"
+
+    elif button_type == "windows":
+        markup.add(types.InlineKeyboardButton("💻 خرید اشتراک ویندوز (کامپیوتر)", callback_data="show_plans_windows"))
+        return markup, "💻 خرید اشتراک ویندوز"
+
+    elif button_type == "both":
+        markup.row_width = 2
+        markup.add(
+            types.InlineKeyboardButton("📱 خرید اندروید", callback_data="show_plans_android"),
+            types.InlineKeyboardButton("💻 خرید ویندوز", callback_data="show_plans_windows")
+        )
+        return markup, "📱 خرید اندروید + 💻 خرید ویندوز"
+
+    elif button_type == "AN1Y":
+        markup.add(types.InlineKeyboardButton("👑 خرید اشتراک ۱ ساله اندروید (۳۶۵ روزه)", callback_data="buy_AN1Y"))
+        return markup, "👑 ۱ ساله اندروید (۳۶۵ روزه)"
+
+    elif button_type == "1Y":
+        markup.add(types.InlineKeyboardButton("👑 خرید اشتراک ۱ ساله ویندوز (۳۶۵ روزه)", callback_data="buy_1Y"))
+        return markup, "👑 ۱ ساله ویندوز (۳۶۵ روزه)"
+
+    elif button_type == "both_1Y":
+        markup.row_width = 2
+        markup.add(
+            types.InlineKeyboardButton("👑 ۱ ساله اندروید", callback_data="buy_AN1Y"),
+            types.InlineKeyboardButton("👑 ۱ ساله ویندوز", callback_data="buy_1Y")
+        )
+        return markup, "👑 ۱ ساله اندروید + 👑 ۱ ساله ویندوز"
+
+    elif button_type == "AN3M":
+        markup.add(types.InlineKeyboardButton("💎 خرید اشتراک ۳ ماهه اندروید", callback_data="buy_AN3M"))
+        return markup, "💎 ۳ ماهه اندروید"
+
+    elif button_type == "3M":
+        markup.add(types.InlineKeyboardButton("💎 خرید اشتراک ۳ ماهه ویندوز", callback_data="buy_3M"))
+        return markup, "💎 ۳ ماهه ویندوز"
+
+    elif button_type == "support":
+        markup.add(types.InlineKeyboardButton("💬 ارتباط با پشتیبانی", callback_data="start_support"))
+        return markup, "💬 ارتباط با پشتیبانی"
+
+    elif button_type == "receipt":
+        markup.add(types.InlineKeyboardButton("🧾 ارسال رسید پرداخت", callback_data="submit_receipt"))
+        return markup, "🧾 ارسال رسید پرداخت"
+
+    elif button_type == "account":
+        markup.add(types.InlineKeyboardButton("👤 حساب کاربری من", callback_data="my_account"))
+        return markup, "👤 حساب کاربری من"
+
+    return None, "بدون دکمه شیشه‌ای"
+
+def broadcast_button_options_keyboard():
+    """Keyboard for admin to choose which inline button to attach to the broadcast."""
+    markup = types.InlineKeyboardMarkup(row_width=2)
+    markup.add(
+        types.InlineKeyboardButton("🚫 بدون دکمه شیشه‌ای", callback_data="bc_btn_none"),
+        types.InlineKeyboardButton("🛒 خرید اشتراک (منوی کلی)", callback_data="bc_btn_plans")
+    )
+    markup.add(
+        types.InlineKeyboardButton("👑 ۱ ساله اندروید", callback_data="bc_btn_AN1Y"),
+        types.InlineKeyboardButton("👑 ۱ ساله ویندوز", callback_data="bc_btn_1Y")
+    )
+    markup.add(
+        types.InlineKeyboardButton("👑 هر دو پلن ۱ ساله (کنار هم)", callback_data="bc_btn_both_1Y")
+    )
+    markup.add(
+        types.InlineKeyboardButton("📱 منوی اندروید", callback_data="bc_btn_android"),
+        types.InlineKeyboardButton("💻 منوی ویندوز", callback_data="bc_btn_windows")
+    )
+    markup.add(
+        types.InlineKeyboardButton("📱 اندروید + 💻 ویندوز (دو دکمه)", callback_data="bc_btn_both")
+    )
+    markup.add(
+        types.InlineKeyboardButton("💎 ۳ ماهه اندروید", callback_data="bc_btn_AN3M"),
+        types.InlineKeyboardButton("💎 ۳ ماهه ویندوز", callback_data="bc_btn_3M")
+    )
+    markup.add(
+        types.InlineKeyboardButton("💬 دکمه پشتیبانی", callback_data="bc_btn_support"),
+        types.InlineKeyboardButton("🧾 دکمه ارسال رسید", callback_data="bc_btn_receipt")
+    )
+    markup.add(types.InlineKeyboardButton("❌ انصراف و لغو ارسال", callback_data="cancel_broadcast"))
+    return markup
+
 def _start_broadcast_prompt(chat_id: int):
     """Initiates the broadcast workflow prompting the admin for message."""
     set_admin_state({"state": "waiting_broadcast_msg", "time": int(time.time())}, admin_id=chat_id)
@@ -880,18 +976,18 @@ def _start_broadcast_prompt(chat_id: int):
     markup.add(types.InlineKeyboardButton("❌ انصراف و بازگشت", callback_data="cancel_broadcast"))
     safe_send_message(chat_id, prompt_text, reply_markup=markup)
 
-def _run_broadcast_thread(chat_id: int, msg_id: int, is_forward: bool):
+def _run_broadcast_thread(chat_id: int, msg_id: int, is_forward: bool, button_type: str = "none"):
     """Asynchronously broadcasts/forwards message to all users safely with rate limiting."""
     global BROADCAST_ACTIVE, BROADCAST_CANCELLED
     BROADCAST_ACTIVE = True
     BROADCAST_CANCELLED = False
 
     try:
-        _do_run_broadcast(chat_id, msg_id, is_forward)
+        _do_run_broadcast(chat_id, msg_id, is_forward, button_type)
     finally:
         BROADCAST_ACTIVE = False
 
-def _do_run_broadcast(chat_id: int, msg_id: int, is_forward: bool):
+def _do_run_broadcast(chat_id: int, msg_id: int, is_forward: bool, button_type: str = "none"):
     global BROADCAST_CANCELLED
     db = load_db()
     all_uids = get_all_broadcast_targets(db)
@@ -900,14 +996,18 @@ def _do_run_broadcast(chat_id: int, msg_id: int, is_forward: bool):
         safe_send_message(chat_id, "⚠️ هیچ کاربری برای ارسال پیام در دیتابیس یافت نشد!")
         return
 
-    action_label = "فوروارد" if is_forward else "ارسال مستقیم"
+    reply_markup, btn_title = get_broadcast_reply_markup(button_type)
+    action_label = "فوروارد" if is_forward and not reply_markup else "ارسال مستقیم"
+    btn_info = f"\n🔘 دکمه پیوست: *{btn_title}*" if reply_markup else ""
+
     stop_markup = types.InlineKeyboardMarkup()
     stop_markup.add(types.InlineKeyboardButton("🛑 لغو و توقف ارسال", callback_data="abort_active_broadcast"))
 
     status_msg = safe_send_message(
         chat_id,
         f"🚀 *عملیات {action_label} همگانی آغاز شد...*\n\n"
-        f"👥 کل مخاطبان: {total} نفر (تمام کاربران استارت‌زده)\n"
+        f"👥 کل مخاطبان: {total} نفر (تمام کاربران استارت‌زده)"
+        f"{btn_info}\n"
         f"⏳ لطفاً صبور باشید، گزارش درصد پیشرفت به صورت زنده نمایش داده می‌شود...",
         reply_markup=stop_markup
     )
@@ -925,10 +1025,10 @@ def _do_run_broadcast(chat_id: int, msg_id: int, is_forward: bool):
             break
         uid_str = str(target_id)
         try:
-            if is_forward:
+            if is_forward and not reply_markup:
                 bot.forward_message(chat_id=target_id, from_chat_id=chat_id, message_id=msg_id)
             else:
-                bot.copy_message(chat_id=target_id, from_chat_id=chat_id, message_id=msg_id)
+                bot.copy_message(chat_id=target_id, from_chat_id=chat_id, message_id=msg_id, reply_markup=reply_markup)
             success_count += 1
         except telebot.apihelper.ApiTelegramException as e:
             err_msg = str(e).lower()
@@ -945,10 +1045,10 @@ def _do_run_broadcast(chat_id: int, msg_id: int, is_forward: bool):
                 wait_sec = int(m.group(1)) if m else 5
                 time.sleep(wait_sec + 1)
                 try:
-                    if is_forward:
+                    if is_forward and not reply_markup:
                         bot.forward_message(chat_id=target_id, from_chat_id=chat_id, message_id=msg_id)
                     else:
-                        bot.copy_message(chat_id=target_id, from_chat_id=chat_id, message_id=msg_id)
+                        bot.copy_message(chat_id=target_id, from_chat_id=chat_id, message_id=msg_id, reply_markup=reply_markup)
                     success_count += 1
                 except Exception:
                     fail_count += 1
@@ -3434,16 +3534,122 @@ def handle_callbacks(call):
             safe_send_message(call.message.chat.id, "❌ عملیات ارسال همگانی لغو شد.")
         bot.answer_callback_query(call.id, "لغو شد")
 
+    elif data.startswith("bc_btn_"):
+        if not is_admin(uid):
+            bot.answer_callback_query(call.id, "دسترسی غیرمجاز!")
+            return
+        btn_choice = data.replace("bc_btn_", "")
+        adm_state = get_admin_state(uid)
+        chat_id = adm_state.get("chat_id")
+        msg_id = adm_state.get("msg_id")
+        if not chat_id or not msg_id:
+            bot.answer_callback_query(call.id, "پیام منقضی شده است. لطفاً مجدداً ارسال کنید.", show_alert=True)
+            return
+
+        adm_state["button_choice"] = btn_choice
+        adm_state["state"] = "confirm_broadcast_final"
+        set_admin_state(adm_state, admin_id=uid)
+
+        reply_markup, btn_title = get_broadcast_reply_markup(btn_choice)
+        db_now = load_db()
+        tot_targets = len(get_all_broadcast_targets(db_now))
+
+        if btn_choice == "none":
+            markup = types.InlineKeyboardMarkup(row_width=2)
+            markup.add(
+                types.InlineKeyboardButton("🔄 فوروارد همگانی (با نقل‌قول منبع)", callback_data="do_fwd_all"),
+                types.InlineKeyboardButton("📋 کپی مستقیم (بدون نقل‌قول)", callback_data="do_copy_all")
+            )
+            markup.add(types.InlineKeyboardButton("🔄 تغییر دکمه شیشه‌ای", callback_data="bc_change_btn"))
+            markup.add(types.InlineKeyboardButton("❌ انصراف و لغو", callback_data="cancel_broadcast"))
+            text_confirm = (
+                f"📢 *تنظیمات ارسال همگانی (بدون دکمه)*\n\n"
+                f"👥 کل مخاطبان: *{tot_targets} نفر*\n\n"
+                f"لطفاً نحوه ارسال به کاربران را انتخاب کنید:\n"
+                f"• *فوروارد:* پیام با نقل‌قول رسمی (Forward) و نام کانال ارسال می‌شود.\n"
+                f"• *کپی مستقیم:* پیام عینا و بدون نقل‌قول برای کاربران ارسال می‌شود."
+            )
+            try:
+                bot.edit_message_text(text_confirm, call.message.chat.id, call.message.message_id, reply_markup=markup, parse_mode="Markdown")
+            except Exception:
+                safe_send_message(call.message.chat.id, text_confirm, reply_markup=markup)
+        else:
+            # ارسال پیش‌نمایش به خود ادمین
+            try:
+                bot.copy_message(
+                    chat_id=call.message.chat.id,
+                    from_chat_id=chat_id,
+                    message_id=msg_id,
+                    reply_markup=reply_markup
+                )
+            except Exception as ep:
+                print(f"[broadcast_preview] error: {ep}")
+
+            markup = types.InlineKeyboardMarkup(row_width=1)
+            markup.add(
+                types.InlineKeyboardButton("🚀 تایید نهایی و شروع ارسال همگانی", callback_data="do_broadcast_with_btn"),
+                types.InlineKeyboardButton("🔄 تغییر دکمه شیشه‌ای", callback_data="bc_change_btn"),
+                types.InlineKeyboardButton("❌ انصراف و لغو", callback_data="cancel_broadcast")
+            )
+            confirm_card = (
+                f"👆 *پیش‌نمایش پیام با دکمه شیشه‌ای در بالا ارسال شد.*\n\n"
+                f"📋 *مشخصات ارسال:*\n"
+                f"🔘 دکمه انتخابی: *{btn_title}*\n"
+                f"👥 کل مخاطبان هدف: *{tot_targets} نفر (۱۰۰٪ کل اعضا)*\n\n"
+                f"آیا این پیام جهت ارسال همگانی مورد تایید شماست؟"
+            )
+            safe_send_message(call.message.chat.id, confirm_card, reply_markup=markup)
+        safe_answer_callback(call.id)
+
+    elif data == "bc_change_btn":
+        if not is_admin(uid):
+            return
+        db_now = load_db()
+        tot_targets = len(get_all_broadcast_targets(db_now))
+        prompt_txt = (
+            f"🔘 *انتخاب دکمه شیشه‌ای زیر پیام:*\n"
+            f"👥 تعداد کل مخاطبان هدف: *{tot_targets} نفر*\n\n"
+            f"لطفاً گزینه‌ی مورد نظر خود را انتخاب فرمایید: 👇"
+        )
+        try:
+            bot.edit_message_text(prompt_txt, call.message.chat.id, call.message.message_id, reply_markup=broadcast_button_options_keyboard(), parse_mode="Markdown")
+        except Exception:
+            safe_send_message(call.message.chat.id, prompt_txt, reply_markup=broadcast_button_options_keyboard())
+        safe_answer_callback(call.id)
+
+    elif data == "do_broadcast_with_btn":
+        if not is_admin(uid):
+            bot.answer_callback_query(call.id, "دسترسی غیرمجاز!")
+            return
+        adm_state = get_admin_state(uid)
+        chat_id = adm_state.get("chat_id")
+        msg_id = adm_state.get("msg_id")
+        btn_choice = adm_state.get("button_choice", "none")
+        if not chat_id or not msg_id:
+            bot.answer_callback_query(call.id, "پیام برای ارسال یافت نشد یا منقضی شده است.", show_alert=True)
+            return
+        clear_admin_state(uid)
+        try:
+            bot.delete_message(call.message.chat.id, call.message.message_id)
+        except Exception:
+            pass
+        bot.answer_callback_query(call.id, "ارسال همگانی آغاز شد...")
+        threading.Thread(
+            target=_run_broadcast_thread,
+            args=(chat_id, msg_id, False, btn_choice),
+            daemon=True
+        ).start()
+
     elif data in ("do_fwd_all", "do_copy_all"):
         if not is_admin(uid):
             bot.answer_callback_query(call.id, "دسترسی غیرمجاز!")
             return
         adm_state = get_admin_state(uid)
-        if adm_state.get("state") != "confirm_broadcast":
-            bot.answer_callback_query(call.id, "پیام برای ارسال یافت نشد یا منقضی شده است.", show_alert=True)
-            return
         chat_id = adm_state.get("chat_id")
         msg_id = adm_state.get("msg_id")
+        if not chat_id or not msg_id:
+            bot.answer_callback_query(call.id, "پیام برای ارسال یافت نشد یا منقضی شده است.", show_alert=True)
+            return
         is_fwd = (data == "do_fwd_all")
         clear_admin_state(uid)
         try:
@@ -3453,7 +3659,7 @@ def handle_callbacks(call):
         bot.answer_callback_query(call.id, "ارسال همگانی آغاز شد...")
         threading.Thread(
             target=_run_broadcast_thread,
-            args=(chat_id, msg_id, is_fwd),
+            args=(chat_id, msg_id, is_fwd, "none"),
             daemon=True
         ).start()
 
@@ -3570,27 +3776,21 @@ def handle_photos_and_docs(message):
         adm_state = get_admin_state(uid)
         if adm_state.get("state") == "waiting_broadcast_msg":
             set_admin_state({
-                "state": "confirm_broadcast",
+                "state": "select_broadcast_button",
                 "chat_id": message.chat.id,
                 "msg_id": message.message_id,
                 "time": int(time.time())
             }, admin_id=uid)
-            markup = types.InlineKeyboardMarkup(row_width=2)
-            markup.add(
-                types.InlineKeyboardButton("🔄 فوروارد همگانی (Forward)", callback_data="do_fwd_all"),
-                types.InlineKeyboardButton("📋 کپی و ارسال مستقیم (Copy)", callback_data="do_copy_all")
-            )
-            markup.add(types.InlineKeyboardButton("❌ انصراف و لغو", callback_data="cancel_broadcast"))
             db_now = load_db()
             tot_targets = len(get_all_broadcast_targets(db_now))
             safe_reply_to(
                 message,
                 f"📢 *رسانه / پست شما جهت ارسال همگانی دریافت شد.*\n\n"
                 f"👥 تعداد کل مخاطبان هدف: *{tot_targets} نفر (۱۰۰٪ کل اعضا)*\n\n"
-                f"لطفاً نحوه ارسال به کاربران را انتخاب کنید:\n\n"
-                f"• *فوروارد:* پیام با نقل‌قول رسمی (Forward) و نام کانال ارسال می‌شود.\n"
-                f"• *کپی مستقیم:* پیام عینا و بدون نقل‌قول برای کاربران ارسال می‌شود.",
-                reply_markup=markup
+                f"🔘 *انتخاب دکمه شیشه‌ای زیر پیام:*\n"
+                f"آیا مایلید دکمه شیشه‌ای (دکمه‌های پلن/خرید) در زیر این پیام قرار گیرد؟\n"
+                f"لطفاً گزینه‌ی مورد نظر خود را انتخاب فرمایید: 👇",
+                reply_markup=broadcast_button_options_keyboard()
             )
             return
 
@@ -3785,27 +3985,21 @@ def handle_general_text(message):
                     return
             else:
                 set_admin_state({
-                    "state": "confirm_broadcast",
+                    "state": "select_broadcast_button",
                     "chat_id": message.chat.id,
                     "msg_id": message.message_id,
                     "time": int(time.time())
                 }, admin_id=uid)
-                markup = types.InlineKeyboardMarkup(row_width=2)
-                markup.add(
-                    types.InlineKeyboardButton("🔄 فوروارد همگانی (Forward)", callback_data="do_fwd_all"),
-                    types.InlineKeyboardButton("📋 کپی و ارسال مستقیم (Copy)", callback_data="do_copy_all")
-                )
-                markup.add(types.InlineKeyboardButton("❌ انصراف و لغو", callback_data="cancel_broadcast"))
                 db_now = load_db()
                 tot_targets = len(get_all_broadcast_targets(db_now))
                 safe_reply_to(
                     message,
-                    f"📢 *پیام / پست شما جهت ارسال همگانی دریافت شد.*\n\n"
+                    f"📢 *پیام شما جهت ارسال همگانی دریافت شد.*\n\n"
                     f"👥 تعداد کل مخاطبان هدف: *{tot_targets} نفر (۱۰۰٪ کل اعضا)*\n\n"
-                    f"لطفاً نحوه ارسال به کاربران را انتخاب فرمایید:\n\n"
-                    f"• *فوروارد:* پیام با نقل‌قول رسمی (Forward) و نام کانال ارسال می‌شود.\n"
-                    f"• *کپی مستقیم:* متن پیام عینا و بدون نقل‌قول برای کاربران ارسال می‌شود.",
-                    reply_markup=markup
+                    f"🔘 *انتخاب دکمه شیشه‌ای زیر پیام:*\n"
+                    f"آیا مایلید دکمه شیشه‌ای (دکمه‌های پلن/خرید) در زیر این پیام قرار گیرد؟\n"
+                    f"لطفاً گزینه‌ی مورد نظر خود را انتخاب فرمایید: 👇",
+                    reply_markup=broadcast_button_options_keyboard()
                 )
                 return
 
