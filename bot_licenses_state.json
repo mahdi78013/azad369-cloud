@@ -5438,6 +5438,12 @@
       "user_id": 263737928,
       "issued_at": 1793182719,
       "method": "crypto_unique"
+    },
+    "AN2M-CF2E-57B6-C2E6": {
+      "plan": "AN2M",
+      "user_id": 673479086,
+      "issued_at": 1793182900,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -44663,9 +44669,18 @@
       "tron_amount": 0.787306,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_391d50f94178406690a08b095191b983",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=391d50f94178406690a08b095191b983",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793182711
+      "created_at": 1793182711,
+      "approved_at": 1793182900,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-CF2E-57B6-C2E6",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3014920",
+        "tron_amount": 0.787306,
+        "user_paid_toman": null,
+        "date": "2026-10-28T10:21:16.2800000"
+      }
     },
     "TRND-AN2M-6008981189-1793182716-eb7c9b": {
       "order_id": "TRND-AN2M-6008981189-1793182716-eb7c9b",
@@ -44682,6 +44697,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793182716
+    },
+    "TRND-AN2M-337421729-1793182857-636f23": {
+      "order_id": "TRND-AN2M-337421729-1793182857-636f23",
+      "token": "5fdbd87e3f304f1aa349d061a9376f41",
+      "user_id": 337421729,
+      "first_name": "mohammad",
+      "username": "hashem5006",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.805921,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_5fdbd87e3f304f1aa349d061a9376f41",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5fdbd87e3f304f1aa349d061a9376f41",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793182857
     }
   },
   "users": {
@@ -57030,7 +57061,15 @@
       "username": "Rezazare13",
       "first_seen": 1792233486,
       "last_seen": 1793182700,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-CF2E-57B6-C2E6",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793182900,
+          "days": 60
+        }
+      ]
     },
     "119795854": {
       "user_id": 119795854,
@@ -74747,7 +74786,7 @@
       "last_name": "",
       "username": "hashem5006",
       "first_seen": 1793181684,
-      "last_seen": 1793181684,
+      "last_seen": 1793182857,
       "purchases": []
     },
     "340684392": {
@@ -75162,6 +75201,24 @@
       "username": "ldmhti",
       "first_seen": 1793182704,
       "last_seen": 1793182704,
+      "purchases": []
+    },
+    "389638193": {
+      "user_id": 389638193,
+      "first_name": "M.A.H.D.I",
+      "last_name": "",
+      "username": "M_Blackwolf",
+      "first_seen": 1793182873,
+      "last_seen": 1793182873,
+      "purchases": []
+    },
+    "6014401330": {
+      "user_id": 6014401330,
+      "first_name": "Milad",
+      "last_name": "Bakhtiyar",
+      "username": "Milad_b_68",
+      "first_seen": 1793182891,
+      "last_seen": 1793182891,
       "purchases": []
     }
   },
