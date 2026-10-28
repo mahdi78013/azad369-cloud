@@ -6182,6 +6182,12 @@
       "user_id": 96095841,
       "issued_at": 1793210945,
       "method": "crypto_unique"
+    },
+    "AN1Y-512BCCB2-D89B-A844EE": {
+      "plan": "AN1Y",
+      "user_id": 1099349575,
+      "issued_at": 1793211062,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -50647,9 +50653,18 @@
       "tron_amount": 3.659918,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_45487726abc345abbf7b3db56db53a03",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=45487726abc345abbf7b3db56db53a03",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793210864
+      "created_at": 1793210864,
+      "approved_at": 1793211062,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-512BCCB2-D89B-A844EE",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3018955",
+        "tron_amount": 3.659918,
+        "user_paid_toman": null,
+        "date": "2026-10-28T18:10:59.5400000"
+      }
     },
     "TRND-AN2M-100076320-1793210961-59fe41": {
       "order_id": "TRND-AN2M-100076320-1793210961-59fe41",
@@ -84436,7 +84451,15 @@
       "username": "Telgasun",
       "first_seen": 1793210844,
       "last_seen": 1793210844,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN1Y-512BCCB2-D89B-A844EE",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793211062,
+          "days": 365
+        }
+      ]
     },
     "5922013839": {
       "user_id": 5922013839,
