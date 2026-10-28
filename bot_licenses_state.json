@@ -6026,6 +6026,12 @@
       "user_id": 420196657,
       "issued_at": 1793203201,
       "method": "crypto_unique"
+    },
+    "AN2M-F48B-E597-41BF": {
+      "plan": "AN2M",
+      "user_id": 7341350811,
+      "issued_at": 1793203813,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -49330,9 +49336,18 @@
       "tron_amount": 0.798868,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_910fd7e1bcf944d1ad101526189b77f0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=910fd7e1bcf944d1ad101526189b77f0",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793203658
+      "created_at": 1793203658,
+      "approved_at": 1793203813,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-F48B-E597-41BF",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3017707",
+        "tron_amount": 0.798868,
+        "user_paid_toman": null,
+        "date": "2026-10-28T16:09:38.6470000"
+      }
     }
   },
   "users": {
@@ -76275,7 +76290,7 @@
       "last_name": "",
       "username": "bobee_666",
       "first_seen": 1793033848,
-      "last_seen": 1793033848,
+      "last_seen": 1793203740,
       "purchases": []
     },
     "502144677": {
@@ -82336,7 +82351,15 @@
       "username": "",
       "first_seen": 1793203553,
       "last_seen": 1793203553,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-F48B-E597-41BF",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793203813,
+          "days": 60
+        }
+      ]
     },
     "124006216": {
       "user_id": 124006216,
@@ -82363,6 +82386,33 @@
       "username": "AmirReZZa8",
       "first_seen": 1793203665,
       "last_seen": 1793203665,
+      "purchases": []
+    },
+    "5631085111": {
+      "user_id": 5631085111,
+      "first_name": "Shahreiar",
+      "last_name": "",
+      "username": "C_persian1",
+      "first_seen": 1793203748,
+      "last_seen": 1793203748,
+      "purchases": []
+    },
+    "165162618": {
+      "user_id": 165162618,
+      "first_name": "Milad",
+      "last_name": "",
+      "username": "Rangriz_M",
+      "first_seen": 1793203752,
+      "last_seen": 1793203752,
+      "purchases": []
+    },
+    "7006490716": {
+      "user_id": 7006490716,
+      "first_name": "Hasan",
+      "last_name": "Vahid",
+      "username": "hasanvahid",
+      "first_seen": 1793203756,
+      "last_seen": 1793203756,
       "purchases": []
     }
   },
