@@ -7292,6 +7292,12 @@
       "user_id": 8366711777,
       "issued_at": 1793305391,
       "method": "crypto_unique"
+    },
+    "AN3M-8840B866-C67C-8BF482": {
+      "plan": "AN3M",
+      "user_id": 278735722,
+      "issued_at": 1793306043,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -60217,9 +60223,18 @@
       "tron_amount": 1.334197,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5e717b77383d426985dd08626e15dd46",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5e717b77383d426985dd08626e15dd46",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793305903
+      "created_at": 1793305903,
+      "approved_at": 1793306043,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-8840B866-C67C-8BF482",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3028843",
+        "tron_amount": 1.334197,
+        "user_paid_toman": null,
+        "date": "2026-10-29T20:33:28.1570000"
+      }
     }
   },
   "users": {
@@ -99361,6 +99376,50 @@
       "username": "",
       "first_seen": 1793305868,
       "last_seen": 1793305868,
+      "purchases": [
+        {
+          "key": "AN3M-8840B866-C67C-8BF482",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793306043,
+          "days": 90
+        }
+      ]
+    },
+    "70632898": {
+      "user_id": 70632898,
+      "first_name": "مجتبی",
+      "last_name": "",
+      "username": "Mojtaba2009",
+      "first_seen": 1793305982,
+      "last_seen": 1793305982,
+      "purchases": []
+    },
+    "367173141": {
+      "user_id": 367173141,
+      "first_name": "Shoeib",
+      "last_name": "Bahram",
+      "username": "shoeibbahram",
+      "first_seen": 1793306013,
+      "last_seen": 1793306013,
+      "purchases": []
+    },
+    "6976949884": {
+      "user_id": 6976949884,
+      "first_name": ".",
+      "last_name": ".",
+      "username": "mgh2026gh",
+      "first_seen": 1793306020,
+      "last_seen": 1793306020,
+      "purchases": []
+    },
+    "2104023181": {
+      "user_id": 2104023181,
+      "first_name": "Morteza,,",
+      "last_name": "Rah",
+      "username": "Zamin0o",
+      "first_seen": 1793306035,
+      "last_seen": 1793306035,
       "purchases": []
     }
   },
