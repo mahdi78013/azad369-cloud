@@ -6890,6 +6890,12 @@
       "user_id": 75562530,
       "issued_at": 1793268127,
       "method": "crypto_unique"
+    },
+    "AZ2M-C58F-D7D0-407E": {
+      "plan": "2M",
+      "user_id": 5501410002,
+      "issued_at": 1793268656,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -56613,9 +56619,18 @@
       "tron_amount": 0.788219,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9b16660d00af4dcc9787430fc20ecde9",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9b16660d00af4dcc9787430fc20ecde9",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793268407
+      "created_at": 1793268407,
+      "approved_at": 1793268656,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-C58F-D7D0-407E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3023837",
+        "tron_amount": 0.788219,
+        "user_paid_toman": null,
+        "date": "2026-10-29T10:10:37.6800000"
+      }
     },
     "TRND-AN1Y-90612874-1793268551-b609e0": {
       "order_id": "TRND-AN1Y-90612874-1793268551-b609e0",
@@ -56632,6 +56647,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793268551
+    },
+    "TRND-AN1Y-90612874-1793268630-c09e7b": {
+      "order_id": "TRND-AN1Y-90612874-1793268630-c09e7b",
+      "token": "4377795b55a746deb3a672245ed7d360",
+      "user_id": 90612874,
+      "first_name": "⁮⁮",
+      "username": "iam_amir22",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.645101,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_4377795b55a746deb3a672245ed7d360",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4377795b55a746deb3a672245ed7d360",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793268630
     }
   },
   "users": {
@@ -70797,7 +70828,15 @@
       "username": "Seddigh_arani",
       "first_seen": 1792307465,
       "last_seen": 1793268406,
-      "purchases": [],
+      "purchases": [
+        {
+          "key": "AZ2M-C58F-D7D0-407E",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793268656,
+          "days": 60
+        }
+      ],
       "blocked": true
     },
     "180796275": {
@@ -94406,6 +94445,11 @@
       "state": "awaiting_receipt",
       "plan_code": "AN2M",
       "time": 1793263798
+    },
+    "90612874": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN1Y",
+      "time": 1793268652
     }
   },
   "admin_states": {},
