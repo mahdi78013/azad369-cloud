@@ -6728,6 +6728,12 @@
       "user_id": 61095879,
       "issued_at": 1793258888,
       "method": "crypto_unique"
+    },
+    "AN2M-E2DF-3BA3-C2FD": {
+      "plan": "AN2M",
+      "user_id": 77050380,
+      "issued_at": 1793258889,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -55365,9 +55371,34 @@
       "tron_amount": 0.781898,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6ab184f355fd4a9c8286e97bf34140e0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6ab184f355fd4a9c8286e97bf34140e0",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793258760,
+      "approved_at": 1793258889,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-E2DF-3BA3-C2FD",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3022554",
+        "tron_amount": 0.781898,
+        "user_paid_toman": null,
+        "date": "2026-10-29T07:27:42.0770000"
+      }
+    },
+    "TRND-AN2M-1914706478-1793258895-05a8ad": {
+      "order_id": "TRND-AN2M-1914706478-1793258895-05a8ad",
+      "token": "75395f4c01e041f4ae22cbde85db62ba",
+      "user_id": 1914706478,
+      "first_name": "亗",
+      "username": "Matin_656",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.790358,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_75395f4c01e041f4ae22cbde85db62ba",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=75395f4c01e041f4ae22cbde85db62ba",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793258760
+      "created_at": 1793258895
     }
   },
   "users": {
@@ -92029,7 +92060,15 @@
       "username": "erfanomran",
       "first_seen": 1793258683,
       "last_seen": 1793258683,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-E2DF-3BA3-C2FD",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793258889,
+          "days": 60
+        }
+      ]
     },
     "1914706478": {
       "user_id": 1914706478,
