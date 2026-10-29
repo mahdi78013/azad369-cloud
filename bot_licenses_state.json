@@ -7370,6 +7370,12 @@
       "user_id": 5601521749,
       "issued_at": 1793312773,
       "method": "crypto_unique"
+    },
+    "AZ3M-716F-0CF7-8D79": {
+      "plan": "3M",
+      "user_id": 69147153,
+      "issued_at": 1793313576,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -11026,12 +11032,15 @@
       "first_name": "اینترنت آزاد³⁶⁹ - لایسنس نت ملی",
       "plan_code": "3M",
       "price": "۱۴۹,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAJQM2rSVSfKI1DPzvc_4jbfQVv7RU9QAAKfFGsbxNeQUhLZFfZHe69RAQADAgADdwADPQQ",
       "card_number": "5892101706458979",
       "created_at": 1792169269,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1793313576,
+      "approved_by": 748538264,
+      "key": "AZ3M-716F-0CF7-8D79"
     },
     "ORD_1792169618_6819536809": {
       "order_id": "ORD_1792169618_6819536809",
@@ -60931,9 +60940,10 @@
       "tron_amount": 0.736293,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_206e435d0be14e709ba798edb0921a4e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=206e435d0be14e709ba798edb0921a4e",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793312232
+      "created_at": 1793312232,
+      "cancelled_at": 1793313522
     },
     "TRND-AN2M-7990875306-1793312235-2f5573": {
       "order_id": "TRND-AN2M-7990875306-1793312235-2f5573",
@@ -61745,7 +61755,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "Mahdi780111",
-      "last_seen": 1793312410,
+      "last_seen": 1793313556,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -70049,6 +70059,13 @@
           "plan": "3M",
           "plan_name": "۳ ماهه (۹۰ روزه)",
           "issued_at": 1792168999,
+          "days": 90
+        },
+        {
+          "key": "AZ3M-716F-0CF7-8D79",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793313576,
           "days": 90
         }
       ]
@@ -100761,6 +100778,15 @@
       "username": "Peyman_abbasnezhad",
       "first_seen": 1793313322,
       "last_seen": 1793313322,
+      "purchases": []
+    },
+    "6178749395": {
+      "user_id": 6178749395,
+      "first_name": "Mersam.174",
+      "last_name": "",
+      "username": "Mersam1939",
+      "first_seen": 1793313561,
+      "last_seen": 1793313561,
       "purchases": []
     }
   },
