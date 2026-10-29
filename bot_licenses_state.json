@@ -48612,9 +48612,10 @@
       "tron_amount": 1.095842,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_7c0e6e0202954bd193e01774415859f3",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7c0e6e0202954bd193e01774415859f3",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793192337
+      "created_at": 1793192337,
+      "cancelled_at": 1793273942
     },
     "TRND-AN2M-735020105-1793192428-1d62a5": {
       "order_id": "TRND-AN2M-735020105-1793192428-1d62a5",
@@ -95096,7 +95097,12 @@
       "time": 1793269778
     }
   },
-  "admin_states": {},
+  "admin_states": {
+    "748538264": {
+      "state": "waiting_broadcast_msg",
+      "time": 1793273951
+    }
+  },
   "trial_users": {},
   "card_state": {
     "current_index": 1,
