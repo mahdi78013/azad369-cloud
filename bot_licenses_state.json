@@ -6974,6 +6974,12 @@
       "user_id": 83721534,
       "issued_at": 1793277324,
       "method": "crypto_unique"
+    },
+    "AZ2M-7065-36A2-F72E": {
+      "plan": "2M",
+      "user_id": 584159089,
+      "issued_at": 1793277957,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -57496,9 +57502,10 @@
       "tron_amount": 0.790522,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b02baba93d9e4144bf5141dcd8729d48",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b02baba93d9e4144bf5141dcd8729d48",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793277789
+      "created_at": 1793277789,
+      "cancelled_at": 1793277922
     },
     "TRND-AN2M-6214182198-1793277804-5c3a85": {
       "order_id": "TRND-AN2M-6214182198-1793277804-5c3a85",
@@ -57544,9 +57551,34 @@
       "tron_amount": 0.800389,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_012f3a20f2b34f2381f04b65626af9df",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=012f3a20f2b34f2381f04b65626af9df",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793277859,
+      "approved_at": 1793277957,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-7065-36A2-F72E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3024961",
+        "tron_amount": 0.800389,
+        "user_paid_toman": null,
+        "date": "2026-10-29T12:45:47.7030000"
+      }
+    },
+    "TRND-AN2M-6214182198-1793277877-155531": {
+      "order_id": "TRND-AN2M-6214182198-1793277877-155531",
+      "token": "9d32d3f9fd76404d8145e97cb4ba1ace",
+      "user_id": 6214182198,
+      "first_name": "Reza",
+      "username": "Rezavakilzadehh",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.794907,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_9d32d3f9fd76404d8145e97cb4ba1ace",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9d32d3f9fd76404d8145e97cb4ba1ace",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793277859
+      "created_at": 1793277877
     }
   },
   "users": {
@@ -95296,7 +95328,15 @@
       "username": "ItsMahdii",
       "first_seen": 1793277761,
       "last_seen": 1793277761,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-7065-36A2-F72E",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793277957,
+          "days": 60
+        }
+      ]
     }
   },
   "user_states": {
