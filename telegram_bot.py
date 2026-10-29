@@ -2153,9 +2153,18 @@ def admin_dashboard_keyboard():
     b_a3 = types.InlineKeyboardButton("💎 اندروید ۳ ماهه", callback_data="adm_AN3M")
     b_a4 = types.InlineKeyboardButton("👑 اندروید ۱ ساله", callback_data="adm_AN1Y")
 
+    db_cache = load_db()
+    unapproved_orders = [o for o in db_cache.get("orders", {}).values() if isinstance(o, dict) and o.get("status") == "pending"]
+    unapproved_count = len(unapproved_orders)
+    if unapproved_count > 0:
+        btn_unappr_label = f"🚨 رسیدهای تایید نشده ({unapproved_count} عدد در صف) 🚨"
+    else:
+        btn_unappr_label = "📋 رسیدهای تایید نشده (همه بررسی شدند ✅)"
+    b_unapproved = types.InlineKeyboardButton(btn_unappr_label, callback_data="adm_unapproved_receipts")
+
     b_plans = types.InlineKeyboardButton("📦 مدیریت موجودی پلن‌ها", callback_data="adm_plans_mgr")
     b_stat = types.InlineKeyboardButton("📊 موجودی لایسنس‌ها", callback_data="adm_stats")
-    b_pend = types.InlineKeyboardButton("⏳ سفارشات در انتظار", callback_data="adm_pending")
+    b_pend = types.InlineKeyboardButton("⏳ سفارشات در انتظار", callback_data="adm_unapproved_receipts")
     b_live = types.InlineKeyboardButton("📈 آمار آنلاین کاربران", callback_data="adm_live_stats")
     b_bc = types.InlineKeyboardButton("📢 فوروارد و پیام همگانی", callback_data="adm_broadcast")
     b_direct_msg = types.InlineKeyboardButton("✉️ ارسال مستقیم پیام به کاربر", callback_data="adm_send_direct_msg")
@@ -2171,6 +2180,7 @@ def admin_dashboard_keyboard():
     markup.add(b_and_hdr)
     markup.add(b_a1, b_a2)
     markup.add(b_a3, b_a4)
+    markup.add(b_unapproved)
     markup.add(b_plans)
     markup.add(b_stat, b_pend)
     markup.add(b_live, b_bc)
@@ -2651,11 +2661,14 @@ def btn_admin_panel(message):
     stats = get_inventory_stats()
     db = load_db()
     total_users = len(db.get("users", {}))
+    pending_receipts_cnt = sum(1 for o in db.get("orders", {}).values() if isinstance(o, dict) and o.get("status") == "pending")
+    pend_alert = f"\n⚠️ *رسیدهای تایید نشده در انتظار بررسی:* *{pending_receipts_cnt} عدد*\n" if pending_receipts_cnt > 0 else ""
     text = (
         f"👑 *پنل مدیریت ادمین*\n\n"
         f"👥 تعداد کل کاربران ثبت‌شده: *{total_users} نفر*\n"
         f"🏷️ موجودی کل کدهای آماده: *{stats['_total_available']} عدد*\n"
-        f"📦 مجموع فروش کل: *{stats['_total_sold']} عدد*\n\n"
+        f"📦 مجموع فروش کل: *{stats['_total_sold']} عدد*\n"
+        f"{pend_alert}\n"
         f"جهت صدور لایسنس، ارسال پیام همگانی، مدیریت کارت‌ها یا مشاهده آمار آنلاین انتخاب فرمایید:"
     )
     safe_send_message(message.chat.id, text, reply_markup=admin_dashboard_keyboard())
@@ -3748,39 +3761,95 @@ def handle_callbacks(call):
             lines.append(f"\n📦 *کل لایسنس‌های صادرشده تا کنون:* {stats['_total_sold']} عدد")
             safe_send_message(call.message.chat.id, "\n".join(lines))
             bot.answer_callback_query(call.id)
-        elif action == "pending":
+        elif action in ("unapproved_receipts", "pending"):
             db = load_db()
-            pending_orders = [o for o in db.get("orders", {}).values() if o.get("status") == "pending"]
-            if not pending_orders:
-                safe_send_message(call.message.chat.id, "✅ هیچ سفارش در انتخابی وجود ندارد.")
-                bot.answer_callback_query(call.id, "بدون سفارش در انتظار")
+            all_orders = db.get("orders", {})
+            unapproved = [
+                o for o in all_orders.values() 
+                if isinstance(o, dict) and o.get("status") == "pending"
+            ]
+            
+            if not unapproved:
+                safe_answer_callback(call.id, "✅ هیچ رسید تاییدنشده‌ای وجود ندارد.", show_alert=True)
+                safe_send_message(
+                    call.message.chat.id, 
+                    "✅ *تمامی رسیدها و فیش‌های پرداختی بررسی شده‌اند.*\nدر حال حاضر هیچ رسید تاییدنشده‌ای در صف انتظار وجود ندارد."
+                )
                 return
-            safe_send_message(call.message.chat.id, f"⏳ *تعداد سفارشات در انتظار بررسی: {len(pending_orders)} عدد*")
-            for o in pending_orders[-5:]:
-                o_id = o.get("order_id")
+
+            # Sort ascending by creation time so oldest pending receipts are reviewed first
+            unapproved.sort(key=lambda x: x.get("created_at", 0))
+            count_unapproved = len(unapproved)
+
+            safe_answer_callback(call.id, f"در حال ارسال {count_unapproved} رسید تاییدنشده...")
+            
+            intro_msg = (
+                f"📋 *فهرست رسیدهای تایید نشده ({count_unapproved} سفارش)*\n\n"
+                f"فیش‌ها و مشخصات هر خریدار در ادامه به همراه عکس و دکمه‌های تایید ارسال می‌شوند.\n"
+                f"شما می‌توانید با کلیک روی دکمه‌های زیر هر فیش، لایسنس را فوراً صادر کنید، سفارش را رد کنید یا مستقیماً به خریدار پیام دهید."
+            )
+            safe_send_message(call.message.chat.id, intro_msg)
+
+            for idx, o in enumerate(unapproved, start=1):
+                o_id = o.get("order_id", "—")
+                buyer_id = o.get("user_id")
                 p_code = o.get("plan_code", "1M")
                 p_info = PLANS_INFO.get(p_code, {})
                 p_name = p_info.get("name", p_code)
-                rec_text_str = escape_md(o.get('receipt_text', ''))
-                rec_note = f"متن: {rec_text_str}\n" if rec_text_str else ""
-                card_used = o.get("card_number", "")
-                card_note = f"💳 کارت: `{card_used}`\n" if card_used else ""
-                o_msg = (
-                    f"🏷️ سفارش: `{o_id}`\n"
-                    f"👤 کاربر: {escape_md(o.get('first_name', ''))} (@{escape_md(o.get('username', 'ندارد'))})\n"
-                    f"🆔 آیدی: `{o.get('user_id')}`\n"
-                    f"📦 پلن: *{escape_md(p_name)}* | {o.get('price', '')}\n"
-                    f"نوع رسید: {o.get('receipt_type', 'نامشخص')}\n"
-                    f"{card_note}"
-                    f"{rec_note}"
+                price_val = o.get("price", p_info.get("price", "—"))
+                first_name = o.get("first_name", "کاربر")
+                username = o.get("username", "ندارد")
+                username_str = f"@{escape_md(username)}" if username and username != "ندارد" else "ندارد"
+                card_used = o.get("card_number", "—")
+                created_ts = o.get("created_at", time.time())
+                try:
+                    time_str = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(created_ts))
+                except Exception:
+                    time_str = str(created_ts)
+
+                caption_text = o.get("caption") or o.get("receipt_text") or ""
+                user_caption_note = f"\n💬 متن همراه فیش: `{escape_md(caption_text)}`" if caption_text else ""
+
+                tronado_auth = check_user_tronado_authenticity(buyer_id, p_code, caption_text)
+                tronado_note = f"\n\n{tronado_auth['summary']}" if tronado_auth.get("summary") else ""
+
+                card_caption = (
+                    f"🧾 *رسید تایید نشده ({idx} از {count_unapproved})*\n\n"
+                    f"🏷️ شماره سفارش: `{o_id}`\n"
+                    f"👤 خریدار: {escape_md(first_name)} ({username_str})\n"
+                    f"🆔 آیدی عددی: `{buyer_id}`\n"
+                    f"📦 پلن درخواستی: *{escape_md(p_name)}*\n"
+                    f"💰 مبلغ فاکتور: *{price_val}*\n"
+                    f"💳 کارت مقصد: `{card_used}`\n"
+                    f"⏰ زمان ثبت: `{time_str}`"
+                    f"{user_caption_note}"
+                    f"{tronado_note}"
                 )
-                markup = types.InlineKeyboardMarkup(row_width=2)
-                markup.add(
-                    types.InlineKeyboardButton("✅ تایید", callback_data=f"appr_{o_id}"),
-                    types.InlineKeyboardButton("❌ رد", callback_data=f"rej_{o_id}")
-                )
-                safe_send_message(call.message.chat.id, o_msg, reply_markup=markup)
-            bot.answer_callback_query(call.id)
+                if len(card_caption) > 1020:
+                    card_caption = card_caption[:1015] + "..."
+
+                admin_markup = types.InlineKeyboardMarkup(row_width=2)
+                b_approve = types.InlineKeyboardButton("✅ تایید و صدور لایسنس", callback_data=f"appr_{o_id}")
+                b_reject = types.InlineKeyboardButton("❌ رد سفارش", callback_data=f"rej_{o_id}")
+                b_msg = types.InlineKeyboardButton("✉️ ارسال پیام به کاربر", callback_data=f"reply_user_{buyer_id}")
+                admin_markup.add(b_approve, b_reject)
+                admin_markup.add(b_msg)
+
+                file_id = o.get("file_id")
+                rec_type = o.get("receipt_type", "photo")
+
+                sent_res = None
+                if file_id:
+                    if rec_type == "document":
+                        sent_res = safe_send_document(call.message.chat.id, file_id, caption=card_caption, reply_markup=admin_markup)
+                    else:
+                        sent_res = safe_send_photo(call.message.chat.id, file_id, caption=card_caption, reply_markup=admin_markup)
+
+                if not sent_res:
+                    safe_send_message(call.message.chat.id, card_caption, reply_markup=admin_markup)
+
+                time.sleep(0.35)
+            return
         elif action in PLANS_INFO:
             try:
                 bot.answer_callback_query(call.id, "در حال صدور لایسنس یکتا...")
@@ -3905,11 +3974,14 @@ def handle_callbacks(call):
             stats = get_inventory_stats()
             db = load_db()
             total_users = len(db.get("users", {}))
+            pending_receipts_cnt = sum(1 for o in db.get("orders", {}).values() if isinstance(o, dict) and o.get("status") == "pending")
+            pend_alert = f"\n⚠️ *رسیدهای تایید نشده در انتظار بررسی:* *{pending_receipts_cnt} عدد*\n" if pending_receipts_cnt > 0 else ""
             text = (
                 f"👑 *پنل مدیریت ادمین*\n\n"
                 f"👥 تعداد کل کاربران ثبت‌شده: *{total_users} نفر*\n"
                 f"🏷️ موجودی کل کدهای آماده: *{stats['_total_available']} عدد*\n"
-                f"📦 مجموع فروش کل: *{stats['_total_sold']} عدد*\n\n"
+                f"📦 مجموع فروش کل: *{stats['_total_sold']} عدد*\n"
+                f"{pend_alert}\n"
                 f"جهت صدور لایسنس، ارسال پیام همگانی، مدیریت کارت‌ها یا مشاهده آمار آنلاین انتخاب فرمایید:"
             )
             try:
