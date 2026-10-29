@@ -7154,6 +7154,12 @@
       "user_id": 5813434281,
       "issued_at": 1793294845,
       "method": "crypto_unique"
+    },
+    "AN3M-9F24-CB18-C701": {
+      "plan": "AN3M",
+      "user_id": 6727105529,
+      "issued_at": 1793294908,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -59031,9 +59037,18 @@
       "tron_amount": 1.32817,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_2d233320bca7455888e97ba2b6395c68",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2d233320bca7455888e97ba2b6395c68",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793294569
+      "created_at": 1793294569,
+      "approved_at": 1793294908,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-9F24-CB18-C701",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3027108",
+        "tron_amount": 1.32817,
+        "user_paid_toman": null,
+        "date": "2026-10-29T17:25:27.4200000"
+      }
     },
     "TRND-AN1Y-106438913-1793294736-2fff53": {
       "order_id": "TRND-AN1Y-106438913-1793294736-2fff53",
@@ -63969,7 +63984,7 @@
       "last_name": "",
       "username": "siros58",
       "first_seen": 1792073605,
-      "last_seen": 1793294237,
+      "last_seen": 1793294875,
       "purchases": [
         {
           "key": "AZ3M-5092-A490-D904",
@@ -97600,7 +97615,15 @@
       "username": "Jvd_akbari_adv",
       "first_seen": 1793294558,
       "last_seen": 1793294558,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-9F24-CB18-C701",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793294908,
+          "days": 90
+        }
+      ]
     },
     "1480198520": {
       "user_id": 1480198520,
@@ -98080,6 +98103,11 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793294760
+    },
+    "1086790981": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN3M",
+      "time": 1793294875
     }
   },
   "admin_states": {},
