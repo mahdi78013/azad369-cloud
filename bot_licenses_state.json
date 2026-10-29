@@ -7466,6 +7466,12 @@
       "user_id": 5361530527,
       "issued_at": 1793314905,
       "method": "crypto_unique"
+    },
+    "AN2M-24B5-72A1-199A": {
+      "plan": "AN2M",
+      "user_id": 649316394,
+      "issued_at": 1793314909,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -61401,9 +61407,18 @@
       "tron_amount": 0.754038,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4be0356df63a4f38a57d8e6d051d956a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4be0356df63a4f38a57d8e6d051d956a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793314792
+      "created_at": 1793314792,
+      "approved_at": 1793314909,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-24B5-72A1-199A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3029752",
+        "tron_amount": 0.754038,
+        "user_paid_toman": null,
+        "date": "2026-10-29T23:01:40.7930000"
+      }
     },
     "TRND-2M-993923092-1793314802-bccd8c": {
       "order_id": "TRND-2M-993923092-1793314802-bccd8c",
@@ -89016,6 +89031,13 @@
           "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
           "issued_at": 1793035589,
           "days": 90
+        },
+        {
+          "key": "AN2M-24B5-72A1-199A",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793314909,
+          "days": 60
         }
       ]
     },
