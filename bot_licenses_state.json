@@ -6962,6 +6962,12 @@
       "user_id": 150870356,
       "issued_at": 1793276439,
       "method": "crypto_unique"
+    },
+    "AN2M-9287-C846-FCB8": {
+      "plan": "AN2M",
+      "user_id": 71148043,
+      "issued_at": 1793277174,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -57402,9 +57408,18 @@
       "tron_amount": 0.784849,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d584964091bd492996a327984e61dcc3",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d584964091bd492996a327984e61dcc3",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793276936
+      "created_at": 1793276936,
+      "approved_at": 1793277174,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-9287-C846-FCB8",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3024868",
+        "tron_amount": 0.784849,
+        "user_paid_toman": null,
+        "date": "2026-10-29T12:30:45.1270000"
+      }
     },
     "TRND-1Y-747549582-1793277142-47d9ab": {
       "order_id": "TRND-1Y-747549582-1793277142-47d9ab",
@@ -58053,7 +58068,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "Mahdi780111",
-      "last_seen": 1793275459,
+      "last_seen": 1793277158,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -82559,7 +82574,7 @@
       "last_name": "Mohamadi",
       "username": "Mehrdad_m88",
       "first_seen": 1792963700,
-      "last_seen": 1793275792,
+      "last_seen": 1793277172,
       "purchases": []
     },
     "7050090748": {
@@ -95127,7 +95142,15 @@
       "username": "LeilaShakeri714",
       "first_seen": 1793276919,
       "last_seen": 1793276919,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-9287-C846-FCB8",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793277174,
+          "days": 60
+        }
+      ]
     },
     "747549582": {
       "user_id": 747549582,
@@ -95612,15 +95635,7 @@
       "time": 1793269778
     }
   },
-  "admin_states": {
-    "748538264": {
-      "state": "confirm_broadcast_final",
-      "chat_id": 748538264,
-      "msg_id": 101858,
-      "time": 1793275459,
-      "button_choice": "plans"
-    }
-  },
+  "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 1,
