@@ -6872,6 +6872,12 @@
       "user_id": 5040493915,
       "issued_at": 1793266754,
       "method": "crypto_unique"
+    },
+    "AN3M-2AA2-ED57-F5AC": {
+      "plan": "AN3M",
+      "user_id": 116873690,
+      "issued_at": 1793267483,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -56466,9 +56472,18 @@
       "tron_amount": 1.325641,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_25bba94ca5e3403abb5d78057e0d2dec",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=25bba94ca5e3403abb5d78057e0d2dec",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793267321
+      "created_at": 1793267321,
+      "approved_at": 1793267483,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-2AA2-ED57-F5AC",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3023702",
+        "tron_amount": 1.325641,
+        "user_paid_toman": null,
+        "date": "2026-10-29T09:50:22.2970000"
+      }
     }
   },
   "users": {
@@ -78618,6 +78633,13 @@
           "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
           "issued_at": 1792948281,
           "days": 365
+        },
+        {
+          "key": "AN3M-2AA2-ED57-F5AC",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793267483,
+          "days": 90
         }
       ]
     },
@@ -85315,7 +85337,7 @@
       "last_name": "",
       "username": "zenz_ho",
       "first_seen": 1793087781,
-      "last_seen": 1793187409,
+      "last_seen": 1793267413,
       "purchases": []
     },
     "7788485154": {
