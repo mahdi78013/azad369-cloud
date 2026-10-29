@@ -7286,6 +7286,12 @@
       "user_id": 275437692,
       "issued_at": 1793304521,
       "method": "crypto_unique"
+    },
+    "AZ2M-2692-BD10-6FCB": {
+      "plan": "2M",
+      "user_id": 8366711777,
+      "issued_at": 1793305391,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -60152,9 +60158,18 @@
       "tron_amount": 0.790284,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ba7ba82043664a389e9f2db79714fb9a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ba7ba82043664a389e9f2db79714fb9a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793305255
+      "created_at": 1793305255,
+      "approved_at": 1793305391,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-2692-BD10-6FCB",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3028735",
+        "tron_amount": 0.790284,
+        "user_paid_toman": null,
+        "date": "2026-10-29T20:22:56.5500000"
+      }
     }
   },
   "users": {
@@ -84843,8 +84858,16 @@
       "last_name": "حبیب پور",
       "username": "HabibpoorRepairShop",
       "first_seen": 1792953564,
-      "last_seen": 1793305083,
-      "purchases": []
+      "last_seen": 1793305390,
+      "purchases": [
+        {
+          "key": "AZ2M-2692-BD10-6FCB",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793305391,
+          "days": 60
+        }
+      ]
     },
     "8633388369": {
       "user_id": 8633388369,
@@ -99252,6 +99275,15 @@
       "username": "M4dxm",
       "first_seen": 1793305063,
       "last_seen": 1793305063,
+      "purchases": []
+    },
+    "1052722824": {
+      "user_id": 1052722824,
+      "first_name": "AmirAli",
+      "last_name": "Mft",
+      "username": "AmirAliMft",
+      "first_seen": 1793305385,
+      "last_seen": 1793305385,
       "purchases": []
     }
   },
