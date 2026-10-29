@@ -6500,6 +6500,12 @@
       "user_id": 6965110994,
       "issued_at": 1793232729,
       "method": "crypto_unique"
+    },
+    "AN2M-A40C-F094-D767": {
+      "plan": "AN2M",
+      "user_id": 6965110994,
+      "issued_at": 1793232937,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -53374,9 +53380,34 @@
       "tron_amount": 0.78659,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c3f3082aa1d24a07ba965c8fc2fdb3a5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c3f3082aa1d24a07ba965c8fc2fdb3a5",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793232773,
+      "approved_at": 1793232937,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-A40C-F094-D767",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3021406",
+        "tron_amount": 0.78659,
+        "user_paid_toman": null,
+        "date": "2026-10-29T00:14:13.6800000"
+      }
+    },
+    "TRND-AN2M-8741139425-1793232891-808019": {
+      "order_id": "TRND-AN2M-8741139425-1793232891-808019",
+      "token": "9a99bb0ac9254fb0ac2121fb525d2510",
+      "user_id": 8741139425,
+      "first_name": "Peyman",
+      "username": "ندارد",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.807522,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_9a99bb0ac9254fb0ac2121fb525d2510",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9a99bb0ac9254fb0ac2121fb525d2510",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793232773
+      "created_at": 1793232891
     }
   },
   "users": {
@@ -88893,6 +88924,13 @@
           "plan": "2M",
           "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
           "issued_at": 1793232729,
+          "days": 60
+        },
+        {
+          "key": "AN2M-A40C-F094-D767",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793232937,
           "days": 60
         }
       ]
