@@ -7358,6 +7358,12 @@
       "user_id": 111778942,
       "issued_at": 1793311498,
       "method": "crypto_unique"
+    },
+    "AN2M-EB86-24DD-BDA1": {
+      "plan": "AN2M",
+      "user_id": 397577083,
+      "issued_at": 1793312706,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -60962,9 +60968,34 @@
       "tron_amount": 0.740349,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_fa315a1b86774cfeb64d77047e8f1951",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=fa315a1b86774cfeb64d77047e8f1951",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793312242,
+      "approved_at": 1793312706,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-EB86-24DD-BDA1",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3029606",
+        "tron_amount": 0.740349,
+        "user_paid_toman": null,
+        "date": "2026-10-29T22:24:18.1570000"
+      }
+    },
+    "TRND-AN3M-5601521749-1793312639-db5d16": {
+      "order_id": "TRND-AN3M-5601521749-1793312639-db5d16",
+      "token": "967ad3cc9524474d942a354af2bf2516",
+      "user_id": 5601521749,
+      "first_name": "Ali",
+      "username": "Ali_sahebkhan1",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.217013,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_967ad3cc9524474d942a354af2bf2516",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=967ad3cc9524474d942a354af2bf2516",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793312242
+      "created_at": 1793312639
     }
   },
   "users": {
@@ -100565,7 +100596,15 @@
       "username": "Reza76999",
       "first_seen": 1793312174,
       "last_seen": 1793312174,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-EB86-24DD-BDA1",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793312706,
+          "days": 60
+        }
+      ]
     },
     "7990875306": {
       "user_id": 7990875306,
@@ -100601,6 +100640,15 @@
       "username": "mocn_mocni",
       "first_seen": 1793312466,
       "last_seen": 1793312466,
+      "purchases": []
+    },
+    "5601521749": {
+      "user_id": 5601521749,
+      "first_name": "Ali",
+      "last_name": "",
+      "username": "Ali_sahebkhan1",
+      "first_seen": 1793312613,
+      "last_seen": 1793312613,
       "purchases": []
     }
   },
