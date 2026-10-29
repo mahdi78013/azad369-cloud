@@ -6536,6 +6536,12 @@
       "user_id": 8731994690,
       "issued_at": 1793239557,
       "method": "crypto_unique"
+    },
+    "AZ1Y-6F53-143C-B8BA": {
+      "plan": "1Y",
+      "user_id": 497391179,
+      "issued_at": 1793239632,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -53785,9 +53791,18 @@
       "tron_amount": 3.666077,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_84d9962dfd6c46de8757bf287057a510",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=84d9962dfd6c46de8757bf287057a510",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793239307
+      "created_at": 1793239307,
+      "approved_at": 1793239632,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-6F53-143C-B8BA",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3021489",
+        "tron_amount": 3.666077,
+        "user_paid_toman": null,
+        "date": "2026-10-29T02:07:00.9770000"
+      }
     },
     "TRND-AN1Y-392825078-1793239365-a665b4": {
       "order_id": "TRND-AN1Y-392825078-1793239365-a665b4",
@@ -53804,6 +53819,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793239365
+    },
+    "TRND-2M-431515723-1793239606-ec16cc": {
+      "order_id": "TRND-2M-431515723-1793239606-ec16cc",
+      "token": "411f0c0cb88d4e53a246f396da230fb8",
+      "user_id": 431515723,
+      "first_name": "javad",
+      "username": "ندارد",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.795584,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_411f0c0cb88d4e53a246f396da230fb8",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=411f0c0cb88d4e53a246f396da230fb8",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793239606
     }
   },
   "users": {
@@ -89522,7 +89553,7 @@
       "last_name": "🐈‍⬛",
       "username": "marvelcopmany",
       "first_seen": 1793238208,
-      "last_seen": 1793239305,
+      "last_seen": 1793239631,
       "purchases": [
         {
           "key": "AN3M-A609-9E73-14E8",
@@ -89530,6 +89561,13 @@
           "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
           "issued_at": 1793238847,
           "days": 90
+        },
+        {
+          "key": "AZ1Y-6F53-143C-B8BA",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793239632,
+          "days": 365
         }
       ]
     },
