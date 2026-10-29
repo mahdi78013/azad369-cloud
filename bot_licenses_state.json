@@ -7076,6 +7076,12 @@
       "user_id": 7819358366,
       "issued_at": 1793290543,
       "method": "crypto_unique"
+    },
+    "AN2M-0FDE-BD6E-E42B": {
+      "plan": "AN2M",
+      "user_id": 751974754,
+      "issued_at": 1793291060,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -58559,9 +58565,32 @@
       "tron_amount": 0.778348,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_76db44570c4c472381c6c08dfab81522",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=76db44570c4c472381c6c08dfab81522",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793290794
+      "created_at": 1793290794,
+      "approved_at": 1793291060,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-0FDE-BD6E-E42B",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3026544",
+        "tron_amount": 0.778348,
+        "user_paid_toman": null,
+        "date": "2026-10-29T16:22:48.0500000"
+      }
+    },
+    "ORD_1793291010_129630978": {
+      "order_id": "ORD_1793291010_129630978",
+      "user_id": 129630978,
+      "username": "Y_taheeri",
+      "first_name": "(-_0)",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAEBkGJq43MBvqXvygm6bzqyVYnZIHZnXgACuRBrG7lqGVPZ4gOrURZE5wEAAwIAA3kAAz0E",
+      "card_number": "5047061670546072",
+      "created_at": 1793291010,
+      "caption": ""
     }
   },
   "users": {
@@ -96875,6 +96904,23 @@
       "username": "Miladabdevali",
       "first_seen": 1793290768,
       "last_seen": 1793290768,
+      "purchases": [
+        {
+          "key": "AN2M-0FDE-BD6E-E42B",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793291060,
+          "days": 60
+        }
+      ]
+    },
+    "144806513": {
+      "user_id": 144806513,
+      "first_name": "مــــــــــےـلآد♤",
+      "last_name": "",
+      "username": "MiladBorjalizade",
+      "first_seen": 1793291047,
+      "last_seen": 1793291047,
       "purchases": []
     }
   },
@@ -97336,17 +97382,22 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793285438
+    },
+    "129630978": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN2M",
+      "time": 1793290993
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
-    "current_index": 1,
-    "count": 9,
+    "current_index": 0,
+    "count": 0,
     "threshold": 10,
     "stats": {
       "5892101706458979": 50,
-      "5047061670546072": 49
+      "5047061670546072": 50
     }
   },
   "maintenance": {
