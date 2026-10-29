@@ -6710,6 +6710,12 @@
       "user_id": 1785666154,
       "issued_at": 1793257936,
       "method": "crypto_unique"
+    },
+    "AN1Y-725F-693B-8731": {
+      "plan": "AN1Y",
+      "user_id": 105686184,
+      "issued_at": 1793258096,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -55092,9 +55098,18 @@
       "tron_amount": 3.656978,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f044d14a308f4525a2429a9ee64a161c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f044d14a308f4525a2429a9ee64a161c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793256986
+      "created_at": 1793256986,
+      "approved_at": 1793258096,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-725F-693B-8731",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3022337",
+        "tron_amount": 3.656978,
+        "user_paid_toman": null,
+        "date": "2026-10-29T07:14:32.8870000"
+      }
     },
     "TRND-AN2M-547667325-1793257032-502904": {
       "order_id": "TRND-AN2M-547667325-1793257032-502904",
@@ -73540,13 +73555,20 @@
       "last_name": "Azimi",
       "username": "R_A_79",
       "first_seen": 1792435887,
-      "last_seen": 1793256968,
+      "last_seen": 1793258095,
       "purchases": [
         {
           "key": "AZ1Y-58B2-6B25-361E",
           "plan": "1Y",
           "plan_name": "۱ ساله (۳۶۵ روزه)",
           "issued_at": 1792436252,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-725F-693B-8731",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793258096,
           "days": 365
         }
       ]
