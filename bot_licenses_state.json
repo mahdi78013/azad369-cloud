@@ -7064,6 +7064,12 @@
       "user_id": 776785656,
       "issued_at": 1793287685,
       "method": "crypto_unique"
+    },
+    "AZ2M-2CBE-DB19-F87B": {
+      "plan": "2M",
+      "user_id": 1992334270,
+      "issued_at": 1793290082,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -50476,9 +50482,10 @@
       "tron_amount": 0.794055,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_00ff2cd8b3f146b8986dc9eb76983034",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=00ff2cd8b3f146b8986dc9eb76983034",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793203461
+      "created_at": 1793203461,
+      "cancelled_at": 1793290000
     },
     "TRND-AN2M-7341350811-1793203658-52d18a": {
       "order_id": "TRND-AN2M-7341350811-1793203658-52d18a",
@@ -58434,6 +58441,31 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793289747
+    },
+    "TRND-2M-1992334270-1793289957-d63880": {
+      "order_id": "TRND-2M-1992334270-1793289957-d63880",
+      "token": "d400b9d843384e7999a8ba971d233b98",
+      "user_id": 1992334270,
+      "first_name": "𝕄𝕠𝕙𝕒𝕞𝕞𝕒𝕕 𝔸𝕞𝕚𝕟",
+      "username": "MMDAmin310",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.780805,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_d400b9d843384e7999a8ba971d233b98",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d400b9d843384e7999a8ba971d233b98",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793289957,
+      "approved_at": 1793290082,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-2CBE-DB19-F87B",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3026443",
+        "tron_amount": 0.780805,
+        "user_paid_toman": null,
+        "date": "2026-10-29T16:07:42.7730000"
+      }
     }
   },
   "users": {
@@ -96580,7 +96612,7 @@
       "last_name": "",
       "username": "MMDAmin310",
       "first_seen": 1793287028,
-      "last_seen": 1793287028,
+      "last_seen": 1793289956,
       "purchases": [
         {
           "key": "AN1Y-7B3A3A60-F68D-E20DEF",
@@ -96588,6 +96620,13 @@
           "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
           "issued_at": 1793287302,
           "days": 365
+        },
+        {
+          "key": "AZ2M-2CBE-DB19-F87B",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793290082,
+          "days": 60
         }
       ]
     },
