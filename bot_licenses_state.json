@@ -6842,6 +6842,12 @@
       "user_id": 1433578160,
       "issued_at": 1793264594,
       "method": "crypto_unique"
+    },
+    "AZ2M-F31D-703F-274E": {
+      "plan": "2M",
+      "user_id": 72170440,
+      "issued_at": 1793265251,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -56178,9 +56184,10 @@
       "tron_amount": 0.800573,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_da6416be91e343b2adfb7352937f2580",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=da6416be91e343b2adfb7352937f2580",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793264992
+      "created_at": 1793264992,
+      "cancelled_at": 1793265181
     },
     "TRND-AN3M-8945485472-1793265067-c06b04": {
       "order_id": "TRND-AN3M-8945485472-1793265067-c06b04",
@@ -56210,9 +56217,18 @@
       "tron_amount": 0.799477,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1e8254a72154405898a40ee8ec3bb46a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1e8254a72154405898a40ee8ec3bb46a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793265107
+      "created_at": 1793265107,
+      "approved_at": 1793265251,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-F31D-703F-274E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3023331",
+        "tron_amount": 0.799477,
+        "user_paid_toman": null,
+        "date": "2026-10-29T09:13:44.1870000"
+      }
     }
   },
   "users": {
@@ -84176,7 +84192,15 @@
       "username": "Masoud_ghf",
       "first_seen": 1793045213,
       "last_seen": 1793264956,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-F31D-703F-274E",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793265251,
+          "days": 60
+        }
+      ]
     },
     "416395323": {
       "user_id": 416395323,
