@@ -6956,6 +6956,12 @@
       "user_id": 6241642749,
       "issued_at": 1793276270,
       "method": "crypto_unique"
+    },
+    "AZ2M-7466-C2E2-9A9A": {
+      "plan": "2M",
+      "user_id": 150870356,
+      "issued_at": 1793276439,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -57213,9 +57219,10 @@
       "tron_amount": 1.316067,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f74b226ef2a440289bd54b61e088f4ef",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f74b226ef2a440289bd54b61e088f4ef",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793275152
+      "created_at": 1793275152,
+      "cancelled_at": 1793276436
     },
     "TRND-AN2M-93562918-1793275219-e529d9": {
       "order_id": "TRND-AN2M-93562918-1793275219-e529d9",
@@ -57352,9 +57359,18 @@
       "tron_amount": 0.795643,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_2d740e825027477b8ace404bb414269c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2d740e825027477b8ace404bb414269c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793276111
+      "created_at": 1793276111,
+      "approved_at": 1793276439,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-7466-C2E2-9A9A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3024767",
+        "tron_amount": 0.795643,
+        "user_paid_toman": null,
+        "date": "2026-10-29T12:19:41.3730000"
+      }
     },
     "TRND-AN2M-110998628-1793276375-84c103": {
       "order_id": "TRND-AN2M-110998628-1793276375-84c103",
@@ -95042,7 +95058,15 @@
       "username": "hessam5892",
       "first_seen": 1793276099,
       "last_seen": 1793276099,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-7466-C2E2-9A9A",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793276439,
+          "days": 60
+        }
+      ]
     }
   },
   "user_states": {
