@@ -7058,6 +7058,12 @@
       "user_id": 585904215,
       "issued_at": 1793287588,
       "method": "crypto_unique"
+    },
+    "AN2M-8233-8BB8-0687": {
+      "plan": "AN2M",
+      "user_id": 776785656,
+      "issued_at": 1793287685,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -58331,9 +58337,18 @@
       "tron_amount": 0.795368,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5534702346f147f1b9d07fff9149612e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5534702346f147f1b9d07fff9149612e",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793287566
+      "created_at": 1793287566,
+      "approved_at": 1793287685,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-8233-8BB8-0687",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3026097",
+        "tron_amount": 0.795368,
+        "user_paid_toman": null,
+        "date": "2026-10-29T15:27:50.2300000"
+      }
     }
   },
   "users": {
@@ -64226,7 +64241,15 @@
       "username": "Amin_A_H",
       "first_seen": 1792097838,
       "last_seen": 1793287555,
-      "purchases": [],
+      "purchases": [
+        {
+          "key": "AN2M-8233-8BB8-0687",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793287685,
+          "days": 60
+        }
+      ],
       "last_admin_reply": {
         "text": "وقت بخیر ربات در حال اپدیت. هست \nواریز بفرمایید و رسید رو از طریق ارتباط با پشتیبانی ارسال کنید\n5892101706458979\nموجود:\n✅سه ماه = 145.000 تومان\n✅یک سال = 399.000 تومان",
         "time": 1792143092
