@@ -6734,6 +6734,12 @@
       "user_id": 77050380,
       "issued_at": 1793258889,
       "method": "crypto_unique"
+    },
+    "AN2M-B396-3DD6-7001": {
+      "plan": "AN2M",
+      "user_id": 6555425879,
+      "issued_at": 1793259438,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -45079,9 +45085,10 @@
       "tron_amount": 3.628689,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_cba413349a194344833fc098e3a50ce2",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=cba413349a194344833fc098e3a50ce2",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793172925
+      "created_at": 1793172925,
+      "cancelled_at": 1793259328
     },
     "ORD_1793174577_170514373": {
       "order_id": "ORD_1793174577_170514373",
@@ -55412,9 +55419,18 @@
       "tron_amount": 0.790358,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3e384ba394fa42f89842c82c7d8950d2",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3e384ba394fa42f89842c82c7d8950d2",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793258979
+      "created_at": 1793258979,
+      "approved_at": 1793259438,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-B396-3DD6-7001",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3022585",
+        "tron_amount": 0.790358,
+        "user_paid_toman": null,
+        "date": "2026-10-29T07:36:11.6300000"
+      }
     },
     "TRND-2M-5962098252-1793259006-baad70": {
       "order_id": "TRND-2M-5962098252-1793259006-baad70",
@@ -92167,8 +92183,16 @@
       "last_name": "@OilVoyageBot",
       "username": "Mamadcortex2",
       "first_seen": 1793258958,
-      "last_seen": 1793258958,
-      "purchases": []
+      "last_seen": 1793259437,
+      "purchases": [
+        {
+          "key": "AN2M-B396-3DD6-7001",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793259438,
+          "days": 60
+        }
+      ]
     }
   },
   "user_states": {
