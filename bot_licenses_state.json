@@ -6800,6 +6800,12 @@
       "user_id": 280818852,
       "issued_at": 1793262321,
       "method": "crypto_unique"
+    },
+    "AZ2M-AD6A-A219-D9A5": {
+      "plan": "2M",
+      "user_id": 149206677,
+      "issued_at": 1793262903,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -45289,9 +45295,10 @@
       "tron_amount": 3.647078,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9af197fbfc5641848d1a6316d227a693",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9af197fbfc5641848d1a6316d227a693",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793176300
+      "created_at": 1793176300,
+      "cancelled_at": 1793262831
     },
     "TRND-AN1Y-582251991-1793176409-d33068": {
       "order_id": "TRND-AN1Y-582251991-1793176409-d33068",
@@ -45305,9 +45312,10 @@
       "tron_amount": 3.645981,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ade4ad4799254768a1fe89ad64180ae6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ade4ad4799254768a1fe89ad64180ae6",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793176409
+      "created_at": 1793176409,
+      "cancelled_at": 1793262831
     },
     "TRND-AN1Y-1920835178-1793177689-b413a8": {
       "order_id": "TRND-AN1Y-1920835178-1793177689-b413a8",
@@ -55959,9 +55967,18 @@
       "tron_amount": 0.799821,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ecc103eb53534288bd536121fcf5c3fc",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ecc103eb53534288bd536121fcf5c3fc",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793262715
+      "created_at": 1793262715,
+      "approved_at": 1793262903,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-AD6A-A219-D9A5",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3023042",
+        "tron_amount": 0.799821,
+        "user_paid_toman": null,
+        "date": "2026-10-29T08:34:30.3730000"
+      }
     }
   },
   "users": {
@@ -92907,7 +92924,15 @@
       "username": "AmirhosseinAsadi1995",
       "first_seen": 1793262698,
       "last_seen": 1793262698,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-AD6A-A219-D9A5",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793262903,
+          "days": 60
+        }
+      ]
     }
   },
   "user_states": {
