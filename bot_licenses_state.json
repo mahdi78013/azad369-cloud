@@ -49721,9 +49721,10 @@
       "tron_amount": 0.79265,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_fbbcd40e822d42a3a3593f467277329e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=fbbcd40e822d42a3a3593f467277329e",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793198947
+      "created_at": 1793198947,
+      "cancelled_at": 1793285362
     },
     "TRND-AN2M-32144713-1793199006-d6de59": {
       "order_id": "TRND-AN2M-32144713-1793199006-d6de59",
@@ -58194,6 +58195,20 @@
         "user_paid_toman": null,
         "date": "2026-10-29T14:24:21.7800000"
       }
+    },
+    "ORD_1793285460_5176527387": {
+      "order_id": "ORD_1793285460_5176527387",
+      "user_id": 5176527387,
+      "username": "salllehhh",
+      "first_name": "Salllehhh",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAEBj5Jq410aCmt361mG4--oPkMDygIfiwAC5g1rG4bNIFNI4Lnj7YTuFQEAAwIAA3kAAz0E",
+      "card_number": "5047061670546072",
+      "created_at": 1793285460,
+      "caption": ""
     }
   },
   "users": {
@@ -58852,7 +58867,7 @@
       "user_id": 5176527387,
       "first_name": "Salllehhh",
       "username": "salllehhh",
-      "last_seen": 1793285039
+      "last_seen": 1793285402
     },
     "7904603668": {
       "purchases": [
@@ -82668,7 +82683,7 @@
       "last_name": "افضلی",
       "username": "hamedafzali67",
       "first_seen": 1792953069,
-      "last_seen": 1793183060,
+      "last_seen": 1793285368,
       "purchases": []
     },
     "771887101": {
@@ -96759,17 +96774,22 @@
       "state": "awaiting_receipt",
       "plan_code": "1Y",
       "time": 1793269778
+    },
+    "5176527387": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN3M",
+      "time": 1793285438
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 8,
+    "count": 9,
     "threshold": 10,
     "stats": {
       "5892101706458979": 50,
-      "5047061670546072": 48
+      "5047061670546072": 49
     }
   },
   "maintenance": {
