@@ -6818,6 +6818,12 @@
       "user_id": 748538264,
       "issued_at": 1793263385,
       "method": "crypto_unique"
+    },
+    "AZ3M-654D-5220-4DA1": {
+      "plan": "3M",
+      "user_id": 95269475,
+      "issued_at": 1793264040,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -56029,9 +56035,18 @@
       "tron_amount": 1.332231,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b93dcabf665441a9960f763cc868ec4f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b93dcabf665441a9960f763cc868ec4f",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793263562
+      "created_at": 1793263562,
+      "approved_at": 1793264040,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-654D-5220-4DA1",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3023144",
+        "tron_amount": 1.332231,
+        "user_paid_toman": null,
+        "date": "2026-10-29T08:53:20.4030000"
+      }
     },
     "TRND-AN2M-7582336283-1793263715-6f8ab2": {
       "order_id": "TRND-AN2M-7582336283-1793263715-6f8ab2",
@@ -79256,7 +79271,7 @@
       "last_name": "",
       "username": "noorghorbani",
       "first_seen": 1792948848,
-      "last_seen": 1793179556,
+      "last_seen": 1793264025,
       "purchases": [
         {
           "key": "AN3M-72CA-5016-6CE5",
@@ -93048,7 +93063,15 @@
       "username": "HMD_BDF",
       "first_seen": 1793263539,
       "last_seen": 1793263539,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-654D-5220-4DA1",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793264040,
+          "days": 90
+        }
+      ]
     },
     "86775498": {
       "user_id": 86775498,
@@ -93066,6 +93089,15 @@
       "username": "ha33an_tak",
       "first_seen": 1793263666,
       "last_seen": 1793263666,
+      "purchases": []
+    },
+    "8466379475": {
+      "user_id": 8466379475,
+      "first_name": "M.2",
+      "last_name": "Old Way",
+      "username": "",
+      "first_seen": 1793263927,
+      "last_seen": 1793263927,
       "purchases": []
     }
   },
