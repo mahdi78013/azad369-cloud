@@ -6518,6 +6518,12 @@
       "user_id": 113103262,
       "issued_at": 1793235863,
       "method": "crypto_unique"
+    },
+    "AZ2M-4C52-5984-86C6": {
+      "plan": "2M",
+      "user_id": 387120274,
+      "issued_at": 1793236153,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -53675,9 +53681,18 @@
       "tron_amount": 0.791167,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b5e57dd73dcf420290057fb2544b5dbd",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b5e57dd73dcf420290057fb2544b5dbd",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793235823
+      "created_at": 1793235823,
+      "approved_at": 1793236153,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-4C52-5984-86C6",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3021449",
+        "tron_amount": 0.791167,
+        "user_paid_toman": null,
+        "date": "2026-10-29T01:08:07.2800000"
+      }
     }
   },
   "users": {
@@ -89326,8 +89341,16 @@
       "last_name": "",
       "username": "Scatsky",
       "first_seen": 1793235770,
-      "last_seen": 1793235770,
-      "purchases": []
+      "last_seen": 1793236152,
+      "purchases": [
+        {
+          "key": "AZ2M-4C52-5984-86C6",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793236153,
+          "days": 60
+        }
+      ]
     }
   },
   "user_states": {
