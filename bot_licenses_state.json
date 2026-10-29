@@ -7316,6 +7316,12 @@
       "user_id": 7100313396,
       "issued_at": 1793307852,
       "method": "crypto_unique"
+    },
+    "AN2M-74BF6922-9BC5-00A20D": {
+      "plan": "AN2M",
+      "user_id": 5259874178,
+      "issued_at": 1793309086,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -60475,9 +60481,18 @@
       "tron_amount": 0.804532,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ab7b8faa74f24b4f9fa07a803e295a1f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ab7b8faa74f24b4f9fa07a803e295a1f",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793308885
+      "created_at": 1793308885,
+      "approved_at": 1793309086,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-74BF6922-9BC5-00A20D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3029266",
+        "tron_amount": 0.804532,
+        "user_paid_toman": null,
+        "date": "2026-10-29T21:24:19.3030000"
+      }
     },
     "TRND-AN2M-2124738911-1793308970-149755": {
       "order_id": "TRND-AN2M-2124738911-1793308970-149755",
@@ -91410,7 +91425,15 @@
       "username": "Dilan_hs",
       "first_seen": 1793181762,
       "last_seen": 1793308872,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-74BF6922-9BC5-00A20D",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793309086,
+          "days": 60
+        }
+      ]
     },
     "79596608": {
       "user_id": 79596608,
@@ -99810,6 +99833,24 @@
       "username": "",
       "first_seen": 1793308900,
       "last_seen": 1793308900,
+      "purchases": []
+    },
+    "6822355498": {
+      "user_id": 6822355498,
+      "first_name": "Armaniii",
+      "last_name": "",
+      "username": "Armanbadr6",
+      "first_seen": 1793309024,
+      "last_seen": 1793309024,
+      "purchases": []
+    },
+    "6981752780": {
+      "user_id": 6981752780,
+      "first_name": "kian",
+      "last_name": "",
+      "username": "kian_mohammadi3",
+      "first_seen": 1793309051,
+      "last_seen": 1793309051,
       "purchases": []
     }
   },
