@@ -7322,6 +7322,12 @@
       "user_id": 5259874178,
       "issued_at": 1793309086,
       "method": "crypto_unique"
+    },
+    "AN2M-DC8EA1B1-D7AE-855415": {
+      "plan": "AN2M",
+      "user_id": 2124738911,
+      "issued_at": 1793309268,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -60434,9 +60440,10 @@
       "tron_amount": 0.80074,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b071c11cc6974a52894aa08b8d712b37",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b071c11cc6974a52894aa08b8d712b37",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793307959
+      "created_at": 1793307959,
+      "cancelled_at": 1793309266
     },
     "TRND-AN2M-8171899230-1793307972-7aef2d": {
       "order_id": "TRND-AN2M-8171899230-1793307972-7aef2d",
@@ -60507,9 +60514,18 @@
       "tron_amount": 0.793511,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9c1fc32383ac439aa6b631e8e1194e66",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9c1fc32383ac439aa6b631e8e1194e66",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793308970
+      "created_at": 1793308970,
+      "approved_at": 1793309268,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-DC8EA1B1-D7AE-855415",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3029282",
+        "tron_amount": 0.793511,
+        "user_paid_toman": null,
+        "date": "2026-10-29T21:26:05.7630000"
+      }
     }
   },
   "users": {
@@ -99834,7 +99850,15 @@
       "username": "",
       "first_seen": 1793308900,
       "last_seen": 1793308900,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-DC8EA1B1-D7AE-855415",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793309268,
+          "days": 60
+        }
+      ]
     },
     "6822355498": {
       "user_id": 6822355498,
@@ -99852,6 +99876,15 @@
       "username": "kian_mohammadi3",
       "first_seen": 1793309051,
       "last_seen": 1793309051,
+      "purchases": []
+    },
+    "6722394353": {
+      "user_id": 6722394353,
+      "first_name": "BTM",
+      "last_name": "",
+      "username": "Byvkn",
+      "first_seen": 1793309209,
+      "last_seen": 1793309209,
       "purchases": []
     }
   },
