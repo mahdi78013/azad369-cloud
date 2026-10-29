@@ -7178,6 +7178,12 @@
       "user_id": 748538264,
       "issued_at": 1793296616,
       "method": "crypto_unique"
+    },
+    "AZ1Y-9354-651B-78BF": {
+      "plan": "1Y",
+      "user_id": 6317929105,
+      "issued_at": 1793296650,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -59294,9 +59300,18 @@
       "tron_amount": 3.639511,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_74b6d855c2974383879cd5491d1b5b8d",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=74b6d855c2974383879cd5491d1b5b8d",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793296442
+      "created_at": 1793296442,
+      "approved_at": 1793296650,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-9354-651B-78BF",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3027396",
+        "tron_amount": 3.639511,
+        "user_paid_toman": null,
+        "date": "2026-10-29T17:56:35.8900000"
+      }
     }
   },
   "users": {
@@ -97892,8 +97907,16 @@
       "last_name": "",
       "username": "zharfa_optic",
       "first_seen": 1793296199,
-      "last_seen": 1793296199,
-      "purchases": []
+      "last_seen": 1793296649,
+      "purchases": [
+        {
+          "key": "AZ1Y-9354-651B-78BF",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793296650,
+          "days": 365
+        }
+      ]
     },
     "8073234932": {
       "user_id": 8073234932,
