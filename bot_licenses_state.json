@@ -7022,6 +7022,12 @@
       "user_id": 81347953,
       "issued_at": 1793280257,
       "method": "crypto_unique"
+    },
+    "AN1M-EFDB-F5AC-1254": {
+      "plan": "AN1M",
+      "user_id": 5389116367,
+      "issued_at": 1793280673,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -57919,9 +57925,18 @@
       "tron_amount": 0.36723,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9962a1a7f41645e1bc4c88da6448e02f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9962a1a7f41645e1bc4c88da6448e02f",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793280423
+      "created_at": 1793280423,
+      "approved_at": 1793280673,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1M-EFDB-F5AC-1254",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3025217",
+        "tron_amount": 0.36723,
+        "user_paid_toman": null,
+        "date": "2026-10-29T13:30:59.5330000"
+      }
     }
   },
   "users": {
@@ -95850,7 +95865,15 @@
       "username": "Alphateam202",
       "first_seen": 1793280405,
       "last_seen": 1793280405,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN1M-EFDB-F5AC-1254",
+          "plan": "AN1M",
+          "plan_name": "۱ ماهه اندروید (۳۰ روزه)",
+          "issued_at": 1793280673,
+          "days": 30
+        }
+      ]
     },
     "1127064668": {
       "user_id": 1127064668,
