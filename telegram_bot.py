@@ -2171,7 +2171,7 @@ def admin_dashboard_keyboard():
     b_cards = types.InlineKeyboardButton("💳 مدیریت و چرخش کارت‌ها", callback_data="adm_cards")
 
     in_maint, _ = is_maintenance_mode()
-    maint_label = "🔴 حالت تعمیر: فعال (خاموش تا ۲۱:۰۰)" if in_maint else "🟢 حالت تعمیر: غیرفعال (ربات باز است)"
+    maint_label = "🔴 حالت تعمیر: فعال (ربات بسته است)" if in_maint else "🟢 حالت تعمیر: غیرفعال (ربات باز است)"
     b_maint = types.InlineKeyboardButton(maint_label, callback_data="adm_toggle_maint")
 
     markup.add(b_win_hdr)
@@ -2202,40 +2202,35 @@ def admin_plans_management_keyboard():
     return markup
 
 # ---------------------------------------------------------------------------
-# Maintenance Mode (در دست تعمیر تا ساعت ۹ شب)
+# Maintenance Mode (حالت تعمیر و ارتقا)
 # ---------------------------------------------------------------------------
-MAINTENANCE_UNTIL_TS = 1792085400  # 2026-10-15 21:00:00+03:30 (ساعت ۲۱:۰۰ امشب)
-
 def is_maintenance_mode() -> tuple[bool, str]:
     """
     Returns (is_active, maintenance_message).
-    Checks DB and time threshold. If past 21:00 (9 PM), automatically turns back on!
+    Checks DB. Default is completely OFF (bot is active and open for all users).
     """
     default_msg = (
-        "🛠 *ربات اینترنت آزاد³⁶⁹ موقتاً در دست تعمیر و ارتقا می‌باشد.*\n\n"
+        "🛠 *ربات اینترنت آزاد³⁶۹ موقتاً در دست تعمیر و ارتقا می‌باشد.*\n\n"
         "کاربر گرامی؛ تیم فنی در حال ارتقا و بهینه‌سازی زیرساخت سرورهاست.\n\n"
-        "⏳ *زمان بازگشایی و فعالیت مجدد:* **امشب ساعت ۲۱:۰۰ (۹ شب)**\n\n"
+        "⏳ *زمان بازگشایی و فعالیت مجدد:* به زودی\n\n"
         "از شکیبایی، همراهی و اعتماد شما صمیمانه سپاسگزاریم 🌸"
     )
     db = load_db()
     m_info = db.get("maintenance")
+    if not m_info or not isinstance(m_info, dict):
+        return False, ""
+
+    if not m_info.get("enabled", False):
+        return False, ""
+
+    until_ts = m_info.get("until_ts", 0)
     now = int(time.time())
+    if until_ts > 0 and now >= until_ts:
+        m_info["enabled"] = False
+        save_db(db)
+        return False, ""
 
-    if m_info is not None and isinstance(m_info, dict):
-        if not m_info.get("enabled", True):
-            return False, ""
-        until_ts = m_info.get("until_ts", 0)
-        if until_ts > 0 and now >= until_ts:
-            m_info["enabled"] = False
-            save_db(db)
-            return False, ""
-        return True, m_info.get("message") or default_msg
-
-    # Default: active until 9 PM tonight
-    if now < MAINTENANCE_UNTIL_TS:
-        return True, default_msg
-
-    return False, ""
+    return True, m_info.get("message") or default_msg
 
 @bot.message_handler(func=lambda m: is_maintenance_mode()[0] and not is_admin(m.from_user.id), content_types=["text", "audio", "document", "photo", "sticker", "video", "video_note", "voice", "location", "contact"])
 def handle_maintenance_message(message):
@@ -2253,14 +2248,13 @@ def cmd_maint(message):
     new_state = not in_maint
     db["maintenance"] = {
         "enabled": new_state,
-        "until_ts": MAINTENANCE_UNTIL_TS if new_state else 0,
+        "until_ts": 0,
         "updated_by": uid,
         "updated_at": int(time.time())
     }
     save_db(db, immediate_sync=True)
-    status_str = "🔴 فعال شد (ربات برای کاربران در دست تعمیر است تا ساعت ۲۱:۰۰)" if new_state else "🟢 غیرفعال شد (ربات برای کاربران باز شد)"
+    status_str = "🔴 فعال شد (ربات برای کاربران بسته شد)" if new_state else "🟢 غیرفعال شد (ربات برای همه کاربران باز و فعال است)"
     safe_reply_to(message, f"وضعیت حالت تعمیر: {status_str}")
-
 # ---------------------------------------------------------------------------
 # Start & Navigation Handlers
 # ---------------------------------------------------------------------------
@@ -3694,12 +3688,12 @@ def handle_callbacks(call):
             new_state = not in_maint
             db["maintenance"] = {
                 "enabled": new_state,
-                "until_ts": MAINTENANCE_UNTIL_TS if new_state else 0,
+                "until_ts": 0,
                 "updated_by": uid,
                 "updated_at": int(time.time())
             }
             save_db(db, immediate_sync=True)
-            status_str = "فعال شد (ربات برای کاربران خاموش شد تا ساعت ۹ شب)" if new_state else "غیرفعال شد (ربات برای همه کاربران باز شد)"
+            status_str = "فعال شد 🔴 (ربات برای کاربران بسته شد)" if new_state else "غیرفعال شد 🟢 (ربات برای کاربران باز شد)"
             bot.answer_callback_query(call.id, f"حالت تعمیر {status_str}", show_alert=True)
             try:
                 bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=admin_dashboard_keyboard())
