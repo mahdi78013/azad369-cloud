@@ -6512,6 +6512,12 @@
       "user_id": 6422193568,
       "issued_at": 1793234863,
       "method": "crypto_unique"
+    },
+    "AZ2M-506E-7389-0CAE": {
+      "plan": "2M",
+      "user_id": 113103262,
+      "issued_at": 1793235863,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -53644,9 +53650,34 @@
       "tron_amount": 0.811029,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_089460b5e0af47dab9560100daae5f65",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=089460b5e0af47dab9560100daae5f65",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793235614,
+      "approved_at": 1793235863,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-506E-7389-0CAE",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3021446",
+        "tron_amount": 0.811029,
+        "user_paid_toman": null,
+        "date": "2026-10-29T01:03:49.0130000"
+      }
+    },
+    "TRND-2M-387120274-1793235823-eef5b1": {
+      "order_id": "TRND-2M-387120274-1793235823-eef5b1",
+      "token": "b5e57dd73dcf420290057fb2544b5dbd",
+      "user_id": 387120274,
+      "first_name": "KoKor",
+      "username": "Scatsky",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.791167,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_b5e57dd73dcf420290057fb2544b5dbd",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b5e57dd73dcf420290057fb2544b5dbd",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793235614
+      "created_at": 1793235823
     }
   },
   "users": {
@@ -89279,6 +89310,23 @@
       "username": "alirahimi777",
       "first_seen": 1793235589,
       "last_seen": 1793235589,
+      "purchases": [
+        {
+          "key": "AZ2M-506E-7389-0CAE",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793235863,
+          "days": 60
+        }
+      ]
+    },
+    "387120274": {
+      "user_id": 387120274,
+      "first_name": "KoKor",
+      "last_name": "",
+      "username": "Scatsky",
+      "first_seen": 1793235770,
+      "last_seen": 1793235770,
       "purchases": []
     }
   },
