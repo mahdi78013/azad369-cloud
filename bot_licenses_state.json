@@ -8030,6 +8030,12 @@
       "user_id": 8552409172,
       "issued_at": 1793362201,
       "method": "crypto_unique"
+    },
+    "AN1Y-AFEA-2ED8-4A52": {
+      "plan": "AN1Y",
+      "user_id": 7492544951,
+      "issued_at": 1793362497,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -58567,9 +58573,10 @@
       "tron_amount": 3.630807,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b360beae02cd4f058cbfd4d56bfad972",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b360beae02cd4f058cbfd4d56bfad972",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793275832
+      "created_at": 1793275832,
+      "cancelled_at": 1793362375
     },
     "TRND-2M-37997721-1793275924-96af68": {
       "order_id": "TRND-2M-37997721-1793275924-96af68",
@@ -66757,6 +66764,31 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793362225
+    },
+    "TRND-AN1Y-7492544951-1793362354-9a31df": {
+      "order_id": "TRND-AN1Y-7492544951-1793362354-9a31df",
+      "token": "6180a871537d4e60b20e4ea76e4939b8",
+      "user_id": 7492544951,
+      "first_name": "Ali🌺",
+      "username": "ندارد",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.520985,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_6180a871537d4e60b20e4ea76e4939b8",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6180a871537d4e60b20e4ea76e4939b8",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793362354,
+      "approved_at": 1793362497,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-AFEA-2ED8-4A52",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3033183",
+        "tron_amount": 3.520985,
+        "user_paid_toman": null,
+        "date": "2026-10-30T12:14:39.3130000"
+      }
     }
   },
   "users": {
@@ -71872,6 +71904,13 @@
           "plan": "1Y",
           "plan_name": "۱ ساله (۳۶۵ روزه)",
           "issued_at": 1792158848,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-AFEA-2ED8-4A52",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793362497,
           "days": 365
         }
       ]
@@ -109189,7 +109228,12 @@
           "issued_at": 1793361477,
           "days": 365
         }
-      ]
+      ],
+      "last_admin_reply": {
+        "text": "کاربر گرامی درصورت پرداخت اضافی \nبه آی دی زیر پیام بدین :\n@Sanaei51",
+        "time": 1793362461,
+        "by_admin": 748538264
+      }
     },
     "194195886": {
       "user_id": 194195886,
@@ -109831,11 +109875,6 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793348685
-    },
-    "8066523051": {
-      "state": "awaiting_receipt",
-      "plan_code": "AN1Y",
-      "time": 1793362099
     }
   },
   "admin_states": {},
