@@ -206,6 +206,17 @@ PLANS_INFO = {
         "file": "",
         "fallback_file": "",
         "days": 365
+    },
+    # پلن پکیج دوگانه ویژه (VIP) — همزمان ویندوز + اندروید
+    "VIP1Y": {
+        "name": "۱ ساله VIP (ویندوز + اندروید)",
+        "price": "۴۹۹,۰۰۰ تومان",
+        "price_toman": 499000,
+        "prefix": "VIP1Y",
+        "platform": "dual",
+        "file": "",
+        "fallback_file": "",
+        "days": 365
     }
 }
 
@@ -615,7 +626,7 @@ def load_db() -> dict:
                     data.setdefault("admin_states", {})
                     data.setdefault("trial_users", {})
                     pa = data.setdefault("plan_availability", {})
-                    for p in ("1M", "2M", "3M", "1Y", "AN1M", "AN2M", "AN3M", "AN1Y"):
+                    for p in ("1M", "2M", "3M", "1Y", "AN1M", "AN2M", "AN3M", "AN1Y", "VIP1Y"):
                         pa.setdefault(p, False)
                     for u_obj in data["users"].values():
                         if isinstance(u_obj, dict):
@@ -1351,11 +1362,29 @@ def generate_unique_crypto_license(plan_code: str, used_keys: set, hwid: str = N
                 return candidate
     return None
 
+def issue_keys_for_vip_plan(db: dict, user_id: int) -> tuple[str, str] | None:
+    """
+    Atomically issues both a 1-year Windows license and a 1-year Android license for VIP combo.
+    Guaranteed unique and cryptographically authenticated.
+    """
+    key_win = issue_key_for_plan_atomic(db, "1Y", user_id)
+    if not key_win:
+        return None
+    key_and = issue_key_for_plan_atomic(db, "AN1Y", user_id)
+    if not key_and:
+        return None
+    return key_win, key_and
+
 def issue_key_for_plan_atomic(db: dict, plan_code: str, user_id: int) -> str | None:
     """
     Issue a guaranteed 100% unique, fresh cryptographic license key atomically.
     Absolute zero chance of duplicate across admin, users, or hardware bindings.
     """
+    if plan_code == "VIP1Y":
+        res_vip = issue_keys_for_vip_plan(db, user_id)
+        if not res_vip:
+            return None
+        return f"ویندوز: {res_vip[0]} | اندروید: {res_vip[1]}"
     if plan_code not in PLANS_INFO:
         return None
     info = PLANS_INFO[plan_code]
@@ -1602,9 +1631,18 @@ def fulfill_tronado_order(payment_id: str, ipn_data: dict = None) -> tuple[bool,
         plan_code = order.get("plan_code", "1Y")
         info = PLANS_INFO.get(plan_code, {"name": plan_code, "days": 365})
 
-        key = issue_key_for_plan_atomic(db, plan_code, buyer_id)
-        if not key:
-            return False, "Failed to issue unique license key"
+        if plan_code == "VIP1Y":
+            res_vip = issue_keys_for_vip_plan(db, buyer_id)
+            if not res_vip:
+                return False, "Failed to issue VIP combo license keys"
+            key_win, key_and = res_vip
+            key = f"ویندوز: {key_win}\nاندروید: {key_and}"
+            order["key_win"] = key_win
+            order["key_and"] = key_and
+        else:
+            key = issue_key_for_plan_atomic(db, plan_code, buyer_id)
+            if not key:
+                return False, "Failed to issue unique license key"
 
         order["status"] = "approved"
         order["approved_at"] = int(time.time())
@@ -1640,16 +1678,38 @@ def fulfill_tronado_order(payment_id: str, ipn_data: dict = None) -> tuple[bool,
 
     # Deliver license to buyer & alert admins in background thread to prevent gateway timeout
     def _deliver_notifications():
-        buyer_msg = (
-            "⚡🎉 *پرداخت آنلاین شما با موفقیت تایید شد!*\n\n"
-            f"کد لایسنس اختصاصی شما صادر گردید:\n"
-            f"`{key}`\n\n"
-            "_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
-            f"🔹 پلن خریداری‌شده: *{escape_md(info['name'])}*\n"
-            f"⏳ مدت اعتبار: *{info['days']} روز*\n"
-            "💳 روش پرداخت: *درگاه آنلاین شتابی (ترونادو)*\n\n"
-            f"{activation_guide}"
-        )
+        if plan_code == "VIP1Y":
+            k_win = order.get("key_win", "")
+            k_and = order.get("key_and", "")
+            buyer_msg = (
+                "⚡🎉 *پرداخت آنلاین شما با موفقیت تایید شد!*\n\n"
+                "👑 *پکیج اشتراک ۱ ساله VIP (ویندوز + اندروید)*\n"
+                "⏳ مدت اعتبار: *۳۶۵ روز کامل (هر دو سیستم‌عامل)*\n"
+                "💳 روش پرداخت: *درگاه آنلاین شتابی (ترونادو)*\n\n"
+                "💻 *کد لایسنس اختصاصی نرم‌افزار ویندوز (کامپیوتر):*\n"
+                f"`{k_win}`\n"
+                "_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
+                "📱 *کد لایسنس اختصاصی اپلیکیشن اندروید (موبایل):*\n"
+                f"`{k_and}`\n"
+                "_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
+                "━━━━━━━━━━━━━━━━━━━\n"
+                "📌 *دستورالعمل فعال‌سازی:*\n"
+                "۱. **در کامپیوتر:** کد اول را داخل نرم‌افزار ویندوز در بخش «ثبت لایسنس» وارد و فعال نمایید.\n"
+                "۲. **در گوشی:** اپلیکیشن اندروید را باز کرده، روی کلید «اتصال» یا نشان لایسنس بالای صفحه زده و کد دوم را Paste و فعال نمایید.\n\n"
+                "همچنین هر دو لایسنس در بخش *«👤 حساب کاربری من»* ذخیره شدند.\n\n"
+                "با تشکر از اعتماد شما به *اینترنت آزاد³⁶⁹* 🌸"
+            )
+        else:
+            buyer_msg = (
+                "⚡🎉 *پرداخت آنلاین شما با موفقیت تایید شد!*\n\n"
+                f"کد لایسنس اختصاصی شما صادر گردید:\n"
+                f"`{key}`\n\n"
+                "_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
+                f"🔹 پلن خریداری‌شده: *{escape_md(info['name'])}*\n"
+                f"⏳ مدت اعتبار: *{info['days']} روز*\n"
+                "💳 روش پرداخت: *درگاه آنلاین شتابی (ترونادو)*\n\n"
+                f"{activation_guide}"
+            )
         safe_send_message(buyer_id, buyer_msg)
 
         tx_hash = ipn_data.get("Hash", "—") if ipn_data else "—"
@@ -1657,7 +1717,7 @@ def fulfill_tronado_order(payment_id: str, ipn_data: dict = None) -> tuple[bool,
             "⚡ *خرید موفق از درگاه آنلاین ترونادو:*\n\n"
             f"👤 خریدار: `{buyer_id}` (@{escape_md(order.get('username', 'ندارد'))})\n"
             f"📦 پلن: *{escape_md(info['name'])}*\n"
-            f"🔑 لایسنس صادرشده: `{key}`\n"
+            f"🔑 لایسنس صادرشده:\n`{key}`\n"
             f"🆔 شناسه سفارش: `{payment_id}`\n"
             f"🔗 شناسه تراکنش/TXID: `{tx_hash}`\n"
             "💰 وضعیت: پرداخت قطعی و لایسنس خودکار تحویل شد ✓"
@@ -2109,7 +2169,7 @@ def platform_selection_keyboard():
 def plans_keyboard_android():
     markup = types.InlineKeyboardMarkup(row_width=1)
     avail = get_plan_availability()
-    for p_code in ["AN1M", "AN2M", "AN3M", "AN1Y"]:
+    for p_code in ["AN1M", "AN2M", "AN3M", "AN1Y", "VIP1Y"]:
         if p_code not in PLANS_INFO:
             continue
         p_info = PLANS_INFO[p_code]
@@ -2123,7 +2183,7 @@ def plans_keyboard_android():
 def plans_keyboard_windows():
     markup = types.InlineKeyboardMarkup(row_width=1)
     avail = get_plan_availability()
-    for p_code in ["1M", "2M", "3M", "1Y"]:
+    for p_code in ["1M", "2M", "3M", "1Y", "VIP1Y"]:
         if p_code not in PLANS_INFO:
             continue
         p_info = PLANS_INFO[p_code]
@@ -2153,6 +2213,9 @@ def admin_dashboard_keyboard():
     b_a3 = types.InlineKeyboardButton("💎 اندروید ۳ ماهه", callback_data="adm_AN3M")
     b_a4 = types.InlineKeyboardButton("👑 اندروید ۱ ساله", callback_data="adm_AN1Y")
 
+    b_vip_hdr = types.InlineKeyboardButton("👑 ── صدور پکیج ۱ ساله VIP دوگانه ── 👑", callback_data="adm_noop")
+    b_vip = types.InlineKeyboardButton("🌟 صدور ۱ ساله VIP (ویندوز + اندروید)", callback_data="adm_VIP1Y")
+
     db_cache = load_db()
     unapproved_orders = [o for o in db_cache.get("orders", {}).values() if isinstance(o, dict) and o.get("status") == "pending"]
     unapproved_count = len(unapproved_orders)
@@ -2180,6 +2243,8 @@ def admin_dashboard_keyboard():
     markup.add(b_and_hdr)
     markup.add(b_a1, b_a2)
     markup.add(b_a3, b_a4)
+    markup.add(b_vip_hdr)
+    markup.add(b_vip)
     markup.add(b_unapproved)
     markup.add(b_plans)
     markup.add(b_stat, b_pend)
@@ -3520,46 +3585,81 @@ def handle_callbacks(call):
         plan_code = order["plan_code"]
         info = PLANS_INFO.get(plan_code, {"name": plan_code, "days": 30})
 
-        key = issue_key_for_plan_atomic(db, plan_code, buyer_id)
-        if not key:
-            safe_send_message(call.message.chat.id, f"⚠️ خطا در تولید خودکار لایسنس برای {info['name']}!")
-            bot.answer_callback_query(call.id, "خطا در تولید لایسنس!", show_alert=True)
-            return
+        if plan_code == "VIP1Y":
+            res_vip = issue_keys_for_vip_plan(db, buyer_id)
+            if not res_vip:
+                safe_send_message(call.message.chat.id, f"⚠️ خطا در تولید خودکار لایسنس‌های {info['name']}!")
+                bot.answer_callback_query(call.id, "خطا در تولید لایسنس!", show_alert=True)
+                return
+            key_win, key_and = res_vip
+            key = f"ویندوز: {key_win}\nاندروید: {key_and}"
+            order["key_win"] = key_win
+            order["key_and"] = key_and
+            order["status"] = "approved"
+            order["approved_at"] = int(time.time())
+            order["approved_by"] = uid
+            order["key"] = key
+            save_db(db, immediate_sync=True)
 
-        order["status"] = "approved"
-        order["approved_at"] = int(time.time())
-        order["approved_by"] = uid
-        order["key"] = key
-        save_db(db, immediate_sync=True)
-
-        is_android = info.get("platform") == "android" or str(plan_code).startswith("AN")
-        if is_android:
-            activation_guide = (
-                "📌 *نحوه فعال‌سازی در گوشی (اندروید):*\n"
-                "۱. اپلیکیشن اندروید را باز کنید.\n"
-                "۲. روی کلید *«اتصال»* یا نشان لایسنس بالای صفحه بزنید.\n"
-                "۳. کد بالا را در کادر Paste کرده و *فعال‌سازی* را لمس کنید.\n\n"
-                "همچنین این لایسنس در بخش *«👤 حساب کاربری من»* ذخیره شد.\n\n"
+            buyer_msg = (
+                "🎉 *رسید پرداخت شما تایید شد!*\n\n"
+                "👑 *پکیج اشتراک ۱ ساله VIP (ویندوز + اندروید)*\n"
+                "⏳ مدت اعتبار: *۳۶۵ روز کامل (هر دو سیستم‌عامل)*\n\n"
+                "💻 *کد لایسنس اختصاصی نرم‌افزار ویندوز (کامپیوتر):*\n"
+                f"`{key_win}`\n"
+                "_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
+                "📱 *کد لایسنس اختصاصی اپلیکیشن اندروید (موبایل):*\n"
+                f"`{key_and}`\n"
+                "_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
+                "━━━━━━━━━━━━━━━━━━━\n"
+                "📌 *دستورالعمل فعال‌سازی:*\n"
+                "۱. **در کامپیوتر:** کد اول را داخل نرم‌افزار ویندوز در بخش «ثبت لایسنس» وارد و فعال نمایید.\n"
+                "۲. **در گوشی:** اپلیکیشن اندروید را باز کرده، روی کلید «اتصال» یا نشان لایسنس بالای صفحه زده و کد دوم را Paste و فعال نمایید.\n\n"
+                "همچنین هر دو لایسنس در بخش *«👤 حساب کاربری من»* ذخیره شدند.\n\n"
                 "با تشکر از اعتماد شما به *اینترنت آزاد³⁶⁹* 🌸"
             )
+            safe_send_message(buyer_id, buyer_msg)
         else:
-            activation_guide = (
-                "📌 *نحوه فعال‌سازی در ویندوز:*\n"
-                "این کد را داخل نرم‌افزار ویندوز در بخش *«ثبت لایسنس»* وارد کرده و فعال نمایید.\n"
-                "همچنین این لایسنس در بخش *«👤 حساب کاربری من»* ذخیره شد.\n\n"
-                "با تشکر از اعتماد شما به *اینترنت آزاد³⁶⁹* 🌸"
-            )
+            key = issue_key_for_plan_atomic(db, plan_code, buyer_id)
+            if not key:
+                safe_send_message(call.message.chat.id, f"⚠️ خطا در تولید خودکار لایسنس برای {info['name']}!")
+                bot.answer_callback_query(call.id, "خطا در تولید لایسنس!", show_alert=True)
+                return
 
-        buyer_msg = (
-            f"🎉 *رسید پرداخت شما تایید شد!*\n\n"
-            f"کد لایسنس اختصاصی شما:\n"
-            f"`{key}`\n\n"
-            f"_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
-            f"🔹 پلن خریداری‌شده: *{escape_md(info['name'])}*\n"
-            f"⏳ مدت اعتبار: *{info['days']} روز*\n\n"
-            f"{activation_guide}"
-        )
-        safe_send_message(buyer_id, buyer_msg)
+            order["status"] = "approved"
+            order["approved_at"] = int(time.time())
+            order["approved_by"] = uid
+            order["key"] = key
+            save_db(db, immediate_sync=True)
+
+            is_android = info.get("platform") == "android" or str(plan_code).startswith("AN")
+            if is_android:
+                activation_guide = (
+                    "📌 *نحوه فعال‌سازی در گوشی (اندروید):*\n"
+                    "۱. اپلیکیشن اندروید را باز کنید.\n"
+                    "۲. روی کلید *«اتصال»* یا نشان لایسنس بالای صفحه بزنید.\n"
+                    "۳. کد بالا را در کادر Paste کرده و *فعال‌سازی* را لمس کنید.\n\n"
+                    "همچنین این لایسنس در بخش *«👤 حساب کاربری من»* ذخیره شد.\n\n"
+                    "با تشکر از اعتماد شما به *اینترنت آزاد³⁶⁹* 🌸"
+                )
+            else:
+                activation_guide = (
+                    "📌 *نحوه فعال‌سازی در ویندوز:*\n"
+                    "این کد را داخل نرم‌افزار ویندوز در بخش *«ثبت لایسنس»* وارد کرده و فعال نمایید.\n"
+                    "همچنین این لایسنس در بخش *«👤 حساب کاربری من»* ذخیره شد.\n\n"
+                    "با تشکر از اعتماد شما به *اینترنت آزاد³⁶⁹* 🌸"
+                )
+
+            buyer_msg = (
+                f"🎉 *رسید پرداخت شما تایید شد!*\n\n"
+                f"کد لایسنس اختصاصی شما:\n"
+                f"`{key}`\n\n"
+                f"_(برای کپی روی کد بالا ضربه بزنید)_\n\n"
+                f"🔹 پلن خریداری‌شده: *{escape_md(info['name'])}*\n"
+                f"⏳ مدت اعتبار: *{info['days']} روز*\n\n"
+                f"{activation_guide}"
+            )
+            safe_send_message(buyer_id, buyer_msg)
 
         try:
             if call.message.caption:
@@ -3749,7 +3849,7 @@ def handle_callbacks(call):
                 "⚡ *موتور صدور هوشمند:* فعال و بدون محدودیت",
                 "🛡️ *ضمانت عدم تکرار:* ۱۰۰٪ تضمین‌شده (Blacklist تطبیقی)\n"
             ]
-            for p_code in ["1M", "2M", "3M", "1Y"]:
+            for p_code in ["1M", "2M", "3M", "1Y", "VIP1Y"]:
                 st = stats[p_code]
                 lines.append(f"• *{st['name']}:* {st['clean_on_disk']} عدد در انبار دیسک | صدور کریپتو: فعال")
             lines.append(f"\n📦 *کل لایسنس‌های صادرشده تا کنون:* {stats['_total_sold']} عدد")
@@ -3844,6 +3944,30 @@ def handle_callbacks(call):
 
                 time.sleep(0.35)
             return
+        elif action == "VIP1Y":
+            try:
+                bot.answer_callback_query(call.id, "در حال صدور لایسنس‌های VIP دوگانه...")
+            except Exception:
+                pass
+            try:
+                db = load_db()
+                res_vip = issue_keys_for_vip_plan(db, uid)
+                if not res_vip:
+                    safe_send_message(call.message.chat.id, "⚠️ خطا در تولید لایسنس‌های پکیج VIP!")
+                    return
+                key_win, key_and = res_vip
+                save_db(db, immediate_sync=True)
+                safe_send_message(
+                    call.message.chat.id,
+                    f"👑 *لایسنس‌های جدید پکیج ۱ ساله VIP دوگانه (رایگان ادمین):*\n\n"
+                    f"💻 *لایسنس اختصاصی ویندوز (۳۶۵ روز):*\n`{key_win}`\n\n"
+                    f"📱 *لایسنس اختصاصی اندروید (۳۶۵ روز):*\n`{key_and}`\n\n"
+                    f"_(برای کپی روی هر کد ضربه بزنید)_\n\n"
+                    f"⏳ مدت اعتبار: *۳۶۵ روز برای هر دو سیستم‌عامل*\n"
+                    f"🔒 *تضمین عدم تکرار ۱۰۰٪:* این کلیدها با الگوریتم رمزنگاری یکتا (HMAC-SHA256) تولید شده‌اند ✓"
+                )
+            except Exception as e:
+                safe_send_message(call.message.chat.id, f"⚠️ خطا در فرایند صدور VIP: {e}")
         elif action in PLANS_INFO:
             try:
                 bot.answer_callback_query(call.id, "در حال صدور لایسنس یکتا...")
