@@ -8282,6 +8282,12 @@
       "user_id": 702276351,
       "issued_at": 1793379743,
       "method": "crypto_unique"
+    },
+    "AN3M-590E-EF75-ED0F": {
+      "plan": "AN3M",
+      "user_id": 5388630230,
+      "issued_at": 1793380205,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -69164,9 +69170,18 @@
       "tron_amount": 1.31012,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a7c0e93120ac4b1a9afa1f3bbbd013a1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a7c0e93120ac4b1a9afa1f3bbbd013a1",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793380053
+      "created_at": 1793380053,
+      "approved_at": 1793380205,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-590E-EF75-ED0F",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3035729",
+        "tron_amount": 1.31012,
+        "user_paid_toman": null,
+        "date": "2026-10-30T17:09:48.6230000"
+      }
     },
     "TRND-AN3M-6538000930-1793380091-ffaa87": {
       "order_id": "TRND-AN3M-6538000930-1793380091-ffaa87",
@@ -91526,7 +91541,15 @@
       "username": "omid_pix",
       "first_seen": 1792946936,
       "last_seen": 1793380052,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-590E-EF75-ED0F",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793380205,
+          "days": 90
+        }
+      ]
     },
     "1738974557": {
       "user_id": 1738974557,
@@ -110720,7 +110743,7 @@
       "last_name": "K",
       "username": "nfp87h",
       "first_seen": 1793348121,
-      "last_seen": 1793348121,
+      "last_seen": 1793380189,
       "purchases": []
     },
     "5455492379": {
@@ -112912,6 +112935,15 @@
       "username": "Latifa1368",
       "first_seen": 1793379807,
       "last_seen": 1793379807,
+      "purchases": []
+    },
+    "7956214172": {
+      "user_id": 7956214172,
+      "first_name": "Amir",
+      "last_name": "Hosein Dianatian",
+      "username": "Amirdianatian",
+      "first_seen": 1793380198,
+      "last_seen": 1793380198,
       "purchases": []
     }
   },
