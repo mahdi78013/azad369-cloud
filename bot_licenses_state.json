@@ -8438,6 +8438,12 @@
       "user_id": 7004198066,
       "issued_at": 1793390971,
       "method": "crypto_unique"
+    },
+    "AZ2M-54F9-1F01-C16C": {
+      "plan": "2M",
+      "user_id": 432144727,
+      "issued_at": 1793391496,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -70427,9 +70433,10 @@
       "tron_amount": 0.784564,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5720a8d1ac7847fca917c0f8bfbee7eb",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5720a8d1ac7847fca917c0f8bfbee7eb",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793389965
+      "created_at": 1793389965,
+      "cancelled_at": 1793391465
     },
     "TRND-AN2M-46537652-1793390034-187f58": {
       "order_id": "TRND-AN2M-46537652-1793390034-187f58",
@@ -70712,9 +70719,10 @@
       "tron_amount": 0.788022,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_64a5af32f82b4a53acddbfddbde3abc0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=64a5af32f82b4a53acddbfddbde3abc0",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793391191
+      "created_at": 1793391191,
+      "cancelled_at": 1793391473
     },
     "TRND-2M-432144727-1793391306-8f599a": {
       "order_id": "TRND-2M-432144727-1793391306-8f599a",
@@ -70728,9 +70736,18 @@
       "tron_amount": 0.781487,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a5d6e4b7cbcf4abab36983951acb533d",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a5d6e4b7cbcf4abab36983951acb533d",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793391306
+      "created_at": 1793391306,
+      "approved_at": 1793391496,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-54F9-1F01-C16C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3037727",
+        "tron_amount": 0.781487,
+        "user_paid_toman": null,
+        "date": "2026-10-30T20:18:01.6130000"
+      }
     },
     "TRND-2M-41790557-1793391378-05cd48": {
       "order_id": "TRND-2M-41790557-1793391378-05cd48",
@@ -115100,7 +115117,7 @@
       "last_name": "",
       "username": "Hhe2057",
       "first_seen": 1793387397,
-      "last_seen": 1793389907,
+      "last_seen": 1793391474,
       "purchases": [
         {
           "key": "AN2M-040D-2B8F-F916",
@@ -115420,7 +115437,15 @@
       "username": "AriaAkbarian",
       "first_seen": 1793391288,
       "last_seen": 1793391288,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-54F9-1F01-C16C",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793391496,
+          "days": 60
+        }
+      ]
     },
     "41790557": {
       "user_id": 41790557,
@@ -115429,6 +115454,15 @@
       "username": "Fm083845",
       "first_seen": 1793391329,
       "last_seen": 1793391329,
+      "purchases": []
+    },
+    "7234269216": {
+      "user_id": 7234269216,
+      "first_name": "Hussein😉🫤",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793391414,
+      "last_seen": 1793391414,
       "purchases": []
     }
   },
