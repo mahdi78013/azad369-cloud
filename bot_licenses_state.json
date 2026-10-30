@@ -7910,6 +7910,12 @@
       "user_id": 6084574650,
       "issued_at": 1793356327,
       "method": "crypto_unique"
+    },
+    "AN2M-8BB2-4F8D-99BA": {
+      "plan": "AN2M",
+      "user_id": 6807312444,
+      "issued_at": 1793356501,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -58092,9 +58098,10 @@
       "tron_amount": 1.333262,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ab7da8df5b5a4fc1b34207451de786d2",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ab7da8df5b5a4fc1b34207451de786d2",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793270079
+      "created_at": 1793270079,
+      "cancelled_at": 1793356499
     },
     "TRND-1Y-40100543-1793270256-a15e4d": {
       "order_id": "TRND-1Y-40100543-1793270256-a15e4d",
@@ -65697,6 +65704,31 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793356354
+    },
+    "TRND-AN2M-6807312444-1793356408-31f83a": {
+      "order_id": "TRND-AN2M-6807312444-1793356408-31f83a",
+      "token": "9a0494cfd3094f19b13ec46d37c61067",
+      "user_id": 6807312444,
+      "first_name": "Parsa",
+      "username": "parrsagoli",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.78373,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_9a0494cfd3094f19b13ec46d37c61067",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9a0494cfd3094f19b13ec46d37c61067",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793356408,
+      "approved_at": 1793356501,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-8BB2-4F8D-99BA",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3032388",
+        "tron_amount": 0.78373,
+        "user_paid_toman": null,
+        "date": "2026-10-30T10:34:45.2330000"
+      }
     }
   },
   "users": {
@@ -107738,6 +107770,23 @@
       "username": "parrsagoli",
       "first_seen": 1793356331,
       "last_seen": 1793356331,
+      "purchases": [
+        {
+          "key": "AN2M-8BB2-4F8D-99BA",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793356501,
+          "days": 60
+        }
+      ]
+    },
+    "1468392109": {
+      "user_id": 1468392109,
+      "first_name": "4mir🥶",
+      "last_name": "",
+      "username": "Amirali_Gc",
+      "first_seen": 1793356392,
+      "last_seen": 1793356392,
       "purchases": []
     }
   },
