@@ -8066,6 +8066,12 @@
       "user_id": 1085366472,
       "issued_at": 1793364910,
       "method": "crypto_unique"
+    },
+    "AN2M-2DFC-6C18-160D": {
+      "plan": "AN2M",
+      "user_id": 211864338,
+      "issued_at": 1793365263,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -67038,9 +67044,34 @@
       "tron_amount": 0.781089,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_47a2995693e24242bc7b1a3729a36400",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=47a2995693e24242bc7b1a3729a36400",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793365068,
+      "approved_at": 1793365263,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-2DFC-6C18-160D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3033513",
+        "tron_amount": 0.781089,
+        "user_paid_toman": null,
+        "date": "2026-10-30T13:00:47.4430000"
+      }
+    },
+    "TRND-AN2M-133831037-1793365206-1de5c9": {
+      "order_id": "TRND-AN2M-133831037-1793365206-1de5c9",
+      "token": "69394d0444be4392bee991026685c1ef",
+      "user_id": 133831037,
+      "first_name": "Taha",
+      "username": "Taha0400",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.775668,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_69394d0444be4392bee991026685c1ef",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=69394d0444be4392bee991026685c1ef",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793365068
+      "created_at": 1793365206
     }
   },
   "users": {
@@ -87340,7 +87371,7 @@
       "last_name": "",
       "username": "Ehsan_13919",
       "first_seen": 1792945043,
-      "last_seen": 1793362117,
+      "last_seen": 1793365140,
       "purchases": []
     },
     "85524697": {
@@ -109737,7 +109768,15 @@
       "username": "yashaDAVAN",
       "first_seen": 1793364471,
       "last_seen": 1793365067,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-2DFC-6C18-160D",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793365263,
+          "days": 60
+        }
+      ]
     },
     "8973125213": {
       "user_id": 8973125213,
@@ -109764,6 +109803,15 @@
       "username": "ArmanMG",
       "first_seen": 1793364691,
       "last_seen": 1793364691,
+      "purchases": []
+    },
+    "133831037": {
+      "user_id": 133831037,
+      "first_name": "Taha",
+      "last_name": "",
+      "username": "Taha0400",
+      "first_seen": 1793365122,
+      "last_seen": 1793365122,
       "purchases": []
     }
   },
