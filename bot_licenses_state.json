@@ -7724,6 +7724,12 @@
       "user_id": 8590582931,
       "issued_at": 1793346090,
       "method": "crypto_unique"
+    },
+    "AZ2M-057F-9FCF-2D5B": {
+      "plan": "2M",
+      "user_id": 6351136273,
+      "issued_at": 1793346451,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -56796,9 +56802,10 @@
       "tron_amount": 0.793939,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_afe63f3113534a0dbe70ad6c8cccbd68",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=afe63f3113534a0dbe70ad6c8cccbd68",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793259923
+      "created_at": 1793259923,
+      "cancelled_at": 1793346420
     },
     "TRND-2M-7299558227-1793260075-0bdf1c": {
       "order_id": "TRND-2M-7299558227-1793260075-0bdf1c",
@@ -63856,9 +63863,18 @@
       "tron_amount": 0.78936,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_785c004fc65c4c8892f04e1215ea32b0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=785c004fc65c4c8892f04e1215ea32b0",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793346339
+      "created_at": 1793346339,
+      "approved_at": 1793346451,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-057F-9FCF-2D5B",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3030995",
+        "tron_amount": 0.78936,
+        "user_paid_toman": null,
+        "date": "2026-10-30T07:47:14.6100000"
+      }
     },
     "TRND-2M-6015619340-1793346344-88c6f1": {
       "order_id": "TRND-2M-6015619340-1793346344-88c6f1",
@@ -102048,7 +102064,7 @@
       "last_name": "",
       "username": "Tayger2026",
       "first_seen": 1793275355,
-      "last_seen": 1793275355,
+      "last_seen": 1793346430,
       "purchases": []
     },
     "673015420": {
@@ -104062,7 +104078,7 @@
       "last_name": "",
       "username": "Saeidfeizy",
       "first_seen": 1793314190,
-      "last_seen": 1793346080,
+      "last_seen": 1793346408,
       "purchases": []
     },
     "5981591335": {
@@ -104957,8 +104973,16 @@
       "last_name": "",
       "username": "Khuqi",
       "first_seen": 1793346143,
-      "last_seen": 1793346143,
-      "purchases": []
+      "last_seen": 1793346450,
+      "purchases": [
+        {
+          "key": "AZ2M-057F-9FCF-2D5B",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793346451,
+          "days": 60
+        }
+      ]
     },
     "8608822680": {
       "user_id": 8608822680,
