@@ -66118,9 +66118,10 @@
       "tron_amount": 0.76432,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_507a3b55e77e482cae4f7156ed6e2017",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=507a3b55e77e482cae4f7156ed6e2017",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793359118
+      "created_at": 1793359118,
+      "cancelled_at": 1793360570
     },
     "TRND-2M-105219607-1793359149-0e8d1c": {
       "order_id": "TRND-2M-105219607-1793359149-0e8d1c",
@@ -66184,9 +66185,10 @@
       "tron_amount": 0.773854,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_204ea3afd3674e468e784c1ac0b9c9c6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=204ea3afd3674e468e784c1ac0b9c9c6",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793359247
+      "created_at": 1793359247,
+      "cancelled_at": 1793360571
     },
     "TRND-AN2M-878053239-1793359385-576692": {
       "order_id": "TRND-AN2M-878053239-1793359385-576692",
@@ -66345,6 +66347,36 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793360393
+    },
+    "TRND-AN1Y-7270666527-1793360597-94cbf8": {
+      "order_id": "TRND-AN1Y-7270666527-1793360597-94cbf8",
+      "token": "034a78dbd4c0449aa3214dc8395213ba",
+      "user_id": 7270666527,
+      "first_name": "Ehsan",
+      "username": "Ehsan_13919",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.524983,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_034a78dbd4c0449aa3214dc8395213ba",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=034a78dbd4c0449aa3214dc8395213ba",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793360597
+    },
+    "ORD_1793360684_8066523051": {
+      "order_id": "ORD_1793360684_8066523051",
+      "user_id": 8066523051,
+      "username": "yosf_84",
+      "first_name": "𝔂𝓸𝓼𝓯",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAEBqQRq5IMsxE9Adpcry_SRrd7EvusYRwACZBBrG8uuIFOI6MlLdNi-LgEAAwIAA3kAAz0E",
+      "card_number": "5892101706458979",
+      "created_at": 1793360684,
+      "caption": ""
     }
   },
   "users": {
@@ -68583,7 +68615,7 @@
       "last_name": "",
       "username": "Noxjam1",
       "first_seen": 1792058195,
-      "last_seen": 1792395158,
+      "last_seen": 1793360681,
       "purchases": [],
       "last_admin_reply": {
         "text": "لطفا صبور باشید در اپدیت برطرف میشه",
@@ -86637,7 +86669,7 @@
       "last_name": "",
       "username": "Ehsan_13919",
       "first_seen": 1792945043,
-      "last_seen": 1793310972,
+      "last_seen": 1793360551,
       "purchases": []
     },
     "85524697": {
@@ -108739,7 +108771,25 @@
       "last_name": "",
       "username": "yosf_84",
       "first_seen": 1793360203,
-      "last_seen": 1793360203,
+      "last_seen": 1793360646,
+      "purchases": []
+    },
+    "194195886": {
+      "user_id": 194195886,
+      "first_name": "Reza",
+      "last_name": "",
+      "username": "AZRghost95",
+      "first_seen": 1793360544,
+      "last_seen": 1793360544,
+      "purchases": []
+    },
+    "662104578": {
+      "user_id": 662104578,
+      "first_name": "Arsh",
+      "last_name": "",
+      "username": "Awarshia",
+      "first_seen": 1793360565,
+      "last_seen": 1793360565,
       "purchases": []
     }
   },
@@ -109232,16 +109282,21 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793348685
+    },
+    "8066523051": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN1Y",
+      "time": 1793360658
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
-    "current_index": 0,
-    "count": 9,
+    "current_index": 1,
+    "count": 0,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 59,
+      "5892101706458979": 60,
       "5047061670546072": 50
     }
   },
