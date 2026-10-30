@@ -8516,6 +8516,12 @@
       "user_id": 5869238466,
       "issued_at": 1793399251,
       "method": "crypto_unique"
+    },
+    "AN2M-F2DD-5DB6-03D8": {
+      "plan": "AN2M",
+      "user_id": 6632066913,
+      "issued_at": 1793399895,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -71984,9 +71990,10 @@
       "tron_amount": 0.79389,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_829a3ac9afde4ebf976befae7245c7c6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=829a3ac9afde4ebf976befae7245c7c6",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793398606
+      "created_at": 1793398606,
+      "cancelled_at": 1793399882
     },
     "TRND-VIP1Y-6632066913-1793398607-46efb8": {
       "order_id": "TRND-VIP1Y-6632066913-1793398607-46efb8",
@@ -72363,9 +72370,18 @@
       "tron_amount": 0.798077,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e4aac2f4ab5742bd9558cf911b687da3",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e4aac2f4ab5742bd9558cf911b687da3",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793399639
+      "created_at": 1793399639,
+      "approved_at": 1793399895,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-F2DD-5DB6-03D8",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3038668",
+        "tron_amount": 0.798077,
+        "user_paid_toman": null,
+        "date": "2026-10-30T22:35:12.3700000"
+      }
     },
     "TRND-VIP1Y-297211008-1793399726-956ce8": {
       "order_id": "TRND-VIP1Y-297211008-1793399726-956ce8",
@@ -101042,6 +101058,13 @@
           "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
           "issued_at": 1793398919,
           "days": 60
+        },
+        {
+          "key": "AN2M-F2DD-5DB6-03D8",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793399895,
+          "days": 60
         }
       ]
     },
@@ -117620,6 +117643,15 @@
       "username": "amirroshanhr",
       "first_seen": 1793399795,
       "last_seen": 1793399795,
+      "purchases": []
+    },
+    "1810029982": {
+      "user_id": 1810029982,
+      "first_name": "ЄЯМιуΑ КιМιуΑЄι",
+      "last_name": "",
+      "username": "Kimiyaeii",
+      "first_seen": 1793399882,
+      "last_seen": 1793399882,
       "purchases": []
     }
   },
