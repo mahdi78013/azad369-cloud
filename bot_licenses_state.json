@@ -8504,6 +8504,12 @@
       "user_id": 1246410177,
       "issued_at": 1793398894,
       "method": "crypto_unique"
+    },
+    "AN2M-B412-B139-75C8": {
+      "plan": "AN2M",
+      "user_id": 6632066913,
+      "issued_at": 1793398919,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -71527,9 +71533,10 @@
       "tron_amount": 4.553009,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b2db1f3e79a84fb6839f4ad565814c22",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b2db1f3e79a84fb6839f4ad565814c22",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793397497
+      "created_at": 1793397497,
+      "cancelled_at": 1793398899
     },
     "TRND-VIP1Y-202369241-1793397511-aa121d": {
       "order_id": "TRND-VIP1Y-202369241-1793397511-aa121d",
@@ -72016,9 +72023,18 @@
       "tron_amount": 0.782718,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_07ab5a604a984c189ae183df6d5025df",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=07ab5a604a984c189ae183df6d5025df",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793398642
+      "created_at": 1793398642,
+      "approved_at": 1793398919,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-B412-B139-75C8",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3038622",
+        "tron_amount": 0.782718,
+        "user_paid_toman": null,
+        "date": "2026-10-30T22:21:40.8200000"
+      }
     },
     "TRND-AN2M-1246410177-1793398744-1e75cf": {
       "order_id": "TRND-AN2M-1246410177-1793398744-1e75cf",
@@ -83702,7 +83718,7 @@
       "last_name": "",
       "username": "pouyaemadzadeh",
       "first_seen": 1792216831,
-      "last_seen": 1792307263,
+      "last_seen": 1793398919,
       "purchases": []
     },
     "420174216": {
@@ -100744,6 +100760,13 @@
           "plan": "AN2M",
           "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
           "issued_at": 1793358576,
+          "days": 60
+        },
+        {
+          "key": "AN2M-B412-B139-75C8",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793398919,
           "days": 60
         }
       ]
