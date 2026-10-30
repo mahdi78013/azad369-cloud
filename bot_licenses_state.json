@@ -7658,6 +7658,12 @@
       "user_id": 595538866,
       "issued_at": 1793341707,
       "method": "crypto_unique"
+    },
+    "AN2M-C9A7-7169-DE16": {
+      "plan": "AN2M",
+      "user_id": 693078586,
+      "issued_at": 1793342286,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -63193,9 +63199,18 @@
       "tron_amount": 0.786411,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b000f9ee8ebf4b06aadfaeecc732d2a3",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b000f9ee8ebf4b06aadfaeecc732d2a3",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793342056
+      "created_at": 1793342056,
+      "approved_at": 1793342286,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-C9A7-7169-DE16",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3030568",
+        "tron_amount": 0.786411,
+        "user_paid_toman": null,
+        "date": "2026-10-30T06:38:01.2530000"
+      }
     },
     "TRND-AN2M-5096511245-1793342130-2c895a": {
       "order_id": "TRND-AN2M-5096511245-1793342130-2c895a",
@@ -63212,6 +63227,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793342130
+    },
+    "TRND-AN1Y-1666207960-1793342216-dc6e5a": {
+      "order_id": "TRND-AN1Y-1666207960-1793342216-dc6e5a",
+      "token": "75324f7cf4b140a5a1af46ec26722f48",
+      "user_id": 1666207960,
+      "first_name": "B",
+      "username": "ندارد",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.610737,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_75324f7cf4b140a5a1af46ec26722f48",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=75324f7cf4b140a5a1af46ec26722f48",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793342216
     }
   },
   "users": {
@@ -84434,6 +84465,13 @@
           "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
           "issued_at": 1792945854,
           "days": 90
+        },
+        {
+          "key": "AN2M-C9A7-7169-DE16",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793342286,
+          "days": 60
         }
       ]
     },
@@ -93117,7 +93155,7 @@
       "last_name": "R",
       "username": "",
       "first_seen": 1793117143,
-      "last_seen": 1793117143,
+      "last_seen": 1793342202,
       "purchases": []
     },
     "6290888885": {
@@ -104042,6 +104080,24 @@
       "username": "AliScord",
       "first_seen": 1793342004,
       "last_seen": 1793342004,
+      "purchases": []
+    },
+    "6367745699": {
+      "user_id": 6367745699,
+      "first_name": "Shahryar",
+      "last_name": "Rk",
+      "username": "ShahryarRk",
+      "first_seen": 1793342252,
+      "last_seen": 1793342252,
+      "purchases": []
+    },
+    "905048886": {
+      "user_id": 905048886,
+      "first_name": "M-_-SeRiouS",
+      "last_name": "",
+      "username": "SeRiouS877",
+      "first_seen": 1793342267,
+      "last_seen": 1793342267,
       "purchases": []
     }
   },
