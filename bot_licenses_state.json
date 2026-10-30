@@ -8108,6 +8108,12 @@
       "user_id": 231067312,
       "issued_at": 1793367674,
       "method": "crypto_unique"
+    },
+    "AN1Y-21E3-A0AD-D171": {
+      "plan": "AN1Y",
+      "user_id": 7270666527,
+      "issued_at": 1793368346,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -67298,12 +67304,15 @@
       "first_name": "Ehsan",
       "plan_code": "AN1Y",
       "price": "۳۹۹,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAEBqolq5JmLC-4y3D0urmusD8SzVkfxLQACbg5rG6y6IVPwjjyt_CtGtgEAAwIAA3cAAz0E",
       "card_number": "5047061670546072",
       "created_at": 1793366412,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1793368346,
+      "approved_by": 748538264,
+      "key": "AN1Y-21E3-A0AD-D171"
     },
     "TRND-2M-7226657679-1793366419-5885e1": {
       "order_id": "TRND-2M-7226657679-1793366419-5885e1",
@@ -67622,6 +67631,54 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793368025
+    },
+    "TRND-AN2M-624311790-1793368196-1ec14f": {
+      "order_id": "TRND-AN2M-624311790-1793368196-1ec14f",
+      "token": "86410c54472243eb936433d57212fffc",
+      "user_id": 624311790,
+      "first_name": "مجید",
+      "username": "Majid_malekzade",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.79138,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_86410c54472243eb936433d57212fffc",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=86410c54472243eb936433d57212fffc",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793368196
+    },
+    "TRND-AN3M-6421857063-1793368273-033c19": {
+      "order_id": "TRND-AN3M-6421857063-1793368273-033c19",
+      "token": "c2a93f3cd490467abc61cd9da26be5f6",
+      "user_id": 6421857063,
+      "first_name": "Mo",
+      "username": "Mopiam",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.299854,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_c2a93f3cd490467abc61cd9da26be5f6",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c2a93f3cd490467abc61cd9da26be5f6",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793368273
+    },
+    "TRND-AN2M-624311790-1793368323-59f189": {
+      "order_id": "TRND-AN2M-624311790-1793368323-59f189",
+      "token": "326d0449597649d0ba636913214137a3",
+      "user_id": 624311790,
+      "first_name": "مجید",
+      "username": "Majid_malekzade",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.784889,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_326d0449597649d0ba636913214137a3",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=326d0449597649d0ba636913214137a3",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793368323
     }
   },
   "users": {
@@ -68310,7 +68367,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "Mahdi780111",
-      "last_seen": 1793364909,
+      "last_seen": 1793368345,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -87922,7 +87979,15 @@
       "username": "Ehsan_13919",
       "first_seen": 1792945043,
       "last_seen": 1793366389,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN1Y-21E3-A0AD-D171",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793368346,
+          "days": 365
+        }
+      ]
     },
     "85524697": {
       "user_id": 85524697,
@@ -110589,7 +110654,7 @@
       "last_name": "Pi",
       "username": "Mopiam",
       "first_seen": 1793367976,
-      "last_seen": 1793367976,
+      "last_seen": 1793368290,
       "purchases": []
     },
     "8842367915": {
