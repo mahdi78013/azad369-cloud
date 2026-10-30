@@ -8432,6 +8432,12 @@
       "user_id": 1480160138,
       "issued_at": 1793390937,
       "method": "crypto_unique"
+    },
+    "AZ2M-2FC1-FA54-C603": {
+      "plan": "2M",
+      "user_id": 7004198066,
+      "issued_at": 1793390971,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -61393,9 +61399,10 @@
       "tron_amount": 1.33061,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6265ae948165476b980f0db7ed896fc8",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6265ae948165476b980f0db7ed896fc8",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793304471
+      "created_at": 1793304471,
+      "cancelled_at": 1793390946
     },
     "TRND-AN2M-5871382613-1793304910-4adca9": {
       "order_id": "TRND-AN2M-5871382613-1793304910-4adca9",
@@ -70663,9 +70670,18 @@
       "tron_amount": 0.794446,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_981a062cf6dc46babecd8c23642fc221",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=981a062cf6dc46babecd8c23642fc221",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793390816
+      "created_at": 1793390816,
+      "approved_at": 1793390971,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-2FC1-FA54-C603",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3037636",
+        "tron_amount": 0.794446,
+        "user_paid_toman": null,
+        "date": "2026-10-30T20:08:02.3400000"
+      }
     }
   },
   "users": {
@@ -112265,7 +112281,7 @@
       "last_name": "K",
       "username": "nfp87h",
       "first_seen": 1793348121,
-      "last_seen": 1793380189,
+      "last_seen": 1793390960,
       "purchases": []
     },
     "5455492379": {
@@ -115295,7 +115311,15 @@
       "username": "aliroox",
       "first_seen": 1793390809,
       "last_seen": 1793390809,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-2FC1-FA54-C603",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793390971,
+          "days": 60
+        }
+      ]
     }
   },
   "user_states": {
