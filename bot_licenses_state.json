@@ -7868,6 +7868,12 @@
       "user_id": 748538264,
       "issued_at": 1793351984,
       "method": "crypto_unique"
+    },
+    "AN2M-C36CDAE7-CEE8-6C11AC": {
+      "plan": "AN2M",
+      "user_id": 39355147,
+      "issued_at": 1793353563,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -65191,9 +65197,18 @@
       "tron_amount": 0.789672,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_68d216cdbfd24868ab0f5186c5205ebe",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=68d216cdbfd24868ab0f5186c5205ebe",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793353139
+      "created_at": 1793353139,
+      "approved_at": 1793353563,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-C36CDAE7-CEE8-6C11AC",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3031923",
+        "tron_amount": 0.789672,
+        "user_paid_toman": null,
+        "date": "2026-10-30T09:45:47.2970000"
+      }
     },
     "TRND-2M-7736841624-1793353420-6e4420": {
       "order_id": "TRND-2M-7736841624-1793353420-6e4420",
@@ -65898,7 +65913,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "Mahdi780111",
-      "last_seen": 1793351980,
+      "last_seen": 1793353506,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -105158,7 +105173,7 @@
       "last_name": "",
       "username": "Vx_nlx63",
       "first_seen": 1793311169,
-      "last_seen": 1793311169,
+      "last_seen": 1793353522,
       "purchases": []
     },
     "1459562855": {
@@ -107005,8 +107020,16 @@
       "last_name": "",
       "username": "ma42ir",
       "first_seen": 1793353112,
-      "last_seen": 1793353112,
-      "purchases": []
+      "last_seen": 1793353535,
+      "purchases": [
+        {
+          "key": "AN2M-C36CDAE7-CEE8-6C11AC",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793353563,
+          "days": 60
+        }
+      ]
     },
     "6158592686": {
       "user_id": 6158592686,
@@ -107024,6 +107047,15 @@
       "username": "",
       "first_seen": 1793353300,
       "last_seen": 1793353300,
+      "purchases": []
+    },
+    "524686648": {
+      "user_id": 524686648,
+      "first_name": "Masiha",
+      "last_name": "",
+      "username": "Masiha_Xr6",
+      "first_seen": 1793353484,
+      "last_seen": 1793353484,
       "purchases": []
     }
   },
