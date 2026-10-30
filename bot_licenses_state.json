@@ -7808,6 +7808,12 @@
       "user_id": 5657982921,
       "issued_at": 1793348615,
       "method": "crypto_unique"
+    },
+    "AZ2M-7748-7DB5-89A8": {
+      "plan": "2M",
+      "user_id": 5821964183,
+      "issued_at": 1793348685,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -64483,9 +64489,18 @@
       "tron_amount": 0.794827,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ed5293f598a145e2a10449dc03c963d0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ed5293f598a145e2a10449dc03c963d0",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793348579
+      "created_at": 1793348579,
+      "approved_at": 1793348685,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-7748-7DB5-89A8",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3031262",
+        "tron_amount": 0.794827,
+        "user_paid_toman": null,
+        "date": "2026-10-30T08:24:42.2300000"
+      }
     }
   },
   "users": {
@@ -104687,7 +104702,7 @@
       "last_name": "",
       "username": "Saeidfeizy",
       "first_seen": 1793314190,
-      "last_seen": 1793346408,
+      "last_seen": 1793348680,
       "purchases": []
     },
     "5981591335": {
@@ -105894,7 +105909,15 @@
       "username": "ArtinNK",
       "first_seen": 1793348530,
       "last_seen": 1793348530,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-7748-7DB5-89A8",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793348685,
+          "days": 60
+        }
+      ]
     }
   },
   "user_states": {
@@ -106386,6 +106409,11 @@
       "state": "awaiting_receipt",
       "plan_code": "AN2M",
       "time": 1793346869
+    },
+    "5361530527": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN3M",
+      "time": 1793348685
     }
   },
   "admin_states": {},
