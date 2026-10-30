@@ -7748,6 +7748,12 @@
       "user_id": 8204239110,
       "issued_at": 1793346903,
       "method": "crypto_unique"
+    },
+    "AZ2M-E7CD-92DF-5FE3": {
+      "plan": "2M",
+      "user_id": 365131787,
+      "issued_at": 1793346950,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -56879,9 +56885,10 @@
       "tron_amount": 1.337566,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f1758ec6cb68446f9cf09a0d5a92d2cb",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f1758ec6cb68446f9cf09a0d5a92d2cb",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793260529
+      "created_at": 1793260529,
+      "cancelled_at": 1793346929
     },
     "TRND-AN2M-79596608-1793260851-5885bd": {
       "order_id": "TRND-AN2M-79596608-1793260851-5885bd",
@@ -64060,9 +64067,18 @@
       "tron_amount": 0.800256,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_8a15f2c9733749a4a88c106ff24eeb5e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8a15f2c9733749a4a88c106ff24eeb5e",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793346811
+      "created_at": 1793346811,
+      "approved_at": 1793346950,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-E7CD-92DF-5FE3",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3031054",
+        "tron_amount": 0.800256,
+        "user_paid_toman": null,
+        "date": "2026-10-30T07:55:42.0670000"
+      }
     },
     "TRND-2M-8444956250-1793346822-b879dc": {
       "order_id": "TRND-2M-8444956250-1793346822-b879dc",
@@ -102694,6 +102710,13 @@
           "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
           "issued_at": 1793292082,
           "days": 60
+        },
+        {
+          "key": "AZ2M-E7CD-92DF-5FE3",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793346950,
+          "days": 60
         }
       ]
     },
@@ -105256,6 +105279,15 @@
           "days": 60
         }
       ]
+    },
+    "1057751202": {
+      "user_id": 1057751202,
+      "first_name": ".",
+      "last_name": "⁪⁬⁮⁮⁮⁮ ⁪⁬⁮⁮⁮⁮",
+      "username": "Hd58v",
+      "first_seen": 1793346944,
+      "last_seen": 1793346944,
+      "purchases": []
     }
   },
   "user_states": {
