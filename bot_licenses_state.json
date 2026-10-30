@@ -8174,6 +8174,12 @@
       "user_id": 2024996296,
       "issued_at": 1793372305,
       "method": "crypto_unique"
+    },
+    "AN2M-D055-1012-F09E": {
+      "plan": "AN2M",
+      "user_id": 6045179553,
+      "issued_at": 1793372823,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -68165,9 +68171,66 @@
       "tron_amount": 0.778665,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b733ddb8b5f8451d8e00d81c7a79c3ad",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b733ddb8b5f8451d8e00d81c7a79c3ad",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793372621,
+      "approved_at": 1793372823,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-D055-1012-F09E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3034522",
+        "tron_amount": 0.778665,
+        "user_paid_toman": null,
+        "date": "2026-10-30T15:06:30.7300000"
+      }
+    },
+    "TRND-AN2M-7940288857-1793372762-94a7fb": {
+      "order_id": "TRND-AN2M-7940288857-1793372762-94a7fb",
+      "token": "c459b7d81582460cae095a0113fc1cbf",
+      "user_id": 7940288857,
+      "first_name": "n",
+      "username": "ندارد",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.771797,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_c459b7d81582460cae095a0113fc1cbf",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c459b7d81582460cae095a0113fc1cbf",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793372621
+      "created_at": 1793372762
+    },
+    "TRND-AN3M-311494770-1793372772-317a67": {
+      "order_id": "TRND-AN3M-311494770-1793372772-317a67",
+      "token": "ea0f9f3d10c24cb2959b617c42b9a3ed",
+      "user_id": 311494770,
+      "first_name": "🍂",
+      "username": "Zari_brz",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.313938,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_ea0f9f3d10c24cb2959b617c42b9a3ed",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ea0f9f3d10c24cb2959b617c42b9a3ed",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793372772
+    },
+    "TRND-AN1Y-492274359-1793372775-adc057": {
+      "order_id": "TRND-AN1Y-492274359-1793372775-adc057",
+      "token": "1a360e8e66ee43659fc3e1bddf78edb9",
+      "user_id": 492274359,
+      "first_name": "M.t",
+      "username": "A454bot",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.580924,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_1a360e8e66ee43659fc3e1bddf78edb9",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1a360e8e66ee43659fc3e1bddf78edb9",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793372775
     }
   },
   "users": {
@@ -101605,7 +101668,15 @@
       "username": "Moriiiiking",
       "first_seen": 1793196246,
       "last_seen": 1793372593,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-D055-1012-F09E",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793372823,
+          "days": 60
+        }
+      ]
     },
     "110166873": {
       "user_id": 110166873,
@@ -111412,6 +111483,33 @@
       "username": "Imrixireza",
       "first_seen": 1793372466,
       "last_seen": 1793372466,
+      "purchases": []
+    },
+    "311494770": {
+      "user_id": 311494770,
+      "first_name": "🍂",
+      "last_name": "",
+      "username": "Zari_brz",
+      "first_seen": 1793372753,
+      "last_seen": 1793372753,
+      "purchases": []
+    },
+    "7940288857": {
+      "user_id": 7940288857,
+      "first_name": "n",
+      "last_name": "n",
+      "username": "",
+      "first_seen": 1793372754,
+      "last_seen": 1793372754,
+      "purchases": []
+    },
+    "492274359": {
+      "user_id": 492274359,
+      "first_name": "M.t",
+      "last_name": "",
+      "username": "A454bot",
+      "first_seen": 1793372760,
+      "last_seen": 1793372760,
       "purchases": []
     }
   },
