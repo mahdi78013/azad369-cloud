@@ -8252,6 +8252,12 @@
       "user_id": 618591423,
       "issued_at": 1793377070,
       "method": "crypto_unique"
+    },
+    "AN3M-9D68C4A9-4F55-E6CDE5": {
+      "plan": "AN3M",
+      "user_id": 77919850,
+      "issued_at": 1793378253,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -68827,9 +68833,10 @@
       "tron_amount": 1.31961,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1c990d8a8e5646d9a76e0c57d4e76b81",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1c990d8a8e5646d9a76e0c57d4e76b81",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793376926
+      "created_at": 1793376926,
+      "cancelled_at": 1793378250
     },
     "TRND-AN2M-464720278-1793377379-8e72a4": {
       "order_id": "TRND-AN2M-464720278-1793377379-8e72a4",
@@ -68891,9 +68898,18 @@
       "tron_amount": 1.294815,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e8f1d68a1c2c45c8a46384e6c02ccb8b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e8f1d68a1c2c45c8a46384e6c02ccb8b",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793378061
+      "created_at": 1793378061,
+      "approved_at": 1793378253,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-9D68C4A9-4F55-E6CDE5",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3035398",
+        "tron_amount": 1.294815,
+        "user_paid_toman": null,
+        "date": "2026-10-30T16:37:30.1130000"
+      }
     }
   },
   "users": {
@@ -112502,7 +112518,15 @@
       "username": "MRMWMD",
       "first_seen": 1793378039,
       "last_seen": 1793378039,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-9D68C4A9-4F55-E6CDE5",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793378253,
+          "days": 90
+        }
+      ]
     }
   },
   "user_states": {
