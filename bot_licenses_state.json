@@ -7856,6 +7856,12 @@
       "user_id": 101210478,
       "issued_at": 1793351572,
       "method": "crypto_unique"
+    },
+    "AZ2M-59C0-A48B-BCF0": {
+      "plan": "2M",
+      "user_id": 8994780022,
+      "issued_at": 1793351574,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -65020,9 +65026,18 @@
       "tron_amount": 0.786099,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c730b1c10f524cb0a3f76ef7578f520b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c730b1c10f524cb0a3f76ef7578f520b",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793351423
+      "created_at": 1793351423,
+      "approved_at": 1793351574,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-59C0-A48B-BCF0",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3031660",
+        "tron_amount": 0.786099,
+        "user_paid_toman": null,
+        "date": "2026-10-30T09:12:14.7730000"
+      }
     },
     "TRND-AN2M-8230237279-1793351545-a2debb": {
       "order_id": "TRND-AN2M-8230237279-1793351545-a2debb",
@@ -78173,7 +78188,7 @@
       "last_name": "",
       "username": "Abolfaxlx",
       "first_seen": 1792247680,
-      "last_seen": 1792247680,
+      "last_seen": 1793351628,
       "purchases": []
     },
     "6165114763": {
@@ -106730,7 +106745,15 @@
       "username": "samanhp0011",
       "first_seen": 1793351404,
       "last_seen": 1793351404,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-59C0-A48B-BCF0",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793351574,
+          "days": 60
+        }
+      ]
     },
     "8230237279": {
       "user_id": 8230237279,
@@ -106739,6 +106762,15 @@
       "username": "",
       "first_seen": 1793351503,
       "last_seen": 1793351503,
+      "purchases": []
+    },
+    "6914438622": {
+      "user_id": 6914438622,
+      "first_name": "محسن",
+      "last_name": "",
+      "username": "mohsen_zzf",
+      "first_seen": 1793351579,
+      "last_seen": 1793351579,
       "purchases": []
     }
   },
