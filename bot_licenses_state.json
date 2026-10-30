@@ -8114,6 +8114,12 @@
       "user_id": 7270666527,
       "issued_at": 1793368346,
       "method": "crypto_unique"
+    },
+    "AN1Y-E0104FF3-DB55-D646F2": {
+      "plan": "AN1Y",
+      "user_id": 1059760495,
+      "issued_at": 1793368431,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -67506,9 +67512,18 @@
       "tron_amount": 3.601819,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_de622392a8ca41529f634f31149cdc08",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=de622392a8ca41529f634f31149cdc08",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793367259
+      "created_at": 1793367259,
+      "approved_at": 1793368431,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-E0104FF3-DB55-D646F2",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3033792",
+        "tron_amount": 3.601819,
+        "user_paid_toman": null,
+        "date": "2026-10-30T13:52:14.2770000"
+      }
     },
     "TRND-AN2M-390044834-1793367374-f2c936": {
       "order_id": "TRND-AN2M-390044834-1793367374-f2c936",
@@ -67679,6 +67694,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793368323
+    },
+    "TRND-AN1Y-1059760495-1793368359-62e0c2": {
+      "order_id": "TRND-AN1Y-1059760495-1793368359-62e0c2",
+      "token": "e9229f3659324ecf9fc9b3e7363ad60e",
+      "user_id": 1059760495,
+      "first_name": "Nima",
+      "username": "nimasoltani56",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.595019,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_e9229f3659324ecf9fc9b3e7363ad60e",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e9229f3659324ecf9fc9b3e7363ad60e",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793368359
     }
   },
   "users": {
@@ -110628,7 +110659,15 @@
       "username": "nimasoltani56",
       "first_seen": 1793367162,
       "last_seen": 1793368096,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN1Y-E0104FF3-DB55-D646F2",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793368431,
+          "days": 365
+        }
+      ]
     },
     "405359003": {
       "user_id": 405359003,
