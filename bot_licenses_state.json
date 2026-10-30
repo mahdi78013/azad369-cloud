@@ -8156,6 +8156,12 @@
       "user_id": 97569373,
       "issued_at": 1793370579,
       "method": "crypto_unique"
+    },
+    "AN2M-6CFA-CB27-0AE6": {
+      "plan": "AN2M",
+      "user_id": 7577290612,
+      "issued_at": 1793370909,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -67915,9 +67921,18 @@
       "tron_amount": 0.785064,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_7252df47e0804d21a30b1dd305ce32c5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7252df47e0804d21a30b1dd305ce32c5",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793370076
+      "created_at": 1793370076,
+      "approved_at": 1793370909,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-6CFA-CB27-0AE6",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3034223",
+        "tron_amount": 0.785064,
+        "user_paid_toman": null,
+        "date": "2026-10-30T14:34:41.6100000"
+      }
     },
     "TRND-AN2M-5240747827-1793370160-24c3ed": {
       "order_id": "TRND-AN2M-5240747827-1793370160-24c3ed",
@@ -86394,7 +86409,7 @@
       "last_name": "Sadeghi",
       "username": "sadeghi_prog",
       "first_seen": 1792425911,
-      "last_seen": 1793353610,
+      "last_seen": 1793370992,
       "purchases": []
     },
     "8064651903": {
@@ -89593,7 +89608,7 @@
       "last_name": "bahi",
       "username": "BahmanMolaee12",
       "first_seen": 1792945885,
-      "last_seen": 1793301637,
+      "last_seen": 1793370966,
       "purchases": []
     },
     "8987668504": {
@@ -111072,7 +111087,15 @@
       "username": "",
       "first_seen": 1793370012,
       "last_seen": 1793370769,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-6CFA-CB27-0AE6",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793370909,
+          "days": 60
+        }
+      ]
     },
     "97569373": {
       "user_id": 97569373,
@@ -111090,6 +111113,24 @@
           "days": 90
         }
       ]
+    },
+    "8077779290": {
+      "user_id": 8077779290,
+      "first_name": "🇦🇷Parsa🇦🇷",
+      "last_name": "",
+      "username": "Parsa_donk",
+      "first_seen": 1793370919,
+      "last_seen": 1793370919,
+      "purchases": []
+    },
+    "593091276": {
+      "user_id": 593091276,
+      "first_name": "H M I D R E Zz",
+      "last_name": "",
+      "username": "Hmiidrez",
+      "first_seen": 1793371045,
+      "last_seen": 1793371045,
+      "purchases": []
     }
   },
   "user_states": {
