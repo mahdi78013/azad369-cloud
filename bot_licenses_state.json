@@ -7754,6 +7754,12 @@
       "user_id": 365131787,
       "issued_at": 1793346950,
       "method": "crypto_unique"
+    },
+    "AZ2M-C369-030C-9DBB": {
+      "plan": "2M",
+      "user_id": 6015619340,
+      "issued_at": 1793347159,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -64032,12 +64038,15 @@
       "first_name": "Reza",
       "plan_code": "2M",
       "price": "۱۰۰,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAEBpSdq5EyOBOIl0eZwAsa3qZ5nGyymVQACXQ5rG37oIVNgphxEMZg91QEAAwIAA3kAAz0E",
       "card_number": "5892101706458979",
       "created_at": 1793346703,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1793347159,
+      "approved_by": 748538264,
+      "key": "AZ2M-C369-030C-9DBB"
     },
     "TRND-AN3M-6054167383-1793346796-4c1bff": {
       "order_id": "TRND-AN3M-6054167383-1793346796-4c1bff",
@@ -64111,6 +64120,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793346837
+    },
+    "TRND-AN1Y-275717489-1793347155-4ef7eb": {
+      "order_id": "TRND-AN1Y-275717489-1793347155-4ef7eb",
+      "token": "e4045fe678c945959de0e4fe84c3d69f",
+      "user_id": 275717489,
+      "first_name": "Parinaz",
+      "username": "Parinaz_ch",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.642903,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_e4045fe678c945959de0e4fe84c3d69f",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e4045fe678c945959de0e4fe84c3d69f",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793347155
     }
   },
   "users": {
@@ -64792,7 +64817,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "Mahdi780111",
-      "last_seen": 1793345763,
+      "last_seen": 1793347159,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -105260,6 +105285,13 @@
           "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
           "issued_at": 1793346773,
           "days": 60
+        },
+        {
+          "key": "AZ2M-C369-030C-9DBB",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793347159,
+          "days": 60
         }
       ]
     },
@@ -105296,6 +105328,15 @@
       "username": "TheMahandarvishi",
       "first_seen": 1793347026,
       "last_seen": 1793347026,
+      "purchases": []
+    },
+    "275717489": {
+      "user_id": 275717489,
+      "first_name": "Parinaz",
+      "last_name": "",
+      "username": "Parinaz_ch",
+      "first_seen": 1793347127,
+      "last_seen": 1793347127,
       "purchases": []
     }
   },
