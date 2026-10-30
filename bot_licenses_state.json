@@ -8402,6 +8402,12 @@
       "user_id": 7933234290,
       "issued_at": 1793386486,
       "method": "crypto_unique"
+    },
+    "AZ2M-8A76-E504-8DE8": {
+      "plan": "2M",
+      "user_id": 5650610145,
+      "issued_at": 1793387575,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -70161,9 +70167,18 @@
       "tron_amount": 0.777052,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_2a40cae475d44a4d8a523b0114358ae7",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2a40cae475d44a4d8a523b0114358ae7",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793387061
+      "created_at": 1793387061,
+      "approved_at": 1793387575,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-8A76-E504-8DE8",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3036996",
+        "tron_amount": 0.777052,
+        "user_paid_toman": null,
+        "date": "2026-10-30T19:09:39.1270000"
+      }
     },
     "TRND-AN2M-7757399425-1793387222-33d170": {
       "order_id": "TRND-AN2M-7757399425-1793387222-33d170",
@@ -70180,6 +70195,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793387222
+    },
+    "TRND-AN3M-8126606525-1793387442-9a46db": {
+      "order_id": "TRND-AN3M-8126606525-1793387442-9a46db",
+      "token": "522e832ec74f4942bae9fa72eed38aa8",
+      "user_id": 8126606525,
+      "first_name": "Hassan0914",
+      "username": "Hhe2057",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.322705,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_522e832ec74f4942bae9fa72eed38aa8",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=522e832ec74f4942bae9fa72eed38aa8",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793387442
     }
   },
   "users": {
@@ -104393,7 +104424,15 @@
       "username": "Honimol_021",
       "first_seen": 1793205330,
       "last_seen": 1793387044,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-8A76-E504-8DE8",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793387575,
+          "days": 60
+        }
+      ]
     },
     "219358030": {
       "user_id": 219358030,
@@ -114507,7 +114546,7 @@
       "last_name": "",
       "username": "Mr_im4n",
       "first_seen": 1793387215,
-      "last_seen": 1793387215,
+      "last_seen": 1793387566,
       "purchases": []
     },
     "30566118": {
@@ -114517,6 +114556,24 @@
       "username": "tnz007",
       "first_seen": 1793387312,
       "last_seen": 1793387312,
+      "purchases": []
+    },
+    "8126606525": {
+      "user_id": 8126606525,
+      "first_name": "Hassan0914",
+      "last_name": "",
+      "username": "Hhe2057",
+      "first_seen": 1793387397,
+      "last_seen": 1793387397,
+      "purchases": []
+    },
+    "1328210046": {
+      "user_id": 1328210046,
+      "first_name": "M.Saleh",
+      "last_name": "",
+      "username": "M_Saleh_83",
+      "first_seen": 1793387476,
+      "last_seen": 1793387476,
       "purchases": []
     }
   },
@@ -115009,6 +115066,11 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793384005
+    },
+    "7757399425": {
+      "state": "awaiting_receipt",
+      "plan_code": "1M",
+      "time": 1793387566
     }
   },
   "admin_states": {},
