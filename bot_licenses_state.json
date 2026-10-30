@@ -7580,6 +7580,12 @@
       "user_id": 437501402,
       "issued_at": 1793332108,
       "method": "crypto_unique"
+    },
+    "AZ2M-FC35-AC54-9290": {
+      "plan": "2M",
+      "user_id": 5686279348,
+      "issued_at": 1793332755,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -62476,9 +62482,18 @@
       "tron_amount": 0.73508,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_dd92575e9c4d4062be729eaa3fd78697",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=dd92575e9c4d4062be729eaa3fd78697",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793332385
+      "created_at": 1793332385,
+      "approved_at": 1793332755,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-FC35-AC54-9290",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3030085",
+        "tron_amount": 0.73508,
+        "user_paid_toman": null,
+        "date": "2026-10-30T03:58:04.5330000"
+      }
     }
   },
   "users": {
@@ -83049,8 +83064,16 @@
       "last_name": "Mohammedi",
       "username": "Khabat1989",
       "first_seen": 1792945253,
-      "last_seen": 1793332376,
-      "purchases": []
+      "last_seen": 1793332724,
+      "purchases": [
+        {
+          "key": "AZ2M-FC35-AC54-9290",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793332755,
+          "days": 60
+        }
+      ]
     },
     "6111098512": {
       "user_id": 6111098512,
@@ -101561,7 +101584,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793299770,
-      "last_seen": 1793299770,
+      "last_seen": 1793332746,
       "purchases": []
     },
     "566547652": {
