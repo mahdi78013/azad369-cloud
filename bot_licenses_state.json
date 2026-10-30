@@ -8162,6 +8162,12 @@
       "user_id": 7577290612,
       "issued_at": 1793370909,
       "method": "crypto_unique"
+    },
+    "AN1Y-CF77088F-C00E-DCDEBA": {
+      "plan": "AN1Y",
+      "user_id": 708055747,
+      "issued_at": 1793371897,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -68007,6 +68013,47 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793371392
+    },
+    "TRND-AN1Y-708055747-1793371775-fe15d1": {
+      "order_id": "TRND-AN1Y-708055747-1793371775-fe15d1",
+      "token": "69c5a0fefe3249a891d0d4bafffe4470",
+      "user_id": 708055747,
+      "first_name": "A",
+      "username": "ATZ1366",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.574654,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_69c5a0fefe3249a891d0d4bafffe4470",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=69c5a0fefe3249a891d0d4bafffe4470",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793371775,
+      "approved_at": 1793371897,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-CF77088F-C00E-DCDEBA",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3034406",
+        "tron_amount": 3.574654,
+        "user_paid_toman": null,
+        "date": "2026-10-30T14:51:12.7400000"
+      }
+    },
+    "TRND-2M-6852612655-1793371887-a2db91": {
+      "order_id": "TRND-2M-6852612655-1793371887-a2db91",
+      "token": "dfad9274318d43108a83b718ac5dc2da",
+      "user_id": 6852612655,
+      "first_name": "Parsa",
+      "username": "Pa65555",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.781348,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_dfad9274318d43108a83b718ac5dc2da",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=dfad9274318d43108a83b718ac5dc2da",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793371887
     }
   },
   "users": {
@@ -111171,8 +111218,16 @@
       "last_name": "",
       "username": "ATZ1366",
       "first_seen": 1793371318,
-      "last_seen": 1793371318,
-      "purchases": []
+      "last_seen": 1793371767,
+      "purchases": [
+        {
+          "key": "AN1Y-CF77088F-C00E-DCDEBA",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793371897,
+          "days": 365
+        }
+      ]
     },
     "87157830": {
       "user_id": 87157830,
@@ -111190,6 +111245,15 @@
       "username": "R_c_v_1",
       "first_seen": 1793371598,
       "last_seen": 1793371598,
+      "purchases": []
+    },
+    "6852612655": {
+      "user_id": 6852612655,
+      "first_name": "Parsa",
+      "last_name": "",
+      "username": "Pa65555",
+      "first_seen": 1793371860,
+      "last_seen": 1793371860,
       "purchases": []
     }
   },
