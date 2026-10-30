@@ -7706,6 +7706,12 @@
       "user_id": 94698244,
       "issued_at": 1793344881,
       "method": "crypto_unique"
+    },
+    "AN2M-136D-6F49-54E0": {
+      "plan": "AN2M",
+      "user_id": 132121963,
+      "issued_at": 1793345038,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -63631,9 +63637,34 @@
       "tron_amount": 0.775643,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ab726a62ee7d4d8aa30dc683974a43d5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ab726a62ee7d4d8aa30dc683974a43d5",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793344722,
+      "approved_at": 1793345038,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-136D-6F49-54E0",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3030840",
+        "tron_amount": 0.775643,
+        "user_paid_toman": null,
+        "date": "2026-10-30T07:23:25.4870000"
+      }
+    },
+    "TRND-2M-6366390999-1793344982-07b8f9": {
+      "order_id": "TRND-2M-6366390999-1793344982-07b8f9",
+      "token": "646c688af0264b6e922664985899aab6",
+      "user_id": 6366390999,
+      "first_name": "Xobhannn",
+      "username": "xobhannn",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.775643,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_646c688af0264b6e922664985899aab6",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=646c688af0264b6e922664985899aab6",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793344722
+      "created_at": 1793344982
     }
   },
   "users": {
@@ -104576,7 +104607,15 @@
       "username": "Spr_MI",
       "first_seen": 1793343922,
       "last_seen": 1793344647,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-136D-6F49-54E0",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793345038,
+          "days": 60
+        }
+      ]
     },
     "6340849294": {
       "user_id": 6340849294,
@@ -104612,6 +104651,15 @@
       "username": "real_1username",
       "first_seen": 1793344604,
       "last_seen": 1793344604,
+      "purchases": []
+    },
+    "6366390999": {
+      "user_id": 6366390999,
+      "first_name": "Xobhannn",
+      "last_name": "",
+      "username": "xobhannn",
+      "first_seen": 1793344956,
+      "last_seen": 1793344956,
       "purchases": []
     }
   },
