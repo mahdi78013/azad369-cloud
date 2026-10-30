@@ -7556,6 +7556,12 @@
       "user_id": 7992543161,
       "issued_at": 1793322777,
       "method": "crypto_unique"
+    },
+    "AN3M-D440-1B77-1C61": {
+      "plan": "AN3M",
+      "user_id": 8239400210,
+      "issued_at": 1793323700,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -62147,9 +62153,18 @@
       "tron_amount": 1.233262,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_141c15e373b14f218972d827a82b5798",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=141c15e373b14f218972d827a82b5798",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793323561
+      "created_at": 1793323561,
+      "approved_at": 1793323700,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-D440-1B77-1C61",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3029974",
+        "tron_amount": 1.233262,
+        "user_paid_toman": null,
+        "date": "2026-10-30T01:28:10.2470000"
+      }
     }
   },
   "users": {
@@ -95104,7 +95119,15 @@
       "username": "Sara_retitt",
       "first_seen": 1793193053,
       "last_seen": 1793323552,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-D440-1B77-1C61",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793323700,
+          "days": 90
+        }
+      ]
     },
     "8464210790": {
       "user_id": 8464210790,
