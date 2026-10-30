@@ -8264,6 +8264,12 @@
       "user_id": 7921791238,
       "issued_at": 1793378678,
       "method": "crypto_unique"
+    },
+    "AZ2M-0EFB-CDDB-E092": {
+      "plan": "2M",
+      "user_id": 81129058,
+      "issued_at": 1793379506,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -68989,9 +68995,34 @@
       "tron_amount": 0.786553,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a2c923c6b0de450b8278944d1c98e8da",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a2c923c6b0de450b8278944d1c98e8da",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793379275,
+      "approved_at": 1793379506,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-0EFB-CDDB-E092",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3035591",
+        "tron_amount": 0.786553,
+        "user_paid_toman": null,
+        "date": "2026-10-30T16:56:48.3870000"
+      }
+    },
+    "TRND-AN2M-103671971-1793379474-becf5c": {
+      "order_id": "TRND-AN2M-103671971-1793379474-becf5c",
+      "token": "3f60c2a532284df3ba3eea81a0286be6",
+      "user_id": 103671971,
+      "first_name": "Amir",
+      "username": "AslaniAmir",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.764962,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_3f60c2a532284df3ba3eea81a0286be6",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3f60c2a532284df3ba3eea81a0286be6",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793379275
+      "created_at": 1793379474
     }
   },
   "users": {
@@ -112643,7 +112674,15 @@
       "username": "Houmansh79",
       "first_seen": 1793379231,
       "last_seen": 1793379231,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-0EFB-CDDB-E092",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793379506,
+          "days": 60
+        }
+      ]
     },
     "8335919962": {
       "user_id": 8335919962,
@@ -113148,6 +113187,11 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793348685
+    },
+    "81129058": {
+      "state": "awaiting_receipt",
+      "plan_code": "2M",
+      "time": 1793379493
     }
   },
   "admin_states": {},
