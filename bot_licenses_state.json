@@ -8144,6 +8144,12 @@
       "user_id": 85273837,
       "issued_at": 1793370413,
       "method": "crypto_unique"
+    },
+    "AN2M-E984-E598-0AF9": {
+      "plan": "AN2M",
+      "user_id": 5240747827,
+      "issued_at": 1793370416,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -67909,9 +67915,18 @@
       "tron_amount": 0.778563,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f27641906f0b44d0b7139a917a8944d8",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f27641906f0b44d0b7139a917a8944d8",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793370160
+      "created_at": 1793370160,
+      "approved_at": 1793370416,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-E984-E598-0AF9",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3034171",
+        "tron_amount": 0.778563,
+        "user_paid_toman": null,
+        "date": "2026-10-30T14:24:52.8330000"
+      }
     }
   },
   "users": {
@@ -110991,7 +111006,15 @@
       "username": "Vexzinalone",
       "first_seen": 1793369747,
       "last_seen": 1793370144,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-E984-E598-0AF9",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793370416,
+          "days": 60
+        }
+      ]
     },
     "85273837": {
       "user_id": 85273837,
