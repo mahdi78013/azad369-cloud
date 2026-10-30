@@ -898,6 +898,10 @@ def get_broadcast_reply_markup(button_type: str):
         )
         return markup, "📱 خرید اندروید + 💻 خرید ویندوز"
 
+    elif button_type == "VIP1Y":
+        markup.add(types.InlineKeyboardButton("👑 خرید ۱ ساله VIP (ویندوز + اندروید)", callback_data="buy_VIP1Y"))
+        return markup, "👑 ۱ ساله VIP (ویندوز + اندروید)"
+
     elif button_type == "AN1Y":
         markup.add(types.InlineKeyboardButton("👑 خرید اشتراک ۱ ساله اندروید (۳۶۵ روزه)", callback_data="buy_AN1Y"))
         return markup, "👑 ۱ ساله اندروید (۳۶۵ روزه)"
@@ -942,6 +946,9 @@ def broadcast_button_options_keyboard():
     markup.add(
         types.InlineKeyboardButton("🚫 بدون دکمه شیشه‌ای", callback_data="bc_btn_none"),
         types.InlineKeyboardButton("🛒 خرید اشتراک (منوی کلی)", callback_data="bc_btn_plans")
+    )
+    markup.add(
+        types.InlineKeyboardButton("👑 ۱ ساله VIP دوگانه (ویندوز + اندروید)", callback_data="bc_btn_VIP1Y")
     )
     markup.add(
         types.InlineKeyboardButton("👑 ۱ ساله اندروید", callback_data="bc_btn_AN1Y"),
