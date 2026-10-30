@@ -8480,6 +8480,12 @@
       "user_id": 1340124817,
       "issued_at": 1793394371,
       "method": "crypto_unique"
+    },
+    "AN3M-4AD5-EA9E-4F4B": {
+      "plan": "AN3M",
+      "user_id": 5369299112,
+      "issued_at": 1793395120,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -71057,9 +71063,18 @@
       "tron_amount": 1.324871,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_24a31e4eafe64bf69ce64476f54488a0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=24a31e4eafe64bf69ce64476f54488a0",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793394906
+      "created_at": 1793394906,
+      "approved_at": 1793395120,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-4AD5-EA9E-4F4B",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3038288",
+        "tron_amount": 1.324871,
+        "user_paid_toman": null,
+        "date": "2026-10-30T21:17:42.7500000"
+      }
     },
     "TRND-AN2M-1011528406-1793395000-e31287": {
       "order_id": "TRND-AN2M-1011528406-1793395000-e31287",
@@ -71076,6 +71091,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793395000
+    },
+    "TRND-AN2M-1011528406-1793395052-fa295b": {
+      "order_id": "TRND-AN2M-1011528406-1793395052-fa295b",
+      "token": "1af88dbae2b14d8e9ac4aac68cfb3774",
+      "user_id": 1011528406,
+      "first_name": "༊𝐾𝐼𝑁𝐺'𝑂𝐹'𝐷𝐴𝑅𝐾𝑁𝐸𝑆𝑆࿐☻‌‌‌❥\"𝐴𝑊𝑆𝐸𝑁𝑆 👀\"",
+      "username": "KingDimness",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.78055,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_1af88dbae2b14d8e9ac4aac68cfb3774",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1af88dbae2b14d8e9ac4aac68cfb3774",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793395052
     }
   },
   "users": {
@@ -86998,7 +87029,15 @@
       "username": "ERROR_0110",
       "first_seen": 1792356731,
       "last_seen": 1793394897,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-4AD5-EA9E-4F4B",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793395120,
+          "days": 90
+        }
+      ]
     },
     "284003249": {
       "user_id": 284003249,
