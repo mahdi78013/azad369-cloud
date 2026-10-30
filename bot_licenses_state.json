@@ -7730,6 +7730,12 @@
       "user_id": 6351136273,
       "issued_at": 1793346451,
       "method": "crypto_unique"
+    },
+    "AN3M-951E-1A77-5F59": {
+      "plan": "AN3M",
+      "user_id": 8646338643,
+      "issued_at": 1793346594,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -63799,9 +63805,18 @@
       "tron_amount": 1.335253,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f2ae6bd41dca4e9698caa776872150dc",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f2ae6bd41dca4e9698caa776872150dc",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793346166
+      "created_at": 1793346166,
+      "approved_at": 1793346594,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-951E-1A77-5F59",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3030975",
+        "tron_amount": 1.335253,
+        "user_paid_toman": null,
+        "date": "2026-10-30T07:49:24.0470000"
+      }
     },
     "TRND-AN2M-6351136273-1793346176-771672": {
       "order_id": "TRND-AN2M-6351136273-1793346176-771672",
@@ -63923,6 +63938,54 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793346531
+    },
+    "TRND-1Y-8608822680-1793346545-ace2bd": {
+      "order_id": "TRND-1Y-8608822680-1793346545-ace2bd",
+      "token": "ee34199924bb4fcda7979e060a1ce897",
+      "user_id": 8608822680,
+      "first_name": "Radin",
+      "username": "Radin_kd1",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.64111,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_ee34199924bb4fcda7979e060a1ce897",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ee34199924bb4fcda7979e060a1ce897",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793346545
+    },
+    "TRND-AN3M-5681409761-1793346551-23ab86": {
+      "order_id": "TRND-AN3M-5681409761-1793346551-23ab86",
+      "token": "3cdd6d7931bf482b8d11db30dbc0947c",
+      "user_id": 5681409761,
+      "first_name": "A.M.D",
+      "username": "AMDMJ84",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.326827,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_3cdd6d7931bf482b8d11db30dbc0947c",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3cdd6d7931bf482b8d11db30dbc0947c",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793346551
+    },
+    "TRND-AN2M-8204239110-1793346578-35eca6": {
+      "order_id": "TRND-AN2M-8204239110-1793346578-35eca6",
+      "token": "1fd9a31deb024e1a863b44ac09846431",
+      "user_id": 8204239110,
+      "first_name": "Enigma",
+      "username": "Enigmadron1",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.806824,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_1fd9a31deb024e1a863b44ac09846431",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1fd9a31deb024e1a863b44ac09846431",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793346578
     }
   },
   "users": {
@@ -102235,7 +102298,7 @@
       "last_name": "",
       "username": "AMDMJ84",
       "first_seen": 1793277980,
-      "last_seen": 1793278306,
+      "last_seen": 1793346550,
       "purchases": [
         {
           "key": "AN3M-8D9C54F7-86E1-76D2EA",
@@ -104987,8 +105050,16 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793345884,
-      "last_seen": 1793345884,
-      "purchases": []
+      "last_seen": 1793346593,
+      "purchases": [
+        {
+          "key": "AN3M-951E-1A77-5F59",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793346594,
+          "days": 90
+        }
+      ]
     },
     "231067312": {
       "user_id": 231067312,
@@ -105022,7 +105093,7 @@
       "last_name": "Kd",
       "username": "Radin_kd1",
       "first_seen": 1793346177,
-      "last_seen": 1793346177,
+      "last_seen": 1793346544,
       "purchases": []
     },
     "7467513261": {
