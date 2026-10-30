@@ -8318,6 +8318,12 @@
       "user_id": 7611530628,
       "issued_at": 1793382055,
       "method": "crypto_unique"
+    },
+    "AN3M-8D02D2BC-81C3-EC68A7": {
+      "plan": "AN3M",
+      "user_id": 7218901511,
+      "issued_at": 1793382354,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -69437,9 +69443,18 @@
       "tron_amount": 1.320214,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_38826860f30e4c018655b99f89c1bad3",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=38826860f30e4c018655b99f89c1bad3",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793382081
+      "created_at": 1793382081,
+      "approved_at": 1793382354,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-8D02D2BC-81C3-EC68A7",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3036087",
+        "tron_amount": 1.320214,
+        "user_paid_toman": null,
+        "date": "2026-10-30T17:45:32.7930000"
+      }
     },
     "TRND-AN1Y-1059760495-1793382236-315ee4": {
       "order_id": "TRND-AN1Y-1059760495-1793382236-315ee4",
@@ -108753,8 +108768,16 @@
       "last_name": "",
       "username": "Texlife2",
       "first_seen": 1793299160,
-      "last_seen": 1793382050,
-      "purchases": []
+      "last_seen": 1793382353,
+      "purchases": [
+        {
+          "key": "AN3M-8D02D2BC-81C3-EC68A7",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793382354,
+          "days": 90
+        }
+      ]
     },
     "349223059": {
       "user_id": 349223059,
