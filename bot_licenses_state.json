@@ -8804,6 +8804,12 @@
       "user_id": 294002852,
       "issued_at": 1793437765,
       "method": "crypto_unique"
+    },
+    "AN1Y-35F7B40F-1E9E-162492": {
+      "plan": "AN1Y",
+      "user_id": 5897930419,
+      "issued_at": 1793437931,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -77521,9 +77527,10 @@
       "tron_amount": 0.793808,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_831462a2baa049d48558ba78fd17a869",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=831462a2baa049d48558ba78fd17a869",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793436611
+      "created_at": 1793436611,
+      "cancelled_at": 1793437929
     },
     "TRND-3M-6487318241-1793436972-d7a7c6": {
       "order_id": "TRND-3M-6487318241-1793436972-d7a7c6",
@@ -77594,9 +77601,18 @@
       "tron_amount": 3.741525,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_70693959429843d78b55c44a193e8d6a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=70693959429843d78b55c44a193e8d6a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793437630
+      "created_at": 1793437630,
+      "approved_at": 1793437931,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-35F7B40F-1E9E-162492",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3040720",
+        "tron_amount": 3.741525,
+        "user_paid_toman": null,
+        "date": "2026-10-31T09:09:38.1500000"
+      }
     },
     "TRND-VIP1Y-300917458-1793437769-f0638e": {
       "order_id": "TRND-VIP1Y-300917458-1793437769-f0638e",
@@ -77629,6 +77645,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793437836
+    },
+    "TRND-VIP1Y-172188083-1793437914-cc7d56": {
+      "order_id": "TRND-VIP1Y-172188083-1793437914-cc7d56",
+      "token": "6ab56870c743473a8a8a4705d5e74290",
+      "user_id": 172188083,
+      "first_name": "Ali",
+      "username": "Alifazel6391",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.692811,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_6ab56870c743473a8a8a4705d5e74290",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6ab56870c743473a8a8a4705d5e74290",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793437914
     }
   },
   "users": {
@@ -120296,7 +120328,7 @@
       "last_name": "Fazel",
       "username": "Alifazel6391",
       "first_seen": 1793359587,
-      "last_seen": 1793359587,
+      "last_seen": 1793437912,
       "purchases": []
     },
     "7336546231": {
@@ -124234,8 +124266,16 @@
       "last_name": "Hariri",
       "username": "Mahbod98",
       "first_seen": 1793437584,
-      "last_seen": 1793437584,
-      "purchases": []
+      "last_seen": 1793437930,
+      "purchases": [
+        {
+          "key": "AN1Y-35F7B40F-1E9E-162492",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793437931,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
