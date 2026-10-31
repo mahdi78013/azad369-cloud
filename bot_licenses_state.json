@@ -8780,6 +8780,12 @@
       "user_id": 8423153776,
       "issued_at": 1793435538,
       "method": "crypto_unique"
+    },
+    "AN2M-39AB-3AAF-CBEA": {
+      "plan": "AN2M",
+      "user_id": 353042334,
+      "issued_at": 1793435967,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -77303,9 +77309,18 @@
       "tron_amount": 0.806411,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_799fcb918f234659b20728c90f22adbf",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=799fcb918f234659b20728c90f22adbf",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793435579
+      "created_at": 1793435579,
+      "approved_at": 1793435967,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-39AB-3AAF-CBEA",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3040460",
+        "tron_amount": 0.806411,
+        "user_paid_toman": null,
+        "date": "2026-10-31T08:38:31.3670000"
+      }
     },
     "TRND-VIP1Y-1218424709-1793435698-d4aca0": {
       "order_id": "TRND-VIP1Y-1218424709-1793435698-d4aca0",
@@ -123902,8 +123917,16 @@
       "last_name": "Gharib Zadeh",
       "username": "",
       "first_seen": 1793435405,
-      "last_seen": 1793435405,
-      "purchases": []
+      "last_seen": 1793435966,
+      "purchases": [
+        {
+          "key": "AN2M-39AB-3AAF-CBEA",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793435967,
+          "days": 60
+        }
+      ]
     },
     "5528687731": {
       "user_id": 5528687731,
