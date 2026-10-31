@@ -8888,6 +8888,12 @@
       "user_id": 6386337660,
       "issued_at": 1793447406,
       "method": "crypto_unique"
+    },
+    "AZ3M-7643-73DF-EB7B": {
+      "plan": "3M",
+      "user_id": 273450261,
+      "issued_at": 1793448077,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -78748,9 +78754,18 @@
       "tron_amount": 1.352086,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_7ac55a09349240f799c1fc4dc1bb8664",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7ac55a09349240f799c1fc4dc1bb8664",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793447820
+      "created_at": 1793447820,
+      "approved_at": 1793448077,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-7643-73DF-EB7B",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3042098",
+        "tron_amount": 1.352086,
+        "user_paid_toman": null,
+        "date": "2026-10-31T12:00:55.3670000"
+      }
     }
   },
   "users": {
@@ -125799,7 +125814,15 @@
       "username": "Sh_8601",
       "first_seen": 1793447790,
       "last_seen": 1793447790,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-7643-73DF-EB7B",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793448077,
+          "days": 90
+        }
+      ]
     }
   },
   "user_states": {
