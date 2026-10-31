@@ -8846,6 +8846,12 @@
       "user_id": 6014401330,
       "issued_at": 1793445862,
       "method": "crypto_unique"
+    },
+    "AZ2M-BC6F-7B88-D636": {
+      "plan": "2M",
+      "user_id": 7704139987,
+      "issued_at": 1793446226,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -67268,9 +67274,10 @@
       "tron_amount": 0.768557,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_381e37d88fe042f49e84cb1e5db9e069",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=381e37d88fe042f49e84cb1e5db9e069",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793359536
+      "created_at": 1793359536,
+      "cancelled_at": 1793446184
     },
     "ORD_1793359610_7430195508": {
       "order_id": "ORD_1793359610_7430195508",
@@ -67318,9 +67325,10 @@
       "tron_amount": 0.758783,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_391b648e62144e55a3441b7db78a9796",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=391b648e62144e55a3441b7db78a9796",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793359642
+      "created_at": 1793359642,
+      "cancelled_at": 1793446184
     },
     "TRND-AN2M-8066523051-1793360226-63c5d1": {
       "order_id": "TRND-AN2M-8066523051-1793360226-63c5d1",
@@ -78448,9 +78456,18 @@
       "tron_amount": 0.812685,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b54518d09fcd452bb8890b43d0e3c961",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b54518d09fcd452bb8890b43d0e3c961",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793446099
+      "created_at": 1793446099,
+      "approved_at": 1793446226,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-BC6F-7B88-D636",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3041867",
+        "tron_amount": 0.812685,
+        "user_paid_toman": null,
+        "date": "2026-10-31T11:30:13.4130000"
+      }
     },
     "TRND-AN3M-6244064679-1793446112-d53618": {
       "order_id": "TRND-AN3M-6244064679-1793446112-d53618",
@@ -125378,7 +125395,15 @@
       "username": "",
       "first_seen": 1793446082,
       "last_seen": 1793446082,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-BC6F-7B88-D636",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793446226,
+          "days": 60
+        }
+      ]
     }
   },
   "user_states": {
