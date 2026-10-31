@@ -8708,6 +8708,12 @@
       "user_id": 505742733,
       "issued_at": 1793428872,
       "method": "crypto_unique"
+    },
+    "AN2M-D967-3648-F119": {
+      "plan": "AN2M",
+      "user_id": 285931549,
+      "issued_at": 1793429357,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -76284,9 +76290,18 @@
       "tron_amount": 0.7872,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_47c2bac9823d4deeac6cee2250929d28",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=47c2bac9823d4deeac6cee2250929d28",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793429132
+      "created_at": 1793429132,
+      "approved_at": 1793429357,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-D967-3648-F119",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3039710",
+        "tron_amount": 0.7872,
+        "user_paid_toman": null,
+        "date": "2026-10-31T06:48:00.1030000"
+      }
     },
     "TRND-VIP1Y-8869029011-1793429164-49f4e1": {
       "order_id": "TRND-VIP1Y-8869029011-1793429164-49f4e1",
@@ -122453,7 +122468,15 @@
       "username": "Edward_Joseph_Snowden",
       "first_seen": 1793428898,
       "last_seen": 1793429311,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-D967-3648-F119",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793429357,
+          "days": 60
+        }
+      ]
     },
     "70795368": {
       "user_id": 70795368,
