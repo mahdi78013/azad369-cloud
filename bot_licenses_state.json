@@ -8702,6 +8702,12 @@
       "user_id": 7176988805,
       "issued_at": 1793428652,
       "method": "crypto_unique"
+    },
+    "AN2M-671FC3D2-3386-2495B2": {
+      "plan": "AN2M",
+      "user_id": 505742733,
+      "issued_at": 1793428872,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -76171,9 +76177,34 @@
       "tron_amount": 0.792748,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_63c94d266eec4fd4a20f74149aa46cd1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=63c94d266eec4fd4a20f74149aa46cd1",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793428642,
+      "approved_at": 1793428872,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-671FC3D2-3386-2495B2",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3039657",
+        "tron_amount": 0.792748,
+        "user_paid_toman": null,
+        "date": "2026-10-31T06:40:42.1970000"
+      }
+    },
+    "TRND-2M-2020275338-1793428863-97a365": {
+      "order_id": "TRND-2M-2020275338-1793428863-97a365",
+      "token": "db40037cff674dea8aa220e07c0d7b40",
+      "user_id": 2020275338,
+      "first_name": "احسان",
+      "username": "Ehsandhgani2021",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.803843,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_db40037cff674dea8aa220e07c0d7b40",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=db40037cff674dea8aa220e07c0d7b40",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793428642
+      "created_at": 1793428863
     }
   },
   "users": {
@@ -122266,6 +122297,23 @@
       "username": "Littlegod8088",
       "first_seen": 1793428616,
       "last_seen": 1793428616,
+      "purchases": [
+        {
+          "key": "AN2M-671FC3D2-3386-2495B2",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793428872,
+          "days": 60
+        }
+      ]
+    },
+    "2020275338": {
+      "user_id": 2020275338,
+      "first_name": "احسان",
+      "last_name": "دهقانی",
+      "username": "Ehsandhgani2021",
+      "first_seen": 1793428797,
+      "last_seen": 1793428797,
       "purchases": []
     }
   },
