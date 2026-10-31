@@ -8762,6 +8762,12 @@
       "user_id": 7023009488,
       "issued_at": 1793434656,
       "method": "crypto_unique"
+    },
+    "AN2M-28F3-241D-38F7": {
+      "plan": "AN2M",
+      "user_id": 1040142029,
+      "issued_at": 1793434830,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -77074,9 +77080,18 @@
       "tron_amount": 0.818101,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_dde3a81a430a49b8b34ba0e374a943da",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=dde3a81a430a49b8b34ba0e374a943da",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793434481
+      "created_at": 1793434481,
+      "approved_at": 1793434830,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-28F3-241D-38F7",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3040337",
+        "tron_amount": 0.818101,
+        "user_paid_toman": null,
+        "date": "2026-10-31T08:20:28.6000000"
+      }
     },
     "TRND-VIP1Y-5861874371-1793434481-b4b72d": {
       "order_id": "TRND-VIP1Y-5861874371-1793434481-b4b72d",
@@ -77109,6 +77124,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793434706
+    },
+    "TRND-VIP1Y-6585523381-1793434782-9a24cf": {
+      "order_id": "TRND-VIP1Y-6585523381-1793434782-9a24cf",
+      "token": "76e8d0e944e449f982d53d75adde6692",
+      "user_id": 6585523381,
+      "first_name": "علیرضا حیدری",
+      "username": "Alireza_heydari96",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.664719,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_76e8d0e944e449f982d53d75adde6692",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=76e8d0e944e449f982d53d75adde6692",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793434782
     }
   },
   "users": {
@@ -110383,7 +110414,7 @@
       "last_name": "",
       "username": "Alireza_heydari96",
       "first_seen": 1793193243,
-      "last_seen": 1793193243,
+      "last_seen": 1793434781,
       "purchases": []
     },
     "67733100": {
@@ -114261,7 +114292,7 @@
       "last_name": "salmani",
       "username": "",
       "first_seen": 1793251192,
-      "last_seen": 1793251192,
+      "last_seen": 1793434822,
       "purchases": []
     },
     "6917862601": {
@@ -123463,7 +123494,15 @@
       "username": "Jalalzamani8",
       "first_seen": 1793433484,
       "last_seen": 1793434438,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-28F3-241D-38F7",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793434830,
+          "days": 60
+        }
+      ]
     },
     "193548347": {
       "user_id": 193548347,
