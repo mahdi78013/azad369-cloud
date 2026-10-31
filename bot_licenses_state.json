@@ -8684,6 +8684,12 @@
       "user_id": 6000612702,
       "issued_at": 1793427396,
       "method": "crypto_unique"
+    },
+    "AZ3M-7388-4E86-6959": {
+      "plan": "3M",
+      "user_id": 66706294,
+      "issued_at": 1793427986,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -75915,9 +75921,18 @@
       "tron_amount": 1.326899,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_212208af402c4828bf3cd18a4e216714",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=212208af402c4828bf3cd18a4e216714",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793427776
+      "created_at": 1793427776,
+      "approved_at": 1793427986,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-7388-4E86-6959",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3039570",
+        "tron_amount": 1.326899,
+        "user_paid_toman": null,
+        "date": "2026-10-31T06:25:31.1830000"
+      }
     },
     "TRND-VIP1Y-300791440-1793427795-49be25": {
       "order_id": "TRND-VIP1Y-300791440-1793427795-49be25",
@@ -75950,6 +75965,54 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793427804
+    },
+    "TRND-VIP1Y-5847208326-1793427866-1ec153": {
+      "order_id": "TRND-VIP1Y-5847208326-1793427866-1ec153",
+      "token": "74dd2a397a4a43ef9655f365c3d941ad",
+      "user_id": 5847208326,
+      "first_name": "Erfan",
+      "username": "Erfan12889",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.625909,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_74dd2a397a4a43ef9655f365c3d941ad",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=74dd2a397a4a43ef9655f365c3d941ad",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793427866
+    },
+    "TRND-AN2M-252113417-1793427900-a8f3a9": {
+      "order_id": "TRND-AN2M-252113417-1793427900-a8f3a9",
+      "token": "27b3c48bac45477a9645fd3ede5fecf4",
+      "user_id": 252113417,
+      "first_name": "Akbar sobhkihz__m.lord",
+      "username": "akbar13577",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.788141,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_27b3c48bac45477a9645fd3ede5fecf4",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=27b3c48bac45477a9645fd3ede5fecf4",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793427900
+    },
+    "TRND-AN2M-252113417-1793427975-d91822": {
+      "order_id": "TRND-AN2M-252113417-1793427975-d91822",
+      "token": "2a1bbe89985f4f14afb4293038416124",
+      "user_id": 252113417,
+      "first_name": "Akbar sobhkihz__m.lord",
+      "username": "akbar13577",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.807025,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_2a1bbe89985f4f14afb4293038416124",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2a1bbe89985f4f14afb4293038416124",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793427975
     }
   },
   "users": {
@@ -93909,7 +93972,7 @@
       "last_name": "",
       "username": "Erfan12889",
       "first_seen": 1792396633,
-      "last_seen": 1793340464,
+      "last_seen": 1793427865,
       "purchases": [
         {
           "key": "AN2M-B209-D50C-908D",
@@ -121964,7 +122027,15 @@
       "username": "barcelona_store_es",
       "first_seen": 1793427750,
       "last_seen": 1793427750,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-7388-4E86-6959",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793427986,
+          "days": 90
+        }
+      ]
     },
     "252113417": {
       "user_id": 252113417,
