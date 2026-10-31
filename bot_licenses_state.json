@@ -8678,6 +8678,12 @@
       "user_id": 8097568066,
       "issued_at": 1793426323,
       "method": "crypto_unique"
+    },
+    "AN2M-B3DF-B171-7B4D": {
+      "plan": "AN2M",
+      "user_id": 6000612702,
+      "issued_at": 1793427396,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -75854,6 +75860,31 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793427256
+    },
+    "TRND-AN2M-6000612702-1793427330-9ee42e": {
+      "order_id": "TRND-AN2M-6000612702-1793427330-9ee42e",
+      "token": "6cd85ce36be4419f85e03402b1570823",
+      "user_id": 6000612702,
+      "first_name": "kia",
+      "username": "Tarikhpayan",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.81696,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_6cd85ce36be4419f85e03402b1570823",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6cd85ce36be4419f85e03402b1570823",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793427330,
+      "approved_at": 1793427396,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-B3DF-B171-7B4D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3039536",
+        "tron_amount": 0.81696,
+        "user_paid_toman": null,
+        "date": "2026-10-31T06:16:23.8970000"
+      }
     }
   },
   "users": {
@@ -121851,7 +121882,15 @@
       "username": "Tarikhpayan",
       "first_seen": 1793427268,
       "last_seen": 1793427268,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-B3DF-B171-7B4D",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793427396,
+          "days": 60
+        }
+      ]
     }
   },
   "user_states": {
