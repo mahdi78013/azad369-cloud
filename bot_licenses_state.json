@@ -8570,6 +8570,12 @@
       "user_id": 1013700340,
       "issued_at": 1793408058,
       "method": "crypto_unique"
+    },
+    "AN2M-55CF-F602-2AA6": {
+      "plan": "AN2M",
+      "user_id": 6487318241,
+      "issued_at": 1793410072,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -73291,6 +73297,31 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793409765
+    },
+    "TRND-AN2M-6487318241-1793410021-251b22": {
+      "order_id": "TRND-AN2M-6487318241-1793410021-251b22",
+      "token": "02fd7f1f7fe643f7b7e55f16f0071ef0",
+      "user_id": 6487318241,
+      "first_name": "Koorosh",
+      "username": "kooroshiu",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.79527,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_02fd7f1f7fe643f7b7e55f16f0071ef0",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=02fd7f1f7fe643f7b7e55f16f0071ef0",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793410021,
+      "approved_at": 1793410072,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-55CF-F602-2AA6",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3038863",
+        "tron_amount": 0.79527,
+        "user_paid_toman": null,
+        "date": "2026-10-31T01:27:45.2070000"
+      }
     }
   },
   "users": {
@@ -118691,13 +118722,20 @@
       "last_name": "",
       "username": "kooroshiu",
       "first_seen": 1793405101,
-      "last_seen": 1793405101,
+      "last_seen": 1793410020,
       "purchases": [
         {
           "key": "AN2M-967D-928A-75CD",
           "plan": "AN2M",
           "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
           "issued_at": 1793405317,
+          "days": 60
+        },
+        {
+          "key": "AN2M-55CF-F602-2AA6",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793410072,
           "days": 60
         }
       ]
