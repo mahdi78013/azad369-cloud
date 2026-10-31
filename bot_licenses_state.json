@@ -9110,6 +9110,12 @@
       "user_id": 69086808,
       "issued_at": 1793473110,
       "method": "crypto_unique"
+    },
+    "AZ1Y-2D21-9350-31C4": {
+      "plan": "1Y",
+      "user_id": 1409026463,
+      "issued_at": 1793473358,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -80966,9 +80972,18 @@
       "tron_amount": 3.887767,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_53295e1aae5249b3b7b377c30c620d20",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=53295e1aae5249b3b7b377c30c620d20",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793473149
+      "created_at": 1793473149,
+      "approved_at": 1793473358,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-2D21-9350-31C4",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3045815",
+        "tron_amount": 3.887767,
+        "user_paid_toman": null,
+        "date": "2026-10-31T19:02:16.5530000"
+      }
     }
   },
   "users": {
@@ -129069,7 +129084,15 @@
       "username": "mamadrza_a",
       "first_seen": 1793473130,
       "last_seen": 1793473130,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-2D21-9350-31C4",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793473358,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
