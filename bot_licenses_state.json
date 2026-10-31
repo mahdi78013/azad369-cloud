@@ -9062,6 +9062,12 @@
       "user_id": 247997335,
       "issued_at": 1793469443,
       "method": "crypto_unique"
+    },
+    "AZ1Y-3110-A162-688C": {
+      "plan": "1Y",
+      "user_id": 7683697816,
+      "issued_at": 1793470103,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -80710,9 +80716,18 @@
       "tron_amount": 3.881171,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f8e2763ce2fb4296bfceda0170372f8a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f8e2763ce2fb4296bfceda0170372f8a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793469611
+      "created_at": 1793469611,
+      "approved_at": 1793470103,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-3110-A162-688C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3045139",
+        "tron_amount": 3.881171,
+        "user_paid_toman": null,
+        "date": "2026-10-31T18:07:48.4630000"
+      }
     }
   },
   "users": {
@@ -128655,8 +128670,16 @@
       "last_name": "Mohamedi",
       "username": "alimalim1980",
       "first_seen": 1793469587,
-      "last_seen": 1793469587,
-      "purchases": []
+      "last_seen": 1793470102,
+      "purchases": [
+        {
+          "key": "AZ1Y-3110-A162-688C",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793470103,
+          "days": 365
+        }
+      ]
     },
     "7159498587": {
       "user_id": 7159498587,
