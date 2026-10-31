@@ -9020,6 +9020,12 @@
       "user_id": 420174216,
       "issued_at": 1793462995,
       "method": "crypto_unique"
+    },
+    "AZ1Y-70AF-D528-AF74": {
+      "plan": "1Y",
+      "user_id": 6126829026,
+      "issued_at": 1793463458,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -80290,9 +80296,18 @@
       "tron_amount": 3.817465,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e3f7d97315b64494a50dd7483188931f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e3f7d97315b64494a50dd7483188931f",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793463322
+      "created_at": 1793463322,
+      "approved_at": 1793463458,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-70AF-D528-AF74",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3044099",
+        "tron_amount": 3.817465,
+        "user_paid_toman": null,
+        "date": "2026-10-31T16:17:19.2430000"
+      }
     }
   },
   "users": {
@@ -122947,7 +122962,15 @@
       "username": "Daniialmn",
       "first_seen": 1793358500,
       "last_seen": 1793463298,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-70AF-D528-AF74",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793463458,
+          "days": 365
+        }
+      ]
     },
     "193588862": {
       "user_id": 193588862,
