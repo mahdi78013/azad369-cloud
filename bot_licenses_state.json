@@ -8858,6 +8858,12 @@
       "user_id": 6244064679,
       "issued_at": 1793446274,
       "method": "crypto_unique"
+    },
+    "AZ2M-84B4-73D0-5766": {
+      "plan": "2M",
+      "user_id": 6367745699,
+      "issued_at": 1793446409,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -78430,9 +78436,18 @@
       "tron_amount": 0.81834,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1027e8900b424b718ba6b2328e99b654",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1027e8900b424b718ba6b2328e99b654",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793446048
+      "created_at": 1793446048,
+      "approved_at": 1793446409,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-84B4-73D0-5766",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3041856",
+        "tron_amount": 0.81834,
+        "user_paid_toman": null,
+        "date": "2026-10-31T11:32:49.6700000"
+      }
     },
     "TRND-AN3M-6244064679-1793446085-7d00af": {
       "order_id": "TRND-AN3M-6244064679-1793446085-7d00af",
@@ -78499,6 +78514,22 @@
         "user_paid_toman": null,
         "date": "2026-10-31T11:30:57.9630000"
       }
+    },
+    "TRND-VIP1Y-94968690-1793446376-52cfba": {
+      "order_id": "TRND-VIP1Y-94968690-1793446376-52cfba",
+      "token": "39db7fcc61c4488e843670942ce42861",
+      "user_id": 94968690,
+      "first_name": "ᴍʀ.ᴍᴇʜʀᴀɴ",
+      "username": "MRMehran1372",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.692118,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_39db7fcc61c4488e843670942ce42861",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=39db7fcc61c4488e843670942ce42861",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793446376
     }
   },
   "users": {
@@ -119783,7 +119814,15 @@
       "username": "ShahryarRk",
       "first_seen": 1793342252,
       "last_seen": 1793446046,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-84B4-73D0-5766",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793446409,
+          "days": 60
+        }
+      ]
     },
     "905048886": {
       "user_id": 905048886,
@@ -125427,6 +125466,15 @@
           "days": 60
         }
       ]
+    },
+    "94968690": {
+      "user_id": 94968690,
+      "first_name": "ᴍʀ.ᴍᴇʜʀᴀɴ",
+      "last_name": "",
+      "username": "MRMehran1372",
+      "first_seen": 1793446356,
+      "last_seen": 1793446356,
+      "purchases": []
     }
   },
   "user_states": {
