@@ -8816,6 +8816,12 @@
       "user_id": 457135716,
       "issued_at": 1793438804,
       "method": "crypto_unique"
+    },
+    "AN2M-56B4-3C1A-4FE1": {
+      "plan": "AN2M",
+      "user_id": 399051665,
+      "issued_at": 1793442431,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -77870,9 +77876,10 @@
       "tron_amount": 1.381285,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c919bfc471ba4fc3b734d238f9154031",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c919bfc471ba4fc3b734d238f9154031",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793440969
+      "created_at": 1793440969,
+      "cancelled_at": 1793442427
     },
     "TRND-VIP1Y-8241358965-1793441019-7e1dc6": {
       "order_id": "TRND-VIP1Y-8241358965-1793441019-7e1dc6",
@@ -77982,9 +77989,18 @@
       "tron_amount": 0.822733,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c57507b8583e40f783bfc4d60fac2c91",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c57507b8583e40f783bfc4d60fac2c91",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793442083
+      "created_at": 1793442083,
+      "approved_at": 1793442431,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-56B4-3C1A-4FE1",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3041330",
+        "tron_amount": 0.822733,
+        "user_paid_toman": null,
+        "date": "2026-10-31T10:24:38.0630000"
+      }
     },
     "TRND-VIP1Y-2129460506-1793442093-320f01": {
       "order_id": "TRND-VIP1Y-2129460506-1793442093-320f01",
@@ -124743,8 +124759,16 @@
       "last_name": "",
       "username": "masuod357",
       "first_seen": 1793441734,
-      "last_seen": 1793442062,
-      "purchases": []
+      "last_seen": 1793442424,
+      "purchases": [
+        {
+          "key": "AN2M-56B4-3C1A-4FE1",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793442431,
+          "days": 60
+        }
+      ]
     },
     "7076836579": {
       "user_id": 7076836579,
