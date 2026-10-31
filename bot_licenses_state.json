@@ -8912,6 +8912,12 @@
       "user_id": 7072144726,
       "issued_at": 1793451337,
       "method": "crypto_unique"
+    },
+    "AZ2M-5B19-ECD9-2455": {
+      "plan": "2M",
+      "user_id": 144666768,
+      "issued_at": 1793452275,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -79022,9 +79028,18 @@
       "tron_amount": 0.810856,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4badf73f31a7404799aaf10dddcc5059",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4badf73f31a7404799aaf10dddcc5059",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793452040
+      "created_at": 1793452040,
+      "approved_at": 1793452275,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-5B19-ECD9-2455",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3042568",
+        "tron_amount": 0.810856,
+        "user_paid_toman": null,
+        "date": "2026-10-31T13:10:40.7830000"
+      }
     },
     "TRND-2M-8585194970-1793452082-4530e7": {
       "order_id": "TRND-2M-8585194970-1793452082-4530e7",
@@ -79041,6 +79056,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793452082
+    },
+    "TRND-VIP1Y-7279150912-1793452226-bbcb42": {
+      "order_id": "TRND-VIP1Y-7279150912-1793452226-bbcb42",
+      "token": "88d07f45c1f54e4bb2922226803f40b3",
+      "user_id": 7279150912,
+      "first_name": "متین",
+      "username": "Matin60066",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.680433,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_88d07f45c1f54e4bb2922226803f40b3",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=88d07f45c1f54e4bb2922226803f40b3",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793452226
     }
   },
   "users": {
@@ -92853,7 +92884,7 @@
       "last_name": "",
       "username": "Matin60066",
       "first_seen": 1792256184,
-      "last_seen": 1792256184,
+      "last_seen": 1793452224,
       "purchases": []
     },
     "105555444": {
@@ -112591,8 +112622,16 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793195483,
-      "last_seen": 1793451841,
-      "purchases": []
+      "last_seen": 1793452274,
+      "purchases": [
+        {
+          "key": "AZ2M-5B19-ECD9-2455",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793452275,
+          "days": 60
+        }
+      ]
     },
     "5682307950": {
       "user_id": 5682307950,
