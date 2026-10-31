@@ -8996,6 +8996,12 @@
       "user_id": 1925439552,
       "issued_at": 1793461439,
       "method": "crypto_unique"
+    },
+    "AZ2M-0AA1-9FEE-EDED": {
+      "plan": "2M",
+      "user_id": 2063906123,
+      "issued_at": 1793461856,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -80027,9 +80033,18 @@
       "tron_amount": 0.825359,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_57296df1050942a29a5970d4feee2890",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=57296df1050942a29a5970d4feee2890",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793461523
+      "created_at": 1793461523,
+      "approved_at": 1793461856,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-0AA1-9FEE-EDED",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3043861",
+        "tron_amount": 0.825359,
+        "user_paid_toman": null,
+        "date": "2026-10-31T15:50:09.7670000"
+      }
     },
     "TRND-AN2M-1912418889-1793461592-a59caf": {
       "order_id": "TRND-AN2M-1912418889-1793461592-a59caf",
@@ -127678,8 +127693,16 @@
       "last_name": "K",
       "username": "HAMID_KH1361",
       "first_seen": 1793461313,
-      "last_seen": 1793461313,
-      "purchases": []
+      "last_seen": 1793461854,
+      "purchases": [
+        {
+          "key": "AZ2M-0AA1-9FEE-EDED",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793461856,
+          "days": 60
+        }
+      ]
     }
   },
   "user_states": {
