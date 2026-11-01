@@ -9266,6 +9266,12 @@
       "user_id": 6033589889,
       "issued_at": 1793523119,
       "method": "crypto_unique"
+    },
+    "AZ1Y-2032-2D7F-7BC0": {
+      "plan": "1Y",
+      "user_id": 5272939880,
+      "issued_at": 1793525751,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -82546,9 +82552,18 @@
       "tron_amount": 3.845068,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4549f94beea145b880c58ac47b301d9f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4549f94beea145b880c58ac47b301d9f",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793525545
+      "created_at": 1793525545,
+      "approved_at": 1793525751,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-2032-2D7F-7BC0",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3049631",
+        "tron_amount": 3.845068,
+        "user_paid_toman": null,
+        "date": "2026-11-01T09:35:45.8100000"
+      }
     }
   },
   "users": {
@@ -131984,8 +131999,16 @@
       "last_name": "",
       "username": "Mamadkqw",
       "first_seen": 1793525446,
-      "last_seen": 1793525446,
-      "purchases": []
+      "last_seen": 1793525750,
+      "purchases": [
+        {
+          "key": "AZ1Y-2032-2D7F-7BC0",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793525751,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
