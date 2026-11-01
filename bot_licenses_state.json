@@ -79400,9 +79400,10 @@
       "tron_amount": 4.691106,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_fb3615fd188046e2b5f9bba51dd09736",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=fb3615fd188046e2b5f9bba51dd09736",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793446625
+      "created_at": 1793446625,
+      "cancelled_at": 1793533107
     },
     "TRND-VIP1Y-7195984007-1793446747-c20da6": {
       "order_id": "TRND-VIP1Y-7195984007-1793446747-c20da6",
@@ -82955,6 +82956,20 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793532786
+    },
+    "ORD_1793533120_8840559554": {
+      "order_id": "ORD_1793533120_8840559554",
+      "user_id": 8840559554,
+      "username": "Ehsan_V2r",
+      "first_name": "Ehsan",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgUAAxkBAAEBzW1q5yS_oHnZZAj1nc1MbV12NcuAmwACPxVrG2ZHOFcexNZGXSAC7gEAAwIAA3cAAz0E",
+      "card_number": "5892101706458979",
+      "created_at": 1793533120,
+      "caption": ""
     }
   },
   "users": {
@@ -126044,7 +126059,7 @@
       "last_name": "",
       "username": "Ehsan_V2r",
       "first_seen": 1793361130,
-      "last_seen": 1793532520,
+      "last_seen": 1793533107,
       "purchases": [
         {
           "key": "AN1Y-6A6C-DC71-CE0D",
@@ -132586,7 +132601,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793532753,
-      "last_seen": 1793532753,
+      "last_seen": 1793533074,
       "purchases": []
     },
     "6128142999": {
@@ -133089,16 +133104,21 @@
       "state": "awaiting_receipt",
       "plan_code": "1Y",
       "time": 1793510032
+    },
+    "8840559554": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN1Y",
+      "time": 1793533108
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 2,
+    "count": 3,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 62,
+      "5892101706458979": 63,
       "5047061670546072": 60
     }
   },
