@@ -9212,6 +9212,18 @@
       "user_id": 97942658,
       "issued_at": 1793511802,
       "method": "crypto_unique"
+    },
+    "AZ1Y-F787-9E4F-7E04": {
+      "plan": "1Y",
+      "user_id": 116873690,
+      "issued_at": 1793513451,
+      "method": "crypto_unique"
+    },
+    "AN1Y-A387-BEEF-5320": {
+      "plan": "AN1Y",
+      "user_id": 116873690,
+      "issued_at": 1793513451,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -76728,9 +76740,21 @@
       "tron_amount": 4.604448,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ac0d12fd107147d5b41ca99bf0f4206c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ac0d12fd107147d5b41ca99bf0f4206c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793426978
+      "created_at": 1793426978,
+      "cancelled_at": 1793513403,
+      "key_win": "AZ1Y-F787-9E4F-7E04",
+      "key_and": "AN1Y-A387-BEEF-5320",
+      "approved_at": 1793513451,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-F787-9E4F-7E04\nاندروید: AN1Y-A387-BEEF-5320",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3048286",
+        "tron_amount": 4.604448,
+        "user_paid_toman": null,
+        "date": "2026-11-01T06:10:35.4400000"
+      }
     },
     "TRND-AN2M-8126606525-1793427035-09c9ef": {
       "order_id": "TRND-AN2M-8126606525-1793427035-09c9ef",
@@ -104774,7 +104798,7 @@
       "last_name": "",
       "username": "mahdiabyar",
       "first_seen": 1792947002,
-      "last_seen": 1793426977,
+      "last_seen": 1793513450,
       "purchases": [
         {
           "key": "AN1Y-A967-4208-BC4A",
@@ -104789,6 +104813,20 @@
           "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
           "issued_at": 1793267483,
           "days": 90
+        },
+        {
+          "key": "AZ1Y-F787-9E4F-7E04",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793513451,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-A387-BEEF-5320",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793513451,
+          "days": 365
         }
       ]
     },
