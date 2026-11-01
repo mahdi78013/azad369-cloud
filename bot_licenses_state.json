@@ -9440,6 +9440,12 @@
       "user_id": 9066884764,
       "issued_at": 1793558093,
       "method": "crypto_unique"
+    },
+    "AN2M-EFFC-06E9-7B2E": {
+      "plan": "AN2M",
+      "user_id": 848190577,
+      "issued_at": 1793558121,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -84589,9 +84595,18 @@
       "tron_amount": 0.820617,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6d11b76039614cf1a80b12da24b83dbf",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6d11b76039614cf1a80b12da24b83dbf",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793558018
+      "created_at": 1793558018,
+      "approved_at": 1793558121,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-EFFC-06E9-7B2E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3054297",
+        "tron_amount": 0.820617,
+        "user_paid_toman": null,
+        "date": "2026-11-01T18:34:45.2930000"
+      }
     },
     "TRND-2M-1488595334-1793558062-a9f41c": {
       "order_id": "TRND-2M-1488595334-1793558062-a9f41c",
@@ -84640,6 +84655,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793558090
+    },
+    "TRND-VIP1Y-8442879945-1793558113-591b08": {
+      "order_id": "TRND-VIP1Y-8442879945-1793558113-591b08",
+      "token": "f10800582128448696ff96a537ebf54d",
+      "user_id": 8442879945,
+      "first_name": "AMiR",
+      "username": "PrecisionQT",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.777075,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_f10800582128448696ff96a537ebf54d",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f10800582128448696ff96a537ebf54d",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793558113
     }
   },
   "users": {
@@ -90070,7 +90101,7 @@
       "last_name": "",
       "username": "PrecisionQT",
       "first_seen": 1792076555,
-      "last_seen": 1792248187,
+      "last_seen": 1793558112,
       "purchases": [
         {
           "key": "AZ3M-DC80-DA29-011E",
@@ -109470,7 +109501,7 @@
       "last_name": "",
       "username": "netonline20Admin",
       "first_seen": 1792952453,
-      "last_seen": 1793418055,
+      "last_seen": 1793558097,
       "purchases": []
     },
     "1211915413": {
@@ -118128,7 +118159,7 @@
       "last_name": "",
       "username": "Sara_retitt",
       "first_seen": 1793193053,
-      "last_seen": 1793398079,
+      "last_seen": 1793558119,
       "purchases": [
         {
           "key": "AN3M-D440-1B77-1C61",
@@ -134378,6 +134409,13 @@
           "plan": "2M",
           "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
           "issued_at": 1793557986,
+          "days": 60
+        },
+        {
+          "key": "AN2M-EFFC-06E9-7B2E",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793558121,
           "days": 60
         }
       ]
