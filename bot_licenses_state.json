@@ -9344,6 +9344,12 @@
       "user_id": 99955718,
       "issued_at": 1793542946,
       "method": "crypto_unique"
+    },
+    "AZ1Y-947F-848D-C7A8": {
+      "plan": "1Y",
+      "user_id": 6656382740,
+      "issued_at": 1793548129,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -83572,9 +83578,18 @@
       "tron_amount": 3.83412,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1df8f877a28942c9810f67ce17add187",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1df8f877a28942c9810f67ce17add187",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793547867
+      "created_at": 1793547867,
+      "approved_at": 1793548129,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-947F-848D-C7A8",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3052534",
+        "tron_amount": 3.83412,
+        "user_paid_toman": null,
+        "date": "2026-11-01T15:48:39.3200000"
+      }
     },
     "TRND-VIP1Y-71532202-1793547901-22ea64": {
       "order_id": "TRND-VIP1Y-71532202-1793547901-22ea64",
@@ -83591,6 +83606,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793547901
+    },
+    "TRND-AN1Y-8522999109-1793548105-9888da": {
+      "order_id": "TRND-AN1Y-8522999109-1793548105-9888da",
+      "token": "ed06436e9fc64061b8757d1a651bb5e3",
+      "user_id": 8522999109,
+      "first_name": "Mamali",
+      "username": "Alpha_M13",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.838445,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_ed06436e9fc64061b8757d1a651bb5e3",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ed06436e9fc64061b8757d1a651bb5e3",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793548105
     }
   },
   "users": {
@@ -133611,6 +133642,23 @@
       "username": "Ar_timy",
       "first_seen": 1793547779,
       "last_seen": 1793547779,
+      "purchases": [
+        {
+          "key": "AZ1Y-947F-848D-C7A8",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793548129,
+          "days": 365
+        }
+      ]
+    },
+    "8522999109": {
+      "user_id": 8522999109,
+      "first_name": "Mamali",
+      "last_name": "",
+      "username": "Alpha_M13",
+      "first_seen": 1793548085,
+      "last_seen": 1793548085,
       "purchases": []
     }
   },
