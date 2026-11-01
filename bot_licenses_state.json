@@ -9284,6 +9284,12 @@
       "user_id": 109293453,
       "issued_at": 1793529280,
       "method": "crypto_unique"
+    },
+    "AZ1Y-094E-FA04-3906": {
+      "plan": "1Y",
+      "user_id": 5624366983,
+      "issued_at": 1793529499,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -79022,9 +79028,10 @@
       "tron_amount": 4.722546,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b09b032ce16a4e3e81f9ed6fae91f54a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b09b032ce16a4e3e81f9ed6fae91f54a",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793442922
+      "created_at": 1793442922,
+      "cancelled_at": 1793529394
     },
     "TRND-AN2M-132223684-1793443012-b19424": {
       "order_id": "TRND-AN2M-132223684-1793443012-b19424",
@@ -82697,9 +82704,18 @@
       "tron_amount": 3.844478,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_260f5a34e5574d0883dd623d63ffb2e0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=260f5a34e5574d0883dd623d63ffb2e0",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793529087
+      "created_at": 1793529087,
+      "approved_at": 1793529499,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-094E-FA04-3906",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3050150",
+        "tron_amount": 3.844478,
+        "user_paid_toman": null,
+        "date": "2026-11-01T10:37:42.9300000"
+      }
     }
   },
   "users": {
@@ -128212,8 +128228,16 @@
       "last_name": "Ran",
       "username": "Mr4145",
       "first_seen": 1793397491,
-      "last_seen": 1793529086,
-      "purchases": []
+      "last_seen": 1793529497,
+      "purchases": [
+        {
+          "key": "AZ1Y-094E-FA04-3906",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793529499,
+          "days": 365
+        }
+      ]
     },
     "6538917262": {
       "user_id": 6538917262,
