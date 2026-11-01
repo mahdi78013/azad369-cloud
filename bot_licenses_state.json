@@ -9224,6 +9224,12 @@
       "user_id": 116873690,
       "issued_at": 1793513451,
       "method": "crypto_unique"
+    },
+    "AZ1Y-6C96-CAD5-C6B1": {
+      "plan": "1Y",
+      "user_id": 1788801812,
+      "issued_at": 1793515294,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -82236,9 +82242,18 @@
       "tron_amount": 3.854763,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_75b7660c092b48159a6a566352626f64",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=75b7660c092b48159a6a566352626f64",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793514951
+      "created_at": 1793514951,
+      "approved_at": 1793515294,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-6C96-CAD5-C6B1",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3048440",
+        "tron_amount": 3.854763,
+        "user_paid_toman": null,
+        "date": "2026-11-01T06:40:48.7030000"
+      }
     }
   },
   "users": {
@@ -129764,7 +129779,15 @@
       "username": "",
       "first_seen": 1793455924,
       "last_seen": 1793514943,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-6C96-CAD5-C6B1",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793515294,
+          "days": 365
+        }
+      ]
     },
     "5372079546": {
       "user_id": 5372079546,
