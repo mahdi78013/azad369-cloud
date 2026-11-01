@@ -9200,6 +9200,18 @@
       "user_id": 748538264,
       "issued_at": 1793511116,
       "method": "crypto_unique"
+    },
+    "AZ1Y-C219-A2D8-E48B": {
+      "plan": "1Y",
+      "user_id": 97942658,
+      "issued_at": 1793511802,
+      "method": "crypto_unique"
+    },
+    "AN1Y-DE99-7C62-A5F2": {
+      "plan": "AN1Y",
+      "user_id": 97942658,
+      "issued_at": 1793511802,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -82092,9 +82104,10 @@
       "tron_amount": 3.862219,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_40cd476500244f8796839d7a13b66f19",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=40cd476500244f8796839d7a13b66f19",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793510452
+      "created_at": 1793510452,
+      "cancelled_at": 1793511801
     },
     "TRND-VIP1Y-109228868-1793510746-181d2c": {
       "order_id": "TRND-VIP1Y-109228868-1793510746-181d2c",
@@ -82135,9 +82148,20 @@
       "tron_amount": 4.829005,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b6ddac2d1e854be2a8446558850033b0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b6ddac2d1e854be2a8446558850033b0",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793511533
+      "created_at": 1793511533,
+      "key_win": "AZ1Y-C219-A2D8-E48B",
+      "key_and": "AN1Y-DE99-7C62-A5F2",
+      "approved_at": 1793511802,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-C219-A2D8-E48B\nاندروید: AN1Y-DE99-7C62-A5F2",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3048145",
+        "tron_amount": 4.829005,
+        "user_paid_toman": null,
+        "date": "2026-11-01T05:41:20.6870000"
+      }
     }
   },
   "users": {
@@ -130547,7 +130571,22 @@
       "username": "Aliakbarsenobari",
       "first_seen": 1793477606,
       "last_seen": 1793511527,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-C219-A2D8-E48B",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793511802,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-DE99-7C62-A5F2",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793511802,
+          "days": 365
+        }
+      ]
     },
     "5192247945": {
       "user_id": 5192247945,
