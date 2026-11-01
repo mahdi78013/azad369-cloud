@@ -9392,6 +9392,12 @@
       "user_id": 614751873,
       "issued_at": 1793558236,
       "method": "crypto_unique"
+    },
+    "AN1M-76DE-EF51-F37A": {
+      "plan": "AN1M",
+      "user_id": 6133239516,
+      "issued_at": 1793558789,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -84103,9 +84109,18 @@
       "tron_amount": 0.348617,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_12016668e53449dc83b7d9a19f605d31",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=12016668e53449dc83b7d9a19f605d31",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793558630
+      "created_at": 1793558630,
+      "approved_at": 1793558789,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1M-76DE-EF51-F37A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3054431",
+        "tron_amount": 0.348617,
+        "user_paid_toman": null,
+        "date": "2026-11-01T18:46:18.0900000"
+      }
     },
     "TRND-AN1M-98812516-1793558667-0c9b25": {
       "order_id": "TRND-AN1M-98812516-1793558667-0c9b25",
@@ -115335,7 +115350,7 @@
       "last_name": "Abyat",
       "username": "Bashirabyat",
       "first_seen": 1793177943,
-      "last_seen": 1793198698,
+      "last_seen": 1793558762,
       "purchases": [
         {
           "key": "AZ1Y-9105-8F5D-9151",
@@ -116393,7 +116408,7 @@
       "last_name": "",
       "username": "Yeeeppaa",
       "first_seen": 1793183874,
-      "last_seen": 1793458898,
+      "last_seen": 1793558744,
       "purchases": []
     },
     "1331812100": {
@@ -132274,7 +132289,15 @@
       "username": "Reza_sh_m",
       "first_seen": 1793463966,
       "last_seen": 1793558588,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN1M-76DE-EF51-F37A",
+          "plan": "AN1M",
+          "plan_name": "۱ ماهه اندروید (۳۰ روزه)",
+          "issued_at": 1793558789,
+          "days": 30
+        }
+      ]
     },
     "6263414668": {
       "user_id": 6263414668,
@@ -135232,11 +135255,6 @@
       "state": "awaiting_receipt",
       "plan_code": "3M",
       "time": 1793555586
-    },
-    "463292425": {
-      "state": "awaiting_receipt",
-      "plan_code": "AN3M",
-      "time": 1793558688
     }
   },
   "admin_states": {},
