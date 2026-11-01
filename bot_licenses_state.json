@@ -9182,6 +9182,18 @@
       "user_id": 93302779,
       "issued_at": 1793506422,
       "method": "crypto_unique"
+    },
+    "AZ1Y-F085652E-646F-103365": {
+      "plan": "1Y",
+      "user_id": 109228868,
+      "issued_at": 1793510897,
+      "method": "crypto_unique"
+    },
+    "AN1Y-F085652E-5948-C70911": {
+      "plan": "AN1Y",
+      "user_id": 109228868,
+      "issued_at": 1793510897,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -82083,9 +82095,20 @@
       "tron_amount": 4.825255,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a2ce3acae73a4e6fb6dca12636dc58aa",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a2ce3acae73a4e6fb6dca12636dc58aa",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793510746
+      "created_at": 1793510746,
+      "key_win": "AZ1Y-F085652E-646F-103365",
+      "key_and": "AN1Y-F085652E-5948-C70911",
+      "approved_at": 1793510897,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-F085652E-646F-103365\nاندروید: AN1Y-F085652E-5948-C70911",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3048074",
+        "tron_amount": 4.825255,
+        "user_paid_toman": null,
+        "date": "2026-11-01T05:28:04.5600000"
+      }
     }
   },
   "users": {
@@ -131087,7 +131110,22 @@
       "username": "ChetGPTOoO",
       "first_seen": 1793510724,
       "last_seen": 1793510724,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-F085652E-646F-103365",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793510897,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-F085652E-5948-C70911",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793510897,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
