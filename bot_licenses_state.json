@@ -79486,9 +79486,10 @@
       "tron_amount": 4.6742,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_2c54cc2ad1a54477ae0d4547eb921801",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2c54cc2ad1a54477ae0d4547eb921801",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793446907
+      "created_at": 1793446907,
+      "cancelled_at": 1793533368
     },
     "TRND-VIP1Y-8552409172-1793447279-75b537": {
       "order_id": "TRND-VIP1Y-8552409172-1793447279-75b537",
@@ -83044,6 +83045,52 @@
       "file_id": "AgACAgQAAxkBAAEBxelq5fvPPiKbpl3UbZT4chOSq9F8HgACcw1rG6HaMVPzobaCzcDAZwEAAwIAA3cAAz0E",
       "card_number": "5892101706458979",
       "created_at": 1793533354,
+      "caption": ""
+    },
+    "TRND-VIP1Y-7270666527-1793533359-ad49a5": {
+      "order_id": "TRND-VIP1Y-7270666527-1793533359-ad49a5",
+      "token": "da5dd02fe3514beb83a67bc523ed18c6",
+      "user_id": 7270666527,
+      "first_name": "Ehsan",
+      "username": "Ehsan_13919",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.813851,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_da5dd02fe3514beb83a67bc523ed18c6",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=da5dd02fe3514beb83a67bc523ed18c6",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793533359
+    },
+    "TRND-1Y-7270666527-1793533360-cba504": {
+      "order_id": "TRND-1Y-7270666527-1793533360-cba504",
+      "token": "cf442b326fb045bdab70cb7f6c036322",
+      "user_id": 7270666527,
+      "first_name": "Ehsan",
+      "username": "Ehsan_13919",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.863774,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_cf442b326fb045bdab70cb7f6c036322",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=cf442b326fb045bdab70cb7f6c036322",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793533360
+    },
+    "ORD_1793533382_7270666527": {
+      "order_id": "ORD_1793533382_7270666527",
+      "user_id": 7270666527,
+      "username": "Ehsan_13919",
+      "first_name": "Ehsan",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAEBzaJq5yXG_FqbJoFMxyG5HC_BtWuMqAACMA5rG1OCOVP6UnaTPSKLcAEAAwIAA3cAAz0E",
+      "card_number": "5892101706458979",
+      "created_at": 1793533382,
       "caption": ""
     }
   },
@@ -133187,18 +133234,18 @@
     },
     "7270666527": {
       "state": "awaiting_receipt",
-      "plan_code": "AN1Y",
-      "time": 1793533349
+      "plan_code": "1Y",
+      "time": 1793533372
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 6,
+    "count": 7,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 66,
+      "5892101706458979": 67,
       "5047061670546072": 60
     }
   },
