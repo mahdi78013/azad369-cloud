@@ -9536,6 +9536,12 @@
       "user_id": 51625765,
       "issued_at": 1793565730,
       "method": "crypto_unique"
+    },
+    "AZ1M-7BC2-E922-D4C2": {
+      "plan": "1M",
+      "user_id": 148404877,
+      "issued_at": 1793566879,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -85338,9 +85344,18 @@
       "tron_amount": 0.357571,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_47291cb15908402887e52254d21faadf",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=47291cb15908402887e52254d21faadf",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793566547
+      "created_at": 1793566547,
+      "approved_at": 1793566879,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1M-7BC2-E922-D4C2",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3055802",
+        "tron_amount": 0.357571,
+        "user_paid_toman": null,
+        "date": "2026-11-01T21:01:16.8470000"
+      }
     }
   },
   "users": {
@@ -103640,7 +103655,15 @@
       "username": "MrQvm",
       "first_seen": 1792420098,
       "last_seen": 1793566448,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1M-7BC2-E922-D4C2",
+          "plan": "1M",
+          "plan_name": "۱ ماهه ویندوز (۳۰ روزه)",
+          "issued_at": 1793566879,
+          "days": 30
+        }
+      ]
     },
     "8241358965": {
       "user_id": 8241358965,
