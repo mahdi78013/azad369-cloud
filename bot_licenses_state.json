@@ -9524,6 +9524,12 @@
       "user_id": 1219074387,
       "issued_at": 1793565654,
       "method": "crypto_unique"
+    },
+    "AZ1M-0339-2029-D131": {
+      "plan": "1M",
+      "user_id": 1120795686,
+      "issued_at": 1793565685,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -82120,9 +82126,10 @@
       "tron_amount": 4.885073,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d3527adb3a5a445884a2557fd11919c5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d3527adb3a5a445884a2557fd11919c5",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793479225
+      "created_at": 1793479225,
+      "cancelled_at": 1793565681
     },
     "TRND-VIP1Y-680414838-1793480523-06fcfd": {
       "order_id": "TRND-VIP1Y-680414838-1793480523-06fcfd",
@@ -85243,9 +85250,18 @@
       "tron_amount": 0.352962,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9a692c01e2714b5ea530932e93284ba8",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9a692c01e2714b5ea530932e93284ba8",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793565328
+      "created_at": 1793565328,
+      "approved_at": 1793565685,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1M-0339-2029-D131",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3055644",
+        "tron_amount": 0.352962,
+        "user_paid_toman": null,
+        "date": "2026-11-01T20:41:00.6570000"
+      }
     },
     "TRND-VIP1Y-1011528406-1793565338-766b74": {
       "order_id": "TRND-VIP1Y-1011528406-1793565338-766b74",
@@ -121393,8 +121409,16 @@
       "last_name": "",
       "username": "ADELkurdd",
       "first_seen": 1793220800,
-      "last_seen": 1793565326,
-      "purchases": []
+      "last_seen": 1793565683,
+      "purchases": [
+        {
+          "key": "AZ1M-0339-2029-D131",
+          "plan": "1M",
+          "plan_name": "۱ ماهه ویندوز (۳۰ روزه)",
+          "issued_at": 1793565685,
+          "days": 30
+        }
+      ]
     },
     "69383237": {
       "user_id": 69383237,
