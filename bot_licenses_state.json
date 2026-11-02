@@ -11210,6 +11210,12 @@
       "user_id": 1078934798,
       "issued_at": 1793660145,
       "method": "crypto_unique"
+    },
+    "AN1Y-052E-6556-FB80": {
+      "plan": "AN1Y",
+      "user_id": 363656286,
+      "issued_at": 1793660608,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -99523,9 +99529,18 @@
       "tron_amount": 3.738273,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4a01eacb4ea24bbc90a3663315dda328",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4a01eacb4ea24bbc90a3663315dda328",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793660341
+      "created_at": 1793660341,
+      "approved_at": 1793660608,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-052E-6556-FB80",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3065190",
+        "tron_amount": 3.738273,
+        "user_paid_toman": null,
+        "date": "2026-11-02T23:02:21.4530000"
+      }
     },
     "TRND-AN1Y-7379961588-1793660429-dda962": {
       "order_id": "TRND-AN1Y-7379961588-1793660429-dda962",
@@ -128720,7 +128735,15 @@
       "username": "Sahand_stadium",
       "first_seen": 1793049990,
       "last_seen": 1793660340,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN1Y-052E-6556-FB80",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793660608,
+          "days": 365
+        }
+      ]
     },
     "117383092": {
       "user_id": 117383092,
@@ -161361,6 +161384,42 @@
       "username": "Ham6med",
       "first_seen": 1793660404,
       "last_seen": 1793660404,
+      "purchases": []
+    },
+    "8197359006": {
+      "user_id": 8197359006,
+      "first_name": "امیر.",
+      "last_name": "",
+      "username": "mr781",
+      "first_seen": 1793660537,
+      "last_seen": 1793660537,
+      "purchases": []
+    },
+    "39494474": {
+      "user_id": 39494474,
+      "first_name": "S E T A Y E S H",
+      "last_name": "🇩🇪",
+      "username": "vahidsetayesh",
+      "first_seen": 1793660540,
+      "last_seen": 1793660540,
+      "purchases": []
+    },
+    "6608512225": {
+      "user_id": 6608512225,
+      "first_name": ".",
+      "last_name": "",
+      "username": "Jfihji",
+      "first_seen": 1793660581,
+      "last_seen": 1793660581,
+      "purchases": []
+    },
+    "6804201781": {
+      "user_id": 6804201781,
+      "first_name": "BestElectronic",
+      "last_name": "",
+      "username": "BestElectronic2026",
+      "first_seen": 1793660594,
+      "last_seen": 1793660594,
       "purchases": []
     }
   },
