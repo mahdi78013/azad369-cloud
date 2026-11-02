@@ -11078,6 +11078,12 @@
       "user_id": 1246982679,
       "issued_at": 1793655550,
       "method": "crypto_unique"
+    },
+    "AN3M-01C55D10-8F1F-26A474": {
+      "plan": "AN3M",
+      "user_id": 7033176860,
+      "issued_at": 1793655723,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -97519,9 +97525,10 @@
       "tron_amount": 1.369936,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9f338baa7ee141a28a719ab6e4b28377",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9f338baa7ee141a28a719ab6e4b28377",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793654359
+      "created_at": 1793654359,
+      "cancelled_at": 1793655714
     },
     "TRND-VIP1Y-103662744-1793654398-d75df7": {
       "order_id": "TRND-VIP1Y-103662744-1793654398-d75df7",
@@ -97972,9 +97979,18 @@
       "tron_amount": 1.365203,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_7c674787b02f46a481715231a7450250",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7c674787b02f46a481715231a7450250",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793655528
+      "created_at": 1793655528,
+      "approved_at": 1793655723,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-01C55D10-8F1F-26A474",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3064928",
+        "tron_amount": 1.365203,
+        "user_paid_toman": null,
+        "date": "2026-11-02T21:41:59.6300000"
+      }
     },
     "TRND-AN3M-139298491-1793655564-333b85": {
       "order_id": "TRND-AN3M-139298491-1793655564-333b85",
@@ -158472,7 +158488,15 @@
       "username": "sondefa22",
       "first_seen": 1793655488,
       "last_seen": 1793655488,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-01C55D10-8F1F-26A474",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793655723,
+          "days": 90
+        }
+      ]
     },
     "65336099": {
       "user_id": 65336099,
@@ -158481,6 +158505,42 @@
       "username": "Hb11228",
       "first_seen": 1793655510,
       "last_seen": 1793655510,
+      "purchases": []
+    },
+    "150379563": {
+      "user_id": 150379563,
+      "first_name": "𝐑𝐄𝐙𝐀",
+      "last_name": "𝐄𝐒𝐅𝐀𝐇𝐀𝐍𝐈",
+      "username": "MR_reza_esfahani",
+      "first_seen": 1793655645,
+      "last_seen": 1793655645,
+      "purchases": []
+    },
+    "5845718910": {
+      "user_id": 5845718910,
+      "first_name": "19313451120",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793655676,
+      "last_seen": 1793655676,
+      "purchases": []
+    },
+    "411102043": {
+      "user_id": 411102043,
+      "first_name": "skz",
+      "last_name": "",
+      "username": "skz1008",
+      "first_seen": 1793655694,
+      "last_seen": 1793655694,
+      "purchases": []
+    },
+    "112597386": {
+      "user_id": 112597386,
+      "first_name": "علیرضا",
+      "last_name": "ملاذ",
+      "username": "",
+      "first_seen": 1793655695,
+      "last_seen": 1793655695,
       "purchases": []
     }
   },
@@ -159070,6 +159130,11 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793655581
+    },
+    "8647491827": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN3M",
+      "time": 1793655642
     }
   },
   "admin_states": {},
