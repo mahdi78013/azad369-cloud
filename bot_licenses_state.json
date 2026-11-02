@@ -10436,6 +10436,24 @@
       "user_id": 50463750,
       "issued_at": 1793641402,
       "method": "crypto_unique"
+    },
+    "AZ1Y-4FCA-A7DE-7965": {
+      "plan": "1Y",
+      "user_id": 264242087,
+      "issued_at": 1793641403,
+      "method": "crypto_unique"
+    },
+    "AN1Y-3560-1976-99F7": {
+      "plan": "AN1Y",
+      "user_id": 264242087,
+      "issued_at": 1793641403,
+      "method": "crypto_unique"
+    },
+    "AN3M-D894-71E5-9E98": {
+      "plan": "AN3M",
+      "user_id": 5964706121,
+      "issued_at": 1793641407,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -92388,9 +92406,20 @@
       "tron_amount": 4.691935,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4cd451b754e044c3963bbf8b4098ae90",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4cd451b754e044c3963bbf8b4098ae90",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793641014
+      "created_at": 1793641014,
+      "key_win": "AZ1Y-4FCA-A7DE-7965",
+      "key_and": "AN1Y-3560-1976-99F7",
+      "approved_at": 1793641403,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-4FCA-A7DE-7965\nاندروید: AN1Y-3560-1976-99F7",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3062368",
+        "tron_amount": 4.691935,
+        "user_paid_toman": null,
+        "date": "2026-11-02T17:43:08.0230000"
+      }
     },
     "ORD_1793641053_5964706121": {
       "order_id": "ORD_1793641053_5964706121",
@@ -92489,12 +92518,15 @@
       "first_name": "Sattar",
       "plan_code": "AN3M",
       "price": "۱۴۹,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAEB7Vxq6MpdsdYoQ8PbHxsMhU3faVJNCwACYA5rG8UuSVOhIGDxCKFUBgEAAwIAA3kAAz0E",
       "card_number": "5047061670546072",
       "created_at": 1793641340,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1793641407,
+      "approved_by": 748538264,
+      "key": "AN3M-D894-71E5-9E98"
     }
   },
   "users": {
@@ -146810,6 +146842,13 @@
           "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
           "issued_at": 1793641395,
           "days": 90
+        },
+        {
+          "key": "AN3M-D894-71E5-9E98",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793641407,
+          "days": 90
         }
       ]
     },
@@ -147558,7 +147597,22 @@
       "username": "ArefTalebi",
       "first_seen": 1793640979,
       "last_seen": 1793640979,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-4FCA-A7DE-7965",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793641403,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-3560-1976-99F7",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793641403,
+          "days": 365
+        }
+      ]
     },
     "7653813623": {
       "user_id": 7653813623,
