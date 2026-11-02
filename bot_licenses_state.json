@@ -9860,6 +9860,12 @@
       "user_id": 74590740,
       "issued_at": 1793612069,
       "method": "crypto_unique"
+    },
+    "AN2M-F369-CE2A-BF24": {
+      "plan": "AN2M",
+      "user_id": 7428939441,
+      "issued_at": 1793613239,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -87884,9 +87890,10 @@
       "tron_amount": 0.814532,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4c51c5b638594ecc8dd90a3ea6f831e5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4c51c5b638594ecc8dd90a3ea6f831e5",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793611866
+      "created_at": 1793611866,
+      "cancelled_at": 1793613149
     },
     "TRND-VIP1Y-74590740-1793612012-f3edb8": {
       "order_id": "TRND-VIP1Y-74590740-1793612012-f3edb8",
@@ -87943,9 +87950,18 @@
       "tron_amount": 0.812767,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_53950697075544ccb93c5221a736852c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=53950697075544ccb93c5221a736852c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793613078
+      "created_at": 1793613078,
+      "approved_at": 1793613239,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-F369-CE2A-BF24",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3058522",
+        "tron_amount": 0.812767,
+        "user_paid_toman": null,
+        "date": "2026-11-02T09:53:56.3200000"
+      }
     }
   },
   "users": {
@@ -139787,6 +139803,13 @@
           "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
           "issued_at": 1793605391,
           "days": 60
+        },
+        {
+          "key": "AN2M-F369-CE2A-BF24",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793613239,
+          "days": 60
         }
       ]
     },
@@ -140101,6 +140124,15 @@
       "username": "mostafaytaba",
       "first_seen": 1793613044,
       "last_seen": 1793613044,
+      "purchases": []
+    },
+    "843335964": {
+      "user_id": 843335964,
+      "first_name": "H",
+      "last_name": "Z",
+      "username": "Hosein1994_2",
+      "first_seen": 1793613167,
+      "last_seen": 1793613167,
       "purchases": []
     }
   },
