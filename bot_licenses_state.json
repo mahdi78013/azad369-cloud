@@ -11246,6 +11246,12 @@
       "user_id": 87729557,
       "issued_at": 1793661941,
       "method": "crypto_unique"
+    },
+    "AN1Y-D9EF-E219-34BD": {
+      "plan": "AN1Y",
+      "user_id": 1392857768,
+      "issued_at": 1793661967,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -99783,9 +99789,10 @@
       "tron_amount": 3.762979,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6e9860c5a1ff4c488b9785f5eb1f00cb",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6e9860c5a1ff4c488b9785f5eb1f00cb",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793661639
+      "created_at": 1793661639,
+      "cancelled_at": 1793661963
     },
     "TRND-AN3M-5451902169-1793661762-258894": {
       "order_id": "TRND-AN3M-5451902169-1793661762-258894",
@@ -99856,9 +99863,18 @@
       "tron_amount": 3.750568,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_7e680be69abe47ecb593131aacf9f82a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7e680be69abe47ecb593131aacf9f82a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793661796
+      "created_at": 1793661796,
+      "approved_at": 1793661967,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-D9EF-E219-34BD",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3065226",
+        "tron_amount": 3.750568,
+        "user_paid_toman": null,
+        "date": "2026-11-02T23:25:17.7970000"
+      }
     },
     "TRND-AN3M-7660992571-1793661877-a90dcb": {
       "order_id": "TRND-AN3M-7660992571-1793661877-a90dcb",
@@ -138945,7 +138961,7 @@
       "last_name": "",
       "username": "Tayger2026",
       "first_seen": 1793275355,
-      "last_seen": 1793535105,
+      "last_seen": 1793661943,
       "purchases": []
     },
     "673015420": {
@@ -161941,7 +161957,15 @@
       "username": "Mahyarram55",
       "first_seen": 1793661467,
       "last_seen": 1793661795,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN1Y-D9EF-E219-34BD",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793661967,
+          "days": 365
+        }
+      ]
     },
     "5483215218": {
       "user_id": 5483215218,
