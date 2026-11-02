@@ -98634,9 +98634,10 @@
       "tron_amount": 1.370123,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9d036a9fb6d54c6e89d45d78df0cd522",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9d036a9fb6d54c6e89d45d78df0cd522",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793657265
+      "created_at": 1793657265,
+      "cancelled_at": 1793657963
     },
     "TRND-AN3M-119479175-1793657276-4f8b56": {
       "order_id": "TRND-AN3M-119479175-1793657276-4f8b56",
@@ -98909,6 +98910,20 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793657957
+    },
+    "ORD_1793658018_6474140005": {
+      "order_id": "ORD_1793658018_6474140005",
+      "user_id": 6474140005,
+      "username": "BELMONDO_57",
+      "first_name": "peyman",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAEB_Otq6QuWHorvVNgLrsw1gYhhagvMPQAC-RBrG38RSFPefek8oqsPjAEAAwIAA3kAAz0E",
+      "card_number": "5047061670546072",
+      "created_at": 1793658018,
+      "caption": ""
     }
   },
   "users": {
@@ -159888,7 +159903,7 @@
       "last_name": "",
       "username": "BELMONDO_57",
       "first_seen": 1793656945,
-      "last_seen": 1793657651,
+      "last_seen": 1793657986,
       "purchases": [
         {
           "key": "AN3M-8639-14F5-9203",
@@ -160200,6 +160215,24 @@
       "username": "mahyarp2",
       "first_seen": 1793657945,
       "last_seen": 1793657945,
+      "purchases": []
+    },
+    "6683469167": {
+      "user_id": 6683469167,
+      "first_name": "Khaled",
+      "last_name": "Heydari",
+      "username": "",
+      "first_seen": 1793657961,
+      "last_seen": 1793657961,
+      "purchases": []
+    },
+    "105220444": {
+      "user_id": 105220444,
+      "first_name": "🐾shap",
+      "last_name": "kurdstan",
+      "username": "ShoreshAmini",
+      "first_seen": 1793657972,
+      "last_seen": 1793657972,
       "purchases": []
     }
   },
@@ -160804,17 +160837,22 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793657165
+    },
+    "6474140005": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN2M",
+      "time": 1793658001
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 6,
+    "count": 7,
     "threshold": 10,
     "stats": {
       "5892101706458979": 90,
-      "5047061670546072": 86
+      "5047061670546072": 87
     }
   },
   "maintenance": {
