@@ -11126,6 +11126,12 @@
       "user_id": 7970883034,
       "issued_at": 1793657471,
       "method": "crypto_unique"
+    },
+    "AN3M-8639-14F5-9203": {
+      "plan": "AN3M",
+      "user_id": 6474140005,
+      "issued_at": 1793657595,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -98474,9 +98480,18 @@
       "tron_amount": 1.372452,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f2b181785a0741a2b2e435287e76c483",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f2b181785a0741a2b2e435287e76c483",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793657073
+      "created_at": 1793657073,
+      "approved_at": 1793657595,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-8639-14F5-9203",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3065048",
+        "tron_amount": 1.372452,
+        "user_paid_toman": null,
+        "date": "2026-11-02T22:12:32.0130000"
+      }
     },
     "TRND-AN1Y-8720910339-1793657093-e947a5": {
       "order_id": "TRND-AN1Y-8720910339-1793657093-e947a5",
@@ -98749,6 +98764,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793657427
+    },
+    "TRND-AN3M-348611172-1793657512-fa85a4": {
+      "order_id": "TRND-AN3M-348611172-1793657512-fa85a4",
+      "token": "bab5e550f265413d87afb3ffcb0d3db5",
+      "user_id": 348611172,
+      "first_name": "力闩尺工从闩力",
+      "username": "whitesrafil",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.365603,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_bab5e550f265413d87afb3ffcb0d3db5",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=bab5e550f265413d87afb3ffcb0d3db5",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793657512
     }
   },
   "users": {
@@ -137261,7 +137292,7 @@
       "last_name": "",
       "username": "ha33an_tak",
       "first_seen": 1793263666,
-      "last_seen": 1793264083,
+      "last_seen": 1793657509,
       "purchases": [
         {
           "key": "AN2M-DE0E06BF-2C56-CB6D17",
@@ -159729,7 +159760,15 @@
       "username": "BELMONDO_57",
       "first_seen": 1793656945,
       "last_seen": 1793656945,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-8639-14F5-9203",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793657595,
+          "days": 90
+        }
+      ]
     },
     "5679616980": {
       "user_id": 5679616980,
@@ -159889,6 +159928,24 @@
       "username": "bazarangoo",
       "first_seen": 1793657463,
       "last_seen": 1793657463,
+      "purchases": []
+    },
+    "348611172": {
+      "user_id": 348611172,
+      "first_name": "力闩尺工从闩力",
+      "last_name": "",
+      "username": "whitesrafil",
+      "first_seen": 1793657502,
+      "last_seen": 1793657502,
+      "purchases": []
+    },
+    "5714120778": {
+      "user_id": 5714120778,
+      "first_name": "شروین",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793657505,
+      "last_seen": 1793657505,
       "purchases": []
     }
   },
