@@ -10250,6 +10250,12 @@
       "user_id": 81796037,
       "issued_at": 1793637270,
       "method": "crypto_unique"
+    },
+    "AN3M-B8BD-2B43-438F": {
+      "plan": "AN3M",
+      "user_id": 486839748,
+      "issued_at": 1793637381,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -91045,9 +91051,18 @@
       "tron_amount": 1.367455,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b399778519ca4aa396a502aace75f3bd",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b399778519ca4aa396a502aace75f3bd",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793637105
+      "created_at": 1793637105,
+      "approved_at": 1793637381,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-B8BD-2B43-438F",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3061664",
+        "tron_amount": 1.367455,
+        "user_paid_toman": null,
+        "date": "2026-11-02T16:34:40.5330000"
+      }
     },
     "TRND-AN2M-8827137774-1793637106-a3e8fa": {
       "order_id": "TRND-AN2M-8827137774-1793637106-a3e8fa",
@@ -108717,7 +108732,7 @@
       "last_name": "",
       "username": "qelvoria",
       "first_seen": 1792387296,
-      "last_seen": 1793427794,
+      "last_seen": 1793637314,
       "purchases": [
         {
           "key": "AN1Y-99DB-C3C7-BD42",
@@ -145160,7 +145175,7 @@
       "last_name": "AS",
       "username": "rezaasadipour",
       "first_seen": 1793636918,
-      "last_seen": 1793636918,
+      "last_seen": 1793637356,
       "purchases": [
         {
           "key": "AN2M-05A7-E40E-78C2",
@@ -145196,7 +145211,15 @@
       "username": "Afsoonriyahi9",
       "first_seen": 1793637076,
       "last_seen": 1793637076,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-B8BD-2B43-438F",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793637381,
+          "days": 90
+        }
+      ]
     },
     "7472260123": {
       "user_id": 7472260123,
@@ -145801,6 +145824,11 @@
       "state": "awaiting_receipt",
       "plan_code": "AN2M",
       "time": 1793632777
+    },
+    "486839748": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN3M",
+      "time": 1793637334
     }
   },
   "admin_states": {},
