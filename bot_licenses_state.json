@@ -10748,6 +10748,12 @@
       "user_id": 8064653283,
       "issued_at": 1793647500,
       "method": "crypto_unique"
+    },
+    "AN3M-6685-8378-B8A0": {
+      "plan": "AN3M",
+      "user_id": 8418882340,
+      "issued_at": 1793647501,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -86032,9 +86038,10 @@
       "tron_amount": 0.368346,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_665528aa06294ce2be32179a58c76e00",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=665528aa06294ce2be32179a58c76e00",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793561083
+      "created_at": 1793561083,
+      "cancelled_at": 1793647528
     },
     "TRND-VIP1Y-853571836-1793561274-53b77e": {
       "order_id": "TRND-VIP1Y-853571836-1793561274-53b77e",
@@ -94848,9 +94855,18 @@
       "tron_amount": 1.383145,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_8132adc52439484db68cee33072b38d2",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8132adc52439484db68cee33072b38d2",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793647335
+      "created_at": 1793647335,
+      "approved_at": 1793647501,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-6685-8378-B8A0",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3063649",
+        "tron_amount": 1.383145,
+        "user_paid_toman": null,
+        "date": "2026-11-02T19:24:36.6600000"
+      }
     },
     "TRND-AN3M-81702088-1793647353-de91b7": {
       "order_id": "TRND-AN3M-81702088-1793647353-de91b7",
@@ -94899,6 +94915,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793647484
+    },
+    "TRND-AN3M-484252549-1793647582-ec90eb": {
+      "order_id": "TRND-AN3M-484252549-1793647582-ec90eb",
+      "token": "96766bdfdaa04b11bdd7aecb9a2350e8",
+      "user_id": 484252549,
+      "first_name": "𝑀𝑜𝒽𝒶𝓂𝓂𝒶𝒹",
+      "username": "Mohammad_gh1978",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.370425,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_96766bdfdaa04b11bdd7aecb9a2350e8",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=96766bdfdaa04b11bdd7aecb9a2350e8",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793647582
+    },
+    "TRND-VIP1Y-75668713-1793647592-018e5c": {
+      "order_id": "TRND-VIP1Y-75668713-1793647592-018e5c",
+      "token": "461069f1d7734a16971033744d7ab942",
+      "user_id": 75668713,
+      "first_name": "ʝąѵąժ",
+      "username": "javadfc",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.70643,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_461069f1d7734a16971033744d7ab942",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=461069f1d7734a16971033744d7ab942",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793647592
     }
   },
   "users": {
@@ -152043,7 +152091,15 @@
       "username": "nnnnn4013",
       "first_seen": 1793646934,
       "last_seen": 1793647334,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-6685-8378-B8A0",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793647501,
+          "days": 90
+        }
+      ]
     },
     "5068734101": {
       "user_id": 5068734101,
@@ -152159,7 +152215,7 @@
       "last_name": "",
       "username": "theHAMEDSH2",
       "first_seen": 1793647222,
-      "last_seen": 1793647222,
+      "last_seen": 1793647596,
       "purchases": []
     },
     "167082111": {
@@ -152250,6 +152306,60 @@
       "username": "Theloveofmylifemydaughter",
       "first_seen": 1793647464,
       "last_seen": 1793647464,
+      "purchases": []
+    },
+    "1236100670": {
+      "user_id": 1236100670,
+      "first_name": "محصولات زیبایی فاطیما",
+      "last_name": "پک های مرحله پاکسازی و تثبیت برای درخشیدن در مجالس",
+      "username": "Hani2684",
+      "first_seen": 1793647529,
+      "last_seen": 1793647529,
+      "purchases": []
+    },
+    "504225415": {
+      "user_id": 504225415,
+      "first_name": "M",
+      "last_name": "",
+      "username": "NaMo1959",
+      "first_seen": 1793647551,
+      "last_seen": 1793647551,
+      "purchases": []
+    },
+    "75668713": {
+      "user_id": 75668713,
+      "first_name": "ʝąѵąժ",
+      "last_name": "ʍօʂąѵìąղ",
+      "username": "javadfc",
+      "first_seen": 1793647562,
+      "last_seen": 1793647562,
+      "purchases": []
+    },
+    "8844181877": {
+      "user_id": 8844181877,
+      "first_name": "mahdi",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793647565,
+      "last_seen": 1793647565,
+      "purchases": []
+    },
+    "7610845106": {
+      "user_id": 7610845106,
+      "first_name": "𝘈𝘺𝘩𝘢𝘯",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793647591,
+      "last_seen": 1793647591,
+      "purchases": []
+    },
+    "45861232": {
+      "user_id": 45861232,
+      "first_name": "Mohamad",
+      "last_name": "",
+      "username": "alpha711plus",
+      "first_seen": 1793647605,
+      "last_seen": 1793647605,
       "purchases": []
     }
   },
