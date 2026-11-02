@@ -10868,6 +10868,12 @@
       "user_id": 778698611,
       "issued_at": 1793650332,
       "method": "crypto_unique"
+    },
+    "AN3M-28F2-AAF5-BBEF": {
+      "plan": "AN3M",
+      "user_id": 1414427054,
+      "issued_at": 1793650334,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -95797,9 +95803,18 @@
       "tron_amount": 1.363446,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b7c88c3118854a7390a3295a163c5a1b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b7c88c3118854a7390a3295a163c5a1b",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793649777
+      "created_at": 1793649777,
+      "approved_at": 1793650334,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-28F2-AAF5-BBEF",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3064186",
+        "tron_amount": 1.363446,
+        "user_paid_toman": null,
+        "date": "2026-11-02T20:11:31.3400000"
+      }
     },
     "TRND-AN3M-8407651901-1793649797-470fc5": {
       "order_id": "TRND-AN3M-8407651901-1793649797-470fc5",
@@ -154140,8 +154155,16 @@
       "last_name": "",
       "username": "mehdiiassar",
       "first_seen": 1793649518,
-      "last_seen": 1793649518,
-      "purchases": []
+      "last_seen": 1793650333,
+      "purchases": [
+        {
+          "key": "AN3M-28F2-AAF5-BBEF",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793650334,
+          "days": 90
+        }
+      ]
     },
     "8964656336": {
       "user_id": 8964656336,
@@ -154459,6 +154482,24 @@
       "username": "Mvslp",
       "first_seen": 1793650292,
       "last_seen": 1793650292,
+      "purchases": []
+    },
+    "808479053": {
+      "user_id": 808479053,
+      "first_name": "Hosein",
+      "last_name": "",
+      "username": "Gakiih",
+      "first_seen": 1793650339,
+      "last_seen": 1793650339,
+      "purchases": []
+    },
+    "355318327": {
+      "user_id": 355318327,
+      "first_name": "امیر",
+      "last_name": "",
+      "username": "amirfardtoluu",
+      "first_seen": 1793650346,
+      "last_seen": 1793650346,
       "purchases": []
     }
   },
@@ -155028,6 +155069,11 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793648434
+    },
+    "7786055148": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN3M",
+      "time": 1793650342
     }
   },
   "admin_states": {},
