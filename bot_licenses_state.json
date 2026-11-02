@@ -10556,6 +10556,12 @@
       "user_id": 277730119,
       "issued_at": 1793643640,
       "method": "crypto_unique"
+    },
+    "AZ3M-B27B-A204-87AA": {
+      "plan": "3M",
+      "user_id": 258101082,
+      "issued_at": 1793643662,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -93291,9 +93297,18 @@
       "tron_amount": 1.384194,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_37c67ec374c941248da7acbc01cad496",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=37c67ec374c941248da7acbc01cad496",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793643493
+      "created_at": 1793643493,
+      "approved_at": 1793643662,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-B27B-A204-87AA",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3062856",
+        "tron_amount": 1.384194,
+        "user_paid_toman": null,
+        "date": "2026-11-02T18:20:54.6270000"
+      }
     },
     "TRND-AN3M-1720628006-1793643542-ba3616": {
       "order_id": "TRND-AN3M-1720628006-1793643542-ba3616",
@@ -93326,6 +93341,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793643584
+    },
+    "TRND-AN3M-152565261-1793643651-6a453c": {
+      "order_id": "TRND-AN3M-152565261-1793643651-6a453c",
+      "token": "5a7afe3d8dd9454f962e724c3355609c",
+      "user_id": 152565261,
+      "first_name": "حمید",
+      "username": "ندارد",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.375129,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_5a7afe3d8dd9454f962e724c3355609c",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5a7afe3d8dd9454f962e724c3355609c",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793643651
     }
   },
   "users": {
@@ -141620,6 +141651,13 @@
           "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
           "issued_at": 1793459958,
           "days": 60
+        },
+        {
+          "key": "AZ3M-B27B-A204-87AA",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793643662,
+          "days": 90
         }
       ]
     },
