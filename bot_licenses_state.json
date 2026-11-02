@@ -10166,6 +10166,12 @@
       "user_id": 479936353,
       "issued_at": 1793634127,
       "method": "crypto_unique"
+    },
+    "AZ2M-5146-2670-57F4": {
+      "plan": "2M",
+      "user_id": 102416055,
+      "issued_at": 1793634604,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -90355,9 +90361,10 @@
       "tron_amount": 0.817511,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d5d2a6892e404482a161912803be15d0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d5d2a6892e404482a161912803be15d0",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793634431
+      "created_at": 1793634431,
+      "cancelled_at": 1793634602
     },
     "TRND-2M-102416055-1793634463-0b8e30": {
       "order_id": "TRND-2M-102416055-1793634463-0b8e30",
@@ -90387,9 +90394,18 @@
       "tron_amount": 0.827667,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_702054eb064e46edb58c31b13512a0b7",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=702054eb064e46edb58c31b13512a0b7",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793634504
+      "created_at": 1793634504,
+      "approved_at": 1793634604,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-5146-2670-57F4",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3061237",
+        "tron_amount": 0.827667,
+        "user_paid_toman": null,
+        "date": "2026-11-02T15:49:23.8400000"
+      }
     },
     "TRND-AN3M-124736858-1793634581-41a41e": {
       "order_id": "TRND-AN3M-124736858-1793634581-41a41e",
@@ -140338,6 +140354,13 @@
           "plan": "AN2M",
           "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
           "issued_at": 1793631477,
+          "days": 60
+        },
+        {
+          "key": "AZ2M-5146-2670-57F4",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793634604,
           "days": 60
         }
       ]
