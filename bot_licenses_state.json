@@ -9698,6 +9698,12 @@
       "user_id": 5731611042,
       "issued_at": 1793598515,
       "method": "crypto_unique"
+    },
+    "AN3M-27EF-A083-2196": {
+      "plan": "AN3M",
+      "user_id": 5360826282,
+      "issued_at": 1793600888,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -86608,9 +86614,35 @@
       "tron_amount": 1.397871,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c32e388b7e8143c3991bc4d2a6fd0367",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c32e388b7e8143c3991bc4d2a6fd0367",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793600622
+      "created_at": 1793600622,
+      "cancelled_at": 1793600800
+    },
+    "TRND-AN3M-5360826282-1793600758-a3bb7a": {
+      "order_id": "TRND-AN3M-5360826282-1793600758-a3bb7a",
+      "token": "090d9a757e224bc4a044f6f26d2eddda",
+      "user_id": 5360826282,
+      "first_name": "RADMEHR",
+      "username": "realraad1",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.374206,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_090d9a757e224bc4a044f6f26d2eddda",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=090d9a757e224bc4a044f6f26d2eddda",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793600758,
+      "approved_at": 1793600888,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-27EF-A083-2196",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3057057",
+        "tron_amount": 1.374206,
+        "user_paid_toman": null,
+        "date": "2026-11-02T06:28:05.6130000"
+      }
     }
   },
   "users": {
@@ -137280,7 +137312,15 @@
       "username": "realraad1",
       "first_seen": 1793555203,
       "last_seen": 1793600620,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-27EF-A083-2196",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793600888,
+          "days": 90
+        }
+      ]
     },
     "158733980": {
       "user_id": 158733980,
