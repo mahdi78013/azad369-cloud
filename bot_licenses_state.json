@@ -10478,6 +10478,12 @@
       "user_id": 5719088412,
       "issued_at": 1793642110,
       "method": "crypto_unique"
+    },
+    "AZ3M-F029-E782-E59B": {
+      "plan": "3M",
+      "user_id": 7044642524,
+      "issued_at": 1793642371,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -92750,9 +92756,18 @@
       "tron_amount": 1.358383,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_2eee62e63daf469195840cb4331839a6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2eee62e63daf469195840cb4331839a6",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793642216
+      "created_at": 1793642216,
+      "approved_at": 1793642371,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-F029-E782-E59B",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3062589",
+        "tron_amount": 1.358383,
+        "user_paid_toman": null,
+        "date": "2026-11-02T17:59:00.8700000"
+      }
     },
     "TRND-VIP1Y-78837391-1793642317-e67e1e": {
       "order_id": "TRND-VIP1Y-78837391-1793642317-e67e1e",
@@ -92769,6 +92784,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793642317
+    },
+    "TRND-3M-7292468488-1793642363-1d78e2": {
+      "order_id": "TRND-3M-7292468488-1793642363-1d78e2",
+      "token": "1bc3c3c2fc5e4aa8bea8bd44bd7bde83",
+      "user_id": 7292468488,
+      "first_name": "TheMamad",
+      "username": "TheMamadYT",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.368549,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_1bc3c3c2fc5e4aa8bea8bd44bd7bde83",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1bc3c3c2fc5e4aa8bea8bd44bd7bde83",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793642363
     }
   },
   "users": {
@@ -146752,7 +146783,15 @@
       "username": "Nimasol89",
       "first_seen": 1793636014,
       "last_seen": 1793642214,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-F029-E782-E59B",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793642371,
+          "days": 90
+        }
+      ]
     },
     "5589029331": {
       "user_id": 5589029331,
@@ -148134,6 +148173,15 @@
       "username": "Author_ffG",
       "first_seen": 1793642299,
       "last_seen": 1793642299,
+      "purchases": []
+    },
+    "5436255283": {
+      "user_id": 5436255283,
+      "first_name": "AQ",
+      "last_name": "",
+      "username": "AQ1362",
+      "first_seen": 1793642349,
+      "last_seen": 1793642349,
       "purchases": []
     }
   },
