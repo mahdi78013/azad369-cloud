@@ -10706,6 +10706,12 @@
       "user_id": 91848359,
       "issued_at": 1793646514,
       "method": "crypto_unique"
+    },
+    "AN3M-6B46-08F1-8EB8": {
+      "plan": "AN3M",
+      "user_id": 1955315845,
+      "issued_at": 1793646735,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -94471,9 +94477,18 @@
       "tron_amount": 1.380247,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_92990e15cecc4a0e89e4ca4885a0fff9",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=92990e15cecc4a0e89e4ca4885a0fff9",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793646369
+      "created_at": 1793646369,
+      "approved_at": 1793646735,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-6B46-08F1-8EB8",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3063496",
+        "tron_amount": 1.380247,
+        "user_paid_toman": null,
+        "date": "2026-11-02T19:11:33.6170000"
+      }
     },
     "TRND-3M-163442342-1793646414-4647da": {
       "order_id": "TRND-3M-163442342-1793646414-4647da",
@@ -151402,8 +151417,16 @@
       "last_name": "",
       "username": "amir_kasagold",
       "first_seen": 1793645997,
-      "last_seen": 1793646368,
-      "purchases": []
+      "last_seen": 1793646734,
+      "purchases": [
+        {
+          "key": "AN3M-6B46-08F1-8EB8",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793646735,
+          "days": 90
+        }
+      ]
     },
     "91848359": {
       "user_id": 91848359,
@@ -151491,7 +151514,7 @@
       "last_name": "Aghaei",
       "username": "toobaaghaei",
       "first_seen": 1793646336,
-      "last_seen": 1793646336,
+      "last_seen": 1793646700,
       "purchases": []
     },
     "163442342": {
@@ -151582,6 +151605,33 @@
       "username": "",
       "first_seen": 1793646673,
       "last_seen": 1793646673,
+      "purchases": []
+    },
+    "104047082": {
+      "user_id": 104047082,
+      "first_name": "A",
+      "last_name": "Aghda",
+      "username": "Ufit_ir",
+      "first_seen": 1793646698,
+      "last_seen": 1793646698,
+      "purchases": []
+    },
+    "6218879602": {
+      "user_id": 6218879602,
+      "first_name": "محمد",
+      "last_name": "",
+      "username": "MMD_user98",
+      "first_seen": 1793646716,
+      "last_seen": 1793646716,
+      "purchases": []
+    },
+    "1321677615": {
+      "user_id": 1321677615,
+      "first_name": "Ahmad",
+      "last_name": "",
+      "username": "Hoooooollllllllymoooooolllllllly",
+      "first_seen": 1793646717,
+      "last_seen": 1793646717,
       "purchases": []
     }
   },
