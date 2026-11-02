@@ -10184,6 +10184,12 @@
       "user_id": 96135465,
       "issued_at": 1793635419,
       "method": "crypto_unique"
+    },
+    "AN2M-16C7-CEAA-B432": {
+      "plan": "AN2M",
+      "user_id": 7468499818,
+      "issued_at": 1793635482,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -90528,9 +90534,18 @@
       "tron_amount": 0.820715,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ba481402b45747b7bc101cdeddf196ed",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ba481402b45747b7bc101cdeddf196ed",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793635303
+      "created_at": 1793635303,
+      "approved_at": 1793635482,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-16C7-CEAA-B432",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3061366",
+        "tron_amount": 0.820715,
+        "user_paid_toman": null,
+        "date": "2026-11-02T16:04:26.9230000"
+      }
     },
     "TRND-VIP1Y-96135465-1793635314-786160": {
       "order_id": "TRND-VIP1Y-96135465-1793635314-786160",
@@ -144314,7 +144329,15 @@
       "username": "imanvpn076",
       "first_seen": 1793635262,
       "last_seen": 1793635262,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-16C7-CEAA-B432",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793635482,
+          "days": 60
+        }
+      ]
     },
     "8434087350": {
       "user_id": 8434087350,
@@ -144348,6 +144371,24 @@
           "days": 365
         }
       ]
+    },
+    "93523571": {
+      "user_id": 93523571,
+      "first_name": "Sajy",
+      "last_name": "",
+      "username": "Uzman6700",
+      "first_seen": 1793635422,
+      "last_seen": 1793635422,
+      "purchases": []
+    },
+    "5099463170": {
+      "user_id": 5099463170,
+      "first_name": "Agitated",
+      "last_name": "",
+      "username": "ARCTICFOX_63",
+      "first_seen": 1793635463,
+      "last_seen": 1793635463,
+      "purchases": []
     }
   },
   "user_states": {
