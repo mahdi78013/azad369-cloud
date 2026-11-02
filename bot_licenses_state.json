@@ -92358,9 +92358,10 @@
       "tron_amount": 1.358644,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_220414e3b36c453da87807c9e369eb11",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=220414e3b36c453da87807c9e369eb11",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793640608
+      "created_at": 1793640608,
+      "cancelled_at": 1793642881
     },
     "TRND-AN3M-113581588-1793640656-05ddc7": {
       "order_id": "TRND-AN3M-113581588-1793640656-05ddc7",
@@ -93032,6 +93033,20 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793642828
+    },
+    "ORD_1793642887_5964706121": {
+      "order_id": "ORD_1793642887_5964706121",
+      "user_id": 5964706121,
+      "username": "sattarnamoosi",
+      "first_name": "Sattar",
+      "plan_code": "1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAEB7qdq6NGGOhDs666fQnD4oz0yME82zwACbg5rG8UuSVMDz2OQkr6a0QEAAwIAA3kAAz0E",
+      "card_number": "5047061670546072",
+      "created_at": 1793642887,
+      "caption": ""
     }
   },
   "users": {
@@ -148558,6 +148573,24 @@
       "first_seen": 1793642753,
       "last_seen": 1793642753,
       "purchases": []
+    },
+    "7123335776": {
+      "user_id": 7123335776,
+      "first_name": "Ali",
+      "last_name": "Pirouzram",
+      "username": "",
+      "first_seen": 1793642877,
+      "last_seen": 1793642877,
+      "purchases": []
+    },
+    "6669245600": {
+      "user_id": 6669245600,
+      "first_name": "Farbod",
+      "last_name": "Fatehnejad",
+      "username": "farbodfatehnejad",
+      "first_seen": 1793642882,
+      "last_seen": 1793642882,
+      "purchases": []
     }
   },
   "user_states": {
@@ -149120,17 +149153,22 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793641635
+    },
+    "5964706121": {
+      "state": "awaiting_receipt",
+      "plan_code": "1Y",
+      "time": 1793642866
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
-    "current_index": 1,
-    "count": 9,
+    "current_index": 0,
+    "count": 0,
     "threshold": 10,
     "stats": {
       "5892101706458979": 80,
-      "5047061670546072": 79
+      "5047061670546072": 80
     }
   },
   "maintenance": {
