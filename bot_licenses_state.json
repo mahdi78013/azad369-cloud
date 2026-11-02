@@ -10100,6 +10100,12 @@
       "user_id": 6220267252,
       "issued_at": 1793632627,
       "method": "crypto_unique"
+    },
+    "AN3M-9BCA-9F61-EF68": {
+      "plan": "AN3M",
+      "user_id": 7753459618,
+      "issued_at": 1793632816,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -89954,9 +89960,18 @@
       "tron_amount": 1.351515,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_47cf0a08fff74dcf8f07570685d15ead",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=47cf0a08fff74dcf8f07570685d15ead",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793632657
+      "created_at": 1793632657,
+      "approved_at": 1793632816,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-9BCA-9F61-EF68",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3060961",
+        "tron_amount": 1.351515,
+        "user_paid_toman": null,
+        "date": "2026-11-02T15:19:55.1900000"
+      }
     }
   },
   "users": {
@@ -143348,7 +143363,15 @@
       "username": "Kingamin031",
       "first_seen": 1793632568,
       "last_seen": 1793632568,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-9BCA-9F61-EF68",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793632816,
+          "days": 90
+        }
+      ]
     }
   },
   "user_states": {
@@ -143876,6 +143899,11 @@
       "state": "awaiting_receipt",
       "plan_code": "1M",
       "time": 1793616103
+    },
+    "790992193": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN2M",
+      "time": 1793632777
     }
   },
   "admin_states": {},
