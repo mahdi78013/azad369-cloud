@@ -9986,6 +9986,12 @@
       "user_id": 8956353388,
       "issued_at": 1793625826,
       "method": "crypto_unique"
+    },
+    "AN2M-354A-2203-F702": {
+      "plan": "AN2M",
+      "user_id": 276273405,
+      "issued_at": 1793626495,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -88970,9 +88976,10 @@
       "tron_amount": 0.823121,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ffd166032d0540f8b4128adcf884e62e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ffd166032d0540f8b4128adcf884e62e",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793626040
+      "created_at": 1793626040,
+      "cancelled_at": 1793626402
     },
     "TRND-AN2M-114337320-1793626174-d2aebc": {
       "order_id": "TRND-AN2M-114337320-1793626174-d2aebc",
@@ -89002,9 +89009,34 @@
       "tron_amount": 0.81744,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4fb1916f44264212b8f310a8c231931c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4fb1916f44264212b8f310a8c231931c",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793626311,
+      "approved_at": 1793626495,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-354A-2203-F702",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3060158",
+        "tron_amount": 0.81744,
+        "user_paid_toman": null,
+        "date": "2026-11-02T13:34:45.2870000"
+      }
+    },
+    "TRND-AN2M-5689987847-1793626406-97d712": {
+      "order_id": "TRND-AN2M-5689987847-1793626406-97d712",
+      "token": "8d818f44799843a9a4bf01be4849f495",
+      "user_id": 5689987847,
+      "first_name": "sadeq",
+      "username": "samieesadeq",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.834482,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_8d818f44799843a9a4bf01be4849f495",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8d818f44799843a9a4bf01be4849f495",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793626311
+      "created_at": 1793626406
     }
   },
   "users": {
@@ -141800,7 +141832,15 @@
       "username": "samimoradi",
       "first_seen": 1793625227,
       "last_seen": 1793626039,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-354A-2203-F702",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793626495,
+          "days": 60
+        }
+      ]
     },
     "1064426223": {
       "user_id": 1064426223,
