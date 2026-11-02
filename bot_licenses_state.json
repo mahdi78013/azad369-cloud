@@ -10604,6 +10604,12 @@
       "user_id": 5631085111,
       "issued_at": 1793644270,
       "method": "crypto_unique"
+    },
+    "AZ3M-E5CD-BAFD-E16A": {
+      "plan": "3M",
+      "user_id": 6023304720,
+      "issued_at": 1793644587,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -93598,9 +93604,18 @@
       "tron_amount": 1.38168,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b482754640494b78a0bf253867a0b6e8",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b482754640494b78a0bf253867a0b6e8",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793644452
+      "created_at": 1793644452,
+      "approved_at": 1793644587,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-E5CD-BAFD-E16A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3063060",
+        "tron_amount": 1.38168,
+        "user_paid_toman": null,
+        "date": "2026-11-02T18:35:56.5770000"
+      }
     }
   },
   "users": {
@@ -149735,7 +149750,15 @@
       "username": "Seeu_amir",
       "first_seen": 1793644433,
       "last_seen": 1793644433,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-E5CD-BAFD-E16A",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793644587,
+          "days": 90
+        }
+      ]
     },
     "6758126416": {
       "user_id": 6758126416,
@@ -149753,6 +149776,24 @@
       "username": "sha47he50",
       "first_seen": 1793644481,
       "last_seen": 1793644481,
+      "purchases": []
+    },
+    "242223185": {
+      "user_id": 242223185,
+      "first_name": "Jafar",
+      "last_name": "Kh.souz",
+      "username": "Jafarkhodbesouz",
+      "first_seen": 1793644520,
+      "last_seen": 1793644520,
+      "purchases": []
+    },
+    "225006389": {
+      "user_id": 225006389,
+      "first_name": "Alireza",
+      "last_name": "",
+      "username": "Alireza_sen",
+      "first_seen": 1793644539,
+      "last_seen": 1793644539,
       "purchases": []
     }
   },
