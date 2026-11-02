@@ -10766,6 +10766,12 @@
       "user_id": 8658086535,
       "issued_at": 1793648154,
       "method": "crypto_unique"
+    },
+    "AN3M-F220-D179-E227": {
+      "plan": "AN3M",
+      "user_id": 8844181877,
+      "issued_at": 1793648186,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -95072,9 +95078,18 @@
       "tron_amount": 1.369291,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a395fc15fae74d888a1778b85e989ee5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a395fc15fae74d888a1778b85e989ee5",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793647906
+      "created_at": 1793647906,
+      "approved_at": 1793648186,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-F220-D179-E227",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3063796",
+        "tron_amount": 1.369291,
+        "user_paid_toman": null,
+        "date": "2026-11-02T19:35:24.6270000"
+      }
     },
     "TRND-3M-96981331-1793647912-eda7a7": {
       "order_id": "TRND-3M-96981331-1793647912-eda7a7",
@@ -152572,7 +152587,15 @@
       "username": "",
       "first_seen": 1793647565,
       "last_seen": 1793647904,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-F220-D179-E227",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793648186,
+          "days": 90
+        }
+      ]
     },
     "7610845106": {
       "user_id": 7610845106,
@@ -152787,6 +152810,15 @@
       "username": "sol_vahid",
       "first_seen": 1793648156,
       "last_seen": 1793648156,
+      "purchases": []
+    },
+    "7407538323": {
+      "user_id": 7407538323,
+      "first_name": "Aras",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793648171,
+      "last_seen": 1793648171,
       "purchases": []
     }
   },
@@ -153351,11 +153383,6 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793643984
-    },
-    "7344558487": {
-      "state": "awaiting_receipt",
-      "plan_code": "AN3M",
-      "time": 1793648053
     }
   },
   "admin_states": {},
