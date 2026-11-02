@@ -10694,6 +10694,12 @@
       "user_id": 8578755791,
       "issued_at": 1793645955,
       "method": "crypto_unique"
+    },
+    "AN1Y-6D4D-5388-2D85": {
+      "plan": "AN1Y",
+      "user_id": 100180699,
+      "issued_at": 1793646335,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -85826,9 +85832,10 @@
       "tron_amount": 4.785933,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_817e35cc504e4fe782627ae9db199b05",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=817e35cc504e4fe782627ae9db199b05",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793559739
+      "created_at": 1793559739,
+      "cancelled_at": 1793646263
     },
     "TRND-AN1M-5640347305-1793559780-f152e6": {
       "order_id": "TRND-AN1M-5640347305-1793559780-f152e6",
@@ -93941,9 +93948,18 @@
       "tron_amount": 3.769655,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6facc239ffd54aaf8de19d2e80c9f717",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6facc239ffd54aaf8de19d2e80c9f717",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793645150
+      "created_at": 1793645150,
+      "approved_at": 1793646335,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-6D4D-5388-2D85",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3063408",
+        "tron_amount": 3.769655,
+        "user_paid_toman": null,
+        "date": "2026-11-02T19:04:28.7070000"
+      }
     },
     "TRND-AN3M-107316159-1793645177-3890c6": {
       "order_id": "TRND-AN3M-107316159-1793645177-3890c6",
@@ -116308,7 +116324,7 @@
       "last_name": "bahi",
       "username": "BahmanMolaee12",
       "first_seen": 1792945885,
-      "last_seen": 1793644237,
+      "last_seen": 1793646243,
       "purchases": []
     },
     "8987668504": {
@@ -150636,7 +150652,7 @@
       "last_name": "",
       "username": "Hane969",
       "first_seen": 1793644599,
-      "last_seen": 1793645304,
+      "last_seen": 1793646209,
       "purchases": [
         {
           "key": "AZ3M-2D3B-E11B-3B46",
@@ -150865,8 +150881,16 @@
       "last_name": "",
       "username": "hadigh1767",
       "first_seen": 1793645075,
-      "last_seen": 1793645075,
-      "purchases": []
+      "last_seen": 1793646334,
+      "purchases": [
+        {
+          "key": "AN1Y-6D4D-5388-2D85",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793646335,
+          "days": 365
+        }
+      ]
     },
     "160992468": {
       "user_id": 160992468,
@@ -151282,6 +151306,33 @@
       "username": "fariborzhadiyan",
       "first_seen": 1793646101,
       "last_seen": 1793646101,
+      "purchases": []
+    },
+    "6288024431": {
+      "user_id": 6288024431,
+      "first_name": "rahman",
+      "last_name": "ma",
+      "username": "",
+      "first_seen": 1793646177,
+      "last_seen": 1793646177,
+      "purchases": []
+    },
+    "280278096": {
+      "user_id": 280278096,
+      "first_name": "Behnoomi",
+      "last_name": "",
+      "username": "Behnoomi",
+      "first_seen": 1793646209,
+      "last_seen": 1793646209,
+      "purchases": []
+    },
+    "73989932": {
+      "user_id": 73989932,
+      "first_name": "Mehrdad",
+      "last_name": "",
+      "username": "Mehrdad46411",
+      "first_seen": 1793646313,
+      "last_seen": 1793646313,
       "purchases": []
     }
   },
