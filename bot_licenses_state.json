@@ -10394,6 +10394,12 @@
       "user_id": 5488395188,
       "issued_at": 1793639942,
       "method": "crypto_unique"
+    },
+    "AZ2M-AD42-004E-EF49": {
+      "plan": "2M",
+      "user_id": 5964706121,
+      "issued_at": 1793640045,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -92061,12 +92067,63 @@
       "first_name": "Sattar",
       "plan_code": "2M",
       "price": "۱۰۰,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAEB7Idq6MX6ofBIs-6fXJ15wSer52vK8gACWA5rG8UuSVONQQl6X7TNxAEAAwIAA3kAAz0E",
       "card_number": "5047061670546072",
       "created_at": 1793639931,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1793640045,
+      "approved_by": 748538264,
+      "key": "AZ2M-AD42-004E-EF49"
+    },
+    "TRND-AN2M-7132548105-1793640003-92acc5": {
+      "order_id": "TRND-AN2M-7132548105-1793640003-92acc5",
+      "token": "8680016880824bd6b0413b01336ad6b3",
+      "user_id": 7132548105,
+      "first_name": "حمید",
+      "username": "ندارد",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.81241,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_8680016880824bd6b0413b01336ad6b3",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8680016880824bd6b0413b01336ad6b3",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793640003
+    },
+    "TRND-AN2M-5289484570-1793640011-c42693": {
+      "order_id": "TRND-AN2M-5289484570-1793640011-c42693",
+      "token": "bea91c481d1b428daa9cf16319d78624",
+      "user_id": 5289484570,
+      "first_name": "d.co.mod",
+      "username": "iceface63",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.806772,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_bea91c481d1b428daa9cf16319d78624",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=bea91c481d1b428daa9cf16319d78624",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793640011
+    },
+    "TRND-AN2M-7132548105-1793640038-4d6826": {
+      "order_id": "TRND-AN2M-7132548105-1793640038-4d6826",
+      "token": "7f61572b50f446f3bfb184958a8cbae7",
+      "user_id": 7132548105,
+      "first_name": "حمید",
+      "username": "ندارد",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.823686,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_7f61572b50f446f3bfb184958a8cbae7",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7f61572b50f446f3bfb184958a8cbae7",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793640038
     }
   },
   "users": {
@@ -92776,7 +92833,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "Mahdi780111",
-      "last_seen": 1793639557,
+      "last_seen": 1793640044,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -146361,7 +146418,15 @@
       "username": "sattarnamoosi",
       "first_seen": 1793637206,
       "last_seen": 1793639710,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-AD42-004E-EF49",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793640045,
+          "days": 60
+        }
+      ]
     },
     "150510329": {
       "user_id": 150510329,
@@ -146834,6 +146899,42 @@
       "username": "",
       "first_seen": 1793639881,
       "last_seen": 1793639881,
+      "purchases": []
+    },
+    "5289484570": {
+      "user_id": 5289484570,
+      "first_name": "d.co.mod",
+      "last_name": "",
+      "username": "iceface63",
+      "first_seen": 1793639958,
+      "last_seen": 1793639958,
+      "purchases": []
+    },
+    "7132548105": {
+      "user_id": 7132548105,
+      "first_name": "حمید",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793639977,
+      "last_seen": 1793639977,
+      "purchases": []
+    },
+    "6988360278": {
+      "user_id": 6988360278,
+      "first_name": "Hani",
+      "last_name": "FalaH",
+      "username": "Hanifalah59",
+      "first_seen": 1793640032,
+      "last_seen": 1793640032,
+      "purchases": []
+    },
+    "70948809": {
+      "user_id": 70948809,
+      "first_name": "Farzad",
+      "last_name": "F",
+      "username": "farhgjh",
+      "first_seen": 1793640041,
+      "last_seen": 1793640041,
       "purchases": []
     }
   },
@@ -147387,11 +147488,6 @@
       "state": "awaiting_receipt",
       "plan_code": "AN2M",
       "time": 1793639768
-    },
-    "5964706121": {
-      "state": "awaiting_receipt",
-      "plan_code": "2M",
-      "time": 1793639843
     }
   },
   "admin_states": {},
