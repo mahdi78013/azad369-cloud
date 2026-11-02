@@ -9692,6 +9692,12 @@
       "user_id": 580495163,
       "issued_at": 1793598017,
       "method": "crypto_unique"
+    },
+    "AZ1M-E09F-B056-51DB": {
+      "plan": "1M",
+      "user_id": 5731611042,
+      "issued_at": 1793598515,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -85955,9 +85961,18 @@
       "tron_amount": 0.358445,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_0bf104e210344b0fa3ccaf7b1959e74a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0bf104e210344b0fa3ccaf7b1959e74a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793574387
+      "created_at": 1793574387,
+      "approved_at": 1793598515,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1M-E09F-B056-51DB",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3056271",
+        "tron_amount": 0.358445,
+        "user_paid_toman": null,
+        "date": "2026-11-02T05:48:02.3530000"
+      }
     },
     "TRND-1M-5786080908-1793574416-c2043f": {
       "order_id": "TRND-1M-5786080908-1793574416-c2043f",
@@ -86515,6 +86530,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793598316
+    },
+    "TRND-2M-6308303773-1793598484-b46a5e": {
+      "order_id": "TRND-2M-6308303773-1793598484-b46a5e",
+      "token": "ab753c1864db4c0eb881424fb11960f6",
+      "user_id": 6308303773,
+      "first_name": "س",
+      "username": "Sarangin3004",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.820423,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_ab753c1864db4c0eb881424fb11960f6",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ab753c1864db4c0eb881424fb11960f6",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793598484
     }
   },
   "users": {
@@ -137689,6 +137720,13 @@
           "plan_name": "۱ ماهه ویندوز (۳۰ روزه)",
           "issued_at": 1793591776,
           "days": 30
+        },
+        {
+          "key": "AZ1M-E09F-B056-51DB",
+          "plan": "1M",
+          "plan_name": "۱ ماهه ویندوز (۳۰ روزه)",
+          "issued_at": 1793598515,
+          "days": 30
         }
       ]
     },
@@ -138018,6 +138056,24 @@
       "username": "seanaraz",
       "first_seen": 1793598166,
       "last_seen": 1793598166,
+      "purchases": []
+    },
+    "6308303773": {
+      "user_id": 6308303773,
+      "first_name": "س",
+      "last_name": "رنگین کمان",
+      "username": "Sarangin3004",
+      "first_seen": 1793598434,
+      "last_seen": 1793598434,
+      "purchases": []
+    },
+    "713937293": {
+      "user_id": 713937293,
+      "first_name": "彡 مهدی علیزاده 彡",
+      "last_name": "",
+      "username": "mhdiialz",
+      "first_seen": 1793598442,
+      "last_seen": 1793598442,
       "purchases": []
     }
   },
