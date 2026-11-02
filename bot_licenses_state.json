@@ -10142,6 +10142,12 @@
       "user_id": 28977191,
       "issued_at": 1793633479,
       "method": "crypto_unique"
+    },
+    "AN2M-632C-95C8-E479": {
+      "plan": "AN2M",
+      "user_id": 83921903,
+      "issued_at": 1793633499,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -89974,9 +89980,18 @@
       "tron_amount": 0.80368,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_792d3beb48cc41479bbde201f20f2e9a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=792d3beb48cc41479bbde201f20f2e9a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793632617
+      "created_at": 1793632617,
+      "approved_at": 1793633499,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-632C-95C8-E479",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3061058",
+        "tron_amount": 0.80368,
+        "user_paid_toman": null,
+        "date": "2026-11-02T15:30:39.7000000"
+      }
     },
     "TRND-VIP1Y-7753459618-1793632619-c57933": {
       "order_id": "TRND-VIP1Y-7753459618-1793632619-c57933",
@@ -138460,8 +138475,16 @@
       "last_name": "Pirouz",
       "username": "Mehrdad_pirouz",
       "first_seen": 1793460095,
-      "last_seen": 1793632615,
-      "purchases": []
+      "last_seen": 1793633498,
+      "purchases": [
+        {
+          "key": "AN2M-632C-95C8-E479",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793633499,
+          "days": 60
+        }
+      ]
     },
     "300525472": {
       "user_id": 300525472,
