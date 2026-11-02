@@ -10220,6 +10220,12 @@
       "user_id": 8315507859,
       "issued_at": 1793635855,
       "method": "crypto_unique"
+    },
+    "AZ2M-4E9F-80A5-AF86": {
+      "plan": "2M",
+      "user_id": 5191809077,
+      "issued_at": 1793636725,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -90825,9 +90831,18 @@
       "tron_amount": 0.830436,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5cccfdfe85364eac94f17bcd7ac3f385",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5cccfdfe85364eac94f17bcd7ac3f385",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793636315
+      "created_at": 1793636315,
+      "approved_at": 1793636725,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-4E9F-80A5-AF86",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3061538",
+        "tron_amount": 0.830436,
+        "user_paid_toman": null,
+        "date": "2026-11-02T16:24:31.0100000"
+      }
     },
     "TRND-AN1Y-460505073-1793636318-fbba18": {
       "order_id": "TRND-AN1Y-460505073-1793636318-fbba18",
@@ -90876,6 +90891,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793636572
+    },
+    "TRND-AN2M-8897424009-1793636628-126a47": {
+      "order_id": "TRND-AN2M-8897424009-1793636628-126a47",
+      "token": "241da57e8cc44fc1895fb87bdb4f5e95",
+      "user_id": 8897424009,
+      "first_name": "Nima",
+      "username": "Elominatti",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.81237,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_241da57e8cc44fc1895fb87bdb4f5e95",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=241da57e8cc44fc1895fb87bdb4f5e95",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793636628
     }
   },
   "users": {
@@ -143588,7 +143619,7 @@
       "last_name": "M",
       "username": "Alirezam1970",
       "first_seen": 1793622603,
-      "last_seen": 1793636212,
+      "last_seen": 1793636674,
       "purchases": []
     },
     "8031129828": {
@@ -144815,8 +144846,16 @@
       "last_name": "",
       "username": "Melodica7415",
       "first_seen": 1793636291,
-      "last_seen": 1793636291,
-      "purchases": []
+      "last_seen": 1793636717,
+      "purchases": [
+        {
+          "key": "AZ2M-4E9F-80A5-AF86",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793636725,
+          "days": 60
+        }
+      ]
     },
     "8290297910": {
       "user_id": 8290297910,
@@ -145376,6 +145415,11 @@
       "state": "awaiting_receipt",
       "plan_code": "AN2M",
       "time": 1793632777
+    },
+    "5191809077": {
+      "state": "awaiting_receipt",
+      "plan_code": "2M",
+      "time": 1793636718
     }
   },
   "admin_states": {},
