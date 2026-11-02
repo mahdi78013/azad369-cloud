@@ -10094,6 +10094,12 @@
       "user_id": 89828395,
       "issued_at": 1793632107,
       "method": "crypto_unique"
+    },
+    "AZ2M-3355-0DEE-C2E5": {
+      "plan": "2M",
+      "user_id": 6220267252,
+      "issued_at": 1793632627,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -89855,9 +89861,18 @@
       "tron_amount": 0.817417,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5f432f268fab45d5b059a1b0e562ef14",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5f432f268fab45d5b059a1b0e562ef14",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793632033
+      "created_at": 1793632033,
+      "approved_at": 1793632627,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-3355-0DEE-C2E5",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3060878",
+        "tron_amount": 0.817417,
+        "user_paid_toman": null,
+        "date": "2026-11-02T15:16:01.6400000"
+      }
     },
     "TRND-AN2M-1964658127-1793632257-f6fb1c": {
       "order_id": "TRND-AN2M-1964658127-1793632257-f6fb1c",
@@ -89890,6 +89905,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793632573
+    },
+    "TRND-AN2M-83921903-1793632617-90b405": {
+      "order_id": "TRND-AN2M-83921903-1793632617-90b405",
+      "token": "792d3beb48cc41479bbde201f20f2e9a",
+      "user_id": 83921903,
+      "first_name": "Mehrdad",
+      "username": "Mehrdad_pirouz",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.80368,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_792d3beb48cc41479bbde201f20f2e9a",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=792d3beb48cc41479bbde201f20f2e9a",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793632617
+    },
+    "TRND-VIP1Y-7753459618-1793632619-c57933": {
+      "order_id": "TRND-VIP1Y-7753459618-1793632619-c57933",
+      "token": "0ae78a6938764102944bb1597f24db6d",
+      "user_id": 7753459618,
+      "first_name": " 🦆 Amin",
+      "username": "Kingamin031",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.700465,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_0ae78a6938764102944bb1597f24db6d",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0ae78a6938764102944bb1597f24db6d",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793632619
     }
   },
   "users": {
@@ -138183,7 +138230,7 @@
       "last_name": "Pirouz",
       "username": "Mehrdad_pirouz",
       "first_seen": 1793460095,
-      "last_seen": 1793460095,
+      "last_seen": 1793632615,
       "purchases": []
     },
     "300525472": {
@@ -143028,7 +143075,7 @@
       "last_name": "ja",
       "username": "Kn_kiana",
       "first_seen": 1793630246,
-      "last_seen": 1793631519,
+      "last_seen": 1793632609,
       "purchases": []
     },
     "173010858": {
@@ -143192,7 +143239,15 @@
       "username": "az091Hvi",
       "first_seen": 1793631999,
       "last_seen": 1793632417,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-3355-0DEE-C2E5",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793632627,
+          "days": 60
+        }
+      ]
     },
     "127127934": {
       "user_id": 127127934,
