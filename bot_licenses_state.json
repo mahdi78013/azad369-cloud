@@ -11132,6 +11132,12 @@
       "user_id": 6474140005,
       "issued_at": 1793657595,
       "method": "crypto_unique"
+    },
+    "AN3M-E7A0E644-AD6E-DC7068": {
+      "plan": "AN3M",
+      "user_id": 348611172,
+      "issued_at": 1793657667,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -98777,9 +98783,18 @@
       "tron_amount": 1.365603,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_bab5e550f265413d87afb3ffcb0d3db5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=bab5e550f265413d87afb3ffcb0d3db5",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793657512
+      "created_at": 1793657512,
+      "approved_at": 1793657667,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-E7A0E644-AD6E-DC7068",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3065071",
+        "tron_amount": 1.365603,
+        "user_paid_toman": null,
+        "date": "2026-11-02T22:14:08.2470000"
+      }
     }
   },
   "users": {
@@ -159759,7 +159774,7 @@
       "last_name": "",
       "username": "BELMONDO_57",
       "first_seen": 1793656945,
-      "last_seen": 1793656945,
+      "last_seen": 1793657651,
       "purchases": [
         {
           "key": "AN3M-8639-14F5-9203",
@@ -159937,7 +159952,15 @@
       "username": "whitesrafil",
       "first_seen": 1793657502,
       "last_seen": 1793657502,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-E7A0E644-AD6E-DC7068",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793657667,
+          "days": 90
+        }
+      ]
     },
     "5714120778": {
       "user_id": 5714120778,
@@ -160550,6 +160573,11 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793657165
+    },
+    "6474140005": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN3M",
+      "time": 1793657652
     }
   },
   "admin_states": {},
