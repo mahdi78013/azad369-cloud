@@ -9836,6 +9836,18 @@
       "user_id": 1194306861,
       "issued_at": 1793611555,
       "method": "crypto_unique"
+    },
+    "AZ1Y-EF14-5F9A-C90B": {
+      "plan": "1Y",
+      "user_id": 168662371,
+      "issued_at": 1793611734,
+      "method": "crypto_unique"
+    },
+    "AN1Y-E627-7C68-E0E3": {
+      "plan": "AN1Y",
+      "user_id": 168662371,
+      "issued_at": 1793611734,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -87831,9 +87843,20 @@
       "tron_amount": 4.735954,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6d1a4b4d24cb4535aab675476a936e9b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6d1a4b4d24cb4535aab675476a936e9b",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793611605
+      "created_at": 1793611605,
+      "key_win": "AZ1Y-EF14-5F9A-C90B",
+      "key_and": "AN1Y-E627-7C68-E0E3",
+      "approved_at": 1793611734,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-EF14-5F9A-C90B\nاندروید: AN1Y-E627-7C68-E0E3",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3058337",
+        "tron_amount": 4.735954,
+        "user_paid_toman": null,
+        "date": "2026-11-02T09:28:44.1200000"
+      }
     }
   },
   "users": {
@@ -139433,7 +139456,7 @@
       "last_name": "",
       "username": "kereshmegallery1",
       "first_seen": 1793597119,
-      "last_seen": 1793611188,
+      "last_seen": 1793611722,
       "purchases": [
         {
           "key": "AN2M-31C8-508D-F1BA",
@@ -139908,7 +139931,22 @@
       "username": "Reza646566",
       "first_seen": 1793611587,
       "last_seen": 1793611587,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-EF14-5F9A-C90B",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793611734,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-E627-7C68-E0E3",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793611734,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
