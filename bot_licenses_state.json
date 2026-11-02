@@ -10700,6 +10700,12 @@
       "user_id": 100180699,
       "issued_at": 1793646335,
       "method": "crypto_unique"
+    },
+    "AN1Y-8B99-5B47-C702": {
+      "plan": "AN1Y",
+      "user_id": 91848359,
+      "issued_at": 1793646514,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -94423,9 +94429,18 @@
       "tron_amount": 3.761029,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_37cac2df981941fd9f3ef12503665400",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=37cac2df981941fd9f3ef12503665400",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793646048
+      "created_at": 1793646048,
+      "approved_at": 1793646514,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-8B99-5B47-C702",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3063393",
+        "tron_amount": 3.761029,
+        "user_paid_toman": null,
+        "date": "2026-11-02T19:07:13.0430000"
+      }
     },
     "TRND-AN3M-8670673547-1793646078-ca3f24": {
       "order_id": "TRND-AN3M-8670673547-1793646078-ca3f24",
@@ -94442,6 +94457,54 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793646078
+    },
+    "TRND-AN3M-1955315845-1793646369-019ac4": {
+      "order_id": "TRND-AN3M-1955315845-1793646369-019ac4",
+      "token": "92990e15cecc4a0e89e4ca4885a0fff9",
+      "user_id": 1955315845,
+      "first_name": "Amir KasaGold 🪙",
+      "username": "amir_kasagold",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.380247,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_92990e15cecc4a0e89e4ca4885a0fff9",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=92990e15cecc4a0e89e4ca4885a0fff9",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793646369
+    },
+    "TRND-3M-163442342-1793646414-4647da": {
+      "order_id": "TRND-3M-163442342-1793646414-4647da",
+      "token": "dacea5578d724a269e4053daeffbb699",
+      "user_id": 163442342,
+      "first_name": "یاسر",
+      "username": "yasmas13660522",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.374574,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_dacea5578d724a269e4053daeffbb699",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=dacea5578d724a269e4053daeffbb699",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793646414
+    },
+    "TRND-AN3M-1546661056-1793646463-178bbb": {
+      "order_id": "TRND-AN3M-1546661056-1793646463-178bbb",
+      "token": "8d64c79588cb482392013d1502e75d42",
+      "user_id": 1546661056,
+      "first_name": "Pouya",
+      "username": "Pouya1234567",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.390459,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_8d64c79588cb482392013d1502e75d42",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8d64c79588cb482392013d1502e75d42",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793646463
     }
   },
   "users": {
@@ -150272,7 +150335,7 @@
       "last_name": "محلوج",
       "username": "",
       "first_seen": 1793643613,
-      "last_seen": 1793643613,
+      "last_seen": 1793646500,
       "purchases": []
     },
     "5535896718": {
@@ -150828,7 +150891,7 @@
       "last_name": "S",
       "username": "Pouya1234567",
       "first_seen": 1793644973,
-      "last_seen": 1793644973,
+      "last_seen": 1793646442,
       "purchases": []
     },
     "339799668": {
@@ -151260,7 +151323,7 @@
       "last_name": "",
       "username": "amir_kasagold",
       "first_seen": 1793645997,
-      "last_seen": 1793645997,
+      "last_seen": 1793646368,
       "purchases": []
     },
     "91848359": {
@@ -151270,7 +151333,15 @@
       "username": "retaja69",
       "first_seen": 1793645997,
       "last_seen": 1793645997,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN1Y-8B99-5B47-C702",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793646514,
+          "days": 365
+        }
+      ]
     },
     "102286903": {
       "user_id": 102286903,
@@ -151333,6 +151404,51 @@
       "username": "Mehrdad46411",
       "first_seen": 1793646313,
       "last_seen": 1793646313,
+      "purchases": []
+    },
+    "243381359": {
+      "user_id": 243381359,
+      "first_name": "Tooba",
+      "last_name": "Aghaei",
+      "username": "toobaaghaei",
+      "first_seen": 1793646336,
+      "last_seen": 1793646336,
+      "purchases": []
+    },
+    "163442342": {
+      "user_id": 163442342,
+      "first_name": "یاسر",
+      "last_name": "مسیح پور",
+      "username": "yasmas13660522",
+      "first_seen": 1793646338,
+      "last_seen": 1793646338,
+      "purchases": []
+    },
+    "5626293025": {
+      "user_id": 5626293025,
+      "first_name": "Nkh19662",
+      "last_name": "",
+      "username": "nkh19662",
+      "first_seen": 1793646410,
+      "last_seen": 1793646410,
+      "purchases": []
+    },
+    "8326726734": {
+      "user_id": 8326726734,
+      "first_name": "NovinDigital",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793646418,
+      "last_seen": 1793646418,
+      "purchases": []
+    },
+    "7301085629": {
+      "user_id": 7301085629,
+      "first_name": "ȺŁłƦɆƵȺ",
+      "last_name": "",
+      "username": "alireza00_m1",
+      "first_seen": 1793646422,
+      "last_seen": 1793646422,
       "purchases": []
     }
   },
@@ -151901,6 +152017,11 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793643984
+    },
+    "152565261": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN3M",
+      "time": 1793646511
     }
   },
   "admin_states": {},
