@@ -97822,9 +97822,10 @@
       "tron_amount": 1.377982,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5be4dbe1f6c44933a15d6a91d9c1058d",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5be4dbe1f6c44933a15d6a91d9c1058d",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793655234
+      "created_at": 1793655234,
+      "cancelled_at": 1793656566
     },
     "TRND-AN3M-1246982679-1793655281-faadca": {
       "order_id": "TRND-AN3M-1246982679-1793655281-faadca",
@@ -97863,9 +97864,10 @@
       "tron_amount": 1.367804,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_2389c9133c0a487398c2490943af585c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2389c9133c0a487398c2490943af585c",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793655307
+      "created_at": 1793655307,
+      "cancelled_at": 1793656567
     },
     "TRND-AN3M-139298491-1793655373-ce90f2": {
       "order_id": "TRND-AN3M-139298491-1793655373-ce90f2",
@@ -98292,6 +98294,20 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793656522
+    },
+    "ORD_1793656665_5614564606": {
+      "order_id": "ORD_1793656665_5614564606",
+      "user_id": 5614564606,
+      "username": "Lord_tosi",
+      "first_name": "ₜₒₛᵢ",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAEB-89q6QdY5XPW3GVrab_NL7gHq0FK5wACQBBrG_LjSFNMNeZQzGXs1wEAAwIAA3kAAz0E",
+      "card_number": "5047061670546072",
+      "created_at": 1793656665,
+      "caption": ""
     }
   },
   "users": {
@@ -158953,7 +158969,7 @@
       "last_name": "",
       "username": "Lord_tosi",
       "first_seen": 1793656156,
-      "last_seen": 1793656156,
+      "last_seen": 1793656579,
       "purchases": []
     },
     "82117358": {
@@ -159107,6 +159123,24 @@
       "username": "",
       "first_seen": 1793656549,
       "last_seen": 1793656549,
+      "purchases": []
+    },
+    "1711093094": {
+      "user_id": 1711093094,
+      "first_name": "Shahab",
+      "last_name": "Sh",
+      "username": "WorldNewsTitle",
+      "first_seen": 1793656580,
+      "last_seen": 1793656580,
+      "purchases": []
+    },
+    "6941563396": {
+      "user_id": 6941563396,
+      "first_name": "Ali",
+      "last_name": "Tavakoli",
+      "username": "Dralitavakoli",
+      "first_seen": 1793656596,
+      "last_seen": 1793656596,
       "purchases": []
     }
   },
@@ -159701,17 +159735,22 @@
       "state": "awaiting_receipt",
       "plan_code": "AN1Y",
       "time": 1793656522
+    },
+    "5614564606": {
+      "state": "awaiting_receipt",
+      "plan_code": "3M",
+      "time": 1793656640
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 2,
+    "count": 3,
     "threshold": 10,
     "stats": {
       "5892101706458979": 90,
-      "5047061670546072": 82
+      "5047061670546072": 83
     }
   },
   "maintenance": {
