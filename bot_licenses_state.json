@@ -9896,6 +9896,12 @@
       "user_id": 7815508727,
       "issued_at": 1793617386,
       "method": "crypto_unique"
+    },
+    "AZ2M-188F-1208-C820": {
+      "plan": "2M",
+      "user_id": 8844341357,
+      "issued_at": 1793617496,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -88311,9 +88317,18 @@
       "tron_amount": 0.829732,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1457aec19fa7484aa38f2c6f43a58845",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1457aec19fa7484aa38f2c6f43a58845",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793617329
+      "created_at": 1793617329,
+      "approved_at": 1793617496,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-188F-1208-C820",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3059081",
+        "tron_amount": 0.829732,
+        "user_paid_toman": null,
+        "date": "2026-11-02T11:04:34.2400000"
+      }
     }
   },
   "users": {
@@ -131809,7 +131824,15 @@
       "username": "ele539",
       "first_seen": 1793363052,
       "last_seen": 1793617327,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-188F-1208-C820",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793617496,
+          "days": 60
+        }
+      ]
     },
     "5903738696": {
       "user_id": 5903738696,
