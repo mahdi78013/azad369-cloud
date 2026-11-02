@@ -10922,6 +10922,12 @@
       "user_id": 22518628,
       "issued_at": 1793652084,
       "method": "crypto_unique"
+    },
+    "AN3M-5959BFBC-CBD4-4DF1B4": {
+      "plan": "AN3M",
+      "user_id": 111604102,
+      "issued_at": 1793652096,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -96178,9 +96184,10 @@
       "tron_amount": 4.71558,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5d83b6cea27f4849abadc859eff123dc",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5d83b6cea27f4849abadc859eff123dc",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793650751
+      "created_at": 1793650751,
+      "cancelled_at": 1793652090
     },
     "TRND-AN3M-101191341-1793650982-de47a4": {
       "order_id": "TRND-AN3M-101191341-1793650982-de47a4",
@@ -96448,9 +96455,18 @@
       "tron_amount": 1.363442,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f6c76f550597430f8d36fb3dff7b343c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f6c76f550597430f8d36fb3dff7b343c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793651871
+      "created_at": 1793651871,
+      "approved_at": 1793652096,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-5959BFBC-CBD4-4DF1B4",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3064507",
+        "tron_amount": 1.363442,
+        "user_paid_toman": null,
+        "date": "2026-11-02T20:40:52.4570000"
+      }
     },
     "TRND-AN1Y-22518628-1793651886-347ed9": {
       "order_id": "TRND-AN1Y-22518628-1793651886-347ed9",
@@ -155553,7 +155569,15 @@
       "username": "",
       "first_seen": 1793651843,
       "last_seen": 1793651843,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-5959BFBC-CBD4-4DF1B4",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793652096,
+          "days": 90
+        }
+      ]
     },
     "250404896": {
       "user_id": 250404896,
