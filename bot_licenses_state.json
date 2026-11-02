@@ -9878,6 +9878,12 @@
       "user_id": 6485874376,
       "issued_at": 1793614945,
       "method": "crypto_unique"
+    },
+    "AN2M-57AF-3575-6D3A": {
+      "plan": "AN2M",
+      "user_id": 1853926587,
+      "issued_at": 1793615091,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -83360,9 +83366,10 @@
       "tron_amount": 4.796248,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_34e89bf8d83740fa8e7d6a6cdfb627cf",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=34e89bf8d83740fa8e7d6a6cdfb627cf",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793528494
+      "created_at": 1793528494,
+      "cancelled_at": 1793614971
     },
     "TRND-VIP1Y-109293453-1793528700-df10bc": {
       "order_id": "TRND-VIP1Y-109293453-1793528700-df10bc",
@@ -88142,6 +88149,31 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793614761
+    },
+    "TRND-AN2M-1853926587-1793615037-69a112": {
+      "order_id": "TRND-AN2M-1853926587-1793615037-69a112",
+      "token": "0318bcf50c944574b1a6d7dfe3e6af1c",
+      "user_id": 1853926587,
+      "first_name": "erfan",
+      "username": "erfan120",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.816079,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_0318bcf50c944574b1a6d7dfe3e6af1c",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0318bcf50c944574b1a6d7dfe3e6af1c",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793615037,
+      "approved_at": 1793615091,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-57AF-3575-6D3A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3058781",
+        "tron_amount": 0.816079,
+        "user_paid_toman": null,
+        "date": "2026-11-02T10:24:42.1870000"
+      }
     }
   },
   "users": {
@@ -140109,13 +140141,20 @@
       "last_name": "",
       "username": "erfan120",
       "first_seen": 1793608121,
-      "last_seen": 1793608121,
+      "last_seen": 1793615036,
       "purchases": [
         {
           "key": "AZ2M-9A2D-F1E7-D32A",
           "plan": "2M",
           "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
           "issued_at": 1793608274,
+          "days": 60
+        },
+        {
+          "key": "AN2M-57AF-3575-6D3A",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793615091,
           "days": 60
         }
       ]
