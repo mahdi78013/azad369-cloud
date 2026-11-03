@@ -13766,6 +13766,12 @@
       "user_id": 671709889,
       "issued_at": 1793728633,
       "method": "crypto_unique"
+    },
+    "AN3M-B9F9-005F-15A5": {
+      "plan": "AN3M",
+      "user_id": 8507950036,
+      "issued_at": 1793728675,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -120205,9 +120211,18 @@
       "tron_amount": 1.35385,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9c2e4e59c1024eb0b36c1539f177912e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9c2e4e59c1024eb0b36c1539f177912e",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793728481
+      "created_at": 1793728481,
+      "approved_at": 1793728675,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-B9F9-005F-15A5",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3072369",
+        "tron_amount": 1.35385,
+        "user_paid_toman": null,
+        "date": "2026-11-03T17:57:36.1130000"
+      }
     },
     "TRND-AN3M-41800617-1793728520-ab2fc8": {
       "order_id": "TRND-AN3M-41800617-1793728520-ab2fc8",
@@ -201741,8 +201756,16 @@
       "last_name": "کریم نژاد",
       "username": "askarykarimnejad",
       "first_seen": 1793728367,
-      "last_seen": 1793728367,
-      "purchases": []
+      "last_seen": 1793728672,
+      "purchases": [
+        {
+          "key": "AN3M-B9F9-005F-15A5",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793728675,
+          "days": 90
+        }
+      ]
     },
     "134110652": {
       "user_id": 134110652,
