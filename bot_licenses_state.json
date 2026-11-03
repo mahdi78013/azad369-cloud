@@ -11894,6 +11894,12 @@
       "user_id": 74407876,
       "issued_at": 1793690527,
       "method": "crypto_unique"
+    },
+    "AZ3M-BBFE-9BC7-4555": {
+      "plan": "3M",
+      "user_id": 5989468487,
+      "issued_at": 1793690755,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -105121,9 +105127,18 @@
       "tron_amount": 1.363757,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_61dd385f087a418d8ecab14856b5d61c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=61dd385f087a418d8ecab14856b5d61c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793690465
+      "created_at": 1793690465,
+      "approved_at": 1793690755,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-BBFE-9BC7-4555",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3066513",
+        "tron_amount": 1.363757,
+        "user_paid_toman": null,
+        "date": "2026-11-03T07:24:30.2200000"
+      }
     },
     "TRND-1Y-220630785-1793690552-cce3b8": {
       "order_id": "TRND-1Y-220630785-1793690552-cce3b8",
@@ -105140,6 +105155,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793690552
+    },
+    "TRND-AN3M-553767230-1793690709-e71a4e": {
+      "order_id": "TRND-AN3M-553767230-1793690709-e71a4e",
+      "token": "3753e6ba30eb4208a1d50f523f7daefa",
+      "user_id": 553767230,
+      "first_name": "Losttime",
+      "username": "losttime1",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.374995,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_3753e6ba30eb4208a1d50f523f7daefa",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3753e6ba30eb4208a1d50f523f7daefa",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793690709
+    },
+    "TRND-AN3M-88025779-1793690751-7a439f": {
+      "order_id": "TRND-AN3M-88025779-1793690751-7a439f",
+      "token": "c46c656496204bca96b3329af1639364",
+      "user_id": 88025779,
+      "first_name": "Mahdi",
+      "username": "Mahdimirjalili08",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.353642,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_c46c656496204bca96b3329af1639364",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c46c656496204bca96b3329af1639364",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793690751
     }
   },
   "users": {
@@ -173041,7 +173088,15 @@
       "username": "Vpntop85",
       "first_seen": 1793690088,
       "last_seen": 1793690453,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-BBFE-9BC7-4555",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793690755,
+          "days": 90
+        }
+      ]
     },
     "5731944508": {
       "user_id": 5731944508,
@@ -173221,6 +173276,60 @@
       "username": "taytanikx",
       "first_seen": 1793690627,
       "last_seen": 1793690627,
+      "purchases": []
+    },
+    "178783230": {
+      "user_id": 178783230,
+      "first_name": "Mohsen",
+      "last_name": "Akbari",
+      "username": "Akbari_1351",
+      "first_seen": 1793690643,
+      "last_seen": 1793690643,
+      "purchases": []
+    },
+    "553767230": {
+      "user_id": 553767230,
+      "first_name": "Losttime",
+      "last_name": "Sa",
+      "username": "losttime1",
+      "first_seen": 1793690646,
+      "last_seen": 1793690646,
+      "purchases": []
+    },
+    "372933685": {
+      "user_id": 372933685,
+      "first_name": "Omid",
+      "last_name": "",
+      "username": "Omid8336ss",
+      "first_seen": 1793690672,
+      "last_seen": 1793690672,
+      "purchases": []
+    },
+    "88025779": {
+      "user_id": 88025779,
+      "first_name": "Mahdi",
+      "last_name": "Mirjalili",
+      "username": "Mahdimirjalili08",
+      "first_seen": 1793690689,
+      "last_seen": 1793690689,
+      "purchases": []
+    },
+    "52761197": {
+      "user_id": 52761197,
+      "first_name": "Amir",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793690737,
+      "last_seen": 1793690737,
+      "purchases": []
+    },
+    "8666675161": {
+      "user_id": 8666675161,
+      "first_name": "Majid",
+      "last_name": "",
+      "username": "Majidpana",
+      "first_seen": 1793690740,
+      "last_seen": 1793690740,
       "purchases": []
     }
   },
