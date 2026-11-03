@@ -11858,6 +11858,12 @@
       "user_id": 8184104893,
       "issued_at": 1793689864,
       "method": "crypto_unique"
+    },
+    "AN1Y-7D64-05BF-CFE5": {
+      "plan": "AN1Y",
+      "user_id": 91230310,
+      "issued_at": 1793690030,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -104860,9 +104866,18 @@
       "tron_amount": 3.732544,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_7652e95f627f4101aeecb485ac4e7f2f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7652e95f627f4101aeecb485ac4e7f2f",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793689690
+      "created_at": 1793689690,
+      "approved_at": 1793690030,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-7D64-05BF-CFE5",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3066438",
+        "tron_amount": 3.732544,
+        "user_paid_toman": null,
+        "date": "2026-11-03T07:13:01.0070000"
+      }
     },
     "TRND-AN3M-7457425350-1793689783-8c0d74": {
       "order_id": "TRND-AN3M-7457425350-1793689783-8c0d74",
@@ -104927,6 +104942,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793689838
+    },
+    "TRND-3M-5901861619-1793689933-13c5ca": {
+      "order_id": "TRND-3M-5901861619-1793689933-13c5ca",
+      "token": "678b35f6e8a547b49b0ddd34908f478b",
+      "user_id": 5901861619,
+      "first_name": "کافی نت رایان",
+      "username": "CafiNetRAYAN",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.365716,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_678b35f6e8a547b49b0ddd34908f478b",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=678b35f6e8a547b49b0ddd34908f478b",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793689933
+    },
+    "TRND-AN3M-355087872-1793690026-e6c34f": {
+      "order_id": "TRND-AN3M-355087872-1793690026-e6c34f",
+      "token": "a44133ea6cb24bf7986b729c34ff5bb4",
+      "user_id": 355087872,
+      "first_name": "💔ᶫᵒᵛᵉᵧₒᵤ💔",
+      "username": "iloveyou20s",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.358974,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_a44133ea6cb24bf7986b729c34ff5bb4",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a44133ea6cb24bf7986b729c34ff5bb4",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793690026
     }
   },
   "users": {
@@ -172530,7 +172577,7 @@
       "last_name": "",
       "username": "iloveyou20s",
       "first_seen": 1793689295,
-      "last_seen": 1793689295,
+      "last_seen": 1793689986,
       "purchases": []
     },
     "5057452745": {
@@ -172654,8 +172701,16 @@
       "last_name": "Hajghafoori",
       "username": "",
       "first_seen": 1793689641,
-      "last_seen": 1793689641,
-      "purchases": []
+      "last_seen": 1793690028,
+      "purchases": [
+        {
+          "key": "AN1Y-7D64-05BF-CFE5",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793690030,
+          "days": 365
+        }
+      ]
     },
     "137834697": {
       "user_id": 137834697,
@@ -172718,6 +172773,42 @@
       "username": "CafiNetRAYAN",
       "first_seen": 1793689872,
       "last_seen": 1793689872,
+      "purchases": []
+    },
+    "7157063450": {
+      "user_id": 7157063450,
+      "first_name": "معراج",
+      "last_name": "کاضمی",
+      "username": "",
+      "first_seen": 1793689914,
+      "last_seen": 1793689914,
+      "purchases": []
+    },
+    "7516186659": {
+      "user_id": 7516186659,
+      "first_name": "علی روشنایی",
+      "last_name": "",
+      "username": "aliroshanaie61",
+      "first_seen": 1793689930,
+      "last_seen": 1793689930,
+      "purchases": []
+    },
+    "624635955": {
+      "user_id": 624635955,
+      "first_name": "☾รเиล ⃤",
+      "last_name": "",
+      "username": "sina_omidi81",
+      "first_seen": 1793689966,
+      "last_seen": 1793689966,
+      "purchases": []
+    },
+    "100195339": {
+      "user_id": 100195339,
+      "first_name": "majid",
+      "last_name": "Kzz",
+      "username": "Majid_kzz",
+      "first_seen": 1793690003,
+      "last_seen": 1793690003,
       "purchases": []
     }
   },
