@@ -12536,6 +12536,12 @@
       "user_id": 239712157,
       "issued_at": 1793701805,
       "method": "crypto_unique"
+    },
+    "AN3M-9C88-B748-8B66": {
+      "plan": "AN3M",
+      "user_id": 200697065,
+      "issued_at": 1793701968,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -110210,9 +110216,18 @@
       "tron_amount": 1.344122,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1fce30f9a6ff4f7f9b641fb81bee0158",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1fce30f9a6ff4f7f9b641fb81bee0158",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793701712
+      "created_at": 1793701712,
+      "approved_at": 1793701968,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-9C88-B748-8B66",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3068011",
+        "tron_amount": 1.344122,
+        "user_paid_toman": null,
+        "date": "2026-11-03T10:31:49.6200000"
+      }
     },
     "TRND-AN3M-81754647-1793701720-6d4984": {
       "order_id": "TRND-AN3M-81754647-1793701720-6d4984",
@@ -182930,8 +182945,16 @@
       "last_name": "",
       "username": "Aboozaref",
       "first_seen": 1793701627,
-      "last_seen": 1793701627,
-      "purchases": []
+      "last_seen": 1793701966,
+      "purchases": [
+        {
+          "key": "AN3M-9C88-B748-8B66",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793701968,
+          "days": 90
+        }
+      ]
     },
     "381988357": {
       "user_id": 381988357,
@@ -183066,6 +183089,24 @@
       "username": "MAXPVPysn",
       "first_seen": 1793701880,
       "last_seen": 1793701880,
+      "purchases": []
+    },
+    "54695526": {
+      "user_id": 54695526,
+      "first_name": "Salar",
+      "last_name": "rahmatian",
+      "username": "Salar6600",
+      "first_seen": 1793701952,
+      "last_seen": 1793701952,
+      "purchases": []
+    },
+    "6599743951": {
+      "user_id": 6599743951,
+      "first_name": "amir",
+      "last_name": "",
+      "username": "Amirmahdi8709",
+      "first_seen": 1793701963,
+      "last_seen": 1793701963,
       "purchases": []
     }
   },
