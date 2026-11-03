@@ -14114,6 +14114,12 @@
       "user_id": 8806274666,
       "issued_at": 1793736734,
       "method": "crypto_unique"
+    },
+    "AN3M-0585-977A-CE6C": {
+      "plan": "AN3M",
+      "user_id": 8470321226,
+      "issued_at": 1793736807,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -123731,9 +123737,10 @@
       "tron_amount": 1.350792,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c9079446883942da8d304e9654bdd26a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c9079446883942da8d304e9654bdd26a",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793736280
+      "created_at": 1793736280,
+      "cancelled_at": 1793736803
     },
     "TRND-VIP1Y-8806274666-1793736311-60529d": {
       "order_id": "TRND-VIP1Y-8806274666-1793736311-60529d",
@@ -123831,9 +123838,18 @@
       "tron_amount": 1.346347,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b234cf80d322400b820f66dc34228e7f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b234cf80d322400b820f66dc34228e7f",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793736395
+      "created_at": 1793736395,
+      "approved_at": 1793736807,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-0585-977A-CE6C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3074261",
+        "tron_amount": 1.346347,
+        "user_paid_toman": null,
+        "date": "2026-11-03T20:10:09.7800000"
+      }
     },
     "TRND-AN3M-6988360278-1793736438-3fbe6c": {
       "order_id": "TRND-AN3M-6988360278-1793736438-3fbe6c",
@@ -124052,6 +124068,38 @@
       "card_number": "5047061670546072",
       "created_at": 1793736780,
       "caption": ""
+    },
+    "TRND-AN3M-144035890-1793736793-d183a7": {
+      "order_id": "TRND-AN3M-144035890-1793736793-d183a7",
+      "token": "abcb5a997d1944e8adc3e38b2cca3453",
+      "user_id": 144035890,
+      "first_name": "esmaeil724",
+      "username": "dresmaeilsedghi724",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.342666,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_abcb5a997d1944e8adc3e38b2cca3453",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=abcb5a997d1944e8adc3e38b2cca3453",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793736793
+    },
+    "TRND-VIP1Y-35617705-1793736795-36a371": {
+      "order_id": "TRND-VIP1Y-35617705-1793736795-36a371",
+      "token": "b90beef43c6647a2a01ada2f952bbc5e",
+      "user_id": 35617705,
+      "first_name": "SAEED",
+      "username": "Saeed_ss67",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.629985,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_b90beef43c6647a2a01ada2f952bbc5e",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b90beef43c6647a2a01ada2f952bbc5e",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793736795
     }
   },
   "users": {
@@ -208513,7 +208561,15 @@
       "username": "farzad2222222222",
       "first_seen": 1793736347,
       "last_seen": 1793736689,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-0585-977A-CE6C",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793736807,
+          "days": 90
+        }
+      ]
     },
     "1868636603": {
       "user_id": 1868636603,
@@ -208621,6 +208677,15 @@
       "username": "Shahabsmash1",
       "first_seen": 1793736697,
       "last_seen": 1793736697,
+      "purchases": []
+    },
+    "5831341245": {
+      "user_id": 5831341245,
+      "first_name": "🕊️",
+      "last_name": "",
+      "username": "Taha_eby",
+      "first_seen": 1793736792,
+      "last_seen": 1793736792,
       "purchases": []
     }
   },
