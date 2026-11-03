@@ -14540,6 +14540,12 @@
       "user_id": 173142962,
       "issued_at": 1793747300,
       "method": "crypto_unique"
+    },
+    "AN3M-D348-A8A3-AD73": {
+      "plan": "AN3M",
+      "user_id": 7666860817,
+      "issued_at": 1793748192,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -127347,9 +127353,18 @@
       "tron_amount": 1.344176,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e1b13f2e647949199db5ed9a89df61df",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e1b13f2e647949199db5ed9a89df61df",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793747244
+      "created_at": 1793747244,
+      "approved_at": 1793748192,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-D348-A8A3-AD73",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3075486",
+        "tron_amount": 1.344176,
+        "user_paid_toman": null,
+        "date": "2026-11-03T23:22:37.8670000"
+      }
     },
     "TRND-AN3M-8074536814-1793747763-c53a62": {
       "order_id": "TRND-AN3M-8074536814-1793747763-c53a62",
@@ -190486,8 +190501,16 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793667024,
-      "last_seen": 1793747230,
-      "purchases": []
+      "last_seen": 1793748191,
+      "purchases": [
+        {
+          "key": "AN3M-D348-A8A3-AD73",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793748192,
+          "days": 90
+        }
+      ]
     },
     "78255927": {
       "user_id": 78255927,
@@ -214583,6 +214606,24 @@
       "username": "PGourd",
       "first_seen": 1793747955,
       "last_seen": 1793747955,
+      "purchases": []
+    },
+    "1048930899": {
+      "user_id": 1048930899,
+      "first_name": "iLia",
+      "last_name": "Gh",
+      "username": "iLiaGHt",
+      "first_seen": 1793748123,
+      "last_seen": 1793748123,
+      "purchases": []
+    },
+    "1386955937": {
+      "user_id": 1386955937,
+      "first_name": "دکتر محسن",
+      "last_name": "عسگری",
+      "username": "drmasgari",
+      "first_seen": 1793748172,
+      "last_seen": 1793748172,
       "purchases": []
     }
   },
