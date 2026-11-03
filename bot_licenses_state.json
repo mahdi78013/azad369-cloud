@@ -11486,6 +11486,12 @@
       "user_id": 1325051607,
       "issued_at": 1793681234,
       "method": "crypto_unique"
+    },
+    "AN3M-D924-1FF7-2D10": {
+      "plan": "AN3M",
+      "user_id": 8158668854,
+      "issued_at": 1793681373,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -100533,9 +100539,18 @@
       "tron_amount": 1.361076,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6136a85c7b904f0da20729d1ad41d9cd",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6136a85c7b904f0da20729d1ad41d9cd",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793667568
+      "created_at": 1793667568,
+      "approved_at": 1793681373,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-D924-1FF7-2D10",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3065292",
+        "tron_amount": 1.283083,
+        "user_paid_toman": null,
+        "date": "2026-11-03T04:46:03.6300000"
+      }
     },
     "TRND-VIP1Y-174510806-1793667749-ce6f6d": {
       "order_id": "TRND-VIP1Y-174510806-1793667749-ce6f6d",
@@ -164738,7 +164753,15 @@
       "username": "Mehdib56",
       "first_seen": 1793667537,
       "last_seen": 1793671946,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-D924-1FF7-2D10",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793681373,
+          "days": 90
+        }
+      ]
     },
     "174510806": {
       "user_id": 174510806,
@@ -166646,6 +166669,33 @@
       "username": "Me80311732",
       "first_seen": 1793681329,
       "last_seen": 1793681329,
+      "purchases": []
+    },
+    "83223626": {
+      "user_id": 83223626,
+      "first_name": "Ho3in",
+      "last_name": "Sia",
+      "username": "Ho3insia",
+      "first_seen": 1793681340,
+      "last_seen": 1793681340,
+      "purchases": []
+    },
+    "1775323596": {
+      "user_id": 1775323596,
+      "first_name": "❤️",
+      "last_name": "",
+      "username": "mohammad_0172403",
+      "first_seen": 1793681343,
+      "last_seen": 1793681343,
+      "purchases": []
+    },
+    "133513902": {
+      "user_id": 133513902,
+      "first_name": "عباس",
+      "last_name": "",
+      "username": "Professional_Leon",
+      "first_seen": 1793681350,
+      "last_seen": 1793681350,
       "purchases": []
     }
   },
