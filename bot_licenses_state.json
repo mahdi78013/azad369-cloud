@@ -12302,6 +12302,12 @@
       "user_id": 56942795,
       "issued_at": 1793697580,
       "method": "crypto_unique"
+    },
+    "AZ3M-093E-725B-5B13": {
+      "plan": "3M",
+      "user_id": 8646466072,
+      "issued_at": 1793697863,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -107958,9 +107964,10 @@
       "tron_amount": 1.364243,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f29282817f974e5fa449cb2cae0b9269",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f29282817f974e5fa449cb2cae0b9269",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793696458
+      "created_at": 1793696458,
+      "cancelled_at": 1793697853
     },
     "TRND-3M-8952144275-1793696464-e4723b": {
       "order_id": "TRND-3M-8952144275-1793696464-e4723b",
@@ -108287,9 +108294,18 @@
       "tron_amount": 1.344801,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_dc623704e0394df19ac076d9a4162238",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=dc623704e0394df19ac076d9a4162238",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793697602
+      "created_at": 1793697602,
+      "approved_at": 1793697863,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-093E-725B-5B13",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3067457",
+        "tron_amount": 1.344801,
+        "user_paid_toman": null,
+        "date": "2026-11-03T09:23:34.6730000"
+      }
     },
     "TRND-3M-7864135272-1793697625-70f86b": {
       "order_id": "TRND-3M-7864135272-1793697625-70f86b",
@@ -108322,6 +108338,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793697683
+    },
+    "TRND-AN3M-6770556621-1793697728-3a5325": {
+      "order_id": "TRND-AN3M-6770556621-1793697728-3a5325",
+      "token": "19c4ecd218aa4efaa8ea52124adfb878",
+      "user_id": 6770556621,
+      "first_name": "A",
+      "username": "ندارد",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.354875,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_19c4ecd218aa4efaa8ea52124adfb878",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=19c4ecd218aa4efaa8ea52124adfb878",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793697728
     }
   },
   "users": {
@@ -166156,7 +166188,7 @@
       "last_name": "",
       "username": "Yamor1r",
       "first_seen": 1793648138,
-      "last_seen": 1793648138,
+      "last_seen": 1793697760,
       "purchases": []
     },
     "139728156": {
@@ -178685,7 +178717,7 @@
       "last_name": "گیتی آرا",
       "username": "Aliking1359",
       "first_seen": 1793695786,
-      "last_seen": 1793697174,
+      "last_seen": 1793697855,
       "purchases": [
         {
           "key": "AN3M-FCBF37B2-4485-346704",
@@ -179255,7 +179287,15 @@
       "username": "amirgolzari",
       "first_seen": 1793697561,
       "last_seen": 1793697561,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-093E-725B-5B13",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793697863,
+          "days": 90
+        }
+      ]
     },
     "113740398": {
       "user_id": 113740398,
@@ -179282,6 +179322,33 @@
       "username": "saidf423",
       "first_seen": 1793697620,
       "last_seen": 1793697620,
+      "purchases": []
+    },
+    "117487288": {
+      "user_id": 117487288,
+      "first_name": "مبل کاملیا(سفارشات وتعمیرات مبلمان )",
+      "last_name": "@kamelyamobl",
+      "username": "mohsenzb64",
+      "first_seen": 1793697748,
+      "last_seen": 1793697748,
+      "purchases": []
+    },
+    "6564502971": {
+      "user_id": 6564502971,
+      "first_name": "ARASH 👷",
+      "last_name": "",
+      "username": "arashh2689",
+      "first_seen": 1793697824,
+      "last_seen": 1793697824,
+      "purchases": []
+    },
+    "89339154": {
+      "user_id": 89339154,
+      "first_name": "محمد رضا",
+      "last_name": "کریمی زریگانی",
+      "username": "reza0195",
+      "first_seen": 1793697829,
+      "last_seen": 1793697829,
       "purchases": []
     }
   },
