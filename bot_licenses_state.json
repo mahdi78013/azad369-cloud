@@ -12027,10 +12027,10 @@
       "issued_at": 1793692255,
       "method": "crypto_unique"
     },
-    "AN3M-17EB-504A-C6D7": {
+    "AN3M-22C2-A0F6-60E7": {
       "plan": "AN3M",
-      "user_id": 5640396718,
-      "issued_at": 1793692477,
+      "user_id": 68104432,
+      "issued_at": 1793692495,
       "method": "crypto_unique"
     }
   },
@@ -105875,18 +105875,9 @@
       "tron_amount": 1.347056,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_87318007d664474b9dee9bc978e39dd1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=87318007d664474b9dee9bc978e39dd1",
-      "status": "approved",
+      "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793692162,
-      "approved_at": 1793692477,
-      "approved_by": "TRONADO_AUTOMATED",
-      "key": "AN3M-17EB-504A-C6D7",
-      "tronado_ipn": {
-        "hash": "TrndOrderID_3066723",
-        "tron_amount": 1.347056,
-        "user_paid_toman": null,
-        "date": "2026-11-03T07:53:39.0230000"
-      }
+      "created_at": 1793692162
     },
     "TRND-AN3M-68104432-1793692171-2697da": {
       "order_id": "TRND-AN3M-68104432-1793692171-2697da",
@@ -105900,9 +105891,18 @@
       "tron_amount": 1.362752,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f4820d4ab871403aa3f22d1311e7e4af",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f4820d4ab871403aa3f22d1311e7e4af",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793692171
+      "created_at": 1793692171,
+      "approved_at": 1793692495,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-22C2-A0F6-60E7",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3066722",
+        "tron_amount": 1.362752,
+        "user_paid_toman": null,
+        "date": "2026-11-03T07:53:29.4630000"
+      }
     },
     "TRND-AN3M-8500355362-1793692191-ab02b2": {
       "order_id": "TRND-AN3M-8500355362-1793692191-ab02b2",
@@ -105967,6 +105967,20 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793692432
+    },
+    "ORD_1793692475_133301835": {
+      "order_id": "ORD_1793692475_133301835",
+      "user_id": 133301835,
+      "username": "IRANPAKcenter",
+      "first_name": "Mehr",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAECD99q6ZMHdW8T69N1xOCXtZ_mNg8_HgACIw5rG_goUFNk6QxalIv-ugEAAwIAA3kAAz0E",
+      "card_number": "5047061670546072",
+      "created_at": 1793692476,
+      "caption": ""
     }
   },
   "users": {
@@ -174621,15 +174635,7 @@
       "username": "Saeed_Sultani",
       "first_seen": 1793691701,
       "last_seen": 1793692474,
-      "purchases": [
-        {
-          "key": "AN3M-17EB-504A-C6D7",
-          "plan": "AN3M",
-          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
-          "issued_at": 1793692477,
-          "days": 90
-        }
-      ]
+      "purchases": []
     },
     "100362927": {
       "user_id": 100362927,
@@ -174832,8 +174838,16 @@
       "last_name": "",
       "username": "Blue0rain",
       "first_seen": 1793692128,
-      "last_seen": 1793692128,
-      "purchases": []
+      "last_seen": 1793692493,
+      "purchases": [
+        {
+          "key": "AN3M-22C2-A0F6-60E7",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793692495,
+          "days": 90
+        }
+      ]
     },
     "5902528743": {
       "user_id": 5902528743,
@@ -175596,6 +175610,11 @@
       "plan_code": "AN3M",
       "time": 1793691071
     },
+    "133301835": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN3M",
+      "time": 1793692446
+    },
     "77535059": {
       "state": "awaiting_receipt",
       "plan_code": "AN1Y",
@@ -175606,11 +175625,11 @@
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 2,
+    "count": 3,
     "threshold": 10,
     "stats": {
       "5892101706458979": 100,
-      "5047061670546072": 92
+      "5047061670546072": 93
     }
   },
   "maintenance": {
