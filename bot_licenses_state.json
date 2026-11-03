@@ -11312,6 +11312,12 @@
       "user_id": 6394795894,
       "issued_at": 1793672538,
       "method": "crypto_unique"
+    },
+    "AZ3M-468A-F79A-F338": {
+      "plan": "3M",
+      "user_id": 510180564,
+      "issued_at": 1793672726,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -98899,9 +98905,18 @@
       "tron_amount": 1.365603,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_7c4ae8b0354446aca40289cf17a45c11",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7c4ae8b0354446aca40289cf17a45c11",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793657369
+      "created_at": 1793657369,
+      "approved_at": 1793672726,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-468A-F79A-F338",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3065061",
+        "tron_amount": 1.365603,
+        "user_paid_toman": null,
+        "date": "2026-11-03T02:22:45.7130000"
+      }
     },
     "TRND-AN3M-8443412224-1793657372-1ffe5e": {
       "order_id": "TRND-AN3M-8443412224-1793657372-1ffe5e",
@@ -100657,6 +100672,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793672430
+    },
+    "TRND-AN3M-5780455078-1793672664-5d2cc0": {
+      "order_id": "TRND-AN3M-5780455078-1793672664-5d2cc0",
+      "token": "08977c08591949ffbc852386d5045f60",
+      "user_id": 5780455078,
+      "first_name": "Benyamin",
+      "username": "Benyamin_shareaty",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.36296,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_08977c08591949ffbc852386d5045f60",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=08977c08591949ffbc852386d5045f60",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793672664
+    },
+    "TRND-VIP1Y-462581897-1793672679-58fabf": {
+      "order_id": "TRND-VIP1Y-462581897-1793672679-58fabf",
+      "token": "cd9267cafed24cf1ab3d6e8dfe0b0497",
+      "user_id": 462581897,
+      "first_name": "Habib",
+      "username": "Habib_Falakian",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.673219,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_cd9267cafed24cf1ab3d6e8dfe0b0497",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=cd9267cafed24cf1ab3d6e8dfe0b0497",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793672679
     }
   },
   "users": {
@@ -156020,7 +156067,7 @@
       "last_name": "Falakian",
       "username": "Habib_Falakian",
       "first_seen": 1793641593,
-      "last_seen": 1793671428,
+      "last_seen": 1793672658,
       "purchases": []
     },
     "310969178": {
@@ -161817,7 +161864,15 @@
       "username": "amirmhm899",
       "first_seen": 1793657321,
       "last_seen": 1793657321,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-468A-F79A-F338",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793672726,
+          "days": 90
+        }
+      ]
     },
     "7454298861": {
       "user_id": 7454298861,
@@ -163655,6 +163710,33 @@
       "username": "saeedhasani1367",
       "first_seen": 1793672594,
       "last_seen": 1793672594,
+      "purchases": []
+    },
+    "5780455078": {
+      "user_id": 5780455078,
+      "first_name": "Benyamin",
+      "last_name": "09014525668",
+      "username": "Benyamin_shareaty",
+      "first_seen": 1793672630,
+      "last_seen": 1793672630,
+      "purchases": []
+    },
+    "119003336": {
+      "user_id": 119003336,
+      "first_name": "Hamid",
+      "last_name": "Lq",
+      "username": "HalvliiD",
+      "first_seen": 1793672651,
+      "last_seen": 1793672651,
+      "purchases": []
+    },
+    "897994221": {
+      "user_id": 897994221,
+      "first_name": "milad",
+      "last_name": "",
+      "username": "miiladde",
+      "first_seen": 1793672692,
+      "last_seen": 1793672692,
       "purchases": []
     }
   },
