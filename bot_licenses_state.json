@@ -11720,6 +11720,12 @@
       "user_id": 71021474,
       "issued_at": 1793686541,
       "method": "crypto_unique"
+    },
+    "AN3M-8CF5-5400-BD68": {
+      "plan": "AN3M",
+      "user_id": 6489366585,
+      "issued_at": 1793686686,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -101584,9 +101590,18 @@
       "tron_amount": 1.363467,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_55f8ff35166448d1a56be605e722a45c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=55f8ff35166448d1a56be605e722a45c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793675855
+      "created_at": 1793675855,
+      "approved_at": 1793686686,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-8CF5-5400-BD68",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3066041",
+        "tron_amount": 1.363467,
+        "user_paid_toman": null,
+        "date": "2026-11-03T06:15:05.7600000"
+      }
     },
     "ORD_1793675989_1325051607": {
       "order_id": "ORD_1793675989_1325051607",
@@ -103821,6 +103836,54 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793686600
+    },
+    "TRND-3M-5483215218-1793686646-64207f": {
+      "order_id": "TRND-3M-5483215218-1793686646-64207f",
+      "token": "17713c1c78a74bdfba63799eb99ffe7d",
+      "user_id": 5483215218,
+      "first_name": "Ahmad",
+      "username": "ندارد",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.349423,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_17713c1c78a74bdfba63799eb99ffe7d",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=17713c1c78a74bdfba63799eb99ffe7d",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793686646
+    },
+    "TRND-AN3M-916522931-1793686660-a52a4c": {
+      "order_id": "TRND-AN3M-916522931-1793686660-a52a4c",
+      "token": "13c30b1e941c4445be267d0105d00573",
+      "user_id": 916522931,
+      "first_name": "Majid",
+      "username": "Majid6495",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.365133,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_13c30b1e941c4445be267d0105d00573",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=13c30b1e941c4445be267d0105d00573",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793686660
+    },
+    "TRND-AN3M-5483215218-1793686671-aa7fb9": {
+      "order_id": "TRND-AN3M-5483215218-1793686671-aa7fb9",
+      "token": "ac261488b0dc48d9900d8c35e4936109",
+      "user_id": 5483215218,
+      "first_name": "Ahmad",
+      "username": "ندارد",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.359522,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_ac261488b0dc48d9900d8c35e4936109",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ac261488b0dc48d9900d8c35e4936109",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793686671
     }
   },
   "users": {
@@ -167415,7 +167478,15 @@
       "username": "Abedph3",
       "first_seen": 1793675782,
       "last_seen": 1793686557,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-8CF5-5400-BD68",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793686686,
+          "days": 90
+        }
+      ]
     },
     "518479159": {
       "user_id": 518479159,
