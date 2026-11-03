@@ -14414,6 +14414,12 @@
       "user_id": 51298730,
       "issued_at": 1793742045,
       "method": "crypto_unique"
+    },
+    "AN3M-E22C-C49C-9B27": {
+      "plan": "AN3M",
+      "user_id": 99443784,
+      "issued_at": 1793742454,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -126110,9 +126116,10 @@
       "tron_amount": 1.349992,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_924528cd19254f3faca377beb4606dbc",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=924528cd19254f3faca377beb4606dbc",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793741181
+      "created_at": 1793741181,
+      "cancelled_at": 1793742451
     },
     "TRND-AN3M-51298730-1793741264-610e90": {
       "order_id": "TRND-AN3M-51298730-1793741264-610e90",
@@ -126288,9 +126295,18 @@
       "tron_amount": 1.343441,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3320ccb63fb94811a4060f57bd75e136",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3320ccb63fb94811a4060f57bd75e136",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793741904
+      "created_at": 1793741904,
+      "approved_at": 1793742454,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-E22C-C49C-9B27",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3075169",
+        "tron_amount": 1.343441,
+        "user_paid_toman": null,
+        "date": "2026-11-03T21:44:01.4770000"
+      }
     },
     "ORD_1793741960_51298730": {
       "order_id": "ORD_1793741960_51298730",
@@ -208198,7 +208214,7 @@
       "last_name": "Ne",
       "username": "LilacAurora83",
       "first_seen": 1793728387,
-      "last_seen": 1793741937,
+      "last_seen": 1793742411,
       "purchases": [
         {
           "key": "AN3M-A8F4-1BBD-13B2",
@@ -212492,7 +212508,15 @@
       "username": "Zandi1359",
       "first_seen": 1793741831,
       "last_seen": 1793742328,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-E22C-C49C-9B27",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793742454,
+          "days": 90
+        }
+      ]
     },
     "7425257223": {
       "user_id": 7425257223,
@@ -213376,11 +213400,6 @@
       "state": "awaiting_receipt",
       "plan_code": "AN1Y",
       "time": 1793739660
-    },
-    "51298730": {
-      "state": "awaiting_receipt",
-      "plan_code": "AN3M",
-      "time": 1793741938
     },
     "112487347": {
       "state": "awaiting_receipt",
