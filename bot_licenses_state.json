@@ -14174,6 +14174,18 @@
       "user_id": 118780885,
       "issued_at": 1793737594,
       "method": "crypto_unique"
+    },
+    "AZ1Y-A315CE16-D6A2-D84F7C": {
+      "plan": "1Y",
+      "user_id": 65686944,
+      "issued_at": 1793737919,
+      "method": "crypto_unique"
+    },
+    "AN1Y-A315CE16-2CB4-714D87": {
+      "plan": "AN1Y",
+      "user_id": 65686944,
+      "issued_at": 1793737919,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -124456,9 +124468,20 @@
       "tron_amount": 4.610232,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d51989257ac54440b9cb737066b977b0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d51989257ac54440b9cb737066b977b0",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793737736
+      "created_at": 1793737736,
+      "key_win": "AZ1Y-A315CE16-D6A2-D84F7C",
+      "key_and": "AN1Y-A315CE16-2CB4-714D87",
+      "approved_at": 1793737919,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-A315CE16-D6A2-D84F7C\nاندروید: AN1Y-A315CE16-2CB4-714D87",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3074513",
+        "tron_amount": 4.610232,
+        "user_paid_toman": null,
+        "date": "2026-11-03T20:31:26.9770000"
+      }
     },
     "TRND-VIP1Y-6552283239-1793737746-eee3a1": {
       "order_id": "TRND-VIP1Y-6552283239-1793737746-eee3a1",
@@ -124491,6 +124514,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793737768
+    },
+    "TRND-AN3M-6710507671-1793737833-3c52e4": {
+      "order_id": "TRND-AN3M-6710507671-1793737833-3c52e4",
+      "token": "7a234efe20d34421927887d90f46345e",
+      "user_id": 6710507671,
+      "first_name": "ABOLFAZEL",
+      "username": "ندارد",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.347045,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_7a234efe20d34421927887d90f46345e",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7a234efe20d34421927887d90f46345e",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793737833
     }
   },
   "users": {
@@ -156529,7 +156568,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793182050,
-      "last_seen": 1793182050,
+      "last_seen": 1793737847,
       "purchases": [
         {
           "key": "AN2M-4B59FB5E-CF41-06DAF8",
@@ -208868,7 +208907,7 @@
       "last_name": "",
       "username": "JEDIE_17",
       "first_seen": 1793736039,
-      "last_seen": 1793737477,
+      "last_seen": 1793737842,
       "purchases": []
     },
     "203209981": {
@@ -209380,7 +209419,22 @@
       "username": "Cyanogenteam",
       "first_seen": 1793737703,
       "last_seen": 1793737703,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-A315CE16-D6A2-D84F7C",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793737919,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-A315CE16-2CB4-714D87",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793737919,
+          "days": 365
+        }
+      ]
     },
     "6552283239": {
       "user_id": 6552283239,
@@ -209398,6 +209452,15 @@
       "username": "",
       "first_seen": 1793737793,
       "last_seen": 1793737793,
+      "purchases": []
+    },
+    "57498449": {
+      "user_id": 57498449,
+      "first_name": "E.",
+      "last_name": "Mojarrad",
+      "username": "Eb_Mo_Sa",
+      "first_seen": 1793737896,
+      "last_seen": 1793737896,
       "purchases": []
     }
   },
@@ -210132,11 +210195,6 @@
       "state": "awaiting_receipt",
       "plan_code": "3M",
       "time": 1793736150
-    },
-    "112487347": {
-      "state": "awaiting_receipt",
-      "plan_code": "3M",
-      "time": 1793737715
     }
   },
   "admin_states": {},
