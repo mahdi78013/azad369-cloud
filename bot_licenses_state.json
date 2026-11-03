@@ -13160,6 +13160,12 @@
       "user_id": 5202110551,
       "issued_at": 1793712398,
       "method": "crypto_unique"
+    },
+    "AN3M-9D53-FECE-FF2A": {
+      "plan": "AN3M",
+      "user_id": 80940026,
+      "issued_at": 1793712522,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -114639,9 +114645,34 @@
       "tron_amount": 1.353238,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f38491c390f24b229f6ba544bb56e7fc",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f38491c390f24b229f6ba544bb56e7fc",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793712353,
+      "approved_at": 1793712522,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-9D53-FECE-FF2A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3069450",
+        "tron_amount": 1.353238,
+        "user_paid_toman": null,
+        "date": "2026-11-03T13:28:01.4670000"
+      }
+    },
+    "TRND-AN3M-6884999853-1793712432-896a0f": {
+      "order_id": "TRND-AN3M-6884999853-1793712432-896a0f",
+      "token": "de22932748334e7a85d16c5c9d72d6f9",
+      "user_id": 6884999853,
+      "first_name": "کامی",
+      "username": "Homayungh",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.346867,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_de22932748334e7a85d16c5c9d72d6f9",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=de22932748334e7a85d16c5c9d72d6f9",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793712353
+      "created_at": 1793712432
     }
   },
   "users": {
@@ -190892,6 +190923,13 @@
           "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
           "issued_at": 1793711734,
           "days": 90
+        },
+        {
+          "key": "AN3M-9D53-FECE-FF2A",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793712522,
+          "days": 90
         }
       ]
     },
@@ -191170,6 +191208,15 @@
       "username": "",
       "first_seen": 1793712383,
       "last_seen": 1793712383,
+      "purchases": []
+    },
+    "6884999853": {
+      "user_id": 6884999853,
+      "first_name": "کامی",
+      "last_name": "",
+      "username": "Homayungh",
+      "first_seen": 1793712412,
+      "last_seen": 1793712412,
       "purchases": []
     }
   },
