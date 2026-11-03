@@ -11738,6 +11738,12 @@
       "user_id": 5483215218,
       "issued_at": 1793686912,
       "method": "crypto_unique"
+    },
+    "AN3M-8920-4070-4FE4": {
+      "plan": "AN3M",
+      "user_id": 449638366,
+      "issued_at": 1793686967,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -103976,9 +103982,18 @@
       "tron_amount": 1.364011,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c22e809a83fe4a0784b9ba2ba250c4e8",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c22e809a83fe4a0784b9ba2ba250c4e8",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793686837
+      "created_at": 1793686837,
+      "approved_at": 1793686967,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-8920-4070-4FE4",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3066108",
+        "tron_amount": 1.364011,
+        "user_paid_toman": null,
+        "date": "2026-11-03T06:22:27.7200000"
+      }
     },
     "TRND-3M-7288231920-1793686899-74656c": {
       "order_id": "TRND-3M-7288231920-1793686899-74656c",
@@ -170411,7 +170426,15 @@
       "username": "Mhsh27",
       "first_seen": 1793685708,
       "last_seen": 1793686831,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-8920-4070-4FE4",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793686967,
+          "days": 90
+        }
+      ]
     },
     "5667971065": {
       "user_id": 5667971065,
@@ -170701,6 +170724,24 @@
       "username": "Hrezaeiiiiiiiiiiiiooii",
       "first_seen": 1793686865,
       "last_seen": 1793686865,
+      "purchases": []
+    },
+    "6033035350": {
+      "user_id": 6033035350,
+      "first_name": "MahyaR",
+      "last_name": "",
+      "username": "mahyarsamali",
+      "first_seen": 1793686926,
+      "last_seen": 1793686926,
+      "purchases": []
+    },
+    "35173951": {
+      "user_id": 35173951,
+      "first_name": "tt",
+      "last_name": "",
+      "username": "amlaak10",
+      "first_seen": 1793686959,
+      "last_seen": 1793686959,
       "purchases": []
     }
   },
