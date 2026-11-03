@@ -13910,6 +13910,12 @@
       "user_id": 1378177331,
       "issued_at": 1793731825,
       "method": "crypto_unique"
+    },
+    "AN3M-FBEB-328B-D734": {
+      "plan": "AN3M",
+      "user_id": 5190509630,
+      "issued_at": 1793732001,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -121715,9 +121721,18 @@
       "tron_amount": 1.346035,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_fee128e6658e47018237864a2ffe0b1f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=fee128e6658e47018237864a2ffe0b1f",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793731899
+      "created_at": 1793731899,
+      "approved_at": 1793732001,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-FBEB-328B-D734",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3073115",
+        "tron_amount": 1.346035,
+        "user_paid_toman": null,
+        "date": "2026-11-03T18:53:00.6100000"
+      }
     },
     "TRND-AN3M-108277716-1793731908-7397a4": {
       "order_id": "TRND-AN3M-108277716-1793731908-7397a4",
@@ -176880,7 +176895,15 @@
       "username": "Moein_Ebadi88",
       "first_seen": 1793640212,
       "last_seen": 1793731897,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-FBEB-328B-D734",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793732001,
+          "days": 90
+        }
+      ]
     },
     "7147936882": {
       "user_id": 7147936882,
@@ -203847,7 +203870,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793730026,
-      "last_seen": 1793730026,
+      "last_seen": 1793731975,
       "purchases": [
         {
           "key": "AN3M-D85C-3190-2D08",
@@ -204604,6 +204627,42 @@
       "username": "abasJafaee57",
       "first_seen": 1793731851,
       "last_seen": 1793731851,
+      "purchases": []
+    },
+    "6843557555": {
+      "user_id": 6843557555,
+      "first_name": "ARMIN",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793731920,
+      "last_seen": 1793731920,
+      "purchases": []
+    },
+    "667080856": {
+      "user_id": 667080856,
+      "first_name": "Farid",
+      "last_name": "Afshar",
+      "username": "Afshar_Master",
+      "first_seen": 1793731938,
+      "last_seen": 1793731938,
+      "purchases": []
+    },
+    "31743670": {
+      "user_id": 31743670,
+      "first_name": "Mani",
+      "last_name": "S.",
+      "username": "xakharia",
+      "first_seen": 1793731945,
+      "last_seen": 1793731945,
+      "purchases": []
+    },
+    "8210231377": {
+      "user_id": 8210231377,
+      "first_name": "Rahman",
+      "last_name": "",
+      "username": "rahman_yosefiyan",
+      "first_seen": 1793731946,
+      "last_seen": 1793731946,
       "purchases": []
     }
   },
