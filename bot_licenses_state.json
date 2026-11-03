@@ -13076,6 +13076,12 @@
       "user_id": 349095624,
       "issued_at": 1793711030,
       "method": "crypto_unique"
+    },
+    "AN3M-ACCF-2DB7-BEE2": {
+      "plan": "AN3M",
+      "user_id": 70419458,
+      "issued_at": 1793711068,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -113664,9 +113670,10 @@
       "tron_amount": 4.652381,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_02350fc269004ceb8290fa1a23f85959",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=02350fc269004ceb8290fa1a23f85959",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793709529
+      "created_at": 1793709529,
+      "cancelled_at": 1793711060
     },
     "TRND-AN3M-399788145-1793709560-955e72": {
       "order_id": "TRND-AN3M-399788145-1793709560-955e72",
@@ -114073,9 +114080,18 @@
       "tron_amount": 1.357528,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3152e800ffb1428abd4ce65520f6692f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3152e800ffb1428abd4ce65520f6692f",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793710663
+      "created_at": 1793710663,
+      "approved_at": 1793711068,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-ACCF-2DB7-BEE2",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3069217",
+        "tron_amount": 1.357528,
+        "user_paid_toman": null,
+        "date": "2026-11-03T13:00:53.6970000"
+      }
     },
     "TRND-3M-349095624-1793710791-16ea60": {
       "order_id": "TRND-3M-349095624-1793710791-16ea60",
@@ -190087,7 +190103,15 @@
       "username": "mehrad_ghezelbash71",
       "first_seen": 1793710607,
       "last_seen": 1793710945,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-ACCF-2DB7-BEE2",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793711068,
+          "days": 90
+        }
+      ]
     },
     "1067281703": {
       "user_id": 1067281703,
@@ -190141,6 +190165,24 @@
       "username": "Fly_Sky",
       "first_seen": 1793711020,
       "last_seen": 1793711020,
+      "purchases": []
+    },
+    "621503898": {
+      "user_id": 621503898,
+      "first_name": "Али",
+      "last_name": "Цца",
+      "username": "Wacker_az",
+      "first_seen": 1793711045,
+      "last_seen": 1793711045,
+      "purchases": []
+    },
+    "6986193187": {
+      "user_id": 6986193187,
+      "first_name": "𝐁𝐄𝐍𝐘𝐀𝐌𝐈𝐍",
+      "last_name": "",
+      "username": "BENY_X7",
+      "first_seen": 1793711066,
+      "last_seen": 1793711066,
       "purchases": []
     }
   },
