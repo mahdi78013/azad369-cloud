@@ -14030,6 +14030,18 @@
       "user_id": 97546786,
       "issued_at": 1793735152,
       "method": "crypto_unique"
+    },
+    "AZ1Y-3021-7EA4-21A7": {
+      "plan": "1Y",
+      "user_id": 30676661,
+      "issued_at": 1793735425,
+      "method": "crypto_unique"
+    },
+    "AN1Y-4788-F32C-F921": {
+      "plan": "AN1Y",
+      "user_id": 30676661,
+      "issued_at": 1793735425,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -123236,9 +123248,20 @@
       "tron_amount": 4.620566,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_63d62ca37aa84283887a189f2ddbe22b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=63d62ca37aa84283887a189f2ddbe22b",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793735205
+      "created_at": 1793735205,
+      "key_win": "AZ1Y-3021-7EA4-21A7",
+      "key_and": "AN1Y-4788-F32C-F921",
+      "approved_at": 1793735425,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-3021-7EA4-21A7\nاندروید: AN1Y-4788-F32C-F921",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3073983",
+        "tron_amount": 4.620566,
+        "user_paid_toman": null,
+        "date": "2026-11-03T19:49:47.8230000"
+      }
     },
     "ORD_1793735295_80989841": {
       "order_id": "ORD_1793735295_80989841",
@@ -123253,6 +123276,22 @@
       "card_number": "5047061670546072",
       "created_at": 1793735295,
       "caption": ""
+    },
+    "TRND-3M-7260485820-1793735319-35d183": {
+      "order_id": "TRND-3M-7260485820-1793735319-35d183",
+      "token": "fc1c732c78854b7594998435a283b7a6",
+      "user_id": 7260485820,
+      "first_name": "Afshin",
+      "username": "Afshinnosouhi",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.358718,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_fc1c732c78854b7594998435a283b7a6",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=fc1c732c78854b7594998435a283b7a6",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793735319
     }
   },
   "users": {
@@ -193486,7 +193525,7 @@
       "last_name": "Nosouhi",
       "username": "Afshinnosouhi",
       "first_seen": 1793694376,
-      "last_seen": 1793694376,
+      "last_seen": 1793735318,
       "purchases": []
     },
     "65647960": {
@@ -206819,7 +206858,7 @@
       "last_name": "",
       "username": "OmidR1984",
       "first_seen": 1793733498,
-      "last_seen": 1793734540,
+      "last_seen": 1793735382,
       "purchases": [
         {
           "key": "AZ3M-3324-BF0E-5A29",
@@ -207228,8 +207267,23 @@
       "last_name": "",
       "username": "Sistanpey1",
       "first_seen": 1793734919,
-      "last_seen": 1793734919,
-      "purchases": []
+      "last_seen": 1793735423,
+      "purchases": [
+        {
+          "key": "AZ1Y-3021-7EA4-21A7",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793735425,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-4788-F32C-F921",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793735425,
+          "days": 365
+        }
+      ]
     },
     "274772199": {
       "user_id": 274772199,
@@ -207301,6 +207355,33 @@
       "username": "omidk1364",
       "first_seen": 1793735240,
       "last_seen": 1793735240,
+      "purchases": []
+    },
+    "259143527": {
+      "user_id": 259143527,
+      "first_name": "hasanzandian",
+      "last_name": "",
+      "username": "hasanzandian",
+      "first_seen": 1793735335,
+      "last_seen": 1793735335,
+      "purchases": []
+    },
+    "5731120895": {
+      "user_id": 5731120895,
+      "first_name": "Mohammad",
+      "last_name": "Jashan",
+      "username": "",
+      "first_seen": 1793735365,
+      "last_seen": 1793735365,
+      "purchases": []
+    },
+    "6484571832": {
+      "user_id": 6484571832,
+      "first_name": "ARIAN",
+      "last_name": "",
+      "username": "aref8910",
+      "first_seen": 1793735389,
+      "last_seen": 1793735389,
       "purchases": []
     }
   },
@@ -208030,11 +208111,6 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793734178
-    },
-    "80989841": {
-      "state": "awaiting_receipt",
-      "plan_code": "AN3M",
-      "time": 1793735284
     }
   },
   "admin_states": {},
