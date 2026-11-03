@@ -11726,6 +11726,12 @@
       "user_id": 6489366585,
       "issued_at": 1793686686,
       "method": "crypto_unique"
+    },
+    "AN3M-1FA6-CF72-106E": {
+      "plan": "AN3M",
+      "user_id": 6590230279,
+      "issued_at": 1793686824,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -103834,9 +103840,18 @@
       "tron_amount": 1.371866,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_06a98b78e5b04ad296bfd5aa35e3ab7b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=06a98b78e5b04ad296bfd5aa35e3ab7b",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793686600
+      "created_at": 1793686600,
+      "approved_at": 1793686824,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-1FA6-CF72-106E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3066077",
+        "tron_amount": 1.371866,
+        "user_paid_toman": null,
+        "date": "2026-11-03T06:19:02.0470000"
+      }
     },
     "TRND-3M-5483215218-1793686646-64207f": {
       "order_id": "TRND-3M-5483215218-1793686646-64207f",
@@ -170111,7 +170126,7 @@
       "last_name": "Torkashvand",
       "username": "Torkashvandalireza",
       "first_seen": 1793685204,
-      "last_seen": 1793686184,
+      "last_seen": 1793686817,
       "purchases": []
     },
     "1858219939": {
@@ -170409,7 +170424,15 @@
       "username": "Miladabsh",
       "first_seen": 1793686276,
       "last_seen": 1793686599,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-1FA6-CF72-106E",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793686824,
+          "days": 90
+        }
+      ]
     },
     "887446017": {
       "user_id": 887446017,
@@ -170444,7 +170467,7 @@
       "last_name": "",
       "username": "mohammadpasha9797",
       "first_seen": 1793686351,
-      "last_seen": 1793686351,
+      "last_seen": 1793686817,
       "purchases": []
     },
     "71021474": {
