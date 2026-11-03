@@ -12038,6 +12038,12 @@
       "user_id": 8500355362,
       "issued_at": 1793692500,
       "method": "crypto_unique"
+    },
+    "AN3M-EB8A-C382-AC5C": {
+      "plan": "AN3M",
+      "user_id": 133301835,
+      "issued_at": 1793692577,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -105865,9 +105871,18 @@
       "tron_amount": 1.352384,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e2ac2d08fc3c4cff9f4e494ff3f8e91f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e2ac2d08fc3c4cff9f4e494ff3f8e91f",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793691994
+      "created_at": 1793691994,
+      "approved_at": 1793692577,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-EB8A-C382-AC5C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3066698",
+        "tron_amount": 1.352384,
+        "user_paid_toman": null,
+        "date": "2026-11-03T07:53:44.2300000"
+      }
     },
     "TRND-AN3M-5640396718-1793692162-d98e22": {
       "order_id": "TRND-AN3M-5640396718-1793692162-d98e22",
@@ -106012,6 +106027,54 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793692497
+    },
+    "TRND-AN3M-7202358267-1793692518-6fc231": {
+      "order_id": "TRND-AN3M-7202358267-1793692518-6fc231",
+      "token": "3bf8a646aa3042dfa6f0c30cf4d6722b",
+      "user_id": 7202358267,
+      "first_name": "卂爪丨尺",
+      "username": "Amir09_20",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.356025,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_3bf8a646aa3042dfa6f0c30cf4d6722b",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3bf8a646aa3042dfa6f0c30cf4d6722b",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793692518
+    },
+    "TRND-AN3M-77535059-1793692520-62f6ab": {
+      "order_id": "TRND-AN3M-77535059-1793692520-62f6ab",
+      "token": "8af9596a3e6f4c26b4becb474e61b9df",
+      "user_id": 77535059,
+      "first_name": "Mohammad",
+      "username": "moja43",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.356025,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_8af9596a3e6f4c26b4becb474e61b9df",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8af9596a3e6f4c26b4becb474e61b9df",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793692520
+    },
+    "TRND-AN3M-25025127-1793692571-d3f2e2": {
+      "order_id": "TRND-AN3M-25025127-1793692571-d3f2e2",
+      "token": "2e74b89707134b08a4067effa34687d5",
+      "user_id": 25025127,
+      "first_name": "M",
+      "username": "MehdiBehdad",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.350498,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_2e74b89707134b08a4067effa34687d5",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2e74b89707134b08a4067effa34687d5",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793692571
     }
   },
   "users": {
@@ -174256,7 +174319,7 @@
       "last_name": "B",
       "username": "MehdiBehdad",
       "first_seen": 1793690795,
-      "last_seen": 1793690795,
+      "last_seen": 1793692560,
       "purchases": [
         {
           "key": "AN3M-2F2F-481D-9F1E",
@@ -174780,7 +174843,15 @@
       "username": "IRANPAKcenter",
       "first_seen": 1793691944,
       "last_seen": 1793692423,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-EB8A-C382-AC5C",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793692577,
+          "days": 90
+        }
+      ]
     },
     "50613219": {
       "user_id": 50613219,
@@ -175644,20 +175715,10 @@
       "plan_code": "AN3M",
       "time": 1793685195
     },
-    "25025127": {
-      "state": "awaiting_receipt",
-      "plan_code": "AN3M",
-      "time": 1793691071
-    },
     "133301835": {
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793692446
-    },
-    "77535059": {
-      "state": "awaiting_receipt",
-      "plan_code": "AN1Y",
-      "time": 1793692454
     }
   },
   "admin_states": {},
