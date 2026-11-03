@@ -12290,6 +12290,12 @@
       "user_id": 34287365,
       "issued_at": 1793697121,
       "method": "crypto_unique"
+    },
+    "AZ3M-39C5-3647-2110": {
+      "plan": "3M",
+      "user_id": 8952144275,
+      "issued_at": 1793697577,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -107961,9 +107967,18 @@
       "tron_amount": 1.359761,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b47c30920f1544ae8359ed97b32cef46",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b47c30920f1544ae8359ed97b32cef46",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793696464
+      "created_at": 1793696464,
+      "approved_at": 1793697577,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-39C5-3647-2110",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3067300",
+        "tron_amount": 1.359761,
+        "user_paid_toman": null,
+        "date": "2026-11-03T09:18:49.7600000"
+      }
     },
     "TRND-AN3M-5745618305-1793696512-8916b7": {
       "order_id": "TRND-AN3M-5745618305-1793696512-8916b7",
@@ -178161,7 +178176,7 @@
       "last_name": "sar568",
       "username": "",
       "first_seen": 1793694481,
-      "last_seen": 1793695918,
+      "last_seen": 1793697564,
       "purchases": []
     },
     "59910797": {
@@ -178826,8 +178841,16 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793696415,
-      "last_seen": 1793696415,
-      "purchases": []
+      "last_seen": 1793697575,
+      "purchases": [
+        {
+          "key": "AZ3M-39C5-3647-2110",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793697577,
+          "days": 90
+        }
+      ]
     },
     "5745618305": {
       "user_id": 5745618305,
@@ -179151,6 +179174,24 @@
       "username": "Amirhosseinjokar1",
       "first_seen": 1793697508,
       "last_seen": 1793697508,
+      "purchases": []
+    },
+    "8646466072": {
+      "user_id": 8646466072,
+      "first_name": "amir",
+      "last_name": "golzari",
+      "username": "amirgolzari",
+      "first_seen": 1793697561,
+      "last_seen": 1793697561,
+      "purchases": []
+    },
+    "113740398": {
+      "user_id": 113740398,
+      "first_name": "Hamid",
+      "last_name": "Gh",
+      "username": "ha_gh0",
+      "first_seen": 1793697562,
+      "last_seen": 1793697562,
       "purchases": []
     }
   },
