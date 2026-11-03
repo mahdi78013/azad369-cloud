@@ -12752,6 +12752,12 @@
       "user_id": 88733108,
       "issued_at": 1793705856,
       "method": "crypto_unique"
+    },
+    "AZ1Y-9743-DF5F-5037": {
+      "plan": "1Y",
+      "user_id": 283203114,
+      "issued_at": 1793705925,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -111949,9 +111955,18 @@
       "tron_amount": 3.707037,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_2c6ba5f92df8408f877376535615ed49",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2c6ba5f92df8408f877376535615ed49",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793705442
+      "created_at": 1793705442,
+      "approved_at": 1793705925,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-9743-DF5F-5037",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3068605",
+        "tron_amount": 3.707037,
+        "user_paid_toman": null,
+        "date": "2026-11-03T11:36:57.3300000"
+      }
     },
     "TRND-3M-7305457306-1793705600-e5cf75": {
       "order_id": "TRND-3M-7305457306-1793705600-e5cf75",
@@ -112073,6 +112088,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793705834
+    },
+    "TRND-3M-7146172936-1793705908-d92864": {
+      "order_id": "TRND-3M-7146172936-1793705908-d92864",
+      "token": "86aa3e5566c3412c833f3905c74a19aa",
+      "user_id": 7146172936,
+      "first_name": "safa61_2 🌱SEED",
+      "username": "N_S_257761",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.353657,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_86aa3e5566c3412c833f3905c74a19aa",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=86aa3e5566c3412c833f3905c74a19aa",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793705908
     }
   },
   "users": {
@@ -183292,7 +183323,7 @@
       "last_name": "san",
       "username": "Ashkan_sanee",
       "first_seen": 1793697928,
-      "last_seen": 1793703256,
+      "last_seen": 1793705869,
       "purchases": [
         {
           "key": "AZ1Y-04D4-121A-D265",
@@ -185166,7 +185197,7 @@
       "last_name": "",
       "username": "MasoudSRK",
       "first_seen": 1793702605,
-      "last_seen": 1793702605,
+      "last_seen": 1793705862,
       "purchases": []
     },
     "103602256": {
@@ -186142,8 +186173,16 @@
       "last_name": "",
       "username": "limiya110",
       "first_seen": 1793705389,
-      "last_seen": 1793705389,
-      "purchases": []
+      "last_seen": 1793705923,
+      "purchases": [
+        {
+          "key": "AZ1Y-9743-DF5F-5037",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793705925,
+          "days": 365
+        }
+      ]
     },
     "69322061": {
       "user_id": 69322061,
@@ -186222,7 +186261,7 @@
       "last_name": "",
       "username": "Ebrahim620",
       "first_seen": 1793705600,
-      "last_seen": 1793705600,
+      "last_seen": 1793705924,
       "purchases": []
     },
     "37434048": {
@@ -186294,6 +186333,24 @@
       "username": "",
       "first_seen": 1793705823,
       "last_seen": 1793705823,
+      "purchases": []
+    },
+    "131045345": {
+      "user_id": 131045345,
+      "first_name": "Good Boy",
+      "last_name": "",
+      "username": "Jonob125",
+      "first_seen": 1793705889,
+      "last_seen": 1793705889,
+      "purchases": []
+    },
+    "221901536": {
+      "user_id": 221901536,
+      "first_name": "Sajad",
+      "last_name": "Yousefi",
+      "username": "syosefi69",
+      "first_seen": 1793705916,
+      "last_seen": 1793705916,
       "purchases": []
     }
   },
@@ -187003,6 +187060,11 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793704702
+    },
+    "99880729": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN3M",
+      "time": 1793705891
     }
   },
   "admin_states": {},
