@@ -14426,6 +14426,12 @@
       "user_id": 61806202,
       "issued_at": 1793742595,
       "method": "crypto_unique"
+    },
+    "AZ3M-D75B-0A28-3C04": {
+      "plan": "3M",
+      "user_id": 361435335,
+      "issued_at": 1793742670,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -126429,9 +126435,18 @@
       "tron_amount": 1.349013,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_7746bf09637e421eb5e23f0489982bad",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7746bf09637e421eb5e23f0489982bad",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793742190
+      "created_at": 1793742190,
+      "approved_at": 1793742670,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-D75B-0A28-3C04",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3075192",
+        "tron_amount": 1.349013,
+        "user_paid_toman": null,
+        "date": "2026-11-03T21:49:54.7770000"
+      }
     },
     "ORD_1793742368_99443784": {
       "order_id": "ORD_1793742368_99443784",
@@ -212646,8 +212661,16 @@
       "last_name": "Skeleton",
       "username": "TillallRone",
       "first_seen": 1793742083,
-      "last_seen": 1793742083,
-      "purchases": []
+      "last_seen": 1793742668,
+      "purchases": [
+        {
+          "key": "AZ3M-D75B-0A28-3C04",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793742670,
+          "days": 90
+        }
+      ]
     },
     "8643950174": {
       "user_id": 8643950174,
@@ -212710,6 +212733,15 @@
       "username": "S_o_m_67",
       "first_seen": 1793742619,
       "last_seen": 1793742619,
+      "purchases": []
+    },
+    "286540377": {
+      "user_id": 286540377,
+      "first_name": "♪♫•*¨*•.¸¸❤HAMED ❤¸¸.•*¨*•♫♪ 👁",
+      "last_name": "",
+      "username": "h_0921",
+      "first_seen": 1793742651,
+      "last_seen": 1793742651,
       "purchases": []
     }
   },
