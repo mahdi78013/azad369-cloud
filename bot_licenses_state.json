@@ -12230,6 +12230,18 @@
       "user_id": 93075983,
       "issued_at": 1793695903,
       "method": "crypto_unique"
+    },
+    "AZ1Y-3F41-8853-111C": {
+      "plan": "1Y",
+      "user_id": 71734217,
+      "issued_at": 1793696384,
+      "method": "crypto_unique"
+    },
+    "AN1Y-C20F-AA21-6516": {
+      "plan": "AN1Y",
+      "user_id": 71734217,
+      "issued_at": 1793696384,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -107566,9 +107578,20 @@
       "tron_amount": 4.651548,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_47c1bde63d18434a8a63bac1cf677d11",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=47c1bde63d18434a8a63bac1cf677d11",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793695817
+      "created_at": 1793695817,
+      "key_win": "AZ1Y-3F41-8853-111C",
+      "key_and": "AN1Y-C20F-AA21-6516",
+      "approved_at": 1793696384,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-3F41-8853-111C\nاندروید: AN1Y-C20F-AA21-6516",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3067213",
+        "tron_amount": 4.651548,
+        "user_paid_toman": null,
+        "date": "2026-11-03T08:57:14.5000000"
+      }
     },
     "TRND-AN3M-34287365-1793695819-bc3248": {
       "order_id": "TRND-AN3M-34287365-1793695819-bc3248",
@@ -177499,7 +177522,22 @@
       "username": "Roustaei_iieco",
       "first_seen": 1793694144,
       "last_seen": 1793696336,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-3F41-8853-111C",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793696384,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-C20F-AA21-6516",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793696384,
+          "days": 365
+        }
+      ]
     },
     "762364279": {
       "user_id": 762364279,
@@ -178208,7 +178246,7 @@
       "last_name": "",
       "username": "Mostafaheydari67",
       "first_seen": 1793696060,
-      "last_seen": 1793696060,
+      "last_seen": 1793696368,
       "purchases": []
     },
     "6869010585": {
