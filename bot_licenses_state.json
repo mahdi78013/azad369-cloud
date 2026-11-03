@@ -13880,6 +13880,12 @@
       "user_id": 5216698771,
       "issued_at": 1793731516,
       "method": "crypto_unique"
+    },
+    "AN3M-39E0-3883-22E9": {
+      "plan": "AN3M",
+      "user_id": 1378177331,
+      "issued_at": 1793731547,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -121465,12 +121471,15 @@
       "first_name": "My Name Is No Name",
       "plan_code": "AN3M",
       "price": "۱۴۹,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAECNHtq6irhWnNoem8I_U8Ks3OpcMKKXwACag9rG2aCUVO0w84uDSey6QEAAwIAA3kAAz0E",
       "card_number": "5892101706458979",
       "created_at": 1793731340,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1793731547,
+      "approved_by": 748538264,
+      "key": "AN3M-39E0-3883-22E9"
     },
     "TRND-AN3M-8465668950-1793731392-8754de": {
       "order_id": "TRND-AN3M-8465668950-1793731392-8754de",
@@ -122210,7 +122219,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "Mahdi780111",
-      "last_seen": 1793731178,
+      "last_seen": 1793731546,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -203568,7 +203577,15 @@
       "username": "",
       "first_seen": 1793729948,
       "last_seen": 1793731126,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-39E0-3883-22E9",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793731547,
+          "days": 90
+        }
+      ]
     },
     "7554868721": {
       "user_id": 7554868721,
@@ -204202,6 +204219,15 @@
       "first_seen": 1793731507,
       "last_seen": 1793731507,
       "purchases": []
+    },
+    "6978051399": {
+      "user_id": 6978051399,
+      "first_name": "Davood",
+      "last_name": "",
+      "username": "D_avood_kh",
+      "first_seen": 1793731533,
+      "last_seen": 1793731533,
+      "purchases": []
     }
   },
   "user_states": {
@@ -204595,11 +204621,6 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793218587
-    },
-    "306374307": {
-      "state": "awaiting_receipt",
-      "plan_code": "AN2M",
-      "time": 1793222812
     },
     "7443580447": {
       "state": "awaiting_receipt",
