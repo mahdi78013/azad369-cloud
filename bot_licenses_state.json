@@ -11900,6 +11900,12 @@
       "user_id": 5989468487,
       "issued_at": 1793690755,
       "method": "crypto_unique"
+    },
+    "AZ1Y-4048-3255-7777": {
+      "plan": "1Y",
+      "user_id": 220630785,
+      "issued_at": 1793690756,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -105152,9 +105158,18 @@
       "tron_amount": 3.732209,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_618950c6198f483884fd2b4a4f6e5141",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=618950c6198f483884fd2b4a4f6e5141",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793690552
+      "created_at": 1793690552,
+      "approved_at": 1793690756,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-4048-3255-7777",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3066527",
+        "tron_amount": 3.732209,
+        "user_paid_toman": null,
+        "date": "2026-11-03T07:25:46.8400000"
+      }
     },
     "TRND-AN3M-553767230-1793690709-e71a4e": {
       "order_id": "TRND-AN3M-553767230-1793690709-e71a4e",
@@ -173240,7 +173255,15 @@
       "username": "saeed_soleimani",
       "first_seen": 1793690518,
       "last_seen": 1793690518,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-4048-3255-7777",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793690756,
+          "days": 365
+        }
+      ]
     },
     "311907217": {
       "user_id": 311907217,
@@ -173330,6 +173353,24 @@
       "username": "Majidpana",
       "first_seen": 1793690740,
       "last_seen": 1793690740,
+      "purchases": []
+    },
+    "1004062645": {
+      "user_id": 1004062645,
+      "first_name": "H",
+      "last_name": "Ahadi",
+      "username": "Hosseinahadi58",
+      "first_seen": 1793690789,
+      "last_seen": 1793690789,
+      "purchases": []
+    },
+    "25025127": {
+      "user_id": 25025127,
+      "first_name": "M",
+      "last_name": "B",
+      "username": "MehdiBehdad",
+      "first_seen": 1793690795,
+      "last_seen": 1793690795,
       "purchases": []
     }
   },
