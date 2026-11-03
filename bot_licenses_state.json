@@ -12884,6 +12884,18 @@
       "user_id": 27210222,
       "issued_at": 1793708797,
       "method": "crypto_unique"
+    },
+    "AZ1Y-BDE3-3054-06DC": {
+      "plan": "1Y",
+      "user_id": 135428090,
+      "issued_at": 1793708978,
+      "method": "crypto_unique"
+    },
+    "AN1Y-DE63-F9CF-C47F": {
+      "plan": "AN1Y",
+      "user_id": 135428090,
+      "issued_at": 1793708978,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -113255,9 +113267,20 @@
       "tron_amount": 4.644225,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_2675c607db584b6fa2982a63cb204fec",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2675c607db584b6fa2982a63cb204fec",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793708857
+      "created_at": 1793708857,
+      "key_win": "AZ1Y-BDE3-3054-06DC",
+      "key_and": "AN1Y-DE63-F9CF-C47F",
+      "approved_at": 1793708978,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-BDE3-3054-06DC\nاندروید: AN1Y-DE63-F9CF-C47F",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3069026",
+        "tron_amount": 4.644225,
+        "user_paid_toman": null,
+        "date": "2026-11-03T12:29:21.4000000"
+      }
     }
   },
   "users": {
@@ -183164,7 +183187,7 @@
       "last_name": "",
       "username": "benimsbb",
       "first_seen": 1793694166,
-      "last_seen": 1793707955,
+      "last_seen": 1793708918,
       "purchases": [
         {
           "key": "AN3M-22AA6961-9B29-B2D546",
@@ -188091,7 +188114,22 @@
       "username": "majidcode",
       "first_seen": 1793707592,
       "last_seen": 1793708855,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-BDE3-3054-06DC",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793708978,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-DE63-F9CF-C47F",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793708978,
+          "days": 365
+        }
+      ]
     },
     "91495691": {
       "user_id": 91495691,
@@ -189173,6 +189211,11 @@
       "state": "awaiting_receipt",
       "plan_code": "2M",
       "time": 1793707607
+    },
+    "7623936328": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN3M",
+      "time": 1793708964
     }
   },
   "admin_states": {},
