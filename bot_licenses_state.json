@@ -12842,6 +12842,12 @@
       "user_id": 7225153073,
       "issued_at": 1793707731,
       "method": "crypto_unique"
+    },
+    "AN3M-024C-0AAC-FE4D": {
+      "plan": "AN3M",
+      "user_id": 6980193556,
+      "issued_at": 1793707890,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -112759,9 +112765,18 @@
       "tron_amount": 1.336059,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_31670052c71f4c6da8f1b78180b8941c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=31670052c71f4c6da8f1b78180b8941c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793707617
+      "created_at": 1793707617,
+      "approved_at": 1793707890,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-024C-0AAC-FE4D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3068894",
+        "tron_amount": 1.336059,
+        "user_paid_toman": null,
+        "date": "2026-11-03T12:11:11.7730000"
+      }
     },
     "TRND-AN3M-72685723-1793707624-2d1b85": {
       "order_id": "TRND-AN3M-72685723-1793707624-2d1b85",
@@ -112920,6 +112935,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793707779
+    },
+    "TRND-AN3M-7623936328-1793707855-202cb8": {
+      "order_id": "TRND-AN3M-7623936328-1793707855-202cb8",
+      "token": "04402356623842fe88e417400f8a4a6a",
+      "user_id": 7623936328,
+      "first_name": "Mohamad",
+      "username": "benimsbb",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.344999,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_04402356623842fe88e417400f8a4a6a",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=04402356623842fe88e417400f8a4a6a",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793707855
+    },
+    "TRND-AN3M-7623936328-1793707864-88c4ee": {
+      "order_id": "TRND-AN3M-7623936328-1793707864-88c4ee",
+      "token": "e92862fcf8434c05b34a9011b77715b4",
+      "user_id": 7623936328,
+      "first_name": "Mohamad",
+      "username": "benimsbb",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.362881,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_e92862fcf8434c05b34a9011b77715b4",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e92862fcf8434c05b34a9011b77715b4",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793707864
     }
   },
   "users": {
@@ -182786,7 +182833,7 @@
       "last_name": "",
       "username": "Roustaei_iieco",
       "first_seen": 1793694144,
-      "last_seen": 1793697954,
+      "last_seen": 1793707836,
       "purchases": [
         {
           "key": "AZ1Y-3F41-8853-111C",
@@ -187692,8 +187739,16 @@
       "last_name": "",
       "username": "Rvin888",
       "first_seen": 1793707553,
-      "last_seen": 1793707553,
-      "purchases": []
+      "last_seen": 1793707889,
+      "purchases": [
+        {
+          "key": "AN3M-024C-0AAC-FE4D",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793707890,
+          "days": 90
+        }
+      ]
     },
     "261529052": {
       "user_id": 261529052,
@@ -187792,6 +187847,15 @@
       "username": "",
       "first_seen": 1793707806,
       "last_seen": 1793707806,
+      "purchases": []
+    },
+    "5427861529": {
+      "user_id": 5427861529,
+      "first_name": "ali nasiri",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793707866,
+      "last_seen": 1793707866,
       "purchases": []
     }
   },
@@ -188511,11 +188575,6 @@
       "state": "awaiting_receipt",
       "plan_code": "2M",
       "time": 1793707607
-    },
-    "7623936328": {
-      "state": "awaiting_receipt",
-      "plan_code": "AN3M",
-      "time": 1793707716
     }
   },
   "admin_states": {},
