@@ -13592,6 +13592,18 @@
       "user_id": 280280521,
       "issued_at": 1793724341,
       "method": "crypto_unique"
+    },
+    "AZ1Y-93E7-D6EB-A0E0": {
+      "plan": "1Y",
+      "user_id": 93570872,
+      "issued_at": 1793724602,
+      "method": "crypto_unique"
+    },
+    "AN1Y-3C1A-7AB9-0D1A": {
+      "plan": "AN1Y",
+      "user_id": 93570872,
+      "issued_at": 1793724602,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -116903,9 +116915,20 @@
       "tron_amount": 4.645493,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_70f4bbe80b104f90b64f341677c005a3",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=70f4bbe80b104f90b64f341677c005a3",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793718573
+      "created_at": 1793718573,
+      "key_win": "AZ1Y-93E7-D6EB-A0E0",
+      "key_and": "AN1Y-3C1A-7AB9-0D1A",
+      "approved_at": 1793724602,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-93E7-D6EB-A0E0\nاندروید: AN1Y-3C1A-7AB9-0D1A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3071275",
+        "tron_amount": 4.645493,
+        "user_paid_toman": null,
+        "date": "2026-11-03T16:49:40.7000000"
+      }
     },
     "TRND-AN3M-936403210-1793718616-797fba": {
       "order_id": "TRND-AN3M-936403210-1793718616-797fba",
@@ -197312,8 +197335,23 @@
       "last_name": "",
       "username": "MA_Sh17",
       "first_seen": 1793718542,
-      "last_seen": 1793718542,
-      "purchases": []
+      "last_seen": 1793724600,
+      "purchases": [
+        {
+          "key": "AZ1Y-93E7-D6EB-A0E0",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793724602,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-3C1A-7AB9-0D1A",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793724602,
+          "days": 365
+        }
+      ]
     },
     "936403210": {
       "user_id": 936403210,
@@ -199035,7 +199073,7 @@
       "last_name": "Ajop",
       "username": "",
       "first_seen": 1793724233,
-      "last_seen": 1793724233,
+      "last_seen": 1793724595,
       "purchases": []
     },
     "122382446": {
@@ -199863,8 +199901,8 @@
     },
     "8432639321": {
       "state": "awaiting_receipt",
-      "plan_code": "AN2M",
-      "time": 1793724445
+      "plan_code": "AN1M",
+      "time": 1793724599
     }
   },
   "admin_states": {},
