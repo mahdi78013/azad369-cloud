@@ -13382,6 +13382,18 @@
       "user_id": 123621691,
       "issued_at": 1793719165,
       "method": "crypto_unique"
+    },
+    "AZ1Y-8664-EA48-6A6C": {
+      "plan": "1Y",
+      "user_id": 111823156,
+      "issued_at": 1793719291,
+      "method": "crypto_unique"
+    },
+    "AN1Y-1E62-D247-2824": {
+      "plan": "AN1Y",
+      "user_id": 111823156,
+      "issued_at": 1793719291,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -116583,9 +116595,20 @@
       "tron_amount": 4.640252,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_921ca47518fb4d589e05dbaaf4e280b5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=921ca47518fb4d589e05dbaaf4e280b5",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793718041
+      "created_at": 1793718041,
+      "key_win": "AZ1Y-8664-EA48-6A6C",
+      "key_and": "AN1Y-1E62-D247-2824",
+      "approved_at": 1793719291,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-8664-EA48-6A6C\nاندروید: AN1Y-1E62-D247-2824",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3070370",
+        "tron_amount": 4.640252,
+        "user_paid_toman": null,
+        "date": "2026-11-03T15:21:21.2130000"
+      }
     },
     "TRND-AN3M-257568384-1793718164-433515": {
       "order_id": "TRND-AN3M-257568384-1793718164-433515",
@@ -116871,6 +116894,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793719025
+    },
+    "TRND-AN3M-7485102230-1793719181-ad85eb": {
+      "order_id": "TRND-AN3M-7485102230-1793719181-ad85eb",
+      "token": "4fe9698cb9d54e93b3caa30014d6f530",
+      "user_id": 7485102230,
+      "first_name": "Ashkan",
+      "username": "ندارد",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.364527,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_4fe9698cb9d54e93b3caa30014d6f530",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4fe9698cb9d54e93b3caa30014d6f530",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793719181
     }
   },
   "users": {
@@ -139619,7 +139658,7 @@
       "last_name": "",
       "username": "naderws",
       "first_seen": 1792946996,
-      "last_seen": 1792946996,
+      "last_seen": 1793719180,
       "purchases": [],
       "blocked": true
     },
@@ -180489,7 +180528,22 @@
       "username": "chapetoulo",
       "first_seen": 1793674825,
       "last_seen": 1793717950,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-8664-EA48-6A6C",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793719291,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-1E62-D247-2824",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793719291,
+          "days": 365
+        }
+      ]
     },
     "5409092371": {
       "user_id": 5409092371,
@@ -187088,7 +187142,7 @@
       "last_name": "",
       "username": "Morteza007000",
       "first_seen": 1793694490,
-      "last_seen": 1793709228,
+      "last_seen": 1793719213,
       "purchases": [
         {
           "key": "AN3M-5065-137F-77B9",
@@ -195484,6 +195538,33 @@
       "username": "Autotp",
       "first_seen": 1793719134,
       "last_seen": 1793719134,
+      "purchases": []
+    },
+    "716231309": {
+      "user_id": 716231309,
+      "first_name": "A",
+      "last_name": "M.sh",
+      "username": "",
+      "first_seen": 1793719189,
+      "last_seen": 1793719189,
+      "purchases": []
+    },
+    "7393879440": {
+      "user_id": 7393879440,
+      "first_name": "طاها",
+      "last_name": "",
+      "username": "tahabavnd",
+      "first_seen": 1793719252,
+      "last_seen": 1793719252,
+      "purchases": []
+    },
+    "8807759558": {
+      "user_id": 8807759558,
+      "first_name": "ARMIN",
+      "last_name": "",
+      "username": "aymaan5696",
+      "first_seen": 1793719253,
+      "last_seen": 1793719253,
       "purchases": []
     }
   },
