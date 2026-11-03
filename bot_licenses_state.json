@@ -14144,6 +14144,12 @@
       "user_id": 8727665928,
       "issued_at": 1793737160,
       "method": "crypto_unique"
+    },
+    "AN3M-7BF9-DFE4-965A": {
+      "plan": "AN3M",
+      "user_id": 7341885497,
+      "issued_at": 1793737164,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -99510,9 +99516,10 @@
       "tron_amount": 4.727713,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c63bc7dae09f4a26909700ea869b0c7f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c63bc7dae09f4a26909700ea869b0c7f",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793650482
+      "created_at": 1793650482,
+      "cancelled_at": 1793737232
     },
     "TRND-AN3M-63910696-1793650492-e44f65": {
       "order_id": "TRND-AN3M-63910696-1793650492-e44f65",
@@ -123522,9 +123529,10 @@
       "tron_amount": 1.347603,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_66a99713004b4dac8ae5b06137fceae3",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=66a99713004b4dac8ae5b06137fceae3",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793735568
+      "created_at": 1793735568,
+      "cancelled_at": 1793737189
     },
     "TRND-AN3M-359794791-1793735594-e2ad23": {
       "order_id": "TRND-AN3M-359794791-1793735594-e2ad23",
@@ -124047,9 +124055,10 @@
       "tron_amount": 1.343777,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6a7567de078845c7a608e1e88e64aeaf",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6a7567de078845c7a608e1e88e64aeaf",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793736635
+      "created_at": 1793736635,
+      "cancelled_at": 1793737202
     },
     "TRND-VIP1Y-35617705-1793736638-d09873": {
       "order_id": "TRND-VIP1Y-35617705-1793736638-d09873",
@@ -124079,9 +124088,10 @@
       "tron_amount": 1.354887,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_2bc0c7fe1f3d463c8bce0f584e508e9d",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2bc0c7fe1f3d463c8bce0f584e508e9d",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793736746
+      "created_at": 1793736746,
+      "cancelled_at": 1793737204
     },
     "TRND-VIP1Y-188675965-1793736756-09dfc0": {
       "order_id": "TRND-VIP1Y-188675965-1793736756-09dfc0",
@@ -124203,9 +124213,18 @@
       "tron_amount": 1.348418,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4ebab2cdc03c4fcca1b088c8f120deeb",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4ebab2cdc03c4fcca1b088c8f120deeb",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793737034
+      "created_at": 1793737034,
+      "approved_at": 1793737164,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-7BF9-DFE4-965A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3074390",
+        "tron_amount": 1.348418,
+        "user_paid_toman": null,
+        "date": "2026-11-03T20:19:03.7600000"
+      }
     },
     "TRND-3M-1868636603-1793737061-f14b8e": {
       "order_id": "TRND-3M-1868636603-1793737061-f14b8e",
@@ -208423,7 +208442,7 @@
       "last_name": "Poursadigh",
       "username": "Houmi66",
       "first_seen": 1793735463,
-      "last_seen": 1793736397,
+      "last_seen": 1793737245,
       "purchases": [
         {
           "key": "AN3M-9050-4E1A-CF43",
@@ -208446,7 +208465,12 @@
           "issued_at": 1793737160,
           "days": 90
         }
-      ]
+      ],
+      "last_admin_reply": {
+        "text": "📢 بروزرسانی اضطراری «اینترنت آزاد³⁶⁹»\n\n🔹 جهت بهبود پایداری، رفع اختلالات اتصال و ارتقای کیفیت شبکه، نسخه جدید 1.0.1 منتشر شد.\n\n🛠 تغییرات این نسخه:\n• رفع مشکل اتصال در برخی شهرها: رفع خطای تایم‌اوت ناشی از اختلالات اینترنت همراه (ایرانسل و همراه اول)\n\n• رفع گیر کردن دکمه اتصال: حل مشکل قفل شدن دکمه در وضعیت «در حال قطع / وصل»\n\n• افزایش سرعت اتصال اولیه و پایداری در پس‌زمینه\n\n@MUNTiVPN 🔷 اینترنت آزاد برای همه",
+        "time": 1793737242,
+        "by_admin": 748538264
+      }
     },
     "5949218588": {
       "user_id": 5949218588,
@@ -208928,7 +208952,15 @@
       "username": "Mmasoomi1386",
       "first_seen": 1793736957,
       "last_seen": 1793736957,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-7BF9-DFE4-965A",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793737164,
+          "days": 90
+        }
+      ]
     },
     "111966996": {
       "user_id": 111966996,
@@ -208991,6 +209023,51 @@
       "username": "",
       "first_seen": 1793737136,
       "last_seen": 1793737136,
+      "purchases": []
+    },
+    "7234754233": {
+      "user_id": 7234754233,
+      "first_name": "Mehrdad",
+      "last_name": "Sadri",
+      "username": "Miterdad",
+      "first_seen": 1793737161,
+      "last_seen": 1793737161,
+      "purchases": []
+    },
+    "8420595272": {
+      "user_id": 8420595272,
+      "first_name": "𝐹𝒶𝓇𝒽𝒶𝒹",
+      "last_name": "",
+      "username": "Farhad_Farhadi99",
+      "first_seen": 1793737161,
+      "last_seen": 1793737161,
+      "purchases": []
+    },
+    "8057770099": {
+      "user_id": 8057770099,
+      "first_name": "-pouya",
+      "last_name": "",
+      "username": "pouyaroumi",
+      "first_seen": 1793737187,
+      "last_seen": 1793737187,
+      "purchases": []
+    },
+    "255047117": {
+      "user_id": 255047117,
+      "first_name": "Ali76._.97",
+      "last_name": "",
+      "username": "EzioAuditore_97",
+      "first_seen": 1793737209,
+      "last_seen": 1793737209,
+      "purchases": []
+    },
+    "5307108044": {
+      "user_id": 5307108044,
+      "first_name": "Mehdi",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793737230,
+      "last_seen": 1793737230,
       "purchases": []
     }
   },
@@ -209720,11 +209797,6 @@
       "state": "awaiting_receipt",
       "plan_code": "3M",
       "time": 1793735693
-    },
-    "8727665928": {
-      "state": "awaiting_receipt",
-      "plan_code": "AN3M",
-      "time": 1793736078
     },
     "5949218588": {
       "state": "awaiting_receipt",
