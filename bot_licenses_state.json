@@ -13262,6 +13262,12 @@
       "user_id": 9174199521,
       "issued_at": 1793715741,
       "method": "crypto_unique"
+    },
+    "AN3M-52C47A19-10A3-E305C4": {
+      "plan": "AN3M",
+      "user_id": 8407651901,
+      "issued_at": 1793715871,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -115317,9 +115323,10 @@
       "tron_amount": 4.643432,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_70e639b079c640eb8362f9e52eb53260",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=70e639b079c640eb8362f9e52eb53260",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793714272
+      "created_at": 1793714272,
+      "cancelled_at": 1793715863
     },
     "TRND-AN3M-8360274080-1793714296-bcc2af": {
       "order_id": "TRND-AN3M-8360274080-1793714296-bcc2af",
@@ -115666,9 +115673,18 @@
       "tron_amount": 1.361123,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4a019b5f62814b08aa968b70781743e1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4a019b5f62814b08aa968b70781743e1",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793715490
+      "created_at": 1793715490,
+      "approved_at": 1793715871,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-52C47A19-10A3-E305C4",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3069842",
+        "tron_amount": 1.361123,
+        "user_paid_toman": null,
+        "date": "2026-11-03T14:23:41.4600000"
+      }
     },
     "TRND-AN3M-501373622-1793715531-fdf017": {
       "order_id": "TRND-AN3M-501373622-1793715531-fdf017",
@@ -174332,8 +174348,16 @@
       "last_name": "rashed",
       "username": "",
       "first_seen": 1793649692,
-      "last_seen": 1793715438,
-      "purchases": []
+      "last_seen": 1793715868,
+      "purchases": [
+        {
+          "key": "AN3M-52C47A19-10A3-E305C4",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793715871,
+          "days": 90
+        }
+      ]
     },
     "6174976698": {
       "user_id": 6174976698,
