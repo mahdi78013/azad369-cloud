@@ -89666,9 +89666,10 @@
       "tron_amount": 4.74287,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_99dd14daf7df46d896159092b8df4626",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=99dd14daf7df46d896159092b8df4626",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793606452
+      "created_at": 1793606452,
+      "cancelled_at": 1793693067
     },
     "TRND-AN2M-215110679-1793606822-18dff0": {
       "order_id": "TRND-AN2M-215110679-1793606822-18dff0",
@@ -105691,9 +105692,10 @@
       "tron_amount": 1.349018,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a08023d8ec59405b9a308e48ba8039c6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a08023d8ec59405b9a308e48ba8039c6",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793691540
+      "created_at": 1793691540,
+      "cancelled_at": 1793693033
     },
     "TRND-3M-1706866285-1793691550-ff3bcf": {
       "order_id": "TRND-3M-1706866285-1793691550-ff3bcf",
@@ -106259,6 +106261,20 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793692991
+    },
+    "ORD_1793693092_5640396718": {
+      "order_id": "ORD_1793693092_5640396718",
+      "user_id": 5640396718,
+      "username": "Saeed_Sultani",
+      "first_name": "Saeed",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAECEJZq6ZWjWB5czn58Rs522nHk_UwolAACIg9rG6DlSFPZ-Xkyy6LvzAEAAwIAA3kAAz0E",
+      "card_number": "5047061670546072",
+      "created_at": 1793693092,
+      "caption": ""
     }
   },
   "users": {
@@ -174912,7 +174928,7 @@
       "last_name": "Sultani",
       "username": "Saeed_Sultani",
       "first_seen": 1793691701,
-      "last_seen": 1793692474,
+      "last_seen": 1793693042,
       "purchases": [
         {
           "key": "AN3M-7A59-E370-53B8",
@@ -175425,6 +175441,42 @@
       "username": "Yd6guv",
       "first_seen": 1793692987,
       "last_seen": 1793692987,
+      "purchases": []
+    },
+    "970221252": {
+      "user_id": 970221252,
+      "first_name": "ali,behesht",
+      "last_name": "",
+      "username": "Alibehesht123",
+      "first_seen": 1793693070,
+      "last_seen": 1793693070,
+      "purchases": []
+    },
+    "367059697": {
+      "user_id": 367059697,
+      "first_name": "سید محمود",
+      "last_name": "",
+      "username": "Laelahaellahooo",
+      "first_seen": 1793693080,
+      "last_seen": 1793693080,
+      "purchases": []
+    },
+    "708699470": {
+      "user_id": 708699470,
+      "first_name": "M.Kazemifard",
+      "last_name": "@DinosParkBot",
+      "username": "MKazemifard",
+      "first_seen": 1793693087,
+      "last_seen": 1793693087,
+      "purchases": []
+    },
+    "5748177174": {
+      "user_id": 5748177174,
+      "first_name": "A",
+      "last_name": "K",
+      "username": "AhmadGhadiry",
+      "first_seen": 1793693088,
+      "last_seen": 1793693088,
       "purchases": []
     }
   },
@@ -176079,17 +176131,22 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793692446
+    },
+    "5640396718": {
+      "state": "awaiting_receipt",
+      "plan_code": "3M",
+      "time": 1793693042
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 3,
+    "count": 4,
     "threshold": 10,
     "stats": {
       "5892101706458979": 100,
-      "5047061670546072": 93
+      "5047061670546072": 94
     }
   },
   "maintenance": {
