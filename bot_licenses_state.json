@@ -14504,6 +14504,12 @@
       "user_id": 8637236051,
       "issued_at": 1793744381,
       "method": "crypto_unique"
+    },
+    "AZ3M-7041-CC48-440C": {
+      "plan": "3M",
+      "user_id": 740725538,
+      "issued_at": 1793744634,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -102576,9 +102582,10 @@
       "tron_amount": 1.368451,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ce0389876b91464eb471f898175b44aa",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ce0389876b91464eb471f898175b44aa",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793657933
+      "created_at": 1793657933,
+      "cancelled_at": 1793744503
     },
     "TRND-AN3M-5499095862-1793657957-f75ef9": {
       "order_id": "TRND-AN3M-5499095862-1793657957-f75ef9",
@@ -126993,6 +127000,47 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793744353
+    },
+    "TRND-VIP1Y-8039869533-1793744491-3a66ae": {
+      "order_id": "TRND-VIP1Y-8039869533-1793744491-3a66ae",
+      "token": "6491983a86404cad840e6b9cad920646",
+      "user_id": 8039869533,
+      "first_name": "مهدی",
+      "username": "King_of_hearts_2050",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.631145,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_6491983a86404cad840e6b9cad920646",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6491983a86404cad840e6b9cad920646",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793744491
+    },
+    "TRND-3M-740725538-1793744548-e2db31": {
+      "order_id": "TRND-3M-740725538-1793744548-e2db31",
+      "token": "1d9374b54b1e496499fe0b1cc30d9918",
+      "user_id": 740725538,
+      "first_name": "Arian",
+      "username": "arianamini",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.348785,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_1d9374b54b1e496499fe0b1cc30d9918",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1d9374b54b1e496499fe0b1cc30d9918",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793744548,
+      "approved_at": 1793744634,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-7041-CC48-440C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3075356",
+        "tron_amount": 1.348785,
+        "user_paid_toman": null,
+        "date": "2026-11-03T22:23:41.8400000"
+      }
     }
   },
   "users": {
@@ -213669,6 +213717,41 @@
       "first_seen": 1793744443,
       "last_seen": 1793744443,
       "purchases": []
+    },
+    "91523533": {
+      "user_id": 91523533,
+      "first_name": "N",
+      "last_name": "R",
+      "username": "Nimarahmati",
+      "first_seen": 1793744499,
+      "last_seen": 1793744499,
+      "purchases": []
+    },
+    "9107816964": {
+      "user_id": 9107816964,
+      "first_name": "Bit",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793744532,
+      "last_seen": 1793744532,
+      "purchases": []
+    },
+    "740725538": {
+      "user_id": 740725538,
+      "first_name": "Arian",
+      "last_name": "Amini",
+      "username": "arianamini",
+      "first_seen": 1793744539,
+      "last_seen": 1793744539,
+      "purchases": [
+        {
+          "key": "AZ3M-7041-CC48-440C",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793744634,
+          "days": 90
+        }
+      ]
     }
   },
   "user_states": {
