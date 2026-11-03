@@ -14420,6 +14420,12 @@
       "user_id": 99443784,
       "issued_at": 1793742454,
       "method": "crypto_unique"
+    },
+    "AN3M-1B2C-73B0-37BF": {
+      "plan": "AN3M",
+      "user_id": 61806202,
+      "issued_at": 1793742595,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -101616,9 +101622,10 @@
       "tron_amount": 1.35955,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_208e8a1fe6514f118648394c25029899",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=208e8a1fe6514f118648394c25029899",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793655795
+      "created_at": 1793655795,
+      "cancelled_at": 1793742482
     },
     "TRND-VIP1Y-5728012596-1793655822-1fde39": {
       "order_id": "TRND-VIP1Y-5728012596-1793655822-1fde39",
@@ -101632,9 +101639,10 @@
       "tron_amount": 4.705945,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_8492094df21d42bea843691acccca37e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8492094df21d42bea843691acccca37e",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793655822
+      "created_at": 1793655822,
+      "cancelled_at": 1793742482
     },
     "TRND-1Y-5728012596-1793655852-718eb1": {
       "order_id": "TRND-1Y-5728012596-1793655852-718eb1",
@@ -126350,9 +126358,18 @@
       "tron_amount": 1.354585,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_98bec36a6b6c49b689860551d43add78",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=98bec36a6b6c49b689860551d43add78",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793742025
+      "created_at": 1793742025,
+      "approved_at": 1793742595,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-1B2C-73B0-37BF",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3075168",
+        "tron_amount": 1.354585,
+        "user_paid_toman": null,
+        "date": "2026-11-03T21:48:59.5770000"
+      }
     },
     "TRND-AN3M-8564830738-1793742045-fa6f16": {
       "order_id": "TRND-AN3M-8564830738-1793742045-fa6f16",
@@ -126429,6 +126446,22 @@
       "card_number": "5892101706458979",
       "created_at": 1793742369,
       "caption": ""
+    },
+    "TRND-AN3M-257165938-1793742478-7efcf6": {
+      "order_id": "TRND-AN3M-257165938-1793742478-7efcf6",
+      "token": "1095ed189835468884e7eff101a8f81b",
+      "user_id": 257165938,
+      "first_name": "امیر",
+      "username": "ندارد",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.342416,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_1095ed189835468884e7eff101a8f81b",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1095ed189835468884e7eff101a8f81b",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793742478
     }
   },
   "users": {
@@ -206320,8 +206353,16 @@
       "last_name": "Jahedi",
       "username": "Pedram194",
       "first_seen": 1793722187,
-      "last_seen": 1793742023,
-      "purchases": []
+      "last_seen": 1793742593,
+      "purchases": [
+        {
+          "key": "AN3M-1B2C-73B0-37BF",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793742595,
+          "days": 90
+        }
+      ]
     },
     "7555356199": {
       "user_id": 7555356199,
@@ -212569,7 +212610,7 @@
       "last_name": "",
       "username": "Frzad7F",
       "first_seen": 1793741969,
-      "last_seen": 1793741969,
+      "last_seen": 1793742554,
       "purchases": []
     },
     "492978218": {
@@ -212623,7 +212664,7 @@
       "last_name": "پرهام",
       "username": "",
       "first_seen": 1793742157,
-      "last_seen": 1793742157,
+      "last_seen": 1793742469,
       "purchases": []
     },
     "6305174805": {
