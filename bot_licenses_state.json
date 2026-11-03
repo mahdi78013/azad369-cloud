@@ -14198,6 +14198,18 @@
       "user_id": 1551777809,
       "issued_at": 1793737922,
       "method": "crypto_unique"
+    },
+    "AZ1Y-A27A-39D5-449E": {
+      "plan": "1Y",
+      "user_id": 102445010,
+      "issued_at": 1793737982,
+      "method": "crypto_unique"
+    },
+    "AN1Y-5E00-2951-FDCB": {
+      "plan": "AN1Y",
+      "user_id": 102445010,
+      "issued_at": 1793737982,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -123969,9 +123981,10 @@
       "tron_amount": 1.357109,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_33b33bc5da674706b5811fa440cf75d9",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=33b33bc5da674706b5811fa440cf75d9",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793736460
+      "created_at": 1793736460,
+      "cancelled_at": 1793737975
     },
     "TRND-AN3M-7095260969-1793736483-0ddd47": {
       "order_id": "TRND-AN3M-7095260969-1793736483-0ddd47",
@@ -124256,9 +124269,20 @@
       "tron_amount": 4.616653,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e7b9a9a04100403b8f65a5cfe0be0ba0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e7b9a9a04100403b8f65a5cfe0be0ba0",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793736994
+      "created_at": 1793736994,
+      "key_win": "AZ1Y-A27A-39D5-449E",
+      "key_and": "AN1Y-5E00-2951-FDCB",
+      "approved_at": 1793737982,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-A27A-39D5-449E\nاندروید: AN1Y-5E00-2951-FDCB",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3074382",
+        "tron_amount": 4.616653,
+        "user_paid_toman": null,
+        "date": "2026-11-03T20:29:45.8030000"
+      }
     },
     "TRND-AN3M-7341885497-1793737034-f74e38": {
       "order_id": "TRND-AN3M-7341885497-1793737034-f74e38",
@@ -185217,7 +185241,22 @@
       "username": "r96000",
       "first_seen": 1793655009,
       "last_seen": 1793737378,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-A27A-39D5-449E",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793737982,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-5E00-2951-FDCB",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793737982,
+          "days": 365
+        }
+      ]
     },
     "77318295": {
       "user_id": 77318295,
