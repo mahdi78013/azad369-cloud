@@ -12644,6 +12644,12 @@
       "user_id": 257174724,
       "issued_at": 1793703992,
       "method": "crypto_unique"
+    },
+    "AZ3M-9975-BE45-89CA": {
+      "plan": "3M",
+      "user_id": 94323270,
+      "issued_at": 1793704060,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -111094,9 +111100,18 @@
       "tron_amount": 1.35558,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5b8532c974b44a92ac720635008636e7",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5b8532c974b44a92ac720635008636e7",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793703853
+      "created_at": 1793703853,
+      "approved_at": 1793704060,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-9975-BE45-89CA",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3068341",
+        "tron_amount": 1.35558,
+        "user_paid_toman": null,
+        "date": "2026-11-03T11:06:26.5800000"
+      }
     },
     "ORD_1793703985_257174724": {
       "order_id": "ORD_1793703985_257174724",
@@ -111111,6 +111126,38 @@
       "card_number": "5892101706458979",
       "created_at": 1793703986,
       "caption": ""
+    },
+    "TRND-AN3M-75129759-1793704019-333904": {
+      "order_id": "TRND-AN3M-75129759-1793704019-333904",
+      "token": "427b9f88a22c42f28b4d214e860b5102",
+      "user_id": 75129759,
+      "first_name": "اسماعیلی",
+      "username": "ashena0001",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.34961,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_427b9f88a22c42f28b4d214e860b5102",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=427b9f88a22c42f28b4d214e860b5102",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793704019
+    },
+    "TRND-VIP1Y-5577076624-1793704022-169e7d": {
+      "order_id": "TRND-VIP1Y-5577076624-1793704022-169e7d",
+      "token": "6cb8bc5a353145d9bcbbff7c9169ab1e",
+      "user_id": 5577076624,
+      "first_name": "αквαя_нαsяαтιαη",
+      "username": "SEPEHR_RICE",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.649586,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_6cb8bc5a353145d9bcbbff7c9169ab1e",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6cb8bc5a353145d9bcbbff7c9169ab1e",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793704022
     }
   },
   "users": {
@@ -184575,7 +184622,7 @@
       "last_name": "",
       "username": "ashena0001",
       "first_seen": 1793703701,
-      "last_seen": 1793703701,
+      "last_seen": 1793704018,
       "purchases": []
     },
     "7627210741": {
@@ -184612,7 +184659,15 @@
       "username": "Dossfxxamm",
       "first_seen": 1793703799,
       "last_seen": 1793703799,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-9975-BE45-89CA",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793704060,
+          "days": 90
+        }
+      ]
     },
     "5624298994": {
       "user_id": 5624298994,
@@ -184666,6 +184721,33 @@
       "username": "Amirreeeeza",
       "first_seen": 1793703989,
       "last_seen": 1793703989,
+      "purchases": []
+    },
+    "6054504393": {
+      "user_id": 6054504393,
+      "first_name": ".",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793704010,
+      "last_seen": 1793704010,
+      "purchases": []
+    },
+    "639295829": {
+      "user_id": 639295829,
+      "first_name": "Mohammad",
+      "last_name": "",
+      "username": "mohammad24km",
+      "first_seen": 1793704015,
+      "last_seen": 1793704015,
+      "purchases": []
+    },
+    "5640861160": {
+      "user_id": 5640861160,
+      "first_name": "Majid",
+      "last_name": "",
+      "username": "Majid9294",
+      "first_seen": 1793704049,
+      "last_seen": 1793704049,
       "purchases": []
     }
   },
