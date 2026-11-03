@@ -11912,6 +11912,12 @@
       "user_id": 88025779,
       "issued_at": 1793690979,
       "method": "crypto_unique"
+    },
+    "AZ3M-704A-A666-E8E5": {
+      "plan": "3M",
+      "user_id": 2028525535,
+      "issued_at": 1793691199,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -104960,9 +104966,10 @@
       "tron_amount": 1.35448,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_07ae8170aa6c45de8526a089a81507ae",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=07ae8170aa6c45de8526a089a81507ae",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793689783
+      "created_at": 1793689783,
+      "cancelled_at": 1793691196
     },
     "TRND-AN3M-642941843-1793689836-faabc9": {
       "order_id": "TRND-AN3M-642941843-1793689836-faabc9",
@@ -105276,9 +105283,18 @@
       "tron_amount": 1.353225,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_0cf46978d0cc47788839ee637c20f183",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0cf46978d0cc47788839ee637c20f183",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793690896
+      "created_at": 1793690896,
+      "approved_at": 1793691199,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-704A-A666-E8E5",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3066565",
+        "tron_amount": 1.353225,
+        "user_paid_toman": null,
+        "date": "2026-11-03T07:31:05.1770000"
+      }
     },
     "TRND-AN3M-91588096-1793690913-955b46": {
       "order_id": "TRND-AN3M-91588096-1793690913-955b46",
@@ -173417,8 +173433,16 @@
       "last_name": "Nouri",
       "username": "Mohammad_Nouri21",
       "first_seen": 1793690600,
-      "last_seen": 1793690600,
-      "purchases": []
+      "last_seen": 1793691198,
+      "purchases": [
+        {
+          "key": "AZ3M-704A-A666-E8E5",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793691199,
+          "days": 90
+        }
+      ]
     },
     "80720602": {
       "user_id": 80720602,
