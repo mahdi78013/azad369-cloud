@@ -13580,6 +13580,12 @@
       "user_id": 1493074712,
       "issued_at": 1793724241,
       "method": "crypto_unique"
+    },
+    "AZ3M-D5F9-951C-9E9A": {
+      "plan": "3M",
+      "user_id": 412782141,
+      "issued_at": 1793724323,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -94797,9 +94803,10 @@
       "tron_amount": 4.68845,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f887a319dec24c6dbafa02ccafab4847",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f887a319dec24c6dbafa02ccafab4847",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793637604
+      "created_at": 1793637604,
+      "cancelled_at": 1793724267
     },
     "TRND-VIP1Y-160215036-1793637731-9762c6": {
       "order_id": "TRND-VIP1Y-160215036-1793637731-9762c6",
@@ -94840,9 +94847,10 @@
       "tron_amount": 4.683935,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_21894d30956b4816b8f6dc3151787e78",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=21894d30956b4816b8f6dc3151787e78",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793637747
+      "created_at": 1793637747,
+      "cancelled_at": 1793724267
     },
     "TRND-2M-5964706121-1793637880-a929e6": {
       "order_id": "TRND-2M-5964706121-1793637880-a929e6",
@@ -118673,9 +118681,18 @@
       "tron_amount": 1.354272,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_cfaad2a3e6c749c3ae40eec917e613ff",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=cfaad2a3e6c749c3ae40eec917e613ff",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793724131
+      "created_at": 1793724131,
+      "approved_at": 1793724323,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-D5F9-951C-9E9A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3071162",
+        "tron_amount": 1.354272,
+        "user_paid_toman": null,
+        "date": "2026-11-03T16:45:06.8870000"
+      }
     },
     "TRND-AN1Y-7960495868-1793724238-4ec792": {
       "order_id": "TRND-AN1Y-7960495868-1793724238-4ec792",
@@ -118692,6 +118709,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793724238
+    },
+    "TRND-AN3M-6081200159-1793724246-759ea4": {
+      "order_id": "TRND-AN3M-6081200159-1793724246-759ea4",
+      "token": "d396ac1460034a139a344abc31ea3d6c",
+      "user_id": 6081200159,
+      "first_name": "Jafar",
+      "username": "ندارد",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.349808,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_d396ac1460034a139a344abc31ea3d6c",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d396ac1460034a139a344abc31ea3d6c",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793724246
+    },
+    "TRND-3M-122382446-1793724319-8ae649": {
+      "order_id": "TRND-3M-122382446-1793724319-8ae649",
+      "token": "f4552e96108f4c43b6530a69a7963d82",
+      "user_id": 122382446,
+      "first_name": "M.Javad",
+      "username": "JaFazeli",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.355388,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_f4552e96108f4c43b6530a69a7963d82",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f4552e96108f4c43b6530a69a7963d82",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793724319
     }
   },
   "users": {
@@ -198847,7 +198896,15 @@
       "username": "farzadkarimi133",
       "first_seen": 1793724129,
       "last_seen": 1793724129,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-D5F9-951C-9E9A",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793724323,
+          "days": 90
+        }
+      ]
     },
     "7773371822": {
       "user_id": 7773371822,
@@ -198892,6 +198949,60 @@
       "username": "",
       "first_seen": 1793724233,
       "last_seen": 1793724233,
+      "purchases": []
+    },
+    "122382446": {
+      "user_id": 122382446,
+      "first_name": "M.Javad",
+      "last_name": "Fazeli",
+      "username": "JaFazeli",
+      "first_seen": 1793724263,
+      "last_seen": 1793724263,
+      "purchases": []
+    },
+    "8935297626": {
+      "user_id": 8935297626,
+      "first_name": "م",
+      "last_name": "",
+      "username": "Sirus_2239",
+      "first_seen": 1793724273,
+      "last_seen": 1793724273,
+      "purchases": []
+    },
+    "6694720208": {
+      "user_id": 6694720208,
+      "first_name": "a",
+      "last_name": "njd",
+      "username": "",
+      "first_seen": 1793724281,
+      "last_seen": 1793724281,
+      "purchases": []
+    },
+    "669518282": {
+      "user_id": 669518282,
+      "first_name": "PáR§A",
+      "last_name": "",
+      "username": "parsazela",
+      "first_seen": 1793724293,
+      "last_seen": 1793724293,
+      "purchases": []
+    },
+    "8828325484": {
+      "user_id": 8828325484,
+      "first_name": "Hafez",
+      "last_name": "",
+      "username": "Hafez136576",
+      "first_seen": 1793724303,
+      "last_seen": 1793724303,
+      "purchases": []
+    },
+    "6292258308": {
+      "user_id": 6292258308,
+      "first_name": "Forexer",
+      "last_name": "",
+      "username": "Forexer20",
+      "first_seen": 1793724322,
+      "last_seen": 1793724322,
       "purchases": []
     }
   },
@@ -199030,11 +199141,6 @@
       "state": "awaiting_receipt",
       "plan_code": "1M",
       "time": 1791968917
-    },
-    "778251347": {
-      "state": "awaiting_receipt",
-      "plan_code": "1M",
-      "time": 1791969004
     },
     "334282902": {
       "state": "awaiting_receipt",
