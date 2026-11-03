@@ -12092,6 +12092,12 @@
       "user_id": 33201477,
       "issued_at": 1793693391,
       "method": "crypto_unique"
+    },
+    "AN3M-72CB-E540-315F": {
+      "plan": "AN3M",
+      "user_id": 69912504,
+      "issued_at": 1793693740,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -106501,9 +106507,18 @@
       "tron_amount": 1.341176,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_62e2a57b78e84398b7a5f4a0fc014fb0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=62e2a57b78e84398b7a5f4a0fc014fb0",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793693513
+      "created_at": 1793693513,
+      "approved_at": 1793693740,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-72CB-E540-315F",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3066892",
+        "tron_amount": 1.341176,
+        "user_paid_toman": null,
+        "date": "2026-11-03T08:15:01.9430000"
+      }
     },
     "TRND-VIP1Y-7422178791-1793693533-9a694f": {
       "order_id": "TRND-VIP1Y-7422178791-1793693533-9a694f",
@@ -171709,7 +171724,15 @@
       "username": "e_jeloudar",
       "first_seen": 1793682128,
       "last_seen": 1793693491,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-72CB-E540-315F",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793693740,
+          "days": 90
+        }
+      ]
     },
     "727682885": {
       "user_id": 727682885,
