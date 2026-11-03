@@ -13250,6 +13250,12 @@
       "user_id": 6756288726,
       "issued_at": 1793715649,
       "method": "crypto_unique"
+    },
+    "AN3M-BDC0-2E4A-5115": {
+      "plan": "AN3M",
+      "user_id": 501373622,
+      "issued_at": 1793715726,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -115670,9 +115676,18 @@
       "tron_amount": 1.356658,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5bf6a4734c1c464d9fae6071daccb983",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5bf6a4734c1c464d9fae6071daccb983",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793715531
+      "created_at": 1793715531,
+      "approved_at": 1793715726,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-BDC0-2E4A-5115",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3069846",
+        "tron_amount": 1.356658,
+        "user_paid_toman": null,
+        "date": "2026-11-03T14:21:15.2700000"
+      }
     },
     "TRND-AN1Y-24628273-1793715573-b73dde": {
       "order_id": "TRND-AN1Y-24628273-1793715573-b73dde",
@@ -169823,7 +169838,7 @@
       "last_name": "",
       "username": "mrim5458",
       "first_seen": 1793635546,
-      "last_seen": 1793715107,
+      "last_seen": 1793715712,
       "purchases": [
         {
           "key": "AN3M-B4E2-1BAF-34AD",
@@ -181846,6 +181861,13 @@
           "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
           "issued_at": 1793684860,
           "days": 90
+        },
+        {
+          "key": "AN3M-BDC0-2E4A-5115",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793715726,
+          "days": 90
         }
       ]
     },
@@ -193170,6 +193192,15 @@
       "username": "Allfor2",
       "first_seen": 1793715611,
       "last_seen": 1793715611,
+      "purchases": []
+    },
+    "7760183806": {
+      "user_id": 7760183806,
+      "first_name": "Amirhosaien20",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793715718,
+      "last_seen": 1793715718,
       "purchases": []
     }
   },
