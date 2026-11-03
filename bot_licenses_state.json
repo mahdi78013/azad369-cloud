@@ -13232,6 +13232,12 @@
       "user_id": 8229646335,
       "issued_at": 1793715109,
       "method": "crypto_unique"
+    },
+    "AN3M-D204-0205-C1D0": {
+      "plan": "AN3M",
+      "user_id": 40479010,
+      "issued_at": 1793715191,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -115471,9 +115477,18 @@
       "tron_amount": 1.34469,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_cf0fa423d5c34df1b0192a07387ddbe9",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=cf0fa423d5c34df1b0192a07387ddbe9",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793714811
+      "created_at": 1793714811,
+      "approved_at": 1793715191,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-D204-0205-C1D0",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3069751",
+        "tron_amount": 1.34469,
+        "user_paid_toman": null,
+        "date": "2026-11-03T14:09:36.5330000"
+      }
     },
     "TRND-AN3M-8699785657-1793714934-6b6fd9": {
       "order_id": "TRND-AN3M-8699785657-1793714934-6b6fd9",
@@ -115568,6 +115583,22 @@
       "card_number": "5047061670546072",
       "created_at": 1793715078,
       "caption": ""
+    },
+    "TRND-3M-95973426-1793715168-a28058": {
+      "order_id": "TRND-3M-95973426-1793715168-a28058",
+      "token": "42fe57f1b7ca4fd59ad314ade7606e8b",
+      "user_id": 95973426,
+      "first_name": "ғคгรђค๔",
+      "username": "only_s",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.35232,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_42fe57f1b7ca4fd59ad314ade7606e8b",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=42fe57f1b7ca4fd59ad314ade7606e8b",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793715168
     }
   },
   "users": {
@@ -192701,7 +192732,15 @@
       "username": "Mr_Saaman",
       "first_seen": 1793714748,
       "last_seen": 1793715076,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-D204-0205-C1D0",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793715191,
+          "days": 90
+        }
+      ]
     },
     "1506680966": {
       "user_id": 1506680966,
@@ -192836,6 +192875,42 @@
       "username": "Mohsenh2468",
       "first_seen": 1793715042,
       "last_seen": 1793715042,
+      "purchases": []
+    },
+    "107399579": {
+      "user_id": 107399579,
+      "first_name": "Ramin",
+      "last_name": "",
+      "username": "SharifRamin",
+      "first_seen": 1793715142,
+      "last_seen": 1793715142,
+      "purchases": []
+    },
+    "6181461705": {
+      "user_id": 6181461705,
+      "first_name": "محمد️",
+      "last_name": "",
+      "username": "Yuka1390",
+      "first_seen": 1793715148,
+      "last_seen": 1793715148,
+      "purchases": []
+    },
+    "40143229": {
+      "user_id": 40143229,
+      "first_name": "𝓑𝓪𝓱𝓻𝓪𝓶.𝓰",
+      "last_name": "",
+      "username": "Bahram_ga",
+      "first_seen": 1793715186,
+      "last_seen": 1793715186,
+      "purchases": []
+    },
+    "213896340": {
+      "user_id": 213896340,
+      "first_name": "mostafa",
+      "last_name": "b",
+      "username": "bashirimostafa",
+      "first_seen": 1793715187,
+      "last_seen": 1793715187,
       "purchases": []
     }
   },
