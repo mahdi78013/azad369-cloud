@@ -11876,6 +11876,12 @@
       "user_id": 355087872,
       "issued_at": 1793690367,
       "method": "crypto_unique"
+    },
+    "AN3M-5790-CEA3-2911": {
+      "plan": "AN3M",
+      "user_id": 819497574,
+      "issued_at": 1793690526,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -104797,9 +104803,18 @@
       "tron_amount": 1.354713,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4066bf68b431472282cb4c694485142a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4066bf68b431472282cb4c694485142a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793689460
+      "created_at": 1793689460,
+      "approved_at": 1793690526,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-5790-CEA3-2911",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3066429",
+        "tron_amount": 1.354713,
+        "user_paid_toman": null,
+        "date": "2026-11-03T07:20:48.1730000"
+      }
     },
     "TRND-AN3M-8184104893-1793689534-f6a192": {
       "order_id": "TRND-AN3M-8184104893-1793689534-f6a192",
@@ -105069,6 +105084,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793690439
+    },
+    "TRND-3M-5989468487-1793690465-a9f89a": {
+      "order_id": "TRND-3M-5989468487-1793690465-a9f89a",
+      "token": "61dd385f087a418d8ecab14856b5d61c",
+      "user_id": 5989468487,
+      "first_name": "vpntop85",
+      "username": "Vpntop85",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.363757,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_61dd385f087a418d8ecab14856b5d61c",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=61dd385f087a418d8ecab14856b5d61c",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793690465
     }
   },
   "users": {
@@ -168682,7 +168713,15 @@
       "username": "",
       "first_seen": 1793675523,
       "last_seen": 1793689415,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-5790-CEA3-2911",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793690526,
+          "days": 90
+        }
+      ]
     },
     "8595139174": {
       "user_id": 8595139174,
@@ -172946,7 +172985,7 @@
       "last_name": "",
       "username": "Vpntop85",
       "first_seen": 1793690088,
-      "last_seen": 1793690088,
+      "last_seen": 1793690453,
       "purchases": []
     },
     "5731944508": {
@@ -173055,6 +173094,51 @@
       "username": "saeed_dadkhaah",
       "first_seen": 1793690426,
       "last_seen": 1793690426,
+      "purchases": []
+    },
+    "8891030520": {
+      "user_id": 8891030520,
+      "first_name": "milad",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793690483,
+      "last_seen": 1793690483,
+      "purchases": []
+    },
+    "112830125": {
+      "user_id": 112830125,
+      "first_name": "Danial",
+      "last_name": "Ghn",
+      "username": "Danialghn73",
+      "first_seen": 1793690507,
+      "last_seen": 1793690507,
+      "purchases": []
+    },
+    "8810190802": {
+      "user_id": 8810190802,
+      "first_name": ".‌",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793690513,
+      "last_seen": 1793690513,
+      "purchases": []
+    },
+    "220630785": {
+      "user_id": 220630785,
+      "first_name": "Saeed",
+      "last_name": "Soleimani",
+      "username": "saeed_soleimani",
+      "first_seen": 1793690518,
+      "last_seen": 1793690518,
+      "purchases": []
+    },
+    "311907217": {
+      "user_id": 311907217,
+      "first_name": "ALI",
+      "last_name": "",
+      "username": "AliiKaramii",
+      "first_seen": 1793690520,
+      "last_seen": 1793690520,
       "purchases": []
     }
   },
