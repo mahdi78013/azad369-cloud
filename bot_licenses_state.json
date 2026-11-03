@@ -13424,6 +13424,12 @@
       "user_id": 636910130,
       "issued_at": 1793720345,
       "method": "crypto_unique"
+    },
+    "AN3M-48E2-1A1B-42B6": {
+      "plan": "AN3M",
+      "user_id": 636910130,
+      "issued_at": 1793720655,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -117312,9 +117318,18 @@
       "tron_amount": 1.351587,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_cfc426c4ec2448fb98eeb685000b86a1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=cfc426c4ec2448fb98eeb685000b86a1",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793720546
+      "created_at": 1793720546,
+      "approved_at": 1793720655,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-48E2-1A1B-42B6",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3070589",
+        "tron_amount": 1.351587,
+        "user_paid_toman": null,
+        "date": "2026-11-03T15:43:55.5070000"
+      }
     }
   },
   "users": {
@@ -190541,7 +190556,7 @@
       "last_name": "",
       "username": "Mo112233000",
       "first_seen": 1793701996,
-      "last_seen": 1793701996,
+      "last_seen": 1793720635,
       "purchases": []
     },
     "963520515": {
@@ -196120,13 +196135,20 @@
       "last_name": "",
       "username": "Ebadati_Official",
       "first_seen": 1793719957,
-      "last_seen": 1793720273,
+      "last_seen": 1793720653,
       "purchases": [
         {
           "key": "AZ3M-7695-265C-4DB5",
           "plan": "3M",
           "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
           "issued_at": 1793720345,
+          "days": 90
+        },
+        {
+          "key": "AN3M-48E2-1A1B-42B6",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793720655,
           "days": 90
         }
       ]
@@ -196315,6 +196337,24 @@
       "username": "mohse70n",
       "first_seen": 1793720440,
       "last_seen": 1793720440,
+      "purchases": []
+    },
+    "513125130": {
+      "user_id": 513125130,
+      "first_name": "Ib",
+      "last_name": "Balo",
+      "username": "Bl78i",
+      "first_seen": 1793720607,
+      "last_seen": 1793720607,
+      "purchases": []
+    },
+    "5615923079": {
+      "user_id": 5615923079,
+      "first_name": "Mehran_",
+      "last_name": "Tarabi",
+      "username": "mehran_tarabi",
+      "first_seen": 1793720638,
+      "last_seen": 1793720638,
       "purchases": []
     }
   },
