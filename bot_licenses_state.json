@@ -12764,6 +12764,12 @@
       "user_id": 99880729,
       "issued_at": 1793705987,
       "method": "crypto_unique"
+    },
+    "AZ3M-F569-2BB0-DB95": {
+      "plan": "3M",
+      "user_id": 6199503452,
+      "issued_at": 1793706046,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -111895,9 +111901,18 @@
       "tron_amount": 1.344316,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_20bb2441241e46e88d7e6a1ec2737e82",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=20bb2441241e46e88d7e6a1ec2737e82",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793705280
+      "created_at": 1793705280,
+      "approved_at": 1793706046,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-F569-2BB0-DB95",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3068561",
+        "tron_amount": 1.344316,
+        "user_paid_toman": null,
+        "date": "2026-11-03T11:40:13.4070000"
+      }
     },
     "TRND-3M-95839279-1793705428-f7d8e2": {
       "order_id": "TRND-3M-95839279-1793705428-f7d8e2",
@@ -185877,8 +185892,16 @@
       "last_name": "",
       "username": "Rashidisaber",
       "first_seen": 1793704296,
-      "last_seen": 1793705026,
-      "purchases": []
+      "last_seen": 1793706044,
+      "purchases": [
+        {
+          "key": "AZ3M-F569-2BB0-DB95",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793706046,
+          "days": 90
+        }
+      ]
     },
     "1088048712": {
       "user_id": 1088048712,
@@ -186406,6 +186429,24 @@
       "username": "Farda61",
       "first_seen": 1793705981,
       "last_seen": 1793705981,
+      "purchases": []
+    },
+    "757581308": {
+      "user_id": 757581308,
+      "first_name": "PAYA",
+      "last_name": "Computer",
+      "username": "paya_computer",
+      "first_seen": 1793706037,
+      "last_seen": 1793706037,
+      "purchases": []
+    },
+    "5928544967": {
+      "user_id": 5928544967,
+      "first_name": "Cheshm",
+      "last_name": "",
+      "username": "Cheshm01",
+      "first_seen": 1793706038,
+      "last_seen": 1793706038,
       "purchases": []
     }
   },
