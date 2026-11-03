@@ -94281,9 +94281,10 @@
       "tron_amount": 1.366747,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5cd2784ed17c44fc84d0133e0d2644a5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5cd2784ed17c44fc84d0133e0d2644a5",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793636272
+      "created_at": 1793636272,
+      "cancelled_at": 1793723063
     },
     "TRND-2M-5191809077-1793636315-b9ee61": {
       "order_id": "TRND-2M-5191809077-1793636315-b9ee61",
@@ -94339,9 +94340,10 @@
       "tron_amount": 3.755308,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1ad77cb964024752a276600d2492dbcd",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1ad77cb964024752a276600d2492dbcd",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793636490
+      "created_at": 1793636490,
+      "cancelled_at": 1793723063
     },
     "TRND-AN2M-8104983539-1793636572-a60077": {
       "order_id": "TRND-AN2M-8104983539-1793636572-a60077",
@@ -118350,6 +118352,20 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793723018
+    },
+    "ORD_1793723091_110437003": {
+      "order_id": "ORD_1793723091_110437003",
+      "user_id": 110437003,
+      "username": "MEHR70",
+      "first_name": "Mehr",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAECLKBq6gqp9bSumXCnwylIO_GGgQ4I8QACeA9rG6OPUFP3I9hnqlm7PQEAAwIAA3kAAz0E",
+      "card_number": "5892101706458979",
+      "created_at": 1793723092,
+      "caption": ""
     }
   },
   "users": {
@@ -198054,7 +198070,7 @@
       "last_name": "",
       "username": "MEHR70",
       "first_seen": 1793722387,
-      "last_seen": 1793722735,
+      "last_seen": 1793723049,
       "purchases": []
     },
     "848054285": {
@@ -198946,16 +198962,21 @@
       "state": "awaiting_receipt",
       "plan_code": "1Y",
       "time": 1793721942
+    },
+    "110437003": {
+      "state": "awaiting_receipt",
+      "plan_code": "3M",
+      "time": 1793723066
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 0,
+    "count": 1,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 110,
+      "5892101706458979": 111,
       "5047061670546072": 110
     }
   },
