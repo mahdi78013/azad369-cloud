@@ -11498,6 +11498,12 @@
       "user_id": 103049656,
       "issued_at": 1793681401,
       "method": "crypto_unique"
+    },
+    "AZ3M-C2F0-4DFB-7F18": {
+      "plan": "3M",
+      "user_id": 1270890728,
+      "issued_at": 1793681645,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -102115,9 +102121,18 @@
       "tron_amount": 1.361299,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_7e1124a540404359be1a1afa2e31ad27",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7e1124a540404359be1a1afa2e31ad27",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793681445
+      "created_at": 1793681445,
+      "approved_at": 1793681645,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-C2F0-4DFB-7F18",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3065662",
+        "tron_amount": 1.361299,
+        "user_paid_toman": null,
+        "date": "2026-11-03T04:53:19.0800000"
+      }
     },
     "TRND-VIP1Y-133513902-1793681475-57a087": {
       "order_id": "TRND-VIP1Y-133513902-1793681475-57a087",
@@ -166680,7 +166695,15 @@
       "username": "Ialirzaw1",
       "first_seen": 1793681133,
       "last_seen": 1793681444,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-C2F0-4DFB-7F18",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793681645,
+          "days": 90
+        }
+      ]
     },
     "512830332": {
       "user_id": 512830332,
@@ -166869,6 +166892,33 @@
       "username": "ojlu17",
       "first_seen": 1793681493,
       "last_seen": 1793681493,
+      "purchases": []
+    },
+    "5154125361": {
+      "user_id": 5154125361,
+      "first_name": "Mohammad",
+      "last_name": "",
+      "username": "ohammad455",
+      "first_seen": 1793681575,
+      "last_seen": 1793681575,
+      "purchases": []
+    },
+    "1452958671": {
+      "user_id": 1452958671,
+      "first_name": "giahpezeshk",
+      "last_name": "",
+      "username": "mrgiahpezeshk",
+      "first_seen": 1793681581,
+      "last_seen": 1793681581,
+      "purchases": []
+    },
+    "6606598485": {
+      "user_id": 6606598485,
+      "first_name": "ＡＭＩＲ",
+      "last_name": "",
+      "username": "AMORYG",
+      "first_seen": 1793681624,
+      "last_seen": 1793681624,
       "purchases": []
     }
   },
