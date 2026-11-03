@@ -14012,6 +14012,12 @@
       "user_id": 5777406437,
       "issued_at": 1793734842,
       "method": "crypto_unique"
+    },
+    "AZ3M-B810-F072-07D9": {
+      "plan": "3M",
+      "user_id": 80969689,
+      "issued_at": 1793734984,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -123076,9 +123082,18 @@
       "tron_amount": 1.355775,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1650f1326b074d2983eca0dab6892fab",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1650f1326b074d2983eca0dab6892fab",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793734732
+      "created_at": 1793734732,
+      "approved_at": 1793734984,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-B810-F072-07D9",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3073873",
+        "tron_amount": 1.355775,
+        "user_paid_toman": null,
+        "date": "2026-11-03T19:42:27.7930000"
+      }
     },
     "TRND-AN3M-80989841-1793734801-2e92bf": {
       "order_id": "TRND-AN3M-80989841-1793734801-2e92bf",
@@ -123095,6 +123110,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793734801
+    },
+    "TRND-AN1Y-30676661-1793734937-0ceb15": {
+      "order_id": "TRND-AN1Y-30676661-1793734937-0ceb15",
+      "token": "3d32d4bb77304a2abf55e58e45893b24",
+      "user_id": 30676661,
+      "first_name": "Sistanpey",
+      "username": "Sistanpey1",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.696557,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_3d32d4bb77304a2abf55e58e45893b24",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3d32d4bb77304a2abf55e58e45893b24",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793734937
+    },
+    "TRND-VIP1Y-30676661-1793734953-a3b7f5": {
+      "order_id": "TRND-VIP1Y-30676661-1793734953-a3b7f5",
+      "token": "089a1794f5ca4e078b0dd172e3bceaa9",
+      "user_id": 30676661,
+      "first_name": "Sistanpey",
+      "username": "Sistanpey1",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.617453,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_089a1794f5ca4e078b0dd172e3bceaa9",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=089a1794f5ca4e078b0dd172e3bceaa9",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793734953
     }
   },
   "users": {
@@ -206380,7 +206427,15 @@
       "username": "MOTAHHARIN",
       "first_seen": 1793732897,
       "last_seen": 1793734720,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-B810-F072-07D9",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793734984,
+          "days": 90
+        }
+      ]
     },
     "117213071": {
       "user_id": 117213071,
@@ -207029,6 +207084,51 @@
       "username": "FS_MAN",
       "first_seen": 1793734845,
       "last_seen": 1793734845,
+      "purchases": []
+    },
+    "7071034768": {
+      "user_id": 7071034768,
+      "first_name": "Da. A",
+      "last_name": "ariyan",
+      "username": "Aliariyan60",
+      "first_seen": 1793734895,
+      "last_seen": 1793734895,
+      "purchases": []
+    },
+    "30676661": {
+      "user_id": 30676661,
+      "first_name": "Sistanpey",
+      "last_name": "",
+      "username": "Sistanpey1",
+      "first_seen": 1793734919,
+      "last_seen": 1793734919,
+      "purchases": []
+    },
+    "274772199": {
+      "user_id": 274772199,
+      "first_name": "kiamars",
+      "last_name": "hosseini sarani",
+      "username": "",
+      "first_seen": 1793734923,
+      "last_seen": 1793734923,
+      "purchases": []
+    },
+    "60683187": {
+      "user_id": 60683187,
+      "first_name": "Mehdi",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793734975,
+      "last_seen": 1793734975,
+      "purchases": []
+    },
+    "5575200894": {
+      "user_id": 5575200894,
+      "first_name": "𝑨𝒆𝒕𝒉𝒆𝒓",
+      "last_name": "",
+      "username": "DreaMVeiI",
+      "first_seen": 1793734982,
+      "last_seen": 1793734982,
       "purchases": []
     }
   },
