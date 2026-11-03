@@ -13142,6 +13142,12 @@
       "user_id": 621503898,
       "issued_at": 1793711903,
       "method": "crypto_unique"
+    },
+    "AZ1Y-F0E1-DC26-57F7": {
+      "plan": "1Y",
+      "user_id": 621503898,
+      "issued_at": 1793711919,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -114407,12 +114413,15 @@
       "first_name": "Али",
       "plan_code": "1Y",
       "price": "۳۹۹,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAECIwpq6d0HjabQBFvaKkp-FcEj_xzLIwACyg9rG_6SUVPO1KShiobjsQEAAwIAA3kAAz0E",
       "card_number": "5047061670546072",
       "created_at": 1793711369,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1793711919,
+      "approved_by": 748538264,
+      "key": "AZ1Y-F0E1-DC26-57F7"
     },
     "TRND-3M-80940026-1793711375-b2367d": {
       "order_id": "TRND-3M-80940026-1793711375-b2367d",
@@ -114544,6 +114553,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793711734
+    },
+    "TRND-AN3M-1045631342-1793711905-23c31e": {
+      "order_id": "TRND-AN3M-1045631342-1793711905-23c31e",
+      "token": "e55bd98af0db4d5b855b6bca0096ae09",
+      "user_id": 1045631342,
+      "first_name": "N",
+      "username": "ندارد",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.354357,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_e55bd98af0db4d5b855b6bca0096ae09",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e55bd98af0db4d5b855b6bca0096ae09",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793711905
     }
   },
   "users": {
@@ -190606,6 +190631,13 @@
           "plan": "AN1Y",
           "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
           "issued_at": 1793711903,
+          "days": 365
+        },
+        {
+          "key": "AZ1Y-F0E1-DC26-57F7",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793711919,
           "days": 365
         }
       ]
