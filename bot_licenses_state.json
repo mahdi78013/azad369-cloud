@@ -12026,6 +12026,12 @@
       "user_id": 6524417695,
       "issued_at": 1793692255,
       "method": "crypto_unique"
+    },
+    "AN3M-17EB-504A-C6D7": {
+      "plan": "AN3M",
+      "user_id": 5640396718,
+      "issued_at": 1793692477,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -105869,9 +105875,18 @@
       "tron_amount": 1.347056,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_87318007d664474b9dee9bc978e39dd1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=87318007d664474b9dee9bc978e39dd1",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793692162
+      "created_at": 1793692162,
+      "approved_at": 1793692477,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-17EB-504A-C6D7",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3066723",
+        "tron_amount": 1.347056,
+        "user_paid_toman": null,
+        "date": "2026-11-03T07:53:39.0230000"
+      }
     },
     "TRND-AN3M-68104432-1793692171-2697da": {
       "order_id": "TRND-AN3M-68104432-1793692171-2697da",
@@ -174605,8 +174620,16 @@
       "last_name": "Sultani",
       "username": "Saeed_Sultani",
       "first_seen": 1793691701,
-      "last_seen": 1793692161,
-      "purchases": []
+      "last_seen": 1793692474,
+      "purchases": [
+        {
+          "key": "AN3M-17EB-504A-C6D7",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793692477,
+          "days": 90
+        }
+      ]
     },
     "100362927": {
       "user_id": 100362927,
@@ -174900,6 +174923,24 @@
       "username": "Sajad_Naeeini",
       "first_seen": 1793692428,
       "last_seen": 1793692428,
+      "purchases": []
+    },
+    "7202358267": {
+      "user_id": 7202358267,
+      "first_name": "卂爪丨尺",
+      "last_name": "",
+      "username": "Amir09_20",
+      "first_seen": 1793692460,
+      "last_seen": 1793692460,
+      "purchases": []
+    },
+    "403259683": {
+      "user_id": 403259683,
+      "first_name": "丂卂爪ㄩ尺卂丨",
+      "last_name": "",
+      "username": "SKRad",
+      "first_seen": 1793692468,
+      "last_seen": 1793692468,
       "purchases": []
     }
   },
@@ -175555,10 +175596,10 @@
       "plan_code": "AN3M",
       "time": 1793691071
     },
-    "133301835": {
+    "77535059": {
       "state": "awaiting_receipt",
-      "plan_code": "AN3M",
-      "time": 1793692446
+      "plan_code": "AN1Y",
+      "time": 1793692454
     }
   },
   "admin_states": {},
