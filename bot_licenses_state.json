@@ -11612,6 +11612,12 @@
       "user_id": 1325051607,
       "issued_at": 1793685038,
       "method": "crypto_unique"
+    },
+    "AN3M-A617-7F79-A999": {
+      "plan": "AN3M",
+      "user_id": 404132374,
+      "issued_at": 1793685273,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -103079,9 +103085,18 @@
       "tron_amount": 1.3541,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b9e01804e9e84274968d7aeab5307996",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b9e01804e9e84274968d7aeab5307996",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793684790
+      "created_at": 1793684790,
+      "approved_at": 1793685273,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-A617-7F79-A999",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3065919",
+        "tron_amount": 1.3541,
+        "user_paid_toman": null,
+        "date": "2026-11-03T05:51:13.0430000"
+      }
     },
     "TRND-AN1Y-427039023-1793684810-4bfd23": {
       "order_id": "TRND-AN1Y-427039023-1793684810-4bfd23",
@@ -169053,7 +169068,15 @@
       "username": "mrft221",
       "first_seen": 1793684763,
       "last_seen": 1793685169,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-A617-7F79-A999",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793685273,
+          "days": 90
+        }
+      ]
     },
     "795569151": {
       "user_id": 795569151,
@@ -169278,6 +169301,24 @@
       "username": "Torkashvandalireza",
       "first_seen": 1793685204,
       "last_seen": 1793685204,
+      "purchases": []
+    },
+    "1858219939": {
+      "user_id": 1858219939,
+      "first_name": "Masoud",
+      "last_name": "Havayi",
+      "username": "Masoud_havayi",
+      "first_seen": 1793685240,
+      "last_seen": 1793685240,
+      "purchases": []
+    },
+    "46732932": {
+      "user_id": 46732932,
+      "first_name": "<<</\\)2/\\$}{>>>",
+      "last_name": "",
+      "username": "Arash_1759",
+      "first_seen": 1793685250,
+      "last_seen": 1793685250,
       "purchases": []
     }
   },
