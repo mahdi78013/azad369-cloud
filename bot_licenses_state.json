@@ -13358,6 +13358,12 @@
       "user_id": 864288166,
       "issued_at": 1793718262,
       "method": "crypto_unique"
+    },
+    "AN3M-4021992B-F7B2-D36350": {
+      "plan": "AN3M",
+      "user_id": 257568384,
+      "issued_at": 1793718310,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -93212,9 +93218,10 @@
       "tron_amount": 0.806556,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3d8f6fe7342e4467929c40c1f6ed390d",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3d8f6fe7342e4467929c40c1f6ed390d",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793631817
+      "created_at": 1793631817,
+      "cancelled_at": 1793718289
     },
     "TRND-AN2M-89828395-1793631837-caf2b9": {
       "order_id": "TRND-AN2M-89828395-1793631837-caf2b9",
@@ -116571,9 +116578,18 @@
       "tron_amount": 1.366609,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b4e27ff7cc45437db457a3f3ec5b938a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b4e27ff7cc45437db457a3f3ec5b938a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793718164
+      "created_at": 1793718164,
+      "approved_at": 1793718310,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-4021992B-F7B2-D36350",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3070228",
+        "tron_amount": 1.366609,
+        "user_paid_toman": null,
+        "date": "2026-11-03T15:04:39.9670000"
+      }
     }
   },
   "users": {
@@ -188903,7 +188919,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793699908,
-      "last_seen": 1793700250,
+      "last_seen": 1793718264,
       "purchases": [
         {
           "key": "AZ1Y-6269-8FB5-E089",
@@ -194787,7 +194803,15 @@
       "username": "Behnamsharbati",
       "first_seen": 1793717830,
       "last_seen": 1793718156,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-4021992B-F7B2-D36350",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793718310,
+          "days": 90
+        }
+      ]
     },
     "9184853885": {
       "user_id": 9184853885,
