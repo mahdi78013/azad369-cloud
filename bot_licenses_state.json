@@ -12434,6 +12434,12 @@
       "user_id": 6114376632,
       "issued_at": 1793699714,
       "method": "crypto_unique"
+    },
+    "AN3M-D609-B416-9A8E": {
+      "plan": "AN3M",
+      "user_id": 7845417669,
+      "issued_at": 1793699793,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -109170,9 +109176,18 @@
       "tron_amount": 1.358241,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_055ee380c8964301b89f92f7e9bd6fdd",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=055ee380c8964301b89f92f7e9bd6fdd",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793699503
+      "created_at": 1793699503,
+      "approved_at": 1793699793,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-D609-B416-9A8E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3067693",
+        "tron_amount": 1.358241,
+        "user_paid_toman": null,
+        "date": "2026-11-03T09:55:49.4870000"
+      }
     },
     "TRND-AN3M-378751737-1793699523-602ef9": {
       "order_id": "TRND-AN3M-378751737-1793699523-602ef9",
@@ -180754,7 +180769,7 @@
       "last_name": "Parhizkar",
       "username": "ataparhizkar",
       "first_seen": 1793698633,
-      "last_seen": 1793699230,
+      "last_seen": 1793699774,
       "purchases": [
         {
           "key": "AN3M-D2CE-D6C9-F0E8",
@@ -180974,8 +180989,16 @@
       "last_name": "",
       "username": "RTXLPttf",
       "first_seen": 1793699205,
-      "last_seen": 1793699205,
-      "purchases": []
+      "last_seen": 1793699791,
+      "purchases": [
+        {
+          "key": "AN3M-D609-B416-9A8E",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793699793,
+          "days": 90
+        }
+      ]
     },
     "55404996": {
       "user_id": 55404996,
@@ -181197,6 +181220,15 @@
       "username": "Hadi1368ss",
       "first_seen": 1793699715,
       "last_seen": 1793699715,
+      "purchases": []
+    },
+    "8023126549": {
+      "user_id": 8023126549,
+      "first_name": "Babapour",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793699781,
+      "last_seen": 1793699781,
       "purchases": []
     }
   },
