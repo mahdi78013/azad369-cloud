@@ -11792,6 +11792,12 @@
       "user_id": 7387856686,
       "issued_at": 1793687903,
       "method": "crypto_unique"
+    },
+    "AN3M-DE702237-C1E9-BD1F1D": {
+      "plan": "AN3M",
+      "user_id": 69353584,
+      "issued_at": 1793687973,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -104431,9 +104437,18 @@
       "tron_amount": 1.356585,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_26eae7d54b9249ebaf566258f5953a46",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=26eae7d54b9249ebaf566258f5953a46",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793687821
+      "created_at": 1793687821,
+      "approved_at": 1793687973,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-DE702237-C1E9-BD1F1D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3066222",
+        "tron_amount": 1.356585,
+        "user_paid_toman": null,
+        "date": "2026-11-03T06:39:02.5600000"
+      }
     },
     "TRND-AN3M-8703056480-1793687822-7ab0af": {
       "order_id": "TRND-AN3M-8703056480-1793687822-7ab0af",
@@ -171561,7 +171576,15 @@
       "username": "Reza_fathi",
       "first_seen": 1793687789,
       "last_seen": 1793687789,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-DE702237-C1E9-BD1F1D",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793687973,
+          "days": 90
+        }
+      ]
     },
     "8099144390": {
       "user_id": 8099144390,
@@ -171606,6 +171629,33 @@
       "username": "TOP_G76",
       "first_seen": 1793687875,
       "last_seen": 1793687875,
+      "purchases": []
+    },
+    "1115010808": {
+      "user_id": 1115010808,
+      "first_name": "Master",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793687958,
+      "last_seen": 1793687958,
+      "purchases": []
+    },
+    "122515126": {
+      "user_id": 122515126,
+      "first_name": "MΣHRΔΠ",
+      "last_name": "",
+      "username": "mehranelyas",
+      "first_seen": 1793687961,
+      "last_seen": 1793687961,
+      "purchases": []
+    },
+    "101491075": {
+      "user_id": 101491075,
+      "first_name": "Leila",
+      "last_name": "",
+      "username": "leilakh5",
+      "first_seen": 1793687969,
+      "last_seen": 1793687969,
       "purchases": []
     }
   },
