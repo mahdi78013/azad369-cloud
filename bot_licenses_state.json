@@ -16346,6 +16346,12 @@
       "user_id": 6138362650,
       "issued_at": 1793827858,
       "method": "crypto_unique"
+    },
+    "AZ3M-06D2-E848-5703": {
+      "plan": "3M",
+      "user_id": 1697692192,
+      "issued_at": 1793827869,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -141595,9 +141601,18 @@
       "tron_amount": 1.366563,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a4da63dddbcf441ca4fe54c8d1450be4",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a4da63dddbcf441ca4fe54c8d1450be4",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793827394
+      "created_at": 1793827394,
+      "approved_at": 1793827869,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-06D2-E848-5703",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3084536",
+        "tron_amount": 1.366563,
+        "user_paid_toman": null,
+        "date": "2026-11-04T21:30:40.2570000"
+      }
     },
     "TRND-AN3M-1002938705-1793827438-3aa9e7": {
       "order_id": "TRND-AN3M-1002938705-1793827438-3aa9e7",
@@ -141680,6 +141695,22 @@
         "user_paid_toman": null,
         "date": "2026-11-04T21:30:43.1670000"
       }
+    },
+    "TRND-AN2M-147881775-1793827858-77d7ed": {
+      "order_id": "TRND-AN2M-147881775-1793827858-77d7ed",
+      "token": "a0e19568583547a69fe61b00e7e13d69",
+      "user_id": 147881775,
+      "first_name": "کامران",
+      "username": "kamran9228",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.797609,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_a0e19568583547a69fe61b00e7e13d69",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a0e19568583547a69fe61b00e7e13d69",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793827858
     }
   },
   "users": {
@@ -237508,8 +237539,16 @@
       "last_name": "",
       "username": "Mawni_amj",
       "first_seen": 1793827237,
-      "last_seen": 1793827237,
-      "purchases": []
+      "last_seen": 1793827867,
+      "purchases": [
+        {
+          "key": "AZ3M-06D2-E848-5703",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793827869,
+          "days": 90
+        }
+      ]
     },
     "1789340189": {
       "user_id": 1789340189,
