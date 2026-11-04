@@ -14810,6 +14810,12 @@
       "user_id": 101218546,
       "issued_at": 1793771298,
       "method": "crypto_unique"
+    },
+    "AN3M-EFC7-1BB5-18A6": {
+      "plan": "AN3M",
+      "user_id": 101218546,
+      "issued_at": 1793771458,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -129159,9 +129165,18 @@
       "tron_amount": 1.364463,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1941df4afb85412588f8787c1f71749e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1941df4afb85412588f8787c1f71749e",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793771332
+      "created_at": 1793771332,
+      "approved_at": 1793771458,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-EFC7-1BB5-18A6",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3076241",
+        "tron_amount": 1.364463,
+        "user_paid_toman": null,
+        "date": "2026-11-04T05:49:56.4030000"
+      }
     }
   },
   "users": {
@@ -217785,13 +217800,20 @@
       "last_name": "",
       "username": "Kingjanson",
       "first_seen": 1793771030,
-      "last_seen": 1793771030,
+      "last_seen": 1793771457,
       "purchases": [
         {
           "key": "AZ3M-093B-CF11-87CF",
           "plan": "3M",
           "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
           "issued_at": 1793771298,
+          "days": 90
+        },
+        {
+          "key": "AN3M-EFC7-1BB5-18A6",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793771458,
           "days": 90
         }
       ]
@@ -217830,6 +217852,15 @@
       "username": "Masoodbfml1",
       "first_seen": 1793771417,
       "last_seen": 1793771417,
+      "purchases": []
+    },
+    "8263457940": {
+      "user_id": 8263457940,
+      "first_name": "Kewxo",
+      "last_name": "",
+      "username": "Yurimlp",
+      "first_seen": 1793771438,
+      "last_seen": 1793771438,
       "purchases": []
     }
   },
