@@ -16364,6 +16364,12 @@
       "user_id": 7189094944,
       "issued_at": 1793828183,
       "method": "crypto_unique"
+    },
+    "AN2M-4478-0F1F-6F7D": {
+      "plan": "AN2M",
+      "user_id": 239655611,
+      "issued_at": 1793828707,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -128937,9 +128943,10 @@
       "tron_amount": 1.366843,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_920e2bb6de9e4a0a8b58be2a3193ae77",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=920e2bb6de9e4a0a8b58be2a3193ae77",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793742102
+      "created_at": 1793742102,
+      "cancelled_at": 1793828650
     },
     "ORD_1793742151_112487347": {
       "order_id": "ORD_1793742151_112487347",
@@ -141840,6 +141847,31 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793828531
+    },
+    "TRND-AN2M-239655611-1793828614-957699": {
+      "order_id": "TRND-AN2M-239655611-1793828614-957699",
+      "token": "b8a0801e6ae64ad7976bb60624fa7c48",
+      "user_id": 239655611,
+      "first_name": "صیفور حیدرپناه",
+      "username": "Heydarpanah3407",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.813925,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_b8a0801e6ae64ad7976bb60624fa7c48",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b8a0801e6ae64ad7976bb60624fa7c48",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793828614,
+      "approved_at": 1793828707,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-4478-0F1F-6F7D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3084649",
+        "tron_amount": 0.813925,
+        "user_paid_toman": null,
+        "date": "2026-11-04T21:44:45.6630000"
+      }
     }
   },
   "users": {
@@ -237747,7 +237779,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793827631,
-      "last_seen": 1793828181,
+      "last_seen": 1793828607,
       "purchases": [
         {
           "key": "AN2M-05CE-D6F6-4F1E",
@@ -237836,6 +237868,32 @@
       "username": "RP_asg",
       "first_seen": 1793828509,
       "last_seen": 1793828509,
+      "purchases": []
+    },
+    "239655611": {
+      "user_id": 239655611,
+      "first_name": "صیفور حیدرپناه",
+      "last_name": "🎥استودیو محشر📸",
+      "username": "Heydarpanah3407",
+      "first_seen": 1793828570,
+      "last_seen": 1793828570,
+      "purchases": [
+        {
+          "key": "AN2M-4478-0F1F-6F7D",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793828707,
+          "days": 60
+        }
+      ]
+    },
+    "90614020": {
+      "user_id": 90614020,
+      "first_name": "dya1386",
+      "last_name": "",
+      "username": "d5yan",
+      "first_seen": 1793828686,
+      "last_seen": 1793828686,
       "purchases": []
     }
   },
