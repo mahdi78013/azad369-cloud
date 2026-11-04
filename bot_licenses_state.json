@@ -15854,6 +15854,12 @@
       "user_id": 850949302,
       "issued_at": 1793807702,
       "method": "crypto_unique"
+    },
+    "AN2M-860C-0835-1354": {
+      "plan": "AN2M",
+      "user_id": 7577290612,
+      "issued_at": 1793808087,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -137085,12 +137091,15 @@
       "first_name": "‌🇺🇲",
       "plan_code": "AN2M",
       "price": "۱۰۰,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgQAAxkBAAECkS5q61KwWM_0OVpLncHX5PuVQkmcwQAChBVrG9RMWFMBPBe6J541PwEAAwIAA3cAAz0E",
       "card_number": "5047061670546072",
       "created_at": 1793807797,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1793808087,
+      "approved_by": 748538264,
+      "key": "AN2M-860C-0835-1354"
     },
     "TRND-AN1Y-8247895893-1793807822-a908e2": {
       "order_id": "TRND-AN1Y-8247895893-1793807822-a908e2",
@@ -137107,6 +137116,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793807822
+    },
+    "TRND-AN1Y-71212498-1793808068-72598d": {
+      "order_id": "TRND-AN1Y-71212498-1793808068-72598d",
+      "token": "9940708e73794c578fb01506aa6a1b09",
+      "user_id": 71212498,
+      "first_name": "Mehdi jannati",
+      "username": "Mehdiparadise",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.748499,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_9940708e73794c578fb01506aa6a1b09",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9940708e73794c578fb01506aa6a1b09",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793808068
     }
   },
   "users": {
@@ -137830,7 +137855,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "Mahdi780111",
-      "last_seen": 1793807586,
+      "last_seen": 1793808086,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -181510,6 +181535,13 @@
           "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
           "issued_at": 1793807673,
           "days": 60
+        },
+        {
+          "key": "AN2M-860C-0835-1354",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793808087,
+          "days": 60
         }
       ]
     },
@@ -190050,7 +190082,7 @@
       "last_name": "",
       "username": "mhnmohamadi",
       "first_seen": 1793616598,
-      "last_seen": 1793617607,
+      "last_seen": 1793808045,
       "purchases": [
         {
           "key": "AN3M-00C34D14-84EC-21571D",
@@ -194124,7 +194156,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793644813,
-      "last_seen": 1793740487,
+      "last_seen": 1793808080,
       "purchases": []
     },
     "231867497": {
@@ -224917,7 +224949,7 @@
       "last_name": "",
       "username": "Hamedar74",
       "first_seen": 1793743797,
-      "last_seen": 1793743797,
+      "last_seen": 1793808085,
       "purchases": []
     },
     "331798745": {
@@ -230872,6 +230904,15 @@
       "first_seen": 1793807942,
       "last_seen": 1793807942,
       "purchases": []
+    },
+    "71212498": {
+      "user_id": 71212498,
+      "first_name": "Mehdi jannati",
+      "last_name": "",
+      "username": "Mehdiparadise",
+      "first_seen": 1793808027,
+      "last_seen": 1793808027,
+      "purchases": []
     }
   },
   "user_states": {
@@ -231661,11 +231702,6 @@
       "state": "awaiting_receipt",
       "plan_code": "AN2M",
       "time": 1793807003
-    },
-    "251303417": {
-      "state": "awaiting_receipt",
-      "plan_code": "3M",
-      "time": 1793807126
     },
     "850949302": {
       "state": "awaiting_receipt",
