@@ -14858,6 +14858,12 @@
       "user_id": 24628273,
       "issued_at": 1793772260,
       "method": "crypto_unique"
+    },
+    "AZ3M-4AA8-CCEA-3D2D": {
+      "plan": "3M",
+      "user_id": 483555442,
+      "issued_at": 1793772401,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -129331,9 +129337,18 @@
       "tron_amount": 1.346547,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_0f64790b17b24d06bb74aeb8f0d6d28d",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0f64790b17b24d06bb74aeb8f0d6d28d",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793771583
+      "created_at": 1793771583,
+      "approved_at": 1793772401,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-4AA8-CCEA-3D2D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3076290",
+        "tron_amount": 1.346547,
+        "user_paid_toman": null,
+        "date": "2026-11-04T06:06:00.6130000"
+      }
     },
     "TRND-3M-37467869-1793771613-f97034": {
       "order_id": "TRND-3M-37467869-1793771613-f97034",
@@ -169906,7 +169921,7 @@
       "last_name": "𝐹𝒶𝓇𝓏𝒾𝓃",
       "username": "er_frz",
       "first_seen": 1793300014,
-      "last_seen": 1793300014,
+      "last_seen": 1793772350,
       "purchases": []
     },
     "7208659433": {
@@ -217105,8 +217120,16 @@
       "last_name": "Safari",
       "username": "",
       "first_seen": 1793750237,
-      "last_seen": 1793771581,
-      "purchases": []
+      "last_seen": 1793772400,
+      "purchases": [
+        {
+          "key": "AZ3M-4AA8-CCEA-3D2D",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793772401,
+          "days": 90
+        }
+      ]
     },
     "5457817637": {
       "user_id": 5457817637,
@@ -217123,7 +217146,7 @@
       "last_name": "Taraz",
       "username": "sheved14",
       "first_seen": 1793751126,
-      "last_seen": 1793751654,
+      "last_seen": 1793772378,
       "purchases": [
         {
           "key": "AZ3M-482B-7DCC-ACEC",
