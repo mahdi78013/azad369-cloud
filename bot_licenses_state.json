@@ -14918,6 +14918,12 @@
       "user_id": 96135465,
       "issued_at": 1793772928,
       "method": "crypto_unique"
+    },
+    "AN3M-27D1-92F9-30D8": {
+      "plan": "AN3M",
+      "user_id": 8419344259,
+      "issued_at": 1793772989,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -107205,9 +107211,10 @@
       "tron_amount": 3.731474,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9be8779c2d12400db93b7a4094b7dba8",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9be8779c2d12400db93b7a4094b7dba8",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793686200
+      "created_at": 1793686200,
+      "cancelled_at": 1793772934
     },
     "TRND-AN3M-887446017-1793686381-6252b0": {
       "order_id": "TRND-AN3M-887446017-1793686381-6252b0",
@@ -107221,9 +107228,10 @@
       "tron_amount": 1.356236,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5c214fb575a846049e32e19af51531d1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5c214fb575a846049e32e19af51531d1",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793686381
+      "created_at": 1793686381,
+      "cancelled_at": 1793772934
     },
     "TRND-3M-1877014209-1793686409-4dd400": {
       "order_id": "TRND-3M-1877014209-1793686409-4dd400",
@@ -107237,9 +107245,10 @@
       "tron_amount": 1.355114,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_69289c1d45704849b057fd428e8719d6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=69289c1d45704849b057fd428e8719d6",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793686409
+      "created_at": 1793686409,
+      "cancelled_at": 1793772934
     },
     "TRND-VIP1Y-71021474-1793686437-d3a451": {
       "order_id": "TRND-VIP1Y-71021474-1793686437-d3a451",
@@ -129864,9 +129873,18 @@
       "tron_amount": 1.360528,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3660e15ff23e47eda72a13bab1997806",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3660e15ff23e47eda72a13bab1997806",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793772832
+      "created_at": 1793772832,
+      "approved_at": 1793772989,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-27D1-92F9-30D8",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3076391",
+        "tron_amount": 1.360528,
+        "user_paid_toman": null,
+        "date": "2026-11-04T06:15:58.1830000"
+      }
     },
     "TRND-3M-96135465-1793772847-1a0512": {
       "order_id": "TRND-3M-96135465-1793772847-1a0512",
@@ -129940,6 +129958,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793772894
+    },
+    "TRND-AN1Y-469031920-1793772950-fceab0": {
+      "order_id": "TRND-AN1Y-469031920-1793772950-fceab0",
+      "token": "731045a8da6342358f34cf5069381a97",
+      "user_id": 469031920,
+      "first_name": "M",
+      "username": "Samadi_M4080",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "price_toman": 399000,
+      "tron_amount": 3.730389,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_731045a8da6342358f34cf5069381a97",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=731045a8da6342358f34cf5069381a97",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793772950
     }
   },
   "users": {
@@ -194656,7 +194690,15 @@
       "username": "Ninibazzz",
       "first_seen": 1793679370,
       "last_seen": 1793772831,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-27D1-92F9-30D8",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793772989,
+          "days": 90
+        }
+      ]
     },
     "244646348": {
       "user_id": 244646348,
@@ -200208,7 +200250,7 @@
       "last_name": "S",
       "username": "Samadi_M4080",
       "first_seen": 1793693988,
-      "last_seen": 1793694435,
+      "last_seen": 1793772934,
       "purchases": [
         {
           "key": "AN1Y-4FC6-342C-C68C",
