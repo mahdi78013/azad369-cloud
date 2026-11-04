@@ -15440,6 +15440,12 @@
       "user_id": 274538851,
       "issued_at": 1793786198,
       "method": "crypto_unique"
+    },
+    "AZ3M-903C-565C-F0F1": {
+      "plan": "3M",
+      "user_id": 1907140073,
+      "issued_at": 1793786297,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -133356,9 +133362,18 @@
       "tron_amount": 1.352687,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_aa83a75c26b144ec807ff06c1554503f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=aa83a75c26b144ec807ff06c1554503f",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793786142
+      "created_at": 1793786142,
+      "approved_at": 1793786297,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-903C-565C-F0F1",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3078079",
+        "tron_amount": 1.352687,
+        "user_paid_toman": null,
+        "date": "2026-11-04T09:57:54.7770000"
+      }
     },
     "TRND-AN3M-9876334-1793786206-d137bc": {
       "order_id": "TRND-AN3M-9876334-1793786206-d137bc",
@@ -133391,6 +133406,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793786222
+    },
+    "TRND-VIP1Y-8879298951-1793786284-b5aa12": {
+      "order_id": "TRND-VIP1Y-8879298951-1793786284-b5aa12",
+      "token": "cbd13a716118446d87fae7d7f2362d72",
+      "user_id": 8879298951,
+      "first_name": "Mehdi",
+      "username": "ZadYousef",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.658396,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_cbd13a716118446d87fae7d7f2362d72",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=cbd13a716118446d87fae7d7f2362d72",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793786284
     }
   },
   "users": {
@@ -177509,7 +177540,15 @@
       "username": "mrsohrabb",
       "first_seen": 1793366653,
       "last_seen": 1793786066,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-903C-565C-F0F1",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793786297,
+          "days": 90
+        }
+      ]
     },
     "105982647": {
       "user_id": 105982647,
