@@ -14660,6 +14660,12 @@
       "user_id": 5718343825,
       "issued_at": 1793762745,
       "method": "crypto_unique"
+    },
+    "AN3M-5550-64F4-C024": {
+      "plan": "AN3M",
+      "user_id": 5423484910,
+      "issued_at": 1793763118,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -104902,9 +104908,10 @@
       "tron_amount": 1.367378,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_719a1a5e45274ef483837fc310af28c5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=719a1a5e45274ef483837fc310af28c5",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793676515
+      "created_at": 1793676515,
+      "cancelled_at": 1793763052
     },
     "ORD_1793676734_1325051607": {
       "order_id": "ORD_1793676734_1325051607",
@@ -128057,9 +128064,18 @@
       "tron_amount": 1.365376,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a79947dfce0c4a07b223ec86024b17ca",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a79947dfce0c4a07b223ec86024b17ca",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793762831
+      "created_at": 1793762831,
+      "approved_at": 1793763118,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-5550-64F4-C024",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3075737",
+        "tron_amount": 1.365376,
+        "user_paid_toman": null,
+        "date": "2026-11-04T03:30:07.3000000"
+      }
     }
   },
   "users": {
@@ -187302,7 +187318,7 @@
       "last_name": "",
       "username": "sa_59_57az",
       "first_seen": 1793651264,
-      "last_seen": 1793651264,
+      "last_seen": 1793763079,
       "purchases": []
     },
     "101015587": {
@@ -215975,8 +215991,16 @@
       "last_name": "",
       "username": "Mohamad_am110",
       "first_seen": 1793762809,
-      "last_seen": 1793762809,
-      "purchases": []
+      "last_seen": 1793763116,
+      "purchases": [
+        {
+          "key": "AN3M-5550-64F4-C024",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793763118,
+          "days": 90
+        }
+      ]
     },
     "5391573750": {
       "user_id": 5391573750,
