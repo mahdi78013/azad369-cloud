@@ -15926,6 +15926,12 @@
       "user_id": 7430560400,
       "issued_at": 1793809825,
       "method": "crypto_unique"
+    },
+    "AN1Y-C5F6-1249-E847": {
+      "plan": "AN1Y",
+      "user_id": 192999474,
+      "issued_at": 1793810103,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -137766,9 +137772,18 @@
       "tron_amount": 3.746449,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c7a291f5c786421eb0bcd383019dc29d",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c7a291f5c786421eb0bcd383019dc29d",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793809628
+      "created_at": 1793809628,
+      "approved_at": 1793810103,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-C5F6-1249-E847",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3081379",
+        "tron_amount": 3.746449,
+        "user_paid_toman": null,
+        "date": "2026-11-04T16:34:14.0700000"
+      }
     },
     "TRND-VIP1Y-105686184-1793809685-93f37d": {
       "order_id": "TRND-VIP1Y-105686184-1793809685-93f37d",
@@ -137849,6 +137864,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793809979
+    },
+    "TRND-VIP1Y-7393848177-1793810061-6e21cc": {
+      "order_id": "TRND-VIP1Y-7393848177-1793810061-6e21cc",
+      "token": "08678f04ff324b018907f9dd64b2a776",
+      "user_id": 7393848177,
+      "first_name": "🐈‍⬛ محمد حسین",
+      "username": "Sahelmhm533",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.671914,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_08678f04ff324b018907f9dd64b2a776",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=08678f04ff324b018907f9dd64b2a776",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793810061
     }
   },
   "users": {
@@ -196773,7 +196804,7 @@
       "last_name": "S.M",
       "username": "Sahelmhm533",
       "first_seen": 1793649335,
-      "last_seen": 1793649335,
+      "last_seen": 1793810039,
       "purchases": []
     },
     "8777520346": {
@@ -219748,7 +219779,15 @@
       "username": "Ahmadkian57",
       "first_seen": 1793725254,
       "last_seen": 1793809503,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN1Y-C5F6-1249-E847",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793810103,
+          "days": 365
+        }
+      ]
     },
     "102330023": {
       "user_id": 102330023,
