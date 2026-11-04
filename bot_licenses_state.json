@@ -16070,6 +16070,12 @@
       "user_id": 835707351,
       "issued_at": 1793817221,
       "method": "crypto_unique"
+    },
+    "AN2M-3AD7-1BF4-BD0D": {
+      "plan": "AN2M",
+      "user_id": 7549335630,
+      "issued_at": 1793817260,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -123960,9 +123966,10 @@
       "tron_amount": 4.617109,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3cc6b36ea176447897fdce30e038d28d",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3cc6b36ea176447897fdce30e038d28d",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793730632
+      "created_at": 1793730632,
+      "cancelled_at": 1793817250
     },
     "TRND-AN3M-147702685-1793730744-481a3f": {
       "order_id": "TRND-AN3M-147702685-1793730744-481a3f",
@@ -139135,9 +139142,18 @@
       "tron_amount": 0.806036,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c9ab0c65f460400ca9c3ef49be3beedc",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c9ab0c65f460400ca9c3ef49be3beedc",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793817154
+      "created_at": 1793817154,
+      "approved_at": 1793817260,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-3AD7-1BF4-BD0D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3082792",
+        "tron_amount": 0.806036,
+        "user_paid_toman": null,
+        "date": "2026-11-04T18:34:10.2400000"
+      }
     },
     "TRND-AN3M-6940908733-1793817168-b32a30": {
       "order_id": "TRND-AN3M-6940908733-1793817168-b32a30",
@@ -159351,6 +159367,13 @@
           "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
           "issued_at": 1792939196,
           "days": 90
+        },
+        {
+          "key": "AN2M-3AD7-1BF4-BD0D",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793817260,
+          "days": 60
         }
       ]
     },
