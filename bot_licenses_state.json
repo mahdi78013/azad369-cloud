@@ -16442,6 +16442,12 @@
       "user_id": 1875771414,
       "issued_at": 1793833830,
       "method": "crypto_unique"
+    },
+    "AN2M-A00DAA1E-FEE1-593F60": {
+      "plan": "AN2M",
+      "user_id": 212128048,
+      "issued_at": 1793834355,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -129895,9 +129901,10 @@
       "tron_amount": 4.64519,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ef080dd0906d4ae3884a0e38150959d7",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ef080dd0906d4ae3884a0e38150959d7",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793747802
+      "created_at": 1793747802,
+      "cancelled_at": 1793834256
     },
     "TRND-AN3M-7948945131-1793747990-e9f998": {
       "order_id": "TRND-AN3M-7948945131-1793747990-e9f998",
@@ -142606,9 +142613,18 @@
       "tron_amount": 0.817513,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_00a9773237ff46479e185ff32f726056",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=00a9773237ff46479e185ff32f726056",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793834167
+      "created_at": 1793834167,
+      "approved_at": 1793834355,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-A00DAA1E-FEE1-593F60",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3084935",
+        "tron_amount": 0.817513,
+        "user_paid_toman": null,
+        "date": "2026-11-04T23:18:35.4770000"
+      }
     },
     "TRND-AN2M-70212746-1793834188-0fa30c": {
       "order_id": "TRND-AN2M-70212746-1793834188-0fa30c",
@@ -238993,7 +239009,15 @@
       "username": "reza_ferferi",
       "first_seen": 1793834132,
       "last_seen": 1793834132,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-A00DAA1E-FEE1-593F60",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793834355,
+          "days": 60
+        }
+      ]
     },
     "70212746": {
       "user_id": 70212746,
