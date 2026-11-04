@@ -16094,6 +16094,12 @@
       "user_id": 34534898,
       "issued_at": 1793817394,
       "method": "crypto_unique"
+    },
+    "AZ2M-D758-88E9-8747": {
+      "plan": "2M",
+      "user_id": 5805090032,
+      "issued_at": 1793817482,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -138971,9 +138977,18 @@
       "tron_amount": 0.805907,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d6ef25bc174e4d939906049ffbed2e7a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d6ef25bc174e4d939906049ffbed2e7a",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793816316
+      "created_at": 1793816316,
+      "approved_at": 1793817482,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-D758-88E9-8747",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3082638",
+        "tron_amount": 0.805907,
+        "user_paid_toman": null,
+        "date": "2026-11-04T18:37:26.4170000"
+      }
     },
     "TRND-AN2M-835707351-1793816474-b57fe2": {
       "order_id": "TRND-AN2M-835707351-1793816474-b57fe2",
@@ -145112,7 +145127,7 @@
       "last_name": "",
       "username": "rolandjdu",
       "first_seen": 1792079570,
-      "last_seen": 1793800214,
+      "last_seen": 1793817449,
       "purchases": [
         {
           "key": "AN2M-C4F3-AA17-3692",
@@ -230250,7 +230265,15 @@
       "username": "AR_MIN1_9",
       "first_seen": 1793780500,
       "last_seen": 1793816315,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-D758-88E9-8747",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793817482,
+          "days": 60
+        }
+      ]
     },
     "6789476427": {
       "user_id": 6789476427,
@@ -233976,6 +233999,15 @@
       "username": "MZ9081",
       "first_seen": 1793817075,
       "last_seen": 1793817075,
+      "purchases": []
+    },
+    "137773772": {
+      "user_id": 137773772,
+      "first_name": "Ashvan",
+      "last_name": "Sadri",
+      "username": "Ashvansadri",
+      "first_seen": 1793817428,
+      "last_seen": 1793817428,
       "purchases": []
     }
   },
