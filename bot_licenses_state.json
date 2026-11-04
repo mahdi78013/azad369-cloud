@@ -15170,6 +15170,12 @@
       "user_id": 5420576656,
       "issued_at": 1793779525,
       "method": "crypto_unique"
+    },
+    "AN3M-D8D33F77-040A-771AB4": {
+      "plan": "AN3M",
+      "user_id": 347709675,
+      "issued_at": 1793779535,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -131408,9 +131414,10 @@
       "tron_amount": 1.348137,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_02a94834efc348e7b4ec8374e7edfc44",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=02a94834efc348e7b4ec8374e7edfc44",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793778717
+      "created_at": 1793778717,
+      "cancelled_at": 1793779531
     },
     "TRND-VIP1Y-5782045517-1793778732-3e58c1": {
       "order_id": "TRND-VIP1Y-5782045517-1793778732-3e58c1",
@@ -131540,9 +131547,18 @@
       "tron_amount": 1.363804,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_311d3c63b6a14fbebaeb6276a16d4535",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=311d3c63b6a14fbebaeb6276a16d4535",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793779064
+      "created_at": 1793779064,
+      "approved_at": 1793779535,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-D8D33F77-040A-771AB4",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3077162",
+        "tron_amount": 1.363804,
+        "user_paid_toman": null,
+        "date": "2026-11-04T08:04:56.0170000"
+      }
     },
     "TRND-AN1Y-8031129828-1793779152-891eeb": {
       "order_id": "TRND-AN1Y-8031129828-1793779152-891eeb",
@@ -221696,7 +221712,15 @@
       "username": "",
       "first_seen": 1793779035,
       "last_seen": 1793779035,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-D8D33F77-040A-771AB4",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793779535,
+          "days": 90
+        }
+      ]
     },
     "97712212": {
       "user_id": 97712212,
@@ -221768,6 +221792,15 @@
       "username": "Tasin_aria",
       "first_seen": 1793779520,
       "last_seen": 1793779520,
+      "purchases": []
+    },
+    "874992631": {
+      "user_id": 874992631,
+      "first_name": "amir",
+      "last_name": "keshavarzi",
+      "username": "",
+      "first_seen": 1793779527,
+      "last_seen": 1793779527,
       "purchases": []
     }
   },
