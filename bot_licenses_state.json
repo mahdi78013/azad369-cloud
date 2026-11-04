@@ -14684,6 +14684,18 @@
       "user_id": 62549607,
       "issued_at": 1793764264,
       "method": "crypto_unique"
+    },
+    "AZ1Y-2AB3-2D08-6CAC": {
+      "plan": "1Y",
+      "user_id": 5839118181,
+      "issued_at": 1793764695,
+      "method": "crypto_unique"
+    },
+    "AN1Y-E2FF-9F6A-86A4": {
+      "plan": "AN1Y",
+      "user_id": 5839118181,
+      "issued_at": 1793764695,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -128163,9 +128175,20 @@
       "tron_amount": 4.642273,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_78848aa48bcb4a1dac16dd02fc2fea22",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=78848aa48bcb4a1dac16dd02fc2fea22",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793763755
+      "created_at": 1793763755,
+      "key_win": "AZ1Y-2AB3-2D08-6CAC",
+      "key_and": "AN1Y-E2FF-9F6A-86A4",
+      "approved_at": 1793764695,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-2AB3-2D08-6CAC\nاندروید: AN1Y-E2FF-9F6A-86A4",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3075770",
+        "tron_amount": 4.642273,
+        "user_paid_toman": null,
+        "date": "2026-11-04T03:56:36.1730000"
+      }
     },
     "TRND-AN3M-97569899-1793763774-193f57": {
       "order_id": "TRND-AN3M-97569899-1793763774-193f57",
@@ -216221,8 +216244,23 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793763426,
-      "last_seen": 1793763753,
-      "purchases": []
+      "last_seen": 1793764693,
+      "purchases": [
+        {
+          "key": "AZ1Y-2AB3-2D08-6CAC",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793764695,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-E2FF-9F6A-86A4",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793764695,
+          "days": 365
+        }
+      ]
     },
     "590889750": {
       "user_id": 590889750,
@@ -216311,6 +216349,15 @@
       "username": "Iranslamik",
       "first_seen": 1793764600,
       "last_seen": 1793764600,
+      "purchases": []
+    },
+    "134301246": {
+      "user_id": 134301246,
+      "first_name": "احمد",
+      "last_name": "",
+      "username": "amdhsr",
+      "first_seen": 1793764667,
+      "last_seen": 1793764667,
       "purchases": []
     }
   },
