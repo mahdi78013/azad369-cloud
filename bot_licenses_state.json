@@ -15896,6 +15896,18 @@
       "user_id": 1368906826,
       "issued_at": 1793809144,
       "method": "crypto_unique"
+    },
+    "AZ1Y-F1CE-148B-1CF2": {
+      "plan": "1Y",
+      "user_id": 7972627839,
+      "issued_at": 1793809434,
+      "method": "crypto_unique"
+    },
+    "AN1Y-5E53-8B83-3402": {
+      "plan": "AN1Y",
+      "user_id": 7972627839,
+      "issued_at": 1793809434,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -121147,9 +121159,10 @@
       "tron_amount": 3.704486,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_275879ce21e84d4aa75a457886500835",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=275879ce21e84d4aa75a457886500835",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793722773
+      "created_at": 1793722773,
+      "cancelled_at": 1793809305
     },
     "TRND-AN3M-110437003-1793722774-b83afd": {
       "order_id": "TRND-AN3M-110437003-1793722774-b83afd",
@@ -137621,6 +137634,33 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793809255
+    },
+    "TRND-VIP1Y-7972627839-1793809338-16058f": {
+      "order_id": "TRND-VIP1Y-7972627839-1793809338-16058f",
+      "token": "c1c03e4ada0a47c9886b0570d79039f9",
+      "user_id": 7972627839,
+      "first_name": "m.hasan",
+      "username": "hasssan2688",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.680144,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_c1c03e4ada0a47c9886b0570d79039f9",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c1c03e4ada0a47c9886b0570d79039f9",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793809338,
+      "key_win": "AZ1Y-F1CE-148B-1CF2",
+      "key_and": "AN1Y-5E53-8B83-3402",
+      "approved_at": 1793809434,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-F1CE-148B-1CF2\nاندروید: AN1Y-5E53-8B83-3402",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3081320",
+        "tron_amount": 4.680144,
+        "user_paid_toman": null,
+        "date": "2026-11-04T16:23:47.9930000"
+      }
     }
   },
   "users": {
@@ -180892,7 +180932,7 @@
       "last_name": "",
       "username": "MrAli75",
       "first_seen": 1793356040,
-      "last_seen": 1793781865,
+      "last_seen": 1793809345,
       "purchases": [
         {
           "key": "AN1Y-6610-0D06-3E8D",
@@ -203034,7 +203074,7 @@
       "last_name": "Alidadi",
       "username": "LonelyBoy1367",
       "first_seen": 1793680522,
-      "last_seen": 1793778236,
+      "last_seen": 1793809308,
       "purchases": []
     },
     "6490682863": {
@@ -213272,7 +213312,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793706051,
-      "last_seen": 1793787547,
+      "last_seen": 1793809371,
       "purchases": [
         {
           "key": "AN3M-D0D5-1B8D-1FB1",
@@ -231121,7 +231161,22 @@
       "username": "hasssan2688",
       "first_seen": 1793803804,
       "last_seen": 1793809254,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-F1CE-148B-1CF2",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793809434,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-5E53-8B83-3402",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793809434,
+          "days": 365
+        }
+      ]
     },
     "5343687475": {
       "user_id": 5343687475,
