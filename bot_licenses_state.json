@@ -15122,6 +15122,18 @@
       "user_id": 85233145,
       "issued_at": 1793777573,
       "method": "crypto_unique"
+    },
+    "AZ1Y-BFA0-F112-C515": {
+      "plan": "1Y",
+      "user_id": 667080856,
+      "issued_at": 1793778366,
+      "method": "crypto_unique"
+    },
+    "AN1Y-D484-21AC-018A": {
+      "plan": "AN1Y",
+      "user_id": 667080856,
+      "issued_at": 1793778366,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -131114,9 +131126,20 @@
       "tron_amount": 4.648551,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1c88675ede2f4a83896080fe3e8a79bc",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1c88675ede2f4a83896080fe3e8a79bc",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793778106
+      "created_at": 1793778106,
+      "key_win": "AZ1Y-BFA0-F112-C515",
+      "key_and": "AN1Y-D484-21AC-018A",
+      "approved_at": 1793778366,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-BFA0-F112-C515\nاندروید: AN1Y-D484-21AC-018A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3077047",
+        "tron_amount": 4.648551,
+        "user_paid_toman": null,
+        "date": "2026-11-04T07:45:19.7100000"
+      }
     }
   },
   "users": {
@@ -214825,8 +214848,23 @@
       "last_name": "Afshar",
       "username": "Afshar_Master",
       "first_seen": 1793731938,
-      "last_seen": 1793778062,
-      "purchases": []
+      "last_seen": 1793778364,
+      "purchases": [
+        {
+          "key": "AZ1Y-BFA0-F112-C515",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793778366,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-D484-21AC-018A",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793778366,
+          "days": 365
+        }
+      ]
     },
     "31743670": {
       "user_id": 31743670,
@@ -220987,6 +221025,15 @@
       "username": "Danial_khademm",
       "first_seen": 1793778328,
       "last_seen": 1793778328,
+      "purchases": []
+    },
+    "5420576656": {
+      "user_id": 5420576656,
+      "first_name": "HOXEIN",
+      "last_name": "",
+      "username": "hoxein_al",
+      "first_seen": 1793778360,
+      "last_seen": 1793778360,
       "purchases": []
     }
   },
