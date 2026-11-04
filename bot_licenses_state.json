@@ -15008,6 +15008,12 @@
       "user_id": 103863386,
       "issued_at": 1793775341,
       "method": "crypto_unique"
+    },
+    "AZ3M-826A-C897-E4C8": {
+      "plan": "3M",
+      "user_id": 76655023,
+      "issued_at": 1793775647,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -129896,9 +129902,18 @@
       "tron_amount": 1.358486,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f5deb6ae30ac4f84b11cdbd2ce12e640",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f5deb6ae30ac4f84b11cdbd2ce12e640",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793774097
+      "created_at": 1793774097,
+      "approved_at": 1793775647,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-826A-C897-E4C8",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3076550",
+        "tron_amount": 1.358486,
+        "user_paid_toman": null,
+        "date": "2026-11-04T07:00:07.8030000"
+      }
     },
     "TRND-VIP1Y-5057452745-1793774119-afa781": {
       "order_id": "TRND-VIP1Y-5057452745-1793774119-afa781",
@@ -130269,9 +130284,10 @@
       "tron_amount": 1.362417,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_bf9af07487b14ca6928b08003d7cbdd8",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=bf9af07487b14ca6928b08003d7cbdd8",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793775198
+      "created_at": 1793775198,
+      "cancelled_at": 1793775614
     },
     "TRND-3M-7746390196-1793775280-563953": {
       "order_id": "TRND-3M-7746390196-1793775280-563953",
@@ -130301,9 +130317,10 @@
       "tron_amount": 4.625787,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9cc18a972ba94cd08676017868898b9e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9cc18a972ba94cd08676017868898b9e",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793775304
+      "created_at": 1793775304,
+      "cancelled_at": 1793775615
     },
     "TRND-VIP1Y-5776072026-1793775324-117815": {
       "order_id": "TRND-VIP1Y-5776072026-1793775324-117815",
@@ -219767,7 +219784,15 @@
       "username": "CptDotIr",
       "first_seen": 1793773960,
       "last_seen": 1793775415,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-826A-C897-E4C8",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793775647,
+          "days": 90
+        }
+      ]
     },
     "5258087225": {
       "user_id": 5258087225,
