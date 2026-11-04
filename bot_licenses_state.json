@@ -15404,6 +15404,12 @@
       "user_id": 365193476,
       "issued_at": 1793784339,
       "method": "crypto_unique"
+    },
+    "AZ3M-8EF3-81DC-7018": {
+      "plan": "3M",
+      "user_id": 90583762,
+      "issued_at": 1793784647,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -133072,9 +133078,18 @@
       "tron_amount": 1.362801,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_71589bf908d7453e8e7b92c14f9f08e9",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=71589bf908d7453e8e7b92c14f9f08e9",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793784369
+      "created_at": 1793784369,
+      "approved_at": 1793784647,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-8EF3-81DC-7018",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3077870",
+        "tron_amount": 1.362801,
+        "user_paid_toman": null,
+        "date": "2026-11-04T09:29:58.7730000"
+      }
     }
   },
   "users": {
@@ -220807,7 +220822,15 @@
       "username": "MiladDarvishMusic",
       "first_seen": 1793744993,
       "last_seen": 1793784354,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-8EF3-81DC-7018",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793784647,
+          "days": 90
+        }
+      ]
     },
     "6821796785": {
       "user_id": 6821796785,
@@ -224046,7 +224069,7 @@
       "last_name": "Kallhor",
       "username": "Hesamkalhor",
       "first_seen": 1793783868,
-      "last_seen": 1793784246,
+      "last_seen": 1793784627,
       "purchases": [
         {
           "key": "AN3M-50C8-2DBA-78AE",
