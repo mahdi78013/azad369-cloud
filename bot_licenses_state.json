@@ -15020,6 +15020,12 @@
       "user_id": 76655023,
       "issued_at": 1793775662,
       "method": "crypto_unique"
+    },
+    "AZ1M-6D30-8712-406A": {
+      "plan": "1M",
+      "user_id": 1688271224,
+      "issued_at": 1793775688,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -130464,12 +130470,15 @@
       "first_name": "mokhtar",
       "plan_code": "1M",
       "price": "۶۰,۰۰۰ تومان",
-      "status": "pending",
+      "status": "approved",
       "receipt_type": "photo",
       "file_id": "AgACAgEAAxkBAAECZgVq6tf26eUHw6kFfrp0UQSID5p5QwAC8QxrG_HvWUfws33NO5VceQEAAwIAA3cAAz0E",
       "card_number": "5892101706458979",
       "created_at": 1793775607,
-      "caption": ""
+      "caption": "",
+      "approved_at": 1793775688,
+      "approved_by": 748538264,
+      "key": "AZ1M-6D30-8712-406A"
     }
   },
   "users": {
@@ -179477,7 +179486,15 @@
       "username": "",
       "first_seen": 1793471071,
       "last_seen": 1793775357,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1M-6D30-8712-406A",
+          "plan": "1M",
+          "plan_name": "۱ ماهه ویندوز (۳۰ روزه)",
+          "issued_at": 1793775688,
+          "days": 30
+        }
+      ]
     },
     "8840616070": {
       "user_id": 8840616070,
@@ -204187,7 +204204,7 @@
       "last_name": "",
       "username": "dani044004",
       "first_seen": 1793701790,
-      "last_seen": 1793703267,
+      "last_seen": 1793775675,
       "purchases": [
         {
           "key": "AZ3M-B64E-D5F4-D03F",
@@ -220723,7 +220740,12 @@
       "time": 1793775500
     }
   },
-  "admin_states": {},
+  "admin_states": {
+    "748538264": {
+      "state": "replying_to_user",
+      "target_uid": "1688271224"
+    }
+  },
   "trial_users": {},
   "card_state": {
     "current_index": 0,
