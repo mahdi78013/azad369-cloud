@@ -15800,6 +15800,12 @@
       "user_id": 79102442,
       "issued_at": 1793805487,
       "method": "crypto_unique"
+    },
+    "AN2M-5E44-2FBD-CBE6": {
+      "plan": "AN2M",
+      "user_id": 85751297,
+      "issued_at": 1793805619,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -136923,9 +136929,18 @@
       "tron_amount": 0.804825,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c6842d716c314cac830610f6e18f0abc",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c6842d716c314cac830610f6e18f0abc",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793805337
+      "created_at": 1793805337,
+      "approved_at": 1793805619,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-5E44-2FBD-CBE6",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3080657",
+        "tron_amount": 0.804825,
+        "user_paid_toman": null,
+        "date": "2026-11-04T15:20:02.3900000"
+      }
     },
     "TRND-AN3M-5752494311-1793805414-3843d5": {
       "order_id": "TRND-AN3M-5752494311-1793805414-3843d5",
@@ -136942,6 +136957,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793805414
+    },
+    "TRND-AN3M-190943624-1793805521-e2d915": {
+      "order_id": "TRND-AN3M-190943624-1793805521-e2d915",
+      "token": "d5b0c697c311403f8eaeb89f7a83476f",
+      "user_id": 190943624,
+      "first_name": "Meysam GM",
+      "username": "Meysam_goudarzimatin",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.351138,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_d5b0c697c311403f8eaeb89f7a83476f",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d5b0c697c311403f8eaeb89f7a83476f",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793805521
     }
   },
   "users": {
@@ -182279,7 +182310,7 @@
       "last_name": "",
       "username": "Meysam_goudarzimatin",
       "first_seen": 1793384879,
-      "last_seen": 1793384879,
+      "last_seen": 1793805499,
       "purchases": []
     },
     "5464989418": {
@@ -185767,7 +185798,7 @@
       "last_name": "",
       "username": "Darvishi_Elnaz",
       "first_seen": 1793463029,
-      "last_seen": 1793537628,
+      "last_seen": 1793805602,
       "purchases": []
     },
     "5151356825": {
@@ -204747,7 +204778,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793687010,
-      "last_seen": 1793782508,
+      "last_seen": 1793805501,
       "purchases": [
         {
           "key": "AN3M-A12C-CB15-A348",
@@ -211230,8 +211261,16 @@
       "last_name": "",
       "username": "Masoud2314",
       "first_seen": 1793702710,
-      "last_seen": 1793805315,
-      "purchases": []
+      "last_seen": 1793805618,
+      "purchases": [
+        {
+          "key": "AN2M-5E44-2FBD-CBE6",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793805619,
+          "days": 60
+        }
+      ]
     },
     "168510760": {
       "user_id": 168510760,
@@ -212847,7 +212886,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793707310,
-      "last_seen": 1793707310,
+      "last_seen": 1793805587,
       "purchases": []
     },
     "116620336": {
@@ -226913,7 +226952,7 @@
       "last_name": "JAHANGIRI",
       "username": "jahangiri1987",
       "first_seen": 1793774559,
-      "last_seen": 1793774559,
+      "last_seen": 1793805544,
       "purchases": []
     },
     "434850068": {
@@ -227160,7 +227199,7 @@
       "last_name": "Khalifeh",
       "username": "navid_1370",
       "first_seen": 1793776503,
-      "last_seen": 1793776503,
+      "last_seen": 1793805514,
       "purchases": [
         {
           "key": "AN3M-938050CC-D0F0-707A1A",
@@ -230354,6 +230393,24 @@
       "username": "",
       "first_seen": 1793805474,
       "last_seen": 1793805474,
+      "purchases": []
+    },
+    "206803063": {
+      "user_id": 206803063,
+      "first_name": "H",
+      "last_name": "",
+      "username": "HadiSayyadpour",
+      "first_seen": 1793805512,
+      "last_seen": 1793805512,
+      "purchases": []
+    },
+    "502282275": {
+      "user_id": 502282275,
+      "first_name": ".",
+      "last_name": "",
+      "username": "RASHED4030",
+      "first_seen": 1793805611,
+      "last_seen": 1793805611,
       "purchases": []
     }
   },
