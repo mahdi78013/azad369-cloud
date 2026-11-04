@@ -106660,9 +106660,10 @@
       "tron_amount": 1.346862,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_762db34ccb8e49848335b5aa1db58cd5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=762db34ccb8e49848335b5aa1db58cd5",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793685082
+      "created_at": 1793685082,
+      "cancelled_at": 1793771562
     },
     "TRND-3M-7839334859-1793685161-fe549b": {
       "order_id": "TRND-3M-7839334859-1793685161-fe549b",
@@ -106676,9 +106677,10 @@
       "tron_amount": 1.364813,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_aa3f4dd5b6d54a32baf575d99ad11d4c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=aa3f4dd5b6d54a32baf575d99ad11d4c",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793685161
+      "created_at": 1793685161,
+      "cancelled_at": 1793771562
     },
     "TRND-AN3M-212495631-1793685163-94fa09": {
       "order_id": "TRND-AN3M-212495631-1793685163-94fa09",
@@ -129257,6 +129259,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793771519
+    },
+    "TRND-3M-483555442-1793771583-eb84dc": {
+      "order_id": "TRND-3M-483555442-1793771583-eb84dc",
+      "token": "0f64790b17b24d06bb74aeb8f0d6d28d",
+      "user_id": 483555442,
+      "first_name": "Arash",
+      "username": "ندارد",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.346547,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_0f64790b17b24d06bb74aeb8f0d6d28d",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0f64790b17b24d06bb74aeb8f0d6d28d",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793771583
+    },
+    "TRND-3M-37467869-1793771613-f97034": {
+      "order_id": "TRND-3M-37467869-1793771613-f97034",
+      "token": "86013f61f480411fa21bf852be0ca2fb",
+      "user_id": 37467869,
+      "first_name": "j@f@r",
+      "username": "Jafar_h1906",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.363344,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_86013f61f480411fa21bf852be0ca2fb",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=86013f61f480411fa21bf852be0ca2fb",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793771613
     }
   },
   "users": {
@@ -129980,7 +130014,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "Mahdi780111",
-      "last_seen": 1793766279,
+      "last_seen": 1793771551,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -214820,7 +214854,7 @@
       "last_name": "h",
       "username": "Jafar_h1906",
       "first_seen": 1793738898,
-      "last_seen": 1793738898,
+      "last_seen": 1793771612,
       "purchases": []
     },
     "747378971": {
@@ -216728,7 +216762,7 @@
       "last_name": "Safari",
       "username": "",
       "first_seen": 1793750237,
-      "last_seen": 1793750237,
+      "last_seen": 1793771581,
       "purchases": []
     },
     "5457817637": {
@@ -217977,6 +218011,15 @@
       "first_seen": 1793771517,
       "last_seen": 1793771517,
       "purchases": []
+    },
+    "136844638": {
+      "user_id": 136844638,
+      "first_name": "Ali",
+      "last_name": "Hasani",
+      "username": "alihasani22100",
+      "first_seen": 1793771582,
+      "last_seen": 1793771582,
+      "purchases": []
     }
   },
   "user_states": {
@@ -218743,7 +218786,15 @@
       "time": 1793766267
     }
   },
-  "admin_states": {},
+  "admin_states": {
+    "748538264": {
+      "state": "confirm_broadcast_final",
+      "chat_id": 748538264,
+      "msg_id": 149421,
+      "time": 1793771595,
+      "button_choice": "plans"
+    }
+  },
   "trial_users": {},
   "card_state": {
     "current_index": 0,
