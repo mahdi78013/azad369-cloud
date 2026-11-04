@@ -16250,6 +16250,12 @@
       "user_id": 82012317,
       "issued_at": 1793823298,
       "method": "crypto_unique"
+    },
+    "AN2M-22C6-0838-4DEB": {
+      "plan": "AN2M",
+      "user_id": 172735220,
+      "issued_at": 1793823302,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -140707,9 +140713,18 @@
       "tron_amount": 0.805712,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_bc7d25e7f7574f7aa1762c446ff9f9dc",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=bc7d25e7f7574f7aa1762c446ff9f9dc",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793823061
+      "created_at": 1793823061,
+      "approved_at": 1793823302,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-22C6-0838-4DEB",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3083898",
+        "tron_amount": 0.805712,
+        "user_paid_toman": null,
+        "date": "2026-11-04T20:13:43.0000000"
+      }
     },
     "TRND-AN2M-77541928-1793823094-d2cecb": {
       "order_id": "TRND-AN2M-77541928-1793823094-d2cecb",
@@ -140788,6 +140803,20 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793823269
+    },
+    "ORD_1793823308_172735220": {
+      "order_id": "ORD_1793823308_172735220",
+      "user_id": 172735220,
+      "username": "Mrbiazari",
+      "first_name": "بی آزاری",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAECmc9q65IUmtyRB94gGPetY9WjFrjcHAACeA5rG4jeYFNxdNgGRjKRRgEAAwIAA3kAAz0E",
+      "card_number": "5892101706458979",
+      "created_at": 1793823309,
+      "caption": "رسید تراکنش\nمدیریت مالی شخصی حسابت به صورت رایگان، با نصب اپلیکیشن بانکت:\n\nhttps://trc.metrix.ir/r0wnmk/"
     }
   },
   "users": {
@@ -200030,7 +200059,15 @@
       "username": "Mrbiazari",
       "first_seen": 1793649844,
       "last_seen": 1793823271,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-22C6-0838-4DEB",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793823302,
+          "days": 60
+        }
+      ]
     },
     "69713622": {
       "user_id": 69713622,
@@ -237028,10 +237065,10 @@
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 4,
+    "count": 5,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 154,
+      "5892101706458979": 155,
       "5047061670546072": 150
     }
   },
