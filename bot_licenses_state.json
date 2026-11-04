@@ -16202,6 +16202,12 @@
       "user_id": 6552283239,
       "issued_at": 1793821882,
       "method": "crypto_unique"
+    },
+    "AZ1Y-BDAB-D2C5-E118": {
+      "plan": "1Y",
+      "user_id": 111876008,
+      "issued_at": 1793822115,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -140299,9 +140305,18 @@
       "tron_amount": 3.742802,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_2298408b201c454bb99d36d911973cc6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2298408b201c454bb99d36d911973cc6",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793821726
+      "created_at": 1793821726,
+      "approved_at": 1793822115,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-BDAB-D2C5-E118",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3083692",
+        "tron_amount": 3.742802,
+        "user_paid_toman": null,
+        "date": "2026-11-04T19:54:14.5100000"
+      }
     },
     "TRND-AN2M-7427390466-1793821747-53ed06": {
       "order_id": "TRND-AN2M-7427390466-1793821747-53ed06",
@@ -140334,6 +140349,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793821941
+    },
+    "TRND-AN2M-6972012701-1793822093-da0e00": {
+      "order_id": "TRND-AN2M-6972012701-1793822093-da0e00",
+      "token": "2f1bb6af39c6464ea4507feb8f4e49ee",
+      "user_id": 6972012701,
+      "first_name": "حامد",
+      "username": "Jdjxicjcbdn",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.824542,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_2f1bb6af39c6464ea4507feb8f4e49ee",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=2f1bb6af39c6464ea4507feb8f4e49ee",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793822093
     }
   },
   "users": {
@@ -189957,8 +189988,16 @@
       "last_name": "",
       "username": "MrAliDD",
       "first_seen": 1793481497,
-      "last_seen": 1793821724,
-      "purchases": []
+      "last_seen": 1793822114,
+      "purchases": [
+        {
+          "key": "AZ1Y-BDAB-D2C5-E118",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793822115,
+          "days": 365
+        }
+      ]
     },
     "5884459148": {
       "user_id": 5884459148,
@@ -235615,6 +235654,33 @@
       "username": "Delikhan67",
       "first_seen": 1793821962,
       "last_seen": 1793821962,
+      "purchases": []
+    },
+    "77541928": {
+      "user_id": 77541928,
+      "first_name": "M",
+      "last_name": "HD",
+      "username": "mehdira777",
+      "first_seen": 1793822034,
+      "last_seen": 1793822034,
+      "purchases": []
+    },
+    "109444311": {
+      "user_id": 109444311,
+      "first_name": "Omid",
+      "last_name": "Shams",
+      "username": "Omid_shams",
+      "first_seen": 1793822046,
+      "last_seen": 1793822046,
+      "purchases": []
+    },
+    "6972012701": {
+      "user_id": 6972012701,
+      "first_name": "حامد",
+      "last_name": "",
+      "username": "Jdjxicjcbdn",
+      "first_seen": 1793822068,
+      "last_seen": 1793822068,
       "purchases": []
     }
   },
