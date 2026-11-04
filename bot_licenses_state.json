@@ -15008,12 +15008,6 @@
       "user_id": 103863386,
       "issued_at": 1793775341,
       "method": "crypto_unique"
-    },
-    "AN3M-0AD7-CEFA-7BB6": {
-      "plan": "AN3M",
-      "user_id": 7286038007,
-      "issued_at": 1793775607,
-      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -130013,18 +130007,9 @@
       "tron_amount": 1.346182,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_78f72da34f404f91b812b95c7a9768e7",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=78f72da34f404f91b812b95c7a9768e7",
-      "status": "approved",
+      "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793774170,
-      "approved_at": 1793775607,
-      "approved_by": "TRONADO_AUTOMATED",
-      "key": "AN3M-0AD7-CEFA-7BB6",
-      "tronado_ipn": {
-        "hash": "TrndOrderID_3076553",
-        "tron_amount": 1.346182,
-        "user_paid_toman": null,
-        "date": "2026-11-04T07:00:05.5370000"
-      }
+      "created_at": 1793774170
     },
     "ORD_1793774336_7305457306": {
       "order_id": "ORD_1793774336_7305457306",
@@ -130445,6 +130430,20 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793775592
+    },
+    "ORD_1793775607_1688271224": {
+      "order_id": "ORD_1793775607_1688271224",
+      "user_id": 1688271224,
+      "username": "ندارد",
+      "first_name": "mokhtar",
+      "plan_code": "1M",
+      "price": "۶۰,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgEAAxkBAAECZgVq6tf26eUHw6kFfrp0UQSID5p5QwAC8QxrG_HvWUfws33NO5VceQEAAwIAA3cAAz0E",
+      "card_number": "5892101706458979",
+      "created_at": 1793775607,
+      "caption": ""
     }
   },
   "users": {
@@ -190008,15 +190007,7 @@
       "username": "AMIR_SHIRAZi19",
       "first_seen": 1793651607,
       "last_seen": 1793774168,
-      "purchases": [
-        {
-          "key": "AN3M-0AD7-CEFA-7BB6",
-          "plan": "AN3M",
-          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
-          "issued_at": 1793775607,
-          "days": 90
-        }
-      ]
+      "purchases": []
     },
     "65422433": {
       "user_id": 65422433,
@@ -220680,6 +220671,11 @@
       "plan_code": "AN1Y",
       "time": 1793774965
     },
+    "1688271224": {
+      "state": "awaiting_receipt",
+      "plan_code": "1M",
+      "time": 1793775454
+    },
     "76655023": {
       "state": "awaiting_receipt",
       "plan_code": "3M",
@@ -220690,10 +220686,10 @@
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 6,
+    "count": 7,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 136,
+      "5892101706458979": 137,
       "5047061670546072": 130
     }
   },
