@@ -129683,9 +129683,10 @@
       "tron_amount": 1.349931,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e3152feccf6742c4a1a8236c07e16118",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e3152feccf6742c4a1a8236c07e16118",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793745905
+      "created_at": 1793745905,
+      "cancelled_at": 1793832448
     },
     "TRND-AN3M-6374888105-1793746047-8c43c9": {
       "order_id": "TRND-AN3M-6374888105-1793746047-8c43c9",
@@ -142467,6 +142468,20 @@
       "file_id": "AgACAgQAAxkBAAECnONq67XlhN9PIugqK7EPTwABLJ_-DMwAAgURaxvwMWBTXXVQ0kr_EHgBAAMCAAN5AAM9BA",
       "card_number": "5047061670546072",
       "created_at": 1793832423,
+      "caption": ""
+    },
+    "ORD_1793832451_1092374424": {
+      "order_id": "ORD_1793832451_1092374424",
+      "user_id": 1092374424,
+      "username": "hamed_2212",
+      "first_name": "001",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAECnOtq67YCn3XZxgRKEa9Bq7o9dsgacAACxQ1rGxnnYFMH51scKm3JLwEAAwIAA3cAAz0E",
+      "card_number": "5047061670546072",
+      "created_at": 1793832452,
       "caption": ""
     }
   },
@@ -239561,17 +239576,22 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793832396
+    },
+    "1092374424": {
+      "state": "awaiting_receipt",
+      "plan_code": "2M",
+      "time": 1793832442
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 3,
+    "count": 4,
     "threshold": 10,
     "stats": {
       "5892101706458979": 160,
-      "5047061670546072": 153
+      "5047061670546072": 154
     }
   },
   "maintenance": {
