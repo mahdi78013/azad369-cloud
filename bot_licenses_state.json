@@ -15284,6 +15284,12 @@
       "user_id": 51960856,
       "issued_at": 1793781840,
       "method": "crypto_unique"
+    },
+    "AN3M-3B712404-CC0D-434125": {
+      "plan": "AN3M",
+      "user_id": 147821599,
+      "issued_at": 1793781991,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -132284,9 +132290,18 @@
       "tron_amount": 1.356937,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_accd25156dab4c36871e88fdbc2fd328",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=accd25156dab4c36871e88fdbc2fd328",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793781695
+      "created_at": 1793781695,
+      "approved_at": 1793781991,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-3B712404-CC0D-434125",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3077534",
+        "tron_amount": 1.356937,
+        "user_paid_toman": null,
+        "date": "2026-11-04T08:46:01.2530000"
+      }
     },
     "TRND-AN3M-7585642298-1793781754-b217b8": {
       "order_id": "TRND-AN3M-7585642298-1793781754-b217b8",
@@ -222801,8 +222816,16 @@
       "last_name": "Vi",
       "username": "Mirfendereskiano",
       "first_seen": 1793781655,
-      "last_seen": 1793781655,
-      "purchases": []
+      "last_seen": 1793781990,
+      "purchases": [
+        {
+          "key": "AN3M-3B712404-CC0D-434125",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793781991,
+          "days": 90
+        }
+      ]
     },
     "5885781307": {
       "user_id": 5885781307,
@@ -222856,6 +222879,15 @@
       "username": "",
       "first_seen": 1793781904,
       "last_seen": 1793781904,
+      "purchases": []
+    },
+    "1400454953": {
+      "user_id": 1400454953,
+      "first_name": "رفوگری",
+      "last_name": "پاتریس",
+      "username": "Qom_Rofoo",
+      "first_seen": 1793781990,
+      "last_seen": 1793781990,
       "purchases": []
     }
   },
