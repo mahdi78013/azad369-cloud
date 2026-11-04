@@ -123094,9 +123094,10 @@
       "tron_amount": 1.341153,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c70e117599ab45cc8e4aa7a428b185fe",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c70e117599ab45cc8e4aa7a428b185fe",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793728789
+      "created_at": 1793728789,
+      "cancelled_at": 1793815343
     },
     "TRND-3M-5543944365-1793728825-99b9ac": {
       "order_id": "TRND-3M-5543944365-1793728825-99b9ac",
@@ -123177,9 +123178,10 @@
       "tron_amount": 4.618969,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4e14cde2064d47fd89fec87a480b099b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4e14cde2064d47fd89fec87a480b099b",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793728941
+      "created_at": 1793728941,
+      "cancelled_at": 1793815343
     },
     "TRND-AN3M-1130449895-1793728946-9ad0bf": {
       "order_id": "TRND-AN3M-1130449895-1793728946-9ad0bf",
@@ -138694,6 +138696,20 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793815104
+    },
+    "ORD_1793815474_8990368327": {
+      "order_id": "ORD_1793815474_8990368327",
+      "user_id": 8990368327,
+      "username": "ندارد",
+      "first_name": ".",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAEClnVq63OxwRfERm8I5vpW8oVOjkJg8QACRA5rG37VYFPIuHJa40oZkQEAAwIAA3kAAz0E",
+      "card_number": "5047061670546072",
+      "created_at": 1793815474,
+      "caption": ""
     }
   },
   "users": {
@@ -218908,7 +218924,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793720089,
-      "last_seen": 1793815036,
+      "last_seen": 1793815414,
       "purchases": []
     },
     "8945591807": {
@@ -233954,17 +233970,22 @@
       "state": "awaiting_receipt",
       "plan_code": "2M",
       "time": 1793815047
+    },
+    "8990368327": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN1Y",
+      "time": 1793815439
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 8,
+    "count": 9,
     "threshold": 10,
     "stats": {
       "5892101706458979": 150,
-      "5047061670546072": 148
+      "5047061670546072": 149
     }
   },
   "maintenance": {
