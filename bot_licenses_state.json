@@ -15884,6 +15884,12 @@
       "user_id": 5987745762,
       "issued_at": 1793806832,
       "method": "crypto_unique"
+    },
+    "AN3M-4C89-A6F5-7211": {
+      "plan": "AN3M",
+      "user_id": 6143903849,
+      "issued_at": 1793806838,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -137706,9 +137712,18 @@
       "tron_amount": 1.376818,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b4f15197dfa544358b3462442fb230cf",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b4f15197dfa544358b3462442fb230cf",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793806687
+      "created_at": 1793806687,
+      "approved_at": 1793806838,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-4C89-A6F5-7211",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3080885",
+        "tron_amount": 1.376818,
+        "user_paid_toman": null,
+        "date": "2026-11-04T15:39:56.2670000"
+      }
     },
     "TRND-VIP1Y-991809121-1793806708-d44b73": {
       "order_id": "TRND-VIP1Y-991809121-1793806708-d44b73",
@@ -165742,6 +165757,13 @@
           "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
           "issued_at": 1793089835,
           "days": 60
+        },
+        {
+          "key": "AN3M-4C89-A6F5-7211",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793806838,
+          "days": 90
         }
       ]
     },
