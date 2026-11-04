@@ -14588,6 +14588,12 @@
       "user_id": 84641137,
       "issued_at": 1793750922,
       "method": "crypto_unique"
+    },
+    "AZ3M-482B-7DCC-ACEC": {
+      "plan": "3M",
+      "user_id": 215787695,
+      "issued_at": 1793751656,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -127607,9 +127613,18 @@
       "tron_amount": 1.364425,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c5de4d2d5d4249be96b7ef02aabd2a72",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c5de4d2d5d4249be96b7ef02aabd2a72",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793751331
+      "created_at": 1793751331,
+      "approved_at": 1793751656,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-482B-7DCC-ACEC",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3075579",
+        "tron_amount": 1.364425,
+        "user_paid_toman": null,
+        "date": "2026-11-04T00:20:33.9930000"
+      }
     },
     "TRND-VIP1Y-5407834498-1793751452-251b02": {
       "order_id": "TRND-VIP1Y-5407834498-1793751452-251b02",
@@ -214441,7 +214456,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793744532,
-      "last_seen": 1793745263,
+      "last_seen": 1793751616,
       "purchases": []
     },
     "740725538": {
@@ -215046,8 +215061,16 @@
       "last_name": "Taraz",
       "username": "sheved14",
       "first_seen": 1793751126,
-      "last_seen": 1793751126,
-      "purchases": []
+      "last_seen": 1793751654,
+      "purchases": [
+        {
+          "key": "AZ3M-482B-7DCC-ACEC",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793751656,
+          "days": 90
+        }
+      ]
     },
     "5407834498": {
       "user_id": 5407834498,
