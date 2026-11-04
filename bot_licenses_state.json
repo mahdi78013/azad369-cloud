@@ -16304,6 +16304,12 @@
       "user_id": 6266696368,
       "issued_at": 1793825656,
       "method": "crypto_unique"
+    },
+    "AN2M-EA27-A750-DD9C": {
+      "plan": "AN2M",
+      "user_id": 6266696368,
+      "issued_at": 1793825993,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -141300,9 +141306,18 @@
       "tron_amount": 0.810872,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9b54f3c955cb45e1b96ada87e1c32552",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9b54f3c955cb45e1b96ada87e1c32552",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793825779
+      "created_at": 1793825779,
+      "approved_at": 1793825993,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-EA27-A750-DD9C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3084304",
+        "tron_amount": 0.810872,
+        "user_paid_toman": null,
+        "date": "2026-11-04T20:59:49.9070000"
+      }
     }
   },
   "users": {
@@ -210386,7 +210401,7 @@
       "last_name": "Hajghafoori",
       "username": "",
       "first_seen": 1793689641,
-      "last_seen": 1793783223,
+      "last_seen": 1793825890,
       "purchases": [
         {
           "key": "AN1Y-7D64-05BF-CFE5",
@@ -236376,13 +236391,20 @@
       "last_name": "",
       "username": "tripptah",
       "first_seen": 1793818986,
-      "last_seen": 1793825541,
+      "last_seen": 1793825990,
       "purchases": [
         {
           "key": "AZ2M-25A9-0F58-AE13",
           "plan": "2M",
           "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
           "issued_at": 1793825656,
+          "days": 60
+        },
+        {
+          "key": "AN2M-EA27-A750-DD9C",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793825993,
           "days": 60
         }
       ]
@@ -236932,6 +236954,15 @@
       "username": "Pistatio",
       "first_seen": 1793825827,
       "last_seen": 1793825827,
+      "purchases": []
+    },
+    "104332276": {
+      "user_id": 104332276,
+      "first_name": "Hadi",
+      "last_name": "@65",
+      "username": "",
+      "first_seen": 1793825990,
+      "last_seen": 1793825990,
       "purchases": []
     }
   },
