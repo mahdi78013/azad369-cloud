@@ -16100,6 +16100,12 @@
       "user_id": 5805090032,
       "issued_at": 1793817482,
       "method": "crypto_unique"
+    },
+    "AZ2M-754D-C756-FCCB": {
+      "plan": "2M",
+      "user_id": 8611767367,
+      "issued_at": 1793817933,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -139393,9 +139399,18 @@
       "tron_amount": 0.809408,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_73fd5f91bad44911a24bd3bda213207b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=73fd5f91bad44911a24bd3bda213207b",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793817696
+      "created_at": 1793817696,
+      "approved_at": 1793817933,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-754D-C756-FCCB",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3082936",
+        "tron_amount": 0.809408,
+        "user_paid_toman": null,
+        "date": "2026-11-04T18:45:28.6970000"
+      }
     }
   },
   "users": {
@@ -158097,7 +158112,7 @@
       "last_name": "Sadeghi",
       "username": "sadeghi_prog",
       "first_seen": 1792425911,
-      "last_seen": 1793798524,
+      "last_seen": 1793817885,
       "purchases": [
         {
           "key": "AN1Y-4CF9-857C-AFF6",
@@ -200457,7 +200472,15 @@
       "username": "",
       "first_seen": 1793654459,
       "last_seen": 1793817695,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-754D-C756-FCCB",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793817933,
+          "days": 60
+        }
+      ]
     },
     "942164862": {
       "user_id": 942164862,
@@ -234159,6 +234182,15 @@
       "username": "",
       "first_seen": 1793817601,
       "last_seen": 1793817601,
+      "purchases": []
+    },
+    "7403674502": {
+      "user_id": 7403674502,
+      "first_name": ",,seyedali",
+      "last_name": "Mosavi",
+      "username": "aligoli68121",
+      "first_seen": 1793817888,
+      "last_seen": 1793817888,
       "purchases": []
     }
   },
