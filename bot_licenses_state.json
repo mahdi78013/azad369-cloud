@@ -16358,6 +16358,12 @@
       "user_id": 6250751129,
       "issued_at": 1793827940,
       "method": "crypto_unique"
+    },
+    "AN2M-05CE-D6F6-4F1E": {
+      "plan": "AN2M",
+      "user_id": 7189094944,
+      "issued_at": 1793828183,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -141684,9 +141690,18 @@
       "tron_amount": 0.803238,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5167db4d46184b24976bccc9f5a6e6cf",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5167db4d46184b24976bccc9f5a6e6cf",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793827655
+      "created_at": 1793827655,
+      "approved_at": 1793828183,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-05CE-D6F6-4F1E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3084592",
+        "tron_amount": 0.803238,
+        "user_paid_toman": null,
+        "date": "2026-11-04T21:36:03.1270000"
+      }
     },
     "TRND-AN2M-6138362650-1793827773-f06790": {
       "order_id": "TRND-AN2M-6138362650-1793827773-f06790",
@@ -237601,7 +237616,7 @@
       "last_name": "Hemmati",
       "username": "Winchester1984",
       "first_seen": 1793826839,
-      "last_seen": 1793826839,
+      "last_seen": 1793828100,
       "purchases": []
     },
     "1697692192": {
@@ -237681,8 +237696,16 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793827631,
-      "last_seen": 1793827631,
-      "purchases": []
+      "last_seen": 1793828181,
+      "purchases": [
+        {
+          "key": "AN2M-05CE-D6F6-4F1E",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793828183,
+          "days": 60
+        }
+      ]
     },
     "6834437152": {
       "user_id": 6834437152,
@@ -237735,6 +237758,15 @@
       "username": "",
       "first_seen": 1793828035,
       "last_seen": 1793828035,
+      "purchases": []
+    },
+    "35581768": {
+      "user_id": 35581768,
+      "first_name": "سعید",
+      "last_name": "حسین پور",
+      "username": "Hosseinpoor_s",
+      "first_seen": 1793828092,
+      "last_seen": 1793828092,
       "purchases": []
     }
   },
