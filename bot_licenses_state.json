@@ -16214,6 +16214,12 @@
       "user_id": 338552285,
       "issued_at": 1793822164,
       "method": "crypto_unique"
+    },
+    "AZ2M-99E6-1BD1-8999": {
+      "plan": "2M",
+      "user_id": 7107974103,
+      "issued_at": 1793822768,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -140465,9 +140471,18 @@
       "tron_amount": 0.806773,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6009a2069e6f460dadcc97f0a76e1516",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6009a2069e6f460dadcc97f0a76e1516",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793822473
+      "created_at": 1793822473,
+      "approved_at": 1793822768,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-99E6-1BD1-8999",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3083832",
+        "tron_amount": 0.806773,
+        "user_paid_toman": null,
+        "date": "2026-11-04T20:05:19.1930000"
+      }
     },
     "TRND-2M-86505573-1793822556-b586ea": {
       "order_id": "TRND-2M-86505573-1793822556-b586ea",
@@ -235733,7 +235748,15 @@
       "username": "ItsMehradRH3",
       "first_seen": 1793821216,
       "last_seen": 1793822471,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-99E6-1BD1-8999",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793822768,
+          "days": 60
+        }
+      ]
     },
     "90314816": {
       "user_id": 90314816,
@@ -235858,6 +235881,15 @@
       "username": "Peerlessguard",
       "first_seen": 1793822590,
       "last_seen": 1793822590,
+      "purchases": []
+    },
+    "6714844976": {
+      "user_id": 6714844976,
+      "first_name": "𝕸.𝕳(𝕹.𝕬)",
+      "last_name": "",
+      "username": "Mohammadmatinhdadi",
+      "first_seen": 1793822750,
+      "last_seen": 1793822750,
       "purchases": []
     }
   },
