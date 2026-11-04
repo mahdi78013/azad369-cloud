@@ -15524,6 +15524,12 @@
       "user_id": 7481638317,
       "issued_at": 1793790910,
       "method": "crypto_unique"
+    },
+    "AZ3M-3A36-020B-82FD": {
+      "plan": "3M",
+      "user_id": 74077588,
+      "issued_at": 1793791164,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -134388,9 +134394,18 @@
       "tron_amount": 1.372083,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a583c7ca62d64b06a1860bf38dfea141",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a583c7ca62d64b06a1860bf38dfea141",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793790234
+      "created_at": 1793790234,
+      "approved_at": 1793791164,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-3A36-020B-82FD",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3078683",
+        "tron_amount": 1.372083,
+        "user_paid_toman": null,
+        "date": "2026-11-04T11:18:52.0400000"
+      }
     },
     "TRND-AN3M-7481638317-1793790569-96b477": {
       "order_id": "TRND-AN3M-7481638317-1793790569-96b477",
@@ -226116,8 +226131,16 @@
       "last_name": "3d",
       "username": "Ali_Ghasemi_digidecor3d",
       "first_seen": 1793789250,
-      "last_seen": 1793790186,
-      "purchases": []
+      "last_seen": 1793791162,
+      "purchases": [
+        {
+          "key": "AZ3M-3A36-020B-82FD",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793791164,
+          "days": 90
+        }
+      ]
     },
     "5263535750": {
       "user_id": 5263535750,
