@@ -15698,6 +15698,12 @@
       "user_id": 5231686138,
       "issued_at": 1793795291,
       "method": "crypto_unique"
+    },
+    "AN3M-B7DD-22D2-E3B3": {
+      "plan": "AN3M",
+      "user_id": 7496389474,
+      "issued_at": 1793795316,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -135778,9 +135784,18 @@
       "tron_amount": 1.368932,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3bfbacf6b465450f9de242618aa081cc",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3bfbacf6b465450f9de242618aa081cc",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793794893
+      "created_at": 1793794893,
+      "approved_at": 1793795316,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-B7DD-22D2-E3B3",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3079297",
+        "tron_amount": 1.368932,
+        "user_paid_toman": null,
+        "date": "2026-11-04T12:26:48.8300000"
+      }
     },
     "TRND-AN3M-5231686138-1793795019-f947e8": {
       "order_id": "TRND-AN3M-5231686138-1793795019-f947e8",
@@ -204883,13 +204898,20 @@
       "last_name": "Dadkhah",
       "username": "saeed_dadkhaah",
       "first_seen": 1793690426,
-      "last_seen": 1793794892,
+      "last_seen": 1793795314,
       "purchases": [
         {
           "key": "AZ3M-201D-F22A-3C02",
           "plan": "3M",
           "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
           "issued_at": 1793716038,
+          "days": 90
+        },
+        {
+          "key": "AN3M-B7DD-22D2-E3B3",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793795316,
           "days": 90
         }
       ]
