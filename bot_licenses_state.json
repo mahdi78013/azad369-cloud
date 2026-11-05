@@ -142913,9 +142913,10 @@
       "tron_amount": 0.811343,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a8110c91f67440b6a050d4ccefe68dde",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a8110c91f67440b6a050d4ccefe68dde",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793823217
+      "created_at": 1793823217,
+      "cancelled_at": 1793909742
     },
     "TRND-AN2M-105534544-1793823269-977a77": {
       "order_id": "TRND-AN2M-105534544-1793823269-977a77",
@@ -155132,6 +155133,36 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793909518
+    },
+    "TRND-AN2M-76135458-1793909797-4b1988": {
+      "order_id": "TRND-AN2M-76135458-1793909797-4b1988",
+      "token": "b57368eaa7f54060a29b22bcbf34a0cf",
+      "user_id": 76135458,
+      "first_name": "وطنم پاره ی تنم",
+      "username": "Amir271162",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.822213,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_b57368eaa7f54060a29b22bcbf34a0cf",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b57368eaa7f54060a29b22bcbf34a0cf",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793909797
+    },
+    "ORD_1793909826_519677777": {
+      "order_id": "ORD_1793909826_519677777",
+      "user_id": 519677777,
+      "username": "Rezataj06",
+      "first_name": "Reza",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAECsl9q7ORBSdlTW5VQYby0-PI9rYj0ywACyw9rGyFgYFMtLnllm_o34AEAAwIAA3kAAz0E",
+      "card_number": "5047061670546072",
+      "created_at": 1793909826,
+      "caption": ""
     }
   },
   "users": {
@@ -258191,7 +258222,25 @@
       "last_name": "Tajyani",
       "username": "Rezataj06",
       "first_seen": 1793909459,
-      "last_seen": 1793909459,
+      "last_seen": 1793909782,
+      "purchases": []
+    },
+    "76135458": {
+      "user_id": 76135458,
+      "first_name": "وطنم پاره ی تنم",
+      "last_name": "A.m",
+      "username": "Amir271162",
+      "first_seen": 1793909696,
+      "last_seen": 1793909696,
+      "purchases": []
+    },
+    "1029591748": {
+      "user_id": 1029591748,
+      "first_name": "mohammadjavad",
+      "last_name": "",
+      "username": "mohamad771970",
+      "first_seen": 1793909777,
+      "last_seen": 1793909777,
       "purchases": []
     }
   },
@@ -259038,17 +259087,22 @@
       "state": "awaiting_receipt",
       "plan_code": "AN2M",
       "time": 1793907589
+    },
+    "519677777": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN2M",
+      "time": 1793909814
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 8,
+    "count": 9,
     "threshold": 10,
     "stats": {
       "5892101706458979": 170,
-      "5047061670546072": 168
+      "5047061670546072": 169
     }
   },
   "maintenance": {
