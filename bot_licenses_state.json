@@ -16958,6 +16958,12 @@
       "user_id": 8829932630,
       "issued_at": 1793865676,
       "method": "crypto_unique"
+    },
+    "AZ2M-AAAE-5B93-6170": {
+      "plan": "2M",
+      "user_id": 200202367,
+      "issued_at": 1793865860,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -146572,9 +146578,18 @@
       "tron_amount": 0.816773,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4324e35aea51415d8c41dd51a817f3c5",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4324e35aea51415d8c41dd51a817f3c5",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793865556
+      "created_at": 1793865556,
+      "approved_at": 1793865860,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-AAAE-5B93-6170",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3086442",
+        "tron_amount": 0.816773,
+        "user_paid_toman": null,
+        "date": "2026-11-05T08:02:20.5300000"
+      }
     },
     "TRND-AN2M-375952114-1793865757-3ba758": {
       "order_id": "TRND-AN2M-375952114-1793865757-3ba758",
@@ -222013,8 +222028,16 @@
       "last_name": "Zarifi",
       "username": "Pooyazarifi",
       "first_seen": 1793704442,
-      "last_seen": 1793865554,
-      "purchases": []
+      "last_seen": 1793865858,
+      "purchases": [
+        {
+          "key": "AZ2M-AAAE-5B93-6170",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793865860,
+          "days": 60
+        }
+      ]
     },
     "252415669": {
       "user_id": 252415669,
