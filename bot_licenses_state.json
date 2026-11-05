@@ -16772,6 +16772,12 @@
       "user_id": 96922816,
       "issued_at": 1793859796,
       "method": "crypto_unique"
+    },
+    "AN1Y-69DD-9101-B521": {
+      "plan": "AN1Y",
+      "user_id": 116372405,
+      "issued_at": 1793859824,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -144998,9 +145004,18 @@
       "tron_amount": 3.742933,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c0bb2e35a34246d3965fd1192bf498c7",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c0bb2e35a34246d3965fd1192bf498c7",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793859654
+      "created_at": 1793859654,
+      "approved_at": 1793859824,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-69DD-9101-B521",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3085765",
+        "tron_amount": 3.742933,
+        "user_paid_toman": null,
+        "date": "2026-11-05T06:23:22.5430000"
+      }
     },
     "TRND-AN3M-40479010-1793859678-2b6d01": {
       "order_id": "TRND-AN3M-40479010-1793859678-2b6d01",
@@ -145065,6 +145080,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793859703
+    },
+    "TRND-AN3M-7116499018-1793859796-c1934c": {
+      "order_id": "TRND-AN3M-7116499018-1793859796-c1934c",
+      "token": "c62e30f74d674e27935dfae469d4e8e8",
+      "user_id": 7116499018,
+      "first_name": "Amir",
+      "username": "Amir130413043",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.370533,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_c62e30f74d674e27935dfae469d4e8e8",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c62e30f74d674e27935dfae469d4e8e8",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793859796
     }
   },
   "users": {
@@ -236680,6 +236711,13 @@
           "plan_name": "۱ ساله VIP (ویندوز + اندروید)",
           "issued_at": 1793782527,
           "days": 365
+        },
+        {
+          "key": "AN1Y-69DD-9101-B521",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793859824,
+          "days": 365
         }
       ]
     },
@@ -242129,7 +242167,7 @@
       "last_name": "",
       "username": "mehdiz1998",
       "first_seen": 1793848289,
-      "last_seen": 1793852230,
+      "last_seen": 1793859821,
       "purchases": [
         {
           "key": "AN3M-BFF4-F63F-D135",
