@@ -17450,6 +17450,12 @@
       "user_id": 172012493,
       "issued_at": 1793884238,
       "method": "crypto_unique"
+    },
+    "AN2M-5A13-5FF2-09AD": {
+      "plan": "AN2M",
+      "user_id": 702370762,
+      "issued_at": 1793884643,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -150187,9 +150193,18 @@
       "tron_amount": 0.813519,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9f571b5068d24ed4b16cbc14c93051b6",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9f571b5068d24ed4b16cbc14c93051b6",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793884465
+      "created_at": 1793884465,
+      "approved_at": 1793884643,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-5A13-5FF2-09AD",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3089015",
+        "tron_amount": 0.813519,
+        "user_paid_toman": null,
+        "date": "2026-11-05T13:16:21.2870000"
+      }
     }
   },
   "users": {
@@ -209136,7 +209151,7 @@
       "last_name": "",
       "username": "R_u18007",
       "first_seen": 1793648706,
-      "last_seen": 1793875393,
+      "last_seen": 1793884526,
       "purchases": [
         {
           "key": "AN3M-2776-E1B5-0EDE",
@@ -250658,7 +250673,15 @@
       "username": "Farshid_g_r",
       "first_seen": 1793883795,
       "last_seen": 1793884447,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-5A13-5FF2-09AD",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793884643,
+          "days": 60
+        }
+      ]
     },
     "5245358088": {
       "user_id": 5245358088,
@@ -250685,6 +250708,24 @@
       "username": "j3ehdad",
       "first_seen": 1793884477,
       "last_seen": 1793884477,
+      "purchases": []
+    },
+    "110228609": {
+      "user_id": 110228609,
+      "first_name": "🦴",
+      "last_name": "T",
+      "username": "bobys1985",
+      "first_seen": 1793884593,
+      "last_seen": 1793884593,
+      "purchases": []
+    },
+    "5759517623": {
+      "user_id": 5759517623,
+      "first_name": "لننبنلهل",
+      "last_name": "",
+      "username": "",
+      "first_seen": 1793884615,
+      "last_seen": 1793884615,
       "purchases": []
     }
   },
