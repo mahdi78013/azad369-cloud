@@ -17528,6 +17528,12 @@
       "user_id": 7661805488,
       "issued_at": 1793889081,
       "method": "crypto_unique"
+    },
+    "AZ3M-F5A1-6835-7E48": {
+      "plan": "3M",
+      "user_id": 5248834593,
+      "issued_at": 1793889249,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -138659,9 +138665,10 @@
       "tron_amount": 3.747686,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_51fc788886904cb8a7449cdb0566216d",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=51fc788886904cb8a7449cdb0566216d",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793802879
+      "created_at": 1793802879,
+      "cancelled_at": 1793889298
     },
     "TRND-VIP1Y-322735917-1793802986-4d48de": {
       "order_id": "TRND-VIP1Y-322735917-1793802986-4d48de",
@@ -150837,9 +150844,18 @@
       "tron_amount": 1.357577,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_779cacce10874fc48d927aaaf9afc77e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=779cacce10874fc48d927aaaf9afc77e",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793889036
+      "created_at": 1793889036,
+      "approved_at": 1793889249,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-F5A1-6835-7E48",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3089589",
+        "tron_amount": 1.357577,
+        "user_paid_toman": null,
+        "date": "2026-11-05T14:33:54.4700000"
+      }
     }
   },
   "users": {
@@ -251006,7 +251022,15 @@
       "username": "rahgozare101",
       "first_seen": 1793880060,
       "last_seen": 1793888974,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-F5A1-6835-7E48",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793889249,
+          "days": 90
+        }
+      ]
     },
     "1041729024": {
       "user_id": 1041729024,
@@ -251744,6 +251768,15 @@
       "username": "mmshahpari2023",
       "first_seen": 1793889194,
       "last_seen": 1793889194,
+      "purchases": []
+    },
+    "1198338289": {
+      "user_id": 1198338289,
+      "first_name": "rajabi",
+      "last_name": "",
+      "username": "ninjarajabi",
+      "first_seen": 1793889372,
+      "last_seen": 1793889372,
       "purchases": []
     }
   },
