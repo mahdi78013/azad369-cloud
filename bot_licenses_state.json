@@ -16622,6 +16622,12 @@
       "user_id": 1610575676,
       "issued_at": 1793856237,
       "method": "crypto_unique"
+    },
+    "AN2M-5C29-F299-83B7": {
+      "plan": "AN2M",
+      "user_id": 2090048487,
+      "issued_at": 1793856293,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -144268,9 +144274,18 @@
       "tron_amount": 0.814648,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_fafb93d4e25d45b2af6562436a24299d",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=fafb93d4e25d45b2af6562436a24299d",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793856043
+      "created_at": 1793856043,
+      "approved_at": 1793856293,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-5C29-F299-83B7",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3085471",
+        "tron_amount": 0.814648,
+        "user_paid_toman": null,
+        "date": "2026-11-05T05:23:28.0330000"
+      }
     },
     "ORD_1793856083_94521781": {
       "order_id": "ORD_1793856083_94521781",
@@ -227895,7 +227910,7 @@
       "last_name": "",
       "username": "Kevin_6283",
       "first_seen": 1793729645,
-      "last_seen": 1793807920,
+      "last_seen": 1793856242,
       "purchases": [
         {
           "key": "AZ3M-00FD-251B-5871",
@@ -241629,7 +241644,24 @@
       "last_name": "Amirhossein",
       "username": "AmirtheBest123",
       "first_seen": 1793855973,
-      "last_seen": 1793855973,
+      "last_seen": 1793856286,
+      "purchases": [
+        {
+          "key": "AN2M-5C29-F299-83B7",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793856293,
+          "days": 60
+        }
+      ]
+    },
+    "96063662": {
+      "user_id": 96063662,
+      "first_name": "◦•●◉✿Yvazifehshenas✿◉●•◦",
+      "last_name": "",
+      "username": "Yvazifeshenas90",
+      "first_seen": 1793856280,
+      "last_seen": 1793856280,
       "purchases": []
     }
   },
@@ -242465,6 +242497,11 @@
       "state": "awaiting_receipt",
       "plan_code": "AN2M",
       "time": 1793856065
+    },
+    "2090048487": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN2M",
+      "time": 1793856287
     }
   },
   "admin_states": {},
