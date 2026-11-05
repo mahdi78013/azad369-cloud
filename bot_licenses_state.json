@@ -17162,6 +17162,12 @@
       "user_id": 101823729,
       "issued_at": 1793872534,
       "method": "crypto_unique"
+    },
+    "AZ3M-B39E-200B-EFBA": {
+      "plan": "3M",
+      "user_id": 102604798,
+      "issued_at": 1793872624,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -147549,9 +147555,18 @@
       "tron_amount": 1.364067,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e2e4da76ebb2492b9b9cc97269260d68",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e2e4da76ebb2492b9b9cc97269260d68",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793870607
+      "created_at": 1793870607,
+      "approved_at": 1793872624,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-B39E-200B-EFBA",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3087393",
+        "tron_amount": 1.364067,
+        "user_paid_toman": null,
+        "date": "2026-11-05T09:55:22.5500000"
+      }
     },
     "TRND-AN2M-8664445356-1793870666-097742": {
       "order_id": "TRND-AN2M-8664445356-1793870666-097742",
@@ -147866,6 +147881,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793872551
+    },
+    "TRND-2M-7487016343-1793872565-48d4c0": {
+      "order_id": "TRND-2M-7487016343-1793872565-48d4c0",
+      "token": "13a45e524e824fd3b05b9971337fa454",
+      "user_id": 7487016343,
+      "first_name": "حسام",
+      "username": "ندارد",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.812049,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_13a45e524e824fd3b05b9971337fa454",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=13a45e524e824fd3b05b9971337fa454",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793872565
     }
   },
   "users": {
@@ -156072,8 +156103,16 @@
       "last_name": "Mahyar",
       "username": "Mahyarred61",
       "first_seen": 1792144023,
-      "last_seen": 1793870605,
-      "purchases": []
+      "last_seen": 1793872620,
+      "purchases": [
+        {
+          "key": "AZ3M-B39E-200B-EFBA",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793872624,
+          "days": 90
+        }
+      ]
     },
     "263586564": {
       "user_id": 263586564,
@@ -205097,7 +205136,7 @@
       "last_name": "a",
       "username": "",
       "first_seen": 1793644892,
-      "last_seen": 1793737398,
+      "last_seen": 1793872585,
       "purchases": [
         {
           "key": "AN3M-ACEF-00F9-C2C1",
