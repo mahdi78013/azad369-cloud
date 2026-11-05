@@ -17276,6 +17276,12 @@
       "user_id": 6275500284,
       "issued_at": 1793877098,
       "method": "crypto_unique"
+    },
+    "AN1Y-F5C3BEE2-F6B8-A7872F": {
+      "plan": "AN1Y",
+      "user_id": 105880747,
+      "issued_at": 1793877108,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -148536,9 +148542,10 @@
       "tron_amount": 0.823533,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f5c86de0f9c145aca934a7d5828275a0",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f5c86de0f9c145aca934a7d5828275a0",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793875765
+      "created_at": 1793875765,
+      "cancelled_at": 1793877104
     },
     "TRND-AN3M-6144609157-1793875786-a43895": {
       "order_id": "TRND-AN3M-6144609157-1793875786-a43895",
@@ -148757,9 +148764,18 @@
       "tron_amount": 3.753195,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4d6d19cd67d649268dc25b346036f2d1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4d6d19cd67d649268dc25b346036f2d1",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793876789
+      "created_at": 1793876789,
+      "approved_at": 1793877108,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN1Y-F5C3BEE2-F6B8-A7872F",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3088016",
+        "tron_amount": 3.753195,
+        "user_paid_toman": null,
+        "date": "2026-11-05T11:11:04.4230000"
+      }
     },
     "TRND-AN2M-6275500284-1793876834-a727fe": {
       "order_id": "TRND-AN2M-6275500284-1793876834-a727fe",
@@ -248467,7 +248483,15 @@
       "username": "H354MB4L46H1",
       "first_seen": 1793876719,
       "last_seen": 1793876719,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN1Y-F5C3BEE2-F6B8-A7872F",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793877108,
+          "days": 365
+        }
+      ]
     },
     "77204138": {
       "user_id": 77204138,
