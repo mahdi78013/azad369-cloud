@@ -16454,6 +16454,12 @@
       "user_id": 467447718,
       "issued_at": 1793836415,
       "method": "crypto_unique"
+    },
+    "AN2M-2BE2-04F7-983E": {
+      "plan": "AN2M",
+      "user_id": 171369335,
+      "issued_at": 1793838469,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -142801,9 +142807,34 @@
       "tron_amount": 0.804231,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e0c981bc59b34b07ba204f8915095070",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e0c981bc59b34b07ba204f8915095070",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793838180,
+      "approved_at": 1793838469,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-2BE2-04F7-983E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3085022",
+        "tron_amount": 0.804231,
+        "user_paid_toman": null,
+        "date": "2026-11-05T00:26:14.7230000"
+      }
+    },
+    "TRND-AN2M-171369335-1793838462-7b8676": {
+      "order_id": "TRND-AN2M-171369335-1793838462-7b8676",
+      "token": "d077b1db1fbf4bde8e54aa867d59023f",
+      "user_id": 171369335,
+      "first_name": "09150202192",
+      "username": "A3kani",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.800469,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_d077b1db1fbf4bde8e54aa867d59023f",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d077b1db1fbf4bde8e54aa867d59023f",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793838180
+      "created_at": 1793838462
     }
   },
   "users": {
@@ -239339,7 +239370,15 @@
       "username": "A3kani",
       "first_seen": 1793837521,
       "last_seen": 1793838162,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-2BE2-04F7-983E",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793838469,
+          "days": 60
+        }
+      ]
     },
     "8376832672": {
       "user_id": 8376832672,
