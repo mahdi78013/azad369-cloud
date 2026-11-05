@@ -17972,6 +17972,12 @@
       "user_id": 983944223,
       "issued_at": 1793906948,
       "method": "crypto_unique"
+    },
+    "AZ2M-96FA-38E4-EF81": {
+      "plan": "2M",
+      "user_id": 100307038,
+      "issued_at": 1793907119,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -153100,9 +153106,10 @@
       "tron_amount": 0.817187,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c4650c0501ff472e9749a80c5b3c14fc",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c4650c0501ff472e9749a80c5b3c14fc",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793898903
+      "created_at": 1793898903,
+      "cancelled_at": 1793907280
     },
     "TRND-AN3M-5674650904-1793899175-e6fd65": {
       "order_id": "TRND-AN3M-5674650904-1793899175-e6fd65",
@@ -154447,9 +154454,18 @@
       "tron_amount": 0.804148,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e83d9d94f8864cde85d510c6e74c0d78",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e83d9d94f8864cde85d510c6e74c0d78",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793906769
+      "created_at": 1793906769,
+      "approved_at": 1793907119,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-96FA-38E4-EF81",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3092662",
+        "tron_amount": 0.804148,
+        "user_paid_toman": null,
+        "date": "2026-11-05T19:30:47.6370000"
+      }
     },
     "TRND-AN2M-1152804205-1793906946-1b33cc": {
       "order_id": "TRND-AN2M-1152804205-1793906946-1b33cc",
@@ -170112,7 +170128,7 @@
       "last_name": "",
       "username": "Ahura_Haghparast_Old",
       "first_seen": 1792355144,
-      "last_seen": 1793419686,
+      "last_seen": 1793907281,
       "purchases": []
     },
     "8161011898": {
@@ -200824,7 +200840,7 @@
       "last_name": "",
       "username": "Alxreza12",
       "first_seen": 1793391783,
-      "last_seen": 1793739730,
+      "last_seen": 1793907287,
       "purchases": []
     },
     "6340690526": {
@@ -257302,7 +257318,15 @@
       "username": "Adel2518",
       "first_seen": 1793906743,
       "last_seen": 1793906743,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-96FA-38E4-EF81",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793907119,
+          "days": 60
+        }
+      ]
     },
     "375612379": {
       "user_id": 375612379,
@@ -257320,6 +257344,33 @@
       "username": "Sajadka00",
       "first_seen": 1793906996,
       "last_seen": 1793906996,
+      "purchases": []
+    },
+    "8637498743": {
+      "user_id": 8637498743,
+      "first_name": "Reza",
+      "last_name": "Kariminejad",
+      "username": "Kariminejad_Reza",
+      "first_seen": 1793907137,
+      "last_seen": 1793907137,
+      "purchases": []
+    },
+    "49571182": {
+      "user_id": 49571182,
+      "first_name": "Ali",
+      "last_name": "",
+      "username": "besharatali",
+      "first_seen": 1793907252,
+      "last_seen": 1793907252,
+      "purchases": []
+    },
+    "40510781": {
+      "user_id": 40510781,
+      "first_name": "coral 😊❤",
+      "last_name": "",
+      "username": "Mjnpyn",
+      "first_seen": 1793907289,
+      "last_seen": 1793907289,
       "purchases": []
     }
   },
