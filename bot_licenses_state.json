@@ -17366,6 +17366,12 @@
       "user_id": 1014182009,
       "issued_at": 1793881147,
       "method": "crypto_unique"
+    },
+    "AN2M-2448-CAA5-61A1": {
+      "plan": "AN2M",
+      "user_id": 7298198896,
+      "issued_at": 1793881157,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -149318,9 +149324,18 @@
       "tron_amount": 0.80696,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6c5993337b554403b6a06168356ebcbe",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6c5993337b554403b6a06168356ebcbe",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793880087
+      "created_at": 1793880087,
+      "approved_at": 1793881157,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-2448-CAA5-61A1",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3088448",
+        "tron_amount": 0.80696,
+        "user_paid_toman": null,
+        "date": "2026-11-05T12:16:39.7530000"
+      }
     },
     "TRND-AN2M-113369092-1793880374-7beb7a": {
       "order_id": "TRND-AN2M-113369092-1793880374-7beb7a",
@@ -149497,6 +149512,22 @@
       "card_number": "5892101706458979",
       "created_at": 1793881112,
       "caption": ""
+    },
+    "TRND-AN2M-130273661-1793881149-d007ce": {
+      "order_id": "TRND-AN2M-130273661-1793881149-d007ce",
+      "token": "4d29c27e051548f9aef5c7fa1a8b8cd3",
+      "user_id": 130273661,
+      "first_name": "Sh",
+      "username": "shha1405",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.816601,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_4d29c27e051548f9aef5c7fa1a8b8cd3",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4d29c27e051548f9aef5c7fa1a8b8cd3",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793881149
     }
   },
   "users": {
@@ -249447,7 +249478,7 @@
       "last_name": "Ha",
       "username": "shha1405",
       "first_seen": 1793878969,
-      "last_seen": 1793878969,
+      "last_seen": 1793881147,
       "purchases": []
     },
     "6659342703": {
@@ -249569,8 +249600,16 @@
       "last_name": "",
       "username": "Afgbaxx",
       "first_seen": 1793879993,
-      "last_seen": 1793879993,
-      "purchases": []
+      "last_seen": 1793881155,
+      "purchases": [
+        {
+          "key": "AN2M-2448-CAA5-61A1",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793881157,
+          "days": 60
+        }
+      ]
     },
     "5248834593": {
       "user_id": 5248834593,
@@ -249640,7 +249679,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793880675,
-      "last_seen": 1793880675,
+      "last_seen": 1793881151,
       "purchases": []
     },
     "1014182009": {
