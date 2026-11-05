@@ -16556,6 +16556,12 @@
       "user_id": 95838661,
       "issued_at": 1793853126,
       "method": "crypto_unique"
+    },
+    "AZ2M-B700-9220-BAEB": {
+      "plan": "2M",
+      "user_id": 94521781,
+      "issued_at": 1793853135,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -143635,9 +143641,18 @@
       "tron_amount": 0.820389,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_61e5f4ef5ec248f38eb875582363a09c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=61e5f4ef5ec248f38eb875582363a09c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793852643
+      "created_at": 1793852643,
+      "approved_at": 1793853135,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-B700-9220-BAEB",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3085263",
+        "tron_amount": 0.820389,
+        "user_paid_toman": null,
+        "date": "2026-11-05T04:31:15.0100000"
+      }
     },
     "TRND-AN2M-1456102916-1793852699-16620f": {
       "order_id": "TRND-AN2M-1456102916-1793852699-16620f",
@@ -240785,7 +240800,15 @@
       "username": "Ramin_jafariyan",
       "first_seen": 1793852600,
       "last_seen": 1793852600,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-B700-9220-BAEB",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793853135,
+          "days": 60
+        }
+      ]
     },
     "372246030": {
       "user_id": 372246030,
