@@ -17780,6 +17780,12 @@
       "user_id": 667275330,
       "issued_at": 1793899204,
       "method": "crypto_unique"
+    },
+    "AN3M-CE3F-45E0-D68D": {
+      "plan": "AN3M",
+      "user_id": 794997504,
+      "issued_at": 1793899206,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -152846,9 +152852,18 @@
       "tron_amount": 1.379393,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c9ef8c16a448437d9d204594b48c871c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c9ef8c16a448437d9d204594b48c871c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793898825
+      "created_at": 1793898825,
+      "approved_at": 1793899206,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-CE3F-45E0-D68D",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3091200",
+        "tron_amount": 1.379393,
+        "user_paid_toman": null,
+        "date": "2026-11-05T17:19:37.9430000"
+      }
     },
     "TRND-AN2M-8716166077-1793898903-bd119a": {
       "order_id": "TRND-AN2M-8716166077-1793898903-bd119a",
@@ -152881,6 +152896,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793899175
+    },
+    "TRND-AN3M-348405632-1793899240-71f0e9": {
+      "order_id": "TRND-AN3M-348405632-1793899240-71f0e9",
+      "token": "228930a7a8d24fef8b80f86bf3c14863",
+      "user_id": 348405632,
+      "first_name": "🎼🎧Parham🎧🎼",
+      "username": "parham_zolfagharian",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.386151,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_228930a7a8d24fef8b80f86bf3c14863",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=228930a7a8d24fef8b80f86bf3c14863",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793899240
     }
   },
   "users": {
@@ -168861,7 +168892,7 @@
       "last_name": "",
       "username": "parham_zolfagharian",
       "first_seen": 1792355763,
-      "last_seen": 1793898799,
+      "last_seen": 1793899230,
       "purchases": []
     },
     "477398009": {
@@ -254855,7 +254886,15 @@
       "username": "mohsennb97",
       "first_seen": 1793897817,
       "last_seen": 1793898782,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-CE3F-45E0-D68D",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793899206,
+          "days": 90
+        }
+      ]
     },
     "108018019": {
       "user_id": 108018019,
