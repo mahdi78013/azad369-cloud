@@ -16532,6 +16532,12 @@
       "user_id": 95663912,
       "issued_at": 1793851746,
       "method": "crypto_unique"
+    },
+    "AN2M-256E-253A-E7A8": {
+      "plan": "AN2M",
+      "user_id": 2126082786,
+      "issued_at": 1793852740,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -143559,9 +143565,18 @@
       "tron_amount": 0.809128,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_9ec645251bfc489fb76fff55d4e95551",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=9ec645251bfc489fb76fff55d4e95551",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793852494
+      "created_at": 1793852494,
+      "approved_at": 1793852740,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-256E-253A-E7A8",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3085253",
+        "tron_amount": 0.809128,
+        "user_paid_toman": null,
+        "date": "2026-11-05T04:25:11.2800000"
+      }
     },
     "TRND-AN2M-83161314-1793852616-d4a79a": {
       "order_id": "TRND-AN2M-83161314-1793852616-d4a79a",
@@ -143594,6 +143609,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793852643
+    },
+    "TRND-AN2M-1456102916-1793852699-16620f": {
+      "order_id": "TRND-AN2M-1456102916-1793852699-16620f",
+      "token": "cfa44d24c3ce4560b9042f6f4c86f872",
+      "user_id": 1456102916,
+      "first_name": "Amin",
+      "username": "Aminnaini7",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.797867,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_cfa44d24c3ce4560b9042f6f4c86f872",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=cfa44d24c3ce4560b9042f6f4c86f872",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793852699
     }
   },
   "users": {
@@ -208292,7 +208323,7 @@
       "last_name": "Σ",
       "username": "Aminnaini7",
       "first_seen": 1793675312,
-      "last_seen": 1793675312,
+      "last_seen": 1793852698,
       "purchases": []
     },
     "1406090570": {
@@ -240628,7 +240659,15 @@
       "username": "",
       "first_seen": 1793852457,
       "last_seen": 1793852457,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-256E-253A-E7A8",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793852740,
+          "days": 60
+        }
+      ]
     },
     "94521781": {
       "user_id": 94521781,
