@@ -17756,6 +17756,12 @@
       "user_id": 995097173,
       "issued_at": 1793897425,
       "method": "crypto_unique"
+    },
+    "AN3M-4619-9284-1334": {
+      "plan": "AN3M",
+      "user_id": 8843092498,
+      "issued_at": 1793897667,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -152526,9 +152532,18 @@
       "tron_amount": 1.360561,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_269b35d765564f9f809fbdd7c8eacf62",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=269b35d765564f9f809fbdd7c8eacf62",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793897265
+      "created_at": 1793897265,
+      "approved_at": 1793897667,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-4619-9284-1334",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3090922",
+        "tron_amount": 1.360561,
+        "user_paid_toman": null,
+        "date": "2026-11-05T16:53:45.9100000"
+      }
     },
     "TRND-AN2M-62477426-1793897309-c0e29e": {
       "order_id": "TRND-AN2M-62477426-1793897309-c0e29e",
@@ -254490,8 +254505,16 @@
       "last_name": "Boy",
       "username": "CalmBoy_B",
       "first_seen": 1793896982,
-      "last_seen": 1793897324,
-      "purchases": []
+      "last_seen": 1793897636,
+      "purchases": [
+        {
+          "key": "AN3M-4619-9284-1334",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793897667,
+          "days": 90
+        }
+      ]
     },
     "8375469764": {
       "user_id": 8375469764,
@@ -254589,6 +254612,15 @@
       "username": "mahdimo1366",
       "first_seen": 1793897488,
       "last_seen": 1793897488,
+      "purchases": []
+    },
+    "5571356686": {
+      "user_id": 5571356686,
+      "first_name": "Vip",
+      "last_name": "",
+      "username": "fuukn",
+      "first_seen": 1793897646,
+      "last_seen": 1793897646,
       "purchases": []
     }
   },
@@ -255415,11 +255447,6 @@
       "state": "awaiting_receipt",
       "plan_code": "AN2M",
       "time": 1793879492
-    },
-    "8843092498": {
-      "state": "awaiting_receipt",
-      "plan_code": "AN3M",
-      "time": 1793897616
     }
   },
   "admin_states": {},
