@@ -17900,6 +17900,12 @@
       "user_id": 492978218,
       "issued_at": 1793904694,
       "method": "crypto_unique"
+    },
+    "AN2M-1D1A-CA3B-FAA6": {
+      "plan": "AN2M",
+      "user_id": 245646330,
+      "issued_at": 1793904865,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -153825,9 +153831,18 @@
       "tron_amount": 0.807976,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_72229a6c78494b728f7ce78a44230b64",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=72229a6c78494b728f7ce78a44230b64",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793904435
+      "created_at": 1793904435,
+      "approved_at": 1793904865,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-1D1A-CA3B-FAA6",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3092212",
+        "tron_amount": 0.807976,
+        "user_paid_toman": null,
+        "date": "2026-11-05T18:51:42.5330000"
+      }
     },
     "TRND-AN2M-48352805-1793904478-34454e": {
       "order_id": "TRND-AN2M-48352805-1793904478-34454e",
@@ -153877,6 +153892,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793904678
+    },
+    "TRND-2M-36171414-1793904762-f82efa": {
+      "order_id": "TRND-2M-36171414-1793904762-f82efa",
+      "token": "67298572323b4ec4b46c501ba5c2ec39",
+      "user_id": 36171414,
+      "first_name": "Hassan",
+      "username": "Hassanzahedy",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.819316,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_67298572323b4ec4b46c501ba5c2ec39",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=67298572323b4ec4b46c501ba5c2ec39",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793904762
+    },
+    "TRND-AN2M-6046799150-1793904819-63a013": {
+      "order_id": "TRND-AN2M-6046799150-1793904819-63a013",
+      "token": "0a529c2d0fe04850b8b5e799a80de0a5",
+      "user_id": 6046799150,
+      "first_name": "محمدیان",
+      "username": "jaberkhann12",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.810244,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_0a529c2d0fe04850b8b5e799a80de0a5",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0a529c2d0fe04850b8b5e799a80de0a5",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793904819
     }
   },
   "users": {
@@ -194117,7 +194164,7 @@
       "last_name": "",
       "username": "mammad1156",
       "first_seen": 1793292826,
-      "last_seen": 1793904163,
+      "last_seen": 1793904845,
       "purchases": [
         {
           "key": "AN1Y-1B0004F6-0B84-A92897",
@@ -213382,7 +213429,7 @@
       "last_name": "",
       "username": "Mrbiazari",
       "first_seen": 1793649844,
-      "last_seen": 1793823271,
+      "last_seen": 1793904764,
       "purchases": [
         {
           "key": "AN2M-22C6-0838-4DEB",
@@ -252332,8 +252379,16 @@
       "last_name": "",
       "username": "together_strategy2025",
       "first_seen": 1793860844,
-      "last_seen": 1793904352,
-      "purchases": []
+      "last_seen": 1793904827,
+      "purchases": [
+        {
+          "key": "AN2M-1D1A-CA3B-FAA6",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793904865,
+          "days": 60
+        }
+      ]
     },
     "7362210119": {
       "user_id": 7362210119,
@@ -256393,6 +256448,15 @@
       "first_seen": 1793904728,
       "last_seen": 1793904728,
       "purchases": []
+    },
+    "5402289333": {
+      "user_id": 5402289333,
+      "first_name": "M",
+      "last_name": "",
+      "username": "Mohammafsharifzadeh",
+      "first_seen": 1793904815,
+      "last_seen": 1793904815,
+      "purchases": []
     }
   },
   "user_states": {
@@ -257228,6 +257292,11 @@
       "state": "awaiting_receipt",
       "plan_code": "AN2M",
       "time": 1793904423
+    },
+    "245646330": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN2M",
+      "time": 1793904827
     }
   },
   "admin_states": {},
