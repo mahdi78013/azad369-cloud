@@ -17768,6 +17768,12 @@
       "user_id": 5571356686,
       "issued_at": 1793898052,
       "method": "crypto_unique"
+    },
+    "AN2M-5EA5BA57-1D41-A2D20E": {
+      "plan": "AN2M",
+      "user_id": 188156274,
+      "issued_at": 1793898628,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -152719,9 +152725,18 @@
       "tron_amount": 0.819915,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a6935a0d10e2425a88939b41b621a445",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a6935a0d10e2425a88939b41b621a445",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793898187
+      "created_at": 1793898187,
+      "approved_at": 1793898628,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-5EA5BA57-1D41-A2D20E",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3091091",
+        "tron_amount": 0.819915,
+        "user_paid_toman": null,
+        "date": "2026-11-05T17:07:27.3170000"
+      }
     },
     "TRND-2M-5973552567-1793898300-79f6a6": {
       "order_id": "TRND-2M-5973552567-1793898300-79f6a6",
@@ -254770,7 +254785,15 @@
       "username": "Amin_rewire",
       "first_seen": 1793898148,
       "last_seen": 1793898148,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-5EA5BA57-1D41-A2D20E",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793898628,
+          "days": 60
+        }
+      ]
     },
     "5973552567": {
       "user_id": 5973552567,
