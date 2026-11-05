@@ -17360,6 +17360,12 @@
       "user_id": 113369092,
       "issued_at": 1793880737,
       "method": "crypto_unique"
+    },
+    "AZ2M-1A41-02BA-C4BB": {
+      "plan": "2M",
+      "user_id": 1014182009,
+      "issued_at": 1793881147,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -149465,9 +149471,18 @@
       "tron_amount": 0.800153,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_095e8ffcba2d43dfa81083680262b7ca",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=095e8ffcba2d43dfa81083680262b7ca",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793880904
+      "created_at": 1793880904,
+      "approved_at": 1793881147,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-1A41-02BA-C4BB",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3088577",
+        "tron_amount": 0.800153,
+        "user_paid_toman": null,
+        "date": "2026-11-05T12:18:01.2500000"
+      }
     },
     "ORD_1793881112_6537951591": {
       "order_id": "ORD_1793881112_6537951591",
@@ -249635,6 +249650,23 @@
       "username": "Mr_Rostamii0",
       "first_seen": 1793880883,
       "last_seen": 1793880883,
+      "purchases": [
+        {
+          "key": "AZ2M-1A41-02BA-C4BB",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793881147,
+          "days": 60
+        }
+      ]
+    },
+    "639856375": {
+      "user_id": 639856375,
+      "first_name": "فروشگاه موبایل پرشین",
+      "last_name": "",
+      "username": "Persianphone1",
+      "first_seen": 1793881145,
+      "last_seen": 1793881145,
       "purchases": []
     }
   },
