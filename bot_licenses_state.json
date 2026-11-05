@@ -17036,6 +17036,12 @@
       "user_id": 7502353613,
       "issued_at": 1793868366,
       "method": "crypto_unique"
+    },
+    "AN2M-C333-0A63-8765": {
+      "plan": "AN2M",
+      "user_id": 2105679056,
+      "issued_at": 1793868388,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -147097,9 +147103,34 @@
       "tron_amount": 0.817763,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d108a2a900c74219a08c035017a229aa",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d108a2a900c74219a08c035017a229aa",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793868227,
+      "approved_at": 1793868388,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-C333-0A63-8765",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3086818",
+        "tron_amount": 0.817763,
+        "user_paid_toman": null,
+        "date": "2026-11-05T08:46:08.6370000"
+      }
+    },
+    "TRND-AN2M-6587142400-1793868382-ebe527": {
+      "order_id": "TRND-AN2M-6587142400-1793868382-ebe527",
+      "token": "297a9f7f9a894a52a3ba7b6715166199",
+      "user_id": 6587142400,
+      "first_name": "M.Ghamgosha",
+      "username": "mghamgosha",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.813031,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_297a9f7f9a894a52a3ba7b6715166199",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=297a9f7f9a894a52a3ba7b6715166199",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793868227
+      "created_at": 1793868382
     }
   },
   "users": {
@@ -243964,7 +243995,7 @@
       "last_name": "",
       "username": "mghamgosha",
       "first_seen": 1793836682,
-      "last_seen": 1793836682,
+      "last_seen": 1793868368,
       "purchases": []
     },
     "1374996203": {
@@ -244984,6 +245015,13 @@
           "plan": "2M",
           "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
           "issued_at": 1793859460,
+          "days": 60
+        },
+        {
+          "key": "AN2M-C333-0A63-8765",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793868388,
           "days": 60
         }
       ]
