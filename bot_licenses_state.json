@@ -17102,6 +17102,12 @@
       "user_id": 7388377344,
       "issued_at": 1793869979,
       "method": "crypto_unique"
+    },
+    "AZ3M-1302-1A3D-13D2": {
+      "plan": "3M",
+      "user_id": 8807819683,
+      "issued_at": 1793870390,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -147433,9 +147439,18 @@
       "tron_amount": 1.382149,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_3790e797d47444d2983676aba27b92e7",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3790e797d47444d2983676aba27b92e7",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793869970
+      "created_at": 1793869970,
+      "approved_at": 1793870390,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-1302-1A3D-13D2",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3087065",
+        "tron_amount": 1.382149,
+        "user_paid_toman": null,
+        "date": "2026-11-05T09:19:29.5570000"
+      }
     }
   },
   "users": {
@@ -213985,8 +214000,16 @@
       "last_name": "",
       "username": "The_abysswatcher",
       "first_seen": 1793682594,
-      "last_seen": 1793869927,
-      "purchases": []
+      "last_seen": 1793870388,
+      "purchases": [
+        {
+          "key": "AZ3M-1302-1A3D-13D2",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793870390,
+          "days": 90
+        }
+      ]
     },
     "5813888140": {
       "user_id": 5813888140,
@@ -244672,7 +244695,7 @@
       "last_name": "",
       "username": "mehdiz1998",
       "first_seen": 1793848289,
-      "last_seen": 1793859821,
+      "last_seen": 1793870346,
       "purchases": [
         {
           "key": "AN3M-BFF4-F63F-D135",
@@ -246387,6 +246410,15 @@
       "first_seen": 1793870017,
       "last_seen": 1793870017,
       "purchases": []
+    },
+    "119675822": {
+      "user_id": 119675822,
+      "first_name": "مهدی",
+      "last_name": "مختاری",
+      "username": "",
+      "first_seen": 1793870248,
+      "last_seen": 1793870248,
+      "purchases": []
     }
   },
   "user_states": {
@@ -247142,11 +247174,6 @@
       "state": "awaiting_receipt",
       "plan_code": "AN3M",
       "time": 1793794463
-    },
-    "112487347": {
-      "state": "awaiting_receipt",
-      "plan_code": "AN3M",
-      "time": 1793795471
     },
     "103259014": {
       "state": "awaiting_receipt",
