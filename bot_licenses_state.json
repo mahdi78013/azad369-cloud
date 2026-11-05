@@ -17096,6 +17096,12 @@
       "user_id": 1058274828,
       "issued_at": 1793869799,
       "method": "crypto_unique"
+    },
+    "AN2M-0ACE-AD72-26DB": {
+      "plan": "AN2M",
+      "user_id": 7388377344,
+      "issued_at": 1793869979,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -147293,9 +147299,18 @@
       "tron_amount": 0.800865,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ffcae71129ea46cf96e46098d13ec1e7",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ffcae71129ea46cf96e46098d13ec1e7",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793869145
+      "created_at": 1793869145,
+      "approved_at": 1793869979,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-0ACE-AD72-26DB",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3087015",
+        "tron_amount": 0.800865,
+        "user_paid_toman": null,
+        "date": "2026-11-05T09:11:18.6930000"
+      }
     },
     "TRND-3M-103580507-1793869222-2be96f": {
       "order_id": "TRND-3M-103580507-1793869222-2be96f",
@@ -147405,6 +147420,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793869586
+    },
+    "TRND-3M-8807819683-1793869970-a8d0d5": {
+      "order_id": "TRND-3M-8807819683-1793869970-a8d0d5",
+      "token": "3790e797d47444d2983676aba27b92e7",
+      "user_id": 8807819683,
+      "first_name": "Abolfazl",
+      "username": "The_abysswatcher",
+      "plan_code": "3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "price_toman": 149000,
+      "tron_amount": 1.382149,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_3790e797d47444d2983676aba27b92e7",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=3790e797d47444d2983676aba27b92e7",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793869970
     }
   },
   "users": {
@@ -213954,7 +213985,7 @@
       "last_name": "",
       "username": "The_abysswatcher",
       "first_seen": 1793682594,
-      "last_seen": 1793682594,
+      "last_seen": 1793869927,
       "purchases": []
     },
     "5813888140": {
@@ -241199,8 +241230,16 @@
       "last_name": "Mz",
       "username": "",
       "first_seen": 1793799419,
-      "last_seen": 1793869143,
-      "purchases": []
+      "last_seen": 1793869942,
+      "purchases": [
+        {
+          "key": "AN2M-0ACE-AD72-26DB",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793869979,
+          "days": 60
+        }
+      ]
     },
     "1069144038": {
       "user_id": 1069144038,
