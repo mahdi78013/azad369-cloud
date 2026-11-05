@@ -17930,6 +17930,12 @@
       "user_id": 6046799150,
       "issued_at": 1793905233,
       "method": "crypto_unique"
+    },
+    "AN2M-7C40-14B4-A640": {
+      "plan": "AN2M",
+      "user_id": 794159580,
+      "issued_at": 1793905935,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -154131,9 +154137,10 @@
       "tron_amount": 0.803951,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_c108fa8d5793430db83061606a73410b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=c108fa8d5793430db83061606a73410b",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793905621
+      "created_at": 1793905621,
+      "cancelled_at": 1793905933
     },
     "TRND-AN2M-504149472-1793905746-81a224": {
       "order_id": "TRND-AN2M-504149472-1793905746-81a224",
@@ -154163,9 +154170,18 @@
       "tron_amount": 0.810749,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d97628087e464a64a60c078b0bc5c2c1",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d97628087e464a64a60c078b0bc5c2c1",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793905753
+      "created_at": 1793905753,
+      "approved_at": 1793905935,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-7C40-14B4-A640",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3092446",
+        "tron_amount": 0.810749,
+        "user_paid_toman": null,
+        "date": "2026-11-05T19:11:59.1870000"
+      }
     }
   },
   "users": {
@@ -181359,6 +181375,13 @@
           "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
           "issued_at": 1793006194,
           "days": 90
+        },
+        {
+          "key": "AN2M-7C40-14B4-A640",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793905935,
+          "days": 60
         }
       ]
     },
@@ -256581,7 +256604,7 @@
       "last_name": "",
       "username": "khAmirhosein",
       "first_seen": 1793903439,
-      "last_seen": 1793903439,
+      "last_seen": 1793905926,
       "purchases": [
         {
           "key": "AN2M-2C91-1548-809F",
@@ -256782,6 +256805,15 @@
       "username": "asgar_bader",
       "first_seen": 1793905769,
       "last_seen": 1793905769,
+      "purchases": []
+    },
+    "201276071": {
+      "user_id": 201276071,
+      "first_name": "Abbas",
+      "last_name": "Jafari",
+      "username": "AbbasJafariGh",
+      "first_seen": 1793905909,
+      "last_seen": 1793905909,
       "purchases": []
     }
   },
