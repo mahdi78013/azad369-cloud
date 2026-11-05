@@ -140913,9 +140913,10 @@
       "tron_amount": 0.808924,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_8fc5d0c58cb54f44a7468f6378f3ef2b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8fc5d0c58cb54f44a7468f6378f3ef2b",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793815763
+      "created_at": 1793815763,
+      "cancelled_at": 1793902205
     },
     "TRND-VIP1Y-6135474844-1793815888-b6a095": {
       "order_id": "TRND-VIP1Y-6135474844-1793815888-b6a095",
@@ -153234,6 +153235,20 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793902138
+    },
+    "ORD_1793902244_311460234": {
+      "order_id": "ORD_1793902244_311460234",
+      "user_id": 311460234,
+      "username": "ندارد",
+      "first_name": ".:**:.*.:｡.✿HellBoy✿.｡.:* :**:.",
+      "plan_code": "AN3M",
+      "price": "۱۴۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAECr-Bq7MajfwABGAAB8ZNqBMqcc-CBwOwIAAKhEmsbMuppUyaFuCXBtzUXAQADAgADeQADPQQ",
+      "card_number": "5047061670546072",
+      "created_at": 1793902244,
+      "caption": ""
     }
   },
   "users": {
@@ -255461,7 +255476,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793901851,
-      "last_seen": 1793901851,
+      "last_seen": 1793902208,
       "purchases": [
         {
           "key": "AN3M-A18B-6882-C6BE",
@@ -256305,17 +256320,22 @@
       "state": "awaiting_receipt",
       "plan_code": "AN2M",
       "time": 1793901676
+    },
+    "311460234": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN3M",
+      "time": 1793902208
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 2,
+    "count": 3,
     "threshold": 10,
     "stats": {
       "5892101706458979": 170,
-      "5047061670546072": 162
+      "5047061670546072": 163
     }
   },
   "maintenance": {
