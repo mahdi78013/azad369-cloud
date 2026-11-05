@@ -17042,6 +17042,12 @@
       "user_id": 2105679056,
       "issued_at": 1793868388,
       "method": "crypto_unique"
+    },
+    "AN2M-D8A9AE42-193C-D3EC9A": {
+      "plan": "AN2M",
+      "user_id": 6587142400,
+      "issued_at": 1793868709,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -147129,9 +147135,18 @@
       "tron_amount": 0.813031,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_297a9f7f9a894a52a3ba7b6715166199",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=297a9f7f9a894a52a3ba7b6715166199",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793868382
+      "created_at": 1793868382,
+      "approved_at": 1793868709,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-D8A9AE42-193C-D3EC9A",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3086833",
+        "tron_amount": 0.813031,
+        "user_paid_toman": null,
+        "date": "2026-11-05T08:50:03.0430000"
+      }
     },
     "TRND-AN3M-5377525243-1793868388-5fd2ba": {
       "order_id": "TRND-AN3M-5377525243-1793868388-5fd2ba",
@@ -244029,7 +244044,15 @@
       "username": "mghamgosha",
       "first_seen": 1793836682,
       "last_seen": 1793868368,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-D8A9AE42-193C-D3EC9A",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793868709,
+          "days": 60
+        }
+      ]
     },
     "1374996203": {
       "user_id": 1374996203,
@@ -245946,6 +245969,24 @@
       "username": "CJ061",
       "first_seen": 1793868468,
       "last_seen": 1793868468,
+      "purchases": []
+    },
+    "7536805703": {
+      "user_id": 7536805703,
+      "first_name": "TAha",
+      "last_name": "",
+      "username": "Mhmdits",
+      "first_seen": 1793868587,
+      "last_seen": 1793868587,
+      "purchases": []
+    },
+    "901543616": {
+      "user_id": 901543616,
+      "first_name": "n",
+      "last_name": "ar",
+      "username": "norouziahmadreza",
+      "first_seen": 1793868629,
+      "last_seen": 1793868629,
       "purchases": []
     }
   },
