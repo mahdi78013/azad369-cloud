@@ -17300,6 +17300,12 @@
       "user_id": 72509979,
       "issued_at": 1793877641,
       "method": "crypto_unique"
+    },
+    "AN3M-4DAE3A64-A884-655EDD": {
+      "plan": "AN3M",
+      "user_id": 137759793,
+      "issued_at": 1793878094,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -136851,9 +136857,10 @@
       "tron_amount": 1.364466,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_7164bf735de14692917c7392a2d08b22",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=7164bf735de14692917c7392a2d08b22",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793791567
+      "created_at": 1793791567,
+      "cancelled_at": 1793878089
     },
     "TRND-AN3M-2119219268-1793791580-f1c991": {
       "order_id": "TRND-AN3M-2119219268-1793791580-f1c991",
@@ -148921,9 +148928,18 @@
       "tron_amount": 1.375187,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_320326d561f84ccd8c4b5544c21fd4fd",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=320326d561f84ccd8c4b5544c21fd4fd",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793877952
+      "created_at": 1793877952,
+      "approved_at": 1793878094,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-4DAE3A64-A884-655EDD",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3088180",
+        "tron_amount": 1.375187,
+        "user_paid_toman": null,
+        "date": "2026-11-05T11:27:55.9130000"
+      }
     }
   },
   "users": {
@@ -248685,6 +248701,32 @@
       "username": "saeedsaninum1",
       "first_seen": 1793877937,
       "last_seen": 1793877937,
+      "purchases": [
+        {
+          "key": "AN3M-4DAE3A64-A884-655EDD",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793878094,
+          "days": 90
+        }
+      ]
+    },
+    "175015832": {
+      "user_id": 175015832,
+      "first_name": "IRAN",
+      "last_name": "",
+      "username": "MosuChosKov",
+      "first_seen": 1793878081,
+      "last_seen": 1793878081,
+      "purchases": []
+    },
+    "168665945": {
+      "user_id": 168665945,
+      "first_name": "ⓜⓘⓛⓐⓓ",
+      "last_name": "",
+      "username": "Milad_mkk7",
+      "first_seen": 1793878084,
+      "last_seen": 1793878084,
       "purchases": []
     }
   },
