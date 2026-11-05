@@ -16832,6 +16832,12 @@
       "user_id": 8699785657,
       "issued_at": 1793861397,
       "method": "crypto_unique"
+    },
+    "AN2M-B3B2-EB9A-F257": {
+      "plan": "AN2M",
+      "user_id": 55026133,
+      "issued_at": 1793861543,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -145538,9 +145544,18 @@
       "tron_amount": 0.811234,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_6ab0cbf3a98943b5b369b608b5939906",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=6ab0cbf3a98943b5b369b608b5939906",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793861163
+      "created_at": 1793861163,
+      "approved_at": 1793861543,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-B3B2-EB9A-F257",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3085947",
+        "tron_amount": 0.811234,
+        "user_paid_toman": null,
+        "date": "2026-11-05T06:51:40.4330000"
+      }
     },
     "TRND-AN3M-99735768-1793861360-6bf7e8": {
       "order_id": "TRND-AN3M-99735768-1793861360-6bf7e8",
@@ -145589,6 +145604,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793861436
+    },
+    "TRND-AN2M-7932734491-1793861481-448354": {
+      "order_id": "TRND-AN2M-7932734491-1793861481-448354",
+      "token": "ebc4728c525d42b29ab28d953b33fc77",
+      "user_id": 7932734491,
+      "first_name": "Mahan",
+      "username": "FrameAi_Official",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.816538,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_ebc4728c525d42b29ab28d953b33fc77",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ebc4728c525d42b29ab28d953b33fc77",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793861481
     }
   },
   "users": {
@@ -243468,7 +243499,7 @@
       "last_name": "",
       "username": "FrameAi_Official",
       "first_seen": 1793860090,
-      "last_seen": 1793860090,
+      "last_seen": 1793861478,
       "purchases": [
         {
           "key": "AN2M-E744D138-DB6A-34AF89",
@@ -243566,8 +243597,16 @@
       "last_name": "Sadeghi",
       "username": "RezaSDG",
       "first_seen": 1793861073,
-      "last_seen": 1793861073,
-      "purchases": []
+      "last_seen": 1793861540,
+      "purchases": [
+        {
+          "key": "AN2M-B3B2-EB9A-F257",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793861543,
+          "days": 60
+        }
+      ]
     },
     "1197198925": {
       "user_id": 1197198925,
@@ -244434,11 +244473,6 @@
       "state": "awaiting_receipt",
       "plan_code": "AN2M",
       "time": 1793860757
-    },
-    "7362210119": {
-      "state": "awaiting_receipt",
-      "plan_code": "AN3M",
-      "time": 1793861457
     }
   },
   "admin_states": {},
