@@ -17948,6 +17948,18 @@
       "user_id": 96289223,
       "issued_at": 1793906830,
       "method": "crypto_unique"
+    },
+    "AZ1Y-109E-785B-DBA2": {
+      "plan": "1Y",
+      "user_id": 102365884,
+      "issued_at": 1793906832,
+      "method": "crypto_unique"
+    },
+    "AN1Y-88AD-DE42-CE3B": {
+      "plan": "AN1Y",
+      "user_id": 102365884,
+      "issued_at": 1793906832,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -142080,9 +142092,10 @@
       "tron_amount": 0.799727,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1a6ccf3d15ed4d349455446224a23eda",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1a6ccf3d15ed4d349455446224a23eda",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793820347
+      "created_at": 1793820347,
+      "cancelled_at": 1793906860
     },
     "TRND-AN2M-83161314-1793820402-259444": {
       "order_id": "TRND-AN2M-83161314-1793820402-259444",
@@ -142096,9 +142109,10 @@
       "tron_amount": 0.806821,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_cf9c5c7685bb476eb8acc397acf0b8f7",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=cf9c5c7685bb476eb8acc397acf0b8f7",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793820402
+      "created_at": 1793820402,
+      "cancelled_at": 1793906860
     },
     "TRND-AN2M-77103292-1793820425-70b384": {
       "order_id": "TRND-AN2M-77103292-1793820425-70b384",
@@ -142112,9 +142126,10 @@
       "tron_amount": 0.816941,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f4f196a26ac643ba908c915a3177a603",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f4f196a26ac643ba908c915a3177a603",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793820425
+      "created_at": 1793820425,
+      "cancelled_at": 1793906860
     },
     "TRND-AN2M-8026911847-1793820670-61a6aa": {
       "order_id": "TRND-AN2M-8026911847-1793820670-61a6aa",
@@ -154278,9 +154293,20 @@
       "tron_amount": 4.698323,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_71ce855506794399a05ac4a8f167ae1b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=71ce855506794399a05ac4a8f167ae1b",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793906524
+      "created_at": 1793906524,
+      "key_win": "AZ1Y-109E-785B-DBA2",
+      "key_and": "AN1Y-88AD-DE42-CE3B",
+      "approved_at": 1793906832,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-109E-785B-DBA2\nاندروید: AN1Y-88AD-DE42-CE3B",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3092596",
+        "tron_amount": 4.698323,
+        "user_paid_toman": null,
+        "date": "2026-11-05T19:24:15.9100000"
+      }
     },
     "TRND-VIP1Y-213639176-1793906536-fc5766": {
       "order_id": "TRND-VIP1Y-213639176-1793906536-fc5766",
@@ -222498,8 +222524,23 @@
       "last_name": "Dadashi",
       "username": "Tdsho400",
       "first_seen": 1793686089,
-      "last_seen": 1793906247,
-      "purchases": []
+      "last_seen": 1793906833,
+      "purchases": [
+        {
+          "key": "AZ1Y-109E-785B-DBA2",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793906832,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-88AD-DE42-CE3B",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793906832,
+          "days": 365
+        }
+      ]
     },
     "7487990604": {
       "user_id": 7487990604,
@@ -257085,7 +257126,7 @@
       "last_name": "AZIZI",
       "username": "Gole_Yas1980",
       "first_seen": 1793906526,
-      "last_seen": 1793906526,
+      "last_seen": 1793906862,
       "purchases": []
     },
     "121107588": {
