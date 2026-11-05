@@ -143570,9 +143570,10 @@
       "tron_amount": 0.816853,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_e0e021fd6f26480e8a2bc19d793f2b50",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e0e021fd6f26480e8a2bc19d793f2b50",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793826750
+      "created_at": 1793826750,
+      "cancelled_at": 1793913240
     },
     "TRND-AN2M-416823664-1793826831-c02de2": {
       "order_id": "TRND-AN2M-416823664-1793826831-c02de2",
@@ -155589,6 +155590,20 @@
         "user_paid_toman": null,
         "date": "2026-11-05T21:05:12.4200000"
       }
+    },
+    "ORD_1793913247_5664254274": {
+      "order_id": "ORD_1793913247_5664254274",
+      "user_id": 5664254274,
+      "username": "Mas_hbn",
+      "first_name": "Mas_hbn",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAECsyxq7PGevpWEUVZiEmRVS4Wx34AK-QACtQ9rG8X1aVO1acUYlRa_2AEAAwIAA3kAAz0E",
+      "card_number": "5892101706458979",
+      "created_at": 1793913247,
+      "caption": ""
     }
   },
   "users": {
@@ -259717,16 +259732,21 @@
       "state": "awaiting_receipt",
       "plan_code": "AN2M",
       "time": 1793909814
+    },
+    "5664254274": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN2M",
+      "time": 1793913168
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 0,
+    "count": 1,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 170,
+      "5892101706458979": 171,
       "5047061670546072": 170
     }
   },
