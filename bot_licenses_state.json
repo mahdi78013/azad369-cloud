@@ -16964,6 +16964,12 @@
       "user_id": 200202367,
       "issued_at": 1793865860,
       "method": "crypto_unique"
+    },
+    "AN2M-9FDF694C-3C86-B3653C": {
+      "plan": "AN2M",
+      "user_id": 375952114,
+      "issued_at": 1793866071,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -146604,9 +146610,18 @@
       "tron_amount": 0.80999,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_33c0931136e7414bae74ecc473e8c443",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=33c0931136e7414bae74ecc473e8c443",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793865757
+      "created_at": 1793865757,
+      "approved_at": 1793866071,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-9FDF694C-3C86-B3653C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3086478",
+        "tron_amount": 0.80999,
+        "user_paid_toman": null,
+        "date": "2026-11-05T08:06:16.1300000"
+      }
     },
     "TRND-AN3M-1481892430-1793865869-b5a171": {
       "order_id": "TRND-AN3M-1481892430-1793865869-b5a171",
@@ -245181,8 +245196,16 @@
       "last_name": "",
       "username": "Bookworm211",
       "first_seen": 1793865726,
-      "last_seen": 1793865726,
-      "purchases": []
+      "last_seen": 1793866068,
+      "purchases": [
+        {
+          "key": "AN2M-9FDF694C-3C86-B3653C",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793866071,
+          "days": 60
+        }
+      ]
     },
     "1481892430": {
       "user_id": 1481892430,
