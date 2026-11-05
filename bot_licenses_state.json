@@ -16568,6 +16568,12 @@
       "user_id": 372246030,
       "issued_at": 1793853315,
       "method": "crypto_unique"
+    },
+    "AN3M-FE00-7DF5-FDDB": {
+      "plan": "AN3M",
+      "user_id": 7503788800,
+      "issued_at": 1793853327,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -143739,9 +143745,18 @@
       "tron_amount": 1.359931,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_71b59600842a419cb676449b387167ae",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=71b59600842a419cb676449b387167ae",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793853088
+      "created_at": 1793853088,
+      "approved_at": 1793853327,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-FE00-7DF5-FDDB",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3085272",
+        "tron_amount": 1.359931,
+        "user_paid_toman": null,
+        "date": "2026-11-05T04:33:52.4270000"
+      }
     }
   },
   "users": {
@@ -209373,7 +209388,15 @@
       "username": "Measam_badraghe",
       "first_seen": 1793680629,
       "last_seen": 1793853067,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-FE00-7DF5-FDDB",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793853327,
+          "days": 90
+        }
+      ]
     },
     "341070559": {
       "user_id": 341070559,
