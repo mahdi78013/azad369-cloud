@@ -155159,9 +155159,10 @@
       "tron_amount": 0.829903,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_14cb1a2ed11f446c9ae7174c9a06bcbd",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=14cb1a2ed11f446c9ae7174c9a06bcbd",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793903220
+      "created_at": 1793903220,
+      "cancelled_at": 1793989666
     },
     "TRND-2M-89682479-1793903319-fb1fbb": {
       "order_id": "TRND-2M-89682479-1793903319-fb1fbb",
@@ -164148,6 +164149,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793989430
+    },
+    "TRND-VIP1Y-748538264-1793989628-2baaba": {
+      "order_id": "TRND-VIP1Y-748538264-1793989628-2baaba",
+      "token": "f8338a487c2549648e9e204557e2eb24",
+      "user_id": 748538264,
+      "first_name": "He.i",
+      "username": "m72834f",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.76896,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_f8338a487c2549648e9e204557e2eb24",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f8338a487c2549648e9e204557e2eb24",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793989628
+    },
+    "TRND-AN2M-8676453621-1793989687-d5ddde": {
+      "order_id": "TRND-AN2M-8676453621-1793989687-d5ddde",
+      "token": "582a2c1595ed412aac70fb7a9d2444c2",
+      "user_id": 8676453621,
+      "first_name": "Mi.tel",
+      "username": "Lol648124",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.833008,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_582a2c1595ed412aac70fb7a9d2444c2",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=582a2c1595ed412aac70fb7a9d2444c2",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793989687
     }
   },
   "users": {
@@ -164871,7 +164904,7 @@
       "user_id": 748538264,
       "first_name": "He.i",
       "username": "m72834f",
-      "last_seen": 1793983565,
+      "last_seen": 1793989624,
       "last_admin_reply": {
         "text": "5456",
         "time": 1792068878
@@ -164975,8 +165008,8 @@
       ],
       "user_id": 8676453621,
       "first_name": "Mi.tel",
-      "username": "Sanaei51",
-      "last_seen": 1793555122
+      "username": "Lol648124",
+      "last_seen": 1793989685
     },
     "194419397": {
       "purchases": [
@@ -197769,7 +197802,7 @@
       "last_name": "",
       "username": "Nicotine_cigar1",
       "first_seen": 1793188267,
-      "last_seen": 1793400173,
+      "last_seen": 1793989624,
       "purchases": [
         {
           "key": "AN2M-0C0E-F40A-E7EA",
@@ -251552,7 +251585,7 @@
       "last_name": "",
       "username": "pouyaroumi",
       "first_seen": 1793737187,
-      "last_seen": 1793814726,
+      "last_seen": 1793989714,
       "purchases": []
     },
     "255047117": {
@@ -272459,6 +272492,24 @@
       "first_seen": 1793989495,
       "last_seen": 1793989495,
       "purchases": []
+    },
+    "7358713752": {
+      "user_id": 7358713752,
+      "first_name": "yuooo",
+      "last_name": "dasfff",
+      "username": "balliiooo",
+      "first_seen": 1793989622,
+      "last_seen": 1793989622,
+      "purchases": []
+    },
+    "177487493": {
+      "user_id": 177487493,
+      "first_name": "farid",
+      "last_name": "Refahi",
+      "username": "Faridrunaway",
+      "first_seen": 1793989641,
+      "last_seen": 1793989641,
+      "purchases": []
     }
   },
   "user_states": {
@@ -272890,11 +272941,6 @@
       "state": "awaiting_receipt",
       "plan_code": "AN1Y",
       "time": 1793488306
-    },
-    "8676453621": {
-      "state": "awaiting_receipt",
-      "plan_code": "AN1M",
-      "time": 1793555140
     },
     "86045703": {
       "state": "awaiting_receipt",
@@ -273371,7 +273417,7 @@
   },
   "plan_availability": {
     "1M": false,
-    "2M": true,
+    "2M": false,
     "3M": true,
     "1Y": true,
     "AN1M": false,
