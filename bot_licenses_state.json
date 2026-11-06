@@ -18986,6 +18986,12 @@
       "user_id": 18036651,
       "issued_at": 1793975240,
       "method": "crypto_unique"
+    },
+    "AZ3M-DFDE-A38B-2080": {
+      "plan": "3M",
+      "user_id": 1468360215,
+      "issued_at": 1793975285,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -161305,9 +161311,18 @@
       "tron_amount": 1.394337,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_19b05fd9038c4136ad5d2c076e4d07cc",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=19b05fd9038c4136ad5d2c076e4d07cc",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793974953
+      "created_at": 1793974953,
+      "approved_at": 1793975285,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-DFDE-A38B-2080",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3099338",
+        "tron_amount": 1.394337,
+        "user_paid_toman": null,
+        "date": "2026-11-06T14:27:52.2100000"
+      }
     },
     "TRND-VIP1Y-109508913-1793974960-87a2e2": {
       "order_id": "TRND-VIP1Y-109508913-1793974960-87a2e2",
@@ -161498,6 +161513,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793975234
+    },
+    "TRND-AN2M-75367487-1793975259-c7ae66": {
+      "order_id": "TRND-AN2M-75367487-1793975259-c7ae66",
+      "token": "dbd401a616bb417eb3362d782267e9fb",
+      "user_id": 75367487,
+      "first_name": "ARASH",
+      "username": "ARASH_NB",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.833733,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_dbd401a616bb417eb3362d782267e9fb",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=dbd401a616bb417eb3362d782267e9fb",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793975259
     }
   },
   "users": {
@@ -186796,7 +186827,7 @@
       "last_name": "NB",
       "username": "ARASH_NB",
       "first_seen": 1792952686,
-      "last_seen": 1793954122,
+      "last_seen": 1793975248,
       "purchases": []
     },
     "50788097": {
@@ -221016,7 +221047,7 @@
       "last_name": "",
       "username": "Meysamkh64",
       "first_seen": 1793649652,
-      "last_seen": 1793867915,
+      "last_seen": 1793975279,
       "purchases": [
         {
           "key": "AN3M-0097-86C5-6119",
@@ -238201,6 +238232,13 @@
           "plan": "AN3M",
           "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
           "issued_at": 1793710432,
+          "days": 90
+        },
+        {
+          "key": "AZ3M-DFDE-A38B-2080",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793975285,
           "days": 90
         }
       ]
@@ -267121,7 +267159,7 @@
       "last_name": "",
       "username": "Pouya_m_00",
       "first_seen": 1793952297,
-      "last_seen": 1793952599,
+      "last_seen": 1793975276,
       "purchases": [
         {
           "key": "AN2M-684CE8E9-CA47-FC57BC",
