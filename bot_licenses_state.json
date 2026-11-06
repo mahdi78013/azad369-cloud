@@ -18938,6 +18938,12 @@
       "user_id": 255918423,
       "issued_at": 1793977103,
       "method": "crypto_unique"
+    },
+    "AZ3M-D1A2-AD33-1024": {
+      "plan": "3M",
+      "user_id": 7154170619,
+      "issued_at": 1793977126,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -161135,9 +161141,18 @@
       "tron_amount": 1.38894,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_8c43b73793114726a2c166363a6fffde",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=8c43b73793114726a2c166363a6fffde",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793976755
+      "created_at": 1793976755,
+      "approved_at": 1793977126,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-D1A2-AD33-1024",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3099629",
+        "tron_amount": 1.38894,
+        "user_paid_toman": null,
+        "date": "2026-11-06T14:58:37.0000000"
+      }
     },
     "TRND-AN2M-72685723-1793976759-02893e": {
       "order_id": "TRND-AN2M-72685723-1793976759-02893e",
@@ -161250,6 +161265,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793977072
+    },
+    "TRND-VIP1Y-115264524-1793977124-4aaa67": {
+      "order_id": "TRND-VIP1Y-115264524-1793977124-4aaa67",
+      "token": "e286b6c3f08546c2a15ac7560e80c926",
+      "user_id": 115264524,
+      "first_name": "محمد",
+      "username": "Zhekavagallery",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.778146,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_e286b6c3f08546c2a15ac7560e80c926",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e286b6c3f08546c2a15ac7560e80c926",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793977124
     }
   },
   "users": {
@@ -181143,7 +181174,15 @@
       "username": "mhmmsv123",
       "first_seen": 1792913946,
       "last_seen": 1793976734,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-D1A2-AD33-1024",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793977126,
+          "days": 90
+        }
+      ]
     },
     "761540748": {
       "user_id": 761540748,
