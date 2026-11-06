@@ -18950,6 +18950,12 @@
       "user_id": 67692259,
       "issued_at": 1793974885,
       "method": "crypto_unique"
+    },
+    "AN2M-031D-1860-D321": {
+      "plan": "AN2M",
+      "user_id": 40461893,
+      "issued_at": 1793974896,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -161166,9 +161172,18 @@
       "tron_amount": 0.847597,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_0d5c4ccb46494793bdba373587c0c46b",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=0d5c4ccb46494793bdba373587c0c46b",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793974570
+      "created_at": 1793974570,
+      "approved_at": 1793974896,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-031D-1860-D321",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3099294",
+        "tron_amount": 0.847597,
+        "user_paid_toman": null,
+        "date": "2026-11-06T14:20:37.7030000"
+      }
     },
     "TRND-2M-2126449873-1793974583-d47b26": {
       "order_id": "TRND-2M-2126449873-1793974583-d47b26",
@@ -161202,6 +161217,22 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793974625
+    },
+    "TRND-AN2M-18036651-1793974883-a53044": {
+      "order_id": "TRND-AN2M-18036651-1793974883-a53044",
+      "token": "54ac0f1e847b4c86b9da06d16780d53b",
+      "user_id": 18036651,
+      "first_name": "Mohsen",
+      "username": "Noorimohsen",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.836142,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_54ac0f1e847b4c86b9da06d16780d53b",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=54ac0f1e847b4c86b9da06d16780d53b",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793974883
     }
   },
   "users": {
@@ -230026,7 +230057,15 @@
       "username": "Orkami",
       "first_seen": 1793687566,
       "last_seen": 1793974539,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-031D-1860-D321",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793974896,
+          "days": 60
+        }
+      ]
     },
     "5277813588": {
       "user_id": 5277813588,
@@ -268269,6 +268308,15 @@
       "username": "Marz2010",
       "first_seen": 1793974494,
       "last_seen": 1793974494,
+      "purchases": []
+    },
+    "212967536": {
+      "user_id": 212967536,
+      "first_name": "Ahmad",
+      "last_name": "Mighan",
+      "username": "ahmadmighan",
+      "first_seen": 1793974884,
+      "last_seen": 1793974884,
       "purchases": []
     }
   },
