@@ -18296,6 +18296,12 @@
       "user_id": 8444324652,
       "issued_at": 1793934387,
       "method": "crypto_unique"
+    },
+    "AN3M-E2720472-75E2-A2CA66": {
+      "plan": "AN3M",
+      "user_id": 256119969,
+      "issued_at": 1793937462,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -156968,9 +156974,34 @@
       "tron_amount": 1.386933,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1b0a5848f001443d87f81d9c4b3b5f1a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1b0a5848f001443d87f81d9c4b3b5f1a",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793937253,
+      "approved_at": 1793937462,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN3M-E2720472-75E2-A2CA66",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3094640",
+        "tron_amount": 1.386933,
+        "user_paid_toman": null,
+        "date": "2026-11-06T03:57:06.7370000"
+      }
+    },
+    "TRND-AN2M-6317427426-1793937420-ad471c": {
+      "order_id": "TRND-AN2M-6317427426-1793937420-ad471c",
+      "token": "381dcca262c945cb8156a98fd8a49f98",
+      "user_id": 6317427426,
+      "first_name": "YASANCo",
+      "username": "RahaMani_yasanco",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.809438,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_381dcca262c945cb8156a98fd8a49f98",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=381dcca262c945cb8156a98fd8a49f98",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793937253
+      "created_at": 1793937420
     }
   },
   "users": {
@@ -261241,7 +261272,15 @@
       "username": "onbashim",
       "first_seen": 1793937199,
       "last_seen": 1793937199,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN3M-E2720472-75E2-A2CA66",
+          "plan": "AN3M",
+          "plan_name": "۳ ماهه اندروید (۹۰ روزه)",
+          "issued_at": 1793937462,
+          "days": 90
+        }
+      ]
     },
     "6317427426": {
       "user_id": 6317427426,
@@ -261250,6 +261289,15 @@
       "username": "RahaMani_yasanco",
       "first_seen": 1793937357,
       "last_seen": 1793937357,
+      "purchases": []
+    },
+    "50366018": {
+      "user_id": 50366018,
+      "first_name": "بهفرنیا",
+      "last_name": "",
+      "username": "aminbrj65",
+      "first_seen": 1793937424,
+      "last_seen": 1793937424,
       "purchases": []
     }
   },
