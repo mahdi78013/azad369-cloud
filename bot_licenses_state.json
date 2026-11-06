@@ -18440,6 +18440,12 @@
       "user_id": 66703360,
       "issued_at": 1793947192,
       "method": "crypto_unique"
+    },
+    "AN2M-65CEA256-D74D-84A23B": {
+      "plan": "AN2M",
+      "user_id": 8826426871,
+      "issued_at": 1793947327,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -157800,9 +157806,34 @@
       "tron_amount": 0.80816,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_769f2d1d00fe4c7fbd154cfcc7de8218",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=769f2d1d00fe4c7fbd154cfcc7de8218",
+      "status": "approved",
+      "method": "tronado_gateway",
+      "created_at": 1793947187,
+      "approved_at": 1793947327,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AN2M-65CEA256-D74D-84A23B",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3095202",
+        "tron_amount": 0.80816,
+        "user_paid_toman": null,
+        "date": "2026-11-06T06:41:36.7970000"
+      }
+    },
+    "TRND-AN2M-101966047-1793947325-7d6052": {
+      "order_id": "TRND-AN2M-101966047-1793947325-7d6052",
+      "token": "419f01d25d744d07b97deb673be06427",
+      "user_id": 101966047,
+      "first_name": "سلمان",
+      "username": "Mashatan",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.825126,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_419f01d25d744d07b97deb673be06427",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=419f01d25d744d07b97deb673be06427",
       "status": "pending_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793947187
+      "created_at": 1793947325
     }
   },
   "users": {
@@ -262609,7 +262640,15 @@
       "username": "Adel6512",
       "first_seen": 1793947170,
       "last_seen": 1793947170,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AN2M-65CEA256-D74D-84A23B",
+          "plan": "AN2M",
+          "plan_name": "۲ ماهه اندروید (۶۰ روزه)",
+          "issued_at": 1793947327,
+          "days": 60
+        }
+      ]
     },
     "76542485": {
       "user_id": 76542485,
@@ -262618,6 +262657,15 @@
       "username": "ya_rasulalah",
       "first_seen": 1793947217,
       "last_seen": 1793947217,
+      "purchases": []
+    },
+    "101966047": {
+      "user_id": 101966047,
+      "first_name": "سلمان",
+      "last_name": "مشاطان",
+      "username": "Mashatan",
+      "first_seen": 1793947287,
+      "last_seen": 1793947287,
       "purchases": []
     }
   },
