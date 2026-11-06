@@ -18758,6 +18758,12 @@
       "user_id": 43932060,
       "issued_at": 1793958973,
       "method": "crypto_unique"
+    },
+    "AZ1Y-93D1-9916-83EE": {
+      "plan": "1Y",
+      "user_id": 79232652,
+      "issued_at": 1793959218,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -159897,9 +159903,10 @@
       "tron_amount": 3.772415,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4f06a3a1b87d4ab399901c88b25ecb93",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4f06a3a1b87d4ab399901c88b25ecb93",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793958961
+      "created_at": 1793958961,
+      "cancelled_at": 1793959099
     },
     "TRND-1Y-79232652-1793959048-36441b": {
       "order_id": "TRND-1Y-79232652-1793959048-36441b",
@@ -159913,9 +159920,18 @@
       "tron_amount": 3.74866,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b6f8ff8f8bb34abbb5c23298f2ff761c",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b6f8ff8f8bb34abbb5c23298f2ff761c",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793959048
+      "created_at": 1793959048,
+      "approved_at": 1793959218,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ1Y-93D1-9916-83EE",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3096976",
+        "tron_amount": 3.74866,
+        "user_paid_toman": null,
+        "date": "2026-11-06T09:59:29.9170000"
+      }
     }
   },
   "users": {
@@ -265932,6 +265948,23 @@
       "username": "Elifatemi",
       "first_seen": 1793958932,
       "last_seen": 1793958932,
+      "purchases": [
+        {
+          "key": "AZ1Y-93D1-9916-83EE",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793959218,
+          "days": 365
+        }
+      ]
+    },
+    "764067536": {
+      "user_id": 764067536,
+      "first_name": "𝐌𝐚𝐡𝐝𝐢",
+      "last_name": "𝐆𝐡𝐨𝐫𝐛𝐚𝐧𝐢··🌙",
+      "username": "MahdiGhorbani_rst",
+      "first_seen": 1793959087,
+      "last_seen": 1793959087,
       "purchases": []
     }
   },
