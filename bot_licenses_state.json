@@ -18614,6 +18614,18 @@
       "user_id": 99735768,
       "issued_at": 1793954005,
       "method": "crypto_unique"
+    },
+    "AZ1Y-A5987694-3813-FA87A4": {
+      "plan": "1Y",
+      "user_id": 221417820,
+      "issued_at": 1793954091,
+      "method": "crypto_unique"
+    },
+    "AN1Y-A5987694-2899-58F481": {
+      "plan": "AN1Y",
+      "user_id": 221417820,
+      "issued_at": 1793954091,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -158952,9 +158964,20 @@
       "tron_amount": 4.684848,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_f3e94ba765da4bdb81711867359d5c86",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=f3e94ba765da4bdb81711867359d5c86",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793953884
+      "created_at": 1793953884,
+      "key_win": "AZ1Y-A5987694-3813-FA87A4",
+      "key_and": "AN1Y-A5987694-2899-58F481",
+      "approved_at": 1793954091,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-A5987694-3813-FA87A4\nاندروید: AN1Y-A5987694-2899-58F481",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3096087",
+        "tron_amount": 4.684848,
+        "user_paid_toman": null,
+        "date": "2026-11-06T08:34:17.8500000"
+      }
     },
     "TRND-AN3M-5604133881-1793953938-7cbb4c": {
       "order_id": "TRND-AN3M-5604133881-1793953938-7cbb4c",
@@ -158971,6 +158994,38 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793953938
+    },
+    "TRND-2M-79113922-1793954056-97a1ad": {
+      "order_id": "TRND-2M-79113922-1793954056-97a1ad",
+      "token": "d93f3649f89848919e8f8e955992e1d6",
+      "user_id": 79113922,
+      "first_name": "Hossein",
+      "username": "H_vand",
+      "plan_code": "2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.818991,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_d93f3649f89848919e8f8e955992e1d6",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d93f3649f89848919e8f8e955992e1d6",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793954056
+    },
+    "TRND-AN2M-90472299-1793954064-464fb0": {
+      "order_id": "TRND-AN2M-90472299-1793954064-464fb0",
+      "token": "e02c40af8f274cc698599bcf63d916c3",
+      "user_id": 90472299,
+      "first_name": "H",
+      "username": "Hamed_ar_68",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.812209,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_e02c40af8f274cc698599bcf63d916c3",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=e02c40af8f274cc698599bcf63d916c3",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793954064
     }
   },
   "users": {
@@ -214528,7 +214583,7 @@
       "last_name": "....",
       "username": "",
       "first_seen": 1793639045,
-      "last_seen": 1793639383,
+      "last_seen": 1793954088,
       "purchases": [
         {
           "key": "AN2M-5F99-88D8-04F1",
@@ -264401,7 +264456,7 @@
       "last_name": "M",
       "username": "Hamed_ar_68",
       "first_seen": 1793953682,
-      "last_seen": 1793953682,
+      "last_seen": 1793954053,
       "purchases": []
     },
     "221417820": {
@@ -264411,7 +264466,22 @@
       "username": "Farzinram",
       "first_seen": 1793953856,
       "last_seen": 1793953856,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-A5987694-3813-FA87A4",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793954091,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-A5987694-2899-58F481",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793954091,
+          "days": 365
+        }
+      ]
     },
     "5604133881": {
       "user_id": 5604133881,
