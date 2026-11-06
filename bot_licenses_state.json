@@ -18908,6 +18908,18 @@
       "user_id": 1942304791,
       "issued_at": 1793971909,
       "method": "crypto_unique"
+    },
+    "AZ1Y-8EDB7910-E527-C094EF": {
+      "plan": "1Y",
+      "user_id": 639188080,
+      "issued_at": 1793972109,
+      "method": "crypto_unique"
+    },
+    "AN1Y-8EDB7910-C495-182855": {
+      "plan": "AN1Y",
+      "user_id": 639188080,
+      "issued_at": 1793972109,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -160821,9 +160833,20 @@
       "tron_amount": 4.782893,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_a046c89d850d41bd84397ac1e4486cbb",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a046c89d850d41bd84397ac1e4486cbb",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793971867
+      "created_at": 1793971867,
+      "key_win": "AZ1Y-8EDB7910-E527-C094EF",
+      "key_and": "AN1Y-8EDB7910-C495-182855",
+      "approved_at": 1793972109,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-8EDB7910-E527-C094EF\nاندروید: AN1Y-8EDB7910-C495-182855",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3098905",
+        "tron_amount": 4.782893,
+        "user_paid_toman": null,
+        "date": "2026-11-06T13:34:26.3970000"
+      }
     }
   },
   "users": {
@@ -267696,8 +267719,23 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793971769,
-      "last_seen": 1793971769,
-      "purchases": []
+      "last_seen": 1793972103,
+      "purchases": [
+        {
+          "key": "AZ1Y-8EDB7910-E527-C094EF",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793972109,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-8EDB7910-C495-182855",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793972109,
+          "days": 365
+        }
+      ]
     },
     "1482366019": {
       "user_id": 1482366019,
