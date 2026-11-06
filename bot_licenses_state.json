@@ -19034,6 +19034,12 @@
       "user_id": 30676661,
       "issued_at": 1793975576,
       "method": "crypto_unique"
+    },
+    "AZ3M-A062-4D93-BA3C": {
+      "plan": "3M",
+      "user_id": 70093268,
+      "issued_at": 1793975609,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -161703,9 +161709,10 @@
       "tron_amount": 0.844069,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_4ec7a2172f3a4f16851d23ebf5ecb711",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=4ec7a2172f3a4f16851d23ebf5ecb711",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793975435
+      "created_at": 1793975435,
+      "cancelled_at": 1793975579
     },
     "TRND-VIP1Y-30676661-1793975434-fa1626": {
       "order_id": "TRND-VIP1Y-30676661-1793975434-fa1626",
@@ -161735,9 +161742,18 @@
       "tron_amount": 1.40104,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b6d57eee9ca84f5ba6bad5f269a0fc50",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b6d57eee9ca84f5ba6bad5f269a0fc50",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793975450
+      "created_at": 1793975450,
+      "approved_at": 1793975609,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ3M-A062-4D93-BA3C",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3099415",
+        "tron_amount": 1.40104,
+        "user_paid_toman": null,
+        "date": "2026-11-06T14:33:03.9130000"
+      }
     },
     "TRND-AN2M-957663076-1793975485-302a1d": {
       "order_id": "TRND-AN2M-957663076-1793975485-302a1d",
@@ -259157,7 +259173,7 @@
       "last_name": "",
       "username": "M_parsa_HSD",
       "first_seen": 1793830515,
-      "last_seen": 1793830515,
+      "last_seen": 1793975606,
       "purchases": []
     },
     "7207589498": {
@@ -268915,7 +268931,15 @@
       "username": "Parsazmk",
       "first_seen": 1793973014,
       "last_seen": 1793975378,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ3M-A062-4D93-BA3C",
+          "plan": "3M",
+          "plan_name": "۳ ماهه ویندوز (۹۰ روزه)",
+          "issued_at": 1793975609,
+          "days": 90
+        }
+      ]
     },
     "96398583": {
       "user_id": 96398583,
