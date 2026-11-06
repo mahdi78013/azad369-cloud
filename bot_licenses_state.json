@@ -18782,6 +18782,18 @@
       "user_id": 1442985223,
       "issued_at": 1793959335,
       "method": "crypto_unique"
+    },
+    "AZ1Y-153F-C236-C573": {
+      "plan": "1Y",
+      "user_id": 6279240485,
+      "issued_at": 1793960376,
+      "method": "crypto_unique"
+    },
+    "AN1Y-3AEA-F866-1FC9": {
+      "plan": "AN1Y",
+      "user_id": 6279240485,
+      "issued_at": 1793960376,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -160001,9 +160013,20 @@
       "tron_amount": 4.704603,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5fed9fd730224809b17918e3d3e5f4d9",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5fed9fd730224809b17918e3d3e5f4d9",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793959986
+      "created_at": 1793959986,
+      "key_win": "AZ1Y-153F-C236-C573",
+      "key_and": "AN1Y-3AEA-F866-1FC9",
+      "approved_at": 1793960376,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-153F-C236-C573\nاندروید: AN1Y-3AEA-F866-1FC9",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3097126",
+        "tron_amount": 4.704603,
+        "user_paid_toman": null,
+        "date": "2026-11-06T10:18:51.2570000"
+      }
     }
   },
   "users": {
@@ -256241,8 +256264,23 @@
       "last_name": "R",
       "username": "",
       "first_seen": 1793820735,
-      "last_seen": 1793959984,
-      "purchases": []
+      "last_seen": 1793960374,
+      "purchases": [
+        {
+          "key": "AZ1Y-153F-C236-C573",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793960376,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-3AEA-F866-1FC9",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793960376,
+          "days": 365
+        }
+      ]
     },
     "171402492": {
       "user_id": 171402492,
@@ -266086,7 +266124,7 @@
       "last_name": "🌱SEED",
       "username": "Baset9368",
       "first_seen": 1793959991,
-      "last_seen": 1793959991,
+      "last_seen": 1793960363,
       "purchases": []
     },
     "659160174": {
