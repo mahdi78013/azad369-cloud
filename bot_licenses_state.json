@@ -19136,6 +19136,12 @@
       "user_id": 8836024853,
       "issued_at": 1793981706,
       "method": "crypto_unique"
+    },
+    "AZ2M-8831-E89B-F5EE": {
+      "plan": "2M",
+      "user_id": 1885352249,
+      "issued_at": 1793981782,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -162327,9 +162333,10 @@
       "tron_amount": 1.382762,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_76888dde68c34d6a97e62844bad9047e",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=76888dde68c34d6a97e62844bad9047e",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793980427
+      "created_at": 1793980427,
+      "cancelled_at": 1793981775
     },
     "TRND-VIP1Y-853571836-1793980486-35a9df": {
       "order_id": "TRND-VIP1Y-853571836-1793980486-35a9df",
@@ -162620,9 +162627,18 @@
       "tron_amount": 0.836789,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_b8c997f845374025aca567fcb0929056",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=b8c997f845374025aca567fcb0929056",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793981440
+      "created_at": 1793981440,
+      "approved_at": 1793981782,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-8831-E89B-F5EE",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3100476",
+        "tron_amount": 0.836789,
+        "user_paid_toman": null,
+        "date": "2026-11-06T16:15:09.3770000"
+      }
     },
     "TRND-AN2M-7317200537-1793981482-3b3835": {
       "order_id": "TRND-AN2M-7317200537-1793981482-3b3835",
@@ -270475,8 +270491,16 @@
       "last_name": "",
       "username": "Mohsen_sorena",
       "first_seen": 1793980897,
-      "last_seen": 1793981394,
-      "purchases": []
+      "last_seen": 1793981751,
+      "purchases": [
+        {
+          "key": "AZ2M-8831-E89B-F5EE",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793981782,
+          "days": 60
+        }
+      ]
     },
     "866895484": {
       "user_id": 866895484,
@@ -271379,6 +271403,11 @@
       "state": "awaiting_receipt",
       "plan_code": "AN2M",
       "time": 1793981594
+    },
+    "1885352249": {
+      "state": "awaiting_receipt",
+      "plan_code": "2M",
+      "time": 1793981752
     }
   },
   "admin_states": {},
