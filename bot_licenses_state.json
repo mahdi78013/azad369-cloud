@@ -19220,6 +19220,12 @@
       "user_id": 383368216,
       "issued_at": 1793985298,
       "method": "crypto_unique"
+    },
+    "AZ2M-2191-311B-CA52": {
+      "plan": "2M",
+      "user_id": 809790761,
+      "issued_at": 1793985961,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -163412,9 +163418,18 @@
       "tron_amount": 0.827345,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_d45fd44772c3417cb665106843ff832f",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=d45fd44772c3417cb665106843ff832f",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793985718
+      "created_at": 1793985718,
+      "approved_at": 1793985961,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "AZ2M-2191-311B-CA52",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3101247",
+        "tron_amount": 0.827345,
+        "user_paid_toman": null,
+        "date": "2026-11-06T17:25:28.6570000"
+      }
     }
   },
   "users": {
@@ -271425,7 +271440,15 @@
       "username": "Dorostmishe2",
       "first_seen": 1793985698,
       "last_seen": 1793985698,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ2M-2191-311B-CA52",
+          "plan": "2M",
+          "plan_name": "۲ ماهه ویندوز (۶۰ روزه)",
+          "issued_at": 1793985961,
+          "days": 60
+        }
+      ]
     },
     "6293015863": {
       "user_id": 6293015863,
@@ -271434,6 +271457,15 @@
       "username": "Mostafa10452",
       "first_seen": 1793985723,
       "last_seen": 1793985723,
+      "purchases": []
+    },
+    "42736050": {
+      "user_id": 42736050,
+      "first_name": "S",
+      "last_name": "VAFA",
+      "username": "Audi0l0gist",
+      "first_seen": 1793985953,
+      "last_seen": 1793985953,
       "purchases": []
     }
   },
