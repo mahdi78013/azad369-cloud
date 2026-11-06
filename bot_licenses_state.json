@@ -18920,6 +18920,18 @@
       "user_id": 639188080,
       "issued_at": 1793972109,
       "method": "crypto_unique"
+    },
+    "AZ1Y-57425942-CEB9-94A676": {
+      "plan": "1Y",
+      "user_id": 5593787887,
+      "issued_at": 1793972727,
+      "method": "crypto_unique"
+    },
+    "AN1Y-57425942-1ACF-578124": {
+      "plan": "AN1Y",
+      "user_id": 5593787887,
+      "issued_at": 1793972727,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -160879,9 +160891,20 @@
       "tron_amount": 4.769695,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_1cf7656084e14e2f8424ecdbf79fe603",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=1cf7656084e14e2f8424ecdbf79fe603",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793972598
+      "created_at": 1793972598,
+      "key_win": "AZ1Y-57425942-CEB9-94A676",
+      "key_and": "AN1Y-57425942-1ACF-578124",
+      "approved_at": 1793972727,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-57425942-CEB9-94A676\nاندروید: AN1Y-57425942-1ACF-578124",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3098996",
+        "tron_amount": 4.769695,
+        "user_paid_toman": null,
+        "date": "2026-11-06T13:45:00.2800000"
+      }
     }
   },
   "users": {
@@ -267824,7 +267847,22 @@
       "username": "Aliderix",
       "first_seen": 1793972440,
       "last_seen": 1793972440,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-57425942-CEB9-94A676",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793972727,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-57425942-1ACF-578124",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793972727,
+          "days": 365
+        }
+      ]
     }
   },
   "user_states": {
