@@ -152697,9 +152697,10 @@
       "tron_amount": 1.369454,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_5ed57736af884454b25dfdde8d12e75a",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=5ed57736af884454b25dfdde8d12e75a",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793890812
+      "created_at": 1793890812,
+      "cancelled_at": 1793977279
     },
     "ORD_1793890951_104901762": {
       "order_id": "ORD_1793890951_104901762",
@@ -161326,6 +161327,36 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793977124
+    },
+    "TRND-VIP1Y-35617705-1793977264-b2ae20": {
+      "order_id": "TRND-VIP1Y-35617705-1793977264-b2ae20",
+      "token": "a72e278c980a4a98a9368f9085be8c38",
+      "user_id": 35617705,
+      "first_name": "SAEED",
+      "username": "Saeed_ss67",
+      "plan_code": "VIP1Y",
+      "price": "۴۹۹,۰۰۰ تومان",
+      "price_toman": 499000,
+      "tron_amount": 4.776998,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_a72e278c980a4a98a9368f9085be8c38",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=a72e278c980a4a98a9368f9085be8c38",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793977264
+    },
+    "ORD_1793977288_72685723": {
+      "order_id": "ORD_1793977288_72685723",
+      "user_id": 72685723,
+      "username": "Zizo0131",
+      "first_name": "Mohammad",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAEC4O1q7etRnzaRNoSM7i12mPoQgluVuQACPA9rGwrIcVP3RLC9WS7rJAEAAwIAA3gAAz0E",
+      "card_number": "5892101706458979",
+      "created_at": 1793977289,
+      "caption": "همراه بانک صادرات ایران"
     }
   },
   "users": {
@@ -237780,7 +237811,7 @@
       "last_name": "",
       "username": "",
       "first_seen": 1793706051,
-      "last_seen": 1793809371,
+      "last_seen": 1793977189,
       "purchases": [
         {
           "key": "AN3M-D0D5-1B8D-1FB1",
@@ -248192,7 +248223,7 @@
       "last_name": "",
       "username": "Saeed_ss67",
       "first_seen": 1793736215,
-      "last_seen": 1793778917,
+      "last_seen": 1793977256,
       "purchases": []
     },
     "188675965": {
@@ -254008,7 +254039,7 @@
       "last_name": "Kallhor",
       "username": "Hesamkalhor",
       "first_seen": 1793783868,
-      "last_seen": 1793784627,
+      "last_seen": 1793977225,
       "purchases": [
         {
           "key": "AN3M-50C8-2DBA-78AE",
@@ -268122,6 +268153,13 @@
           "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
           "issued_at": 1793967011,
           "days": 365
+        },
+        {
+          "key": "ویندوز: AZ1Y-DE5F-F71F-3B63\nاندروید: AN1Y-78AA-847D-F1D2",
+          "plan": "VIP1Y",
+          "plan_name": "۱ ساله VIP (ویندوز + اندروید)",
+          "issued_at": 1793967011,
+          "days": 365
         }
       ]
     },
@@ -269320,11 +269358,6 @@
       "plan_code": "3M",
       "time": 1793782499
     },
-    "51311602": {
-      "state": "awaiting_receipt",
-      "plan_code": "AN3M",
-      "time": 1793784247
-    },
     "5429832475": {
       "state": "awaiting_receipt",
       "plan_code": "3M",
@@ -269469,16 +269502,21 @@
       "state": "awaiting_receipt",
       "plan_code": "AN2M",
       "time": 1793957033
+    },
+    "72685723": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN2M",
+      "time": 1793977229
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 0,
-    "count": 8,
+    "count": 9,
     "threshold": 10,
     "stats": {
-      "5892101706458979": 178,
+      "5892101706458979": 179,
       "5047061670546072": 170
     }
   },
