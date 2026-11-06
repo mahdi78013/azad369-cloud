@@ -18704,6 +18704,18 @@
       "user_id": 6693544561,
       "issued_at": 1793955912,
       "method": "crypto_unique"
+    },
+    "AZ1Y-CCB0-2C01-4655": {
+      "plan": "1Y",
+      "user_id": 45109232,
+      "issued_at": 1793955950,
+      "method": "crypto_unique"
+    },
+    "AN1Y-BDBA-0CEE-7416": {
+      "plan": "AN1Y",
+      "user_id": 45109232,
+      "issued_at": 1793955950,
+      "method": "crypto_unique"
     }
   },
   "orders": {
@@ -159466,9 +159478,20 @@
       "tron_amount": 4.703849,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_92cfe427bd734c5b838390121fdbbf75",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=92cfe427bd734c5b838390121fdbbf75",
-      "status": "pending_tronado",
+      "status": "approved",
       "method": "tronado_gateway",
-      "created_at": 1793955770
+      "created_at": 1793955770,
+      "key_win": "AZ1Y-CCB0-2C01-4655",
+      "key_and": "AN1Y-BDBA-0CEE-7416",
+      "approved_at": 1793955950,
+      "approved_by": "TRONADO_AUTOMATED",
+      "key": "ویندوز: AZ1Y-CCB0-2C01-4655\nاندروید: AN1Y-BDBA-0CEE-7416",
+      "tronado_ipn": {
+        "hash": "TrndOrderID_3096396",
+        "tron_amount": 4.703849,
+        "user_paid_toman": null,
+        "date": "2026-11-06T09:05:32.4770000"
+      }
     },
     "TRND-AN2M-8269703971-1793955806-7c7b30": {
       "order_id": "TRND-AN2M-8269703971-1793955806-7c7b30",
@@ -265172,7 +265195,22 @@
       "username": "agorjizadeh",
       "first_seen": 1793955739,
       "last_seen": 1793955739,
-      "purchases": []
+      "purchases": [
+        {
+          "key": "AZ1Y-CCB0-2C01-4655",
+          "plan": "1Y",
+          "plan_name": "۱ ساله ویندوز (۳۶۵ روزه)",
+          "issued_at": 1793955950,
+          "days": 365
+        },
+        {
+          "key": "AN1Y-BDBA-0CEE-7416",
+          "plan": "AN1Y",
+          "plan_name": "۱ ساله اندروید (۳۶۵ روزه)",
+          "issued_at": 1793955950,
+          "days": 365
+        }
+      ]
     },
     "820420020": {
       "user_id": 820420020,
@@ -265181,6 +265219,15 @@
       "username": "bayazidip",
       "first_seen": 1793955792,
       "last_seen": 1793955792,
+      "purchases": []
+    },
+    "864219790": {
+      "user_id": 864219790,
+      "first_name": "Naderpl30",
+      "last_name": "",
+      "username": "Nphonerepair",
+      "first_seen": 1793955917,
+      "last_seen": 1793955917,
       "purchases": []
     }
   },
