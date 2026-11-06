@@ -154100,9 +154100,10 @@
       "tron_amount": 0.821901,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_93698d73944e4777b5d1ed5191d605d2",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=93698d73944e4777b5d1ed5191d605d2",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793896997
+      "created_at": 1793896997,
+      "cancelled_at": 1793983448
     },
     "TRND-AN3M-8843092498-1793897002-5482db": {
       "order_id": "TRND-AN3M-8843092498-1793897002-5482db",
@@ -154133,9 +154134,10 @@
       "tron_amount": 0.815085,
       "full_payment_url": "https://t.me/Tronado_Robot?start=s_ce9116821e3147bb941e5beed2531c74",
       "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=ce9116821e3147bb941e5beed2531c74",
-      "status": "pending_tronado",
+      "status": "cancelled_tronado",
       "method": "tronado_gateway",
-      "created_at": 1793897017
+      "created_at": 1793897017,
+      "cancelled_at": 1793983448
     },
     "TRND-AN3M-5067775355-1793897171-015644": {
       "order_id": "TRND-AN3M-5067775355-1793897171-015644",
@@ -163019,6 +163021,36 @@
       "status": "pending_tronado",
       "method": "tronado_gateway",
       "created_at": 1793983335
+    },
+    "TRND-AN2M-508678818-1793983421-356bbb": {
+      "order_id": "TRND-AN2M-508678818-1793983421-356bbb",
+      "token": "31877f7994e74cd3a9b2d9c7f78ba465",
+      "user_id": 508678818,
+      "first_name": "Ali zareh",
+      "username": "Sup_pms",
+      "plan_code": "AN2M",
+      "price": "۱۰۰,۰۰۰ تومان",
+      "price_toman": 100000,
+      "tron_amount": 0.835684,
+      "full_payment_url": "https://t.me/Tronado_Robot?start=s_31877f7994e74cd3a9b2d9c7f78ba465",
+      "miniapp_url": "https://t.me/tronado_robot/customerpayment?startapp=31877f7994e74cd3a9b2d9c7f78ba465",
+      "status": "pending_tronado",
+      "method": "tronado_gateway",
+      "created_at": 1793983421
+    },
+    "ORD_1793983451_8990368327": {
+      "order_id": "ORD_1793983451_8990368327",
+      "user_id": 8990368327,
+      "username": "ندارد",
+      "first_name": ".",
+      "plan_code": "AN1Y",
+      "price": "۳۹۹,۰۰۰ تومان",
+      "status": "pending",
+      "receipt_type": "photo",
+      "file_id": "AgACAgQAAxkBAAEClnVq63OxwRfERm8I5vpW8oVOjkJg8QACRA5rG37VYFPIuHJa40oZkQEAAwIAA3kAAz0E",
+      "card_number": "5047061670546072",
+      "created_at": 1793983451,
+      "caption": ""
     }
   },
   "users": {
@@ -265384,7 +265416,7 @@
       "last_name": "",
       "username": "Sup_pms",
       "first_seen": 1793894861,
-      "last_seen": 1793894861,
+      "last_seen": 1793983390,
       "purchases": []
     },
     "310198062": {
@@ -271739,17 +271771,22 @@
       "state": "awaiting_receipt",
       "plan_code": "2M",
       "time": 1793981752
+    },
+    "8990368327": {
+      "state": "awaiting_receipt",
+      "plan_code": "AN1Y",
+      "time": 1793983430
     }
   },
   "admin_states": {},
   "trial_users": {},
   "card_state": {
     "current_index": 1,
-    "count": 4,
+    "count": 5,
     "threshold": 10,
     "stats": {
       "5892101706458979": 180,
-      "5047061670546072": 174
+      "5047061670546072": 175
     }
   },
   "maintenance": {
